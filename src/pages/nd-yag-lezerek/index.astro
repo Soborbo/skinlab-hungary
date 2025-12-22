@@ -53,6 +53,59 @@ const faq = [
     answer: 'A carbon peeling során szénmaszkot viszünk fel az arcra, amit lézerrel eltávolítunk. Kiváló zsíros, pattanásos bőrre, tág pórusokra. Azonnali, látványos eredmény, nincs regenerációs idő.',
   },
 ];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Pico mód', 'Hűtés', 'Ajánlott'],
+  products: [
+    {
+      name: 'Q-Switch Basic',        // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/nd-yag-lezerek/qswitch-basic',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.5M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064nm',    // 🔴 DUMMY
+        'Teljesítmény': '800mJ',      // 🔴 DUMMY
+        'Pico mód': '✗',
+        'Hűtés': 'Levegő',            // 🔴 DUMMY
+        'Ajánlott': 'Carbon peeling',
+      },
+    },
+    {
+      name: 'PicoStar Pro',          // 🔴 DUMMY
+      tag: '🏆 Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/nd-yag-lezerek/picostar-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '3.5M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064 + 532nm',  // 🔴 DUMMY
+        'Teljesítmény': '2000mJ',     // 🔴 DUMMY
+        'Pico mód': '✓',
+        'Hűtés': 'Cryo -10°C',        // 🔴 DUMMY
+        'Ajánlott': 'Tetoválás + carbon',
+      },
+    },
+    {
+      name: 'ND:YAG Tattoo Eraser',  // 🔴 DUMMY
+      tag: 'Specialista',
+      tagColor: 'blue',
+      link: '/nd-yag-lezerek/tattoo-eraser',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '2.8M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064 + 532 + 755nm',  // 🔴 DUMMY
+        'Teljesítmény': '1500mJ',     // 🔴 DUMMY
+        'Pico mód': '✗',
+        'Hűtés': 'Kontakt hűtés',     // 🔴 DUMMY
+        'Ajánlott': 'Színes tetoválások',
+      },
+    },
+  ],
+};
+// ============================================================
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

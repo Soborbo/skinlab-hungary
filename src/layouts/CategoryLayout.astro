@@ -2,6 +2,15 @@
 import BaseLayout from './BaseLayout.astro';
 import { SITE, CONTACT } from '../lib/constants';
 
+interface ComparisonProduct {
+  name: string;
+  tag?: string;
+  tagColor?: string;
+  highlighted?: boolean;
+  link?: string;
+  specs: Record<string, string>;
+}
+
 interface Props {
   category: {
     name: string;
@@ -15,9 +24,13 @@ interface Props {
   products?: any[];
   faq?: { question: string; answer: string }[];
   benefits?: { icon: string; title: string; description: string }[];
+  comparison?: {
+    features: string[];
+    products: ComparisonProduct[];
+  };
 }
 
-const { category, products = [], faq = [], benefits = [] } = Astro.props;
+const { category, products = [], faq = [], benefits = [], comparison } = Astro.props;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -227,6 +240,96 @@ const colors = colorClasses[category.color || 'blue'];
         )}
       </div>
     </section>
+
+    <!-- Comparison Table (optional) -->
+    {comparison && comparison.products.length > 0 && (
+      <section class="bg-white py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">Melyiket válaszd?</h2>
+            <p class="text-gray-600">Hasonlítsd össze a modelleket egy pillantással</p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[700px]">
+              <thead>
+                <tr class="border-b-2 border-gray-200">
+                  <th class="text-left py-4 px-4 font-semibold text-gray-500 w-40">Jellemző</th>
+                  {comparison.products.map((product) => (
+                    <th class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50 rounded-t-xl' : ''}`}>
+                      <div class={`font-bold ${product.highlighted ? 'text-primary-600' : 'text-gray-900'}`}>{product.name}</div>
+                      {product.tag && (
+                        <div class={`text-sm ${
+                          product.tagColor === 'red' ? 'text-red-500' :
+                          product.tagColor === 'orange' ? 'text-orange-500' :
+                          product.tagColor === 'purple' ? 'text-purple-600' :
+                          product.tagColor === 'blue' ? 'text-blue-600' :
+                          'text-gray-500'
+                        }`}>{product.tag}</div>
+                      )}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                {comparison.features.map((feature) => (
+                  <tr>
+                    <td class="py-4 px-4 text-gray-600">{feature}</td>
+                    {comparison.products.map((product) => (
+                      <td class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50' : ''} ${
+                        product.highlighted && product.specs[feature] ? 'font-semibold text-primary-600' : ''
+                      }`}>
+                        {product.specs[feature] === '✓' ? (
+                          <span class="text-green-500">✓</span>
+                        ) : product.specs[feature] === '✗' ? (
+                          <span class="text-gray-400">✗</span>
+                        ) : (
+                          product.specs[feature] || '-'
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+                <tr>
+                  <td class="py-4 px-4"></td>
+                  {comparison.products.map((product) => (
+                    <td class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50 rounded-b-xl' : ''}`}>
+                      {product.link ? (
+                        <a
+                          href={product.link}
+                          class={`inline-block font-semibold text-sm px-4 py-2 rounded-lg transition-colors ${
+                            product.highlighted
+                              ? 'bg-primary-600 text-white hover:bg-primary-700'
+                              : 'text-primary-600 hover:underline'
+                          }`}
+                        >
+                          Részletek →
+                        </a>
+                      ) : (
+                        <span class="text-primary-600 font-semibold text-sm hover:underline cursor-pointer">Részletek →</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="text-center mt-8">
+            <p class="text-gray-500 mb-4">Nem tudod eldönteni? Segítünk!</p>
+            <a
+              href="/kapcsolat"
+              class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              Kérj személyes tanácsadást
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- Benefits section (optional) -->
     {benefits.length > 0 && (

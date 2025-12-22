@@ -53,6 +53,59 @@ const faq = [
     answer: 'Igen! A hydrafacial az egyik legkíméletesebb arckezelés, érzékeny bőrre, rozáceára is alkalmazható. Egyedül aktív gyulladásos aknénál nem javasolt.',
   },
 ];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Funkciók száma', 'AI diagnosztika', 'Szérum adagoló', 'Kijelző', 'Ajánlott'],
+  products: [
+    {
+      name: 'HydraBasic 6in1',       // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/hydrafacial/hydrabasic-6in1',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '890.000 Ft',          // 🔴 DUMMY
+        'Funkciók száma': '6',        // 🔴 DUMMY
+        'AI diagnosztika': '✗',
+        'Szérum adagoló': '✗',
+        'Kijelző': '7"',              // 🔴 DUMMY
+        'Ajánlott': 'Kisszalonok',
+      },
+    },
+    {
+      name: 'HydraCrown 12in1',      // 🔴 DUMMY
+      tag: '🏆 Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/hydrafacial/hydracrown-12in1',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.8M Ft',             // 🔴 DUMMY
+        'Funkciók száma': '12',       // 🔴 DUMMY
+        'AI diagnosztika': '✓',
+        'Szérum adagoló': '✓',
+        'Kijelző': '15" érintő',      // 🔴 DUMMY
+        'Ajánlott': 'Profik, klinikák',
+      },
+    },
+    {
+      name: 'AquaPeel Pro',          // 🔴 DUMMY
+      tag: 'Új modell',
+      tagColor: 'blue',
+      link: '/hydrafacial/aquapeel-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.4M Ft',             // 🔴 DUMMY
+        'Funkciók száma': '9',        // 🔴 DUMMY
+        'AI diagnosztika': '✓',
+        'Szérum adagoló': '✗',
+        'Kijelző': '10"',             // 🔴 DUMMY
+        'Ajánlott': 'Közepes szalonok',
+      },
+    },
+  ],
+};
+// ============================================================
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

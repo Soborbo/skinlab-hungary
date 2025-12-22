@@ -53,6 +53,59 @@ const faq = [
     answer: '30 év felett prevencióként, 40+ korban aktív ránckezelésre. Petyhüdt arcbőr, dupla áll, toka kezelésére is kiváló. Nem javasolt terhesség alatt, pacemakernél és bizonyos bőrbetegségeknél.',
   },
 ];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Technológia', 'Kezelési mélység', 'Fájdalom', 'Eredmény tartóssága', 'Ajánlott'],
+  products: [
+    {
+      name: 'RF Skin Tightener',     // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/anti-aging/rf-skin-tightener',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '990.000 Ft',          // 🔴 DUMMY
+        'Technológia': 'RF monopoláris',  // 🔴 DUMMY
+        'Kezelési mélység': '2-3mm',  // 🔴 DUMMY
+        'Fájdalom': 'Minimális',      // 🔴 DUMMY
+        'Eredmény tartóssága': '3-6 hónap',  // 🔴 DUMMY
+        'Ajánlott': 'Kezdők, kisszalonok',
+      },
+    },
+    {
+      name: 'HIFU 4D Pro',           // 🔴 DUMMY
+      tag: '🏆 Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/anti-aging/hifu-4d-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '2.5M Ft',             // 🔴 DUMMY
+        'Technológia': 'HIFU 4D',     // 🔴 DUMMY
+        'Kezelési mélység': '1.5-13mm',  // 🔴 DUMMY
+        'Fájdalom': 'Enyhe-közepes',  // 🔴 DUMMY
+        'Eredmény tartóssága': '1-2 év',  // 🔴 DUMMY
+        'Ajánlott': 'Profik, klinikák',
+      },
+    },
+    {
+      name: 'RF+HIFU Combo',         // 🔴 DUMMY
+      tag: 'All-in-one',
+      tagColor: 'blue',
+      link: '/anti-aging/rf-hifu-combo',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '3.2M Ft',             // 🔴 DUMMY
+        'Technológia': 'RF + HIFU',   // 🔴 DUMMY
+        'Kezelési mélység': '1.5-13mm',  // 🔴 DUMMY
+        'Fájdalom': 'Közepes',        // 🔴 DUMMY
+        'Eredmény tartóssága': '1-2 év',  // 🔴 DUMMY
+        'Ajánlott': 'Sokoldalúságra',
+      },
+    },
+  ],
+};
+// ============================================================
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

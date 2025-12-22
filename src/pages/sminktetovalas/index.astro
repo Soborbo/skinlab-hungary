@@ -53,6 +53,59 @@ const faq = [
     answer: 'A MAST gépek univerzális cartridge rendszerrel működnek, kompatibilisek a legtöbb gyártó tűivel. Mi minőségi, steril, egyszer használatos cartridge-eket ajánlunk biztonságos munkához.',
   },
 ];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Típus', 'Motor', 'Löket hossz', 'Akkumulátor', 'Ajánlott'],
+  products: [
+    {
+      name: 'MAST Archer',           // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/sminktetovalas/mast-archer',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '89.000 Ft',           // 🔴 DUMMY
+        'Típus': 'Vezetékes',         // 🔴 DUMMY
+        'Motor': 'Coreless',          // 🔴 DUMMY
+        'Löket hossz': '3.5mm',       // 🔴 DUMMY
+        'Akkumulátor': '-',
+        'Ajánlott': 'Kezdőknek',
+      },
+    },
+    {
+      name: 'MAST Tour Pro',         // 🔴 DUMMY
+      tag: '🏆 Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/sminktetovalas/mast-tour-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '159.000 Ft',          // 🔴 DUMMY
+        'Típus': 'Vezeték nélküli',   // 🔴 DUMMY
+        'Motor': 'Brushless',         // 🔴 DUMMY
+        'Löket hossz': '2.5-4mm',     // 🔴 DUMMY
+        'Akkumulátor': '8 óra',       // 🔴 DUMMY
+        'Ajánlott': 'Profik választása',
+      },
+    },
+    {
+      name: 'MAST Lancer',           // 🔴 DUMMY
+      tag: 'Prémium',
+      tagColor: 'blue',
+      link: '/sminktetovalas/mast-lancer',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '129.000 Ft',          // 🔴 DUMMY
+        'Típus': 'Vezeték nélküli',   // 🔴 DUMMY
+        'Motor': 'Brushless',         // 🔴 DUMMY
+        'Löket hossz': '3.0mm',       // 🔴 DUMMY
+        'Akkumulátor': '6 óra',       // 🔴 DUMMY
+        'Ajánlott': 'Haladóknak',
+      },
+    },
+  ],
+};
+// ============================================================
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

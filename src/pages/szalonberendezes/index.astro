@@ -53,6 +53,59 @@ const faq = [
     answer: 'Bizonyos termékek esetén igen. Kérj egyedi ajánlatot, és megvizsgáljuk a lehetőségeket. Nagyobb megrendelésnél (pl. új szalon berendezése) kedvezményt is adunk.',
   },
 ];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Típus', 'Anyag', 'Teherbírás', 'Színek', 'Ajánlott'],
+  products: [
+    {
+      name: 'Trolley Basic',            // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/szalonberendezes/trolley-basic',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '39.000 Ft',              // 🔴 DUMMY
+        'Típus': '3 fiókos',             // 🔴 DUMMY
+        'Anyag': 'Műanyag',              // 🔴 DUMMY
+        'Teherbírás': '15 kg',           // 🔴 DUMMY
+        'Színek': 'Fehér, fekete',
+        'Ajánlott': 'Kisszalonok',
+      },
+    },
+    {
+      name: 'Trolley Pro Steel',        // 🔴 DUMMY
+      tag: '🏆 Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/szalonberendezes/trolley-pro-steel',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '79.000 Ft',              // 🔴 DUMMY
+        'Típus': '5 fiókos + tartó',     // 🔴 DUMMY
+        'Anyag': 'Fém váz',              // 🔴 DUMMY
+        'Teherbírás': '30 kg',           // 🔴 DUMMY
+        'Színek': 'Fehér, rózsaszín, fekete',
+        'Ajánlott': 'Profik választása',
+      },
+    },
+    {
+      name: 'Kozmetikai ágy Lux',       // 🔴 DUMMY
+      tag: 'Prémium',
+      tagColor: 'blue',
+      link: '/szalonberendezes/kozmetikai-agy-lux',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '189.000 Ft',             // 🔴 DUMMY
+        'Típus': 'Elektromos 3 motoros', // 🔴 DUMMY
+        'Anyag': 'Műbőr + acél',         // 🔴 DUMMY
+        'Teherbírás': '180 kg',          // 🔴 DUMMY
+        'Színek': '6 szín választható',
+        'Ajánlott': 'Professzionális szalonok',
+      },
+    },
+  ],
+};
+// ============================================================
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
