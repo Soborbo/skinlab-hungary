@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Szalonberendezés',
+  nameShort: 'Szalonberendezés',
+  slug: 'szalonberendezes',
+  description: 'Professzionális szalonbútorok, trolley-k és kiegészítők.',
+  heroDescription: 'Minőségi szalonbútorok, kozmetikai ágyak, trolley-k és kiegészítők. Tervezd meg álmaid szalonját velünk!',
+  badge: '🪑 Komplett berendezés',
+  color: 'green',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'szalonberendezes';
+});
+
+const benefits = [
+  {
+    icon: '🎨',
+    title: 'Modern design',
+    description: 'Elegáns, kortárs stílusú bútorok, amelyek feldobják a szalonod megjelenését és vonzzák az ügyfeleket.',
+  },
+  {
+    icon: '🛠️',
+    title: 'Tartós minőség',
+    description: 'Professzionális, ipari minőségű anyagok. Napi intenzív használatra tervezve, évekig szolgálnak.',
+  },
+  {
+    icon: '📦',
+    title: 'Gyors szállítás',
+    description: 'Raktáron lévő termékek 1-2 héten belül kiszállítva. Összeszerelési útmutató mellékelve.',
+  },
+  {
+    icon: '💰',
+    title: 'Kedvező árak',
+    description: 'Gyártói kapcsolatainknak köszönhetően versenyképes árakon kínáljuk a berendezéseket.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Milyen szalonberendezéseket kínáltok?',
+    answer: 'Kozmetikai ágyak, kezelőszékek, trolley-k (görgős szekrények), nagyítós lámpák, sterilizáló eszközök, várótermi bútorok és egyéb kiegészítők. Komplett szalonberendezés egy helyről.',
+  },
+  {
+    question: 'Van összeszerelési segítség?',
+    answer: 'Minden termékhez részletes összeszerelési útmutatót adunk. Egyszerűbb bútorokat te is összerakhatsz, nagyobb berendezéseknél igény esetén szerelési szolgáltatást is biztosítunk.',
+  },
+  {
+    question: 'Tudtok egyedi méretben gyártani?',
+    answer: 'Bizonyos termékek esetén igen. Kérj egyedi ajánlatot, és megvizsgáljuk a lehetőségeket. Nagyobb megrendelésnél (pl. új szalon berendezése) kedvezményt is adunk.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />

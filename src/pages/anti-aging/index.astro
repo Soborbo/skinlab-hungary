@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Anti-aging készülékek',
+  nameShort: 'Anti-aging',
+  slug: 'anti-aging',
+  description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
+  heroDescription: 'Bőrfeszesítés, ránckezelés, arcformálás műtét nélkül. Rádiófrekvenciás, HIFU és kombinált technológiák egy helyen.',
+  badge: '✨ Fiatalosabb bőr',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+
+const benefits = [
+  {
+    icon: '🎯',
+    title: 'Célzott feszesítés',
+    description: 'RF és HIFU technológia a mély szövetek eléréséhez. Valódi lifting hatás műtét nélkül.',
+  },
+  {
+    icon: '⏱️',
+    title: 'Nincs leállás',
+    description: 'A legtöbb kezelés után azonnal visszatérhet a vendég a mindennapokhoz. Nincs regenerációs idő.',
+  },
+  {
+    icon: '📈',
+    title: 'Fokozatos javulás',
+    description: 'A kollagén termelődés hetek alatt fokozódik. Az eredmény akár 6-12 hónapig is tarthat.',
+  },
+  {
+    icon: '💰',
+    title: 'Prémium kezelési árak',
+    description: 'HIFU kezelés: 50-150.000 Ft. RF arckezelés: 20-40.000 Ft. Magas árrésű szolgáltatások.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség az RF és a HIFU kezelés között?',
+    answer: '<strong>RF (rádiófrekvencia):</strong> A bőr felső és középső rétegeit melegíti, serkenti a kollagén termelődést. Fájdalommentes, több kezelés szükséges.<br><br><strong>HIFU:</strong> Mélyebb rétegeket ér el, erősebb lifting hatás. Intenzívebb, de kevesebb kezelés kell. Enyhe kellemetlen érzés lehetséges.',
+  },
+  {
+    question: 'Mikor látható az eredmény?',
+    answer: 'RF kezelésnél azonnal látható enyhe feszesedés, de a valódi eredmény 4-6 hét alatt alakul ki. HIFU-nál 2-3 hónap alatt érik be a teljes hatás, de utána akár 1-2 évig is tarthat.',
+  },
+  {
+    question: 'Kinek ajánlott anti-aging kezelés?',
+    answer: '30 év felett prevencióként, 40+ korban aktív ránckezelésre. Petyhüdt arcbőr, dupla áll, toka kezelésére is kiváló. Nem javasolt terhesség alatt, pacemakernél és bizonyos bőrbetegségeknél.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />

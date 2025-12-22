@@ -1,0 +1,322 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { SITE, CONTACT } from '../lib/constants';
+
+interface Props {
+  category: {
+    name: string;
+    nameShort: string;
+    slug: string;
+    description: string;
+    heroDescription?: string;
+    badge?: string;
+    color?: string;
+  };
+  products?: any[];
+  faq?: { question: string; answer: string }[];
+  benefits?: { icon: string; title: string; description: string }[];
+}
+
+const { category, products = [], faq = [], benefits = [] } = Astro.props;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Főoldal", "item": SITE.url },
+    { "@type": "ListItem", "position": 2, "name": category.nameShort }
+  ]
+};
+
+const colorClasses: Record<string, { gradient: string; badge: string }> = {
+  blue: { gradient: 'from-blue-600 to-indigo-700', badge: 'bg-blue-500' },
+  purple: { gradient: 'from-purple-600 to-pink-700', badge: 'bg-purple-500' },
+  cyan: { gradient: 'from-cyan-600 to-blue-700', badge: 'bg-cyan-500' },
+  amber: { gradient: 'from-amber-500 to-orange-600', badge: 'bg-amber-500' },
+  green: { gradient: 'from-green-600 to-emerald-700', badge: 'bg-green-500' },
+  rose: { gradient: 'from-rose-500 to-pink-600', badge: 'bg-rose-500' },
+};
+
+const colors = colorClasses[category.color || 'blue'];
+---
+
+<BaseLayout
+  title={category.name}
+  description={category.description}
+  schema={breadcrumbSchema}
+>
+  <div id="main-content">
+
+    <!-- Breadcrumb -->
+    <nav class="bg-white border-b" aria-label="Breadcrumb">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <ol class="flex items-center gap-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-500 hover:text-primary-600">Főoldal</a>
+          </li>
+          <li class="text-gray-400">›</li>
+          <li class="text-gray-900 font-medium">{category.nameShort}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Category Hero -->
+    <section class={`bg-gradient-to-r ${colors.gradient} py-12 lg:py-16 relative overflow-hidden`}>
+      <!-- Background decoration -->
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-white/5" aria-hidden="true"></div>
+      <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="text-white">
+            {category.badge && (
+              <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-4">
+                {category.badge}
+              </div>
+            )}
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{category.name}</h1>
+            <p class="text-lg lg:text-xl text-white/90 mb-6">
+              {category.heroDescription || category.description}
+            </p>
+            <div class="flex flex-wrap gap-3 text-sm">
+              <span class="bg-white/20 backdrop-blur px-3 py-1.5 rounded-lg flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                2 év garancia
+              </span>
+              <span class="bg-white/20 backdrop-blur px-3 py-1.5 rounded-lg flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Ingyenes betanítás
+              </span>
+              <span class="bg-white/20 backdrop-blur px-3 py-1.5 rounded-lg flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Magyar szerviz
+              </span>
+              <span class="bg-white/20 backdrop-blur px-3 py-1.5 rounded-lg flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Részletfizetés
+              </span>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white/10 backdrop-blur rounded-2xl aspect-video flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-white/20 flex items-center justify-center">
+                  <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p class="text-white/60 font-medium text-sm">Kategória kép / Videó</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="bg-gray-50 py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Filter bar (placeholder) -->
+        <div class="bg-white rounded-xl p-4 mb-8 shadow-sm border border-gray-100 flex flex-wrap items-center gap-4">
+          <span class="text-gray-500 text-sm">Rendezés:</span>
+          <select class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:border-primary-500 focus:outline-none">
+            <option>Kiemelt</option>
+            <option>Ár: Alacsony → Magas</option>
+            <option>Ár: Magas → Alacsony</option>
+          </select>
+          <div class="flex-1"></div>
+          <span class="text-gray-500 text-sm">{products.length} termék</span>
+        </div>
+
+        {products.length === 0 ? (
+          <!-- Empty state -->
+          <div class="text-center py-16">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gray-200 flex items-center justify-center">
+              <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
+            <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
+            <a
+              href="/kapcsolat"
+              class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700"
+            >
+              Konzultáció kérése
+            </a>
+          </div>
+        ) : (
+          <!-- Products -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((product, index) => (
+              <a
+                href={`/${product.data.categorySlug}/${product.slug}`}
+                class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative"
+              >
+                <!-- Badges -->
+                <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+                  {product.data.featured && (
+                    <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">BESTSELLER</span>
+                  )}
+                  {product.data.inStock !== false && (
+                    <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      Raktáron
+                    </span>
+                  )}
+                </div>
+
+                <!-- Image -->
+                <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                  {product.data.images?.[0] ? (
+                    <img
+                      src={product.data.images[0]}
+                      alt={product.data.name}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <div class="w-16 h-16 rounded-xl bg-white/80 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-6">
+                  {product.data.rating && (
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="text-yellow-400">{'★'.repeat(Math.floor(product.data.rating))}{'☆'.repeat(5 - Math.floor(product.data.rating))}</span>
+                      {product.data.reviewCount && (
+                        <span class="text-gray-500 text-sm">({product.data.reviewCount} vélemény)</span>
+                      )}
+                    </div>
+                  )}
+                  <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">
+                    {product.data.name}
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4 line-clamp-1">
+                    {product.data.shortDescription}
+                  </p>
+
+                  <div class="flex items-end justify-between">
+                    <div>
+                      {product.data.priceFormatted && (
+                        <div class="text-xl font-bold text-gray-900">{product.data.priceFormatted}</div>
+                      )}
+                      {product.data.monthlyPrice && (
+                        <div class="text-green-600 text-sm font-medium">vagy havi ~{product.data.monthlyPrice}</div>
+                      )}
+                    </div>
+                    <div class="w-12 h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center group-hover:bg-primary-700 transition-colors">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Benefits section (optional) -->
+    {benefits.length > 0 && (
+      <section class="bg-white py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                Miért érdemes {category.nameShort.toLowerCase()}t választani?
+              </h2>
+              <div class="space-y-5">
+                {benefits.map((benefit) => (
+                  <div class="flex gap-4">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl">
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 class="font-bold text-gray-900 mb-1">{benefit.title}</h3>
+                      <p class="text-gray-600 text-sm">{benefit.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div class="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center">
+              <p class="text-gray-400">Kép helye</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- FAQ section (optional) -->
+    {faq.length > 0 && (
+      <section class="bg-gray-50 py-12 lg:py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+              Gyakori kérdések
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            {faq.map((item, index) => (
+              <details class="bg-white border border-gray-200 rounded-xl overflow-hidden group" open={index === 0}>
+                <summary class="p-5 cursor-pointer flex items-center justify-between hover:bg-gray-50 font-semibold text-gray-900">
+                  {item.question}
+                  <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </summary>
+                <div class="p-5 bg-gray-50 border-t text-gray-600" set:html={item.answer} />
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section class={`bg-gradient-to-r ${colors.gradient} py-12 lg:py-16`}>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4">
+          Nem tudod melyiket válaszd?
+        </h2>
+        <p class="text-lg text-white/90 mb-8">
+          Kérj ingyenes konzultációt, és segítünk kiválasztani a szalonodnak megfelelő készüléket!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/kapcsolat"
+            class="bg-white text-gray-900 font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Ingyenes bemutatót kérek
+          </a>
+          <a
+            href={CONTACT.phoneTel}
+            class="bg-white/20 backdrop-blur text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg hover:bg-white/30 transition-colors border-2 border-white/30 inline-flex items-center justify-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {CONTACT.phoneDisplay}
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hidrodermabrázió és multifunkcionális gépek',
+  nameShort: 'Hydrafacial gépek',
+  slug: 'hydrafacial',
+  description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
+  heroDescription: 'Bőrmegújítás, mélytisztítás, anti-aging kezelések egy készülékben. AI bőrdiagnosztikával, azonnali látványos eredmény.',
+  badge: '💧 AI diagnosztika',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+
+const benefits = [
+  {
+    icon: '✨',
+    title: 'Azonnali eredmény',
+    description: 'Már az első kezelés után látványosan szebb, ragyogóbb bőr. Vendégeid azonnal érzik a különbséget.',
+  },
+  {
+    icon: '🔬',
+    title: 'AI bőrdiagnosztika',
+    description: 'Személyre szabott kezelési tervek. Lenyűgöző high-tech élmény a vendégeknek.',
+  },
+  {
+    icon: '🎯',
+    title: 'Sokoldalú kezelések',
+    description: 'Tisztítás, hidratálás, anti-aging, pigmentfolt kezelés – egy géppel mindent megoldhatsz.',
+  },
+  {
+    icon: '💰',
+    title: 'Magas kezelési árak',
+    description: 'Hydrafacial kezelésekért 15-30.000 Ft-ot is elkérhetnek a szalonok. Gyors megtérülés.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség a hagyományos arctisztítás és a hydrafacial között?',
+    answer: 'A hydrafacial vákuumos technológiával dolgozik, ami a mélytisztítás mellett szérum-infúziót is biztosít. Fájdalommentes, nincs kipirulás, a vendég azonnal mehet tovább. A hagyományos tisztítás után sokszor napokig piros az arc.',
+  },
+  {
+    question: 'Milyen gyakran lehet hydrafacial kezelést végezni?',
+    answer: 'Általában 4-6 hetente ajánlott a fenntartó kezelés. Kúraszerűen hetente is végezhető a bőrállapot javítására. Nagyon kíméletes eljárás.',
+  },
+  {
+    question: 'Minden bőrtípusra alkalmas?',
+    answer: 'Igen! A hydrafacial az egyik legkíméletesebb arckezelés, érzékeny bőrre, rozáceára is alkalmazható. Egyedül aktív gyulladásos aknénál nem javasolt.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />

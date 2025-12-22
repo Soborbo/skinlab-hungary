@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Q-kapcsolt ND:YAG lézerkészülékek',
+  nameShort: 'ND:YAG lézerek',
+  slug: 'nd-yag-lezerek',
+  description: 'Tetoválás és pigmentfolt eltávolító lézerek.',
+  heroDescription: 'Tetoválás eltávolítás, carbon peeling, pigmentfolt kezelés. Professzionális Q-kapcsolt technológia, minimális fájdalom.',
+  badge: '✨ Prémium technológia',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+
+const benefits = [
+  {
+    icon: '🎨',
+    title: 'Minden szín eltávolítható',
+    description: 'A Q-kapcsolt ND:YAG lézer minden színű tetoválást képes eltávolítani, beleértve a nehéz zöldet és kéket is.',
+  },
+  {
+    icon: '💫',
+    title: 'Carbon peeling',
+    description: 'Hollywood facial néven is ismert kezelés. Azonnali ragyogás, pórusok összehúzása, zsíros bőr kezelése.',
+  },
+  {
+    icon: '🔬',
+    title: 'Pigmentfolt kezelés',
+    description: 'Napfolt, öregségi folt, melasma kezelése hatékonyan és biztonságosan.',
+  },
+  {
+    icon: '💰',
+    title: 'Magas árrés',
+    description: 'Tetoválás eltávolítás: 15-50.000 Ft/alkalom. Carbon peeling: 8-15.000 Ft. Gyorsan megtérülő befektetés.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Hány alkalom kell egy tetoválás teljes eltávolításához?',
+    answer: 'Függ a tetoválás méretétől, színétől és régiségétől. Átlagosan 6-12 kezelés szükséges, 6-8 hetes szünetekkel. A fekete és sötét színek gyorsabban tűnnek el.',
+  },
+  {
+    question: 'Fájdalmas a tetoválás eltávolítás?',
+    answer: 'Modern hűtőrendszerrel rendelkező gépeknél a fájdalom minimális. Sokan a tetoválás készítéséhez hasonlítják – kellemetlen, de elviselhető. Érzéstelenítő krém is használható.',
+  },
+  {
+    question: 'Mi a carbon peeling és kinek ajánlott?',
+    answer: 'A carbon peeling során szénmaszkot viszünk fel az arcra, amit lézerrel eltávolítunk. Kiváló zsíros, pattanásos bőrre, tág pórusokra. Azonnali, látványos eredmény, nincs regenerációs idő.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />

@@ -1,0 +1,58 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST sminktetováló eszközök',
+  nameShort: 'Sminktetováló gépek',
+  slug: 'sminktetovalas',
+  description: 'Vezetékes és vezeték nélküli sminktetováló gépek és tartozékok.',
+  heroDescription: 'Professzionális PMU gépek szemöldök, ajak és szemhéj tetováláshoz. Precíz vonalvezetés, csendes motor, ergonomikus kialakítás.',
+  badge: '💄 PMU szakértő választása',
+  color: 'amber',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+
+const benefits = [
+  {
+    icon: '✏️',
+    title: 'Precíz vonalvezetés',
+    description: 'Japán motor technológia, minimális vibráció. Tökéletes microblading, powder brows és ajak pigmentálás.',
+  },
+  {
+    icon: '🔋',
+    title: 'Vezeték nélküli szabadság',
+    description: 'Akkumulátoros modellek akár 8 óra üzemidővel. Nincs zavaró kábel, teljes mozgásszabadság.',
+  },
+  {
+    icon: '🔇',
+    title: 'Csendes működés',
+    description: 'Modern brushless motor, minimális zajszint. Vendégeid relaxálhatnak a kezelés alatt.',
+  },
+  {
+    icon: '💰',
+    title: 'Megfizethető árak',
+    description: 'Professzionális minőség belépő szintű árakon. Kezdőknek és profik számára egyaránt ideális.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség a vezetékes és vezeték nélküli gépek között?',
+    answer: 'A vezeték nélküli gépek nagyobb mozgásszabadságot biztosítanak, nincs zavaró kábel. A vezetékes gépek viszont folyamatos teljesítményt adnak és nem kell tölteni. Mindkettőnek megvan az előnye – a választás személyes preferencia kérdése.',
+  },
+  {
+    question: 'Kezdőként melyik gépet válasszam?',
+    answer: 'Kezdőknek a közepes árfekvésű, egyszerű kezelésű gépeket ajánljuk. A MAST alapmodellek kiváló választás: megbízhatók, könnyen használhatók és tartósak. Később frissíthetsz prémium modellre.',
+  },
+  {
+    question: 'Milyen tűket használhatok?',
+    answer: 'A MAST gépek univerzális cartridge rendszerrel működnek, kompatibilisek a legtöbb gyártó tűivel. Mi minőségi, steril, egyszer használatos cartridge-eket ajánlunk biztonságos munkához.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
