@@ -172,11 +172,12 @@ export const STATS = [
 // Navigation
 export const NAV_ITEMS = [
   { label: 'Diódalézerek', href: '/diodalezerek' },
+  { label: 'Rólunk', href: '/rolunk' },
   { label: 'Hydrafacial', href: '/hydrafacial' },
-  { label: 'ND:YAG lézerek', href: '/nd-yag-lezerek' },
+  { label: 'Tetoválás eltávolítás', href: '/nd-yag-lezerek' },
   { label: 'Sminktetováló', href: '/sminktetovalas' },
   { label: 'Képzések', href: '/kepzesek' },
-  { label: 'Rólunk', href: '/rolunk' },
+  { label: 'Kapcsolat', href: '/kapcsolat' },
 ];
 
 // SEO defaults

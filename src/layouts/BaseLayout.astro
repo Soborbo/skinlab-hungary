@@ -1,6 +1,9 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import TopCtaBar from '../components/layout/TopCtaBar.astro';
+import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
+import WhatsAppButton from '../components/layout/WhatsAppButton.astro';
 import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS, CATEGORIES } from '../lib/constants';
 
 interface Props {
@@ -110,11 +113,14 @@ const organizationSchema = {
   <meta name="generator" content={Astro.generator} />
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
+  <TopCtaBar />
   <Header />
-  <main class="flex-1">
+  <main id="main-content" class="flex-1 pb-20 lg:pb-0">
     <slot />
   </main>
   <Footer />
+  <MobileStickyCta />
+  <WhatsAppButton />
 </body>
 </html>
 
