@@ -1,0 +1,105 @@
+---
+import { CONTACT, NAV_ITEMS } from '../../lib/constants';
+---
+
+<a href="#main-content" class="skip-to-content">
+  Ugrás a tartalomhoz
+</a>
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center shrink-0">
+        <img
+          src="/logo.jpg"
+          alt="SkinLab - laser&beauty equipment"
+          class="h-10 lg:h-12 w-auto"
+        />
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1">
+        {NAV_ITEMS.map((item) => (
+          <a
+            href={item.href}
+            class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      
+      <!-- Right side: Phone + CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Phone (desktop only) -->
+        <a
+          href={CONTACT.phoneTel}
+          class="hidden md:flex items-center gap-2 px-4 py-2 bg-success-50 text-success-600 font-semibold rounded-lg hover:bg-success-100 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span>{CONTACT.phoneDisplay}</span>
+        </a>
+        
+        <!-- CTA Button -->
+        <a
+          href="/kapcsolat"
+          class="inline-flex items-center px-4 lg:px-5 py-2 lg:py-2.5 bg-primary-600 text-white font-semibold text-sm rounded-lg hover:bg-primary-700 transition-colors shadow-sm"
+        >
+          <span class="hidden sm:inline">Ingyenes konzultáció</span>
+          <span class="sm:hidden">Konzultáció</span>
+        </a>
+        
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+          aria-label="Menü megnyitása"
+          data-mobile-menu-toggle
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Navigation -->
+  <div class="hidden lg:hidden" data-mobile-menu>
+    <div class="px-4 pt-2 pb-4 space-y-1 bg-white border-t border-gray-100">
+      {NAV_ITEMS.map((item) => (
+        <a
+          href={item.href}
+          class="block px-4 py-3 text-base font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="pt-2 mt-2 border-t border-gray-100">
+        <a
+          href={CONTACT.phoneTel}
+          class="flex items-center gap-2 px-4 py-3 text-base font-medium text-success-600"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          {CONTACT.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('[data-mobile-menu-toggle]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

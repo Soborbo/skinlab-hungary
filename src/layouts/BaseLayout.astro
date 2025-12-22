@@ -1,0 +1,137 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS, CATEGORIES } from '../lib/constants';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+  schema?: object;
+}
+
+const {
+  title = SEO_DEFAULTS.defaultTitle,
+  description = SEO_DEFAULTS.defaultDescription,
+  image = '/og-image.jpg',
+  noIndex = false,
+  schema,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
+
+// Organization schema (minden oldalon)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Organization"],
+  "@id": `${SITE.url}/#organization`,
+  "name": COMPANY.name,
+  "legalName": COMPANY.legalName,
+  "url": SITE.url,
+  "logo": `${SITE.url}/logo.png`,
+  "description": COMPANY.description,
+  "slogan": COMPANY.slogan,
+  "foundingDate": COMPANY.foundingDate,
+  "taxID": COMPANY.taxId,
+  "vatID": COMPANY.vatId,
+  "telephone": CONTACT.phone,
+  "email": CONTACT.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": LOCATIONS.showroom.streetAddress,
+    "addressLocality": LOCATIONS.showroom.city,
+    "postalCode": LOCATIONS.showroom.postalCode,
+    "addressCountry": LOCATIONS.showroom.country
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": LOCATIONS.showroom.geo.latitude,
+    "longitude": LOCATIONS.showroom.geo.longitude
+  },
+  "priceRange": COMPANY.priceRange,
+  "currenciesAccepted": COMPANY.currenciesAccepted.join(", "),
+  "paymentAccepted": COMPANY.paymentAccepted.join(", "),
+  "areaServed": COMPANY.areaServed.map(code => ({ "@type": "Country", "name": code })),
+  "sameAs": [SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Professzionális kozmetikai berendezések",
+    "itemListElement": CATEGORIES.map(cat => ({
+      "@type": "OfferCatalog",
+      "name": cat.name
+    }))
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  {noIndex && <meta name="robots" content="noindex, nofollow" />}
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, SITE.url)} />
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:site_name" content="SkinLab Hungary" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image, SITE.url)} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  
+  <!-- Generator -->
+  <meta name="generator" content={Astro.generator} />
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style is:global>
+  /* Scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid theme('colors.primary.500');
+    outline-offset: 2px;
+  }
+  
+  /* Skip to content */
+  .skip-to-content {
+    @apply absolute -top-10 left-4 bg-primary-600 text-white px-4 py-2 rounded-b-lg z-50 transition-all focus:top-0;
+  }
+</style>

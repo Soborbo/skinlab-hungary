@@ -1,0 +1,86 @@
+---
+import { CONTACT } from '../../lib/constants';
+
+const product = {
+  name: 'Prestige4WAVE Diódalézer',
+  tagline: '4 hullámhosszú professzionális szőrtelenítő',
+  badge: '#1 Bestseller 2024',
+  price: '2 999 990',
+  monthlyPrice: '~89.000',
+  specs: [
+    { value: '4', label: 'Hullámhossz' },
+    { value: '1200W', label: 'Teljesítmény' },
+    { value: '-5°C', label: 'Zafír hűtés' },
+    { value: '2 év', label: 'Garancia' },
+  ],
+  link: '/diodalezerek/prestige-4wave',
+};
+---
+
+<section class="bg-gradient-to-r from-primary-600 to-indigo-700 py-16 lg:py-20 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      <!-- Left: Product image placeholder -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl aspect-square flex items-center justify-center order-2 lg:order-1">
+        <div class="text-center p-8">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/20 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <p class="text-white/60 font-medium">Prestige4WAVE termékfotó</p>
+        </div>
+      </div>
+
+      <!-- Right: Product info -->
+      <div class="text-white order-1 lg:order-2">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-4">
+          <svg class="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          {product.badge}
+        </div>
+
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">{product.name}</h2>
+        <p class="text-lg lg:text-xl text-blue-100 mb-6">{product.tagline}</p>
+
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          {product.specs.map((spec) => (
+            <div class="bg-white/10 backdrop-blur rounded-xl p-3 lg:p-4">
+              <div class="text-xl lg:text-2xl font-bold">{spec.value}</div>
+              <div class="text-blue-200 text-sm">{spec.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex items-end gap-4 mb-6">
+          <div>
+            <div class="text-blue-200 text-sm">Bruttó ár</div>
+            <div class="text-3xl lg:text-4xl font-bold">{product.price} Ft</div>
+          </div>
+          <div class="text-blue-200">
+            vagy havi {product.monthlyPrice} Ft
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href={product.link}
+            class="bg-white text-primary-600 font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-center hover:bg-blue-50 transition-colors"
+          >
+            Részletek megtekintése
+          </a>
+          <a
+            href="/kapcsolat"
+            class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-center transition-colors"
+          >
+            Bemutatót kérek
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

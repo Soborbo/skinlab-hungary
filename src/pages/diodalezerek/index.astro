@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '../../lib/constants';
+
+const category = {
+  name: 'Diódalézeres szőrtelenítő készülékek',
+  nameShort: 'Diódalézerek',
+  slug: 'diodalezerek',
+  description: 'Professzionális 4 hullámhosszas diódalézerek tartós szőrtelenítéshez. Minden bőrtípusra alkalmas, fájdalommentes kezelés, 2 év garanciával.',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Főoldal", "item": SITE.url },
+    { "@type": "ListItem", "position": 2, "name": category.nameShort }
+  ]
+};
+---
+
+<BaseLayout
+  title={category.name}
+  description={category.description}
+  schema={breadcrumbSchema}
+>
+  <div id="main-content">
+    
+    <!-- Breadcrumb -->
+    <nav class="bg-gray-100 border-b" aria-label="Breadcrumb">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <ol class="flex items-center gap-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-500 hover:text-primary-600">Főoldal</a>
+          </li>
+          <li class="text-gray-400">›</li>
+          <li class="text-gray-900 font-medium">{category.nameShort}</li>
+        </ol>
+      </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="bg-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {category.name}
+          </h1>
+          <p class="text-lg text-gray-600">
+            {category.description}
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Products Grid -->
+    <section class="bg-gray-50 py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {products.length === 0 ? (
+          <!-- Empty state -->
+          <div class="text-center py-16">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gray-200 flex items-center justify-center">
+              <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
+            <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
+            <a
+              href="/kapcsolat"
+              class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700"
+            >
+              Konzultáció kérése
+            </a>
+          </div>
+        ) : (
+          <!-- Products -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <a
+                href={`/${product.data.categorySlug}/${product.slug}`}
+                class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <!-- Image -->
+                <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                  {product.data.images[0] ? (
+                    <img
+                      src={product.data.images[0]}
+                      alt={product.data.name}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-2 rounded-xl bg-white/80 flex items-center justify-center">
+                          <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <p class="text-xs text-gray-400">Termék kép</p>
+                      </div>
+                    </div>
+                  )}
+                  {product.data.featured && (
+                    <div class="absolute top-4 left-4 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Kiemelt
+                    </div>
+                  )}
+                </div>
+                
+                <!-- Content -->
+                <div class="p-6">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    {product.data.name}
+                  </h3>
+                  <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                    {product.data.shortDescription}
+                  </p>
+                  {product.data.priceFormatted && (
+                    <div class="flex items-baseline gap-2">
+                      <span class="text-xl font-bold text-gray-900">{product.data.priceFormatted}</span>
+                      <span class="text-sm text-gray-500">+ ÁFA</span>
+                    </div>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="bg-primary-600 py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Segítünk választani
+        </h2>
+        <p class="text-primary-100 mb-8">
+          Nem tudod, melyik készülék lenne számodra a legjobb? Kérj ingyenes konzultációt!
+        </p>
+        <a
+          href="/kapcsolat"
+          class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50"
+        >
+          Konzultáció kérése
+        </a>
+      </div>
+    </section>
+    
+  </div>
+</BaseLayout>

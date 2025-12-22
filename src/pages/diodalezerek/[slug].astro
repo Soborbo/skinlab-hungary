@@ -1,0 +1,45 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products', ({ data }) => {
+    return data.categorySlug === 'diodalezerek';
+  });
+  
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { Content } = await product.render();
+
+const productData = {
+  name: product.data.name,
+  slug: product.slug,
+  category: product.data.category,
+  categorySlug: product.data.categorySlug,
+  description: product.data.description,
+  shortDescription: product.data.shortDescription,
+  price: product.data.price,
+  priceFormatted: product.data.priceFormatted,
+  images: product.data.images,
+  videoUrl: product.data.videoUrl,
+  features: product.data.features,
+  specs: product.data.specs,
+  faqs: product.data.faqs,
+};
+---
+
+<ProductLayout product={productData}>
+  <!-- Additional content from MDX -->
+  {Content && (
+    <section class="py-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg">
+        <Content />
+      </div>
+    </section>
+  )}
+</ProductLayout>

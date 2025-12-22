@@ -1,0 +1,107 @@
+---
+import { CONTACT, LOCATIONS } from '../../lib/constants';
+---
+
+<section class="py-16 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-br from-primary-600 to-primary-700 rounded-3xl overflow-hidden shadow-2xl">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Content -->
+        <div class="p-8 lg:p-12 xl:p-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+            Kérdésed van? Segítünk!
+          </h2>
+          <p class="text-lg text-primary-100 mb-8">
+            Kérj ingyenes konzultációt, és szakértőink személyre szabott tanácsot adnak a számodra legjobb megoldásról.
+          </p>
+          
+          <!-- Contact options -->
+          <div class="space-y-4 mb-8">
+            <a
+              href={CONTACT.phoneTel}
+              class="flex items-center gap-4 text-white hover:text-primary-200 transition-colors group"
+            >
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-lg">{CONTACT.phoneDisplay}</div>
+                <div class="text-sm text-primary-200">Hívj minket bármikor</div>
+              </div>
+            </a>
+            
+            <a
+              href={`mailto:${CONTACT.email}`}
+              class="flex items-center gap-4 text-white hover:text-primary-200 transition-colors group"
+            >
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-lg">{CONTACT.email}</div>
+                <div class="text-sm text-primary-200">Írj nekünk emailt</div>
+              </div>
+            </a>
+            
+            <a
+              href={LOCATIONS.showroom.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 text-white hover:text-primary-200 transition-colors group"
+            >
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-lg">{LOCATIONS.showroom.name}</div>
+                <div class="text-sm text-primary-200">{LOCATIONS.showroom.fullAddress}</div>
+              </div>
+            </a>
+          </div>
+          
+          <a
+            href="/kapcsolat"
+            class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition-colors shadow-lg"
+          >
+            Konzultáció kérése
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Image placeholder -->
+        <div class="relative hidden lg:block">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-transparent" />
+          <!-- Placeholder for showroom image -->
+          <div class="absolute inset-0 flex items-center justify-center bg-primary-500/10">
+            <div class="text-center p-8">
+              <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center">
+                <svg class="w-10 h-10 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p class="text-white/60 font-medium">Showroom kép helye</p>
+            </div>
+          </div>
+          
+          <!-- TODO: Replace with actual image -->
+          <!-- <img 
+            src="/images/showroom.jpg" 
+            alt="SkinLab SHOWROOM Érd"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          /> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

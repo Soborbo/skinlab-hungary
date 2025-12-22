@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Categories from '../components/sections/Categories.astro';
+import BrandMarquee from '../components/sections/BrandMarquee.astro';
+import Stats from '../components/sections/Stats.astro';
+import WhyUs from '../components/sections/WhyUs.astro';
+import FeaturedProduct from '../components/sections/FeaturedProduct.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import { COMPANY } from '../lib/constants';
+---
+
+<BaseLayout
+  title="SkinLab Hungary - Professzionális kozmetikai berendezések"
+  description={COMPANY.description}
+>
+  <div id="main-content">
+    <!-- Hero Section (includes USP badges) -->
+    <Hero />
+
+    <!-- Product Categories (all 6) -->
+    <Categories />
+
+    <!-- Brand Logos Marquee -->
+    <BrandMarquee />
+
+    <!-- Stats -->
+    <Stats />
+
+    <!-- Why Choose Us -->
+    <WhyUs />
+
+    <!-- Featured Product (Bestseller) -->
+    <FeaturedProduct />
+
+    <!-- Testimonials -->
+    <Testimonials />
+
+    <!-- How It Works (Process) -->
+    <HowItWorks />
+
+    <!-- Final CTA -->
+    <FinalCTA />
+  </div>
+</BaseLayout>
