@@ -8,15 +8,15 @@
   "metaTitle": "NyxQueen Diódalézer",
   "metaDescription": "",
   "price": null,
-  "image": "nyxqueenblackdiode.png",
+  "image": "/images/products/nyxqueenblackdiode.webp",
   "gallery": [
-    "NyxQueen2.png",
-    "product/IMG_0262.jpeg",
-    "product/IMG_0269.jpeg",
-    "product/IMG_0272.jpeg",
-    "product/IMG_0280.jpeg",
-    "product/NyxQueen.jpg",
-    "product/NyxQueenBlack.png"
+    "/images/products/NyxQueen2.webp",
+    "/images/products/IMG_0262.webp",
+    "/images/products/IMG_0269.webp",
+    "/images/products/IMG_0272.webp",
+    "/images/products/IMG_0280.webp",
+    "/images/products/NyxQueen.webp",
+    "/images/products/NyxQueenBlack.webp"
   ],
   "availability": "in_stock",
   "hasVariants": true,
@@ -26,42 +26,42 @@
       "name": "nighty black",
       "value": "nighty-black",
       "price": null,
-      "image": "nyxqueenblackdiode.png"
+      "image": "/images/products/nyxqueenblackdiode.webp"
     },
     {
       "sku": "NQ02",
       "name": "rosegold",
       "value": "rosegold",
       "price": null,
-      "image": "NyxQueen_rosegold3.png"
+      "image": "/images/products/NyxQueen_rosegold3.webp"
     },
     {
       "sku": "NQ003",
       "name": "crystal frost",
       "value": "crystal-frost",
       "price": null,
-      "image": "NyxQUEENsilver.png"
+      "image": "/images/products/NyxQUEENsilver.webp"
     },
     {
       "sku": "NQ004",
       "name": "snow white",
       "value": "snow-white",
       "price": null,
-      "image": "NyxQUEENsnowwhite.png"
+      "image": "/images/products/NyxQUEENsnowwhite.webp"
     },
     {
       "sku": "NQ005",
       "name": "peony",
       "value": "peony",
       "price": null,
-      "image": "Nyxqueenpeonymain.png"
+      "image": "/images/products/Nyxqueenpeonymain.webp"
     },
     {
       "sku": "NQ006",
       "name": "champagne gold",
       "value": "champagne-gold",
       "price": null,
-      "image": "nyxchampagne.png"
+      "image": "/images/products/nyxchampagne.webp"
     }
   ],
   "featured": false

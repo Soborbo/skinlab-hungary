@@ -8,9 +8,9 @@
   "metaTitle": "Kozmetikai Trolley-k",
   "metaDescription": "",
   "price": null,
-  "image": "Mary2.png",
+  "image": "/images/products/Mary2.webp",
   "gallery": [
-    "Mary1.png"
+    "/images/products/Mary1.webp"
   ],
   "availability": "in_stock",
   "hasVariants": true,
@@ -20,21 +20,21 @@
       "name": "SnowlineTrolley",
       "value": "ST001",
       "price": null,
-      "image": "Mary2.png"
+      "image": "/images/products/Mary2.webp"
     },
     {
       "sku": "AT001",
       "name": "ArcticTrolley",
       "value": "AT001",
       "price": null,
-      "image": "Bonnie1.png"
+      "image": "/images/products/Bonnie1.webp"
     },
     {
       "sku": "FLT001",
       "name": "FrostLineTrolley",
       "value": "FLT001",
       "price": null,
-      "image": "MADDISON2.png"
+      "image": "/images/products/MADDISON2.webp"
     }
   ],
   "featured": false

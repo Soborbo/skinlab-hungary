@@ -8,10 +8,10 @@
   "metaTitle": "HydraLiquid peeling hatással hidrodermabrázióhoz",
   "metaDescription": "Farmona Professional erősen hámlasztó hidrodermabráziós folyadék problémás bőrre.",
   "price": null,
-  "image": "hamlasztooldat.png",
+  "image": "/images/products/hamlasztooldat.webp",
   "gallery": [
-    "hydraoldatok.png",
-    "hydraoldatokmeggep.png"
+    "/images/products/hydraoldatok.webp",
+    "/images/products/hydraoldatokmeggep.webp"
   ],
   "availability": "in_stock",
   "hasVariants": true,
@@ -21,42 +21,42 @@
       "name": "erősen hámlasztó",
       "value": "erősen-hámlasztó",
       "price": null,
-      "image": "hamlasztooldat.png"
+      "image": "/images/products/hamlasztooldat.webp"
     },
     {
       "sku": "HLB2",
       "name": "lifting, bioretinollal",
       "value": "lifting,-bioretinollal",
       "price": null,
-      "image": "Hydraliftingoldat.png"
+      "image": "/images/products/Hydraliftingoldat.webp"
     },
     {
       "sku": "HLCV",
       "name": "C-vitaminos, világosító",
       "value": "c-vitaminos,-világosító",
       "price": null,
-      "image": "vilagositooldat.png"
+      "image": "/images/products/vilagositooldat.webp"
     },
     {
       "sku": "HLRH",
       "name": "revitalizáló, hegyikristállyal",
       "value": "revitalizáló,-hegyikristállyal",
       "price": null,
-      "image": "hidraliquidkrist.png"
+      "image": "/images/products/hidraliquidkrist.webp"
     },
     {
       "sku": "HLH3",
       "name": "hidratáló",
       "value": "hidratáló",
       "price": null,
-      "image": "hidrahidra.png"
+      "image": "/images/products/hidrahidra.webp"
     },
     {
       "sku": "HLH4",
       "name": "hyaluronsavas feltöltő",
       "value": "hyaluronsavas-feltöltő",
       "price": null,
-      "image": "hyalu.png"
+      "image": "/images/products/hyalu.webp"
     }
   ],
   "featured": false
