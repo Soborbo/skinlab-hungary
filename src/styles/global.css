@@ -86,8 +86,81 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Mega Menu Animations */
+@layer components {
+  /* Mega menu fade in */
+  [data-mega-menu] {
+    animation: megaMenuFadeIn 0.2s ease-out;
+  }
+
+  @keyframes megaMenuFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mega menu item hover effect */
+  [data-mega-menu] a {
+    position: relative;
+  }
+
+  [data-mega-menu] a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: theme('colors.primary.500');
+    border-radius: 0 2px 2px 0;
+    transform: scaleY(0);
+    transition: transform 0.15s ease-out;
+  }
+
+  [data-mega-menu] a:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Mobile accordion animation */
+  [data-accordion-content] {
+    animation: accordionOpen 0.2s ease-out;
+  }
+
+  @keyframes accordionOpen {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile menu slide in */
+  [data-mobile-menu]:not(.hidden) {
+    animation: mobileMenuSlide 0.25s ease-out;
+  }
+
+  @keyframes mobileMenuSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

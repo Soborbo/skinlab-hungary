@@ -1,0 +1,79 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Picosekundumos lézerkészülékek',
+  nameShort: 'Pico lézerek',
+  slug: 'pico-lezerek',
+  description: 'Picoszekundumos lézerek pigmentációhoz és bőrmegújításhoz.',
+  heroDescription: 'Ultragyors pico technológia: picoszekundumos impulzusok a tökéletes bőrért. Hatékony pigmentáció eltávolítás, bőrmegújítás és tetoválás halványítás minimális mellékhatással.',
+  badge: 'Csúcstechnológia',
+  color: 'indigo',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+
+const benefits = [
+  {
+    icon: '⚡',
+    title: 'Picoszekundumos pontosság',
+    description: 'A pico lézerek billiomod másodperc alatt adják le az energiát - ez 1000x gyorsabb, mint a hagyományos Q-switched lézerek.',
+  },
+  {
+    icon: '🎯',
+    title: 'Minimális hőterhelés',
+    description: 'A rendkívül rövid impulzusok miatt kevesebb hő keletkezik, ami kisebb kockázatot és gyorsabb gyógyulást jelent.',
+  },
+  {
+    icon: '🌈',
+    title: 'Minden színhez',
+    description: 'Hatékony a nehezen kezelhető színeknél is: kék, zöld, lila tetoválások és makacs pigmentfoltok eltávolítása.',
+  },
+  {
+    icon: '💎',
+    title: 'Bőrmegújítás',
+    description: 'Pico Toning: egyenletes bőrtónus, pórusok finomítása, finom ráncok kezelése. Prémium anti-aging szolgáltatás.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség a pico és a Q-switched ND:YAG lézer között?',
+    answer: '<strong>Q-switched:</strong> Nanoszekundumos (milliárdod mp) impulzusok. Jó általános tetoválás eltávolításra.<br><br><strong>Pico:</strong> Picoszekundumos (billiomod mp) impulzusok - 1000x gyorsabb. Kevesebb kezelés, kevesebb mellékhatás, jobb eredmény makacs színeknél.',
+  },
+  {
+    question: 'Milyen kezelésekre alkalmas a pico lézer?',
+    answer: 'Tetoválás eltávolítás (minden szín), pigmentfoltok és melazma kezelés, bőrmegújítás (pico toning), akne hegek halványítása, pórusok finomítása, bőrtónus egyenletesítése.',
+  },
+  {
+    question: 'Mennyibe kerül egy pico kezelés?',
+    answer: 'Pico tetoválás eltávolítás: 30-80.000 Ft/alkalom (mérettől függően). Pico toning arc: 40-60.000 Ft. Pigmentfolt kezelés: 25-50.000 Ft. A prémium technológia prémium árakat tesz lehetővé.',
+  },
+];
+
+const comparison = {
+  features: ['Ár', 'Technológia', 'Impulzus', 'Hullámhosszak', 'Kezelési terület', 'Ajánlott'],
+  products: [
+    {
+      name: 'SpectraGlow Pico',
+      tag: 'Prémium pico',
+      tagColor: 'indigo',
+      highlighted: true,
+      link: '/pico-lezerek/spectraglow',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Technológia': 'Picoszekundum',
+        'Impulzus': '450ps',
+        'Hullámhosszak': '1064nm, 532nm, 755nm',
+        'Kezelési terület': 'Arc, test, tetoválás',
+        'Ajánlott': 'Prémium klinikák',
+      },
+    },
+  ],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

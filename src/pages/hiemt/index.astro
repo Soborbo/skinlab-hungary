@@ -1,0 +1,111 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'HIEMT Alakformáló gépek',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'EMS és RF technológiás testformáló, izomépítő és zsírégető készülékek.',
+  heroDescription: 'Forradalmi HIFEM technológia: izomépítés és zsírégetés egyetlen kezeléssel. 30 perc = 20.000 izomösszehúzódás. Non-invazív testformálás műtét nélkül.',
+  badge: 'Új kategória',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+
+const benefits = [
+  {
+    icon: '💪',
+    title: '30 perc = 5 óra edzés',
+    description: 'Egyetlen 30 perces kezelés akár 20.000 izomösszehúzódást eredményez - ez 5 óra intenzív kardióedzésnek felel meg.',
+  },
+  {
+    icon: '🔥',
+    title: 'Kettős hatás',
+    description: 'Izomépítés és zsírégetés egyszerre. Átlagosan 25% izomtömeg növekedés és 30% zsírszövet csökkenés 4 kezelés után.',
+  },
+  {
+    icon: '⚡',
+    title: 'Non-invazív',
+    description: 'Nincs műtét, injekció, fájdalom vagy felépülési idő. A vendég a kezelés után azonnal folytathatja napját.',
+  },
+  {
+    icon: '💰',
+    title: 'Magas kezelési árak',
+    description: 'HIEMT kezelés: 30-60.000 Ft/alkalom. Kúra (4-6 alkalom): 150-300.000 Ft. Gyors megtérülés.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Hogyan működik a HIEMT/HIFEM technológia?',
+    answer: 'A HIFEM (High-Intensity Focused Electromagnetic) technológia elektromágneses impulzusokat küld az izmokba, akár 8 cm mélységig. Ezek az impulzusok hiperintenzív izomösszehúzódásokat idéznek elő, amelyeket hagyományos edzéssel lehetetlen elérni. A folyamat során aktiválódik a zsírsejtek lebontása is (apoptózis).',
+  },
+  {
+    question: 'Hány kezelés szükséges a látható eredményhez?',
+    answer: 'Már 4 kezelés után látható eredmények érhetők el. Az ajánlott protokoll: hetente 1-2 alkalom, 30 perc/kezelés. A teljes kúra általában 4-8 alkalomból áll, az egyéni céloknak megfelelően.',
+  },
+  {
+    question: 'Milyen testrészeket lehet kezelni?',
+    answer: 'A leggyakrabban kezelt területek: has, fenék, comb, kar és vádli. Egyes gépek speciális fejjel rendelkeznek a medencefenék izmainak erősítésére is (pl. szülés utáni rehabilitáció).',
+  },
+  {
+    question: 'Kinek nem ajánlott a HIEMT kezelés?',
+    answer: 'Nem ajánlott pacemakerrel, fémimplantátummal rendelkezőknek, terhes vagy szoptató nőknek, rákos betegeknek, epilepsziásoknál, valamint szív- és érrendszeri problémák esetén. Minden esetben orvosi konzultáció javasolt.',
+  },
+];
+
+const comparison = {
+  features: ['Ár', 'Technológia', 'Kezelőfejek', 'RF funkció', 'Teljesítmény', 'Ajánlott'],
+  products: [
+    {
+      name: 'EvoSculpt Smart',
+      tag: 'Belépő szint',
+      tagColor: 'blue',
+      link: '/hiemt/evosculpt-smart',
+      specs: {
+        'Ár': '1.799.990 Ft',
+        'Technológia': 'HIFEM',
+        'Kezelőfejek': '2 db',
+        'RF funkció': 'Nem',
+        'Teljesítmény': '8500W',
+        'Ajánlott': 'Kezdők, kisszalonok',
+      },
+    },
+    {
+      name: 'EvoSculpt Smart 4',
+      tag: 'Bestseller',
+      tagColor: 'green',
+      highlighted: true,
+      link: '/hiemt/evosculpt-smart-4',
+      specs: {
+        'Ár': '3.599.990 Ft',
+        'Technológia': 'HIFEM',
+        'Kezelőfejek': '4 db',
+        'RF funkció': 'Nem',
+        'Teljesítmény': '8500W',
+        'Ajánlott': '2 vendég egyszerre',
+      },
+    },
+    {
+      name: 'HIEMT Luxe RF',
+      tag: 'Prémium',
+      tagColor: 'purple',
+      link: '/hiemt/hiemt-luxe-rf',
+      specs: {
+        'Ár': '4.599.990 Ft',
+        'Technológia': 'HI-EMT + RF',
+        'Kezelőfejek': '4 db',
+        'RF funkció': 'Igen (400W)',
+        'Teljesítmény': '4700W + RF',
+        'Ajánlott': 'Prémium szalonok',
+      },
+    },
+  ],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

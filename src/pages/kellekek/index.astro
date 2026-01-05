@@ -1,0 +1,104 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Kellékek és kiegészítők',
+  nameShort: 'Kellékek',
+  slug: 'kellekek',
+  description: 'Kezelőanyagok, tűmodulok és egyéb kiegészítők.',
+  heroDescription: 'Professzionális fogyóeszközök és kezelőanyagok a mindennapi munkához. Tűmodulok, hydrofacial oldatok, OxyGenX pod-ok és carbon gél - minden, ami a sikeres kezelésekhez kell.',
+  badge: 'Fogyóeszközök',
+  color: 'teal',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kellekek';
+});
+
+const benefits = [
+  {
+    icon: '📦',
+    title: 'Gyors szállítás',
+    description: 'Raktárról azonnal elérhető fogyóeszközök. Nincs várakozás, nincs kezelés kihagyás.',
+  },
+  {
+    icon: '✅',
+    title: 'Garantált minőség',
+    description: 'Eredeti gyártói termékek, nem utángyártmányok. Biztonságos, megbízható kezelőanyagok.',
+  },
+  {
+    icon: '💰',
+    title: 'Kedvező árak',
+    description: 'Nagyobb mennyiség esetén kedvezményes árak. Rendszeres rendelőknek extra kedvezmények.',
+  },
+  {
+    icon: '🔄',
+    title: 'Folyamatos készlet',
+    description: 'Népszerű termékekből mindig van raktárkészlet. Előrendelés is lehetséges.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Milyen tűmodulokat forgalmaztok?',
+    answer: 'Mast Oceanheart és WJX tűmodulokat tartunk készleten, különböző méretekben: 0.18mm, 0.20mm, 0.25mm, 0.30mm, 0.35mm vastagságban, 1RL és 3RL konfigurációban. Mindkét márka kiváló minőséget képvisel sminktetováláshoz.',
+  },
+  {
+    question: 'Mik azok az OxyGenX pod-ok?',
+    answer: 'Az OxyGenX pod-ok előre kiszerelt kezelőanyag kapszulák az OxyGenX kezelőgéphez. 7 különböző típus érhető el: GLAM, RETOUCH, ILLUMINATE, REVIVE, BALANCE, HYDRATE és DETOX - mindegyik más bőrproblémára optimalizálva.',
+  },
+  {
+    question: 'Milyen HydraLiquid oldatok vannak?',
+    answer: '6 féle HydraLiquid oldat kapható: erősen hámlasztó, lifting (bioretinollal), C-vitaminos világosító, revitalizáló (hegyikristállyal), hidratáló és hyaluronsavas feltöltő. Hydrofacial gépekhez használhatók.',
+  },
+  {
+    question: 'Mire jó a carbon gél?',
+    answer: 'A carbon gél a carbon peeling (Hollywood peeling) kezeléshez szükséges. ND:YAG lézerrel kombinálva mélytisztítást, pórusszűkítést és bőrmegújítást biztosít. Egy üveg több kezelésre elegendő.',
+  },
+];
+
+const comparison = {
+  features: ['Típus', 'Felhasználás', 'Kiszerelés', 'Kompatibilitás'],
+  products: [
+    {
+      name: 'Mast Oceanheart tűmodulok',
+      tag: '7 méret',
+      tagColor: 'blue',
+      link: '/kellekek/mast-oceanheart-tumodulok',
+      specs: {
+        'Típus': 'Tűmodul',
+        'Felhasználás': 'Sminktetoválás',
+        'Kiszerelés': '20 db/doboz',
+        'Kompatibilitás': 'MAST gépek',
+      },
+    },
+    {
+      name: 'OxyGenX Pod szettek',
+      tag: '7 típus',
+      tagColor: 'green',
+      link: '/kellekek/oxygenx-podok',
+      specs: {
+        'Típus': 'Kezelőanyag kapszula',
+        'Felhasználás': 'OxyGenX kezelés',
+        'Kiszerelés': 'Szett',
+        'Kompatibilitás': 'OxyGenX gép',
+      },
+    },
+    {
+      name: 'HydraLiquid oldatok',
+      tag: '6 típus',
+      tagColor: 'purple',
+      link: '/kellekek/hydraliquid-oldatok',
+      specs: {
+        'Típus': 'Hydrofacial oldat',
+        'Felhasználás': 'Hydrofacial kezelés',
+        'Kiszerelés': '500ml',
+        'Kompatibilitás': 'Hydrofacial gépek',
+      },
+    },
+  ],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

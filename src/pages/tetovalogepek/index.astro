@@ -1,0 +1,93 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Tetoválógépek',
+  nameShort: 'Tetoválógépek',
+  slug: 'tetovalogepek',
+  description: 'Professzionális vezeték nélküli tetoválógépek.',
+  heroDescription: 'Professzionális vezeték nélküli tetoválógépek Bluetooth vezérléssel. Precíz mozgás, hosszú akkumulátor üzemidő, ergonomikus kialakítás a legigényesebb művészeknek.',
+  badge: 'Pro eszközök',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+
+const benefits = [
+  {
+    icon: '🔋',
+    title: 'Vezeték nélküli szabadság',
+    description: 'Hosszú üzemidejű akkumulátorok, nincs zavaró kábel. Teljes mozgásszabadság a munkához.',
+  },
+  {
+    icon: '📱',
+    title: 'Bluetooth vezérlés',
+    description: 'Okostelefonos alkalmazás a beállítások finomhangolásához. Mentett profilok különböző munkákhoz.',
+  },
+  {
+    icon: '⚙️',
+    title: 'Precíz motor',
+    description: 'Legújabb generációs motorok egyenletes, csendes működéssel. Állítható löket a különböző technikákhoz.',
+  },
+  {
+    icon: '🎨',
+    title: 'Sokoldalú használat',
+    description: 'Vonalazás, árnyékolás, színezés - egy géppel. Kompatibilis a legtöbb tűmodullal.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Miben különböznek ezek a sminktetováló gépektől?',
+    answer: 'A tetoválógépek nagyobb teljesítményre és mélyebb pigmentbevitelre vannak tervezve. Erősebb motorral, hosszabb lökethosszal és robusztusabb kialakítással rendelkeznek. Sminktetováláshoz a finomabb MAST gépeket ajánljuk.',
+  },
+  {
+    question: 'Milyen tűmodulokat használhatok?',
+    answer: 'A gépek szabványos cartridge csatlakozóval rendelkeznek, így kompatibilisek a legtöbb gyártó tűmoduljaival. Mi a Mast és WJX tűmodulokat forgalmazzuk, amelyek kiváló minőséget képviselnek.',
+  },
+  {
+    question: 'Mennyi az akkumulátor üzemideje?',
+    answer: 'A vezeték nélküli gépek általában 6-10 óra folyamatos munkát tesznek lehetővé egy töltéssel. A pontos érték a beállított teljesítménytől és a használat intenzitásától függ.',
+  },
+];
+
+const comparison = {
+  features: ['Ár', 'Típus', 'Löket', 'Motor', 'Akkumulátor', 'Ajánlott'],
+  products: [
+    {
+      name: 'Mast Archer Ultra Smart',
+      tag: 'Bluetooth',
+      tagColor: 'blue',
+      link: '/tetovalogepek/mast-archer-ultra-smart',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Típus': 'Vezeték nélküli',
+        'Löket': 'Állítható',
+        'Motor': 'MCORE brushless',
+        'Akkumulátor': '2000mAh',
+        'Ajánlott': 'Profik',
+      },
+    },
+    {
+      name: 'Dragonhawk Fold Pro',
+      tag: 'Snake Edition',
+      tagColor: 'green',
+      highlighted: true,
+      link: '/tetovalogepek/dragonhawk-fold-pro',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Típus': 'Vezeték nélküli',
+        'Löket': '4.0mm',
+        'Motor': 'Coreless',
+        'Akkumulátor': '1600mAh',
+        'Ajánlott': 'Kezdők és profik',
+      },
+    },
+  ],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

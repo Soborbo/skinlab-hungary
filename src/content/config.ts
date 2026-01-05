@@ -1,27 +1,34 @@
 import { defineCollection, z } from 'astro:content';
 
-// Product schema
-const productSchema = z.object({
+// Variant schema for products with multiple options
+const variantSchema = z.object({
+  sku: z.string(),
   name: z.string(),
-  category: z.string(),
+  value: z.string(),
+  price: z.number().nullable(),
+  image: z.string().optional(),
+});
+
+// Product schema - updated for JSON data files
+const productSchema = z.object({
+  slug: z.string(),
+  sku: z.string(),
+  name: z.string(),
   categorySlug: z.string(),
-  description: z.string(),
-  shortDescription: z.string(),
-  price: z.number().optional(),
-  priceFormatted: z.string().optional(),
-  images: z.array(z.string()).default([]),
-  videoUrl: z.string().optional(),
+  shortDescription: z.string().default(''),
+  description: z.string().default(''),
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
+  price: z.number().nullable(),
+  salePrice: z.number().nullable().optional(),
+  image: z.string().default('/images/placeholder.jpg'),
+  gallery: z.array(z.string()).default([]),
+  youtubeVideos: z.array(z.string()).default([]),
+  availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
+  hasVariants: z.boolean().default(false),
+  variants: z.array(variantSchema).default([]),
   featured: z.boolean().default(false),
-  features: z.array(z.string()).default([]),
-  specs: z.array(z.object({
-    label: z.string(),
-    value: z.string(),
-  })).default([]),
-  faqs: z.array(z.object({
-    question: z.string(),
-    answer: z.string(),
-  })).default([]),
-  publishedAt: z.date().optional(),
+  specs: z.record(z.string()).optional(),
 });
 
 // Training schema
@@ -54,7 +61,7 @@ const blogSchema = z.object({
 
 export const collections = {
   products: defineCollection({
-    type: 'content',
+    type: 'data', // Changed from 'content' to 'data' for JSON files
     schema: productSchema,
   }),
   trainings: defineCollection({

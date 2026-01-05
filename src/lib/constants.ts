@@ -91,15 +91,7 @@ export const CATEGORIES = [
     description: 'Professzionális 4 hullámhosszas diódalézerek tartós szőrtelenítéshez.',
     icon: 'laser',
     featured: true,
-  },
-  {
-    id: 'sminktetovalas',
-    name: 'MAST sminktetováló eszközök',
-    nameShort: 'Sminktetováló gépek',
-    slug: 'sminktetovalas',
-    description: 'Vezetékes és vezeték nélküli sminktetováló gépek és tartozékok.',
-    icon: 'pen',
-    featured: true,
+    productCount: 12,
   },
   {
     id: 'nd-yag-lezerek',
@@ -109,6 +101,28 @@ export const CATEGORIES = [
     description: 'Tetoválás és pigmentfolt eltávolító lézerek.',
     icon: 'zap',
     featured: true,
+    productCount: 8,
+  },
+  {
+    id: 'pico-lezerek',
+    name: 'Picosekundumos lézerkészülékek',
+    nameShort: 'Pico lézerek',
+    slug: 'pico-lezerek',
+    description: 'Picoszekundumos lézerek pigmentációhoz és bőrmegújításhoz.',
+    icon: 'sparkle',
+    featured: true,
+    productCount: 1,
+  },
+  {
+    id: 'hiemt',
+    name: 'HIEMT Alakformáló gépek',
+    nameShort: 'HIEMT',
+    slug: 'hiemt',
+    description: 'EMS és RF technológiás testformáló, izomépítő és zsírégető készülékek.',
+    icon: 'dumbbell',
+    featured: true,
+    productCount: 4,
+    badge: 'Új',
   },
   {
     id: 'hydrafacial',
@@ -118,6 +132,7 @@ export const CATEGORIES = [
     description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
     icon: 'droplet',
     featured: true,
+    productCount: 5,
   },
   {
     id: 'anti-aging',
@@ -126,16 +141,48 @@ export const CATEGORIES = [
     slug: 'anti-aging',
     description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
     icon: 'sparkles',
+    featured: true,
+    productCount: 3,
+  },
+  {
+    id: 'sminktetovalas',
+    name: 'MAST sminktetováló eszközök',
+    nameShort: 'Sminktetováló',
+    slug: 'sminktetovalas',
+    description: 'Vezetékes és vezeték nélküli sminktetováló gépek és tartozékok.',
+    icon: 'pen',
+    featured: true,
+    productCount: 7,
+  },
+  {
+    id: 'tetovalogepek',
+    name: 'Tetoválógépek',
+    nameShort: 'Tetoválógépek',
+    slug: 'tetovalogepek',
+    description: 'Professzionális vezeték nélküli tetoválógépek.',
+    icon: 'pen-tool',
     featured: false,
+    productCount: 2,
   },
   {
     id: 'szalonberendezes',
     name: 'Szalonberendezés',
-    nameShort: 'Szalonberendezés',
+    nameShort: 'Szalon',
     slug: 'szalonberendezes',
     description: 'Professzionális szalonbútorok, trolley-k és kiegészítők.',
     icon: 'armchair',
     featured: false,
+    productCount: 5,
+  },
+  {
+    id: 'kellekek',
+    name: 'Kellékek és kiegészítők',
+    nameShort: 'Kellékek',
+    slug: 'kellekek',
+    description: 'Kezelőanyagok, tűmodulok és egyéb kiegészítők.',
+    icon: 'package',
+    featured: false,
+    productCount: 14,
   },
 ] as const;
 
@@ -169,14 +216,51 @@ export const STATS = [
   { value: '100%', label: 'Legális behozatal' },
 ];
 
-// Navigation
+// Mega Menu Navigation Structure
+export const MEGA_MENU = {
+  columns: [
+    {
+      title: 'Lézerek',
+      items: [
+        { label: 'Diódalézerek', href: '/diodalezerek', count: 12, description: 'Tartós szőrtelenítés' },
+        { label: 'ND:YAG lézerek', href: '/nd-yag-lezerek', count: 8, description: 'Tetoválás eltávolítás' },
+        { label: 'Pico lézerek', href: '/pico-lezerek', count: 1, description: 'Pigmentáció kezelés' },
+      ],
+    },
+    {
+      title: 'Kezelőgépek',
+      items: [
+        { label: 'Hydrafacial', href: '/hydrafacial', count: 5, description: 'Arctisztítás, hidratálás' },
+        { label: 'HIEMT alakformálás', href: '/hiemt', count: 4, description: 'Izomépítés, zsírégetés', badge: 'Új' },
+        { label: 'Anti-aging', href: '/anti-aging', count: 3, description: 'HIFU, RF technológia' },
+      ],
+    },
+    {
+      title: 'Sminktetováló',
+      items: [
+        { label: 'MAST gépek', href: '/sminktetovalas', count: 7, description: 'PMU készülékek' },
+        { label: 'Tetoválógépek', href: '/tetovalogepek', count: 2, description: 'Professzionális gépek' },
+      ],
+    },
+    {
+      title: 'Szalon',
+      items: [
+        { label: 'Szalonberendezés', href: '/szalonberendezes', count: 5, description: 'Bútorok, trolley-k' },
+        { label: 'Kellékek', href: '/kellekek', count: 14, description: 'Tűmodulok, oldatok' },
+      ],
+    },
+  ],
+  cta: {
+    label: 'Összes termék',
+    href: '/termekek',
+  },
+};
+
+// Simple navigation for header
 export const NAV_ITEMS = [
-  { label: 'Diódalézerek', href: '/diodalezerek' },
-  { label: 'Rólunk', href: '/rolunk' },
-  { label: 'Hydrafacial', href: '/hydrafacial' },
-  { label: 'Tetoválás eltávolítás', href: '/nd-yag-lezerek' },
-  { label: 'Sminktetováló', href: '/sminktetovalas' },
+  { label: 'Termékek', href: '/termekek', hasMegaMenu: true },
   { label: 'Képzések', href: '/kepzesek' },
+  { label: 'Rólunk', href: '/rolunk' },
   { label: 'Kapcsolat', href: '/kapcsolat' },
 ];
 

@@ -1,0 +1,38 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products', ({ data }) => {
+    return data.categorySlug === 'anti-aging';
+  });
+
+  return products.map((product) => ({
+    params: { slug: product.data.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+const productData = {
+  name: product.data.name,
+  sku: product.data.sku,
+  slug: product.data.slug,
+  categorySlug: product.data.categorySlug,
+  description: product.data.description,
+  shortDescription: product.data.shortDescription,
+  price: product.data.price,
+  image: product.data.image,
+  gallery: product.data.gallery,
+  youtubeVideos: product.data.youtubeVideos,
+  availability: product.data.availability,
+  hasVariants: product.data.hasVariants,
+  variants: product.data.variants,
+  featured: product.data.featured,
+  metaTitle: product.data.metaTitle,
+  metaDescription: product.data.metaDescription,
+};
+---
+
+<ProductLayout product={productData} />

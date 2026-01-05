@@ -58,76 +58,68 @@ const faq = [
   },
 ];
 
-// ============================================================
-// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
-// ============================================================
 const comparison = {
-  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Hűtés', 'Smart kezelőfej', 'Kijelző', 'Ajánlott'],
+  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Hűtés', 'Kijelző', 'Ajánlott'],
   products: [
     {
-      name: 'DiodeStart 808',        // 🔴 DUMMY
-      tag: 'Belépő szint',
+      name: 'NyxQueen 4Wave',
+      tag: '6 szín',
       tagColor: 'purple',
-      link: '/diodalezerek/diodestart-808',  // 🔴 DUMMY LINK
+      link: '/diodalezerek/nyxqueen-diodalezer',
       specs: {
-        'Ár': '1.3M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '1 (808nm)', // 🔴 DUMMY
-        'Teljesítmény': '600W',       // 🔴 DUMMY
-        'Hűtés': 'Levegő',            // 🔴 DUMMY
-        'Smart kezelőfej': '✗',
-        'Kijelző': '10"',             // 🔴 DUMMY
-        'Ajánlott': 'Kisszalonok, kezdők',
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4 (755+808+940+1064nm)',
+        'Teljesítmény': '600W',
+        'Hűtés': 'Zafír hűtés',
+        'Kijelző': '12"',
+        'Ajánlott': 'Kis-közepes szalonok',
       },
     },
     {
-      name: 'NyxQueen 4Wave',        // 🔴 DUMMY
-      tag: '-36% Akció',
-      tagColor: 'orange',
-      link: '/diodalezerek/nyxqueen-4wave',  // 🔴 DUMMY LINK
-      specs: {
-        'Ár': '1.6M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '4',         // 🔴 DUMMY
-        'Teljesítmény': '800W',       // 🔴 DUMMY
-        'Hűtés': 'Peltier',           // 🔴 DUMMY
-        'Smart kezelőfej': '✗',
-        'Kijelző': '12"',             // 🔴 DUMMY
-        'Ajánlott': 'Ár-érték király',
-      },
-    },
-    {
-      name: 'Prestige4WAVE',         // 🔴 DUMMY
-      tag: '🏆 Bestseller',
-      tagColor: 'red',
-      highlighted: true,
-      link: '/diodalezerek/prestige-4wave',  // 🔴 DUMMY LINK
-      specs: {
-        'Ár': '3M Ft',               // 🔴 DUMMY
-        'Hullámhosszak': '4',         // 🔴 DUMMY
-        'Teljesítmény': '1200W',      // 🔴 DUMMY
-        'Hűtés': '-5°C Zafír',        // 🔴 DUMMY
-        'Smart kezelőfej': '✓',
-        'Kijelző': '15.6" HD',        // 🔴 DUMMY
-        'Ajánlott': 'Profik, nagy forgalom',
-      },
-    },
-    {
-      name: 'LaserMax Pro',          // 🔴 DUMMY
+      name: 'PeonyLUXE',
       tag: 'Prémium',
-      tagColor: 'blue',
-      link: '/diodalezerek/lasermax-pro',  // 🔴 DUMMY LINK
+      tagColor: 'rose',
+      link: '/diodalezerek/peonyluxe-4-hullamhosszon-operalo-vertikalis-premium-diodalezer-767',
       specs: {
-        'Ár': '2.8M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '4',         // 🔴 DUMMY
-        'Teljesítmény': '1200W',      // 🔴 DUMMY
-        'Hűtés': 'Ice cooling',       // 🔴 DUMMY
-        'Smart kezelőfej': '✓',
-        'Kijelző': '15"',             // 🔴 DUMMY
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4',
+        'Teljesítmény': '1200W',
+        'Hűtés': '-5°C Zafír',
+        'Kijelző': '15.6" HD',
         'Ajánlott': 'Prémium szalonok',
+      },
+    },
+    {
+      name: 'Prestige4WAVE',
+      tag: 'Bestseller',
+      tagColor: 'green',
+      highlighted: true,
+      link: '/diodalezerek/prestige4wave_diodalezer',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4',
+        'Teljesítmény': '1200W',
+        'Hűtés': '-5°C Zafír',
+        'Kijelző': '15.6" HD',
+        'Ajánlott': 'Nagy forgalmú szalonok',
+      },
+    },
+    {
+      name: 'LUNOX 2in1',
+      tag: 'Dióda + ND:YAG',
+      tagColor: 'blue',
+      link: '/diodalezerek/lunox_2in1_lezerkeszulek',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4 + ND:YAG',
+        'Teljesítmény': '1200W',
+        'Hűtés': 'Kombinált',
+        'Kijelző': '15"',
+        'Ajánlott': 'Teljes lézerstúdió',
       },
     },
   ],
 };
-// ============================================================
 ---
 
 <CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
