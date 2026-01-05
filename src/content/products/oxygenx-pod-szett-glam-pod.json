@@ -7,14 +7,8 @@
   "description": "Az OxygenX Pod szett egyedülálló megoldást kínál a bőr mélytisztítására, oxigenizálására és táplálására. A szett különböző kapszulákat (podokat), primer gélt és szérumot tartalmaz, amelyek együttesen biztosítják a bőr egészséges ragyogását. A szett tartalma: 6 db OxygenX kapszula (pod) 6 db primer gél 6 db szérum Főbb előnyök: Mélytisztítás: A podok és a primer gél kombinációja eltávolítja az elhalt hámsejteket és a szennyeződéseket. Oxigenizálás: A kezelés során felszabaduló CO₂ serkenti a bőr természetes oxigéntermelését, javítva annak vitalitását. Táplálás: A szérumok értékes hatóanyagokat juttatnak a bőr mélyebb rétegeibe, elősegítve a regenerációt és a hidratálást. Glam Pod – Nyugtató és feszesítő kezelés az egészséges bőrért Balance – Kiegyensúlyozza a bőrt, segít a faggyútermelés szabályozásában Hydrate – Intenzív hidratálás és bőrmegújítás Detox – Mélytisztító és méregtelenítő hatás Revive – Feszesítő és ránccsökkentő hatás Retouch – Anti-aging Illuminate – Ragyogást ad és kiegyenlíti a fakó bőrtónust",
   "metaTitle": "OxygenX Pod szett",
   "metaDescription": "Fedezd fel az OxygenX Pod szett előnyeit: mélytisztítás, oxigenizálás és táplálás egyetlen kezelésben.",
-  "price": null,
-  "image": "/images/products/Glam-Pods-Oxy-Genx.webp",
-  "gallery": [
-    "/images/products/Geneo-Oxypods-sheet.webp",
-    "/images/products/Glam-Pods-Oxy-Genx-image2.webp",
-    "/images/products/Glam-Pods-Oxy-Genx-package-768x958.webp",
-    "/images/products/Glam-pot.webp"
-  ],
+  "price": 12990,
+  "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
   "availability": "in_stock",
   "hasVariants": true,
   "variants": [
@@ -22,51 +16,58 @@
       "sku": "oxyglam001",
       "name": "GLAM",
       "value": "glam",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxyretouch001",
       "name": "RETOUCH",
       "value": "retouch",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxyillumh001",
       "name": "ILLUMINATE",
       "value": "illuminate",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxyrevive001",
       "name": "REVIVE",
       "value": "revive",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxybalance001",
       "name": "BALANCE",
       "value": "balance",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxyhydrate001",
       "name": "HYDRATE",
       "value": "hydrate",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     },
     {
       "sku": "oxydetox001",
       "name": "DETOX",
       "value": "detox",
-      "price": null,
-      "image": "/images/products/Glam-Pods-Oxy-Genx.webp"
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
     }
   ],
-  "featured": false
+  "featured": false,
+  "images": [
+    "@assets/products/Glam-Pods-Oxy-Genx.webp",
+    "@assets/products/Geneo-Oxypods-sheet.webp",
+    "@assets/products/Glam-Pods-Oxy-Genx-image2.webp",
+    "@assets/products/Glam-Pods-Oxy-Genx-package-768x958.webp",
+    "@assets/products/Glam-pot.webp"
+  ]
 }

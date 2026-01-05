@@ -1,12 +1,22 @@
 ---
-// Brand logos for the marquee
+/**
+ * BrandMarquee - Displays brand logos in an infinite scrolling marquee
+ * Uses the Logo component for optimized images with WebP + JPEG fallback
+ */
+import Logo from '../images/Logo.astro';
+
+// Import brand logos from assets
+import skinlabLogo from '../../assets/brands/skinlab-logo.jpg';
+import mastLogo from '../../assets/brands/mast-logo.png';
+import dragonhawkLogo from '../../assets/brands/dragonhawk-logo.png';
+import wjxLogo from '../../assets/brands/wjx-logo.png';
+
+// Brand logos with their display settings
 const brands = [
-  { name: 'Novalight', slug: 'novalight' },
-  { name: 'MAST', slug: 'mast' },
-  { name: 'Prestige', slug: 'prestige' },
-  { name: 'NyxQueen', slug: 'nyxqueen' },
-  { name: 'HydraCrown', slug: 'hydracrown' },
-  { name: 'Neo Laser', slug: 'neolaser' },
+  { name: 'SkinLab', logo: skinlabLogo, width: 80 },
+  { name: 'MAST', logo: mastLogo, width: 120 },
+  { name: 'Dragonhawk', logo: dragonhawkLogo, width: 140 },
+  { name: 'WJX', logo: wjxLogo, width: 100 },
 ];
 ---
 
@@ -35,9 +45,12 @@ const brands = [
       <div class="marquee-content flex items-center gap-12 lg:gap-16 px-6">
         {brands.map((brand) => (
           <div class="flex-shrink-0 flex items-center justify-center h-16 px-6 bg-white rounded-xl shadow-sm border border-gray-100">
-            <span class="text-lg lg:text-xl font-bold text-gray-400 whitespace-nowrap">
-              {brand.name}
-            </span>
+            <Logo
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              width={brand.width}
+              class="h-10 w-auto object-contain"
+            />
           </div>
         ))}
       </div>
@@ -45,9 +58,12 @@ const brands = [
       <div class="marquee-content flex items-center gap-12 lg:gap-16 px-6" aria-hidden="true">
         {brands.map((brand) => (
           <div class="flex-shrink-0 flex items-center justify-center h-16 px-6 bg-white rounded-xl shadow-sm border border-gray-100">
-            <span class="text-lg lg:text-xl font-bold text-gray-400 whitespace-nowrap">
-              {brand.name}
-            </span>
+            <Logo
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              width={brand.width}
+              class="h-10 w-auto object-contain"
+            />
           </div>
         ))}
       </div>

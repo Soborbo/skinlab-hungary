@@ -1,0 +1,350 @@
+---
+/**
+ * ROICalculator - Megtérülés kalkulátor komponens
+ * Jelentőségteljes megjelenés, de max ~90vh asztali nézetben.
+ */
+
+interface Props {
+  productPrice?: number | null;
+  productName?: string;
+  category?: string;
+}
+
+const { productPrice, productName = 'gép', category = 'diodalezerek' } = Astro.props;
+
+// Default kezelési díjak kategóriánként (forint)
+const defaultTreatmentPrices: Record<string, number> = {
+  'diodalezerek': 15000,
+  'hydrafacial': 25000,
+  'nd-yag-lezerek': 20000,
+  'pico-lezerek': 25000,
+  'hiemt': 30000,
+  'anti-aging': 35000,
+  'sminktetovalas': 50000,
+};
+
+const defaultTreatmentPrice = defaultTreatmentPrices[category] || 15000;
+const hasPrice = productPrice && productPrice > 0;
+
+// Format price for display
+const formatPriceDisplay = (price: number) => {
+  return new Intl.NumberFormat('hu-HU').format(price);
+};
+---
+
+<section class="py-12 lg:py-16 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-8 lg:mb-10">
+      <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+        Megtérülés kalkulátor
+      </div>
+      <h2 class="text-2xl lg:text-4xl font-bold text-gray-900 mb-2">
+        Mennyi idő alatt térül meg a befektetés?
+      </h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Számold ki az adataid alapján
+      </p>
+    </div>
+
+    <!-- Calculator Card -->
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden" id="roi-calculator">
+      <div class="grid lg:grid-cols-2">
+
+        <!-- Input Side -->
+        <div class="p-6 lg:p-10">
+          <div class="space-y-6">
+            <!-- Row 1: Prices -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              <!-- Machine Price -->
+              <div>
+                <label for="machine-price" class="block text-sm font-bold text-gray-700 mb-2">
+                  Gép ára (bruttó)
+                </label>
+                {hasPrice ? (
+                  <div class="px-4 py-3 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl text-xl font-bold text-gray-900 border border-gray-200">
+                    {formatPriceDisplay(productPrice)} Ft
+                    <input type="hidden" id="machine-price" value={productPrice} />
+                  </div>
+                ) : (
+                  <div class="relative">
+                    <input
+                      type="number"
+                      id="machine-price"
+                      placeholder="Add meg az árát"
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-semibold pr-12"
+                      min="0"
+                      step="10000"
+                    />
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Ft</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Treatment Price -->
+              <div>
+                <label for="treatment-price" class="block text-sm font-bold text-gray-700 mb-2">
+                  Átlagos kezelési díj
+                </label>
+                <div class="relative">
+                  <input
+                    type="number"
+                    id="treatment-price"
+                    value={defaultTreatmentPrice}
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-semibold pr-12"
+                    min="1000"
+                    step="1000"
+                  />
+                  <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Ft</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Sliders -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              <!-- Daily Clients -->
+              <div class="bg-gray-50 rounded-xl p-4">
+                <label class="block text-sm font-bold text-gray-700 mb-3">
+                  Napi vendégszám
+                </label>
+                <div class="flex items-center gap-4">
+                  <input
+                    type="range"
+                    id="daily-clients"
+                    min="1"
+                    max="15"
+                    value="3"
+                    class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
+                  />
+                  <div class="w-16 text-center">
+                    <span id="clients-value" class="text-2xl font-bold text-primary-600">3</span>
+                    <span class="text-sm text-gray-500 block">fő</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Working Days -->
+              <div class="bg-gray-50 rounded-xl p-4">
+                <label class="block text-sm font-bold text-gray-700 mb-3">
+                  Munkanapok havonta
+                </label>
+                <div class="flex items-center gap-4">
+                  <input
+                    type="range"
+                    id="working-days"
+                    min="10"
+                    max="30"
+                    value="22"
+                    class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
+                  />
+                  <div class="w-16 text-center">
+                    <span id="days-value" class="text-2xl font-bold text-primary-600">22</span>
+                    <span class="text-sm text-gray-500 block">nap</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: Profit Margin -->
+            <div class="bg-gray-50 rounded-xl p-4">
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-bold text-gray-700">
+                  Haszonkulcs
+                </label>
+                <span class="text-xs text-gray-500">(rezsi és anyagköltség levonása után)</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <input
+                  type="range"
+                  id="profit-margin"
+                  min="30"
+                  max="90"
+                  value="70"
+                  class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
+                />
+                <div class="w-20 text-center">
+                  <span id="margin-value" class="text-2xl font-bold text-primary-600">70</span>
+                  <span class="text-xl font-bold text-primary-600">%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Side -->
+        <div class="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-800 p-6 lg:p-10 text-white flex flex-col justify-center relative overflow-hidden">
+          <!-- Background decoration -->
+          <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+          <div class="relative z-10">
+            <!-- ROI Time - Hero -->
+            <div class="text-center mb-8">
+              <div class="text-sm font-semibold text-primary-200 uppercase tracking-widest mb-2">Megtérülési idő</div>
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-7xl lg:text-8xl font-black leading-none" id="roi-months">-</span>
+                <span class="text-2xl lg:text-3xl font-semibold text-primary-200">hónap</span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mb-8"></div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
+                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">Havi bevétel</div>
+                <div class="text-xl lg:text-2xl font-bold" id="monthly-revenue">-</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
+                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">Havi haszon</div>
+                <div class="text-xl lg:text-2xl font-bold" id="monthly-profit">-</div>
+              </div>
+            </div>
+
+            <!-- Yearly Profit - Highlighted -->
+            <div class="bg-gradient-to-r from-green-500/30 to-emerald-500/30 backdrop-blur rounded-xl p-5 text-center border border-green-400/30">
+              <div class="text-sm font-semibold text-green-200 uppercase tracking-wide mb-1">Éves tiszta haszon</div>
+              <div class="text-3xl lg:text-4xl font-black text-green-300" id="yearly-profit">-</div>
+            </div>
+
+            <!-- Note -->
+            <p class="text-xs text-primary-300 text-center mt-6">
+              * Kalkuláció becsült értékek alapján, egyéni eredmények eltérhetnek
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA below -->
+    <div class="mt-6 text-center">
+      <a
+        href="/kapcsolat"
+        class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-base group"
+      >
+        Kérj személyre szabott kalkulációt szakértőnktől
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initROICalculator() {
+    const calculator = document.getElementById('roi-calculator');
+    if (!calculator) return;
+
+    const machinePrice = document.getElementById('machine-price') as HTMLInputElement;
+    const treatmentPrice = document.getElementById('treatment-price') as HTMLInputElement;
+    const dailyClients = document.getElementById('daily-clients') as HTMLInputElement;
+    const workingDays = document.getElementById('working-days') as HTMLInputElement;
+    const profitMargin = document.getElementById('profit-margin') as HTMLInputElement;
+
+    const clientsValue = document.getElementById('clients-value');
+    const daysValue = document.getElementById('days-value');
+    const marginValue = document.getElementById('margin-value');
+
+    const roiMonths = document.getElementById('roi-months');
+    const monthlyRevenue = document.getElementById('monthly-revenue');
+    const monthlyProfit = document.getElementById('monthly-profit');
+    const yearlyProfit = document.getElementById('yearly-profit');
+
+    function formatNumber(num: number): string {
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + ' M Ft';
+      }
+      return new Intl.NumberFormat('hu-HU').format(Math.round(num)) + ' Ft';
+    }
+
+    function calculate() {
+      const price = parseFloat(machinePrice?.value) || 0;
+      const treatment = parseFloat(treatmentPrice?.value) || 0;
+      const clients = parseInt(dailyClients?.value) || 0;
+      const days = parseInt(workingDays?.value) || 0;
+      const margin = parseInt(profitMargin?.value) || 0;
+
+      // Update display values
+      if (clientsValue) clientsValue.textContent = clients.toString();
+      if (daysValue) daysValue.textContent = days.toString();
+      if (marginValue) marginValue.textContent = margin.toString();
+
+      // Calculate
+      const monthlyRev = treatment * clients * days;
+      const monthlyProf = monthlyRev * (margin / 100);
+      const months = price > 0 && monthlyProf > 0 ? price / monthlyProf : 0;
+      const yearlyProf = monthlyProf * 12;
+
+      // Update results
+      if (roiMonths) {
+        if (months > 0 && months < 100) {
+          roiMonths.textContent = months.toFixed(1);
+        } else if (months >= 100) {
+          roiMonths.textContent = '99+';
+        } else {
+          roiMonths.textContent = '-';
+        }
+      }
+
+      if (monthlyRevenue) monthlyRevenue.textContent = monthlyRev > 0 ? formatNumber(monthlyRev) : '-';
+      if (monthlyProfit) monthlyProfit.textContent = monthlyProf > 0 ? formatNumber(monthlyProf) : '-';
+      if (yearlyProfit) yearlyProfit.textContent = yearlyProf > 0 ? formatNumber(yearlyProf) : '-';
+    }
+
+    // Add event listeners
+    [machinePrice, treatmentPrice, dailyClients, workingDays, profitMargin].forEach(input => {
+      if (input) {
+        input.addEventListener('input', calculate);
+      }
+    });
+
+    // Initial calculation
+    calculate();
+  }
+
+  // Run on load
+  document.addEventListener('DOMContentLoaded', initROICalculator);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initROICalculator();
+  }
+</script>
+
+<style>
+  /* Custom slider styling */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+  }
+
+  /* Number input - hide spinner */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>

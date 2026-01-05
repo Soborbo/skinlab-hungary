@@ -1,5 +1,17 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ROICalculator from '../components/product/ROICalculator.astro';
+import StatsBar from '../components/product/StatsBar.astro';
+import ProductFAQ from '../components/product/ProductFAQ.astro';
+import WhatsIncluded from '../components/product/WhatsIncluded.astro';
+import VideoDemo from '../components/product/VideoDemo.astro';
+import TechSpecs from '../components/product/TechSpecs.astro';
+import Testimonials from '../components/product/Testimonials.astro';
+import ExpertQuote from '../components/product/ExpertQuote.astro';
+import RelatedProducts from '../components/product/RelatedProducts.astro';
+// Schema components
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 import { SITE, CONTACT, TRUST_BADGES, CATEGORIES } from '../lib/constants';
 
 interface Variant {
@@ -8,6 +20,18 @@ interface Variant {
   value: string;
   price: number | null;
   image?: string;
+}
+
+interface Stat {
+  value: string;
+  unit?: string;
+  label: string;
+  icon?: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
 }
 
 interface Props {
@@ -28,6 +52,10 @@ interface Props {
     featured?: boolean;
     metaTitle?: string;
     metaDescription?: string;
+    stats?: Stat[];
+    faq?: FAQItem[];
+    whatsIncluded?: string[];
+    specs?: Record<string, string>;
   };
 }
 
@@ -51,44 +79,78 @@ const availabilityInfo = {
 };
 const availability = availabilityInfo[product.availability];
 
-// Breadcrumb schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Főoldal", "item": SITE.url },
-    { "@type": "ListItem", "position": 2, "name": categoryName, "item": `${SITE.url}/${product.categorySlug}` },
-    { "@type": "ListItem", "position": 3, "name": product.name }
-  ]
-};
+// Page URL
+const pageUrl = `${SITE.url}/${product.categorySlug}/${product.slug}`;
 
-// Product schema
-const productSchema = {
+// Breadcrumb items for schema
+const breadcrumbItems = [
+  { name: 'Főoldal', url: SITE.url },
+  { name: categoryName, url: `${SITE.url}/${product.categorySlug}` },
+  { name: product.name }
+];
+
+// FAQ questions for schema (if available)
+const faqQuestions = product.faq?.map(item => ({
+  question: item.question,
+  answer: item.answer
+})) || [];
+
+// Product schema (kept inline because ProductSchema component requires price)
+const productSchema = product.price ? {
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": `${pageUrl}#product`,
   "name": product.name,
   "description": product.shortDescription || product.description?.slice(0, 200),
   "sku": product.sku,
   "brand": { "@type": "Brand", "name": "SkinLab" },
-  "image": product.image ? [`${SITE.url}/${product.image}`] : [],
+  "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
   "offers": {
     "@type": "Offer",
-    "url": `${SITE.url}/${product.categorySlug}/${product.slug}`,
+    "url": pageUrl,
     "priceCurrency": "HUF",
-    "price": product.price || undefined,
+    "price": String(product.price),
     "availability": product.availability === 'in_stock'
       ? "https://schema.org/InStock"
       : product.availability === 'preorder'
         ? "https://schema.org/PreOrder"
         : "https://schema.org/OutOfStock",
-    "seller": { "@id": `${SITE.url}/#organization` },
-    "warranty": {
-      "@type": "WarrantyPromise",
-      "durationOfWarranty": "P2Y",
-      "warrantyScope": "https://schema.org/FullWarranty"
+    "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "SkinLab Hungary" },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "HUF"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "HU"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 10,
+          "maxValue": 20,
+          "unitCode": "DAY"
+        }
+      }
     }
   }
-};
+} : null;
 
 // Trust badge icons
 const icons: Record<string, string> = {
@@ -108,8 +170,12 @@ const allImages = [
 <BaseLayout
   title={product.metaTitle || product.name}
   description={product.metaDescription || product.shortDescription || product.description?.slice(0, 160)}
-  schema={[breadcrumbSchema, productSchema]}
+  schema={productSchema}
 >
+  <!-- Schema.org Structured Data -->
+  <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
+  {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
+
   <div id="main-content">
 
     <!-- Breadcrumb -->
@@ -299,6 +365,12 @@ const allImages = [
       </div>
     </section>
 
+    <!-- STATS BAR -->
+    <StatsBar stats={product.stats} category={product.categorySlug} />
+
+    <!-- VIDEO DEMO -->
+    <VideoDemo videos={product.youtubeVideos} productName={product.name} />
+
     <!-- DESCRIPTION SECTION -->
     {product.description && (
       <section class="py-12 bg-gray-50">
@@ -311,7 +383,47 @@ const allImages = [
       </section>
     )}
 
-    <!-- BOTTOM CTA -->
+    <!-- TECH SPECS -->
+    <TechSpecs
+      specs={product.specs}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- ROI CALCULATOR -->
+    <ROICalculator
+      productPrice={product.price}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- WHATS INCLUDED -->
+    <WhatsIncluded
+      items={product.whatsIncluded}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- PRODUCT FAQ -->
+    <ProductFAQ
+      faq={product.faq}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- TESTIMONIALS -->
+    <Testimonials
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- EXPERT QUOTE -->
+    <ExpertQuote
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- CTA SECTION -->
     <section class="py-16 bg-primary-600">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -339,6 +451,12 @@ const allImages = [
         </div>
       </div>
     </section>
+
+    <!-- RELATED PRODUCTS -->
+    <RelatedProducts
+      currentSlug={product.slug}
+      categorySlug={product.categorySlug}
+    />
 
   </div>
 </BaseLayout>

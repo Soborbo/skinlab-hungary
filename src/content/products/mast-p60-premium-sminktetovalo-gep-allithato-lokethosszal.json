@@ -7,14 +7,8 @@
   "description": "A Mast P60 egy vezeték nélküli sminktetováló gép, amelyet a Dragonhawk kínál. Ez a készülék kifejezetten a sminktetoválás területére lett tervezve, és számos előnnyel rendelkezik: Vezeték nélküli kialakítás : A beépített akkumulátornak köszönhetően a Mast P60 teljes mozgásszabadságot biztosít, így nincs szükség kábelekre munka közben. Könnyű és ergonomikus : A gép könnyű súlya és ergonomikus kialakítása csökkenti a kéz fáradtságát, lehetővé téve a hosszabb munkavégzést is. Állítható tűhossz : A készülék lehetővé teszi a tűhossz egyszerű beállítását, így különböző technikákhoz és bőrtípusokhoz is alkalmazkodik. Csendes működés : A Mast P60 csendes motorral rendelkezik, amely minimalizálja a zajt és a rezgést, ezáltal kényelmesebb élményt nyújt mind a művész, mind a kliens számára. Hosszú akkumulátor-élettartam : A készülék akkumulátora hosszú üzemidőt biztosít, így egyetlen feltöltéssel több munkamenetet is elvégezhet. A Mast P60 ideális választás mind a kezdő, mind a tapasztalt sminktetováló művészek számára, akik megbízható és sokoldalú eszközt keresnek munkájukhoz. Egyik különlegessége, hogy állítható lökethosszal rendelkezik, ami ritka a sminktetováló gépek között. Az állítható lökethossz lehetővé teszi: Különböző technikák alkalmazását : Finom szálazott szemöldöktől a satírozott hatásig. Különböző bőrtípusokhoz való alkalmazkodást : Érzékenyebb bőrön kisebb lökethossz, vastagabb bőrön nagyobb. Testreszabott pigmentbevitelt : Jobb kontroll a festék eloszlásában. A Mast P60 vezeték nélküli sminktetováló gép főbb technikai adatai a következők: Súly : 121 gramm Motor típusa : Coreless motor Motor sebessége : 11 000 ±10% fordulat/perc Méret : 27 mm átmérőjű, 150 mm hosszú Állítható lökethossz : 2,2 mm, 2,5 mm, 2,7 mm, 2,9 mm és 3,2 mm Működési idő : Több mint 3 óra folyamatos használat Működési feszültség : 4–10 V Csatlakozó típusa : Type-C Akkumulátor kapacitása : 900 mAh Ezek az adatok biztosítják a készülék sokoldalúságát és megbízhatóságát a sminktetoválás során.",
   "metaTitle": "MAST P60 sminktetováló gép – vezeték nélküli, állítható lökethosszal",
   "metaDescription": "Vezeték nélküli MAST P60 gép állítható lökethosszal, hosszú üzemidővel és csendes működéssel. Tökéletes sminktetováláshoz kezdőknek és profiknak.",
-  "price": null,
-  "image": "/images/products/P60arany.webp",
-  "gallery": [
-    "/images/products/WQP-053-1.webp",
-    "/images/products/WQP-053-4.webp",
-    "/images/products/WQP-053-5-1024x1024.webp",
-    "/images/products/WQP-053-7.webp"
-  ],
+  "price": 79990,
+  "image": "@assets/products/P60arany.webp",
   "availability": "in_stock",
   "hasVariants": true,
   "variants": [
@@ -22,23 +16,30 @@
       "sku": "MP60gold",
       "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
       "value": "MP60gold",
-      "price": null,
-      "image": "/images/products/P60arany.webp"
+      "price": 79990,
+      "image": "@assets/products/P60arany.webp"
     },
     {
       "sku": "MP60rosegold",
       "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
       "value": "MP60rosegold",
-      "price": null,
-      "image": "/images/products/P60rosegold.webp"
+      "price": 79990,
+      "image": "@assets/products/P60rosegold.webp"
     },
     {
       "sku": "MP60PURPLE",
       "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
       "value": "MP60PURPLE",
-      "price": null,
-      "image": "/images/products/P60lila.webp"
+      "price": 79990,
+      "image": "@assets/products/P60lila.webp"
     }
   ],
-  "featured": false
+  "featured": false,
+  "images": [
+    "@assets/products/P60arany.webp",
+    "@assets/products/WQP-053-1.webp",
+    "@assets/products/WQP-053-4.webp",
+    "@assets/products/WQP-053-5-1024x1024.webp",
+    "@assets/products/WQP-053-7.webp"
+  ]
 }

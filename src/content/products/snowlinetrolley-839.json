@@ -7,11 +7,8 @@
   "description": "Felépítés és tárolás: Az asztalka három edzett üvegpolccal rendelkezik, amelyek ideálisak kozmetikumok, kezelési eszközök és tartozékok rendszerezett elhelyezésére. Az átlátható és rendezett tárolás megkönnyíti a mindennapi munkát. Design és anyaghasználat: Letisztult, modern megjelenését fehér színű alumíniumváza és a tartós üvegpolcok biztosítják. A sima felületek egyszerűen tisztíthatók, így mindig higiénikus munkakörnyezetet nyújt. Mobilitás: Az asztal négy gördülékeny kerékkel van felszerelve, ennek köszönhetően könnyedén áthelyezhető egyik helyiségből a másikba. Kiegészítő funkciók: A váz kialakítása lehetővé teszi nagyító lámpa rögzítését, így a SnowlineTrolley még sokoldalúbbá válik a professzionális felhasználásban. Főbb jellemzők: Fehér alumíniumváz, három edzett üvegpolccal Ideális eszközök és kozmetikumok rendszerezett tárolására Könnyen mozgatható a négy keréknek köszönhetően Egyszerűen tisztítható, higiénikus felületek",
   "metaTitle": "Kozmetikai Trolley-k",
   "metaDescription": "",
-  "price": null,
-  "image": "/images/products/Mary2.webp",
-  "gallery": [
-    "/images/products/Mary1.webp"
-  ],
+  "price": 49990,
+  "image": "@assets/products/Mary2.webp",
   "availability": "in_stock",
   "hasVariants": true,
   "variants": [
@@ -19,23 +16,27 @@
       "sku": "ST001",
       "name": "SnowlineTrolley",
       "value": "ST001",
-      "price": null,
-      "image": "/images/products/Mary2.webp"
+      "price": 49990,
+      "image": "@assets/products/Mary2.webp"
     },
     {
       "sku": "AT001",
       "name": "ArcticTrolley",
       "value": "AT001",
-      "price": null,
-      "image": "/images/products/Bonnie1.webp"
+      "price": 59990,
+      "image": "@assets/products/Bonnie1.webp"
     },
     {
       "sku": "FLT001",
       "name": "FrostLineTrolley",
       "value": "FLT001",
-      "price": null,
-      "image": "/images/products/MADDISON2.webp"
+      "price": 57990,
+      "image": "@assets/products/MADDISON2.webp"
     }
   ],
-  "featured": false
+  "featured": false,
+  "images": [
+    "@assets/products/Mary2.webp",
+    "@assets/products/Mary1.webp"
+  ]
 }

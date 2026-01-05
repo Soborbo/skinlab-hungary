@@ -1,0 +1,122 @@
+---
+/**
+ * ExpertQuote - Szakértői idézet/ajánlás szekció
+ * A SkinLab alapítók szakértői véleménye a termékről
+ */
+
+import { FOUNDERS } from '../../lib/constants';
+
+interface Props {
+  quote?: string;
+  author?: string;
+  role?: string;
+  productName?: string;
+  category?: string;
+}
+
+const { quote, author, role, productName = 'termék', category } = Astro.props;
+
+// Default quotes by category
+const defaultQuotes: Record<string, { quote: string; author: string; role: string }> = {
+  'diodalezerek': {
+    quote: 'A diódalézer a leghatékonyabb tartós szőrtelenítési technológia. A 4 hullámhossz kombinációja minden bőr- és szőrtípuson kiváló eredményt hoz - ezt 150+ telepített gép tapasztalata igazolja.',
+    author: FOUNDERS[0].name,
+    role: FOUNDERS[0].role,
+  },
+  'nd-yag-lezerek': {
+    quote: 'Az ND:YAG lézer elengedhetetlen eszköz a modern kozmetikai szalonban. A tetoválás eltávolítástól a carbon peelingig széles spektrumú kezeléseket tesz lehetővé biztonságosan.',
+    author: FOUNDERS[1].name,
+    role: FOUNDERS[1].role,
+  },
+  'pico-lezerek': {
+    quote: 'A pikoszekundumos technológia forradalmasította a pigmentációs kezeléseket. Gyorsabb, kíméletesebb és hatékonyabb, mint bármely korábbi megoldás.',
+    author: FOUNDERS[1].name,
+    role: FOUNDERS[1].role,
+  },
+  'hydrafacial': {
+    quote: 'A HydraFacial az egyik legjobb megtérülésű befektetés egy szalonban. A vendégek azonnal látják az eredményt, és rendszeresen visszatérnek - ez garantált bevételt jelent.',
+    author: FOUNDERS[0].name,
+    role: FOUNDERS[0].role,
+  },
+  'hiemt': {
+    quote: 'A HIEMT technológia új dimenziót nyit a testkezelésekben. 30 perc alatt olyan izommunka érhető el, ami edzéssel órákig tartana - és az eredmények mérhetőek.',
+    author: FOUNDERS[1].name,
+    role: FOUNDERS[1].role,
+  },
+  'anti-aging': {
+    quote: 'Az anti-aging kezelések iránti kereslet folyamatosan nő. A HIFU és RF technológiák műtét nélküli alternatívát kínálnak, amit a vendégek egyre jobban keresnek.',
+    author: FOUNDERS[1].name,
+    role: FOUNDERS[1].role,
+  },
+  'sminktetovalas': {
+    quote: 'A MAST gépek precizitása és megbízhatósága kiemelkedő. A svájci Maxon motorok és az ergonomikus kialakítás teszi őket a PMU művészek kedvencévé.',
+    author: FOUNDERS[0].name,
+    role: FOUNDERS[0].role,
+  },
+  'tetovalogepek': {
+    quote: 'A vezeték nélküli tetoválógépek szabadságot adnak a művésznek. A MAST gépek akkumulátora akár 8 órás munkamenetet is bír egyetlen töltéssel.',
+    author: FOUNDERS[0].name,
+    role: FOUNDERS[0].role,
+  },
+};
+
+// Global default quote
+const globalDefault = {
+  quote: 'Minden gépünket személyesen teszteljük, mielőtt a kínálatunkba kerülne. Csak olyan készüléket ajánlunk, amit mi magunk is használnánk a saját szalonunkban.',
+  author: FOUNDERS[0].name,
+  role: FOUNDERS[0].role,
+};
+
+// Select the appropriate quote
+const displayQuote = quote || (category && defaultQuotes[category]?.quote) || globalDefault.quote;
+const displayAuthor = author || (category && defaultQuotes[category]?.author) || globalDefault.author;
+const displayRole = role || (category && defaultQuotes[category]?.role) || globalDefault.role;
+
+// Get initials for avatar
+const getInitials = (name: string) => {
+  return name.split(' ').map(n => n[0]).join('').slice(0, 2);
+};
+---
+
+<section class="py-12 lg:py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-gradient-to-br from-primary-50 to-primary-100 rounded-3xl p-8 lg:p-12">
+      <!-- Quote icon -->
+      <div class="absolute -top-4 left-8 lg:left-12">
+        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Quote content -->
+      <div class="pt-6">
+        <blockquote class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
+          "{displayQuote}"
+        </blockquote>
+
+        <!-- Author -->
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-lg">
+              {getInitials(displayAuthor)}
+            </span>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 text-lg">{displayAuthor}</div>
+            <div class="text-primary-600 font-medium">{displayRole}</div>
+            <div class="text-sm text-gray-500">SkinLab Hungary</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="absolute bottom-4 right-4 opacity-10">
+        <svg class="w-24 h-24 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

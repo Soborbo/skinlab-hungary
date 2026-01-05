@@ -1,0 +1,69 @@
+---
+// src/components/schema/VideoSchema.astro
+import type { VideoProps } from './helpers/types';
+import { clean } from './helpers/clean';
+import { schemaId, ID_SUFFIX } from './helpers/ids';
+
+type Props = VideoProps;
+
+const {
+  url,
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  embedUrl,
+  duration,
+  publisherName,
+  publisherUrl,
+  interactionCount,
+  locale = 'hu-HU',
+} = Astro.props;
+
+// ============================================
+// GUARDS
+// ============================================
+
+if (!url) throw new Error('VideoSchema: url is required');
+if (!name) throw new Error('VideoSchema: name is required');
+if (!description) throw new Error('VideoSchema: description is required');
+if (!thumbnailUrl) throw new Error('VideoSchema: thumbnailUrl is required');
+if (!uploadDate) throw new Error('VideoSchema: uploadDate is required');
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+const schema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  '@id': schemaId(url, ID_SUFFIX.video),
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  embedUrl,
+  duration,
+  inLanguage: locale,
+  interactionStatistic: interactionCount
+    ? {
+        '@type': 'InteractionCounter',
+        interactionType: 'https://schema.org/WatchAction',
+        userInteractionCount: interactionCount,
+      }
+    : undefined,
+  publisher: publisherName
+    ? {
+        '@type': 'Organization',
+        name: publisherName,
+        url: publisherUrl,
+      }
+    : undefined,
+};
+
+const output = JSON.stringify(clean(schema));
+---
+
+<script type="application/ld+json" set:html={output} />

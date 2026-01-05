@@ -4,14 +4,17 @@ import Footer from '../components/layout/Footer.astro';
 import TopCtaBar from '../components/layout/TopCtaBar.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import WhatsAppButton from '../components/layout/WhatsAppButton.astro';
-import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS, CATEGORIES } from '../lib/constants';
+import { LCPTracker } from '../components/images';
+import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
+import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS } from '../lib/constants';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
   noIndex?: boolean;
-  schema?: object;
+  schema?: object | object[] | null;
 }
 
 const {
@@ -25,48 +28,8 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, SITE.url);
 const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
 
-// Organization schema (minden oldalon)
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Organization"],
-  "@id": `${SITE.url}/#organization`,
-  "name": COMPANY.name,
-  "legalName": COMPANY.legalName,
-  "url": SITE.url,
-  "logo": `${SITE.url}/logo.png`,
-  "description": COMPANY.description,
-  "slogan": COMPANY.slogan,
-  "foundingDate": COMPANY.foundingDate,
-  "taxID": COMPANY.taxId,
-  "vatID": COMPANY.vatId,
-  "telephone": CONTACT.phone,
-  "email": CONTACT.email,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": LOCATIONS.showroom.streetAddress,
-    "addressLocality": LOCATIONS.showroom.city,
-    "postalCode": LOCATIONS.showroom.postalCode,
-    "addressCountry": LOCATIONS.showroom.country
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": LOCATIONS.showroom.geo.latitude,
-    "longitude": LOCATIONS.showroom.geo.longitude
-  },
-  "priceRange": COMPANY.priceRange,
-  "currenciesAccepted": COMPANY.currenciesAccepted.join(", "),
-  "paymentAccepted": COMPANY.paymentAccepted.join(", "),
-  "areaServed": COMPANY.areaServed.map(code => ({ "@type": "Country", "name": code })),
-  "sameAs": [SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Professzionális kozmetikai berendezések",
-    "itemListElement": CATEGORIES.map(cat => ({
-      "@type": "OfferCatalog",
-      "name": cat.name
-    }))
-  }
-};
+// Helper to render schema(s)
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Boolean) : [];
 ---
 
 <!DOCTYPE html>
@@ -105,9 +68,41 @@ const organizationSchema = {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
-  <!-- Schema.org -->
-  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  <!-- Schema.org - Global schemas -->
+  <LocalBusinessSchema
+    name={COMPANY.name}
+    url={SITE.url}
+    telephone={CONTACT.phone}
+    email={CONTACT.email}
+    streetAddress={LOCATIONS.showroom.streetAddress}
+    city={LOCATIONS.showroom.city}
+    postalCode={LOCATIONS.showroom.postalCode}
+    country="HU"
+    latitude={LOCATIONS.showroom.geo.latitude}
+    longitude={LOCATIONS.showroom.geo.longitude}
+    type="HealthAndBeautyBusiness"
+    logo={`${SITE.url}/logo.png`}
+    image={`${SITE.url}/showroom.jpg`}
+    priceRange={COMPANY.priceRange as '€€€€'}
+    paymentAccepted={COMPANY.paymentAccepted}
+    areaServed={COMPANY.areaServed.map(code => ({ type: 'Country', name: code }))}
+    sameAs={[SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url]}
+  />
+  <OrganizationSchema
+    name={COMPANY.name}
+    legalName={COMPANY.legalName}
+    url={SITE.url}
+    logo={`${SITE.url}/logo.png`}
+    image={`${SITE.url}/showroom.jpg`}
+    slogan={COMPANY.slogan}
+    foundingDate={COMPANY.foundingDate}
+    email={CONTACT.email}
+    telephone={CONTACT.phone}
+    sameAs={[SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url]}
+  />
+  {schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
   
   <!-- Generator -->
   <meta name="generator" content={Astro.generator} />
@@ -121,6 +116,7 @@ const organizationSchema = {
   <Footer />
   <MobileStickyCta />
   <WhatsAppButton />
+<LCPTracker />
 </body>
 </html>
 

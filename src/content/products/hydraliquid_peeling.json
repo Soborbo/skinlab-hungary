@@ -7,12 +7,8 @@
   "description": "Farmona Professional Hydra Technology – Erősen hámlasztó HydraLiquid (500 ml) Kb. 50 kezelésre elegendő kiszerelés. A Farmona Professional lengyel márka mögött bőrgyógyászok és biotechnológusok szakértelme áll. A Hydra Technology termékcsaládot kifejezetten professzionális kozmetikai eljárásokhoz fejlesztették ki, többek között kavitációs peelinghez, hidrogénes tisztításhoz, hidroabrázióhoz, illetve az ezek közötti ápoláshoz. A tonik erőteljes hámlasztó hatását tejsav, allantoin, betain, valamint eper-, szeder- és málnakivonatok biztosítják. Összetételének köszönhetően a kezelések során lágy, mégis hatékony bőrtisztítást és előkészítést nyújt. Főbb előnyök Hatékonyan eltávolítja az elhalt hámsejteket Kisimítja a bőrfelszínt Támogatja a sejtek megújulását Javítja a bőr regenerációs folyamatait Csökkenti a pattanások és gyulladások intenzitását Egységesíti az arcbőrt Növeli a rugalmasságot és lassítja a bőröregedés jeleit A termék kifejezetten hidroabráziós készülékekhez tervezett professzionális liquid , amely egyedülálló összetételének köszönhetően stabil működést, kiváló csúszást és kiemelkedő eredményt biztosít a készülékek számára. Használható továbbá oxigénes terápiás és oxigéninfúziós kezelésekhez , ahol elősegíti a hatóanyagok mélyebb bejutását és fokozza a bőrmegújító folyamatokat. Kizárólag professzionális felhasználásra!",
   "metaTitle": "HydraLiquid peeling hatással hidrodermabrázióhoz",
   "metaDescription": "Farmona Professional erősen hámlasztó hidrodermabráziós folyadék problémás bőrre.",
-  "price": null,
-  "image": "/images/products/hamlasztooldat.webp",
-  "gallery": [
-    "/images/products/hydraoldatok.webp",
-    "/images/products/hydraoldatokmeggep.webp"
-  ],
+  "price": 5990,
+  "image": "@assets/products/hamlasztooldat.webp",
   "availability": "in_stock",
   "hasVariants": true,
   "variants": [
@@ -20,44 +16,49 @@
       "sku": "FHLP1",
       "name": "erősen hámlasztó",
       "value": "erősen-hámlasztó",
-      "price": null,
-      "image": "/images/products/hamlasztooldat.webp"
+      "price": 5990,
+      "image": "@assets/products/hamlasztooldat.webp"
     },
     {
       "sku": "HLB2",
       "name": "lifting, bioretinollal",
       "value": "lifting,-bioretinollal",
-      "price": null,
-      "image": "/images/products/Hydraliftingoldat.webp"
+      "price": 5990,
+      "image": "@assets/products/Hydraliftingoldat.webp"
     },
     {
       "sku": "HLCV",
       "name": "C-vitaminos, világosító",
       "value": "c-vitaminos,-világosító",
-      "price": null,
-      "image": "/images/products/vilagositooldat.webp"
+      "price": 5990,
+      "image": "@assets/products/vilagositooldat.webp"
     },
     {
       "sku": "HLRH",
       "name": "revitalizáló, hegyikristállyal",
       "value": "revitalizáló,-hegyikristállyal",
-      "price": null,
-      "image": "/images/products/hidraliquidkrist.webp"
+      "price": 5990,
+      "image": "@assets/products/hidraliquidkrist.webp"
     },
     {
       "sku": "HLH3",
       "name": "hidratáló",
       "value": "hidratáló",
-      "price": null,
-      "image": "/images/products/hidrahidra.webp"
+      "price": 5990,
+      "image": "@assets/products/hidrahidra.webp"
     },
     {
       "sku": "HLH4",
       "name": "hyaluronsavas feltöltő",
       "value": "hyaluronsavas-feltöltő",
-      "price": null,
-      "image": "/images/products/hyalu.webp"
+      "price": 5990,
+      "image": "@assets/products/hyalu.webp"
     }
   ],
-  "featured": false
+  "featured": false,
+  "images": [
+    "@assets/products/hamlasztooldat.webp",
+    "@assets/products/hydraoldatok.webp",
+    "@assets/products/hydraoldatokmeggep.webp"
+  ]
 }

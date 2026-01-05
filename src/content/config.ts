@@ -7,6 +7,15 @@ const variantSchema = z.object({
   value: z.string(),
   price: z.number().nullable(),
   image: z.string().optional(),
+  available: z.boolean().optional(),
+});
+
+// Stat schema for product stats bar
+const statSchema = z.object({
+  value: z.string(),
+  unit: z.string().optional(),
+  label: z.string(),
+  icon: z.string().optional(),
 });
 
 // Product schema - updated for JSON data files
@@ -29,6 +38,12 @@ const productSchema = z.object({
   variants: z.array(variantSchema).default([]),
   featured: z.boolean().default(false),
   specs: z.record(z.string()).optional(),
+  stats: z.array(statSchema).optional(),
+  faq: z.array(z.object({
+    question: z.string(),
+    answer: z.string(),
+  })).optional(),
+  whatsIncluded: z.array(z.string()).optional(),
 });
 
 // Training schema

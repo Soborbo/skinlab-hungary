@@ -1,0 +1,205 @@
+---
+// src/components/schema/ProductSchema.astro
+import type { ProductProps } from './helpers/types';
+import { clean } from './helpers/clean';
+import { schemaId, isValidSchemaUrl, ID_SUFFIX } from './helpers/ids';
+
+type Props = ProductProps;
+
+const {
+  name,
+  description,
+  url,
+  images,
+  sku,
+  brand,
+  seller,
+  price,
+  currency,
+  availability = 'InStock',
+  condition = 'NewCondition',
+  priceValidUntil,
+  sellerId,
+  gtin13,
+  mpn,
+  category,
+  color,
+  material,
+  weight,
+  properties,
+  rating,
+  reviews,
+  shipping,
+  returnDays,
+  salePrice,
+  salePriceValidUntil,
+  locale = 'hu-HU',
+} = Astro.props;
+
+// ============================================
+// GUARDS - fail fast on missing/invalid fields
+// ============================================
+
+if (!name) throw new Error('ProductSchema: name is required');
+if (!description) throw new Error('ProductSchema: description is required');
+if (!url) throw new Error('ProductSchema: url is required');
+if (!images?.length) throw new Error('ProductSchema: at least one image is required');
+if (!sku) throw new Error('ProductSchema: sku is required');
+if (!brand) throw new Error('ProductSchema: brand is required');
+if (!seller) throw new Error('ProductSchema: seller is required');
+if (price === undefined || price === null) throw new Error('ProductSchema: price is required');
+if (typeof price !== 'number' || isNaN(price)) throw new Error('ProductSchema: price must be a valid number');
+if (price < 0) throw new Error('ProductSchema: price cannot be negative');
+if (!currency) throw new Error('ProductSchema: currency is required');
+
+// Validate images are absolute HTTPS URLs
+images.forEach((img, i) => {
+  if (!isValidSchemaUrl(img)) {
+    throw new Error(`ProductSchema: images[${i}] must be absolute HTTPS URL, got: ${img}`);
+  }
+});
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+// Handle brand as string or object
+const brandSchema =
+  typeof brand === 'string'
+    ? { '@type': 'Brand', name: brand }
+    : {
+        '@type': 'Brand',
+        name: brand.name,
+        url: brand.url,
+        logo: brand.logo,
+      };
+
+const offer: Record<string, unknown> = {
+  '@type': 'Offer',
+  url,
+  priceCurrency: currency,
+  availability: `https://schema.org/${availability}`,
+  itemCondition: `https://schema.org/${condition}`,
+  seller: sellerId
+    ? { '@type': 'Organization', '@id': sellerId, name: seller }
+    : { '@type': 'Organization', name: seller },
+};
+
+// Handle sale price with priceSpecification
+if (salePrice !== undefined && salePrice < price) {
+  offer.price = String(salePrice);
+  offer.priceValidUntil = salePriceValidUntil || priceValidUntil;
+  offer.priceSpecification = [
+    {
+      '@type': 'PriceSpecification',
+      priceType: 'https://schema.org/SalePrice',
+      price: String(salePrice),
+      priceCurrency: currency,
+      validThrough: salePriceValidUntil,
+    },
+    {
+      '@type': 'PriceSpecification',
+      priceType: 'https://schema.org/ListPrice',
+      price: String(price),
+      priceCurrency: currency,
+    },
+  ];
+} else {
+  offer.price = String(price);
+  offer.priceValidUntil = priceValidUntil;
+}
+
+if (shipping) {
+  const deliveryTime: Record<string, unknown> = { '@type': 'ShippingDeliveryTime' };
+
+  if (shipping.handlingDays) {
+    deliveryTime.handlingTime = {
+      '@type': 'QuantitativeValue',
+      minValue: 0,
+      maxValue: shipping.handlingDays,
+      unitCode: 'DAY',
+    };
+  }
+  if (shipping.transitDays) {
+    deliveryTime.transitTime = {
+      '@type': 'QuantitativeValue',
+      minValue: 1,
+      maxValue: shipping.transitDays,
+      unitCode: 'DAY',
+    };
+  }
+
+  offer.shippingDetails = {
+    '@type': 'OfferShippingDetails',
+    shippingRate: {
+      '@type': 'MonetaryAmount',
+      value: String(shipping.price),
+      currency: currency,
+    },
+    shippingDestination: {
+      '@type': 'DefinedRegion',
+      addressCountry: shipping.country,
+    },
+    deliveryTime: Object.keys(deliveryTime).length > 1 ? deliveryTime : undefined,
+  };
+}
+
+if (returnDays) {
+  offer.hasMerchantReturnPolicy = {
+    '@type': 'MerchantReturnPolicy',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: returnDays,
+    returnMethod: 'https://schema.org/ReturnByMail',
+  };
+}
+
+const schema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': schemaId(url, ID_SUFFIX.product),
+  name,
+  description,
+  image: images,
+  sku,
+  gtin13,
+  mpn,
+  brand: brandSchema,
+  category,
+  color,
+  material,
+  inLanguage: locale,
+  weight: weight
+    ? { '@type': 'QuantitativeValue', value: String(weight), unitCode: 'KGM' }
+    : undefined,
+  additionalProperty: properties?.map((p) => ({
+    '@type': 'PropertyValue',
+    name: p.name,
+    value: p.value,
+  })),
+  offers: offer,
+  aggregateRating: rating
+    ? {
+        '@type': 'AggregateRating',
+        ratingValue: String(rating.value),
+        reviewCount: String(rating.count),
+        bestRating: '5',
+        worstRating: '1',
+      }
+    : undefined,
+  review: reviews?.map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.author },
+    datePublished: r.date,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(r.rating),
+      bestRating: '5',
+    },
+    reviewBody: r.text,
+  })),
+};
+
+const output = JSON.stringify(clean(schema));
+---
+
+<script type="application/ld+json" set:html={output} />

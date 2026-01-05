@@ -1,0 +1,36 @@
+---
+// src/components/schema/BreadcrumbSchema.astro
+import type { BreadcrumbProps } from './helpers/types';
+import { schemaId, ID_SUFFIX } from './helpers/ids';
+
+type Props = BreadcrumbProps;
+
+const { items, currentUrl } = Astro.props;
+
+// ============================================
+// GUARDS
+// ============================================
+
+if (!items?.length) throw new Error('BreadcrumbSchema: items is required');
+if (!currentUrl) throw new Error('BreadcrumbSchema: currentUrl is required');
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': schemaId(currentUrl, ID_SUFFIX.breadcrumb),
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url || undefined,
+  })),
+};
+
+const output = JSON.stringify(schema);
+---
+
+<script type="application/ld+json" set:html={output} />

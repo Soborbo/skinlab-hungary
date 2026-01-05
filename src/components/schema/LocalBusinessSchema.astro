@@ -1,0 +1,106 @@
+---
+// src/components/schema/LocalBusinessSchema.astro
+import type { LocalBusinessProps } from './helpers/types';
+import { clean } from './helpers/clean';
+import { schemaId, ref, isValidSchemaUrl, ID_SUFFIX } from './helpers/ids';
+
+type Props = LocalBusinessProps;
+
+const {
+  name,
+  url,
+  telephone,
+  streetAddress,
+  city,
+  postalCode,
+  type = 'LocalBusiness',
+  country = 'HU',
+  region,
+  latitude,
+  longitude,
+  email,
+  logo,
+  image,
+  priceRange,
+  currency = 'HUF',
+  paymentAccepted,
+  openingHours,
+  areaServed,
+  sameAs,
+  mapUrl,
+  locale = 'hu-HU',
+} = Astro.props;
+
+// ============================================
+// GUARDS
+// ============================================
+
+if (!name) throw new Error('LocalBusinessSchema: name is required');
+if (!url) throw new Error('LocalBusinessSchema: url is required');
+if (!telephone) throw new Error('LocalBusinessSchema: telephone is required');
+if (!streetAddress) throw new Error('LocalBusinessSchema: streetAddress is required');
+if (!city) throw new Error('LocalBusinessSchema: city is required');
+if (!postalCode) throw new Error('LocalBusinessSchema: postalCode is required');
+
+// Validate sameAs URLs are absolute HTTPS
+if (sameAs?.length) {
+  sameAs.forEach((link, i) => {
+    if (!isValidSchemaUrl(link)) {
+      throw new Error(`LocalBusinessSchema: sameAs[${i}] must be absolute HTTPS URL, got: ${link}`);
+    }
+  });
+}
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+const schema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  '@id': schemaId(url, ID_SUFFIX.localBusiness),
+  name,
+  url,
+  telephone,
+  email,
+  logo,
+  image,
+  priceRange,
+  currenciesAccepted: currency,
+  hasMap: mapUrl,
+  inLanguage: locale,
+  parentOrganization: ref(url, 'organization'),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress,
+    addressLocality: city,
+    addressRegion: region,
+    postalCode,
+    addressCountry: country,
+  },
+  geo:
+    latitude && longitude
+      ? {
+          '@type': 'GeoCoordinates',
+          latitude,
+          longitude,
+        }
+      : undefined,
+  paymentAccepted: paymentAccepted?.join(', '),
+  openingHoursSpecification: openingHours?.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  areaServed: areaServed?.map((a) => ({
+    '@type': a.type,
+    name: a.name,
+  })),
+  sameAs,
+};
+
+const output = JSON.stringify(clean(schema));
+---
+
+<script type="application/ld+json" set:html={output} />
