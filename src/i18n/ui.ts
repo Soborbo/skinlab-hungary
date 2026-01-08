@@ -51,7 +51,7 @@ export const localeConfig: Record<Locale, {
     nativeName: 'English',
     flag: '🇬🇧',
     hreflang: 'en',
-    dateLocale: 'en-GB',
+    dateLocale: 'en-US',
   },
   sk: {
     name: 'Slovak',
