@@ -14,11 +14,13 @@ export {
   defaultLocale,
   locales,
   localeConfig,
+  DOMAINS,
 
   // Functions
   t,
   getLocaleFromUrl,
   getLocalizedPath,
+  getLocalizedUrl,
   getHreflangLinks,
   isRTL,
   getHtmlLang,

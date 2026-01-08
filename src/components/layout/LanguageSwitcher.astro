@@ -4,8 +4,12 @@
  *
  * Displays a dropdown for switching between available languages.
  * Uses flags and native language names for better UX.
+ *
+ * DOMAIN ROUTING:
+ * - Hungarian (hu) → skinlabhungary.hu
+ * - Other languages → skinlabeurope.com/[lang]
  */
-import { locales, localeConfig, getLocaleFromUrl, getLocalizedPath } from '../../i18n/ui';
+import { locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
 
 interface Props {
   /** Display style: 'dropdown' for compact, 'list' for expanded */
@@ -49,7 +53,7 @@ const currentConfig = localeConfig[currentLocale];
       <div class="py-1">
         {locales.map((locale) => {
           const config = localeConfig[locale];
-          const href = getLocalizedPath(locale, currentPath);
+          const href = getLocalizedUrl(locale, currentPath);
           const isActive = locale === currentLocale;
 
           return (
@@ -84,7 +88,7 @@ const currentConfig = localeConfig[currentLocale];
     <ul class="flex flex-wrap gap-2">
       {locales.map((locale) => {
         const config = localeConfig[locale];
-        const href = getLocalizedPath(locale, currentPath);
+        const href = getLocalizedUrl(locale, currentPath);
         const isActive = locale === currentLocale;
 
         return (
@@ -113,7 +117,7 @@ const currentConfig = localeConfig[currentLocale];
   <div class:list={['language-switcher-compact flex items-center gap-1', className]}>
     {locales.map((locale) => {
       const config = localeConfig[locale];
-      const href = getLocalizedPath(locale, currentPath);
+      const href = getLocalizedUrl(locale, currentPath);
       const isActive = locale === currentLocale;
 
       return (

@@ -15,6 +15,12 @@ import sl from './sl.json';
 // All available translations
 const translations = { hu, en, sk, ro, de, cs, hr, sr, sl } as const;
 
+// Domain configuration
+export const DOMAINS = {
+  hungarian: 'https://skinlabhungary.hu',
+  europe: 'https://skinlabeurope.com',
+} as const;
+
 // Type definitions
 export type Locale = keyof typeof translations;
 export type TranslationKeys = keyof typeof hu;
@@ -174,7 +180,7 @@ export function getLocaleFromUrl(url: URL): Locale {
  * Get localized path for a given locale
  * @param locale - Target locale
  * @param path - Current path
- * @returns Localized path
+ * @returns Localized path (relative, without domain)
  */
 export function getLocalizedPath(locale: Locale, path: string): string {
   // Remove any existing locale prefix
@@ -191,12 +197,34 @@ export function getLocalizedPath(locale: Locale, path: string): string {
 }
 
 /**
+ * Get full URL for a given locale (with correct domain)
+ * Hungarian → skinlabhungary.hu
+ * Other languages → skinlabeurope.com/[lang]
+ * @param locale - Target locale
+ * @param path - Current path
+ * @returns Full URL with correct domain
+ */
+export function getLocalizedUrl(locale: Locale, path: string): string {
+  // Remove any existing locale prefix
+  const localePattern = new RegExp(`^/(${locales.join('|')})`);
+  const cleanPath = path.replace(localePattern, '') || '/';
+
+  // Hungarian uses skinlabhungary.hu without prefix
+  if (locale === defaultLocale) {
+    return `${DOMAINS.hungarian}${cleanPath}`;
+  }
+
+  // Other languages use skinlabeurope.com with prefix
+  return `${DOMAINS.europe}/${locale}${cleanPath === '/' ? '' : cleanPath}`;
+}
+
+/**
  * Get all localized paths for hreflang tags
+ * Uses correct domains: skinlabhungary.hu for HU, skinlabeurope.com for others
  * @param currentPath - Current page path
- * @param siteUrl - Base site URL
  * @returns Array of hreflang objects
  */
-export function getHreflangLinks(currentPath: string, siteUrl: string): Array<{
+export function getHreflangLinks(currentPath: string): Array<{
   locale: Locale;
   hreflang: string;
   href: string;
@@ -204,7 +232,7 @@ export function getHreflangLinks(currentPath: string, siteUrl: string): Array<{
   return locales.map((locale) => ({
     locale,
     hreflang: localeConfig[locale].hreflang,
-    href: new URL(getLocalizedPath(locale, currentPath), siteUrl).toString(),
+    href: getLocalizedUrl(locale, currentPath),
   }));
 }
 

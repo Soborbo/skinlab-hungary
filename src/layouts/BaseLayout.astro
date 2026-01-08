@@ -14,7 +14,9 @@ import {
   defaultLocale,
   getLocaleFromUrl,
   getLocalizedPath,
+  getLocalizedUrl,
   getHtmlLang,
+  DOMAINS,
 } from '../i18n/ui';
 
 interface Props {
@@ -38,16 +40,16 @@ const currentLocale = getLocaleFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 const htmlLang = getHtmlLang(currentLocale);
 
-// Generate canonical URL (without locale prefix for default locale)
-const canonicalPath = getLocalizedPath(currentLocale, currentPath);
-const canonicalURL = new URL(canonicalPath, SITE.url);
+// Generate canonical URL with correct domain
+// Hungarian → skinlabhungary.hu, Others → skinlabeurope.com/[lang]
+const canonicalURL = getLocalizedUrl(currentLocale, currentPath);
 const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
 
-// Generate hreflang links for all locales
+// Generate hreflang links for all locales (with correct domains)
 const hreflangLinks = locales.map((locale) => ({
   locale,
   hreflang: localeConfig[locale].hreflang,
-  href: new URL(getLocalizedPath(locale, currentPath), SITE.url).toString(),
+  href: getLocalizedUrl(locale, currentPath),
 }));
 
 // Helper to render schema(s)
@@ -70,7 +72,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   {hreflangLinks.map(({ hreflang, href }) => (
     <link rel="alternate" hreflang={hreflang} href={href} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={new URL(getLocalizedPath(defaultLocale, currentPath), SITE.url)} />
+  <link rel="alternate" hreflang="x-default" href={getLocalizedUrl(defaultLocale, currentPath)} />
   
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
