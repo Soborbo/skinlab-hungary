@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hydrodermabrace a multifunkcni pristroje',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Hydrodermabrazni a kombinovane kosmeticke pristroje.',
+  heroDescription: 'Obnova pokozky, hloubkove cisteni, anti-aging osetreni v jednom pristroji. S AI diagnostikou pokozky, okamzite viditelne vysledky.',
+  badge: 'AI diagnostika',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

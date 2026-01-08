@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "de",
+    "language": "Deutsch"
+  },
+  "nav": {
+    "home": "Startseite",
+    "products": "Produkte",
+    "trainings": "Schulungen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "allProducts": "Alle Produkte",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Professionelle Kosmetikgeräte",
+    "subtitle": "Diodenlaser, PMU-Geräte und Multifunktionsgeräte mit 2 Jahren Garantie",
+    "cta": "Kostenlose Beratung",
+    "ctaSecondary": "Produkte ansehen"
+  },
+  "categories": {
+    "diodeLasers": "Diodenlaser",
+    "diodeLasersDesc": "Dauerhafte Haarentfernung",
+    "ndYagLasers": "ND:YAG Laser",
+    "ndYagLasersDesc": "Tattoo-Entfernung",
+    "picoLasers": "Pico Laser",
+    "picoLasersDesc": "Pigmentbehandlung",
+    "hiemt": "HIEMT Körperformung",
+    "hiemtDesc": "Muskelaufbau, Fettverbrennung",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Tiefenreinigung, Hydration",
+    "antiAging": "Anti-Aging",
+    "antiAgingDesc": "HIFU, RF-Technologie",
+    "pmu": "PMU-Geräte",
+    "pmuDesc": "Permanent Make-up Geräte",
+    "tattoo": "Tattoo-Maschinen",
+    "tattooDesc": "Professionelle Ausrüstung",
+    "salon": "Salonmöbel",
+    "salonDesc": "Möbel, Trolleys",
+    "accessories": "Zubehör",
+    "accessoriesDesc": "Nadelmodule, Lösungen"
+  },
+  "trust": {
+    "warranty": "2 Jahre Garantie",
+    "warrantyDesc": "Volle Garantie auf alle Geräte",
+    "shipping": "2 Wochen Lieferung",
+    "shippingDesc": "Schneller DHL Express Versand",
+    "training": "FAR-Zertifikat",
+    "trainingDesc": "Offizielle Bediener-Schulung",
+    "service": "Eigener Service",
+    "serviceDesc": "Sofortige Reparatur, Leihgerät"
+  },
+  "stats": {
+    "soldUnits": "Verkaufte Novalight",
+    "warranty": "Garantie",
+    "deliveryTime": "Lieferzeit",
+    "legalImport": "Legaler Import"
+  },
+  "product": {
+    "inStock": "Auf Lager",
+    "preorder": "Vorbestellung",
+    "outOfStock": "Nicht verfügbar",
+    "price": "Preis",
+    "priceOnRequest": "Fordern Sie ein individuelles Angebot an!",
+    "grossPrice": "Bruttopreis (inkl. MwSt.)",
+    "monthlyFrom": "oder ab ~{price}/Monat mit Finanzierung",
+    "sku": "Artikelnummer",
+    "selectVariant": "Variante wählen:",
+    "freeConsultation": "Kostenlose Beratung",
+    "callNow": "Jetzt anrufen",
+    "description": "Detaillierte Beschreibung",
+    "specs": "Technische Daten",
+    "faq": "Häufig gestellte Fragen",
+    "relatedProducts": "Verwandte Produkte",
+    "whatsIncluded": "Was ist enthalten?",
+    "warranty": "Garantie & Service",
+    "warrantyInfo": "2 Jahre Vollgarantie, Leihgerät während der Reparatur",
+    "videoDemo": "Video-Demo"
+  },
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Ihr Name",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "beispiel@email.de",
+    "phone": "Telefonnummer",
+    "phonePlaceholder": "+49 XXX XXXXXXX",
+    "message": "Nachricht",
+    "messagePlaceholder": "Sagen Sie uns, wie wir Ihnen helfen können...",
+    "product": "Welches Produkt interessiert Sie?",
+    "productPlaceholder": "Auswählen...",
+    "gdprConsent": "Ich akzeptiere die Datenschutzerklärung",
+    "submit": "Nachricht senden",
+    "submitting": "Wird gesendet...",
+    "success": "Vielen Dank! Wir werden uns in Kürze bei Ihnen melden.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "required": "Pflichtfeld"
+  },
+  "cta": {
+    "title": "Haben Sie Fragen?",
+    "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen, die richtige Ausrüstung zu finden.",
+    "button": "Beratung anfordern",
+    "callUs": "Rufen Sie uns an"
+  },
+  "footer": {
+    "company": "Unternehmensinformationen",
+    "products": "Produkte",
+    "support": "Support",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cookies": "Cookie-Richtlinie",
+    "imprint": "Impressum",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. Alle Rechte vorbehalten.",
+    "newsletter": "Newsletter-Anmeldung",
+    "newsletterPlaceholder": "Ihre E-Mail-Adresse",
+    "subscribe": "Abonnieren"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Kontaktieren Sie uns!",
+    "showroom": "Showroom",
+    "showroomNote": "Nur nach Vereinbarung",
+    "headquarters": "Hauptsitz",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "openingHours": "Öffnungszeiten",
+    "getDirections": "Route planen"
+  },
+  "about": {
+    "title": "Über uns",
+    "subtitle": "Lernen Sie unser Team kennen",
+    "story": "Unsere Geschichte",
+    "team": "Unser Team",
+    "mission": "Unsere Mission"
+  },
+  "training": {
+    "title": "Schulungen",
+    "subtitle": "Offizielle Bedienerkurse mit FAR-Zertifikat",
+    "farCertificate": "FAR-Zertifikat",
+    "included": "Im Preis enthalten",
+    "duration": "Dauer",
+    "location": "Standort",
+    "register": "Anmelden"
+  },
+  "comparison": {
+    "title": "Vergleich",
+    "skinlab": "SkinLab",
+    "competitors": "Wettbewerber",
+    "feature": "Eigenschaft"
+  },
+  "roi": {
+    "title": "ROI-Rechner",
+    "treatmentPrice": "Behandlungspreis",
+    "treatmentsPerDay": "Behandlungen/Tag",
+    "workingDays": "Arbeitstage/Monat",
+    "monthlyRevenue": "Monatlicher Umsatz",
+    "paybackPeriod": "Amortisationszeit"
+  },
+  "breadcrumb": {
+    "home": "Startseite"
+  },
+  "errors": {
+    "404": "Seite nicht gefunden",
+    "404desc": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "viewAll": "Alle ansehen",
+    "close": "Schließen",
+    "loading": "Wird geladen...",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "new": "Neu",
+    "popular": "Beliebt",
+    "featured": "Empfohlen",
+    "all": "Alle",
+    "yes": "Ja",
+    "no": "Nein"
+  }
+}

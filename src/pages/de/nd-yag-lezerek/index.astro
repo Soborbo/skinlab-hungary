@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Q-Switched ND:YAG Lasergeraete',
+  nameShort: 'ND:YAG Laser',
+  slug: 'nd-yag-lezerek',
+  description: 'Laser zur Tattoo- und Pigmentfleckentfernung.',
+  heroDescription: 'Tattooentfernung, Carbon Peeling, Pigmentfleckbehandlung. Professionelle Q-Switched-Technologie, minimales Unbehagen.',
+  badge: 'Premium-Technologie',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

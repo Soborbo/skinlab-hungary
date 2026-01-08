@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'HIEMT Koerperformungsgeraete',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'EMS- und RF-Technologie Koerperformung, Muskelaufbau und Fettverbrennung.',
+  heroDescription: 'Revolutionaere HIFEM-Technologie: Muskelaufbau und Fettverbrennung in einer Behandlung. 30 Min = 20.000 Muskelkontraktionen. Non-invasive Koerperformung ohne Operation.',
+  badge: 'Neue Kategorie',
+  color: 'orange',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+---
+
+<CategoryLayout category={category} products={products} />

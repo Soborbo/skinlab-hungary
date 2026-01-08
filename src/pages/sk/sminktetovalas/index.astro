@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST PMU stroje',
+  nameShort: 'PMU stroje',
+  slug: 'sminktetovalas',
+  description: 'Kablove a bezdr%otove stroje na permanentny make-up a prislusenstvo.',
+  heroDescription: 'Profesionalne PMU stroje na tetovanie oboci, pier a ocnych viecok. Precizna praca, tichy motor, ergonomicky dizajn.',
+  badge: 'Volba PMU expertov',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

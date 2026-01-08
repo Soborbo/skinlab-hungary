@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "hr",
+    "language": "Hrvatski"
+  },
+  "nav": {
+    "home": "Početna",
+    "products": "Proizvodi",
+    "trainings": "Edukacije",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "allProducts": "Svi proizvodi",
+    "blog": "Blog",
+    "faq": "Česta pitanja"
+  },
+  "hero": {
+    "title": "Profesionalna kozmetička oprema",
+    "subtitle": "Diodni laseri, PMU uređaji i multifunkcionalni aparati s 2 godine jamstva",
+    "cta": "Besplatna konzultacija",
+    "ctaSecondary": "Pogledaj proizvode"
+  },
+  "categories": {
+    "diodeLasers": "Diodni laseri",
+    "diodeLasersDesc": "Trajna depilacija",
+    "ndYagLasers": "ND:YAG laseri",
+    "ndYagLasersDesc": "Uklanjanje tetovaža",
+    "picoLasers": "Pico laseri",
+    "picoLasersDesc": "Tretman pigmentacije",
+    "hiemt": "HIEMT oblikovanje tijela",
+    "hiemtDesc": "Izgradnja mišića, sagorijevanje masti",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Dubinsko čišćenje, hidratacija",
+    "antiAging": "Anti-aging",
+    "antiAgingDesc": "HIFU, RF tehnologija",
+    "pmu": "PMU uređaji",
+    "pmuDesc": "Trajni make-up uređaji",
+    "tattoo": "Aparati za tetoviranje",
+    "tattooDesc": "Profesionalna oprema",
+    "salon": "Salonski namještaj",
+    "salonDesc": "Namještaj, kolica",
+    "accessories": "Pribor",
+    "accessoriesDesc": "Moduli igala, otopine"
+  },
+  "trust": {
+    "warranty": "2 godine jamstva",
+    "warrantyDesc": "Potpuno jamstvo na svu opremu",
+    "shipping": "2 tjedna dostava",
+    "shippingDesc": "Brza DHL Express dostava",
+    "training": "FAR certifikat",
+    "trainingDesc": "Službena obuka operatera",
+    "service": "Vlastiti servis",
+    "serviceDesc": "Trenutni popravak, zamjenski uređaj"
+  },
+  "stats": {
+    "soldUnits": "Prodanih Novalight jedinica",
+    "warranty": "Jamstvo",
+    "deliveryTime": "Vrijeme dostave",
+    "legalImport": "Legalan uvoz"
+  },
+  "product": {
+    "inStock": "Na zalihi",
+    "preorder": "Prednarudžba",
+    "outOfStock": "Nedostupno",
+    "price": "Cijena",
+    "priceOnRequest": "Zatražite prilagođenu ponudu!",
+    "grossPrice": "Bruto cijena (s PDV-om)",
+    "monthlyFrom": "ili od ~{price}/mjesečno s financiranjem",
+    "sku": "Šifra proizvoda",
+    "selectVariant": "Odaberite varijantu:",
+    "freeConsultation": "Besplatna konzultacija",
+    "callNow": "Nazovite odmah",
+    "description": "Detaljan opis",
+    "specs": "Tehničke specifikacije",
+    "faq": "Česta pitanja",
+    "relatedProducts": "Srodni proizvodi",
+    "whatsIncluded": "Što je uključeno?",
+    "warranty": "Jamstvo i servis",
+    "warrantyInfo": "2 godine potpunog jamstva, zamjenski uređaj tijekom popravka",
+    "videoDemo": "Video demonstracija"
+  },
+  "form": {
+    "name": "Ime",
+    "namePlaceholder": "Vaše ime",
+    "email": "E-mail adresa",
+    "emailPlaceholder": "primjer@email.hr",
+    "phone": "Broj telefona",
+    "phonePlaceholder": "+385 9X XXX XXXX",
+    "message": "Poruka",
+    "messagePlaceholder": "Recite nam kako vam možemo pomoći...",
+    "product": "Koji proizvod vas zanima?",
+    "productPlaceholder": "Odaberite...",
+    "gdprConsent": "Prihvaćam politiku privatnosti",
+    "submit": "Pošalji poruku",
+    "submitting": "Šaljem...",
+    "success": "Hvala! Uskoro ćemo vas kontaktirati.",
+    "error": "Došlo je do greške. Molimo pokušajte ponovo.",
+    "required": "Obavezno polje"
+  },
+  "cta": {
+    "title": "Imate pitanja?",
+    "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam pronaći pravu opremu.",
+    "button": "Zatraži konzultaciju",
+    "callUs": "Nazovite nas"
+  },
+  "footer": {
+    "company": "Podaci o tvrtki",
+    "products": "Proizvodi",
+    "support": "Podrška",
+    "legal": "Pravne informacije",
+    "privacy": "Politika privatnosti",
+    "terms": "Uvjeti korištenja",
+    "cookies": "Politika kolačića",
+    "imprint": "Impresum",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. Sva prava pridržana.",
+    "newsletter": "Prijava na newsletter",
+    "newsletterPlaceholder": "Vaša e-mail adresa",
+    "subscribe": "Pretplati se"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Kontaktirajte nas!",
+    "showroom": "Showroom",
+    "showroomNote": "Samo uz prethodni dogovor",
+    "headquarters": "Sjedište",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "openingHours": "Radno vrijeme",
+    "getDirections": "Upute za dolazak"
+  },
+  "about": {
+    "title": "O nama",
+    "subtitle": "Upoznajte naš tim",
+    "story": "Naša priča",
+    "team": "Naš tim",
+    "mission": "Naša misija"
+  },
+  "training": {
+    "title": "Edukacije",
+    "subtitle": "Službeni tečajevi za operatere s FAR certifikatom",
+    "farCertificate": "FAR certifikat",
+    "included": "Uključeno u cijenu",
+    "duration": "Trajanje",
+    "location": "Lokacija",
+    "register": "Registracija"
+  },
+  "comparison": {
+    "title": "Usporedba",
+    "skinlab": "SkinLab",
+    "competitors": "Konkurencija",
+    "feature": "Značajka"
+  },
+  "roi": {
+    "title": "Kalkulator povrata investicije",
+    "treatmentPrice": "Cijena tretmana",
+    "treatmentsPerDay": "Tretmana/dan",
+    "workingDays": "Radnih dana/mjesec",
+    "monthlyRevenue": "Mjesečni prihod",
+    "paybackPeriod": "Razdoblje povrata"
+  },
+  "breadcrumb": {
+    "home": "Početna"
+  },
+  "errors": {
+    "404": "Stranica nije pronađena",
+    "404desc": "Stranica koju tražite ne postoji ili je premještena.",
+    "backHome": "Natrag na početnu"
+  },
+  "common": {
+    "learnMore": "Saznaj više",
+    "viewAll": "Pogledaj sve",
+    "close": "Zatvori",
+    "loading": "Učitavanje...",
+    "search": "Pretraži",
+    "filter": "Filtriraj",
+    "sort": "Sortiraj",
+    "new": "Novo",
+    "popular": "Popularno",
+    "featured": "Istaknuto",
+    "all": "Sve",
+    "yes": "Da",
+    "no": "Ne"
+  }
+}

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'HIEMT Body Sculpting Devices',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'EMS and RF technology body sculpting, muscle building and fat burning devices.',
+  heroDescription: 'Revolutionary HIFEM technology: muscle building and fat burning in one treatment. 30 min = 20,000 muscle contractions. Non-invasive body sculpting without surgery.',
+  badge: 'New category',
+  color: 'orange',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+---
+
+<CategoryLayout category={category} products={products} />

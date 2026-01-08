@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Aparate MAST PMU',
+  nameShort: 'Aparate PMU',
+  slug: 'sminktetovalas',
+  description: 'Aparate de machiaj permanent cu fir si fara fir si accesorii.',
+  heroDescription: 'Aparate PMU profesionale pentru tatuaj de sprancene, buze si pleoape. Linii precise, motor silentios, design ergonomic.',
+  badge: 'Alegerea expertilor PMU',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

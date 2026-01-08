@@ -2,40 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===========================================
-   SKINLAB COLORS - Centralized Color System
-   Change these values to update colors site-wide
-   =========================================== */
-:root {
-  /* Primary - Medical kék */
-  --color-primary-50: 240 247 255;   /* #f0f7ff */
-  --color-primary-100: 224 239 254;  /* #e0effe */
-  --color-primary-200: 186 224 253;  /* #bae0fd */
-  --color-primary-300: 124 200 251;  /* #7cc8fb */
-  --color-primary-400: 54 170 245;   /* #36aaf5 */
-  --color-primary-500: 12 142 230;   /* #0c8ee6 */
-  --color-primary-600: 0 112 196;    /* #0070c4 */
-  --color-primary-700: 1 90 159;     /* #015a9f */
-  --color-primary-800: 6 77 131;     /* #064d83 */
-  --color-primary-900: 11 65 109;    /* #0b416d */
-  --color-primary-950: 7 41 73;      /* #072949 */
-
-  /* Accent - Elegáns arany */
-  --color-accent: 184 134 11;        /* #b8860b */
-  --color-accent-light: 212 168 75;  /* #d4a84b */
-  --color-accent-dark: 138 101 8;    /* #8a6508 */
-
-  /* Success - zöld */
-  --color-success-50: 236 253 245;   /* #ecfdf5 */
-  --color-success-500: 5 150 105;    /* #059669 */
-  --color-success-600: 4 120 87;     /* #047857 */
-
-  /* Warning - narancs */
-  --color-warning-50: 255 251 235;   /* #fffbeb */
-  --color-warning-500: 217 119 6;    /* #d97706 */
-  --color-warning-600: 180 83 9;     /* #b45309 */
-}
-
 /* Custom base styles */
 @layer base {
   html {

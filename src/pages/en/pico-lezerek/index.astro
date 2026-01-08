@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Picosecond Laser Devices',
+  nameShort: 'Pico Lasers',
+  slug: 'pico-lezerek',
+  description: 'Picosecond lasers for pigmentation and skin rejuvenation.',
+  heroDescription: 'Ultra-fast pico technology: picosecond pulses for perfect skin. Effective pigmentation removal, skin rejuvenation and tattoo fading with minimal side effects.',
+  badge: 'Top technology',
+  color: 'violet',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

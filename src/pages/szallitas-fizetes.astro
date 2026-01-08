@@ -1,0 +1,499 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT, COMPANY, LOCATIONS } from '../lib/constants';
+---
+
+<BaseLayout
+  title="Szállítás és fizetés"
+  description="Tájékozódj a SkinLab szállítási és fizetési feltételeiről. 15-25 napos szállítási idő, DHL Express szállítás, SimplePay online fizetés."
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Fizetés és szállítás
+          </h1>
+          <p class="text-lg text-gray-600">
+            Szállítási módok és határidők
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Equipment Shipping -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+              </svg>
+            </div>
+            Professzionális gépek szállítása
+          </h2>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <p class="text-gray-600 mb-4">
+              Minden általunk forgalmazott elektrokozmetikai és orvosesztétikai gép <strong>rendelésre érkezik</strong>, ezért a szállítási idő az alábbiak szerint alakul:
+            </p>
+            <div class="space-y-3 text-gray-600">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span><strong>Általános szállítási idő:</strong> 15–25 munkanap</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <span><strong>Egyedi szín vagy konfiguráció esetén:</strong> a gyártási és szállítási idő akár meg is duplázódhat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DHL Partner Info -->
+          <div class="bg-primary-50 rounded-xl p-6 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-2">DHL hivatalos, szerződött partner</h3>
+                <p class="text-gray-600 mb-3">
+                  Cégünk a DHL hivatalos, szerződött partnere, így minden gép:
+                </p>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-success-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><strong>legálisan</strong></span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-success-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><strong>hiteles, dokumentált papírokkal</strong></span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-success-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><strong>nyomon követhető módon</strong></span>
+                  </li>
+                </ul>
+                <p class="text-gray-600 mt-3">
+                  lép be az országba. Ez garantálja, hogy nincsenek több hónapos csúszások vagy nem hivatalos DDP megoldások – a folyamat <strong>biztonságos, átlátható és jogszerű</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Process -->
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4">A szállítás folyamata röviden</h3>
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shrink-0 text-sm">1</div>
+                <div class="pt-1">
+                  <p class="text-gray-600">Megrendelés és fizetés beérkezése</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shrink-0 text-sm">2</div>
+                <div class="pt-1">
+                  <p class="text-gray-600">Gyártási és minőségellenőrzési szakasz</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shrink-0 text-sm">3</div>
+                <div class="pt-1">
+                  <p class="text-gray-600">DHL Express nemzetközi szállítás</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shrink-0 text-sm">4</div>
+                <div class="pt-1">
+                  <p class="text-gray-600">Vámkezelés dokumentált módon</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-8 h-8 bg-success-600 text-white rounded-full flex items-center justify-center font-bold shrink-0 text-sm">5</div>
+                <div class="pt-1">
+                  <p class="text-gray-600">Belföldi kiszállítás vagy személyes átvétel egyeztetése</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pickup Options -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Átvételi lehetőségek</h2>
+
+          <!-- Personal Pickup -->
+          <div class="bg-success-50 border border-success-200 rounded-xl p-6 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <h3 class="font-semibold text-gray-900">Személyes átvétel</h3>
+                  <span class="px-2 py-1 bg-success-100 text-success-700 text-xs font-medium rounded-full">Kiemelten ajánlott</span>
+                </div>
+                <p class="text-gray-600 mb-3">
+                  A nagy értékű gépek esetén a személyes átvétel a legbiztonságosabb megoldás, mivel:
+                </p>
+                <ul class="space-y-2 text-gray-600 mb-4">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>lehetőség van az oktatás, a használati útmutató és a beüzemelés részletes áttekintésére</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>a készülék garantáltan sérülésmentesen kerül átadásra</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>minden dokumentáció és tartozék átbeszélhető</span>
+                  </li>
+                </ul>
+                <div class="bg-white rounded-lg p-4">
+                  <p class="text-sm text-gray-600 mb-1"><strong>Személyes átvétel helyszíne:</strong></p>
+                  <p class="text-gray-900 font-medium">{LOCATIONS.showroom.fullAddress} – Skinlab SHOWROOM</p>
+                  <p class="text-sm text-gray-500 mt-2">A személyes átvétel díjmentes, de előzetes időpont egyeztetés szükséges.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Home Delivery -->
+          <div class="bg-gray-50 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-2">Házhoz szállítás</h3>
+                <p class="text-gray-600 mb-3">
+                  Amennyiben a személyes átvétel nem megoldható, saját szerződött futárszolgálatunk gondoskodik a szállításról.
+                </p>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>A szállítási és telepítési költségek egyedi árazás alapján kerülnek meghatározásra.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>A pontos díjakról minden esetben előzetes egyeztetés történik.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessories Shipping -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Egyéb termékek szállítása (kellékek, tartozékok)</h2>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <p class="text-gray-600 mb-4">
+              A raktáron tartott kiegészítők esetén a következő opciók érhetők el:
+            </p>
+            <div class="grid sm:grid-cols-3 gap-4 mb-4">
+              <div class="bg-white rounded-lg p-4 text-center">
+                <svg class="w-8 h-8 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                <p class="font-medium text-gray-900">Foxpost</p>
+                <p class="text-sm text-gray-500">Csomagautomata</p>
+              </div>
+              <div class="bg-white rounded-lg p-4 text-center">
+                <svg class="w-8 h-8 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <p class="font-medium text-gray-900">MPL</p>
+                <p class="text-sm text-gray-500">Házhozszállítás / PostaPont</p>
+              </div>
+              <div class="bg-white rounded-lg p-4 text-center">
+                <svg class="w-8 h-8 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <p class="font-medium text-gray-900">Express One</p>
+                <p class="text-sm text-gray-500">Futárszolgálat</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-primary-600 bg-primary-50 rounded-lg p-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span><strong>Szállítási idő:</strong> 1–4 munkanap</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="pt-12 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            Fizetési módok
+          </h2>
+
+          <!-- Online Payment -->
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Online fizetés</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-gray-50 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  <h4 class="font-semibold text-gray-900">SimplePay bankkártyás fizetés</h4>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Biztonságos online tranzakció bankkártyával.
+                </p>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                  </svg>
+                  <h4 class="font-semibold text-gray-900">Előre utalás</h4>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  A rendelés feldolgozását a vételár beérkezése után kezdjük meg.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Installment Payment -->
+          <div class="mb-6" id="reszletfizetes">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Részletfizetés</h3>
+
+            <div class="bg-gradient-to-br from-primary-50 to-indigo-50 rounded-xl p-6 border border-primary-100">
+              <div class="flex items-start gap-4 mb-6">
+                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-lg mb-2">Kamatmentes részletfizetés</h4>
+                  <p class="text-gray-600">
+                    Professzionális gépeinket rugalmas fizetési konstrukcióval is megvásárolhatod.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Payment Structure -->
+              <div class="bg-white rounded-xl p-5 mb-5">
+                <h5 class="font-semibold text-gray-900 mb-4">Fizetési struktúra</h5>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3 p-3 bg-primary-50 rounded-lg">
+                    <div class="w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">50%</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Előleg a megrendeléskor</p>
+                      <p class="text-sm text-gray-500">A rendelés indításához szükséges</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div class="w-10 h-10 bg-gray-600 text-white rounded-full flex items-center justify-center font-bold">50%</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Fennmaradó összeg átvételkor</p>
+                      <p class="text-sm text-gray-500">Részletekben is fizethető</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Installment Options -->
+              <div class="bg-white rounded-xl p-5 mb-5">
+                <h5 class="font-semibold text-gray-900 mb-4">Részletfizetési opciók</h5>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-1 bg-success-100 text-success-700 text-xs font-bold rounded">3 hónap</span>
+                      <span class="text-success-600 text-sm font-medium">0% kamat</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">3 havi kamatmentes részlet</p>
+                    <p class="text-xs text-gray-400 mt-1">Bruttó 1 000 000 Ft felett</p>
+                  </div>
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-1 bg-success-100 text-success-700 text-xs font-bold rounded">6 hónap</span>
+                      <span class="text-success-600 text-sm font-medium">0% kamat</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">6 havi kamatmentes részlet</p>
+                    <p class="text-xs text-gray-400 mt-1">Bruttó 1 000 000 Ft felett</p>
+                  </div>
+                  <div class="border border-primary-200 rounded-lg p-4 bg-primary-50 sm:col-span-2">
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="px-2 py-1 bg-primary-600 text-white text-xs font-bold rounded">12 hónap</span>
+                      <span class="text-primary-600 text-sm font-medium">Kiemelt ajánlat</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">12 havi részletfizetés</p>
+                    <p class="text-xs text-gray-500 mt-1"><strong>Bruttó 5 000 000 Ft feletti rendelés esetén</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- One-time Payment Bonus -->
+              <div class="bg-success-50 border border-success-200 rounded-xl p-5">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-success-100 rounded-xl flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-gray-900 mb-1">Alternatív lehetőség: Egyszeri fizetés</h5>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Ha a teljes vételárat egy összegben, előre kiegyenlíted, <strong class="text-success-700">ajándékcsomagot</strong> biztosítunk a vásárláshoz!
+                    </p>
+                    <p class="text-xs text-gray-500">
+                      (Alapesetben: 50% előleg + 50% átvételkor)
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Minimum Order Note -->
+              <div class="mt-4 flex items-center gap-2 text-sm text-gray-500">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Részletfizetést bruttó 1 000 000 Ft érték felett tudunk biztosítani.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Payment -->
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Személyes fizetés (Skinlab Showroomban)</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-gray-50 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  <h4 class="font-semibold text-gray-900">Bankkártyás fizetés</h4>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  POS terminál a showroomban.
+                </p>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <h4 class="font-semibold text-gray-900">Készpénzes fizetés</h4>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  Készpénzfizetés a showroomban történő átvételkor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="mt-12 bg-primary-50 rounded-xl p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Ügyfélszolgálat és támogatás</h3>
+          <p class="text-gray-600 mb-4">
+            Kérdés esetén örömmel segítünk:
+          </p>
+          <ul class="space-y-2 text-gray-600 mb-4">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>a megfelelő szállítási mód kiválasztásában</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>a gyártási és érkezési idők pontosításában</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>a gép átvételével, telepítésével vagy oktatásával kapcsolatban</span>
+            </li>
+          </ul>
+          <p class="text-gray-700 font-medium">
+            Célunk, hogy a teljes folyamat gyors, biztonságos és átlátható legyen.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-16 bg-primary-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Kérdésed van a szállítással vagy fizetéssel kapcsolatban?
+        </h2>
+        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+          Hívj minket vagy kérj egyedi ajánlatot, és segítünk megtalálni a számodra legjobb megoldást.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`tel:${CONTACT.phone}`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {CONTACT.phoneDisplay}
+          </a>
+          <a
+            href="/kapcsolat"
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors"
+          >
+            Ajánlatkérés
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

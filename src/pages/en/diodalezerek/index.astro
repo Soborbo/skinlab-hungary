@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Professional Diode Lasers',
+  nameShort: 'Diode Lasers',
+  slug: 'diodalezerek',
+  description: 'Professional 4-wavelength diode lasers for permanent hair removal.',
+  heroDescription: 'Permanent hair removal with 4-wavelength technology. For all skin types, all hair types. Fast ROI, satisfied clients.',
+  badge: 'Bestseller category',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

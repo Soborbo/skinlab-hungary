@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Profesionalni diodni laserji',
+  nameShort: 'Diodni laserji',
+  slug: 'diodalezerek',
+  description: 'Profesionalni 4-valovni diodni laserji za trajno odstranjevanje dlacic.',
+  heroDescription: 'Trajno odstranjevanje dlacic s 4-valovno tehnologijo. Za vse tipe koze, vse tipe dlacic. Hitra donosnost nalozbe, zadovoljne stranke.',
+  badge: 'Najbolje prodajana kategorija',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

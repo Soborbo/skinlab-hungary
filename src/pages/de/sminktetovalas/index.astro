@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST PMU-Geraete',
+  nameShort: 'PMU-Geraete',
+  slug: 'sminktetovalas',
+  description: 'Kabelgebundene und kabellose Permanent-Make-up-Geraete und Zubehoer.',
+  heroDescription: 'Professionelle PMU-Geraete fuer Augenbrauen-, Lippen- und Lidtatowierung. Praezise Linienfuehrung, leiser Motor, ergonomisches Design.',
+  badge: 'PMU-Expertenwahl',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

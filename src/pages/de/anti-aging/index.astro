@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Anti-Aging-Geraete',
+  nameShort: 'Anti-Aging',
+  slug: 'anti-aging',
+  description: 'RF, HIFU und andere Hautverjuengungstechnologien.',
+  heroDescription: 'Hautstraffung, Faltenbehandlung, Gesichtskonturierung ohne Operation. Radiofrequenz-, HIFU- und kombinierte Technologien.',
+  badge: 'Juengere Haut',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+---
+
+<CategoryLayout category={category} products={products} />

@@ -31,7 +31,9 @@ const productSchema = z.object({
   price: z.number().nullable(),
   salePrice: z.number().nullable().optional(),
   image: z.string().default('/images/placeholder.jpg'),
+  // Support both 'gallery' and 'images' field names (some products use 'images')
   gallery: z.array(z.string()).default([]),
+  images: z.array(z.string()).default([]),
   youtubeVideos: z.array(z.string()).default([]),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
   hasVariants: z.boolean().default(false),

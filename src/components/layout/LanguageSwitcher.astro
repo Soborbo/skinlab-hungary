@@ -1,0 +1,188 @@
+---
+/**
+ * LanguageSwitcher Component
+ *
+ * Displays a dropdown for switching between available languages.
+ * Uses flags and native language names for better UX.
+ */
+import { locales, localeConfig, getLocaleFromUrl, getLocalizedPath } from '../../i18n/ui';
+
+interface Props {
+  /** Display style: 'dropdown' for compact, 'list' for expanded */
+  variant?: 'dropdown' | 'list' | 'compact';
+  /** Additional CSS classes */
+  class?: string;
+}
+
+const { variant = 'dropdown', class: className = '' } = Astro.props;
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+const currentConfig = localeConfig[currentLocale];
+---
+
+{variant === 'dropdown' && (
+  <div class:list={['language-switcher relative', className]} data-language-switcher>
+    <!-- Current language button -->
+    <button
+      type="button"
+      class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg hover:bg-gray-100 transition-colors"
+      aria-label="Nyelv váltása"
+      aria-expanded="false"
+      aria-haspopup="true"
+      data-language-toggle
+    >
+      <span class="text-base" aria-hidden="true">{currentConfig.flag}</span>
+      <span class="hidden sm:inline">{currentConfig.nativeName}</span>
+      <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-chevron>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+    <!-- Dropdown menu -->
+    <div
+      class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+      role="menu"
+      aria-orientation="vertical"
+      data-language-menu
+    >
+      <div class="py-1">
+        {locales.map((locale) => {
+          const config = localeConfig[locale];
+          const href = getLocalizedPath(locale, currentPath);
+          const isActive = locale === currentLocale;
+
+          return (
+            <a
+              href={href}
+              hreflang={config.hreflang}
+              class:list={[
+                'flex items-center gap-3 px-4 py-2.5 text-sm transition-colors',
+                isActive
+                  ? 'bg-primary-50 text-primary-700 font-medium'
+                  : 'text-gray-700 hover:bg-gray-50',
+              ]}
+              role="menuitem"
+            >
+              <span class="text-base" aria-hidden="true">{config.flag}</span>
+              <span>{config.nativeName}</span>
+              {isActive && (
+                <svg class="w-4 h-4 ml-auto text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+)}
+
+{variant === 'list' && (
+  <div class:list={['language-switcher-list', className]}>
+    <ul class="flex flex-wrap gap-2">
+      {locales.map((locale) => {
+        const config = localeConfig[locale];
+        const href = getLocalizedPath(locale, currentPath);
+        const isActive = locale === currentLocale;
+
+        return (
+          <li>
+            <a
+              href={href}
+              hreflang={config.hreflang}
+              class:list={[
+                'inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-full transition-colors',
+                isActive
+                  ? 'bg-primary-100 text-primary-700 font-medium'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
+              ]}
+            >
+              <span aria-hidden="true">{config.flag}</span>
+              <span>{config.nativeName}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+)}
+
+{variant === 'compact' && (
+  <div class:list={['language-switcher-compact flex items-center gap-1', className]}>
+    {locales.map((locale) => {
+      const config = localeConfig[locale];
+      const href = getLocalizedPath(locale, currentPath);
+      const isActive = locale === currentLocale;
+
+      return (
+        <a
+          href={href}
+          hreflang={config.hreflang}
+          title={config.nativeName}
+          class:list={[
+            'inline-flex items-center justify-center w-8 h-8 text-lg rounded-lg transition-all',
+            isActive
+              ? 'bg-primary-100 ring-2 ring-primary-500'
+              : 'hover:bg-gray-100',
+          ]}
+          aria-label={config.nativeName}
+          aria-current={isActive ? 'true' : undefined}
+        >
+          {config.flag}
+        </a>
+      );
+    })}
+  </div>
+)}
+
+<script>
+  // Dropdown toggle functionality
+  document.querySelectorAll('[data-language-switcher]').forEach((switcher) => {
+    const toggle = switcher.querySelector('[data-language-toggle]');
+    const menu = switcher.querySelector('[data-language-menu]');
+    const chevron = switcher.querySelector('[data-chevron]');
+
+    if (!toggle || !menu) return;
+
+    const closeMenu = () => {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      chevron?.classList.remove('rotate-180');
+    };
+
+    const openMenu = () => {
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      chevron?.classList.add('rotate-180');
+    };
+
+    const toggleMenu = () => {
+      if (menu.classList.contains('hidden')) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!switcher.contains(e.target as Node)) {
+        closeMenu();
+      }
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  });
+</script>

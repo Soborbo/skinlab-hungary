@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
+---
+
+<BaseLayout
+  title="Általános Szerződési Feltételek (ÁSZF)"
+  description="A SkinLab Beauty Equipment Kft. általános szerződési feltételei. Tájékozódj a vásárlás és szolgáltatások feltételeiről."
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Általános Szerződési Feltételek
+          </h1>
+          <p class="text-lg text-gray-600">
+            Hatályos: 2024. szeptember 1-től
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="prose prose-gray max-w-none">
+
+          <h2>1. Bevezető rendelkezések</h2>
+          <p>
+            1.1. Jelen Általános Szerződési Feltételek (ÁSZF) tartalmazzák a {COMPANY.name} (székhely: {LOCATIONS.headquarters.fullAddress}, cégjegyzékszám: {COMPANY.registrationNumber}, adószám: {COMPANY.taxId}, közösségi adószám: {COMPANY.vatId}, e-mail: {CONTACT.email}, tel.: {CONTACT.phoneDisplay}, továbbiakban: „Szolgáltató") által üzemeltetett {SITE.url} weboldal és kapcsolódó online felületein (pl. Facebook, Messenger) keresztül történő megrendelésekre vonatkozó szerződéses feltételeket.
+          </p>
+          <p>
+            1.2. Az ÁSZF minden megrendelésre vonatkozik, amelyet a Vásárló online vagy elektronikus úton (pl. weboldal, e-mail, Facebook) ad le.
+          </p>
+          <p>
+            1.3. A Vásárló a megrendelés leadásával kijelenti, hogy megismerte és elfogadta jelen ÁSZF-et, továbbá az Adatkezelési Tájékoztatót és a Garanciális Feltételeket.
+          </p>
+
+          <h2>2. Szolgáltató adatai</h2>
+          <p>
+            <strong>Cégnév:</strong> {COMPANY.legalName}<br />
+            <strong>Székhely:</strong> {LOCATIONS.headquarters.fullAddress}<br />
+            <strong>Cégjegyzékszám:</strong> {COMPANY.registrationNumber}<br />
+            <strong>Adószám:</strong> {COMPANY.taxId}<br />
+            <strong>Közösségi adószám:</strong> {COMPANY.vatId}<br />
+            <strong>E-mail:</strong> {CONTACT.email}<br />
+            <strong>Telefon:</strong> {CONTACT.phoneDisplay}<br />
+            <strong>Weboldal:</strong> <a href={SITE.url} class="text-primary-600 hover:underline">{SITE.url}</a><br />
+            <strong>Facebook oldal:</strong> <a href={SOCIAL.facebook.url} target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">{SOCIAL.facebook.url}</a><br />
+            <strong>Felügyeleti szerv:</strong> Budapest Főváros Kormányhivatala
+          </p>
+
+          <h2>3. A szerződés létrejötte</h2>
+          <p>
+            3.1. A Vásárló megrendelést adhat le a weboldalon vagy más elektronikus csatornán.
+          </p>
+          <p>
+            3.2. A szerződés a Szolgáltató által küldött írásbeli visszaigazolással jön létre.
+          </p>
+          <p>
+            3.3. A szerződés nyelve: magyar.
+          </p>
+          <p>
+            3.4. A szerződés nem minősül írásbeli szerződésnek, a Szolgáltató nem iktatja.
+          </p>
+
+          <h2>4. Termékek, árak és fizetési feltételek</h2>
+          <p>
+            4.1. A termékek és szolgáltatások leírását és bruttó árát a weboldal tartalmazza.
+          </p>
+          <p>
+            4.2. Fizetési módok:
+          </p>
+          <ul>
+            <li>Előre utalás</li>
+            <li>Készpénz</li>
+            <li>Utánvét</li>
+            <li>Bankkártyás fizetés (ha elérhető)</li>
+          </ul>
+          <p>
+            4.3. A Szolgáltató fenntartja a jogot az árak módosítására, de a megrendelés visszaigazolásakor érvényes ár az irányadó.
+          </p>
+
+          <h2>5. Szállítási feltételek</h2>
+          <p>
+            5.1. A termékek kiszállítása futárszolgálattal (pl. GLS, Foxpost) történik.
+          </p>
+          <p>
+            5.2. A szállítási költség a rendelés leadásakor kerül feltüntetésre.
+          </p>
+          <p>
+            5.3. Szállítási határidő: általában 3–10 munkanap, készlethiány esetén a Vásárló külön értesítést kap.
+          </p>
+
+          <h2>6. Elállási jog</h2>
+          <p>
+            6.1. A Vásárlót a 45/2014. (II.26.) Korm. rendelet alapján 14 napos indokolás nélküli elállási jog illeti meg.
+          </p>
+          <p>
+            6.2. Az elállási jog nem gyakorolható bontott, használt, higiéniai okból vissza nem szolgáltatható termékeknél.
+          </p>
+          <p>
+            6.3. Elállás esetén a terméket sértetlen állapotban, eredeti csomagolásban kell visszaküldeni.
+          </p>
+          <p>
+            6.4. A visszaküldés költsége a Vásárlót terheli, kivéve hibás teljesítés esetén.
+          </p>
+          <p>
+            6.5. A Szolgáltató az elállás bejelentésétől számított 14 napon belül visszautalja a vételárat.
+          </p>
+
+          <h2>7. Szavatosság és jótállás</h2>
+          <p>
+            7.1. A Vásárlót megilleti a Ptk. szerinti kellékszavatosság és termékszavatosság.
+          </p>
+          <p>
+            7.2. A tartós fogyasztási cikkekre a 151/2003. (IX.22.) Korm. rendelet szerinti kötelező jótállás vonatkozik.
+          </p>
+          <p>
+            7.3. A jótállási időtartam: 24 hónap (ha a termék adatlapja másként nem rendelkezik).
+          </p>
+          <p>
+            7.4. A fogyasztó jótállási igényét a Szolgáltató ügyfélszolgálatán jelentheti be.
+          </p>
+          <p>
+            7.5. A Szolgáltató a 19/2014. (IV.29.) NGM rendelet alapján a jótállási igényt 15 napon belül intézi.
+          </p>
+
+          <h2>8. Képzések</h2>
+          <h3>8.1. Ingyenes gépkezelői képzés</h3>
+          <p>
+            A Szolgáltató a professzionális kozmetikai berendezések vásárlásához <strong>ingyenes gépkezelői képzést</strong> biztosít. A képzés FAR (Foglalkozás-egészségügyi és Munkavédelmi) tanúsítvánnyal zárul.
+          </p>
+
+          <h3>8.2. A képzés helyszíne</h3>
+          <p>
+            A képzések a Szolgáltató showroomjában ({LOCATIONS.showroom.fullAddress}) kerülnek megrendezésre.
+          </p>
+
+          <h3>8.3. Lemondás</h3>
+          <p>
+            A képzés lemondása legkésőbb a képzés előtt 48 órával lehetséges díjmentesen. Későbbi lemondás esetén a Szolgáltató pótdíjat számíthat fel.
+          </p>
+
+          <h2>9. Panaszkezelés és jogérvényesítés</h2>
+          <p>
+            9.1. Vásárlói panaszát e-mailben ({CONTACT.email}) vagy telefonon ({CONTACT.phoneDisplay}) teheti meg.
+          </p>
+          <p>
+            9.2. Amennyiben panaszát elutasítjuk, fordulhat a lakóhelye szerinti Békéltető Testülethez.
+          </p>
+          <p>
+            9.3. Online vitarendezés: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://ec.europa.eu/consumers/odr</a>
+          </p>
+
+          <h2>10. Adatkezelés</h2>
+          <p>
+            A Vásárló személyes adatainak kezelésére a Szolgáltató Adatkezelési Tájékoztatója irányadó: <a href="/adatvedelem" class="text-primary-600 hover:underline">Adatvédelmi nyilatkozat</a>
+          </p>
+
+          <h2>11. Szellemi tulajdon</h2>
+          <p>
+            A {SITE.url} weboldal tartalma (szövegek, képek, logók, videók) a Szolgáltató szellemi tulajdonát képezi. A tartalmak másolása, terjesztése kizárólag a Szolgáltató írásos engedélyével lehetséges.
+          </p>
+
+          <h2>12. Vis maior</h2>
+          <p>
+            Vis maior (háború, természeti katasztrófa, járvány, beszállítói problémák stb.) esetén a Szolgáltató mentesül a szerződésben vállalt kötelezettségek teljesítése alól, amíg a vis maior helyzet fennáll.
+          </p>
+
+          <h2>13. Záró rendelkezések</h2>
+          <p>
+            Jelen ÁSZF-ben nem szabályozott kérdésekben a Polgári Törvénykönyv és a vonatkozó magyar jogszabályok rendelkezései az irányadók.
+          </p>
+          <p>
+            A Szolgáltató fenntartja a jogot jelen ÁSZF egyoldalú módosítására. A módosításokat a weboldalon tesszük közzé.
+          </p>
+
+          <p class="text-sm text-gray-500 mt-8">
+            Utolsó módosítás: 2024. szeptember 1.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-1;
+  }
+  .prose strong {
+    @apply text-gray-900;
+  }
+</style>

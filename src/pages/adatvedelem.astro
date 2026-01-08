@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { COMPANY, CONTACT, LOCATIONS, SITE } from '../lib/constants';
+---
+
+<BaseLayout
+  title="Adatvédelmi nyilatkozat"
+  description="A SkinLab Beauty Equipment Kft. adatvédelmi nyilatkozata. Tájékozódj a személyes adataid kezeléséről."
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Adatvédelmi nyilatkozat
+          </h1>
+          <p class="text-lg text-gray-600">
+            Hatályos: 2024. szeptember 1-től
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="prose prose-gray max-w-none">
+
+          <!-- Bevezető -->
+          <div class="bg-gray-50 rounded-xl p-6 mb-8">
+            <h2 class="mt-0">Mi az az Adatvédelmi Nyilatkozat, és miért fontos?</h2>
+            <p class="mb-0">
+              Ez az Adatvédelmi Nyilatkozat célja, hogy átlátható módon tájékoztassuk Önt arról, milyen személyes adatokat gyűjtünk, milyen célból kezeljük azokat, hogyan biztosítjuk védelmüket, és milyen jogok illetik meg Önt az adatkezeléssel kapcsolatban.
+            </p>
+            <p class="mb-0">
+              Webáruházunk használata során – ideértve a böngészést, rendelés leadását, ügyfélszolgálati megkeresést vagy oktatáshoz kapcsolódó tanúsítvány igénylését – az Ön által megadott adatokat bizalmasan kezeljük, kizárólag a jogszabályoknak megfelelően, az adatbiztonság és átláthatóság elsődlegességével.
+            </p>
+          </div>
+
+          <h2>1. Bevezetés</h2>
+          <p>
+            Jelen adatvédelmi nyilatkozat a {COMPANY.name} által üzemeltetett webáruházban történő adatkezelés szabályait tartalmazza. Az adatkezelés minden esetben az alábbi jogszabályoknak megfelelően történik:
+          </p>
+          <ul>
+            <li>Az Európai Parlament és Tanács 2016/679 rendelete (általános adatvédelmi rendelet – GDPR)</li>
+            <li>2011. évi CXII. törvény (Infotv. – információs önrendelkezési jogról)</li>
+            <li>2000. évi C. törvény (Számv. tv. – számvitelről)</li>
+            <li>2001. évi CVIII. törvény (E-ker. tv. – elektronikus kereskedelmi szolgáltatásokról)</li>
+          </ul>
+
+          <h2>2. Az adatkezelő adatai</h2>
+          <p>
+            <strong>Cégnév:</strong> {COMPANY.legalName}<br />
+            <strong>Cégforma:</strong> Korlátolt felelősségű társaság<br />
+            <strong>Székhely:</strong> {LOCATIONS.headquarters.fullAddress}<br />
+            <strong>Cégjegyzékszám:</strong> {COMPANY.registrationNumber}<br />
+            <strong>Adószám:</strong> {COMPANY.taxId}<br />
+            <strong>Közösségi adószám:</strong> {COMPANY.vatId}<br />
+            <strong>Statisztikai számjel:</strong> 32871580-4712-113-13<br />
+            <strong>E-mail:</strong> {CONTACT.email}<br />
+            <strong>Telefon:</strong> {CONTACT.phoneDisplay}
+          </p>
+
+          <h2>3. Kezelt személyes adatok köre</h2>
+
+          <h3>3.1. Webáruházban történő vásárláskor</h3>
+          <ul>
+            <li>Név</li>
+            <li>E-mail cím</li>
+            <li>Telefonszám</li>
+            <li>Számlázási és szállítási cím</li>
+            <li>Cég neve (opcionális)</li>
+            <li>Adószám (opcionális)</li>
+            <li>Rendelési adatok, vásárlási előzmények</li>
+          </ul>
+
+          <h3>3.2. Tanfolyamokra való jelentkezés esetén</h3>
+          <ul>
+            <li>Név</li>
+            <li>E-mail cím</li>
+            <li>Telefonszám</li>
+            <li>Tanfolyam típusa, időpontja</li>
+            <li>Számlázási adatok</li>
+            <li>Tanúsítvány kiállításához szükséges adatok (FAR-rendszer)</li>
+          </ul>
+
+          <h3>3.3. Hírlevél-feliratkozás esetén</h3>
+          <ul>
+            <li>Név (opcionális)</li>
+            <li>E-mail cím</li>
+          </ul>
+
+          <h3>3.4. Kapcsolatfelvételi űrlap</h3>
+          <ul>
+            <li>Név</li>
+            <li>E-mail cím</li>
+            <li>Telefonszám</li>
+            <li>Érdeklődés tárgya (termék kategória)</li>
+            <li>Üzenet szövege</li>
+          </ul>
+
+          <h2>4. Az adatkezelés céljai és jogalapjai</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead>
+                <tr>
+                  <th>Cél</th>
+                  <th>Jogalap</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Megrendelés feldolgozása, teljesítése</td>
+                  <td>Szerződés teljesítése (GDPR 6. cikk (1) b))</td>
+                </tr>
+                <tr>
+                  <td>Számlázás, könyvelés</td>
+                  <td>Jogi kötelezettség (GDPR 6. cikk (1) c), Számv. tv.)</td>
+                </tr>
+                <tr>
+                  <td>Tanfolyami jelentkezés, tanúsítvány kiállítása</td>
+                  <td>Szerződés teljesítése, jogi kötelezettség (GDPR 6. cikk (1) b) és c))</td>
+                </tr>
+                <tr>
+                  <td>Ügyfélszolgálati kommunikáció</td>
+                  <td>Jogos érdek (GDPR 6. cikk (1) f))</td>
+                </tr>
+                <tr>
+                  <td>Hírlevél küldése</td>
+                  <td>Hozzájárulás (GDPR 6. cikk (1) a))</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>5. Adatok tárolásának időtartama</h2>
+          <ul>
+            <li><strong>Számlázási adatok:</strong> 8 év (Számv. tv. 169. §)</li>
+            <li><strong>Tanfolyami adminisztráció:</strong> 5 év</li>
+            <li><strong>Hírlevél feliratkozás:</strong> a hozzájárulás visszavonásáig</li>
+            <li><strong>Szerződéses kapcsolatokból eredő adatok:</strong> 5 év a szerződés megszűnésétől számítva</li>
+            <li><strong>Garanciális adatok:</strong> a garancia lejártától számított 1 év</li>
+          </ul>
+
+          <h2>6. Adattovábbítás és adatfeldolgozók</h2>
+          <p>
+            Az adatok kizárólag a szolgáltatás teljesítéséhez szükséges mértékben kerülnek továbbításra:
+          </p>
+          <ul>
+            <li><strong>Cloudflare, Inc.</strong> – Tárhely, CDN szolgáltatás</li>
+            <li><strong>Google LLC</strong> – Webanalitika (Google Analytics)</li>
+            <li><strong>GLS / Foxpost / DHL Express</strong> – Csomagkézbesítés</li>
+            <li><strong>Könyvelő partner</strong> – Könyvelés, számlázás</li>
+            <li><strong>Fizetési szolgáltató (pl. Barion, SimplePay)</strong> – Online fizetés lebonyolítása</li>
+            <li><strong>Email szolgáltató</strong> – Hírlevél küldés</li>
+            <li><strong>Oktatásszervező / adminisztrátor</strong> – Tanfolyami nyilvántartás, tanúsítvány kiállítás</li>
+          </ul>
+          <p>
+            Az adatfeldolgozók kizárólag az Adatkezelő utasításai szerint kezelhetik a személyes adatokat, és kötelesek megfelelő biztonsági intézkedéseket alkalmazni.
+          </p>
+          <p>
+            <strong>Az adatokat harmadik országba nem továbbítjuk.</strong>
+          </p>
+
+          <h2>7. Az érintett jogai</h2>
+          <p>Ön a következő jogokkal élhet:</p>
+          <ul>
+            <li><strong>Hozzáférés joga</strong> (GDPR 15. cikk) – Tájékoztatást kérhet arról, hogy milyen adatait kezeljük.</li>
+            <li><strong>Helyesbítés joga</strong> (GDPR 16. cikk) – Kérheti a pontatlan adatok javítását.</li>
+            <li><strong>Törlés joga</strong> (GDPR 17. cikk) – Kérheti adatai törlését ("elfeledtetéshez való jog").</li>
+            <li><strong>Korlátozás joga</strong> (GDPR 18. cikk) – Kérheti az adatkezelés korlátozását.</li>
+            <li><strong>Adathordozhatóság joga</strong> (GDPR 20. cikk) – Kérheti adatai géppel olvasható formátumban történő kiadását.</li>
+            <li><strong>Tiltakozás joga</strong> (GDPR 21. cikk) – Tiltakozhat az adatkezelés ellen.</li>
+            <li><strong>Hozzájárulás visszavonása</strong> (GDPR 7. cikk (3) bek.) – Bármikor visszavonhatja a hozzájárulását.</li>
+          </ul>
+          <p>
+            <strong>Kérelmek benyújtása:</strong> {CONTACT.email}<br />
+            A kérelmeket 30 napon belül teljesítjük.
+          </p>
+
+          <h2>8. Panasz benyújtása</h2>
+          <p>
+            Amennyiben úgy érzi, hogy adatkezelésünkkel kapcsolatban jogsérelem érte, panaszt tehet az alábbi hatóságnál:
+          </p>
+          <p>
+            <strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong><br />
+            Cím: 1055 Budapest, Falk Miksa utca 9-11.<br />
+            Telefon: +36 1 391 1400<br />
+            E-mail: ugyfelszolgalat@naih.hu<br />
+            Weboldal: <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">www.naih.hu</a>
+          </p>
+
+          <h2>9. Cookie-k (sütik) használata</h2>
+          <p>
+            A Weboldal cookie-kat (sütiket) használ a felhasználói élmény javítása és a weboldal működésének biztosítása érdekében.
+          </p>
+
+          <h3>9.1. Feltétlenül szükséges cookie-k</h3>
+          <p>
+            Ezek a cookie-k a Weboldal alapvető működéséhez szükségesek, és nem kapcsolhatók ki. Ide tartoznak a munkamenet-azonosítók és a biztonsági tokenek.
+          </p>
+
+          <h3>9.2. Analitikai cookie-k</h3>
+          <p>
+            A Google Analytics szolgáltatást használjuk a Weboldal látogatottságának elemzésére. Ezek a cookie-k anonim statisztikai adatokat gyűjtenek arról, hogyan használják a látogatók a Weboldalt.
+          </p>
+          <p>
+            A Google Analytics adatvédelmi irányelvei: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://policies.google.com/privacy</a>
+          </p>
+          <p>
+            A sütik kezelését Ön saját böngészőjében szabályozhatja.
+          </p>
+
+          <h2>10. Adatbiztonság</h2>
+          <p>
+            Az Adatkezelő megfelelő technikai és szervezési intézkedéseket alkalmaz a személyes adatok védelme érdekében:
+          </p>
+          <ul>
+            <li>SSL/TLS titkosítás a weboldalon</li>
+            <li>Hozzáférés-korlátozás (csak az arra jogosultak férhetnek hozzá az adatokhoz)</li>
+            <li>Rendszeres biztonsági mentések</li>
+            <li>Tűzfal és egyéb biztonsági megoldások</li>
+          </ul>
+
+          <h2>11. Záró rendelkezések</h2>
+          <p>
+            Jelen adatvédelmi nyilatkozat időről időre módosulhat. A mindenkor hatályos verzió a weboldalon elérhető. A weboldal használatával Ön elfogadja az aktuális adatvédelmi szabályzat rendelkezéseit.
+          </p>
+
+          <h2>12. Kapcsolat</h2>
+          <p>
+            Adatvédelmi kérdésekkel kapcsolatban az alábbi elérhetőségeken állunk rendelkezésére:
+          </p>
+          <p>
+            <strong>E-mail:</strong> {CONTACT.email}<br />
+            <strong>Telefon:</strong> {CONTACT.phoneDisplay}<br />
+            <strong>Cím:</strong> {LOCATIONS.headquarters.fullAddress}
+          </p>
+
+          <p class="text-sm text-gray-500 mt-8">
+            Utolsó frissítés dátuma: 2024. szeptember 1.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-1;
+  }
+  .prose strong {
+    @apply text-gray-900;
+  }
+  .prose table {
+    @apply w-full border-collapse my-4;
+  }
+  .prose th {
+    @apply bg-gray-50 border border-gray-200 px-4 py-2 text-left font-semibold text-gray-900;
+  }
+  .prose td {
+    @apply border border-gray-200 px-4 py-2 text-gray-600;
+  }
+</style>

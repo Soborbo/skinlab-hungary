@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Mobilier pentru salon',
+  nameShort: 'Mobilier salon',
+  slug: 'szalonberendezes',
+  description: 'Mobilier profesional pentru salon, carucioare si accesorii.',
+  heroDescription: 'Mobilier de calitate pentru salon, paturi cosmetice, carucioare si accesorii. Proiecteaza salonul visurilor tale cu noi!',
+  badge: 'Dotare completa',
+  color: 'amber',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'szalonberendezes';
+});
+---
+
+<CategoryLayout category={category} products={products} />

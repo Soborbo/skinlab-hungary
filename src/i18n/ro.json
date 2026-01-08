@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "ro",
+    "language": "Română"
+  },
+  "nav": {
+    "home": "Acasă",
+    "products": "Produse",
+    "trainings": "Cursuri",
+    "about": "Despre noi",
+    "contact": "Contact",
+    "allProducts": "Toate produsele",
+    "blog": "Blog",
+    "faq": "Întrebări frecvente"
+  },
+  "hero": {
+    "title": "Echipamente cosmetice profesionale",
+    "subtitle": "Lasere diodă, aparate PMU și dispozitive multifuncționale cu garanție de 2 ani",
+    "cta": "Consultație gratuită",
+    "ctaSecondary": "Vezi produsele"
+  },
+  "categories": {
+    "diodeLasers": "Lasere diodă",
+    "diodeLasersDesc": "Epilare definitivă",
+    "ndYagLasers": "Lasere ND:YAG",
+    "ndYagLasersDesc": "Îndepărtarea tatuajelor",
+    "picoLasers": "Lasere Pico",
+    "picoLasersDesc": "Tratament pigmentare",
+    "hiemt": "HIEMT sculptare corporală",
+    "hiemtDesc": "Construire musculară, arderea grăsimilor",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Curățare profundă, hidratare",
+    "antiAging": "Anti-aging",
+    "antiAgingDesc": "Tehnologie HIFU, RF",
+    "pmu": "Aparate PMU",
+    "pmuDesc": "Dispozitive machiaj permanent",
+    "tattoo": "Aparate de tatuaj",
+    "tattooDesc": "Echipament profesional",
+    "salon": "Mobilier salon",
+    "salonDesc": "Mobilier, cărucioare",
+    "accessories": "Accesorii",
+    "accessoriesDesc": "Module ace, soluții"
+  },
+  "trust": {
+    "warranty": "Garanție 2 ani",
+    "warrantyDesc": "Garanție completă pentru toate echipamentele",
+    "shipping": "Livrare 2 săptămâni",
+    "shippingDesc": "Livrare rapidă DHL Express",
+    "training": "Certificat FAR",
+    "trainingDesc": "Curs oficial de operator",
+    "service": "Service propriu",
+    "serviceDesc": "Reparație imediată, aparat de rezervă"
+  },
+  "stats": {
+    "soldUnits": "Unități Novalight vândute",
+    "warranty": "Garanție",
+    "deliveryTime": "Timp de livrare",
+    "legalImport": "Import legal"
+  },
+  "product": {
+    "inStock": "În stoc",
+    "preorder": "Precomandă",
+    "outOfStock": "Indisponibil",
+    "price": "Preț",
+    "priceOnRequest": "Solicitați o ofertă personalizată!",
+    "grossPrice": "Preț brut (inclusiv TVA)",
+    "monthlyFrom": "sau de la ~{price}/lună cu finanțare",
+    "sku": "Cod produs",
+    "selectVariant": "Selectați varianta:",
+    "freeConsultation": "Consultație gratuită",
+    "callNow": "Sunați acum",
+    "description": "Descriere detaliată",
+    "specs": "Specificații tehnice",
+    "faq": "Întrebări frecvente",
+    "relatedProducts": "Produse similare",
+    "whatsIncluded": "Ce este inclus?",
+    "warranty": "Garanție și service",
+    "warrantyInfo": "Garanție completă 2 ani, aparat de rezervă în timpul reparațiilor",
+    "videoDemo": "Demo video"
+  },
+  "form": {
+    "name": "Nume",
+    "namePlaceholder": "Numele dumneavoastră",
+    "email": "Adresă de email",
+    "emailPlaceholder": "exemplu@email.ro",
+    "phone": "Număr de telefon",
+    "phonePlaceholder": "+40 7XX XXX XXX",
+    "message": "Mesaj",
+    "messagePlaceholder": "Spuneți-ne cum vă putem ajuta...",
+    "product": "Ce produs vă interesează?",
+    "productPlaceholder": "Selectați...",
+    "gdprConsent": "Accept politica de confidențialitate",
+    "submit": "Trimite mesajul",
+    "submitting": "Se trimite...",
+    "success": "Mulțumim! Vă vom contacta în curând.",
+    "error": "A apărut o eroare. Vă rugăm să încercați din nou.",
+    "required": "Câmp obligatoriu"
+  },
+  "cta": {
+    "title": "Aveți întrebări?",
+    "subtitle": "Solicitați o consultație gratuită și vă ajutăm să găsiți echipamentul potrivit.",
+    "button": "Solicitați consultație",
+    "callUs": "Sunați-ne"
+  },
+  "footer": {
+    "company": "Informații companie",
+    "products": "Produse",
+    "support": "Asistență",
+    "legal": "Informații legale",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni și condiții",
+    "cookies": "Politica de cookies",
+    "imprint": "Imprint",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. Toate drepturile rezervate.",
+    "newsletter": "Abonare newsletter",
+    "newsletterPlaceholder": "Adresa dumneavoastră de email",
+    "subscribe": "Abonare"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contactați-ne!",
+    "showroom": "Showroom",
+    "showroomNote": "Doar cu programare",
+    "headquarters": "Sediu",
+    "phone": "Telefon",
+    "email": "Email",
+    "openingHours": "Program",
+    "getDirections": "Indicații"
+  },
+  "about": {
+    "title": "Despre noi",
+    "subtitle": "Cunoașteți echipa noastră",
+    "story": "Povestea noastră",
+    "team": "Echipa noastră",
+    "mission": "Misiunea noastră"
+  },
+  "training": {
+    "title": "Cursuri",
+    "subtitle": "Cursuri oficiale pentru operatori cu certificat FAR",
+    "farCertificate": "Certificat FAR",
+    "included": "Inclus în preț",
+    "duration": "Durată",
+    "location": "Locație",
+    "register": "Înregistrare"
+  },
+  "comparison": {
+    "title": "Comparație",
+    "skinlab": "SkinLab",
+    "competitors": "Concurenți",
+    "feature": "Caracteristică"
+  },
+  "roi": {
+    "title": "Calculator rentabilitate",
+    "treatmentPrice": "Preț tratament",
+    "treatmentsPerDay": "Tratamente/zi",
+    "workingDays": "Zile lucrătoare/lună",
+    "monthlyRevenue": "Venit lunar",
+    "paybackPeriod": "Perioadă de recuperare"
+  },
+  "breadcrumb": {
+    "home": "Acasă"
+  },
+  "errors": {
+    "404": "Pagina nu a fost găsită",
+    "404desc": "Pagina pe care o căutați nu există sau a fost mutată.",
+    "backHome": "Înapoi acasă"
+  },
+  "common": {
+    "learnMore": "Aflați mai multe",
+    "viewAll": "Vezi tot",
+    "close": "Închide",
+    "loading": "Se încarcă...",
+    "search": "Caută",
+    "filter": "Filtrează",
+    "sort": "Sortează",
+    "new": "Nou",
+    "popular": "Popular",
+    "featured": "Recomandat",
+    "all": "Tot",
+    "yes": "Da",
+    "no": "Nu"
+  }
+}

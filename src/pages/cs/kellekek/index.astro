@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Prislusenstvi a spotrebni material',
+  nameShort: 'Prislusenstvi',
+  slug: 'kellekek',
+  description: 'Osetrujici materialy, jehlove moduly a dalsi prislusenstvi.',
+  heroDescription: 'Profesionalni spotrebni material a osetrujici materialy pro kazdodenni praci. Jehlove moduly, hydrafacial roztoky, OxyGenX pody a carbon gel - vse pro uspesna osetreni.',
+  badge: 'Spotrebni material',
+  color: 'gray',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kellekek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

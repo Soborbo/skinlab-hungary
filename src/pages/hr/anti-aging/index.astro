@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Anti-aging uredaji',
+  nameShort: 'Anti-aging',
+  slug: 'anti-aging',
+  description: 'RF, HIFU i druge tehnologije za podmladivanje koze.',
+  heroDescription: 'Zatezanje koze, tretman bora, konturiranje lica bez operacije. Radiofrekvencijske, HIFU i kombinirane tehnologije.',
+  badge: 'Mladja koza',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+---
+
+<CategoryLayout category={category} products={products} />

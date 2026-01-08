@@ -5,6 +5,8 @@
  */
 
 import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { CATEGORIES } from '../../lib/constants';
 
 interface Props {
@@ -39,15 +41,32 @@ const formatPrice = (price: number | null) => {
   return new Intl.NumberFormat('hu-HU').format(price) + ' Ft';
 };
 
-// Helper to get image path
-const getImagePath = (image: string) => {
-  if (!image) return null;
-  // Handle @assets paths
-  if (image.startsWith('@assets/')) {
-    return '/' + image.replace('@assets/', 'assets/');
+// Import all product images for dynamic resolution
+const productImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true }
+);
+
+// Resolve image path to ImageMetadata
+function resolveImage(imgPath: string): ImageMetadata | null {
+  if (!imgPath) return null;
+
+  let normalizedPath = imgPath;
+
+  if (normalizedPath.startsWith('@assets/')) {
+    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
+  } else if (normalizedPath.startsWith('assets/')) {
+    normalizedPath = `/src/${normalizedPath}`;
+  } else if (normalizedPath.startsWith('/assets/')) {
+    normalizedPath = `/src${normalizedPath}`;
+  } else if (!normalizedPath.startsWith('/src/')) {
+    const filename = normalizedPath.split('/').pop();
+    normalizedPath = `/src/assets/products/${filename}`;
   }
-  return image.startsWith('/') ? image : `/${image}`;
-};
+
+  const resolved = productImages[normalizedPath];
+  return resolved?.default || null;
+}
 ---
 
 {relatedProducts.length > 0 && (
@@ -66,7 +85,7 @@ const getImagePath = (image: string) => {
       <!-- Products Grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((product) => {
-          const imagePath = getImagePath(product.data.image);
+          const resolvedImage = resolveImage(product.data.image);
           const productUrl = `/${product.data.categorySlug}/${product.data.slug}`;
 
           return (
@@ -76,10 +95,14 @@ const getImagePath = (image: string) => {
             >
               <!-- Image -->
               <div class="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-                {imagePath ? (
-                  <img
-                    src={imagePath}
+                {resolvedImage ? (
+                  <Picture
+                    src={resolvedImage}
                     alt={product.data.name}
+                    widths={[200, 400, 600]}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    formats={['avif', 'webp', 'jpeg']}
+                    quality={70}
                     class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />

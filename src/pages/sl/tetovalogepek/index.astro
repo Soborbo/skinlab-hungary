@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Aparati za tetoviranje',
+  nameShort: 'Aparati za tetoviranje',
+  slug: 'tetovalogepek',
+  description: 'Profesionalni brezzicni aparati za tetoviranje.',
+  heroDescription: 'Profesionalni brezzicni aparati za tetoviranje z Bluetooth nadzorom. Natancno gibanje, dolga vzdrzljivost baterije, ergonomska zasnova za najzahtevnejse umetnike.',
+  badge: 'Pro orodja',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

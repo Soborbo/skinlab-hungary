@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Pikosekundove laserove zariadenia',
+  nameShort: 'Pico lasery',
+  slug: 'pico-lezerek',
+  description: 'Pikosekundove lasery na pigmentaciu a omladenie pokozky.',
+  heroDescription: 'Ultrarychla pico technologia: pikosekundove impulzy pre dokonalu pokozku. Efektivne odstranenie pigmentacie, omladenie pokozky a vyblednutie tetovania s minimalnym vedlajsimi ucinkami.',
+  badge: 'Top technologia',
+  color: 'violet',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

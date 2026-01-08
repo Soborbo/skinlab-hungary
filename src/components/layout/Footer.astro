@@ -1,5 +1,8 @@
 ---
 import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
+import { Logo } from '../images';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import skinlabLogo from '../../assets/logo.png';
 ---
 
 <footer class="bg-gray-900 text-gray-300">
@@ -10,9 +13,11 @@ import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/const
       <!-- Brand column -->
       <div class="lg:col-span-1">
         <a href="/" class="inline-block mb-4">
-          <img
-            src="/logo.jpg"
-            alt="SkinLab - laser&beauty equipment"
+          <Logo
+            src={skinlabLogo}
+            alt="SkinLab Hungary - laser&beauty equipment"
+            width={120}
+            height={48}
             class="h-10 w-auto brightness-0 invert"
           />
         </a>
@@ -89,13 +94,23 @@ import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/const
             </a>
           </li>
           <li>
-            <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-colors">
-              Blog
+            <a href="/garancia" class="text-sm text-gray-400 hover:text-white transition-colors">
+              Garancia és szerviz
+            </a>
+          </li>
+          <li>
+            <a href="/szallitas-fizetes" class="text-sm text-gray-400 hover:text-white transition-colors">
+              Szállítás és fizetés
             </a>
           </li>
           <li>
             <a href="/gyik" class="text-sm text-gray-400 hover:text-white transition-colors">
               Gyakori kérdések
+            </a>
+          </li>
+          <li>
+            <a href="/blog" class="text-sm text-gray-400 hover:text-white transition-colors">
+              Blog
             </a>
           </li>
           <li>
@@ -152,8 +167,12 @@ import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/const
   <div class="border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-sm text-gray-500">
-          © {new Date().getFullYear()} {COMPANY.name}. Minden jog fenntartva.
+        <div class="flex items-center gap-6">
+          <div class="text-sm text-gray-500">
+            © {new Date().getFullYear()} {COMPANY.name}. Minden jog fenntartva.
+          </div>
+          <!-- Language Switcher -->
+          <LanguageSwitcher variant="compact" class="hidden md:flex" />
         </div>
         <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-gray-500">
           <a href="/adatvedelem" class="hover:text-gray-300 transition-colors">
@@ -162,10 +181,17 @@ import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/const
           <a href="/aszf" class="hover:text-gray-300 transition-colors">
             ÁSZF
           </a>
+          <a href="/garancia" class="hover:text-gray-300 transition-colors">
+            Garancia
+          </a>
           <a href="/szallitas-fizetes" class="hover:text-gray-300 transition-colors">
-            Szállítás
+            Szállítás és fizetés
           </a>
         </div>
+      </div>
+      <!-- Mobile Language Switcher -->
+      <div class="mt-4 pt-4 border-t border-gray-800 md:hidden flex justify-center">
+        <LanguageSwitcher variant="compact" />
       </div>
     </div>
   </div>

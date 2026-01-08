@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Pikosekunden-Lasergeraete',
+  nameShort: 'Pico-Laser',
+  slug: 'pico-lezerek',
+  description: 'Pikosekundenlaser fuer Pigmentierung und Hautverjuengung.',
+  heroDescription: 'Ultraschnelle Pico-Technologie: Pikosekundenimpulse fuer perfekte Haut. Effektive Pigmententfernung, Hautverjuengung und Tattoo-Verblassen mit minimalen Nebenwirkungen.',
+  badge: 'Top-Technologie',
+  color: 'violet',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

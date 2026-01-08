@@ -1,0 +1,312 @@
+---
+/**
+ * TrainingSignupForm - Frictionless training signup form
+ * Minimal fields for quick registration
+ */
+import { CONTACT } from '@/lib/constants';
+import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+
+interface Props {
+  /** Custom class */
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const turnstileSiteKey = getTurnstileSiteKey();
+const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class:list={['training-signup-banner', className]}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl shadow-xl overflow-hidden">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center p-6 lg:p-8">
+        <!-- Left: Message -->
+        <div class="text-white">
+          <div class="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-sm font-medium mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Következő képzés hamarosan
+          </div>
+          <h2 class="text-xl lg:text-2xl font-bold mb-2">
+            Jelentkezz képzéseinkre!
+          </h2>
+          <p class="text-primary-100 text-sm lg:text-base">
+            Add meg adataidat és felvesszük veled a kapcsolatot a részletekkel.
+          </p>
+        </div>
+
+        <!-- Right: Form -->
+        <form
+          id={formId}
+          class="bg-white rounded-xl p-4 lg:p-6 shadow-lg"
+          action="/api/contact"
+          method="POST"
+          novalidate
+          data-training-form
+        >
+          <!-- Hidden fields -->
+          <input type="hidden" name="sourceUrl" value={Astro.url.href} />
+          <input type="hidden" name="formStartTime" data-form-start />
+          <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
+          <input type="hidden" name="product" value="kepzesek" />
+
+          <!-- Honeypot -->
+          <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
+            <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <!-- Name -->
+            <div>
+              <input
+                type="text"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="Név *"
+                class="block w-full px-3 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error="name"></p>
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                required
+                autocomplete="tel"
+                placeholder="Telefon *"
+                class="block w-full px-3 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error="phone"></p>
+            </div>
+
+            <!-- Email -->
+            <div class="sm:col-span-2">
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="Email cím *"
+                class="block w-full px-3 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error="email"></p>
+            </div>
+
+            <!-- Turnstile CAPTCHA (compact) -->
+            {turnstileSiteKey && (
+              <div class="sm:col-span-2">
+                <div
+                  class="cf-turnstile"
+                  data-sitekey={turnstileSiteKey}
+                  data-callback="onTurnstileSuccessTraining"
+                  data-error-callback="onTurnstileErrorTraining"
+                  data-theme="light"
+                  data-size="compact"
+                ></div>
+                <p class="mt-1 text-xs text-red-600 hidden" data-error="cf-turnstile-response"></p>
+              </div>
+            )}
+
+            <!-- GDPR + Submit row -->
+            <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-3">
+              <label class="flex items-start gap-2 cursor-pointer flex-1">
+                <input
+                  type="checkbox"
+                  name="gdprConsent"
+                  value="true"
+                  required
+                  class="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer"
+                  data-gdpr-checkbox
+                />
+                <span class="text-xs text-gray-600">
+                  Elfogadom az <a href="/adatvedelem" target="_blank" class="text-primary-600 hover:underline">adatvédelmi tájékoztatót</a> *
+                </span>
+              </label>
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center px-5 py-2.5 font-semibold rounded-lg bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
+                data-submit-button
+              >
+                <span data-button-text>Jelentkezem</span>
+                <svg class="hidden ml-2 h-4 w-4 animate-spin" data-loading-spinner viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Success message -->
+          <div class="hidden mt-4 p-3 bg-green-50 border border-green-200 rounded-lg" data-success-message>
+            <div class="flex items-center gap-2 text-green-800">
+              <svg class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-sm font-medium">Köszönjük! Hamarosan keresünk.</span>
+            </div>
+          </div>
+
+          <!-- Error message -->
+          <div class="hidden mt-4 p-3 bg-red-50 border border-red-200 rounded-lg" data-error-message>
+            <div class="flex items-center gap-2 text-red-800">
+              <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-sm" data-error-text>Hiba történt, próbálja újra.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Turnstile script (loaded once) -->
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  // Turnstile callbacks (global)
+  declare global {
+    interface Window {
+      onTurnstileSuccessTraining: (token: string) => void;
+      onTurnstileErrorTraining: () => void;
+    }
+  }
+
+  let turnstileTokenTraining = '';
+
+  window.onTurnstileSuccessTraining = (token: string) => {
+    turnstileTokenTraining = token;
+  };
+
+  window.onTurnstileErrorTraining = () => {
+    turnstileTokenTraining = '';
+  };
+
+  // Form handling
+  document.querySelectorAll('[data-training-form]').forEach((form) => {
+    const formEl = form as HTMLFormElement;
+
+    // Set form start time
+    const startTimeInput = formEl.querySelector('[data-form-start]') as HTMLInputElement;
+    if (startTimeInput) {
+      startTimeInput.value = Date.now().toString();
+    }
+
+    // GDPR timestamp on checkbox change
+    const gdprCheckbox = formEl.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;
+    const gdprTimestamp = formEl.querySelector('[data-gdpr-timestamp]') as HTMLInputElement;
+
+    gdprCheckbox?.addEventListener('change', () => {
+      if (gdprCheckbox.checked && gdprTimestamp) {
+        gdprTimestamp.value = new Date().toISOString();
+      }
+    });
+
+    // Form submission
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = formEl.querySelector('[data-submit-button]') as HTMLButtonElement;
+      const buttonText = formEl.querySelector('[data-button-text]') as HTMLSpanElement;
+      const spinner = formEl.querySelector('[data-loading-spinner]') as SVGElement;
+      const successMessage = formEl.querySelector('[data-success-message]') as HTMLDivElement;
+      const errorMessage = formEl.querySelector('[data-error-message]') as HTMLDivElement;
+      const errorText = formEl.querySelector('[data-error-text]') as HTMLSpanElement;
+
+      // Reset previous errors
+      formEl.querySelectorAll('[data-error]').forEach((el) => {
+        el.classList.add('hidden');
+        el.textContent = '';
+      });
+      formEl.querySelectorAll('input').forEach((el) => {
+        el.classList.remove('border-red-300');
+      });
+      successMessage?.classList.add('hidden');
+      errorMessage?.classList.add('hidden');
+
+      // Show loading state
+      submitButton.disabled = true;
+      buttonText.textContent = 'Küldés...';
+      spinner?.classList.remove('hidden');
+
+      try {
+        const formData = new FormData(formEl);
+
+        // Add turnstile token
+        if (turnstileTokenTraining) {
+          formData.set('cf-turnstile-response', turnstileTokenTraining);
+        }
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Show success
+          successMessage?.classList.remove('hidden');
+          formEl.reset();
+
+          // Reset start time
+          if (startTimeInput) {
+            startTimeInput.value = Date.now().toString();
+          }
+
+          // Track conversion
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: 'Training',
+              event_label: 'kepzesek',
+              lead_id: result.leadId,
+            });
+          }
+
+          // Redirect after short delay
+          setTimeout(() => {
+            window.location.href = `/koszonjuk?lead=${result.leadId}`;
+          }, 1500);
+        } else {
+          // Show field errors
+          if (result.errors) {
+            Object.entries(result.errors).forEach(([field, messages]) => {
+              const errorEl = formEl.querySelector(`[data-error="${field}"]`) as HTMLParagraphElement;
+              const inputEl = formEl.querySelector(`[name="${field}"]`) as HTMLInputElement;
+
+              if (errorEl && Array.isArray(messages) && messages.length > 0) {
+                errorEl.textContent = messages[0];
+                errorEl.classList.remove('hidden');
+              }
+
+              if (inputEl) {
+                inputEl.classList.add('border-red-300');
+              }
+            });
+          }
+
+          // Show general error
+          errorMessage?.classList.remove('hidden');
+          if (errorText) {
+            errorText.textContent = result.error || 'Ellenőrizze az adatokat.';
+          }
+        }
+      } catch (error) {
+        errorMessage?.classList.remove('hidden');
+        if (errorText) {
+          errorText.textContent = 'Hálózati hiba, próbálja újra.';
+        }
+      } finally {
+        submitButton.disabled = false;
+        buttonText.textContent = 'Jelentkezem';
+        spinner?.classList.add('hidden');
+      }
+    });
+  });
+</script>

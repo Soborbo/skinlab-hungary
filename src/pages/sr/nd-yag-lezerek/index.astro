@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Q-Switched ND:YAG laserski uredjaji',
+  nameShort: 'ND:YAG laseri',
+  slug: 'nd-yag-lezerek',
+  description: 'Laseri za uklanjanje tetovaza i pigmentnih fleka.',
+  heroDescription: 'Uklanjanje tetovaza, carbon peeling, tretman pigmentnih fleka. Profesionalna Q-switched tehnologija, minimalna nelagodnost.',
+  badge: 'Premium tehnologija',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

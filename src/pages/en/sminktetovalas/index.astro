@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST PMU Machines',
+  nameShort: 'PMU Machines',
+  slug: 'sminktetovalas',
+  description: 'Wired and wireless permanent makeup machines and accessories.',
+  heroDescription: 'Professional PMU machines for eyebrow, lip and eyelid tattooing. Precise line work, quiet motor, ergonomic design.',
+  badge: 'PMU expert choice',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

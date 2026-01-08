@@ -24,7 +24,7 @@ const productData = {
   shortDescription: product.data.shortDescription,
   price: product.data.price,
   image: product.data.image,
-  gallery: product.data.gallery,
+  gallery: product.data.images || product.data.gallery || [],
   youtubeVideos: product.data.youtubeVideos,
   availability: product.data.availability,
   hasVariants: product.data.hasVariants,

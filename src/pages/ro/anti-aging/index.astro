@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Dispozitive anti-aging',
+  nameShort: 'Anti-aging',
+  slug: 'anti-aging',
+  description: 'Tehnologii RF, HIFU si alte tehnologii de intinerire a pielii.',
+  heroDescription: 'Intinderea pielii, tratamentul ridurilor, conturarea faciala fara operatie. Tehnologii de radiofrecventa, HIFU si combinate.',
+  badge: 'Piele mai tanara',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+---
+
+<CategoryLayout category={category} products={products} />

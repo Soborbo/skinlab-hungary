@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Lasere cu dioda profesionale',
+  nameShort: 'Lasere cu dioda',
+  slug: 'diodalezerek',
+  description: 'Lasere cu dioda profesionale cu 4 lungimi de unda pentru epilare definitiva.',
+  heroDescription: 'Epilare definitiva cu tehnologie cu 4 lungimi de unda. Pentru toate tipurile de piele, toate tipurile de par. Rentabilitate rapida, clienti multumiti.',
+  badge: 'Categoria bestseller',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

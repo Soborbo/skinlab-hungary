@@ -4,38 +4,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary - Medical kék (using CSS variables for easy site-wide customization)
-        // Change colors in src/styles/global.css :root section
+        // Primary - Medical kék
         primary: {
-          50: 'rgb(var(--color-primary-50) / <alpha-value>)',
-          100: 'rgb(var(--color-primary-100) / <alpha-value>)',
-          200: 'rgb(var(--color-primary-200) / <alpha-value>)',
-          300: 'rgb(var(--color-primary-300) / <alpha-value>)',
-          400: 'rgb(var(--color-primary-400) / <alpha-value>)',
-          500: 'rgb(var(--color-primary-500) / <alpha-value>)',
-          600: 'rgb(var(--color-primary-600) / <alpha-value>)',
-          700: 'rgb(var(--color-primary-700) / <alpha-value>)',
-          800: 'rgb(var(--color-primary-800) / <alpha-value>)',
-          900: 'rgb(var(--color-primary-900) / <alpha-value>)',
-          950: 'rgb(var(--color-primary-950) / <alpha-value>)',
+          50: '#f0f7ff',
+          100: '#e0effe',
+          200: '#bae0fd',
+          300: '#7cc8fb',
+          400: '#36aaf5',
+          500: '#0c8ee6',
+          600: '#0070c4',
+          700: '#015a9f',
+          800: '#064d83',
+          900: '#0b416d',
+          950: '#072949',
         },
         // Accent - Elegáns arany (CTA kiemelések)
         accent: {
-          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
-          light: 'rgb(var(--color-accent-light) / <alpha-value>)',
-          dark: 'rgb(var(--color-accent-dark) / <alpha-value>)',
+          DEFAULT: '#b8860b',
+          light: '#d4a84b',
+          dark: '#8a6508',
         },
         // Success - zöld
         success: {
-          50: 'rgb(var(--color-success-50) / <alpha-value>)',
-          500: 'rgb(var(--color-success-500) / <alpha-value>)',
-          600: 'rgb(var(--color-success-600) / <alpha-value>)',
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          500: '#059669',
+          600: '#047857',
+          700: '#065f46',
         },
         // Warning - narancs
         warning: {
-          50: 'rgb(var(--color-warning-50) / <alpha-value>)',
-          500: 'rgb(var(--color-warning-500) / <alpha-value>)',
-          600: 'rgb(var(--color-warning-600) / <alpha-value>)',
+          50: '#fffbeb',
+          100: '#fef3c7',
+          500: '#d97706',
+          600: '#b45309',
         },
       },
       fontFamily: {

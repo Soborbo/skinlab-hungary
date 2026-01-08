@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hidrodermabraziune si dispozitive multifunctionale',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Dispozitive de hidrodermabraziune si tratamente cosmetice combinate.',
+  heroDescription: 'Reinnoire a pielii, curatare profunda, tratamente anti-aging intr-un singur dispozitiv. Cu diagnostic AI al pielii, rezultate vizibile imediate.',
+  badge: 'Diagnostic AI',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

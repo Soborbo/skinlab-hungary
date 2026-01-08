@@ -1,0 +1,206 @@
+---
+/**
+ * CourseSchema - Schema.org structured data for training/course pages
+ * Supports Course, CourseInstance, and EducationalOrganization
+ */
+import { SITE, COMPANY, LOCATIONS, CONTACT } from '../../lib/constants';
+
+interface CourseInstance {
+  name?: string;
+  startDate?: string;
+  endDate?: string;
+  courseMode?: 'onsite' | 'online' | 'blended';
+  courseWorkload?: string;
+}
+
+interface Props {
+  /** Course name */
+  name: string;
+  /** Course description */
+  description: string;
+  /** Course URL */
+  url?: string;
+  /** Course price in HUF */
+  price?: number;
+  /** Price formatted string (e.g., "Ingyenes gépvásárlással") */
+  priceFormatted?: string;
+  /** Course duration (e.g., "4-6 óra") */
+  duration?: string;
+  /** Certificate awarded */
+  certificate?: string;
+  /** Course category/type */
+  category?: string;
+  /** Course instances (scheduled classes) */
+  instances?: CourseInstance[];
+  /** Course image URL */
+  image?: string;
+  /** Is this for the main training overview page? */
+  isOverviewPage?: boolean;
+}
+
+const {
+  name,
+  description,
+  url = Astro.url.href,
+  price,
+  priceFormatted,
+  duration,
+  certificate,
+  category,
+  instances = [],
+  image,
+  isOverviewPage = false,
+} = Astro.props;
+
+// Educational Organization schema (provider)
+const educationalOrganization = {
+  "@type": "EducationalOrganization",
+  "@id": `${SITE.url}#educationalOrganization`,
+  "name": COMPANY.name,
+  "url": SITE.url,
+  "logo": `${SITE.url}/logo.png`,
+  "telephone": CONTACT.phone,
+  "email": CONTACT.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": LOCATIONS.showroom.streetAddress,
+    "addressLocality": LOCATIONS.showroom.city,
+    "postalCode": LOCATIONS.showroom.postalCode,
+    "addressCountry": LOCATIONS.showroom.country,
+  },
+  "areaServed": COMPANY.areaServed?.map(code => ({
+    "@type": "Country",
+    "name": code === 'HU' ? 'Hungary' : code === 'SK' ? 'Slovakia' : code === 'RO' ? 'Romania' : code,
+  })),
+};
+
+// Location for in-person courses
+const courseLocation = {
+  "@type": "Place",
+  "name": LOCATIONS.showroom.name,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": LOCATIONS.showroom.streetAddress,
+    "addressLocality": LOCATIONS.showroom.city,
+    "postalCode": LOCATIONS.showroom.postalCode,
+    "addressCountry": LOCATIONS.showroom.country,
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": LOCATIONS.showroom.geo?.latitude,
+    "longitude": LOCATIONS.showroom.geo?.longitude,
+  },
+};
+
+// Build course instance schemas
+const courseInstances = instances.length > 0
+  ? instances.map(instance => ({
+      "@type": "CourseInstance",
+      "name": instance.name || name,
+      "courseMode": instance.courseMode === 'online'
+        ? "https://schema.org/OnlineEventAttendanceMode"
+        : "https://schema.org/OfflineEventAttendanceMode",
+      "location": instance.courseMode === 'online'
+        ? { "@type": "VirtualLocation", "url": SITE.url }
+        : courseLocation,
+      ...(instance.startDate && { "startDate": instance.startDate }),
+      ...(instance.endDate && { "endDate": instance.endDate }),
+      ...(instance.courseWorkload && { "courseWorkload": instance.courseWorkload }),
+    }))
+  : [{
+      "@type": "CourseInstance",
+      "courseMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": courseLocation,
+      "courseSchedule": {
+        "@type": "Schedule",
+        "scheduleTimezone": "Europe/Budapest",
+        "byAppointment": true,
+      },
+    }];
+
+// Main Course schema
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${url}#course`,
+  "name": name,
+  "description": description,
+  "url": url,
+  "provider": educationalOrganization,
+  "inLanguage": "hu",
+  "isAccessibleForFree": price === 0 || priceFormatted?.toLowerCase().includes('ingyenes'),
+  ...(image && { "image": image.startsWith('http') ? image : `${SITE.url}${image}` }),
+  ...(category && {
+    "about": {
+      "@type": "Thing",
+      "name": category,
+    },
+    "courseCode": category.toLowerCase().replace(/\s+/g, '-'),
+  }),
+  ...(duration && {
+    "timeRequired": duration,
+    "courseWorkload": duration,
+  }),
+  ...(certificate && {
+    "educationalCredentialAwarded": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certificate",
+      "name": certificate,
+      "description": `${certificate} - Hivatalos gépkezelői tanúsítvány`,
+    },
+    "hasCourseInstance": courseInstances,
+  }),
+  ...(!certificate && { "hasCourseInstance": courseInstances }),
+  // Offer for paid courses
+  ...(price && price > 0 && {
+    "offers": {
+      "@type": "Offer",
+      "url": url,
+      "price": String(price),
+      "priceCurrency": "HUF",
+      "availability": "https://schema.org/InStock",
+      "validFrom": new Date().toISOString().split('T')[0],
+      "seller": { "@id": `${SITE.url}#organization` },
+    },
+  }),
+  // Free course offer
+  ...((!price || price === 0) && {
+    "offers": {
+      "@type": "Offer",
+      "url": url,
+      "price": "0",
+      "priceCurrency": "HUF",
+      "availability": "https://schema.org/InStock",
+      "description": priceFormatted || "Ingyenes gépvásárlás esetén",
+    },
+  }),
+  // Audience
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Kozmetikusok és szépségipari szakemberek",
+  },
+  // Skills taught
+  "teaches": [
+    "Professzionális gépkezelés",
+    "Biztonságos kezelések végzése",
+    "Paraméterek beállítása",
+    "Hibaelhárítás",
+  ],
+};
+
+// ItemList schema for overview page (multiple courses)
+const itemListSchema = isOverviewPage ? {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SkinLab Képzések",
+  "description": "Professzionális kozmetikai gépkezelői képzések listája",
+  "url": url,
+  "numberOfItems": 1, // Will be overridden when actual count is known
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+{isOverviewPage && itemListSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+)}

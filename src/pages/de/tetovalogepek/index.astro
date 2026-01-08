@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Taetowiermaschinen',
+  nameShort: 'Taetowiermaschinen',
+  slug: 'tetovalogepek',
+  description: 'Professionelle kabellose Taetowiermaschinen.',
+  heroDescription: 'Professionelle kabellose Taetowiermaschinen mit Bluetooth-Steuerung. Praezise Bewegung, lange Akkulaufzeit, ergonomisches Design fuer die anspruchsvollsten Kuenstler.',
+  badge: 'Profi-Werkzeuge',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

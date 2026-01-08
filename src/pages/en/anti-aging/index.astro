@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Anti-aging Devices',
+  nameShort: 'Anti-aging',
+  slug: 'anti-aging',
+  description: 'RF, HIFU and other skin rejuvenation technologies.',
+  heroDescription: 'Skin tightening, wrinkle treatment, facial contouring without surgery. Radiofrequency, HIFU and combined technologies.',
+  badge: 'Younger skin',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+---
+
+<CategoryLayout category={category} products={products} />

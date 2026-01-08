@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Dispozitive laser picosecunda',
+  nameShort: 'Lasere Pico',
+  slug: 'pico-lezerek',
+  description: 'Lasere picosecunda pentru pigmentare si reintinerirea pielii.',
+  heroDescription: 'Tehnologie pico ultra-rapida: impulsuri picosecunda pentru o piele perfecta. Indepartare eficienta a pigmentarii, reintinerirea pielii si estomparea tatuajelor cu efecte secundare minime.',
+  badge: 'Tehnologie de top',
+  color: 'violet',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

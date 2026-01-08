@@ -1,0 +1,111 @@
+---
+/**
+ * Breadcrumb - Visual breadcrumb navigation with Schema.org markup
+ *
+ * Combines visual UI with JSON-LD structured data for SEO
+ */
+import type { BreadcrumbItem } from '../schema/helpers/types';
+import BreadcrumbSchema from '../schema/BreadcrumbSchema.astro';
+
+interface Props {
+  items: BreadcrumbItem[];
+  /** Current page URL for schema */
+  currentUrl: string;
+  /** Show home icon instead of text */
+  showHomeIcon?: boolean;
+  /** Custom separator */
+  separator?: 'chevron' | 'slash' | 'arrow';
+  class?: string;
+}
+
+const {
+  items,
+  currentUrl,
+  showHomeIcon = true,
+  separator = 'chevron',
+  class: className = '',
+} = Astro.props;
+
+// Separator icons
+const separators = {
+  chevron: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />`,
+  slash: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3l10 18" />`,
+  arrow: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />`,
+};
+
+// Home icon
+const homeIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`;
+---
+
+<!-- JSON-LD Schema -->
+<BreadcrumbSchema items={items} currentUrl={currentUrl} />
+
+<!-- Visual Breadcrumb -->
+<nav aria-label="Breadcrumb" class:list={['py-3', className]}>
+  <ol class="flex flex-wrap items-center gap-1 text-sm">
+    {items.map((item, index) => {
+      const isFirst = index === 0;
+      const isLast = index === items.length - 1;
+      const showIcon = isFirst && showHomeIcon;
+
+      return (
+        <li class="flex items-center">
+          {/* Separator (not for first item) */}
+          {!isFirst && (
+            <svg
+              class="w-4 h-4 mx-2 text-gray-400 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              set:html={separators[separator]}
+            />
+          )}
+
+          {/* Breadcrumb item */}
+          {isLast ? (
+            <span
+              class="text-gray-500 font-medium truncate max-w-[200px] sm:max-w-none"
+              aria-current="page"
+            >
+              {item.name}
+            </span>
+          ) : item.url ? (
+            <a
+              href={item.url}
+              class="inline-flex items-center gap-1.5 text-gray-600 hover:text-primary-600 transition-colors"
+            >
+              {showIcon && (
+                <svg
+                  class="w-4 h-4 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  set:html={homeIcon}
+                />
+              )}
+              <span class={showIcon ? 'sr-only sm:not-sr-only' : ''}>
+                {item.name}
+              </span>
+            </a>
+          ) : (
+            <span class="text-gray-600">
+              {showIcon && (
+                <svg
+                  class="w-4 h-4 flex-shrink-0 inline mr-1.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  set:html={homeIcon}
+                />
+              )}
+              {item.name}
+            </span>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>

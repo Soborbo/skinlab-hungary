@@ -1,0 +1,63 @@
+---
+/**
+ * Button - Reusable button component
+ *
+ * Variants: primary, secondary, outline, ghost
+ * Sizes: sm, md, lg
+ */
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  fullWidth?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  fullWidth = false,
+  class: className = '',
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+const variantStyles = {
+  primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500',
+  secondary: 'bg-white text-primary-700 border-2 border-primary-600 hover:bg-primary-50 focus:ring-primary-500',
+  outline: 'bg-transparent text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-500',
+  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-500',
+};
+
+const sizeStyles = {
+  sm: 'px-3 py-1.5 text-sm gap-1.5',
+  md: 'px-4 py-2.5 text-sm gap-2',
+  lg: 'px-6 py-3 text-base gap-2',
+};
+
+const classes = [
+  baseStyles,
+  variantStyles[variant],
+  sizeStyles[size],
+  fullWidth ? 'w-full' : '',
+  className,
+].filter(Boolean).join(' ');
+
+const Tag = href ? 'a' : 'button';
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} disabled={disabled} class={classes}>
+    <slot />
+  </button>
+)}

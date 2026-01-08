@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Dispozitive HIEMT pentru modelarea corpului',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'Dispozitive EMS si RF pentru modelarea corpului, dezvoltarea musculaturii si arderea grasimilor.',
+  heroDescription: 'Tehnologie revolutionara HIFEM: dezvoltarea musculaturii si arderea grasimilor intr-un singur tratament. 30 min = 20.000 contractii musculare. Modelare corporala non-invaziva fara operatie.',
+  badge: 'Categorie noua',
+  color: 'orange',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+---
+
+<CategoryLayout category={category} products={products} />

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hydrodermabrasion und Multifunktionsgeraete',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Hydrodermabrasion und kombinierte kosmetische Behandlungsgeraete.',
+  heroDescription: 'Hauterneuerung, Tiefenreinigung, Anti-Aging-Behandlungen in einem Geraet. Mit KI-Hautdiagnostik, sofort sichtbare Ergebnisse.',
+  badge: 'KI-Diagnostik',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

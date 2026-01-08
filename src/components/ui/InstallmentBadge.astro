@@ -1,0 +1,85 @@
+---
+/**
+ * InstallmentBadge - Compact installment payment info for product pages
+ * Links to the full payment info page
+ */
+interface Props {
+  /** Product price for calculation */
+  price?: number;
+  /** Show compact or expanded version */
+  compact?: boolean;
+  /** Custom class */
+  class?: string;
+}
+
+const { price = 0, compact = false, class: className = '' } = Astro.props;
+
+// Calculate if installment is available (min 1,000,000 Ft)
+const installmentAvailable = price >= 1000000;
+const extendedInstallment = price >= 5000000;
+
+// Calculate monthly payment (50% over 6 months)
+const monthlyPayment = installmentAvailable ? Math.round((price * 0.5) / 6) : 0;
+const formattedMonthly = monthlyPayment > 0 ? new Intl.NumberFormat('hu-HU').format(monthlyPayment) : '';
+---
+
+{installmentAvailable && (
+  <div class:list={['installment-badge', className]}>
+    {compact ? (
+      <!-- Compact version - just a badge -->
+      <a
+        href="/szallitas-fizetes#reszletfizetes"
+        class="inline-flex items-center gap-2 px-3 py-1.5 bg-success-50 text-success-700 rounded-lg text-sm font-medium hover:bg-success-100 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Kamatmentes részletfizetés</span>
+      </a>
+    ) : (
+      <!-- Expanded version - card with details -->
+      <div class="bg-gradient-to-br from-primary-50 to-indigo-50 rounded-xl p-4 border border-primary-100">
+        <div class="flex items-start gap-3 mb-3">
+          <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900">Kamatmentes részletfizetés</h4>
+            <p class="text-sm text-gray-600">50% előleg + 50% átvételkor</p>
+          </div>
+        </div>
+
+        <div class="space-y-2 mb-3">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600">3 vagy 6 havi részlet:</span>
+            <span class="font-semibold text-gray-900">0% kamat</span>
+          </div>
+          {monthlyPayment > 0 && (
+            <div class="flex items-center justify-between text-sm bg-white rounded-lg px-3 py-2">
+              <span class="text-gray-600">Havi részlet (6 hó):</span>
+              <span class="font-bold text-primary-600">~{formattedMonthly} Ft/hó</span>
+            </div>
+          )}
+          {extendedInstallment && (
+            <div class="flex items-center gap-2 text-sm">
+              <span class="px-2 py-0.5 bg-primary-600 text-white text-xs font-bold rounded">12 hó</span>
+              <span class="text-gray-600">részletfizetés is elérhető!</span>
+            </div>
+          )}
+        </div>
+
+        <a
+          href="/szallitas-fizetes#reszletfizetes"
+          class="inline-flex items-center text-sm text-primary-600 font-medium hover:text-primary-700"
+        >
+          Részletek megtekintése
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+)}

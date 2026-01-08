@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hidrodermabrazija i multifunkcionalni uredaji',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Hidrodermabrazijski i kombinirani kozmeticki uredaji.',
+  heroDescription: 'Obnova koze, dubinsko ciscenje, anti-aging tretmani u jednom uredaju. S AI dijagnostikom koze, odmah vidljivi rezultati.',
+  badge: 'AI dijagnostika',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

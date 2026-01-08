@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoogleMap from '../components/ui/GoogleMap.astro';
 import { CONTACT, LOCATIONS, CATEGORIES } from '../lib/constants';
 ---
 
@@ -218,19 +219,15 @@ import { CONTACT, LOCATIONS, CATEGORIES } from '../lib/constants';
                 </a>
               </div>
               
-              <!-- Map placeholder -->
-              <div class="mt-4 aspect-video bg-gray-200 rounded-2xl overflow-hidden">
-                <div class="w-full h-full flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-white shadow flex items-center justify-center">
-                      <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                      </svg>
-                    </div>
-                    <p class="text-gray-500 font-medium">Google Maps beágyazás</p>
-                    <p class="text-sm text-gray-400">Vagy statikus térkép kép</p>
-                  </div>
-                </div>
+              <!-- Google Map - Lazy loaded -->
+              <div class="mt-4">
+                <GoogleMap
+                  lat={LOCATIONS.showroom.geo.latitude}
+                  lng={LOCATIONS.showroom.geo.longitude}
+                  aspectRatio="16/9"
+                  placeholderText="Térkép megjelenítése"
+                  class="rounded-2xl"
+                />
               </div>
             </div>
             

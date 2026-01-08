@@ -167,7 +167,7 @@ export const CATEGORIES = [
   {
     id: 'szalonberendezes',
     name: 'Szalonberendezés',
-    nameShort: 'Szalon',
+    nameShort: 'Szalonberendezés',
     slug: 'szalonberendezes',
     description: 'Professzionális szalonbútorok, trolley-k és kiegészítők.',
     icon: 'armchair',

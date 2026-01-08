@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Pribor i potrosni materijal',
+  nameShort: 'Pribor',
+  slug: 'kellekek',
+  description: 'Materijali za tretmane, moduli igala i ostali pribor.',
+  heroDescription: 'Profesionalni potrosni materijal i materijali za tretmane za svakodnevni rad. Moduli igala, hydrafacial otopine, OxyGenX podovi i carbon gel - sve za uspjesne tretmane.',
+  badge: 'Potrosni materijal',
+  color: 'gray',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kellekek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

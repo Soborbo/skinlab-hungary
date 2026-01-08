@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "en",
+    "language": "English"
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "trainings": "Training",
+    "about": "About Us",
+    "contact": "Contact",
+    "allProducts": "All Products",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Professional Cosmetic Equipment",
+    "subtitle": "Diode lasers, PMU machines and multifunctional devices with 2-year warranty",
+    "cta": "Free Consultation",
+    "ctaSecondary": "View Products"
+  },
+  "categories": {
+    "diodeLasers": "Diode Lasers",
+    "diodeLasersDesc": "Permanent hair removal",
+    "ndYagLasers": "ND:YAG Lasers",
+    "ndYagLasersDesc": "Tattoo removal",
+    "picoLasers": "Pico Lasers",
+    "picoLasersDesc": "Pigmentation treatment",
+    "hiemt": "HIEMT Body Sculpting",
+    "hiemtDesc": "Muscle building, fat burning",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Deep cleansing, hydration",
+    "antiAging": "Anti-aging",
+    "antiAgingDesc": "HIFU, RF technology",
+    "pmu": "PMU Machines",
+    "pmuDesc": "Permanent makeup devices",
+    "tattoo": "Tattoo Machines",
+    "tattooDesc": "Professional equipment",
+    "salon": "Salon Furniture",
+    "salonDesc": "Furniture, trolleys",
+    "accessories": "Accessories",
+    "accessoriesDesc": "Needle modules, solutions"
+  },
+  "trust": {
+    "warranty": "2-Year Warranty",
+    "warrantyDesc": "Full warranty on all equipment",
+    "shipping": "2-Week Delivery",
+    "shippingDesc": "Fast DHL Express shipping",
+    "training": "FAR Certificate",
+    "trainingDesc": "Official operator training",
+    "service": "In-house Service",
+    "serviceDesc": "Immediate repair, loaner device"
+  },
+  "stats": {
+    "soldUnits": "Novalight Units Sold",
+    "warranty": "Warranty",
+    "deliveryTime": "Delivery Time",
+    "legalImport": "Legal Import"
+  },
+  "product": {
+    "inStock": "In Stock",
+    "preorder": "Pre-order",
+    "outOfStock": "Out of Stock",
+    "price": "Price",
+    "priceOnRequest": "Request a custom quote!",
+    "grossPrice": "Gross price (incl. VAT)",
+    "monthlyFrom": "or from ~{price}/month with financing",
+    "sku": "SKU",
+    "selectVariant": "Select variant:",
+    "freeConsultation": "Free Consultation",
+    "callNow": "Call Now",
+    "description": "Detailed Description",
+    "specs": "Technical Specifications",
+    "faq": "Frequently Asked Questions",
+    "relatedProducts": "Related Products",
+    "whatsIncluded": "What's Included?",
+    "warranty": "Warranty & Service",
+    "warrantyInfo": "2-year full warranty, loaner device during repairs",
+    "videoDemo": "Video Demo"
+  },
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email Address",
+    "emailPlaceholder": "example@email.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+36 70 123 4567",
+    "message": "Message",
+    "messagePlaceholder": "Tell us how we can help...",
+    "product": "Which product interests you?",
+    "productPlaceholder": "Select...",
+    "gdprConsent": "I accept the privacy policy",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": "Thank you! We will contact you shortly.",
+    "error": "An error occurred. Please try again.",
+    "required": "Required field"
+  },
+  "cta": {
+    "title": "Have Questions?",
+    "subtitle": "Request a free consultation and we'll help you find the right equipment.",
+    "button": "Request Consultation",
+    "callUs": "Call Us"
+  },
+  "footer": {
+    "company": "Company Info",
+    "products": "Products",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy",
+    "imprint": "Imprint",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. All rights reserved.",
+    "newsletter": "Newsletter Signup",
+    "newsletterPlaceholder": "Your email address",
+    "subscribe": "Subscribe"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us!",
+    "showroom": "Showroom",
+    "showroomNote": "By appointment only",
+    "headquarters": "Headquarters",
+    "phone": "Phone",
+    "email": "Email",
+    "openingHours": "Opening Hours",
+    "getDirections": "Get Directions"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Meet our team",
+    "story": "Our Story",
+    "team": "Our Team",
+    "mission": "Our Mission"
+  },
+  "training": {
+    "title": "Training",
+    "subtitle": "Official operator courses with FAR certificate",
+    "farCertificate": "FAR Certificate",
+    "included": "Included in price",
+    "duration": "Duration",
+    "location": "Location",
+    "register": "Register"
+  },
+  "comparison": {
+    "title": "Comparison",
+    "skinlab": "SkinLab",
+    "competitors": "Competitors",
+    "feature": "Feature"
+  },
+  "roi": {
+    "title": "ROI Calculator",
+    "treatmentPrice": "Treatment Price",
+    "treatmentsPerDay": "Treatments/Day",
+    "workingDays": "Working Days/Month",
+    "monthlyRevenue": "Monthly Revenue",
+    "paybackPeriod": "Payback Period"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "errors": {
+    "404": "Page Not Found",
+    "404desc": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "close": "Close",
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "new": "New",
+    "popular": "Popular",
+    "featured": "Featured",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

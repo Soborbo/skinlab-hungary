@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Profesionalne diodove lasery',
+  nameShort: 'Diodove lasery',
+  slug: 'diodalezerek',
+  description: 'Profesionalne 4-vlnove diodove lasery na trvale odstranenie chupkov.',
+  heroDescription: 'Trvale odstranenie chupkov so 4-vlnovou technologiou. Pre vsetky typy pokozky, vsetky typy chupkov. Rychla navratnost investicie, spokojni klienti.',
+  badge: 'Najpredavanejsia kategoria',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

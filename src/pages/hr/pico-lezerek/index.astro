@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Pikosekundni laserski uredaji',
+  nameShort: 'Pico laseri',
+  slug: 'pico-lezerek',
+  description: 'Pikosekundni laseri za pigmentaciju i podmladivanje koze.',
+  heroDescription: 'Ultra-brza pico tehnologija: pikosekundni impulsi za savrsenu kozu. Ucinkovito uklanjanje pigmentacije, podmladivanje koze i blijedenje tetovaza s minimalnim nuspojavama.',
+  badge: 'Top tehnologija',
+  color: 'violet',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'pico-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

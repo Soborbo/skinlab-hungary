@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Anti-aging pristroje',
+  nameShort: 'Anti-aging',
+  slug: 'anti-aging',
+  description: 'RF, HIFU a dalsi technologie pro omladeni pokozky.',
+  heroDescription: 'Zpevneni pokozky, lecba vrasek, konturovani obliceje bez operace. Radiofrekvencni, HIFU a kombinovane technologie.',
+  badge: 'Mladsi pokozka',
+  color: 'rose',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'anti-aging';
+});
+---
+
+<CategoryLayout category={category} products={products} />

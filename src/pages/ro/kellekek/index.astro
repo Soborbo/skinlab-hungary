@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Accesorii si consumabile',
+  nameShort: 'Accesorii',
+  slug: 'kellekek',
+  description: 'Materiale de tratament, module de ace si alte accesorii.',
+  heroDescription: 'Consumabile profesionale si materiale de tratament pentru munca zilnica. Module de ace, solutii hydrafacial, capsule OxyGenX si gel carbon - totul pentru tratamente de succes.',
+  badge: 'Consumabile',
+  color: 'gray',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kellekek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

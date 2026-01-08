@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "hu",
+    "language": "Magyar"
+  },
+  "nav": {
+    "home": "Főoldal",
+    "products": "Termékek",
+    "trainings": "Képzések",
+    "about": "Rólunk",
+    "contact": "Kapcsolat",
+    "allProducts": "Összes termék",
+    "blog": "Blog",
+    "faq": "GYIK"
+  },
+  "hero": {
+    "title": "Professzionális kozmetikai berendezések",
+    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek 2 év garanciával",
+    "cta": "Ingyenes konzultáció",
+    "ctaSecondary": "Termékek megtekintése"
+  },
+  "categories": {
+    "diodeLasers": "Diódalézerek",
+    "diodeLasersDesc": "Tartós szőrtelenítés",
+    "ndYagLasers": "ND:YAG lézerek",
+    "ndYagLasersDesc": "Tetoválás eltávolítás",
+    "picoLasers": "Pico lézerek",
+    "picoLasersDesc": "Pigmentáció kezelés",
+    "hiemt": "HIEMT alakformálás",
+    "hiemtDesc": "Izomépítés, zsírégetés",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Arctisztítás, hidratálás",
+    "antiAging": "Anti-aging",
+    "antiAgingDesc": "HIFU, RF technológia",
+    "pmu": "Sminktetováló",
+    "pmuDesc": "PMU készülékek",
+    "tattoo": "Tetoválógépek",
+    "tattooDesc": "Professzionális gépek",
+    "salon": "Szalonberendezés",
+    "salonDesc": "Bútorok, trolley-k",
+    "accessories": "Kellékek",
+    "accessoriesDesc": "Tűmodulok, oldatok"
+  },
+  "trust": {
+    "warranty": "2 év garancia",
+    "warrantyDesc": "Teljes körű garancia minden készülékre",
+    "shipping": "2 hét szállítás",
+    "shippingDesc": "Gyors, DHL Express kiszállítás",
+    "training": "FAR tanúsítvány",
+    "trainingDesc": "Hivatalos gépkezelői képzés",
+    "service": "Saját szerviz",
+    "serviceDesc": "Azonnali javítás, cseregép"
+  },
+  "stats": {
+    "soldUnits": "Eladott Novalight",
+    "warranty": "Garancia",
+    "deliveryTime": "Szállítási idő",
+    "legalImport": "Legális behozatal"
+  },
+  "product": {
+    "inStock": "Raktáron",
+    "preorder": "Előrendelhető",
+    "outOfStock": "Nem elérhető",
+    "price": "Ár",
+    "priceOnRequest": "Kérjen egyedi ajánlatot!",
+    "grossPrice": "Bruttó ár (ÁFA-val)",
+    "monthlyFrom": "vagy havi ~{price} részletfizetéssel",
+    "sku": "Cikkszám",
+    "selectVariant": "Válassz variációt:",
+    "freeConsultation": "Ingyenes konzultáció",
+    "callNow": "Hívás most",
+    "description": "Részletes leírás",
+    "specs": "Műszaki adatok",
+    "faq": "Gyakori kérdések",
+    "relatedProducts": "Kapcsolódó termékek",
+    "whatsIncluded": "Mit tartalmaz a csomag?",
+    "warranty": "Garancia és szerviz",
+    "warrantyInfo": "2 év teljes körű garancia, cseregép javítás idejére",
+    "videoDemo": "Videó bemutató"
+  },
+  "form": {
+    "name": "Név",
+    "namePlaceholder": "Az Ön neve",
+    "email": "E-mail cím",
+    "emailPlaceholder": "pelda@email.hu",
+    "phone": "Telefonszám",
+    "phonePlaceholder": "+36 70 123 4567",
+    "message": "Üzenet",
+    "messagePlaceholder": "Írja le, miben segíthetünk...",
+    "product": "Melyik termék érdekli?",
+    "productPlaceholder": "Válasszon...",
+    "gdprConsent": "Elfogadom az adatvédelmi nyilatkozatot",
+    "submit": "Üzenet küldése",
+    "submitting": "Küldés...",
+    "success": "Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.",
+    "error": "Hiba történt. Kérjük, próbálja újra.",
+    "required": "Kötelező mező"
+  },
+  "cta": {
+    "title": "Kérdése van?",
+    "subtitle": "Kérjen ingyenes konzultációt, és segítünk megtalálni az Önnek megfelelő készüléket.",
+    "button": "Konzultáció kérése",
+    "callUs": "Hívjon minket"
+  },
+  "footer": {
+    "company": "Cégadatok",
+    "products": "Termékek",
+    "support": "Támogatás",
+    "legal": "Jogi információk",
+    "privacy": "Adatvédelem",
+    "terms": "ÁSZF",
+    "cookies": "Cookie szabályzat",
+    "imprint": "Impresszum",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. Minden jog fenntartva.",
+    "newsletter": "Hírlevél feliratkozás",
+    "newsletterPlaceholder": "Az Ön e-mail címe",
+    "subscribe": "Feliratkozás"
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "subtitle": "Vegye fel velünk a kapcsolatot!",
+    "showroom": "Showroom",
+    "showroomNote": "Előre egyeztetett időpontban",
+    "headquarters": "Székhely",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "openingHours": "Nyitvatartás",
+    "getDirections": "Útvonaltervezés"
+  },
+  "about": {
+    "title": "Rólunk",
+    "subtitle": "Ismerje meg csapatunkat",
+    "story": "Történetünk",
+    "team": "Csapatunk",
+    "mission": "Küldetésünk"
+  },
+  "training": {
+    "title": "Képzések",
+    "subtitle": "Hivatalos gépkezelői tanfolyamok FAR tanúsítvánnyal",
+    "farCertificate": "FAR tanúsítvány",
+    "included": "A gép árában",
+    "duration": "Időtartam",
+    "location": "Helyszín",
+    "register": "Jelentkezés"
+  },
+  "comparison": {
+    "title": "Összehasonlítás",
+    "skinlab": "SkinLab",
+    "competitors": "Versenytársak",
+    "feature": "Tulajdonság"
+  },
+  "roi": {
+    "title": "Megtérülési kalkulátor",
+    "treatmentPrice": "Kezelési ár",
+    "treatmentsPerDay": "Kezelés/nap",
+    "workingDays": "Munkanapok/hónap",
+    "monthlyRevenue": "Havi bevétel",
+    "paybackPeriod": "Megtérülési idő"
+  },
+  "breadcrumb": {
+    "home": "Főoldal"
+  },
+  "errors": {
+    "404": "Az oldal nem található",
+    "404desc": "A keresett oldal nem létezik vagy áthelyezésre került.",
+    "backHome": "Vissza a főoldalra"
+  },
+  "common": {
+    "learnMore": "Tudjon meg többet",
+    "viewAll": "Összes megtekintése",
+    "close": "Bezárás",
+    "loading": "Betöltés...",
+    "search": "Keresés",
+    "filter": "Szűrés",
+    "sort": "Rendezés",
+    "new": "Új",
+    "popular": "Népszerű",
+    "featured": "Kiemelt",
+    "all": "Összes",
+    "yes": "Igen",
+    "no": "Nem"
+  }
+}

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Dispozitive laser ND:YAG Q-Switched',
+  nameShort: 'Lasere ND:YAG',
+  slug: 'nd-yag-lezerek',
+  description: 'Lasere pentru indepartarea tatuajelor si a petelor pigmentare.',
+  heroDescription: 'Indepartarea tatuajelor, carbon peeling, tratamentul petelor pigmentare. Tehnologie profesionala Q-switched, disconfort minim.',
+  badge: 'Tehnologie premium',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

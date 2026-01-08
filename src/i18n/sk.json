@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "locale": "sk",
+    "language": "Slovenčina"
+  },
+  "nav": {
+    "home": "Domov",
+    "products": "Produkty",
+    "trainings": "Školenia",
+    "about": "O nás",
+    "contact": "Kontakt",
+    "allProducts": "Všetky produkty",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Profesionálne kozmetické zariadenia",
+    "subtitle": "Diódové lasery, PMU prístroje a multifunkčné zariadenia s 2-ročnou zárukou",
+    "cta": "Bezplatná konzultácia",
+    "ctaSecondary": "Zobraziť produkty"
+  },
+  "categories": {
+    "diodeLasers": "Diódové lasery",
+    "diodeLasersDesc": "Trvalá depilácia",
+    "ndYagLasers": "ND:YAG lasery",
+    "ndYagLasersDesc": "Odstránenie tetovania",
+    "picoLasers": "Pico lasery",
+    "picoLasersDesc": "Liečba pigmentácie",
+    "hiemt": "HIEMT formovanie tela",
+    "hiemtDesc": "Budovanie svalov, spaľovanie tukov",
+    "hydrafacial": "Hydrafacial",
+    "hydrafacialDesc": "Hĺbkové čistenie, hydratácia",
+    "antiAging": "Anti-aging",
+    "antiAgingDesc": "HIFU, RF technológia",
+    "pmu": "PMU prístroje",
+    "pmuDesc": "Permanentný make-up",
+    "tattoo": "Tetovacie prístroje",
+    "tattooDesc": "Profesionálne vybavenie",
+    "salon": "Salónový nábytok",
+    "salonDesc": "Nábytok, vozíky",
+    "accessories": "Príslušenstvo",
+    "accessoriesDesc": "Ihľové moduly, roztoky"
+  },
+  "trust": {
+    "warranty": "2-ročná záruka",
+    "warrantyDesc": "Plná záruka na všetky zariadenia",
+    "shipping": "2-týždňové dodanie",
+    "shippingDesc": "Rýchle doručenie DHL Express",
+    "training": "FAR certifikát",
+    "trainingDesc": "Oficiálne školenie operátorov",
+    "service": "Vlastný servis",
+    "serviceDesc": "Okamžitá oprava, náhradné zariadenie"
+  },
+  "stats": {
+    "soldUnits": "Predaných jednotiek Novalight",
+    "warranty": "Záruka",
+    "deliveryTime": "Doba dodania",
+    "legalImport": "Legálny dovoz"
+  },
+  "product": {
+    "inStock": "Na sklade",
+    "preorder": "Predobjednávka",
+    "outOfStock": "Nedostupné",
+    "price": "Cena",
+    "priceOnRequest": "Vyžiadajte si individuálnu ponuku!",
+    "grossPrice": "Cena s DPH",
+    "monthlyFrom": "alebo od ~{price}/mesiac s financovaním",
+    "sku": "Kód produktu",
+    "selectVariant": "Vyberte variant:",
+    "freeConsultation": "Bezplatná konzultácia",
+    "callNow": "Zavolajte teraz",
+    "description": "Podrobný popis",
+    "specs": "Technické špecifikácie",
+    "faq": "Často kladené otázky",
+    "relatedProducts": "Súvisiace produkty",
+    "whatsIncluded": "Čo je v balení?",
+    "warranty": "Záruka a servis",
+    "warrantyInfo": "2-ročná plná záruka, náhradné zariadenie počas opravy",
+    "videoDemo": "Video ukážka"
+  },
+  "form": {
+    "name": "Meno",
+    "namePlaceholder": "Vaše meno",
+    "email": "E-mailová adresa",
+    "emailPlaceholder": "priklad@email.sk",
+    "phone": "Telefónne číslo",
+    "phonePlaceholder": "+421 9XX XXX XXX",
+    "message": "Správa",
+    "messagePlaceholder": "Povedzte nám, ako vám môžeme pomôcť...",
+    "product": "Ktorý produkt vás zaujíma?",
+    "productPlaceholder": "Vyberte...",
+    "gdprConsent": "Súhlasím so zásadami ochrany osobných údajov",
+    "submit": "Odoslať správu",
+    "submitting": "Odosielam...",
+    "success": "Ďakujeme! Čoskoro vás budeme kontaktovať.",
+    "error": "Vyskytla sa chyba. Skúste to znova.",
+    "required": "Povinné pole"
+  },
+  "cta": {
+    "title": "Máte otázky?",
+    "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám nájsť správne vybavenie.",
+    "button": "Požiadať o konzultáciu",
+    "callUs": "Zavolajte nám"
+  },
+  "footer": {
+    "company": "Informácie o spoločnosti",
+    "products": "Produkty",
+    "support": "Podpora",
+    "legal": "Právne informácie",
+    "privacy": "Ochrana osobných údajov",
+    "terms": "Obchodné podmienky",
+    "cookies": "Zásady cookies",
+    "imprint": "Impresum",
+    "copyright": "© {year} Skinlab Beauty Equipment Kft. Všetky práva vyhradené.",
+    "newsletter": "Odber noviniek",
+    "newsletterPlaceholder": "Vaša e-mailová adresa",
+    "subscribe": "Prihlásiť sa"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Kontaktujte nás!",
+    "showroom": "Showroom",
+    "showroomNote": "Len po dohodnutí termínu",
+    "headquarters": "Sídlo",
+    "phone": "Telefón",
+    "email": "E-mail",
+    "openingHours": "Otváracie hodiny",
+    "getDirections": "Navigovať"
+  },
+  "about": {
+    "title": "O nás",
+    "subtitle": "Spoznajte náš tím",
+    "story": "Náš príbeh",
+    "team": "Náš tím",
+    "mission": "Naša misia"
+  },
+  "training": {
+    "title": "Školenia",
+    "subtitle": "Oficiálne kurzy pre operátorov s FAR certifikátom",
+    "farCertificate": "FAR certifikát",
+    "included": "Zahrnuté v cene",
+    "duration": "Trvanie",
+    "location": "Miesto",
+    "register": "Registrovať"
+  },
+  "comparison": {
+    "title": "Porovnanie",
+    "skinlab": "SkinLab",
+    "competitors": "Konkurencia",
+    "feature": "Vlastnosť"
+  },
+  "roi": {
+    "title": "Kalkulačka návratnosti",
+    "treatmentPrice": "Cena ošetrenia",
+    "treatmentsPerDay": "Ošetrení/deň",
+    "workingDays": "Pracovných dní/mesiac",
+    "monthlyRevenue": "Mesačný príjem",
+    "paybackPeriod": "Doba návratnosti"
+  },
+  "breadcrumb": {
+    "home": "Domov"
+  },
+  "errors": {
+    "404": "Stránka nenájdená",
+    "404desc": "Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.",
+    "backHome": "Späť na domovskú stránku"
+  },
+  "common": {
+    "learnMore": "Zistiť viac",
+    "viewAll": "Zobraziť všetko",
+    "close": "Zavrieť",
+    "loading": "Načítava sa...",
+    "search": "Hľadať",
+    "filter": "Filtrovať",
+    "sort": "Zoradiť",
+    "new": "Nové",
+    "popular": "Populárne",
+    "featured": "Odporúčané",
+    "all": "Všetko",
+    "yes": "Áno",
+    "no": "Nie"
+  }
+}

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Professionelle Diodenlaser',
+  nameShort: 'Diodenlaser',
+  slug: 'diodalezerek',
+  description: 'Professionelle 4-Wellenlaengen-Diodenlaser fuer dauerhafte Haarentfernung.',
+  heroDescription: 'Dauerhafte Haarentfernung mit 4-Wellenlaengen-Technologie. Fuer alle Hauttypen, alle Haartypen. Schnelle Amortisation, zufriedene Kunden.',
+  badge: 'Bestseller-Kategorie',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

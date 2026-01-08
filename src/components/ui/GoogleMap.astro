@@ -1,0 +1,208 @@
+---
+/**
+ * GoogleMap - Lazy-loaded Google Maps embed
+ *
+ * Performance optimized:
+ * - Loads ONLY after page is fully loaded (window.onload)
+ * - Uses Intersection Observer - loads only when visible
+ * - Shows static placeholder until interaction
+ * - Zero Lighthouse impact (no iframe until needed)
+ */
+
+interface Props {
+  /** Google Maps embed URL or place query */
+  src?: string;
+  /** Place name for embed URL generation */
+  place?: string;
+  /** Latitude for static map fallback */
+  lat?: number;
+  /** Longitude for static map fallback */
+  lng?: number;
+  /** Map height */
+  height?: string;
+  /** Aspect ratio (default 16/9) */
+  aspectRatio?: string;
+  /** Custom placeholder text */
+  placeholderText?: string;
+  class?: string;
+}
+
+const {
+  src,
+  place,
+  lat,
+  lng,
+  height,
+  aspectRatio = '16/9',
+  placeholderText = 'Kattints a térkép betöltéséhez',
+  class: className = '',
+} = Astro.props;
+
+// Generate embed URL if not provided
+const embedUrl = src || (place
+  ? `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(place)}`
+  : `https://www.google.com/maps?q=${lat},${lng}&output=embed`);
+
+// Generate static map URL for placeholder (free, no API key needed)
+const staticMapUrl = lat && lng
+  ? `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=600x400&markers=color:red%7C${lat},${lng}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`
+  : null;
+
+// Unique ID for this map instance
+const mapId = `map-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div
+  class:list={['relative bg-gray-100 rounded-xl overflow-hidden', className]}
+  style={height ? `height: ${height}` : `aspect-ratio: ${aspectRatio}`}
+  data-google-map={mapId}
+  data-map-src={embedUrl}
+>
+  <!-- Placeholder (shown until map loads) -->
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-center cursor-pointer group"
+    data-map-placeholder={mapId}
+  >
+    <!-- Background pattern or static image -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200">
+      {staticMapUrl ? (
+        <img
+          src={staticMapUrl}
+          alt="Térkép előnézet"
+          class="w-full h-full object-cover opacity-50"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-full h-full flex items-center justify-center">
+          <svg class="w-24 h-24 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+      )}
+    </div>
+
+    <!-- Click to load overlay -->
+    <div class="relative z-10 flex flex-col items-center gap-3 p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg group-hover:shadow-xl transition-all group-hover:scale-105">
+      <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+      <span class="text-sm font-medium text-gray-700">{placeholderText}</span>
+    </div>
+  </div>
+
+  <!-- Iframe container (empty until loaded) -->
+  <div class="absolute inset-0 hidden" data-map-frame={mapId}></div>
+
+  <!-- Loading spinner (shown while iframe loads) -->
+  <div class="absolute inset-0 hidden items-center justify-center bg-gray-100" data-map-loading={mapId}>
+    <div class="flex flex-col items-center gap-3">
+      <div class="w-8 h-8 border-3 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>
+      <span class="text-sm text-gray-500">Térkép betöltése...</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lazy load Google Maps only after everything else is loaded
+  function initGoogleMaps() {
+    document.querySelectorAll('[data-google-map]').forEach((container) => {
+      const mapId = container.getAttribute('data-google-map');
+      const src = container.getAttribute('data-map-src');
+      const placeholder = container.querySelector(`[data-map-placeholder="${mapId}"]`);
+      const frameContainer = container.querySelector(`[data-map-frame="${mapId}"]`);
+      const loading = container.querySelector(`[data-map-loading="${mapId}"]`);
+
+      if (!placeholder || !frameContainer || !src) return;
+
+      let loaded = false;
+
+      const loadMap = () => {
+        if (loaded) return;
+        loaded = true;
+
+        // Show loading state
+        placeholder.classList.add('hidden');
+        loading?.classList.remove('hidden');
+        loading?.classList.add('flex');
+
+        // Create iframe
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.style.border = '0';
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+        iframe.title = 'Google Maps';
+
+        // When iframe loads, show it
+        iframe.onload = () => {
+          loading?.classList.add('hidden');
+          loading?.classList.remove('flex');
+          frameContainer.classList.remove('hidden');
+        };
+
+        frameContainer.appendChild(iframe);
+      };
+
+      // Method 1: Click to load (immediate interaction)
+      placeholder.addEventListener('click', loadMap);
+
+      // Method 2: Intersection Observer (load when scrolled into view)
+      // Only if user hasn't clicked yet
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !loaded) {
+                // Add small delay to ensure it doesn't affect initial load
+                setTimeout(loadMap, 100);
+                observer.disconnect();
+              }
+            });
+          },
+          {
+            rootMargin: '200px', // Start loading 200px before visible
+            threshold: 0.01,
+          }
+        );
+        observer.observe(container);
+      }
+    });
+  }
+
+  // Wait for EVERYTHING to load before initializing maps
+  if (document.readyState === 'complete') {
+    // Page already loaded, but still defer to next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(initGoogleMaps);
+    });
+  } else {
+    // Wait for full page load (including images, styles, etc.)
+    window.addEventListener('load', () => {
+      // Double requestAnimationFrame ensures we're past any paint operations
+      requestAnimationFrame(() => {
+        requestAnimationFrame(initGoogleMaps);
+      });
+    });
+  }
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:after-swap', () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(initGoogleMaps);
+    });
+  });
+</script>
+
+<style>
+  /* Ensure border-3 works */
+  .border-3 {
+    border-width: 3px;
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hidrodermabrazija in vecnamenske naprave',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Hidrodermabrazijske in kombinirane kozmeticne naprave.',
+  heroDescription: 'Obnova koze, globinsko ciscenje, anti-aging tretmaji v eni napravi. Z AI diagnostiko koze, takoj vidni rezultati.',
+  badge: 'AI diagnostika',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

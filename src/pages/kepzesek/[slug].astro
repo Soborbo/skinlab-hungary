@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { CONTACT, LOCATIONS } from '../../lib/constants';
+import CourseSchema from '../../components/schema/CourseSchema.astro';
+
+export async function getStaticPaths() {
+  const trainings = await getCollection('trainings');
+
+  return trainings.map((training) => ({
+    params: { slug: training.slug },
+    props: { training },
+  }));
+}
+
+const { training } = Astro.props;
+const { Content } = await training.render();
+---
+
+<BaseLayout
+  title={training.data.name}
+  description={training.data.description}
+>
+  <CourseSchema
+    name={training.data.name}
+    description={training.data.description}
+    price={training.data.price}
+    priceFormatted={training.data.priceFormatted}
+    duration={training.data.duration}
+    certificate={training.data.certificate}
+    category={training.data.category || 'Kozmetikai gépkezelői képzés'}
+  />
+  <div id="main-content">
+
+    <!-- Breadcrumb -->
+    <nav class="bg-gray-50 py-3 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ol class="flex items-center text-sm text-gray-600">
+          <li>
+            <a href="/" class="hover:text-primary-600">Főoldal</a>
+          </li>
+          <li class="mx-2">/</li>
+          <li>
+            <a href="/kepzesek" class="hover:text-primary-600">Képzések</a>
+          </li>
+          <li class="mx-2">/</li>
+          <li class="text-gray-900 font-medium truncate">{training.data.name}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {training.data.name}
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            {training.data.description}
+          </p>
+
+          <!-- Key info badges -->
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-gray-200">
+              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-gray-900 font-medium">{training.data.duration}</span>
+            </div>
+
+            <div class="flex items-center gap-2 bg-success-50 px-4 py-2 rounded-xl border border-success-200">
+              <svg class="w-5 h-5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-success-700 font-medium">{training.data.priceFormatted || `${training.data.price?.toLocaleString('hu-HU')} Ft`}</span>
+            </div>
+
+            {training.data.certificate && (
+              <div class="flex items-center gap-2 bg-primary-50 px-4 py-2 rounded-xl border border-primary-200">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                <span class="text-primary-700 font-medium">{training.data.certificate}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-12">
+
+          <!-- Content -->
+          <div class="lg:col-span-2">
+            <!-- Topics -->
+            {training.data.topics && training.data.topics.length > 0 && (
+              <div class="mb-10">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">A képzés témái</h2>
+                <ul class="grid sm:grid-cols-2 gap-3">
+                  {training.data.topics.map((topic: string) => (
+                    <li class="flex items-start gap-3 text-gray-600">
+                      <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{topic}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <!-- Markdown content -->
+            <div class="prose prose-gray max-w-none">
+              <Content />
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-24 space-y-6">
+
+              <!-- Requirements -->
+              {training.data.requirements && training.data.requirements.length > 0 && (
+                <div class="bg-gray-50 rounded-2xl p-6">
+                  <h3 class="font-semibold text-gray-900 mb-4">Részvételi feltételek</h3>
+                  <ul class="space-y-3">
+                    {training.data.requirements.map((req: string) => (
+                      <li class="flex items-start gap-3 text-gray-600 text-sm">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{req}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <!-- Location -->
+              <div class="bg-gray-50 rounded-2xl p-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Helyszín</h3>
+                <div class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-primary-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <div class="font-medium text-gray-900">{LOCATIONS.showroom.name}</div>
+                    <div class="text-gray-600 text-sm">{LOCATIONS.showroom.fullAddress}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <div class="bg-primary-600 rounded-2xl p-6 text-white">
+                <h3 class="font-semibold mb-2">Érdeklődsz a képzés iránt?</h3>
+                <p class="text-primary-100 text-sm mb-4">
+                  Vedd fel velünk a kapcsolatot és segítünk megtalálni a számodra megfelelő képzést.
+                </p>
+                <div class="space-y-3">
+                  <a
+                    href={CONTACT.phoneTel}
+                    class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+                  >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    {CONTACT.phoneDisplay}
+                  </a>
+                  <a
+                    href="/kapcsolat"
+                    class="flex items-center justify-center w-full px-4 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors"
+                  >
+                    Érdeklődés
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Back link -->
+    <section class="py-8 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="/kepzesek" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Vissza a képzésekhez
+        </a>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-1;
+  }
+  .prose strong {
+    @apply text-gray-900;
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Tetovaci stroje',
+  nameShort: 'Tetovaci stroje',
+  slug: 'tetovalogepek',
+  description: 'Profesionalni bezdratove tetovaci stroje.',
+  heroDescription: 'Profesionalni bezdratove tetovaci stroje s Bluetooth ovladanim. Precizni pohyb, dlouha vydrz baterie, ergonomicky design pro nejnarocnejsi umelce.',
+  badge: 'Pro nastroje',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

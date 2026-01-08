@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Q-Switched ND:YAG laserove zariadenia',
+  nameShort: 'ND:YAG lasery',
+  slug: 'nd-yag-lezerek',
+  description: 'Lasery na odstranenie tetovania a pigmentovych skvrn.',
+  heroDescription: 'Odstranenie tetovania, carbon peeling, liecba pigmentovych skvrn. Profesionalna Q-switched technologia, minimalny diskomfort.',
+  badge: 'Premiova technologia',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

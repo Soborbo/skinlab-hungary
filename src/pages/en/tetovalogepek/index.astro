@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Tattoo Machines',
+  nameShort: 'Tattoo Machines',
+  slug: 'tetovalogepek',
+  description: 'Professional wireless tattoo machines.',
+  heroDescription: 'Professional wireless tattoo machines with Bluetooth control. Precise motion, long battery life, ergonomic design for the most demanding artists.',
+  badge: 'Pro tools',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hydradermabrasion & Multifunctional Devices',
+  nameShort: 'Hydrafacial',
+  slug: 'hydrafacial',
+  description: 'Hydradermabrasion and combined cosmetic treatment devices.',
+  heroDescription: 'Skin renewal, deep cleansing, anti-aging treatments in one device. With AI skin diagnostics, instant visible results.',
+  badge: 'AI diagnostics',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+---
+
+<CategoryLayout category={category} products={products} />

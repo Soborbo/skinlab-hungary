@@ -1,0 +1,387 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT, COMPANY, LOCATIONS } from '../lib/constants';
+---
+
+<BaseLayout
+  title="Garancia"
+  description="A SkinLab garanciális feltételei. 12-24 hónap jótállás minden új kozmetikai és orvosesztétikai készülékre. Hivatalos szerviz, díjmentes javítás."
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Garancia
+          </h1>
+          <p class="text-lg text-gray-600">
+            Professzionális garanciális feltételek és szervizháttér
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Intro -->
+        <div class="bg-primary-50 rounded-xl p-6 mb-12">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Mi az a garancia?</h2>
+          <p class="text-gray-600 mb-4">
+            A garancia (jogszabályi nevén: <strong>jótállás</strong>) egy olyan jogi kötelezettség, amely szerint az eladó vagy a gyártó felelősséget vállal a termék hibátlan működéséért egy meghatározott időtartamig.
+          </p>
+          <p class="text-gray-600">
+            Ez idő alatt, ha a termék meghibásodik, a vásárló <strong>ingyenes javítást, cserét vagy visszatérítést</strong> kérhet – függetlenül attól, hogy a hiba hogyan keletkezett, kivéve ha rendeltetésellenes használat történt.
+          </p>
+        </div>
+
+        <!-- SkinLab Commitment -->
+        <div class="mb-12">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-3">A SkinLab elkötelezettsége</h2>
+              <p class="text-gray-600 mb-4">
+                A skinlab.-nél kiemelt figyelmet fordítunk arra, hogy partnereink kizárólag megbízható, kiváló minőségű készülékeket és eszközöket kapjanak kézhez.
+              </p>
+              <p class="text-gray-600">
+                Hiszünk abban, hogy egy professzionális felhasználásra szánt berendezésnek nem csupán hatékonynak, hanem <strong>hosszú távon is megbízhatónak</strong> kell lennie. Éppen ezért minden általunk forgalmazott kozmetikai és orvosesztétikai gépre <strong>hivatalos garanciát</strong> vállalunk – hogy Ön teljes biztonságban és nyugodtan használhassa az eszközöket a mindennapi munka során.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warranty Content -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">A jótállás tartalma</h2>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <p class="text-gray-600 mb-4">
+              A webáruházban forgalmazott új kozmetikai és orvosesztétikai készülékekre a vonatkozó jogszabályoknak megfelelően jótállást biztosítunk. A jótállás időtartama terméktípustól függően <strong>12 vagy 24 hónap</strong>, melynek pontos időtartamát minden esetben az adott termék adatlapján tüntetjük fel.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600"><strong>12–24 hónap jótállás</strong> minden új készülékre, a vásárlás napjától számítva.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">A jótállás kizárólag a <strong>gyártási hibából eredő meghibásodásokra</strong> terjed ki, amelyek rendeltetésszerű használat mellett következnek be.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">A jótállási időn belül bejelentett, jogosult hibák esetén a <strong>javítás díjmentesen</strong> történik.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">A hibás termékeket kizárólag <strong>hivatalos szervizpartnerünk</strong> vizsgálhatja és javíthatja – a jótállás csak ebben az esetben érvényes.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">Igény esetén – külön megállapodás alapján – megszervezzük a készülék <strong>szervizbe szállítását és visszajuttatását</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal Background -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Jogszabályi háttér</h2>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <p class="text-gray-600 mb-4">
+              A fogyasztókra vonatkozó jótállási kötelezettséget a <strong>151/2003. (IX. 22.) Korm. rendelet</strong> szabályozza, amely meghatározza a tartós fogyasztási cikkekre vonatkozó kötelező jótállás feltételeit.
+            </p>
+            <p class="text-gray-600">
+              Ezen túlmenően irányadó lehet a <strong>Ptk. 6:159. §</strong> (a kellékszavatosság és jótállás szabályai), valamint a <strong>19/2014. (IV. 29.) NGM rendelet</strong>, amely részletesen szabályozza a szavatossági és jótállási igények intézésének módját.
+            </p>
+          </div>
+        </div>
+
+        <!-- Exclusions -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Fontos tudnivalók a jótállásról</h2>
+
+          <div class="bg-warning-50 border border-warning-200 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-warning-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              A jótállás nem érvényesíthető az alábbi esetekben:
+            </h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Ha a hiba nem rendeltetésszerű használatból ered (pl. túlterhelés, nem megfelelő környezetben történő üzemeltetés).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Ha a hibát mechanikai sérülés, külső fizikai behatás, folyadék bejutása, vagy tűz-, hő-, nedvességkárosodás okozza.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Ha a készüléken szakszerűtlen beavatkozás történt, vagy nem a gyártó/szerviz által jóváhagyott módon javították, módosították.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Ha a berendezés nem megfelelő hálózati feszültségre volt csatlakoztatva, vagy a kezelési útmutatóban foglalt utasításokat nem tartották be.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Ha a meghibásodás természetes elhasználódásból vagy karbantartás hiányából adódik.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">A garancia nem vonatkozik a fogyó- és kopóalkatrészekre:</h3>
+            <div class="grid sm:grid-cols-2 gap-2">
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>kezelőfejek</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>szűrők</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>kábelek</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>csatlakozók</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>szilikon- és gumi alkatrészek</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>rendszeresen cserélendő tartozékok</span>
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+              Ezekre az elemekre csak abban az esetben vonatkozik garancia, ha a meghibásodás igazolhatóan gyártási hibából ered.
+            </p>
+          </div>
+        </div>
+
+        <!-- How to Claim -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Garancia érvényesítése</h2>
+
+          <div class="bg-primary-50 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4">A garanciális igény bejelentéséhez vegye fel velünk a kapcsolatot:</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-900 font-medium">{CONTACT.email}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="text-gray-900 font-medium">{CONTACT.phoneDisplay}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4">A bejelentés során kérjük, adja meg:</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>a vásárlás dátumát</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>a termék nevét és típusát</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>a hiba pontos leírását</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>lehetőség szerint fényképes dokumentációt a hibáról</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-warning-50 border border-warning-200 rounded-xl p-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-warning-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">Fontos</p>
+                <p class="text-gray-600">
+                  A garanciális ügyintézéshez szükség van a <strong>vásárlást igazoló számlára</strong> vagy a <strong>jótállási jegyre</strong>. Kérjük, ezeket őrizze meg a jótállási idő végéig.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Processing Time -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Garanciaügyintézés határideje</h2>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <p class="text-gray-600 mb-4">
+              A garanciaügyintézés határidejét Magyarországon a <strong>151/2003. (IX. 22.) Korm. rendelet</strong> és a <strong>19/2014. (IV. 29.) NGM rendelet</strong> szabályozza. Ezek határozzák meg a kellékszavatosság, termékszavatosság és jótállás (garancia) keretében történő ügyintézés szabályait.
+            </p>
+          </div>
+
+          <div class="bg-success-50 border border-success-200 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-3">19/2014. (IV. 29.) NGM rendelet 6. § (1):</h3>
+            <p class="text-gray-600">
+              A fogyasztó jótállási igényének bejelentésekor a vállalkozás köteles a jegyzőkönyv felvételétől számított <strong>15 napon belül</strong> a bejelentett jótállási igényt intézkedéssel lezárni:
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>kijavítani</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>kicserélni</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>elutasítani (indoklással)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>vagy a további ügyintézéshez szükséges lépéseket megtenni</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">További fontos pontok:</h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>A <strong>15 napos határidő</strong> szigorúan kötelező, és a fogyasztó számára írásban is rögzíteni kell, hogy az igényt mikor jelentette be, valamint hogy mi történik a termékkel (pl. elszállítás, bevizsgálás, javítás stb.).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>A jótállási idő alatt (általában 12 vagy 24 hónap) a fogyasztónak <strong>nem kell bizonyítania</strong>, hogy a hiba már a vásárláskor fennállt.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>A vállalkozás köteles a javítást vagy cserét <strong>térítésmentesen</strong> biztosítani.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Ha a termék nem javítható vagy a hiba ismétlődően előfordul, a fogyasztó <strong>kérheti a cserét</strong> vagy <strong>elállhat a vásárlástól</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-16 bg-primary-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          Kérdésed van a garanciával kapcsolatban?
+        </h2>
+        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+          Hívj minket vagy írj emailt, és segítünk a garanciális ügyintézésben.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`tel:${CONTACT.phone}`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {CONTACT.phoneDisplay}
+          </a>
+          <a
+            href={`mailto:${CONTACT.email}`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Email küldése
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

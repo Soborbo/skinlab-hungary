@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST PMU naprave',
+  nameShort: 'PMU naprave',
+  slug: 'sminktetovalas',
+  description: 'Zicne in brezzicne naprave za trajno licenje in dodatki.',
+  heroDescription: 'Profesionalne PMU naprave za tetoviranje obrvi, ustnic in vek. Natancne linije, tihi motor, ergonomska zasnova.',
+  badge: 'Izbira PMU strokovnjakov',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

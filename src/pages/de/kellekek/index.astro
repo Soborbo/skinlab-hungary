@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Zubehoer und Verbrauchsmaterial',
+  nameShort: 'Zubehoer',
+  slug: 'kellekek',
+  description: 'Behandlungsmaterialien, Nadelmodule und anderes Zubehoer.',
+  heroDescription: 'Professionelle Verbrauchsmaterialien und Behandlungsmaterialien fuer die taegliche Arbeit. Nadelmodule, Hydrafacial-Loesungen, OxyGenX-Pods und Carbon-Gel - alles fuer erfolgreiche Behandlungen.',
+  badge: 'Verbrauchsmaterial',
+  color: 'gray',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kellekek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

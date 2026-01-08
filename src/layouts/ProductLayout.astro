@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ProductGallery from '../components/product/ProductGallery.astro';
 import ROICalculator from '../components/product/ROICalculator.astro';
 import StatsBar from '../components/product/StatsBar.astro';
 import ProductFAQ from '../components/product/ProductFAQ.astro';
@@ -8,7 +9,11 @@ import VideoDemo from '../components/product/VideoDemo.astro';
 import TechSpecs from '../components/product/TechSpecs.astro';
 import Testimonials from '../components/product/Testimonials.astro';
 import ExpertQuote from '../components/product/ExpertQuote.astro';
+import WarrantyService from '../components/product/WarrantyService.astro';
+import ComparisonTable from '../components/product/ComparisonTable.astro';
+import ProblemSolution from '../components/product/ProblemSolution.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
+import InstallmentBadge from '../components/ui/InstallmentBadge.astro';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
@@ -201,62 +206,14 @@ const allImages = [
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
           <!-- Media Gallery -->
-          <div class="space-y-4">
-            <!-- Main Image -->
-            <div class="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden" id="main-image-container">
-              {allImages.length > 0 ? (
-                <img
-                  id="main-image"
-                  src={allImages[0].startsWith('/') ? allImages[0] : `/${allImages[0]}`}
-                  alt={product.name}
-                  class="w-full h-full object-contain p-4"
-                />
-              ) : (
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white shadow-lg flex items-center justify-center">
-                      <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <p class="text-gray-500 font-medium">Kép hamarosan</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Badges */}
-              <div class="absolute top-4 left-4 flex flex-col gap-2">
-                {product.featured && (
-                  <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">BESTSELLER</span>
-                )}
-                {product.hasVariants && (
-                  <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    {product.variants.length} variáció
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <!-- Thumbnails -->
-            {allImages.length > 1 && (
-              <div class="grid grid-cols-5 gap-2">
-                {allImages.slice(0, 5).map((img, i) => (
-                  <button
-                    type="button"
-                    class={`aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-primary-400 transition-all ${i === 0 ? 'ring-2 ring-primary-600' : ''}`}
-                    data-thumbnail={i}
-                    data-src={img.startsWith('/') ? img : `/${img}`}
-                  >
-                    <img
-                      src={img.startsWith('/') ? img : `/${img}`}
-                      alt={`${product.name} - kép ${i + 1}`}
-                      class="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <ProductGallery
+            images={allImages}
+            productName={product.name}
+            badges={{
+              featured: product.featured,
+              variantCount: product.hasVariants ? product.variants.length : undefined
+            }}
+          />
 
           <!-- Product Info -->
           <div>
@@ -318,14 +275,14 @@ const allImages = [
                 <>
                   <div class="text-3xl font-bold text-gray-900">{formatPrice(product.price)}</div>
                   <div class="text-sm text-gray-500 mt-1">Bruttó ár (ÁFA-val)</div>
-                  <div class="text-green-600 font-medium mt-2">
-                    vagy havi ~{formatPrice(Math.round(product.price / 12))} részletfizetéssel
-                  </div>
                 </>
               ) : (
                 <div class="text-2xl font-bold text-primary-600">Kérjen egyedi ajánlatot!</div>
               )}
             </div>
+
+            <!-- Installment Payment Info -->
+            <InstallmentBadge price={product.price || 0} class="mb-6" />
 
             <!-- Trust badges mini -->
             <div class="grid grid-cols-2 gap-3 mb-8">
@@ -371,13 +328,19 @@ const allImages = [
     <!-- VIDEO DEMO -->
     <VideoDemo videos={product.youtubeVideos} productName={product.name} />
 
+    <!-- PROBLEM SOLUTION -->
+    <ProblemSolution
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
     <!-- DESCRIPTION SECTION -->
     {product.description && (
       <section class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-6">Részletes leírás</h2>
-          <div class="prose prose-lg max-w-none text-gray-600">
-            <p set:html={product.description.replace(/\n/g, '<br>')} />
+          <div class="prose prose-lg max-w-none text-gray-600 whitespace-pre-line">
+            <p>{product.description}</p>
           </div>
         </div>
       </section>
@@ -386,6 +349,12 @@ const allImages = [
     <!-- TECH SPECS -->
     <TechSpecs
       specs={product.specs}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
+    <!-- COMPARISON TABLE -->
+    <ComparisonTable
       productName={product.name}
       category={product.categorySlug}
     />
@@ -422,6 +391,9 @@ const allImages = [
       productName={product.name}
       category={product.categorySlug}
     />
+
+    <!-- WARRANTY & SERVICE -->
+    <WarrantyService productName={product.name} />
 
     <!-- CTA SECTION -->
     <section class="py-16 bg-primary-600">
@@ -462,34 +434,9 @@ const allImages = [
 </BaseLayout>
 
 <script>
-  // Thumbnail gallery functionality
-  document.querySelectorAll('[data-thumbnail]').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const src = thumb.getAttribute('data-src');
-      const mainImg = document.getElementById('main-image') as HTMLImageElement;
-      if (mainImg && src) {
-        mainImg.src = src;
-      }
-
-      // Update active state
-      document.querySelectorAll('[data-thumbnail]').forEach(t => {
-        t.classList.remove('ring-2', 'ring-primary-600');
-      });
-      thumb.classList.add('ring-2', 'ring-primary-600');
-    });
-  });
-
   // Variant selection functionality
   document.querySelectorAll('[data-variant]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const image = btn.getAttribute('data-variant-image');
-      const mainImg = document.getElementById('main-image') as HTMLImageElement;
-
-      if (mainImg && image) {
-        const src = image.startsWith('/') ? image : `/${image}`;
-        mainImg.src = src;
-      }
-
       // Update active state
       document.querySelectorAll('[data-variant]').forEach(b => {
         b.classList.remove('border-primary-600', 'bg-primary-50', 'text-primary-700');

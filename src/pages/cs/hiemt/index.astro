@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'HIEMT pristroje pro tvarovani tela',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'EMS a RF technologie pro tvarovani tela, budovani svalu a spalovani tuku.',
+  heroDescription: 'Revolucni HIFEM technologie: budovani svalu a spalovani tuku v jednom osetreni. 30 min = 20 000 svalovych kontrakci. Neinvazivni tvarovani tela bez operace.',
+  badge: 'Nova kategorie',
+  color: 'orange',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+---
+
+<CategoryLayout category={category} products={products} />

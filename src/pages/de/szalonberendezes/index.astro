@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Salonmoebel',
+  nameShort: 'Salonmoebel',
+  slug: 'szalonberendezes',
+  description: 'Professionelle Salonmoebel, Trolleys und Zubehoer.',
+  heroDescription: 'Qualitaets-Salonmoebel, Kosmetikliegen, Trolleys und Zubehoer. Gestalten Sie Ihren Traumsalon mit uns!',
+  badge: 'Komplette Einrichtung',
+  color: 'amber',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'szalonberendezes';
+});
+---
+
+<CategoryLayout category={category} products={products} />

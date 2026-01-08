@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Categories from '../../components/sections/Categories.astro';
+import BrandMarquee from '../../components/sections/BrandMarquee.astro';
+import Stats from '../../components/sections/Stats.astro';
+import WhyUs from '../../components/sections/WhyUs.astro';
+import FeaturedProduct from '../../components/sections/FeaturedProduct.astro';
+import Testimonials from '../../components/sections/Testimonials.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { t } from '../../i18n/ui';
+
+const locale = 'ro';
+---
+
+<BaseLayout
+  title="SkinLab Hungary - Echipamente cosmetice profesionale"
+  description="Distribuție de echipamente cosmetice profesionale. Lasere diodă, aparate PMU, lasere ND:YAG și dispozitive multifuncționale cu garanție de 2 ani, instruire gratuită și suport tehnic imediat."
+>
+  <div id="main-content">
+    <Hero />
+    <Categories />
+    <BrandMarquee />
+    <Stats />
+    <WhyUs />
+    <FeaturedProduct />
+    <Testimonials />
+    <HowItWorks />
+    <FinalCTA />
+  </div>
+</BaseLayout>

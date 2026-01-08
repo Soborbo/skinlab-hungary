@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'HIEMT naprave za oblikovanje telesa',
+  nameShort: 'HIEMT',
+  slug: 'hiemt',
+  description: 'EMS in RF tehnologija za oblikovanje telesa, izgradnjo misic in izgorevanje mascobe.',
+  heroDescription: 'Revolucionarna HIFEM tehnologija: izgradnja misic in izgorevanje mascobe v enem tretmaju. 30 min = 20.000 misicnih kontrakcij. Neinvazivno oblikovanje telesa brez operacije.',
+  badge: 'Nova kategorija',
+  color: 'orange',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hiemt';
+});
+---
+
+<CategoryLayout category={category} products={products} />

@@ -8,6 +8,14 @@ import { LCPTracker } from '../components/images';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
 import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
 import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS } from '../lib/constants';
+import {
+  locales,
+  localeConfig,
+  defaultLocale,
+  getLocaleFromUrl,
+  getLocalizedPath,
+  getHtmlLang,
+} from '../i18n/ui';
 
 interface Props {
   title?: string;
@@ -25,24 +33,44 @@ const {
   schema,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+// Get current locale from URL
+const currentLocale = getLocaleFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+const htmlLang = getHtmlLang(currentLocale);
+
+// Generate canonical URL (without locale prefix for default locale)
+const canonicalPath = getLocalizedPath(currentLocale, currentPath);
+const canonicalURL = new URL(canonicalPath, SITE.url);
 const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
+
+// Generate hreflang links for all locales
+const hreflangLinks = locales.map((locale) => ({
+  locale,
+  hreflang: localeConfig[locale].hreflang,
+  href: new URL(getLocalizedPath(locale, currentPath), SITE.url).toString(),
+}));
 
 // Helper to render schema(s)
 const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Boolean) : [];
 ---
 
 <!DOCTYPE html>
-<html lang="hu">
+<html lang={htmlLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- SEO -->
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Hreflang tags for international SEO -->
+  {hreflangLinks.map(({ hreflang, href }) => (
+    <link rel="alternate" hreflang={hreflang} href={href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={new URL(getLocalizedPath(defaultLocale, currentPath), SITE.url)} />
   
   <!-- Open Graph -->
   <meta property="og:type" content="website" />

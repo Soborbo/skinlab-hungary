@@ -1,5 +1,55 @@
 ---
+import { getCollection } from 'astro:content';
+import { FifthImage } from '../images';
+import type { ImageMetadata } from 'astro';
 import { CATEGORIES } from '../../lib/constants';
+
+// Import all product images for dynamic resolution
+const productImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true }
+);
+
+// Resolve image path to ImageMetadata
+function resolveImage(imgPath: string): ImageMetadata | null {
+  if (!imgPath) return null;
+
+  let normalizedPath = imgPath;
+
+  if (normalizedPath.startsWith('@assets/')) {
+    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
+  } else if (normalizedPath.startsWith('assets/')) {
+    normalizedPath = `/src/${normalizedPath}`;
+  } else if (normalizedPath.startsWith('/assets/')) {
+    normalizedPath = `/src${normalizedPath}`;
+  } else if (!normalizedPath.startsWith('/src/')) {
+    const filename = normalizedPath.split('/').pop();
+    normalizedPath = `/src/assets/products/${filename}`;
+  }
+
+  const resolved = productImages[normalizedPath];
+  return resolved?.default || null;
+}
+
+// Fetch all products and group by category
+const allProducts = await getCollection('products');
+
+// Get first product image for each category
+const categoryImages: Record<string, ImageMetadata | null> = {};
+for (const category of CATEGORIES) {
+  const categoryProducts = allProducts.filter(p => p.data.categorySlug === category.slug);
+  // Find first product with a valid image
+  for (const product of categoryProducts) {
+    const resolved = resolveImage(product.data.image);
+    if (resolved) {
+      categoryImages[category.slug] = resolved;
+      break;
+    }
+  }
+  if (!categoryImages[category.slug]) {
+    categoryImages[category.slug] = null;
+  }
+}
 ---
 
 <section class="py-12 lg:py-16 bg-white">
@@ -14,41 +64,50 @@ import { CATEGORIES } from '../../lib/constants';
       </p>
     </div>
 
-    <!-- Categories Grid - All 6 categories -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
-      {CATEGORIES.map((category) => (
-        <a
-          href={`/${category.slug}`}
-          class="group relative bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
-        >
-          <!-- Image placeholder -->
-          <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
+    <!-- Categories Grid - 5 columns on desktop -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
+      {CATEGORIES.map((category) => {
+        const categoryImage = categoryImages[category.slug];
+        return (
+          <a
+            href={`/${category.slug}`}
+            class="group relative bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+          >
+            <!-- Image -->
+            <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+              {categoryImage ? (
+                <FifthImage
+                  src={categoryImage}
+                  alt={category.nameShort}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
             </div>
-            <!-- Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent" />
-          </div>
 
-          <!-- Content -->
-          <div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4">
-            <h3 class="font-semibold text-white text-sm lg:text-base group-hover:text-primary-300 transition-colors line-clamp-2">
-              {category.nameShort}
-            </h3>
-          </div>
+            <!-- Content with local gradient only behind text -->
+            <div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent">
+              <h3 class="font-semibold text-white text-sm lg:text-base group-hover:text-primary-300 transition-colors line-clamp-2">
+                {category.nameShort}
+              </h3>
+            </div>
 
-          <!-- Arrow indicator -->
-          <div class="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
-        </a>
-      ))}
+            <!-- Arrow indicator -->
+            <div class="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>

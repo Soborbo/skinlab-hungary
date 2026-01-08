@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Aparate de tatuaj',
+  nameShort: 'Aparate de tatuaj',
+  slug: 'tetovalogepek',
+  description: 'Aparate de tatuaj profesionale wireless.',
+  heroDescription: 'Aparate de tatuaj profesionale wireless cu control Bluetooth. Miscare precisa, durata lunga a bateriei, design ergonomic pentru cei mai exigenti artisti.',
+  badge: 'Unelte profesionale',
+  color: 'slate',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'tetovalogepek';
+});
+---
+
+<CategoryLayout category={category} products={products} />

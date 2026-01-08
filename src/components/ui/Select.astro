@@ -1,0 +1,109 @@
+---
+/**
+ * Select - Reusable select/dropdown component
+ *
+ * Supports label, error state, helper text
+ */
+
+interface Option {
+  value: string;
+  label: string;
+  disabled?: boolean;
+}
+
+interface Props {
+  name: string;
+  id?: string;
+  label?: string;
+  options: Option[];
+  placeholder?: string;
+  value?: string;
+  required?: boolean;
+  disabled?: boolean;
+  error?: string;
+  helperText?: string;
+  class?: string;
+}
+
+const {
+  name,
+  id = name,
+  label,
+  options,
+  placeholder = 'Valassz...',
+  value = '',
+  required = false,
+  disabled = false,
+  error,
+  helperText,
+  class: className = '',
+} = Astro.props;
+
+const selectBaseStyles = 'block w-full px-4 py-3 rounded-lg border bg-white text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 appearance-none cursor-pointer';
+
+const selectStateStyles = error
+  ? 'border-red-300 focus:border-red-500 focus:ring-red-500'
+  : 'border-gray-300 focus:border-primary-500 focus:ring-primary-500';
+
+const disabledStyles = disabled ? 'bg-gray-50 text-gray-500 cursor-not-allowed' : '';
+
+const selectClasses = [selectBaseStyles, selectStateStyles, disabledStyles, className].filter(Boolean).join(' ');
+---
+
+<div class="w-full">
+  {label && (
+    <label for={id} class="block text-sm font-medium text-gray-700 mb-2">
+      {label}
+      {required && <span class="text-red-500 ml-1">*</span>}
+    </label>
+  )}
+
+  <div class="relative">
+    <select
+      name={name}
+      id={id}
+      required={required}
+      disabled={disabled}
+      class={selectClasses}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-describedby={error ? `${id}-error` : helperText ? `${id}-helper` : undefined}
+    >
+      {placeholder && (
+        <option value="" disabled selected={!value}>
+          {placeholder}
+        </option>
+      )}
+      {options.map((option) => (
+        <option
+          value={option.value}
+          disabled={option.disabled}
+          selected={option.value === value}
+        >
+          {option.label}
+        </option>
+      ))}
+    </select>
+
+    <!-- Custom dropdown arrow -->
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+      </svg>
+    </div>
+  </div>
+
+  {error && (
+    <p id={`${id}-error`} class="mt-2 text-sm text-red-600 flex items-center gap-1">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+      </svg>
+      {error}
+    </p>
+  )}
+
+  {!error && helperText && (
+    <p id={`${id}-helper`} class="mt-2 text-sm text-gray-500">
+      {helperText}
+    </p>
+  )}
+</div>

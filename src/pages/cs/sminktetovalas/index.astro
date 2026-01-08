@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'MAST PMU pristroje',
+  nameShort: 'PMU pristroje',
+  slug: 'sminktetovalas',
+  description: 'Kabelove a bezdratove pristroje pro permanentni make-up a prislusenstvi.',
+  heroDescription: 'Profesionalni PMU pristroje pro tetovani oboci, rtu a ocnich vicek. Precizni prace, tichy motor, ergonomicky design.',
+  badge: 'Volba PMU expertu',
+  color: 'pink',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'sminktetovalas';
+});
+---
+
+<CategoryLayout category={category} products={products} />

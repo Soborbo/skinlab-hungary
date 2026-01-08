@@ -1,0 +1,20 @@
+---
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Namestaj za salon',
+  nameShort: 'Namestaj za salon',
+  slug: 'szalonberendezes',
+  description: 'Profesionalni namestaj za salon, kolica i pribor.',
+  heroDescription: 'Kvalitetan namestaj za salon, kozmeticki lezajevi, kolica i pribor. Dizajnirajte svoj salon iz snova sa nama!',
+  badge: 'Kompletno opremanje',
+  color: 'amber',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'szalonberendezes';
+});
+---
+
+<CategoryLayout category={category} products={products} />
