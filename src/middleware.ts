@@ -20,16 +20,21 @@ export const onRequest = defineMiddleware(({ request, redirect }, next) => {
     return next();
   }
 
+  // Skip redirects on localhost for development
+  if (host.includes('localhost') || host.includes('127.0.0.1')) {
+    return next();
+  }
+
   // Check if path starts with a language code
   const pathLang = SUPPORTED_LANGS.find(lang =>
     pathname === `/${lang}` || pathname.startsWith(`/${lang}/`)
   );
 
   // skinlabeurope.com domain logic
-  if (host.includes(EUROPE_DOMAIN) || host.includes('localhost') && url.searchParams.get('domain') === 'europe') {
+  if (host.includes(EUROPE_DOMAIN)) {
     // Root path → redirect to English
     if (pathname === '/') {
-      return redirect('/en', 302);
+      return redirect('/en/', 302);
     }
 
     // If trying to access Hungarian content (no lang prefix), redirect to skinlabhungary.hu
@@ -39,7 +44,7 @@ export const onRequest = defineMiddleware(({ request, redirect }, next) => {
   }
 
   // skinlabhungary.hu domain logic
-  if (host.includes(HUNGARIAN_DOMAIN) || (host.includes('localhost') && !url.searchParams.get('domain'))) {
+  if (host.includes(HUNGARIAN_DOMAIN)) {
     // If trying to access foreign language content, redirect to skinlabeurope.com
     if (pathLang) {
       return redirect(`https://${EUROPE_DOMAIN}${pathname}`, 301);
