@@ -2,6 +2,25 @@
 # Generated: 2026-01-05T15:10:44.794Z
 # Maps old ShopRenter URLs to new Astro category-based URLs
 
+# Language redirects - redirect unsupported languages to Hungarian homepage
+# Supported languages have their own pages: en, de, sk, ro, cs, hr, sl, sr (8 languages + hu)
+/pl/ / 301
+/pl/* / 301
+/uk/ / 301
+/uk/* / 301
+/ru/ / 301
+/ru/* / 301
+/fr/ / 301
+/fr/* / 301
+/it/ / 301
+/it/* / 301
+/es/ / 301
+/es/* / 301
+/nl/ / 301
+/nl/* / 301
+/pt/ / 301
+/pt/* / 301
+
 # Product redirects (237 rules)
 /product/hiemt-luxe-rf /hiemt/hiemt-luxe-rf 301
 /termek/hiemt-luxe-rf /hiemt/hiemt-luxe-rf 301
