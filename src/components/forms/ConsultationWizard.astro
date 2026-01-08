@@ -1,0 +1,739 @@
+---
+/**
+ * ConsultationWizard - Multi-step consultation request form
+ *
+ * Features:
+ * - 5-step wizard with progress bar
+ * - Scrollable, clickable progress indicators
+ * - Back/Next buttons (30%/70% width)
+ * - Social proof below buttons
+ * - Feminine, clean design
+ * - Max 760px width, fits above fold
+ * - Mobile-first, smooth animations
+ */
+import { CATEGORIES } from '@/lib/constants';
+import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+
+interface Props {
+  /** Pre-selected product category */
+  product?: string;
+  /** Source URL for tracking */
+  sourceUrl?: string;
+  /** Custom class */
+  class?: string;
+}
+
+const {
+  product = '',
+  sourceUrl = Astro.url.href,
+  class: className = '',
+} = Astro.props;
+
+const turnstileSiteKey = getTurnstileSiteKey();
+
+// Product options from constants
+const productOptions = CATEGORIES.map((cat) => ({
+  value: cat.id,
+  label: cat.nameShort,
+}));
+productOptions.push({ value: 'egyeb', label: 'Egyéb' });
+
+// Step definitions
+const steps = [
+  { id: 1, label: 'Termék', icon: 'sparkles' },
+  { id: 2, label: 'Időzítés', icon: 'calendar' },
+  { id: 3, label: 'Szalon', icon: 'building' },
+  { id: 4, label: 'Tapasztalat', icon: 'star' },
+  { id: 5, label: 'Elérhetőség', icon: 'user' },
+];
+
+// Timeline options
+const timelineOptions = [
+  { value: 'asap', label: 'Most azonnal', emoji: '🚀' },
+  { value: '1-3-month', label: '1-3 hónapon belül', emoji: '📅' },
+  { value: '3-6-month', label: '3-6 hónapon belül', emoji: '🗓️' },
+  { value: 'just-looking', label: 'Csak tájékozódom', emoji: '👀' },
+];
+
+// Business type options
+const businessOptions = [
+  { value: 'running-salon', label: 'Igen, működő szalonom van', emoji: '💅' },
+  { value: 'opening-soon', label: 'Most nyitok szalont', emoji: '✨' },
+  { value: 'home-service', label: 'Otthoni szolgáltatás', emoji: '🏠' },
+  { value: 'no-business', label: 'Még nincs vállalkozásom', emoji: '💭' },
+];
+
+// Experience options
+const experienceOptions = [
+  { value: 'regular', label: 'Igen, rendszeresen használok', emoji: '⭐' },
+  { value: 'tried', label: 'Igen, kipróbáltam már', emoji: '✅' },
+  { value: 'trained', label: 'Nem, de képzett vagyok', emoji: '🎓' },
+  { value: 'beginner', label: 'Nem, kezdő vagyok', emoji: '🌱' },
+];
+
+const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class:list={['consultation-wizard', className]} data-wizard>
+  <!-- Progress Bar Container -->
+  <div class="progress-container mb-8">
+    <div class="progress-scroll overflow-x-auto scrollbar-hide" data-progress-scroll>
+      <div class="progress-track flex items-center justify-center min-w-max px-4" data-progress-track>
+        {steps.map((step, index) => (
+          <Fragment>
+            <button
+              type="button"
+              class="step-indicator flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl transition-all duration-300 cursor-pointer hover:bg-pink-50"
+              data-step-btn={step.id}
+              disabled={step.id > 1}
+            >
+              <div class="step-circle w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 border-2 border-gray-200 bg-white text-gray-400"
+                   data-step-circle={step.id}>
+                {step.id}
+              </div>
+              <span class="step-label text-xs font-medium text-gray-400 transition-colors whitespace-nowrap" data-step-label={step.id}>
+                {step.label}
+              </span>
+            </button>
+            {index < steps.length - 1 && (
+              <div class="step-line w-8 h-0.5 bg-gray-200 transition-colors duration-300 mx-1" data-step-line={step.id}></div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form
+    id={formId}
+    action="/api/consultation"
+    method="POST"
+    novalidate
+    data-wizard-form
+  >
+    <!-- Hidden fields -->
+    <input type="hidden" name="sourceUrl" value={sourceUrl} />
+    <input type="hidden" name="formStartTime" data-form-start />
+    <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
+    <input type="hidden" name="utmSource" data-utm="utm_source" />
+    <input type="hidden" name="utmMedium" data-utm="utm_medium" />
+    <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
+
+    <!-- Honeypot -->
+    <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
+      <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <!-- Step 1: Product Selection -->
+    <div class="step-content" data-step-content="1">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Melyik termék érdekli?</h2>
+        <p class="text-gray-500">Válassza ki, melyik kategória érdekli leginkább</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        {productOptions.map((opt) => (
+          <label class="option-card group cursor-pointer">
+            <input
+              type="radio"
+              name="product"
+              value={opt.value}
+              class="sr-only peer"
+              checked={opt.value === product}
+              required
+            />
+            <div class="p-4 rounded-2xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-pink-400 peer-checked:bg-pink-50 hover:border-pink-200 hover:bg-pink-50/50">
+              <span class="text-sm font-medium text-gray-700 peer-checked:text-pink-700">{opt.label}</span>
+            </div>
+          </label>
+        ))}
+      </div>
+      <p class="mt-2 text-sm text-red-500 hidden text-center" data-error="product"></p>
+    </div>
+
+    <!-- Step 2: Timeline -->
+    <div class="step-content hidden" data-step-content="2">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Mikor tervezi a vásárlást?</h2>
+        <p class="text-gray-500">Segít nekünk, hogy a legjobb ajánlatot adjuk</p>
+      </div>
+
+      <div class="space-y-3">
+        {timelineOptions.map((opt) => (
+          <label class="option-card block cursor-pointer">
+            <input
+              type="radio"
+              name="timeline"
+              value={opt.value}
+              class="sr-only peer"
+              required
+            />
+            <div class="flex items-center gap-4 p-4 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-200 peer-checked:border-pink-400 peer-checked:bg-pink-50 hover:border-pink-200 hover:bg-pink-50/50">
+              <span class="text-2xl">{opt.emoji}</span>
+              <span class="font-medium text-gray-700">{opt.label}</span>
+            </div>
+          </label>
+        ))}
+      </div>
+      <p class="mt-2 text-sm text-red-500 hidden text-center" data-error="timeline"></p>
+    </div>
+
+    <!-- Step 3: Business Type -->
+    <div class="step-content hidden" data-step-content="3">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Van már szalonja?</h2>
+        <p class="text-gray-500">Személyre szabott tanácsot adunk a helyzetének megfelelően</p>
+      </div>
+
+      <div class="space-y-3">
+        {businessOptions.map((opt) => (
+          <label class="option-card block cursor-pointer">
+            <input
+              type="radio"
+              name="businessType"
+              value={opt.value}
+              class="sr-only peer"
+              required
+            />
+            <div class="flex items-center gap-4 p-4 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-200 peer-checked:border-pink-400 peer-checked:bg-pink-50 hover:border-pink-200 hover:bg-pink-50/50">
+              <span class="text-2xl">{opt.emoji}</span>
+              <span class="font-medium text-gray-700">{opt.label}</span>
+            </div>
+          </label>
+        ))}
+      </div>
+      <p class="mt-2 text-sm text-red-500 hidden text-center" data-error="businessType"></p>
+    </div>
+
+    <!-- Step 4: Experience -->
+    <div class="step-content hidden" data-step-content="4">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Használt már hasonló gépet?</h2>
+        <p class="text-gray-500">A betanítást az Ön szintjéhez igazítjuk</p>
+      </div>
+
+      <div class="space-y-3">
+        {experienceOptions.map((opt) => (
+          <label class="option-card block cursor-pointer">
+            <input
+              type="radio"
+              name="experience"
+              value={opt.value}
+              class="sr-only peer"
+              required
+            />
+            <div class="flex items-center gap-4 p-4 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-200 peer-checked:border-pink-400 peer-checked:bg-pink-50 hover:border-pink-200 hover:bg-pink-50/50">
+              <span class="text-2xl">{opt.emoji}</span>
+              <span class="font-medium text-gray-700">{opt.label}</span>
+            </div>
+          </label>
+        ))}
+      </div>
+      <p class="mt-2 text-sm text-red-500 hidden text-center" data-error="experience"></p>
+    </div>
+
+    <!-- Step 5: Contact Details -->
+    <div class="step-content hidden" data-step-content="5">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Hogyan érhetjük el?</h2>
+        <p class="text-gray-500">Hamarosan felvesszük Önnel a kapcsolatot</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Name -->
+        <div>
+          <label for={`${formId}-name`} class="block text-sm font-medium text-gray-700 mb-1.5">
+            Név <span class="text-pink-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            id={`${formId}-name`}
+            required
+            autocomplete="name"
+            placeholder="Vezetéknév Keresztnév"
+            class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-pink-400 focus:ring-4 focus:ring-pink-100"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="name"></p>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for={`${formId}-email`} class="block text-sm font-medium text-gray-700 mb-1.5">
+            Email <span class="text-pink-500">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            id={`${formId}-email`}
+            required
+            autocomplete="email"
+            placeholder="pelda@email.hu"
+            class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-pink-400 focus:ring-4 focus:ring-pink-100"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="email"></p>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for={`${formId}-phone`} class="block text-sm font-medium text-gray-700 mb-1.5">
+            Telefon <span class="text-pink-500">*</span>
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id={`${formId}-phone`}
+            required
+            autocomplete="tel"
+            placeholder="+36 70 123 4567"
+            class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-pink-400 focus:ring-4 focus:ring-pink-100"
+          />
+          <p class="mt-1 text-sm text-red-500 hidden" data-error="phone"></p>
+        </div>
+
+        <!-- Turnstile CAPTCHA -->
+        {turnstileSiteKey && (
+          <div class="flex justify-center">
+            <div
+              class="cf-turnstile"
+              data-sitekey={turnstileSiteKey}
+              data-callback="onTurnstileSuccess"
+              data-error-callback="onTurnstileError"
+              data-theme="light"
+            ></div>
+          </div>
+        )}
+        <p class="text-sm text-red-500 hidden text-center" data-error="cf-turnstile-response"></p>
+
+        <!-- GDPR Consent -->
+        <label class="flex items-start gap-3 cursor-pointer group p-3 rounded-xl hover:bg-gray-50 -mx-3">
+          <input
+            type="checkbox"
+            name="gdprConsent"
+            value="true"
+            required
+            class="mt-0.5 h-5 w-5 rounded border-2 border-gray-300 text-pink-500 focus:ring-pink-400 cursor-pointer"
+            data-gdpr-checkbox
+          />
+          <span class="text-sm text-gray-600">
+            Elolvastam és elfogadom az{' '}
+            <a href="/adatvedelem" target="_blank" class="text-pink-600 hover:underline font-medium">
+              Adatvédelmi tájékoztatót
+            </a>{' '}
+            és hozzájárulok adataim kezeléséhez.
+          </span>
+        </label>
+        <p class="text-sm text-red-500 hidden" data-error="gdprConsent"></p>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="mt-8">
+      <div class="flex gap-3">
+        <!-- Back Button (30%) -->
+        <button
+          type="button"
+          class="back-btn hidden w-[30%] py-3.5 px-4 rounded-xl border-2 border-gray-200 bg-white text-gray-600 font-semibold transition-all hover:bg-gray-50 hover:border-gray-300 active:scale-[0.98]"
+          data-back-btn
+        >
+          ← Vissza
+        </button>
+
+        <!-- Next/Submit Button (70% or 100%) -->
+        <button
+          type="button"
+          class="next-btn flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow-lg shadow-pink-200 transition-all hover:shadow-xl hover:shadow-pink-300 hover:from-pink-600 hover:to-rose-600 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          data-next-btn
+        >
+          Következő →
+        </button>
+
+        <button
+          type="submit"
+          class="submit-btn hidden flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow-lg shadow-pink-200 transition-all hover:shadow-xl hover:shadow-pink-300 hover:from-pink-600 hover:to-rose-600 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          data-submit-btn
+        >
+          <span data-button-text>Ingyenes konzultáció kérése ✨</span>
+          <svg class="hidden ml-2 h-5 w-5 animate-spin inline-block" data-loading-spinner viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Social Proof -->
+      <div class="mt-6 flex items-center justify-center gap-6 text-sm text-gray-500">
+        <div class="flex items-center gap-2">
+          <div class="flex -space-x-2">
+            <div class="w-7 h-7 rounded-full bg-pink-100 border-2 border-white flex items-center justify-center text-xs">👩</div>
+            <div class="w-7 h-7 rounded-full bg-rose-100 border-2 border-white flex items-center justify-center text-xs">👩</div>
+            <div class="w-7 h-7 rounded-full bg-pink-100 border-2 border-white flex items-center justify-center text-xs">👩</div>
+          </div>
+          <span><strong class="text-gray-700">150+</strong> elégedett ügyfél</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-yellow-400">★★★★★</span>
+          <span>5.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error message -->
+    <div class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-xl" data-error-message>
+      <div class="flex items-center gap-3">
+        <span class="text-xl">😕</span>
+        <div>
+          <p class="font-medium text-red-800">Hiba történt</p>
+          <p class="text-sm text-red-600" data-error-text>Kérjük, próbálja újra.</p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Turnstile script -->
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<style>
+  .consultation-wizard {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Step states */
+  .step-circle.active {
+    @apply border-pink-400 bg-pink-500 text-white;
+  }
+
+  .step-circle.completed {
+    @apply border-pink-400 bg-pink-100 text-pink-600;
+  }
+
+  .step-label.active {
+    @apply text-pink-600 font-semibold;
+  }
+
+  .step-label.completed {
+    @apply text-pink-500;
+  }
+
+  .step-line.completed {
+    @apply bg-pink-400;
+  }
+
+  /* Option card hover effects */
+  .option-card input:checked + div {
+    @apply border-pink-400 bg-pink-50;
+  }
+
+  .option-card input:checked + div span {
+    @apply text-pink-700;
+  }
+
+  /* Smooth step transitions */
+  .step-content {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  declare global {
+    interface Window {
+      onTurnstileSuccess: (token: string) => void;
+      onTurnstileError: () => void;
+    }
+  }
+
+  let turnstileToken = '';
+
+  window.onTurnstileSuccess = (token: string) => {
+    turnstileToken = token;
+  };
+
+  window.onTurnstileError = () => {
+    turnstileToken = '';
+  };
+
+  document.querySelectorAll('[data-wizard]').forEach((wizard) => {
+    const form = wizard.querySelector('[data-wizard-form]') as HTMLFormElement;
+    const progressScroll = wizard.querySelector('[data-progress-scroll]') as HTMLElement;
+    const backBtn = wizard.querySelector('[data-back-btn]') as HTMLButtonElement;
+    const nextBtn = wizard.querySelector('[data-next-btn]') as HTMLButtonElement;
+    const submitBtn = wizard.querySelector('[data-submit-btn]') as HTMLButtonElement;
+    const stepContents = wizard.querySelectorAll('[data-step-content]');
+    const stepBtns = wizard.querySelectorAll('[data-step-btn]');
+
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    // Set form start time
+    const startTimeInput = form.querySelector('[data-form-start]') as HTMLInputElement;
+    if (startTimeInput) {
+      startTimeInput.value = Date.now().toString();
+    }
+
+    // Capture UTM parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    form.querySelectorAll('[data-utm]').forEach((input) => {
+      const utmParam = input.getAttribute('data-utm');
+      if (utmParam) {
+        (input as HTMLInputElement).value = urlParams.get(utmParam) || '';
+      }
+    });
+
+    // GDPR timestamp
+    const gdprCheckbox = form.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;
+    const gdprTimestamp = form.querySelector('[data-gdpr-timestamp]') as HTMLInputElement;
+    gdprCheckbox?.addEventListener('change', () => {
+      if (gdprCheckbox.checked && gdprTimestamp) {
+        gdprTimestamp.value = new Date().toISOString();
+      }
+    });
+
+    function updateProgressBar() {
+      // Update step indicators
+      stepBtns.forEach((btn) => {
+        const stepNum = parseInt(btn.getAttribute('data-step-btn') || '0');
+        const circle = wizard.querySelector(`[data-step-circle="${stepNum}"]`) as HTMLElement;
+        const label = wizard.querySelector(`[data-step-label="${stepNum}"]`) as HTMLElement;
+        const line = wizard.querySelector(`[data-step-line="${stepNum}"]`) as HTMLElement;
+
+        circle?.classList.remove('active', 'completed');
+        label?.classList.remove('active', 'completed');
+        line?.classList.remove('completed');
+
+        if (stepNum === currentStep) {
+          circle?.classList.add('active');
+          label?.classList.add('active');
+          (btn as HTMLButtonElement).disabled = false;
+        } else if (stepNum < currentStep) {
+          circle?.classList.add('completed');
+          label?.classList.add('completed');
+          line?.classList.add('completed');
+          (btn as HTMLButtonElement).disabled = false;
+        } else {
+          (btn as HTMLButtonElement).disabled = true;
+        }
+      });
+
+      // Scroll to center current step on mobile
+      const currentStepBtn = wizard.querySelector(`[data-step-btn="${currentStep}"]`) as HTMLElement;
+      if (currentStepBtn && progressScroll) {
+        const scrollLeft = currentStepBtn.offsetLeft - progressScroll.offsetWidth / 2 + currentStepBtn.offsetWidth / 2;
+        progressScroll.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+    }
+
+    function showStep(step: number) {
+      stepContents.forEach((content) => {
+        const stepNum = parseInt(content.getAttribute('data-step-content') || '0');
+        if (stepNum === step) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
+
+      // Show/hide back button
+      if (step === 1) {
+        backBtn.classList.add('hidden');
+        nextBtn.classList.remove('hidden');
+        nextBtn.classList.remove('w-[70%]');
+        nextBtn.classList.add('flex-1');
+      } else if (step === totalSteps) {
+        backBtn.classList.remove('hidden');
+        backBtn.classList.remove('flex-1');
+        backBtn.classList.add('w-[30%]');
+        nextBtn.classList.add('hidden');
+        submitBtn.classList.remove('hidden');
+        submitBtn.classList.remove('flex-1');
+        submitBtn.classList.add('w-[70%]');
+      } else {
+        backBtn.classList.remove('hidden');
+        backBtn.classList.remove('flex-1');
+        backBtn.classList.add('w-[30%]');
+        nextBtn.classList.remove('hidden');
+        nextBtn.classList.remove('flex-1');
+        nextBtn.classList.add('w-[70%]');
+        submitBtn.classList.add('hidden');
+      }
+
+      updateProgressBar();
+    }
+
+    function validateStep(step: number): boolean {
+      let isValid = true;
+      const stepContent = wizard.querySelector(`[data-step-content="${step}"]`);
+
+      if (!stepContent) return true;
+
+      // Clear previous errors
+      stepContent.querySelectorAll('[data-error]').forEach((el) => {
+        el.classList.add('hidden');
+        el.textContent = '';
+      });
+
+      // Validate required inputs in current step
+      const requiredInputs = stepContent.querySelectorAll('input[required], select[required]');
+      requiredInputs.forEach((input) => {
+        const inputEl = input as HTMLInputElement;
+        const name = inputEl.name;
+
+        // For radio buttons, check if any in the group is selected
+        if (inputEl.type === 'radio') {
+          const radioGroup = stepContent.querySelectorAll(`input[name="${name}"]`);
+          const isChecked = Array.from(radioGroup).some((r) => (r as HTMLInputElement).checked);
+          if (!isChecked) {
+            const errorEl = stepContent.querySelector(`[data-error="${name}"]`) as HTMLElement;
+            if (errorEl) {
+              errorEl.textContent = 'Kérjük, válasszon egy opciót';
+              errorEl.classList.remove('hidden');
+            }
+            isValid = false;
+          }
+        } else if (!inputEl.value.trim()) {
+          const errorEl = stepContent.querySelector(`[data-error="${name}"]`) as HTMLElement;
+          if (errorEl) {
+            errorEl.textContent = 'Ez a mező kötelező';
+            errorEl.classList.remove('hidden');
+          }
+          isValid = false;
+        }
+      });
+
+      // Email validation
+      const emailInput = stepContent.querySelector('input[type="email"]') as HTMLInputElement;
+      if (emailInput?.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        const errorEl = stepContent.querySelector('[data-error="email"]') as HTMLElement;
+        if (errorEl) {
+          errorEl.textContent = 'Érvényes email címet adjon meg';
+          errorEl.classList.remove('hidden');
+        }
+        isValid = false;
+      }
+
+      // Phone validation
+      const phoneInput = stepContent.querySelector('input[type="tel"]') as HTMLInputElement;
+      if (phoneInput?.value && phoneInput.value.replace(/\D/g, '').length < 9) {
+        const errorEl = stepContent.querySelector('[data-error="phone"]') as HTMLElement;
+        if (errorEl) {
+          errorEl.textContent = 'Érvényes telefonszámot adjon meg';
+          errorEl.classList.remove('hidden');
+        }
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    // Next button click
+    nextBtn.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    // Back button click
+    backBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    // Step button clicks (for going back)
+    stepBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const stepNum = parseInt(btn.getAttribute('data-step-btn') || '0');
+        if (stepNum < currentStep) {
+          currentStep = stepNum;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateStep(currentStep)) return;
+
+      const buttonText = submitBtn.querySelector('[data-button-text]') as HTMLSpanElement;
+      const spinner = submitBtn.querySelector('[data-loading-spinner]') as SVGElement;
+      const errorMessage = wizard.querySelector('[data-error-message]') as HTMLElement;
+      const errorText = wizard.querySelector('[data-error-text]') as HTMLElement;
+
+      errorMessage?.classList.add('hidden');
+      submitBtn.disabled = true;
+      if (buttonText) buttonText.textContent = 'Küldés...';
+      spinner?.classList.remove('hidden');
+
+      try {
+        const formData = new FormData(form);
+        if (turnstileToken) {
+          formData.set('cf-turnstile-response', turnstileToken);
+        }
+
+        const response = await fetch('/api/consultation', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Track conversion
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: 'Consultation',
+              event_label: formData.get('product'),
+              lead_id: result.leadId,
+            });
+          }
+
+          // Redirect to thank you page
+          window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
+        } else {
+          errorMessage?.classList.remove('hidden');
+          if (errorText) {
+            errorText.textContent = result.error || 'Kérjük, próbálja újra.';
+          }
+        }
+      } catch (error) {
+        errorMessage?.classList.remove('hidden');
+        if (errorText) {
+          errorText.textContent = 'Hálózati hiba. Kérjük, próbálja újra.';
+        }
+      } finally {
+        submitBtn.disabled = false;
+        if (buttonText) buttonText.textContent = 'Ingyenes konzultáció kérése ✨';
+        spinner?.classList.add('hidden');
+      }
+    });
+
+    // Initialize
+    showStep(1);
+  });
+</script>

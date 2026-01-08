@@ -4,7 +4,7 @@
  *
  * Uses Google Sheets API for lead storage
  */
-import type { ContactFormData } from './schemas';
+import type { ContactFormData, ConsultationFormData } from './schemas';
 import { generateLeadId, anonymizeIp } from './schemas';
 
 /**
@@ -42,6 +42,12 @@ interface LeadData {
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+}
+
+interface ConsultationLeadData extends LeadData {
+  timeline: string;
+  businessType: string;
+  experience: string;
 }
 
 interface GoogleAuthToken {
@@ -409,6 +415,351 @@ function generateNotificationEmailHtml(data: LeadData): string {
   <p style="margin-top: 20px;">
     <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: #0070c4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
       Hívás indítása
+    </a>
+  </p>
+</body>
+</html>
+  `.trim();
+}
+
+// ============================================
+// CONSULTATION WIZARD SUBMISSION
+// ============================================
+
+// Human-readable labels for consultation options
+const TIMELINE_LABELS: Record<string, string> = {
+  'asap': 'Most azonnal',
+  '1-3-month': '1-3 hónapon belül',
+  '3-6-month': '3-6 hónapon belül',
+  'just-looking': 'Csak tájékozódom',
+};
+
+const BUSINESS_LABELS: Record<string, string> = {
+  'running-salon': 'Működő szalon',
+  'opening-soon': 'Most nyitok szalont',
+  'home-service': 'Otthoni szolgáltatás',
+  'no-business': 'Még nincs vállalkozás',
+};
+
+const EXPERIENCE_LABELS: Record<string, string> = {
+  'regular': 'Rendszeresen használ',
+  'tried': 'Kipróbálta már',
+  'trained': 'Képzett, de nem használt',
+  'beginner': 'Kezdő',
+};
+
+/**
+ * Process consultation wizard form submission
+ */
+export async function processConsultationSubmission(
+  data: ConsultationFormData,
+  ip: string
+): Promise<SubmissionResult> {
+  const leadId = generateLeadId();
+  const timestamp = new Date().toISOString();
+
+  const leadData: ConsultationLeadData = {
+    leadId,
+    timestamp,
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    product: data.product,
+    timeline: data.timeline,
+    businessType: data.businessType,
+    experience: data.experience,
+    sourceUrl: data.sourceUrl,
+    ipHash: anonymizeIp(ip),
+    gdprConsent: data.gdprConsent,
+    gdprTimestamp: data.gdprTimestamp,
+    utmSource: data.utmSource,
+    utmMedium: data.utmMedium,
+    utmCampaign: data.utmCampaign,
+  };
+
+  try {
+    // 1. Send to Google Sheets
+    await sendConsultationToGoogleSheets(leadData);
+
+    // 2. Send confirmation email
+    await sendConsultationConfirmationEmail(leadData);
+
+    // 3. Send notification email to team
+    await sendConsultationNotificationEmail(leadData);
+
+    return { success: true, leadId };
+  } catch (error) {
+    console.error('Consultation form submission failed:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Submission failed',
+    };
+  }
+}
+
+/**
+ * Send consultation lead data to Google Sheets
+ */
+async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<void> {
+  const spreadsheetId = import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+
+  if (!spreadsheetId) {
+    console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
+    return;
+  }
+
+  const accessToken = await getGoogleAccessToken();
+
+  // Prepare row data for Konzultáció sheet
+  const rowData = [
+    data.leadId,
+    data.timestamp,
+    data.name,
+    data.email,
+    data.phone,
+    data.product,
+    TIMELINE_LABELS[data.timeline] || data.timeline,
+    BUSINESS_LABELS[data.businessType] || data.businessType,
+    EXPERIENCE_LABELS[data.experience] || data.experience,
+    data.sourceUrl,
+    data.ipHash,
+    data.gdprConsent ? 'Igen' : 'Nem',
+    data.gdprTimestamp,
+    data.utmSource || '',
+    data.utmMedium || '',
+    data.utmCampaign || '',
+  ];
+
+  const response = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:P:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        values: [rowData],
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to save to Google Sheets: ${error}`);
+  }
+}
+
+/**
+ * Send consultation confirmation email to customer
+ */
+async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Promise<void> {
+  const resendApiKey = import.meta.env.RESEND_API_KEY;
+
+  if (!resendApiKey) {
+    console.warn('RESEND_API_KEY not configured, skipping confirmation email');
+    return;
+  }
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'SkinLab Hungary <noreply@skinlabhungary.hu>',
+      to: [data.email],
+      subject: 'Köszönjük konzultáció kérését - SkinLab Hungary',
+      html: generateConsultationConfirmationEmailHtml(data),
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to send confirmation email: ${error}`);
+  }
+}
+
+/**
+ * Send consultation notification email to team
+ */
+async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<void> {
+  const resendApiKey = import.meta.env.RESEND_API_KEY;
+  const notifyEmail = import.meta.env.NOTIFY_EMAIL || 'info@skinlabhungary.hu';
+
+  if (!resendApiKey) {
+    return;
+  }
+
+  // Determine priority based on timeline
+  const isHot = data.timeline === 'asap';
+  const subject = isHot
+    ? `🔥 FORRÓ LEAD: ${data.name} - ${data.product}`
+    : `Új konzultáció: ${data.name} - ${data.product}`;
+
+  await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'SkinLab Forms <forms@skinlabhungary.hu>',
+      to: [notifyEmail],
+      subject,
+      html: generateConsultationNotificationEmailHtml(data),
+    }),
+  });
+}
+
+/**
+ * Generate consultation confirmation email HTML
+ */
+function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #fdf2f8;">
+  <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <h1 style="color: #db2777; margin: 0; font-size: 24px;">SkinLab Hungary</h1>
+      <p style="color: #9ca3af; margin: 4px 0 0; font-size: 14px;">laser&beauty equipment</p>
+    </div>
+
+    <h2 style="color: #1f2937; text-align: center; font-size: 20px;">Köszönjük, ${escapeHtml(data.name)}!</h2>
+
+    <p style="color: #4b5563; text-align: center; line-height: 1.6;">
+      Megkaptuk konzultáció kérését.<br>
+      <strong>Hamarosan felvesszük Önnel a kapcsolatot!</strong>
+    </p>
+
+    <div style="background: #fdf2f8; padding: 20px; border-radius: 12px; margin: 24px 0;">
+      <h3 style="margin: 0 0 16px; color: #1f2937; font-size: 16px;">Az Ön által megadott adatok:</h3>
+      <table style="width: 100%; font-size: 14px;">
+        <tr>
+          <td style="padding: 6px 0; color: #6b7280;">Érdeklődés:</td>
+          <td style="padding: 6px 0; color: #1f2937; font-weight: 500;">${escapeHtml(data.product)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; color: #6b7280;">Vásárlás:</td>
+          <td style="padding: 6px 0; color: #1f2937; font-weight: 500;">${escapeHtml(TIMELINE_LABELS[data.timeline] || data.timeline)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; color: #6b7280;">Szalon:</td>
+          <td style="padding: 6px 0; color: #1f2937; font-weight: 500;">${escapeHtml(BUSINESS_LABELS[data.businessType] || data.businessType)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; color: #6b7280;">Tapasztalat:</td>
+          <td style="padding: 6px 0; color: #1f2937; font-weight: 500;">${escapeHtml(EXPERIENCE_LABELS[data.experience] || data.experience)}</td>
+        </tr>
+      </table>
+    </div>
+
+    <p style="color: #4b5563; text-align: center;">Sürgős kérdés esetén hívjon minket:</p>
+    <p style="text-align: center;">
+      <a href="tel:+36704136819" style="color: #db2777; font-size: 22px; font-weight: bold; text-decoration: none;">
+        +36 70 413 6819
+      </a>
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #f3e8ff; margin: 24px 0;">
+
+    <p style="color: #9ca3af; font-size: 11px; text-align: center; line-height: 1.5;">
+      Ez az email automatikusan lett küldve. Kérjük, ne válaszoljon rá.<br>
+      SkinLab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+      Hivatkozási szám: ${data.leadId}
+    </p>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+
+/**
+ * Generate consultation notification email HTML for team
+ */
+function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): string {
+  const isHot = data.timeline === 'asap';
+  const priorityBadge = isHot
+    ? '<span style="background: #ef4444; color: white; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: bold;">FORRÓ LEAD</span>'
+    : '';
+
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+  <h2 style="color: #db2777;">
+    Új konzultáció kérés! ${priorityBadge}
+  </h2>
+
+  <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280; width: 130px;">Lead ID:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${escapeHtml(data.leadId)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Név:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; font-size: 16px;">${escapeHtml(data.name)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Telefon:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">
+        <a href="tel:${escapeHtml(data.phone)}" style="color: #db2777; font-weight: bold; font-size: 16px;">${escapeHtml(data.phone)}</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Email:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">
+        <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>
+      </td>
+    </tr>
+    <tr style="background: #fdf2f8;">
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Termék:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold;">${escapeHtml(data.product)}</td>
+    </tr>
+    <tr style="background: ${isHot ? '#fef2f2' : '#fdf2f8'};">
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Vásárlás időzítése:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: ${isHot ? '#dc2626' : '#1f2937'};">
+        ${escapeHtml(TIMELINE_LABELS[data.timeline] || data.timeline)} ${isHot ? '🔥' : ''}
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Szalon típus:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${escapeHtml(BUSINESS_LABELS[data.businessType] || data.businessType)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Tapasztalat:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${escapeHtml(EXPERIENCE_LABELS[data.experience] || data.experience)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Forrás:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-size: 12px; color: #6b7280;">${escapeHtml(data.sourceUrl)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Időpont:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${new Date(data.timestamp).toLocaleString('hu-HU')}</td>
+    </tr>
+    ${data.utmSource ? `
+    <tr>
+      <td style="padding: 10px; font-weight: bold; color: #6b7280;">UTM:</td>
+      <td style="padding: 10px; font-size: 12px; color: #6b7280;">
+        ${escapeHtml(data.utmSource)} / ${data.utmMedium ? escapeHtml(data.utmMedium) : '-'} / ${data.utmCampaign ? escapeHtml(data.utmCampaign) : '-'}
+      </td>
+    </tr>
+    ` : ''}
+  </table>
+
+  <p style="margin-top: 24px;">
+    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: linear-gradient(135deg, #ec4899, #f43f5e); color: white; padding: 14px 28px; text-decoration: none; border-radius: 12px; font-weight: bold;">
+      📞 Hívás indítása
     </a>
   </p>
 </body>

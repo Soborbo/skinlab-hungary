@@ -66,6 +66,81 @@ export const newsletterSchema = z.object({
 export type NewsletterFormData = z.infer<typeof newsletterSchema>;
 
 /**
+ * Consultation wizard form schema (multi-step)
+ */
+export const consultationSchema = z.object({
+  // Step 1: Product selection
+  product: z.string().min(1, 'Válasszon kategóriát'),
+
+  // Step 2: Timeline
+  timeline: z.enum(['asap', '1-3-month', '3-6-month', 'just-looking'], {
+    required_error: 'Válasszon időzítést',
+  }),
+
+  // Step 3: Business type
+  businessType: z.enum(['running-salon', 'opening-soon', 'home-service', 'no-business'], {
+    required_error: 'Válasszon vállalkozás típust',
+  }),
+
+  // Step 4: Experience level
+  experience: z.enum(['regular', 'tried', 'trained', 'beginner'], {
+    required_error: 'Válasszon tapasztalati szintet',
+  }),
+
+  // Step 5: Contact details
+  name: z.string().min(2, 'A név megadása kötelező'),
+  email: z.string().email('Érvényes email cím szükséges'),
+  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
+
+  // GDPR - REQUIRED
+  gdprConsent: z.literal(true, {
+    errorMap: () => ({ message: 'Az adatvédelmi hozzájárulás kötelező' }),
+  }),
+  gdprTimestamp: z.string().datetime(),
+
+  // Spam protection
+  honeypot: z.string().max(0, 'Spam detected').optional().default(''),
+  formStartTime: z.coerce.number().refine(
+    (start) => Date.now() - start > 3000,
+    'A form túl gyorsan lett kitöltve'
+  ),
+
+  // Turnstile CAPTCHA token
+  'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
+
+  // Tracking metadata
+  sourceUrl: z.string().url(),
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+});
+
+export type ConsultationFormData = z.infer<typeof consultationSchema>;
+
+/**
+ * Validate consultation wizard form data
+ */
+export function validateConsultationForm(data: unknown): {
+  success: boolean;
+  data?: ConsultationFormData;
+  errors?: Record<string, string[]>;
+} {
+  const result = consultationSchema.safeParse(data);
+
+  if (!result.success) {
+    return {
+      success: false,
+      errors: result.error.flatten().fieldErrors as Record<string, string[]>,
+    };
+  }
+
+  return {
+    success: true,
+    data: result.data,
+  };
+}
+
+/**
  * Validate form data and return errors if any
  */
 export function validateContactForm(data: unknown): {
