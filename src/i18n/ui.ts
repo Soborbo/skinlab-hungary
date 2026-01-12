@@ -15,7 +15,12 @@ import sl from './sl.json';
 // All available translations
 const translations = { hu, en, sk, ro, de, cs, hr, sr, sl } as const;
 
-// Domain configuration
+// Domain configuration (not used for URL generation anymore, kept for reference)
+// All languages are served from the same domain with path-based routing:
+// - / = Hungarian (default)
+// - /en/ = English
+// - /sk/ = Slovak
+// - etc.
 export const DOMAINS = {
   hungarian: 'https://skinlabhungary.hu',
   europe: 'https://skinlabeurope.com',
@@ -197,42 +202,48 @@ export function getLocalizedPath(locale: Locale, path: string): string {
 }
 
 /**
- * Get full URL for a given locale (with correct domain)
- * Hungarian → skinlabhungary.hu
- * Other languages → skinlabeurope.com/[lang]
+ * Get relative URL for a given locale (domain-independent)
+ * All languages are served from the same domain with path-based routing:
+ * - Hungarian (default) → /path
+ * - Other languages → /[lang]/path
  * @param locale - Target locale
  * @param path - Current path
- * @returns Full URL with correct domain
+ * @returns Relative URL path
  */
 export function getLocalizedUrl(locale: Locale, path: string): string {
   // Remove any existing locale prefix
-  const localePattern = new RegExp(`^/(${locales.join('|')})`);
-  const cleanPath = path.replace(localePattern, '') || '/';
+  const localePattern = new RegExp(`^/(${locales.join('|')})(/|$)`);
+  const cleanPath = path.replace(localePattern, '/').replace(/\/+/g, '/') || '/';
 
-  // Hungarian uses skinlabhungary.hu without prefix
+  // Hungarian (default locale) doesn't have prefix
   if (locale === defaultLocale) {
-    return `${DOMAINS.hungarian}${cleanPath}`;
+    return cleanPath;
   }
 
-  // Other languages use skinlabeurope.com with prefix
-  return `${DOMAINS.europe}/${locale}${cleanPath === '/' ? '' : cleanPath}`;
+  // Other languages have prefix
+  if (cleanPath === '/') {
+    return `/${locale}`;
+  }
+  return `/${locale}${cleanPath}`;
 }
 
 /**
  * Get all localized paths for hreflang tags
- * Uses correct domains: skinlabhungary.hu for HU, skinlabeurope.com for others
+ * Returns relative paths - the site URL should be prepended when generating meta tags
  * @param currentPath - Current page path
+ * @param siteUrl - Optional site URL to prepend for absolute URLs (for SEO meta tags)
  * @returns Array of hreflang objects
  */
-export function getHreflangLinks(currentPath: string): Array<{
+export function getHreflangLinks(currentPath: string, siteUrl?: string): Array<{
   locale: Locale;
   hreflang: string;
   href: string;
 }> {
+  const baseUrl = siteUrl || '';
   return locales.map((locale) => ({
     locale,
     hreflang: localeConfig[locale].hreflang,
-    href: getLocalizedUrl(locale, currentPath),
+    href: `${baseUrl}${getLocalizedUrl(locale, currentPath)}`,
   }));
 }
 

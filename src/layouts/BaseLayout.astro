@@ -40,16 +40,17 @@ const currentLocale = getLocaleFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 const htmlLang = getHtmlLang(currentLocale);
 
-// Generate canonical URL with correct domain
-// Hungarian → skinlabhungary.hu, Others → skinlabeurope.com/[lang]
-const canonicalURL = getLocalizedUrl(currentLocale, currentPath);
+// Generate canonical URL - absolute URL for SEO
+// Using SITE.url as base for all languages (path-based routing)
+const localizedPath = getLocalizedUrl(currentLocale, currentPath);
+const canonicalURL = `${SITE.url}${localizedPath}`;
 const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
 
-// Generate hreflang links for all locales (with correct domains)
+// Generate hreflang links for all locales - absolute URLs for SEO
 const hreflangLinks = locales.map((locale) => ({
   locale,
   hreflang: localeConfig[locale].hreflang,
-  href: getLocalizedUrl(locale, currentPath),
+  href: `${SITE.url}${getLocalizedUrl(locale, currentPath)}`,
 }));
 
 // Helper to render schema(s)
@@ -72,7 +73,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   {hreflangLinks.map(({ hreflang, href }) => (
     <link rel="alternate" hreflang={hreflang} href={href} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={getLocalizedUrl(defaultLocale, currentPath)} />
+  <link rel="alternate" hreflang="x-default" href={`${SITE.url}${getLocalizedUrl(defaultLocale, currentPath)}`} />
   
   <!-- Open Graph -->
   <meta property="og:type" content="website" />

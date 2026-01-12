@@ -5,9 +5,11 @@
  * Displays a dropdown for switching between available languages.
  * Uses flags and native language names for better UX.
  *
- * DOMAIN ROUTING:
- * - Hungarian (hu) → skinlabhungary.hu
- * - Other languages → skinlabeurope.com/[lang]
+ * PATH-BASED ROUTING (domain independent):
+ * - Hungarian (hu) → /
+ * - English (en) → /en
+ * - Slovak (sk) → /sk
+ * - etc.
  */
 import { locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
 
