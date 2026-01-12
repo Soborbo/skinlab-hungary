@@ -1,29 +1,33 @@
 ---
 import { ContentImage } from '../images';
 import trainingImage from '../../assets/training-image.jpg';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 const features = [
   {
-    title: 'Teljes körű betanítás',
-    description: '4-6 órás személyes oktatás + FAR tanúsítvány + videós tananyag. Nem engedünk el, amíg magabiztosan nem használod a gépet.',
+    titleKey: 'whyUs.training',
+    descKey: 'whyUs.trainingDesc',
     icon: 'graduation',
     color: 'blue',
   },
   {
-    title: '2 év garancia, magyar szerviz',
-    description: 'Nem kell heteket várni külföldi szervizre. 24 órán belül reagálunk, és ha szükséges, cserekészüléket adunk.',
+    titleKey: 'whyUs.warranty',
+    descKey: 'whyUs.warrantyDesc',
     icon: 'shield',
     color: 'green',
   },
   {
-    title: 'Részletfizetés, lízing',
-    description: 'Havi ~89.000 Ft-tól. Nem kell egyszerre kifizetni – a gép bevétele fizeti a részleteket.',
+    titleKey: 'whyUs.financing',
+    descKey: 'whyUs.financingDesc',
     icon: 'currency',
     color: 'purple',
   },
   {
-    title: 'Üzleti tanácsadás',
-    description: 'Segítünk az árazásban, marketingben. Megosztjuk, mit csinálnak a sikeres szalonok.',
+    titleKey: 'whyUs.consulting',
+    descKey: 'whyUs.consultingDesc',
     icon: 'chart',
     color: 'amber',
   },
@@ -50,10 +54,10 @@ const colorClasses: Record<string, { bg: string; text: string }> = {
       <!-- Left: Content -->
       <div>
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-          Miért válasszák a SkinLab-ot a sikeres szalonok?
+          {t(locale, 'whyUs.title')}
         </h2>
         <p class="text-gray-600 mb-8">
-          Nem csak gépeket adunk el – partnerként segítünk, hogy a befektetésed a lehető leggyorsabban megtérüljön.
+          {t(locale, 'whyUs.subtitle')}
         </p>
 
         <div class="space-y-5">
@@ -63,8 +67,8 @@ const colorClasses: Record<string, { bg: string; text: string }> = {
                 <svg class={`w-6 h-6 ${colorClasses[feature.color].text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[feature.icon]} />
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 mb-1">{feature.title}</h3>
-                <p class="text-gray-600 text-sm">{feature.description}</p>
+                <h3 class="font-bold text-gray-900 mb-1">{t(locale, feature.titleKey)}</h3>
+                <p class="text-gray-600 text-sm">{t(locale, feature.descKey)}</p>
               </div>
             </div>
           ))}
@@ -76,7 +80,7 @@ const colorClasses: Record<string, { bg: string; text: string }> = {
         <div class="rounded-2xl aspect-square overflow-hidden">
           <ContentImage
             src={trainingImage}
-            alt="Kozmetikus képzés és betanítás"
+            alt={t(locale, 'whyUs.training')}
             class="w-full h-full object-cover"
           />
         </div>
@@ -88,10 +92,10 @@ const colorClasses: Record<string, { bg: string; text: string }> = {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span class="font-bold text-gray-900 text-sm">Elégedett partner</span>
+            <span class="font-bold text-gray-900 text-sm">{t(locale, 'whyUs.testimonialTitle')}</span>
           </div>
-          <p class="text-gray-600 text-sm italic">"A betanítás szuper volt, és bármikor felhívhatom őket ha kérdésem van."</p>
-          <p class="text-gray-400 text-xs mt-2">– Nagy Éva, Skin Studio</p>
+          <p class="text-gray-600 text-sm italic">"{t(locale, 'whyUs.testimonialText')}"</p>
+          <p class="text-gray-400 text-xs mt-2">– {t(locale, 'whyUs.testimonialAuthor')}</p>
         </div>
       </div>
     </div>

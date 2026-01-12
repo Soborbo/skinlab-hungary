@@ -1,0 +1,19 @@
+---
+/**
+ * Thank you page - Shown after successful form submission (Slovak)
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ThankYouContent from '@/components/pages/ThankYouContent.astro';
+import { t } from '@/i18n/ui';
+
+const locale = 'sk';
+const leadId = Astro.url.searchParams.get('lead') || '';
+---
+
+<BaseLayout
+  title={t(locale, 'thankYou.title')}
+  description={t(locale, 'thankYou.metaDescription')}
+  noIndex={true}
+>
+  <ThankYouContent locale={locale} leadId={leadId} />
+</BaseLayout>

@@ -1,7 +1,19 @@
 ---
-import { CONTACT, TRUST_BADGES } from '../../lib/constants';
+import { CONTACT } from '../../lib/constants';
 import { ContentImage } from '../images';
 import heroImage from '../../assets/hero-image.jpg';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Trust badges with translation keys
+const trustBadges = [
+  { icon: 'shield-check', titleKey: 'trust.warranty', descKey: 'trust.warrantyDesc' },
+  { icon: 'truck', titleKey: 'trust.shipping', descKey: 'trust.shippingDesc' },
+  { icon: 'graduation-cap', titleKey: 'trust.training', descKey: 'trust.trainingDesc' },
+  { icon: 'wrench', titleKey: 'trust.service', descKey: 'trust.serviceDesc' },
+];
 
 const icons: Record<string, string> = {
   'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
@@ -9,6 +21,9 @@ const icons: Record<string, string> = {
   'graduation-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
   'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
 };
+
+// Localized contact link
+const contactLink = locale === 'hu' ? '/kapcsolat' : `/${locale}/kapcsolat`;
 ---
 
 <section class="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
@@ -19,23 +34,21 @@ const icons: Record<string, string> = {
       <div class="text-center lg:text-left">
         <!-- Headline -->
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-          Professzionális kozmetikai
-          <span class="text-primary-600">berendezések</span>
+          {t(locale, 'hero.title')}
         </h1>
 
         <!-- Subheadline -->
         <p class="text-base lg:text-lg text-gray-600 mb-6 max-w-xl mx-auto lg:mx-0">
-          Diódalézerek, sminktetováló gépek és multifunkcionális kezelőgépek
-          közvetlen forgalmazása. Ingyenes betanítás, FAR tanúsítvány, azonnali szerviz.
+          {t(locale, 'hero.subtitle')}
         </p>
 
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a
-            href="/kapcsolat"
+            href={contactLink}
             class="inline-flex items-center justify-center px-5 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/25 hover:shadow-xl hover:shadow-primary-600/30"
           >
-            Ingyenes konzultáció
+            {t(locale, 'hero.cta')}
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -57,7 +70,7 @@ const icons: Record<string, string> = {
         <div class="aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden">
           <ContentImage
             src={heroImage}
-            alt="Professzionális kozmetikai kezelőgép"
+            alt={t(locale, 'hero.title')}
             class="w-full h-full object-cover"
             priority={true}
           />
@@ -73,7 +86,7 @@ const icons: Record<string, string> = {
             </div>
             <div>
               <div class="font-bold text-gray-900 text-sm">150+</div>
-              <div class="text-xs text-gray-500">Eladott Novalight</div>
+              <div class="text-xs text-gray-500">{t(locale, 'stats.soldUnits')}</div>
             </div>
           </div>
         </div>
@@ -85,14 +98,14 @@ const icons: Record<string, string> = {
   <div class="bg-white border-t border-gray-100 py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-        {TRUST_BADGES.map((badge) => (
+        {trustBadges.map((badge) => (
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-50 rounded-xl flex items-center justify-center shrink-0">
               <svg class="w-5 h-5 lg:w-6 lg:h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[badge.icon]} />
             </div>
             <div>
-              <div class="font-semibold text-gray-900 text-sm">{badge.title}</div>
-              <div class="text-xs text-gray-500 hidden sm:block line-clamp-1">{badge.description}</div>
+              <div class="font-semibold text-gray-900 text-sm">{t(locale, badge.titleKey)}</div>
+              <div class="text-xs text-gray-500 hidden sm:block line-clamp-1">{t(locale, badge.descKey)}</div>
             </div>
           </div>
         ))}

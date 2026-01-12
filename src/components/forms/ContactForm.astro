@@ -10,9 +10,11 @@
  * - Cloudflare Turnstile CAPTCHA
  * - GDPR consent with timestamp
  * - UTM parameter tracking
+ * - i18n support
  */
 import { CATEGORIES } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
 
 interface Props {
   /** Pre-selected product category */
@@ -32,16 +34,21 @@ const {
   class: className = '',
 } = Astro.props;
 
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 const turnstileSiteKey = getTurnstileSiteKey();
 
-// Product options from constants
+// Localized privacy policy link
+const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
+const thankYouLink = locale === 'hu' ? '/koszonjuk' : `/${locale}/koszonjuk`;
+
+// Product options from constants with translations
 const productOptions = CATEGORIES.map((cat) => ({
   value: cat.id,
-  label: cat.nameShort,
+  label: t(locale, `categories.${cat.id}`) || cat.nameShort,
 }));
 
 // Add "Other" option
-productOptions.push({ value: 'egyeb', label: 'Egyéb' });
+productOptions.push({ value: 'egyeb', label: t(locale, 'common.other') || 'Other' });
 
 const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 ---
@@ -64,7 +71,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 
   <!-- Honeypot - hidden from users, bots will fill it -->
   <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
-    <label for={`${formId}-website`}>Ne töltse ki ezt a mezőt</label>
+    <label for={`${formId}-website`}>{t(locale, 'form.honeypot')}</label>
     <input
       type="text"
       name="honeypot"
@@ -78,7 +85,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Name -->
     <div class={compact ? '' : 'md:col-span-1'}>
       <label for={`${formId}-name`} class="block text-sm font-medium text-gray-700 mb-2">
-        Név <span class="text-red-500">*</span>
+        {t(locale, 'form.name')} <span class="text-red-500">*</span>
       </label>
       <input
         type="text"
@@ -86,7 +93,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-name`}
         required
         autocomplete="name"
-        placeholder="Teljes név"
+        placeholder={t(locale, 'form.namePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
       <p class="mt-1 text-sm text-red-600 hidden" data-error="name"></p>
@@ -95,7 +102,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Email -->
     <div class={compact ? '' : 'md:col-span-1'}>
       <label for={`${formId}-email`} class="block text-sm font-medium text-gray-700 mb-2">
-        Email <span class="text-red-500">*</span>
+        {t(locale, 'form.email')} <span class="text-red-500">*</span>
       </label>
       <input
         type="email"
@@ -103,7 +110,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-email`}
         required
         autocomplete="email"
-        placeholder="pelda@email.hu"
+        placeholder={t(locale, 'form.emailPlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
       <p class="mt-1 text-sm text-red-600 hidden" data-error="email"></p>
@@ -112,7 +119,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Phone -->
     <div class={compact ? '' : 'md:col-span-1'}>
       <label for={`${formId}-phone`} class="block text-sm font-medium text-gray-700 mb-2">
-        Telefon <span class="text-red-500">*</span>
+        {t(locale, 'form.phone')} <span class="text-red-500">*</span>
       </label>
       <input
         type="tel"
@@ -120,7 +127,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-phone`}
         required
         autocomplete="tel"
-        placeholder="+36 70 123 4567"
+        placeholder={t(locale, 'form.phonePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
       <p class="mt-1 text-sm text-red-600 hidden" data-error="phone"></p>
@@ -129,7 +136,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Product selection -->
     <div class={compact ? '' : 'md:col-span-1'}>
       <label for={`${formId}-product`} class="block text-sm font-medium text-gray-700 mb-2">
-        Érdeklődés tárgya <span class="text-red-500">*</span>
+        {t(locale, 'form.product')} <span class="text-red-500">*</span>
       </label>
       <div class="relative">
         <select
@@ -138,7 +145,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           required
           class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 appearance-none cursor-pointer"
         >
-          <option value="" disabled selected={!product}>Válasszon kategóriát...</option>
+          <option value="" disabled selected={!product}>{t(locale, 'form.productPlaceholder')}</option>
           {productOptions.map((opt) => (
             <option value={opt.value} selected={opt.value === product}>
               {opt.label}
@@ -157,14 +164,14 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Message (optional) -->
     <div class={compact ? 'md:col-span-2' : ''}>
       <label for={`${formId}-message`} class="block text-sm font-medium text-gray-700 mb-2">
-        Üzenet <span class="text-gray-400 font-normal">(opcionális)</span>
+        {t(locale, 'form.message')} <span class="text-gray-400 font-normal">({t(locale, 'common.optional') || 'optional'})</span>
       </label>
       <textarea
         name="message"
         id={`${formId}-message`}
         rows={compact ? 3 : 4}
         maxlength="2000"
-        placeholder="Kérdése, megjegyzése..."
+        placeholder={t(locale, 'form.messagePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-y"
       ></textarea>
       <p class="mt-1 text-sm text-red-600 hidden" data-error="message"></p>
@@ -196,11 +203,10 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           data-gdpr-checkbox
         />
         <span class="text-sm text-gray-600 group-hover:text-gray-900">
-          Elolvastam és elfogadom az{' '}
-          <a href="/adatvedelem" target="_blank" class="text-primary-600 hover:underline">
-            Adatvédelmi tájékoztatót
-          </a>{' '}
-          és hozzájárulok adataim kezeléséhez.{' '}
+          {t(locale, 'form.gdprConsentPrefix')}{' '}
+          <a href={privacyLink} target="_blank" class="text-primary-600 hover:underline">
+            {t(locale, 'form.gdprConsentLink')}
+          </a>.{' '}
           <span class="text-red-500">*</span>
         </span>
       </label>
@@ -213,8 +219,10 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         type="submit"
         class="w-full inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         data-submit-button
+        data-submit-text={t(locale, 'form.submit')}
+        data-submitting-text={t(locale, 'form.submitting')}
       >
-        <span data-button-text>Ingyenes konzultáció kérése</span>
+        <span data-button-text>{t(locale, 'form.submit')}</span>
         <svg class="hidden ml-2 h-5 w-5 animate-spin" data-loading-spinner viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
@@ -224,27 +232,32 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
   </div>
 
   <!-- Success message -->
-  <div class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg" data-success-message>
+  <div class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg" data-success-message data-thank-you-link={thankYouLink}>
     <div class="flex items-start gap-3">
       <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
       <div>
-        <h4 class="font-semibold text-green-800">Köszönjük!</h4>
-        <p class="text-sm text-green-700">Megkaptuk üzenetét, hamarosan felvesszük Önnel a kapcsolatot.</p>
+        <h4 class="font-semibold text-green-800">{t(locale, 'form.success')}</h4>
+        <p class="text-sm text-green-700">{t(locale, 'form.successMessage')}</p>
       </div>
     </div>
   </div>
 
   <!-- Error message -->
-  <div class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg" data-error-message>
+  <div
+    class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+    data-error-message
+    data-network-error={t(locale, 'form.networkError')}
+    data-validation-error={t(locale, 'form.validationError')}
+  >
     <div class="flex items-start gap-3">
       <svg class="h-6 w-6 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
       <div>
-        <h4 class="font-semibold text-red-800">Hiba történt</h4>
-        <p class="text-sm text-red-700" data-error-text>Kérjük, próbálja újra később.</p>
+        <h4 class="font-semibold text-red-800">{t(locale, 'form.error')}</h4>
+        <p class="text-sm text-red-700" data-error-text>{t(locale, 'form.errorMessage')}</p>
       </div>
     </div>
   </div>
@@ -325,7 +338,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 
       // Show loading state
       submitButton.disabled = true;
-      buttonText.textContent = 'Küldés...';
+      buttonText.textContent = submitButton.getAttribute('data-submitting-text') || 'Sending...';
       spinner?.classList.remove('hidden');
 
       try {
@@ -363,8 +376,9 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           }
 
           // Redirect to thank-you page after short delay
+          const thankYouLink = successMessage?.getAttribute('data-thank-you-link') || '/koszonjuk';
           setTimeout(() => {
-            window.location.href = `/koszonjuk?lead=${result.leadId}`;
+            window.location.href = `${thankYouLink}?lead=${result.leadId}`;
           }, 1500);
         } else {
           // Show field errors
@@ -387,19 +401,21 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           // Show general error
           errorMessage?.classList.remove('hidden');
           if (errorText) {
-            errorText.textContent = result.error || 'Kérjük, ellenőrizze a megadott adatokat.';
+            const validationError = errorMessage?.getAttribute('data-validation-error') || 'Please check the entered data.';
+            errorText.textContent = result.error || validationError;
           }
         }
       } catch (error) {
         // Network error
         errorMessage?.classList.remove('hidden');
         if (errorText) {
-          errorText.textContent = 'Hálózati hiba történt. Kérjük, próbálja újra.';
+          const networkError = errorMessage?.getAttribute('data-network-error') || 'A network error occurred. Please try again.';
+          errorText.textContent = networkError;
         }
       } finally {
         // Reset button
         submitButton.disabled = false;
-        buttonText.textContent = 'Ingyenes konzultáció kérése';
+        buttonText.textContent = submitButton.getAttribute('data-submit-text') || 'Submit';
         spinner?.classList.add('hidden');
       }
     });

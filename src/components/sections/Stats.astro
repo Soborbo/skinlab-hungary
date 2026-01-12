@@ -1,17 +1,28 @@
 ---
-import { STATS } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Stats with translation keys
+const stats = [
+  { value: '150+', labelKey: 'stats.soldUnits' },
+  { value: '2', labelKey: 'stats.warranty', suffix: locale === 'en' ? ' Years' : ' év' },
+  { value: '2', labelKey: 'stats.deliveryTime', suffix: locale === 'en' ? ' Weeks' : ' hét' },
+  { value: '100%', labelKey: 'stats.legalImport' },
+];
 ---
 
 <section class="py-16 lg:py-20 bg-primary-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-      {STATS.map((stat) => (
+      {stats.map((stat) => (
         <div class="text-center">
           <div class="text-4xl lg:text-5xl font-bold text-white mb-2">
-            {stat.value}
+            {stat.value}{stat.suffix || ''}
           </div>
           <div class="text-primary-100 font-medium">
-            {stat.label}
+            {t(locale, stat.labelKey)}
           </div>
         </div>
       ))}

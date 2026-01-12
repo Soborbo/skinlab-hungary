@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { CONTACT } from '../../lib/constants';
+import { t, getLocaleFromUrl, formatDate, type Locale, localeConfig } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Localized blog URL prefix
+const blogUrlPrefix = locale === 'hu' ? '/blog' : `/${locale}/blog`;
+
+// Localized privacy link
+const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+---
+
+<BaseLayout
+  title={t(locale, 'blog.title')}
+  description={t(locale, 'blog.description')}
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {t(locale, 'blog.pageTitle')}
+          </h1>
+          <p class="text-lg text-gray-600">
+            {t(locale, 'blog.subtitle')}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Posts -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {posts.length === 0 ? (
+          <div class="text-center py-12">
+            <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">{t(locale, 'blog.comingSoon')}</h2>
+            <p class="text-gray-600">{t(locale, 'blog.comingSoonDesc')}</p>
+          </div>
+        ) : (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <article class="group">
+                <a href={`${blogUrlPrefix}/${post.slug}`} class="block">
+                  <!-- Image placeholder -->
+                  <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
+                    {post.data.image ? (
+                      <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+                        <svg class="w-12 h-12 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+
+                  <!-- Tags -->
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      {post.data.tags.slice(0, 2).map((tag) => (
+                        <span class="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <!-- Title -->
+                  <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+                    {post.data.title}
+                  </h2>
+
+                  <!-- Description -->
+                  <p class="text-gray-600 mb-4 line-clamp-2">
+                    {post.data.description}
+                  </p>
+
+                  <!-- Meta -->
+                  <div class="flex items-center text-sm text-gray-500">
+                    <span>{formatDate(post.data.publishedAt, locale)}</span>
+                    <span class="mx-2">·</span>
+                    <span>{post.data.author}</span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        )}
+
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-12 lg:py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            {t(locale, 'blog.newsletterTitle')}
+          </h2>
+          <p class="text-gray-600 mb-6">
+            {t(locale, 'blog.newsletterSubtitle')}
+          </p>
+
+          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder={t(locale, 'blog.emailPlaceholder')}
+              required
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            />
+            <button
+              type="submit"
+              class="px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
+            >
+              {t(locale, 'blog.subscribe')}
+            </button>
+          </form>
+          <p class="text-sm text-gray-500 mt-3">
+            {t(locale, 'blog.privacyNote')} <a href={privacyLink} class="text-primary-600 hover:underline">{t(locale, 'blog.privacyLink')}</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

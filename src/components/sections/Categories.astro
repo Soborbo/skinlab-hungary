@@ -3,6 +3,10 @@ import { getCollection } from 'astro:content';
 import { FifthImage } from '../images';
 import type { ImageMetadata } from 'astro';
 import { CATEGORIES } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Import all product images for dynamic resolution
 const productImages = import.meta.glob<{ default: ImageMetadata }>(
@@ -50,6 +54,11 @@ for (const category of CATEGORIES) {
     categoryImages[category.slug] = null;
   }
 }
+
+// Get localized category link
+function getCategoryLink(slug: string): string {
+  return locale === 'hu' ? `/${slug}` : `/${locale}/${slug}`;
+}
 ---
 
 <section class="py-12 lg:py-16 bg-white">
@@ -57,10 +66,10 @@ for (const category of CATEGORIES) {
     <!-- Header -->
     <div class="text-center mb-10">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-        Termékkategóriák
+        {t(locale, 'categories.title')}
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        Válaszd ki a számodra megfelelő kategóriát, és fedezd fel professzionális eszközeinket
+        {t(locale, 'categories.subtitle')}
       </p>
     </div>
 
@@ -68,9 +77,13 @@ for (const category of CATEGORIES) {
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
       {CATEGORIES.map((category) => {
         const categoryImage = categoryImages[category.slug];
+        // Use translated name if available, fallback to constants
+        const translationKey = `categories.${category.slug}`;
+        const translated = t(locale, translationKey);
+        const categoryName = translated !== translationKey ? translated : category.nameShort;
         return (
           <a
-            href={`/${category.slug}`}
+            href={getCategoryLink(category.slug)}
             class="group relative bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
           >
             <!-- Image -->
@@ -78,7 +91,7 @@ for (const category of CATEGORIES) {
               {categoryImage ? (
                 <FifthImage
                   src={categoryImage}
-                  alt={category.nameShort}
+                  alt={categoryName}
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               ) : (
@@ -95,7 +108,7 @@ for (const category of CATEGORIES) {
             <!-- Content with local gradient only behind text -->
             <div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent">
               <h3 class="font-semibold text-white text-sm lg:text-base group-hover:text-primary-300 transition-colors line-clamp-2">
-                {category.nameShort}
+                {categoryName}
               </h3>
             </div>
 

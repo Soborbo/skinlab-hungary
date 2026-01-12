@@ -1,0 +1,17 @@
+---
+/**
+ * Privacy Policy page (German)
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PrivacyContent from '@/components/pages/PrivacyContent.astro';
+import { t } from '@/i18n/ui';
+
+const locale = 'de';
+---
+
+<BaseLayout
+  title={t(locale, 'privacy.title')}
+  description={t(locale, 'privacy.metaDescription')}
+>
+  <PrivacyContent locale={locale} />
+</BaseLayout>

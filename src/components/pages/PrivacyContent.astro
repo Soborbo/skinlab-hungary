@@ -1,0 +1,255 @@
+---
+/**
+ * PrivacyContent - Reusable privacy policy content with i18n support
+ */
+import { t, type Locale } from '@/i18n/ui';
+import { COMPANY, CONTACT, LOCATIONS } from '@/lib/constants';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div id="main-content">
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          {t(locale, 'privacy.title')}
+        </h1>
+        <p class="text-lg text-gray-600">
+          {t(locale, 'privacy.effectiveDate')}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-gray max-w-none">
+
+        <!-- Intro box -->
+        <div class="bg-gray-50 rounded-xl p-6 mb-8">
+          <h2 class="mt-0">{t(locale, 'privacy.introTitle')}</h2>
+          <p class="mb-0">
+            {t(locale, 'privacy.introText1')}
+          </p>
+          <p class="mb-0">
+            {t(locale, 'privacy.introText2')}
+          </p>
+        </div>
+
+        <h2>{t(locale, 'privacy.section1Title')}</h2>
+        <p>
+          {t(locale, 'privacy.section1Text').replace('{companyName}', COMPANY.name)}
+        </p>
+        <ul>
+          <li>GDPR - 2016/679</li>
+          <li>2011. évi CXII. törvény (Infotv.)</li>
+          <li>2000. évi C. törvény (Számv. tv.)</li>
+          <li>2001. évi CVIII. törvény (E-ker. tv.)</li>
+        </ul>
+
+        <h2>{t(locale, 'privacy.section2Title')}</h2>
+        <p>
+          <strong>{t(locale, 'privacy.companyName')}</strong> {COMPANY.legalName}<br />
+          <strong>{t(locale, 'privacy.companyType')}</strong> {t(locale, 'privacy.companyTypeLLC')}<br />
+          <strong>{t(locale, 'footer.legal')}:</strong> {LOCATIONS.headquarters.fullAddress}<br />
+          <strong>{t(locale, 'privacy.registrationNumber')}</strong> {COMPANY.registrationNumber}<br />
+          <strong>{t(locale, 'privacy.taxId')}</strong> {COMPANY.taxId}<br />
+          <strong>{t(locale, 'privacy.vatId')}</strong> {COMPANY.vatId}<br />
+          <strong>{t(locale, 'privacy.statisticalCode')}</strong> 32871580-4712-113-13<br />
+          <strong>{t(locale, 'contact.email')}:</strong> {CONTACT.email}<br />
+          <strong>{t(locale, 'contact.phone')}:</strong> {CONTACT.phoneDisplay}
+        </p>
+
+        <h2>{t(locale, 'privacy.section3Title')}</h2>
+
+        <h3>{t(locale, 'privacy.section3_1Title')}</h3>
+        <ul>
+          <li>{t(locale, 'form.name')}</li>
+          <li>{t(locale, 'form.email')}</li>
+          <li>{t(locale, 'form.phone')}</li>
+          <li>{locale === 'hu' ? 'Számlázási és szállítási cím' : 'Billing and shipping address'}</li>
+          <li>{locale === 'hu' ? 'Cég neve (opcionális)' : 'Company name (optional)'}</li>
+          <li>{locale === 'hu' ? 'Adószám (opcionális)' : 'Tax ID (optional)'}</li>
+          <li>{locale === 'hu' ? 'Rendelési adatok, vásárlási előzmények' : 'Order data, purchase history'}</li>
+        </ul>
+
+        <h3>{t(locale, 'privacy.section3_2Title')}</h3>
+        <ul>
+          <li>{t(locale, 'form.name')}</li>
+          <li>{t(locale, 'form.email')}</li>
+          <li>{t(locale, 'form.phone')}</li>
+          <li>{locale === 'hu' ? 'Tanfolyam típusa, időpontja' : 'Course type, date'}</li>
+          <li>{locale === 'hu' ? 'Számlázási adatok' : 'Billing information'}</li>
+          <li>{locale === 'hu' ? 'Tanúsítvány kiállításához szükséges adatok (FAR-rendszer)' : 'Data required for certificate issuance (FAR system)'}</li>
+        </ul>
+
+        <h3>{t(locale, 'privacy.section3_3Title')}</h3>
+        <ul>
+          <li>{t(locale, 'form.name')} ({t(locale, 'common.optional')})</li>
+          <li>{t(locale, 'form.email')}</li>
+        </ul>
+
+        <h3>{t(locale, 'privacy.section3_4Title')}</h3>
+        <ul>
+          <li>{t(locale, 'form.name')}</li>
+          <li>{t(locale, 'form.email')}</li>
+          <li>{t(locale, 'form.phone')}</li>
+          <li>{t(locale, 'form.product')}</li>
+          <li>{t(locale, 'form.message')}</li>
+        </ul>
+
+        <h2>{t(locale, 'privacy.section4Title')}</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th>{t(locale, 'privacy.tableHeaderPurpose')}</th>
+                <th>{t(locale, 'privacy.tableHeaderLegalBasis')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{locale === 'hu' ? 'Megrendelés feldolgozása, teljesítése' : 'Order processing and fulfillment'}</td>
+                <td>GDPR 6(1)(b)</td>
+              </tr>
+              <tr>
+                <td>{locale === 'hu' ? 'Számlázás, könyvelés' : 'Invoicing, accounting'}</td>
+                <td>GDPR 6(1)(c)</td>
+              </tr>
+              <tr>
+                <td>{locale === 'hu' ? 'Tanfolyami jelentkezés, tanúsítvány kiállítása' : 'Course registration, certificate issuance'}</td>
+                <td>GDPR 6(1)(b), (c)</td>
+              </tr>
+              <tr>
+                <td>{locale === 'hu' ? 'Ügyfélszolgálati kommunikáció' : 'Customer service communication'}</td>
+                <td>GDPR 6(1)(f)</td>
+              </tr>
+              <tr>
+                <td>{locale === 'hu' ? 'Hírlevél küldése' : 'Newsletter sending'}</td>
+                <td>GDPR 6(1)(a)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>{t(locale, 'privacy.section5Title')}</h2>
+        <ul>
+          <li><strong>{locale === 'hu' ? 'Számlázási adatok:' : 'Billing data:'}</strong> 8 {locale === 'hu' ? 'év' : 'years'}</li>
+          <li><strong>{locale === 'hu' ? 'Tanfolyami adminisztráció:' : 'Course administration:'}</strong> 5 {locale === 'hu' ? 'év' : 'years'}</li>
+          <li><strong>{locale === 'hu' ? 'Hírlevél feliratkozás:' : 'Newsletter subscription:'}</strong> {locale === 'hu' ? 'a hozzájárulás visszavonásáig' : 'until consent is withdrawn'}</li>
+          <li><strong>{locale === 'hu' ? 'Szerződéses kapcsolatokból eredő adatok:' : 'Data from contractual relationships:'}</strong> 5 {locale === 'hu' ? 'év' : 'years'}</li>
+          <li><strong>{locale === 'hu' ? 'Garanciális adatok:' : 'Warranty data:'}</strong> {locale === 'hu' ? 'a garancia lejártától számított 1 év' : '1 year from warranty expiration'}</li>
+        </ul>
+
+        <h2>{t(locale, 'privacy.section6Title')}</h2>
+        <p>{t(locale, 'privacy.section6Text')}</p>
+        <ul>
+          <li><strong>Cloudflare, Inc.</strong> – CDN</li>
+          <li><strong>Google LLC</strong> – Google Analytics</li>
+          <li><strong>GLS / Foxpost / DHL Express</strong> – {locale === 'hu' ? 'Csomagkézbesítés' : 'Package delivery'}</li>
+          <li><strong>{locale === 'hu' ? 'Könyvelő partner' : 'Accounting partner'}</strong></li>
+          <li><strong>{locale === 'hu' ? 'Fizetési szolgáltató' : 'Payment provider'}</strong></li>
+          <li><strong>{locale === 'hu' ? 'Email szolgáltató' : 'Email provider'}</strong></li>
+        </ul>
+        <p><strong>{t(locale, 'privacy.noThirdCountryTransfer')}</strong></p>
+
+        <h2>{t(locale, 'privacy.section7Title')}</h2>
+        <p>{t(locale, 'privacy.section7Intro')}</p>
+        <ul>
+          <li><strong>{t(locale, 'privacy.rightAccess')}</strong> (GDPR 15) – {t(locale, 'privacy.rightAccessDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightRectification')}</strong> (GDPR 16) – {t(locale, 'privacy.rightRectificationDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightErasure')}</strong> (GDPR 17) – {t(locale, 'privacy.rightErasureDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightRestriction')}</strong> (GDPR 18) – {t(locale, 'privacy.rightRestrictionDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightPortability')}</strong> (GDPR 20) – {t(locale, 'privacy.rightPortabilityDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightObjection')}</strong> (GDPR 21) – {t(locale, 'privacy.rightObjectionDesc')}</li>
+          <li><strong>{t(locale, 'privacy.rightWithdraw')}</strong> (GDPR 7(3)) – {t(locale, 'privacy.rightWithdrawDesc')}</li>
+        </ul>
+        <p>
+          <strong>{t(locale, 'privacy.requestSubmission')}</strong> {CONTACT.email}<br />
+          {t(locale, 'privacy.requestDeadline')}
+        </p>
+
+        <h2>{t(locale, 'privacy.section8Title')}</h2>
+        <p>{t(locale, 'privacy.section8Text')}</p>
+        <p>
+          <strong>{t(locale, 'privacy.naihName')}</strong><br />
+          {locale === 'hu' ? 'Cím: 1055 Budapest, Falk Miksa utca 9-11.' : 'Address: 1055 Budapest, Falk Miksa utca 9-11.'}<br />
+          {t(locale, 'contact.phone')}: +36 1 391 1400<br />
+          {t(locale, 'contact.email')}: ugyfelszolgalat@naih.hu<br />
+          Web: <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">www.naih.hu</a>
+        </p>
+
+        <h2>{t(locale, 'privacy.section9Title')}</h2>
+        <p>{t(locale, 'privacy.section9Text')}</p>
+
+        <h3>{t(locale, 'privacy.section9_1Title')}</h3>
+        <p>{t(locale, 'privacy.section9_1Text')}</p>
+
+        <h3>{t(locale, 'privacy.section9_2Title')}</h3>
+        <p>{t(locale, 'privacy.section9_2Text')}</p>
+        <p>
+          Google Analytics: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://policies.google.com/privacy</a>
+        </p>
+
+        <h2>{t(locale, 'privacy.section10Title')}</h2>
+        <p>{t(locale, 'privacy.section10Text')}</p>
+        <ul>
+          <li>SSL/TLS</li>
+          <li>{locale === 'hu' ? 'Hozzáférés-korlátozás' : 'Access control'}</li>
+          <li>{locale === 'hu' ? 'Rendszeres biztonsági mentések' : 'Regular backups'}</li>
+          <li>{locale === 'hu' ? 'Tűzfal és egyéb biztonsági megoldások' : 'Firewall and other security solutions'}</li>
+        </ul>
+
+        <h2>{t(locale, 'privacy.section11Title')}</h2>
+        <p>{t(locale, 'privacy.section11Text')}</p>
+
+        <h2>{t(locale, 'privacy.section12Title')}</h2>
+        <p>{t(locale, 'privacy.section12Text')}</p>
+        <p>
+          <strong>{t(locale, 'contact.email')}:</strong> {CONTACT.email}<br />
+          <strong>{t(locale, 'contact.phone')}:</strong> {CONTACT.phoneDisplay}<br />
+          <strong>{t(locale, 'contact.headquarters')}:</strong> {LOCATIONS.headquarters.fullAddress}
+        </p>
+
+        <p class="text-sm text-gray-500 mt-8">
+          {t(locale, 'privacy.lastUpdated')}
+        </p>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-1;
+  }
+  .prose strong {
+    @apply text-gray-900;
+  }
+  .prose table {
+    @apply w-full border-collapse my-4;
+  }
+  .prose th {
+    @apply bg-gray-50 border border-gray-200 px-4 py-2 text-left font-semibold text-gray-900;
+  }
+  .prose td {
+    @apply border border-gray-200 px-4 py-2 text-gray-600;
+  }
+</style>

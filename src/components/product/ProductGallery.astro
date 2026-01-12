@@ -340,9 +340,11 @@ const lightboxSizes = '100vw';
           newImg.setAttribute('data-main-image', '');
           newImg.setAttribute('data-index', String(index));
         }
-        mainPicture.replaceWith(newPicture);
-        // Update reference to the new picture
-        mainPicture = mainImageContainer?.querySelector('picture');
+        if (mainPicture) {
+          mainPicture.replaceWith(newPicture);
+          // Update reference to the new picture
+          mainPicture = mainImageContainer?.querySelector('picture');
+        }
       }
 
       // Update counter

@@ -1,26 +1,34 @@
 ---
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Localized reviews link
+const reviewsLink = locale === 'hu' ? '/velemenyek' : `/${locale}/velemenyek`;
+
 const testimonials = [
   {
-    quote: '<strong>3 hónap alatt megtérült</strong> a Prestige4WAVE. A betanítás profi volt, és a magyar szerviz megnyugtató. Korábban IPL-el dolgoztam, ez az ég és föld.',
-    name: 'Nagy Éva',
-    business: 'Skin Studio',
-    location: 'Debrecen',
+    quoteKey: 'testimonials.quote1',
+    nameKey: 'testimonials.name1',
+    businessKey: 'testimonials.business1',
+    locationKey: 'testimonials.location1',
     rating: 5,
     color: 'bg-purple-200',
   },
   {
-    quote: 'Már az első hónapban <strong>20%-kal nőtt a forgalmunk</strong> a lézeres kezeléseknek köszönhetően. A vendégeink imádják, mi pedig imádjuk, hogy ilyen könnyű kezelni.',
-    name: 'Kiss Andrea',
-    business: 'Beauty Center',
-    location: 'Budapest',
+    quoteKey: 'testimonials.quote2',
+    nameKey: 'testimonials.name2',
+    businessKey: 'testimonials.business2',
+    locationKey: 'testimonials.location2',
     rating: 5,
     color: 'bg-pink-200',
   },
   {
-    quote: 'A HydraCrown gép óta <strong>új vendégkört szereztünk</strong>. Az AI bőrdiagnosztika lenyűgözi őket. Egyetlen negatívum: nagyobb helyet igényel mint gondoltam.',
-    name: 'Szabó Petra',
-    business: 'Glow Clinic',
-    location: 'Szeged',
+    quoteKey: 'testimonials.quote3',
+    nameKey: 'testimonials.name3',
+    businessKey: 'testimonials.business3',
+    locationKey: 'testimonials.location3',
     rating: 4,
     color: 'bg-blue-200',
   },
@@ -31,10 +39,10 @@ const testimonials = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10 lg:mb-14">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-        Amit partnereink mondanak
+        {t(locale, 'testimonials.title')}
       </h2>
       <p class="text-gray-600">
-        Valós vélemények magyar szalonok tulajdonosaitól
+        {t(locale, 'testimonials.subtitle')}
       </p>
     </div>
 
@@ -51,7 +59,7 @@ const testimonials = [
           </div>
 
           <!-- Quote -->
-          <p class="text-gray-700 mb-6" set:html={`"${testimonial.quote}"`} />
+          <p class="text-gray-700 mb-6" set:html={`"${t(locale, testimonial.quoteKey)}"`} />
 
           <!-- Author -->
           <div class="flex items-center gap-3">
@@ -61,8 +69,8 @@ const testimonials = [
               </svg>
             </div>
             <div>
-              <div class="font-bold text-gray-900">{testimonial.name}</div>
-              <div class="text-sm text-gray-500">{testimonial.business} • {testimonial.location}</div>
+              <div class="font-bold text-gray-900">{t(locale, testimonial.nameKey)}</div>
+              <div class="text-sm text-gray-500">{t(locale, testimonial.businessKey)} • {t(locale, testimonial.locationKey)}</div>
             </div>
           </div>
         </div>
@@ -70,8 +78,8 @@ const testimonials = [
     </div>
 
     <div class="text-center mt-10">
-      <a href="/velemenyek" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700">
-        További vélemények olvasása
+      <a href={reviewsLink} class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700">
+        {t(locale, 'testimonials.readMore')}
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>

@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CONTACT, COMPANY, LOCATIONS } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+---
+
+<BaseLayout
+  title={t(locale, 'warranty.title')}
+  description={t(locale, 'warranty.description')}
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {t(locale, 'warranty.title')}
+          </h1>
+          <p class="text-lg text-gray-600">
+            {t(locale, 'warranty.subtitle')}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Intro -->
+        <div class="bg-primary-50 rounded-xl p-6 mb-12">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">{t(locale, 'warranty.whatIsWarranty')}</h2>
+          <p class="text-gray-600 mb-4">
+            {t(locale, 'warranty.whatIsWarrantyDesc1')}
+          </p>
+          <p class="text-gray-600">
+            {t(locale, 'warranty.whatIsWarrantyDesc2')}
+          </p>
+        </div>
+
+        <!-- SkinLab Commitment -->
+        <div class="mb-12">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-gray-900 mb-3">{t(locale, 'warranty.commitmentTitle')}</h2>
+              <p class="text-gray-600 mb-4">
+                {t(locale, 'warranty.commitmentDesc1')}
+              </p>
+              <p class="text-gray-600">
+                {t(locale, 'warranty.commitmentDesc2')}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warranty Content -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{t(locale, 'warranty.contentTitle')}</h2>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <p class="text-gray-600 mb-4">
+              {t(locale, 'warranty.contentDesc')}
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">{t(locale, 'warranty.point1')}</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">{t(locale, 'warranty.point2')}</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">{t(locale, 'warranty.point3')}</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">{t(locale, 'warranty.point4')}</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-600">{t(locale, 'warranty.point5')}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exclusions -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{t(locale, 'warranty.exclusionsTitle')}</h2>
+
+          <div class="bg-warning-50 border border-warning-200 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-warning-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              {t(locale, 'warranty.exclusionsSubtitle')}
+            </h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{t(locale, 'warranty.exclusion1')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{t(locale, 'warranty.exclusion2')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{t(locale, 'warranty.exclusion3')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{t(locale, 'warranty.exclusion4')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-warning-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{t(locale, 'warranty.exclusion5')}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{t(locale, 'warranty.consumablesTitle')}</h3>
+            <div class="grid sm:grid-cols-2 gap-2">
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable1')}</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable2')}</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable3')}</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable4')}</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable5')}</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{t(locale, 'warranty.consumable6')}</span>
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+              {t(locale, 'warranty.consumablesNote')}
+            </p>
+          </div>
+        </div>
+
+        <!-- How to Claim -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{t(locale, 'warranty.claimTitle')}</h2>
+
+          <div class="bg-primary-50 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{t(locale, 'warranty.claimSubtitle')}</h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-900 font-medium">{CONTACT.email}</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="text-gray-900 font-medium">{CONTACT.phoneDisplay}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 mb-6">
+            <h3 class="font-semibold text-gray-900 mb-4">{t(locale, 'warranty.claimInfoTitle')}</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{t(locale, 'warranty.claimInfo1')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{t(locale, 'warranty.claimInfo2')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{t(locale, 'warranty.claimInfo3')}</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{t(locale, 'warranty.claimInfo4')}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-warning-50 border border-warning-200 rounded-xl p-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-warning-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">{t(locale, 'common.important')}</p>
+                <p class="text-gray-600">
+                  {t(locale, 'warranty.importantNote')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-16 bg-primary-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+          {t(locale, 'warranty.ctaTitle')}
+        </h2>
+        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+          {t(locale, 'warranty.ctaSubtitle')}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={`tel:${CONTACT.phone}`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {CONTACT.phoneDisplay}
+          </a>
+          <a
+            href={`mailto:${CONTACT.email}`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {t(locale, 'common.sendEmail')}
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

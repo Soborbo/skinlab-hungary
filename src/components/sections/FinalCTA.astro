@@ -1,25 +1,32 @@
 ---
 import { CONTACT } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Localized contact link
+const contactLink = locale === 'hu' ? '/kapcsolat' : `/${locale}/kapcsolat`;
 ---
 
 <section class="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 py-16 lg:py-20">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-      Készen állsz a szalonod fejlesztésére?
+      {t(locale, 'finalCta.title')}
     </h2>
     <p class="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-      Kérj ingyenes, kötelezettségmentes konzultációt – megmutatjuk működés közben a gépeket, és kiszámoljuk a megtérülést.
+      {t(locale, 'finalCta.subtitle')}
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
       <a
-        href="/kapcsolat"
+        href={contactLink}
         class="bg-white text-orange-600 font-bold py-3 lg:py-4 px-8 lg:px-10 rounded-xl text-lg hover:bg-gray-100 transition-all shadow-xl inline-flex items-center justify-center gap-2"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
-        Ingyenes bemutatót kérek
+        {t(locale, 'finalCta.demoButton')}
       </a>
       <a
         href={CONTACT.phoneTel}
@@ -28,7 +35,7 @@ import { CONTACT } from '../../lib/constants';
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
-        Visszahívást kérek
+        {t(locale, 'finalCta.callbackButton')}
       </a>
     </div>
 
@@ -37,24 +44,24 @@ import { CONTACT } from '../../lib/constants';
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Kötelezettségmentes
+        {t(locale, 'finalCta.noObligation')}
       </span>
       <span class="flex items-center gap-2">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Személyes vagy online
+        {t(locale, 'finalCta.inPersonOrOnline')}
       </span>
       <span class="flex items-center gap-2">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        Megtérülés kalkuláció
+        {t(locale, 'finalCta.roiCalculation')}
       </span>
     </div>
 
     <div class="pt-8 border-t border-white/20">
-      <p class="text-white/70 text-sm mb-2">Vagy hívj közvetlenül:</p>
+      <p class="text-white/70 text-sm mb-2">{t(locale, 'finalCta.orCallDirectly')}</p>
       <a href={CONTACT.phoneTel} class="text-white text-2xl lg:text-3xl font-bold hover:underline">
         {CONTACT.phoneDisplay}
       </a>
