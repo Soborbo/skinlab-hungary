@@ -10,18 +10,20 @@ interface Props {
   quote?: string;
   author?: string;
   role?: string;
+  image?: string;
   productName?: string;
   category?: string;
 }
 
-const { quote, author, role, productName = 'termék', category } = Astro.props;
+const { quote, author, role, image, productName = 'termék', category } = Astro.props;
 
 // Default quotes by category
-const defaultQuotes: Record<string, { quote: string; author: string; role: string }> = {
+const defaultQuotes: Record<string, { quote: string; author: string; role: string; image?: string }> = {
   'diodalezerek': {
     quote: 'A diódalézer a leghatékonyabb tartós szőrtelenítési technológia. A 4 hullámhossz kombinációja minden bőr- és szőrtípuson kiváló eredményt hoz - ezt 150+ telepített gép tapasztalata igazolja.',
     author: FOUNDERS[0].name,
     role: FOUNDERS[0].role,
+    image: FOUNDERS[0].image,
   },
   'nd-yag-lezerek': {
     quote: 'Az ND:YAG lézer elengedhetetlen eszköz a modern kozmetikai szalonban. A tetoválás eltávolítástól a carbon peelingig széles spektrumú kezeléseket tesz lehetővé biztonságosan.',
@@ -37,6 +39,7 @@ const defaultQuotes: Record<string, { quote: string; author: string; role: strin
     quote: 'A HydraFacial az egyik legjobb megtérülésű befektetés egy szalonban. A vendégek azonnal látják az eredményt, és rendszeresen visszatérnek - ez garantált bevételt jelent.',
     author: FOUNDERS[0].name,
     role: FOUNDERS[0].role,
+    image: FOUNDERS[0].image,
   },
   'hiemt': {
     quote: 'A HIEMT technológia új dimenziót nyit a testkezelésekben. 30 perc alatt olyan izommunka érhető el, ami edzéssel órákig tartana - és az eredmények mérhetőek.',
@@ -52,11 +55,13 @@ const defaultQuotes: Record<string, { quote: string; author: string; role: strin
     quote: 'A MAST gépek precizitása és megbízhatósága kiemelkedő. A svájci Maxon motorok és az ergonomikus kialakítás teszi őket a PMU művészek kedvencévé.',
     author: FOUNDERS[0].name,
     role: FOUNDERS[0].role,
+    image: FOUNDERS[0].image,
   },
   'tetovalogepek': {
     quote: 'A vezeték nélküli tetoválógépek szabadságot adnak a művésznek. A MAST gépek akkumulátora akár 8 órás munkamenetet is bír egyetlen töltéssel.',
     author: FOUNDERS[0].name,
     role: FOUNDERS[0].role,
+    image: FOUNDERS[0].image,
   },
 };
 
@@ -65,12 +70,14 @@ const globalDefault = {
   quote: 'Minden gépünket személyesen teszteljük, mielőtt a kínálatunkba kerülne. Csak olyan készüléket ajánlunk, amit mi magunk is használnánk a saját szalonunkban.',
   author: FOUNDERS[0].name,
   role: FOUNDERS[0].role,
+  image: FOUNDERS[0].image,
 };
 
 // Select the appropriate quote
 const displayQuote = quote || (category && defaultQuotes[category]?.quote) || globalDefault.quote;
 const displayAuthor = author || (category && defaultQuotes[category]?.author) || globalDefault.author;
 const displayRole = role || (category && defaultQuotes[category]?.role) || globalDefault.role;
+const displayImage = image || (category && defaultQuotes[category]?.image) || globalDefault.image;
 
 // Get initials for avatar
 const getInitials = (name: string) => {
@@ -98,11 +105,19 @@ const getInitials = (name: string) => {
 
         <!-- Author -->
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center shrink-0">
-            <span class="text-white font-bold text-lg">
-              {getInitials(displayAuthor)}
-            </span>
-          </div>
+          {displayImage ? (
+            <img
+              src={displayImage}
+              alt={displayAuthor}
+              class="w-14 h-14 rounded-full object-cover shrink-0"
+            />
+          ) : (
+            <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center shrink-0">
+              <span class="text-white font-bold text-lg">
+                {getInitials(displayAuthor)}
+              </span>
+            </div>
+          )}
           <div>
             <div class="font-bold text-gray-900 text-lg">{displayAuthor}</div>
             <div class="text-primary-600 font-medium">{displayRole}</div>

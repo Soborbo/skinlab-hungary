@@ -2,6 +2,7 @@
 import { CONTACT, NAV_ITEMS, MEGA_MENU } from '../../lib/constants';
 import { Logo } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import SearchOverlay from '../search/SearchOverlay.astro';
 import skinlabLogo from '../../assets/logo.png';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
@@ -63,6 +64,9 @@ const contactLink = locale === 'hu' ? '/kapcsolat' : `/${locale}/kapcsolat`;
         <div class="hidden lg:block">
           <LanguageSwitcher variant="dropdown" class="[&_button]:text-white/90 [&_button]:hover:text-white [&_button]:hover:bg-white/10" />
         </div>
+
+        <!-- Search -->
+        <SearchOverlay />
 
         <!-- Phone (desktop only) -->
         <a

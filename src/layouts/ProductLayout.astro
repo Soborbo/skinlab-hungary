@@ -325,6 +325,13 @@ const allImages = [
     <!-- STATS BAR -->
     <StatsBar stats={product.stats} category={product.categorySlug} />
 
+    <!-- ROI CALCULATOR -->
+    <ROICalculator
+      productPrice={product.price}
+      productName={product.name}
+      category={product.categorySlug}
+    />
+
     <!-- VIDEO DEMO -->
     <VideoDemo videos={product.youtubeVideos} productName={product.name} />
 
@@ -355,13 +362,6 @@ const allImages = [
 
     <!-- COMPARISON TABLE -->
     <ComparisonTable
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- ROI CALCULATOR -->
-    <ROICalculator
-      productPrice={product.price}
       productName={product.name}
       category={product.categorySlug}
     />

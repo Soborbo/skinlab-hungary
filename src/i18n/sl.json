@@ -229,6 +229,17 @@
     "testimonialText": "Usposabljanje je bilo odlicno in lahko jih poklicen kadarkoli imam vprasanje.",
     "testimonialAuthor": "Eva Nagy, Skin Studio"
   },
+  "search": {
+    "placeholder": "Iskanje izdelkov po imenu...",
+    "noResults": "Ni rezultatov",
+    "noResultsHint": "Poskusite z drugo ključno besedo ali brskajte po kategorijah",
+    "types": {
+      "product": "Izdelek",
+      "training": "Izobraževanje",
+      "blog": "Blog",
+      "category": "Kategorija"
+    }
+  },
   "common": {
     "learnMore": "Izvedite vec",
     "viewAll": "Ogled vseh",

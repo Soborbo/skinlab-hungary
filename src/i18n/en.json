@@ -231,6 +231,17 @@
     "testimonialText": "The training was great, and I can call them anytime I have a question.",
     "testimonialAuthor": "Eva Nagy, Skin Studio"
   },
+  "search": {
+    "placeholder": "Search products by name...",
+    "noResults": "No results found",
+    "noResultsHint": "Try a different keyword or browse by category",
+    "types": {
+      "product": "Product",
+      "training": "Training",
+      "blog": "Blog",
+      "category": "Category"
+    }
+  },
   "common": {
     "learnMore": "Learn More",
     "viewAll": "View All",

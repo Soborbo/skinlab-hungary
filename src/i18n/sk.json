@@ -204,6 +204,17 @@
     "404desc": "Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.",
     "backHome": "Späť na domovskú stránku"
   },
+  "search": {
+    "placeholder": "Hľadať produkty podľa názvu...",
+    "noResults": "Žiadne výsledky",
+    "noResultsHint": "Skúste iné kľúčové slovo alebo prehliadajte kategórie",
+    "types": {
+      "product": "Produkt",
+      "training": "Školenie",
+      "blog": "Blog",
+      "category": "Kategória"
+    }
+  },
   "common": {
     "learnMore": "Zistiť viac",
     "viewAll": "Zobraziť všetko",
