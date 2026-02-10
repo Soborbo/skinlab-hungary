@@ -1,0 +1,220 @@
+---
+/**
+ * FeatureRows - 5x Pain→Solution feature blokkok váltakozó kép/szöveg elrendezéssel
+ *
+ * A referencia template "5x Pain→Solution Feature Rows" mintájára.
+ * Slug-alapú tartalom, kategória fallback-kel.
+ */
+
+interface Feature {
+  title: string;
+  description: string;
+  highlight: string;
+}
+
+interface ReviewQuote {
+  name: string;
+  date?: string;
+  text: string;
+  rating?: number;
+}
+
+interface FeatureContent {
+  headline: string;
+  subtitle: string;
+  review?: ReviewQuote;
+  features: Feature[];
+}
+
+interface Props {
+  productName: string;
+  productSlug?: string;
+  category: string;
+}
+
+const { productName, productSlug, category } = Astro.props;
+
+// Product-specific feature content
+const productFeatures: Record<string, FeatureContent> = {
+  'hydrascan-pro': {
+    headline: 'Miért választják kozmetikusok a HydraSCAN Pro-t?',
+    subtitle: 'Egy gép, ami nemcsak dolgozik, hanem gondolkodik is',
+    review: {
+      name: 'Farkas Renáta',
+      date: '2025. 06. 27.',
+      text: 'Nagyon megy mostanság az AI vonal és én kezdő kozmetikusként <mark>szeretnék valamivel kitűnni a tömegből! Ezzel a géppel sikerült is</mark>, nagyon szimpatikus a vendégeknek, hogy okos technika van beleépítve. A tananyag nagyon részletes ilyet még sehol nem kaptam eddig, persze nagy tapasztalatom még nincs de ez az élmény nagyon pozitív',
+      rating: 5,
+    },
+    features: [
+      {
+        title: '8 kezelési funkció egyetlen kompakt gépben',
+        description: `<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Hidrodermabrázió</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Hidroabrázió</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Oxy-spray</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>RF</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>UH</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Oxy-pod kezelőfej</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Hideg/meleg-kalapács</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>AI bőranalízis-mikrokamera</div>
+</div>`,
+        highlight: '',
+      },
+      {
+        title: 'Bőranalízis a mesterséges intelligencia erejével',
+        description: `A HYDRASCAN PRO beépített AI-alapú bőranalízis rendszere valós idejű diagnózist biztosít, amelynek segítségével a kezelések célzottan és precízen végezhetők.
+<p class="font-semibold text-gray-900 mt-4 mb-2">Az AI rendszer vizsgálja:</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4">
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>pórusméretet</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>ráncok mélységét</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>pigmentációt és foltokat</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>bőr hidratáltsági szintjét</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>faggyútermelést</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>rugalmasságot, tónust</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>aknés vagy gyulladt területeket</div>
+  <div class="flex items-center gap-2"><svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>UV-sérülések nyomait</div>
+</div>`,
+        highlight: '',
+      },
+      {
+        title: 'Személyre szabott kezelési protokollok',
+        description: 'Az eredmények alapján a készülék automatikusan javaslatot tesz a kezelési irányokra. A vendég állapotáról előtte–utána képek és grafikonok készíthetők, illetve a rendszer kezelési naplót vezet, így minden változás dokumentálható. A vendég nem sablonkezelést kap, hanem az ő bőrére szabott, egyedi megoldást.',
+        highlight: '',
+      },
+      {
+        title: 'Meggyőző vendégkommunikáció adatokkal és képekkel',
+        description: 'Az AI rendszernek köszönhetően a vendég számára átlátható, hogy miért kapja az adott kezelést – ez bizalmat épít. A fejlődési ív grafikonokkal, képekkel és adatokkal dokumentálható, így a látható eredmények önmagukért beszélnek.',
+        highlight: '',
+      },
+      {
+        title: 'Digitális kezelési napló és előtte-utána dokumentáció',
+        description: 'A rendszer automatikusan előtte–utána képeket, grafikonokat készít, és online vendégkartont vezet minden vendégről. A kezelési protokollok mentésre kerülnek, így a visszanézhető kezelési történet ösztönzi a vendég visszatérését.',
+        highlight: '',
+      },
+    ],
+  },
+};
+
+// Category-level fallback
+const categoryFeatures: Record<string, FeatureContent> = {
+  'hydrafacial': {
+    headline: 'Miért válassz multifunkciós hydrofacial gépet?',
+    subtitle: 'Komplex arctisztítás és kezelés egyetlen készülékkel',
+    features: [
+      {
+        title: 'Minden kezelés egyetlen gépben',
+        description: 'Nem kell külön hidrodermabráziós, ultrahangos és RF gépet vásárolni. A multifunkciós hydrofacial készülékek 6-12 funkciót kínálnak egyetlen kompakt egységben.',
+        highlight: 'Egy gép, egy betanulás, végtelen lehetőség.',
+      },
+      {
+        title: 'Gyors, hatékony kezelési protokollok',
+        description: '30-45 perces komplex kezelés egyetlen üléssel. A vendég azonnal látja és érzi az eredményt – már az első alkalommal.',
+        highlight: 'Naponta akár 8-10 vendéget is fogadhat a gép segítségével.',
+      },
+      {
+        title: 'Megfizethető professzionális technológia',
+        description: 'A SkinLab hydrofacial gépek töredék áron kínálják ugyanazt a minőséget, amit a nagy márkák milliókért adnak. 2 év garanciával és magyar szervizháttérrel.',
+        highlight: 'Professzionális minőség, megfizethető áron – 2 év garanciával.',
+      },
+    ],
+  },
+};
+
+const content = (productSlug && productFeatures[productSlug]) || categoryFeatures[category] || categoryFeatures['hydrafacial'];
+if (!content) return;
+---
+
+<section class="py-16 lg:py-24 bg-white" id="funkciok">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 lg:mb-20">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {content.headline}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {content.subtitle}
+      </p>
+
+      {content.review && (
+        <div class="mt-10 max-w-xl mx-auto bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex gap-1">
+              {[1,2,3,4,5].map((i) => (
+                <svg
+                  class={`w-5 h-5 ${i <= (content.review?.rating ?? 5) ? 'text-yellow-400' : 'text-gray-200'}`}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            {content.review.date && (
+              <span class="text-xs text-gray-400">{content.review.date}</span>
+            )}
+          </div>
+          <blockquote class="text-gray-700 leading-relaxed review-quote" set:html={`"${content.review.text}"`} />
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center shrink-0">
+              <span class="text-primary-600 font-semibold text-lg">
+                {content.review.name.charAt(0)}
+              </span>
+            </div>
+            <div class="font-semibold text-gray-900">{content.review.name}</div>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Feature Rows -->
+    <div class="space-y-0">
+      {content.features.map((feature, index) => (
+        <div class:list={[
+          "grid lg:grid-cols-2 items-center",
+          index % 2 === 1 ? "lg:direction-rtl" : ""
+        ]}>
+          <!-- Image Placeholder -->
+          <div class:list={[
+            "relative",
+            index % 2 === 1 ? "lg:order-2" : ""
+          ]}>
+            <div class="bg-gradient-to-br from-primary-50 to-primary-100 aspect-[4/3] flex items-center justify-center shadow-lg">
+              <div class="text-center p-8">
+                <svg class="w-16 h-16 text-primary-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="text-sm text-primary-400">Kép helye</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class:list={[
+            "px-6 py-8 lg:px-10 lg:py-10",
+            index % 2 === 1 ? "lg:order-1" : ""
+          ]}>
+            <h3 class="text-2xl lg:text-[1.65rem] font-bold text-gray-900 mb-4 leading-tight">
+              {feature.title}
+            </h3>
+
+            <div class="text-gray-600 mb-6 leading-relaxed" set:html={feature.description} />
+
+            <!-- Highlight box -->
+            {feature.highlight && (
+              <div class="flex items-start gap-3 bg-primary-50 rounded-xl p-4 border border-primary-100">
+                <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-primary-800 leading-relaxed">
+                  {feature.highlight}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -84,27 +84,31 @@ const lightboxSizes = '100vw';
 
 <div class="product-gallery" data-gallery>
   <!-- Main Image Container -->
-  <div class="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden mb-4">
+  <div class="group relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden mb-4">
     {resolvedImages.length > 0 ? (
       <button
         type="button"
-        class="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
+        class="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset overflow-hidden"
         data-open-lightbox
         aria-label="Kép nagyítása"
       >
-        <Picture
-          src={resolvedImages[0]}
-          alt={productName}
-          widths={mainWidths}
-          sizes={mainSizes}
-          formats={['avif', 'webp', 'jpeg']}
-          quality={75}
-          class="w-full h-full object-contain p-4 gallery-main-image"
-          loading="eager"
-          fetchpriority="high"
-          data-main-image
-          data-index="0"
-        />
+        <div class="flex h-full gallery-track" data-gallery-track>
+          {resolvedImages.map((img, i) => (
+            <div class="w-full h-full flex-shrink-0">
+              <Picture
+                src={img}
+                alt={`${productName}${resolvedImages.length > 1 ? ` - kép ${i + 1}` : ''}`}
+                widths={mainWidths}
+                sizes={mainSizes}
+                formats={['avif', 'webp', 'jpeg']}
+                quality={75}
+                class="w-full h-full object-contain p-4"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchpriority={i === 0 ? 'high' : 'low'}
+              />
+            </div>
+          ))}
+        </div>
       </button>
     ) : (
       <div class="absolute inset-0 flex items-center justify-center">
@@ -133,6 +137,32 @@ const lightboxSizes = '100vw';
           </span>
         )}
       </div>
+    )}
+
+    <!-- Gallery navigation arrows -->
+    {resolvedImages.length > 1 && (
+      <>
+        <button
+          type="button"
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+          data-gallery-prev
+          aria-label="Előző kép"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+          data-gallery-next
+          aria-label="Következő kép"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </>
     )}
 
     <!-- Zoom indicator -->
@@ -294,8 +324,8 @@ const lightboxSizes = '100vw';
 <script>
   // Initialize all galleries on the page
   document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+    const galleryTrack = gallery.querySelector('[data-gallery-track]') as HTMLElement | null;
     const mainImageContainer = gallery.querySelector('[data-open-lightbox]');
-    let mainPicture = mainImageContainer?.querySelector('picture');
     const thumbnails = gallery.querySelectorAll('[data-thumbnail]');
     const lightbox = gallery.querySelector('[data-lightbox]');
     const slides = gallery.querySelectorAll('[data-slide]');
@@ -304,22 +334,22 @@ const lightboxSizes = '100vw';
     const closeBtn = gallery.querySelector('[data-close-lightbox]');
     const prevBtn = gallery.querySelector('[data-prev]');
     const nextBtn = gallery.querySelector('[data-next]');
+    const galleryPrevBtn = gallery.querySelector('[data-gallery-prev]');
+    const galleryNextBtn = gallery.querySelector('[data-gallery-next]');
     const currentIndexEl = gallery.querySelector('[data-current-index]');
     const lightboxIndexEl = gallery.querySelector('[data-lightbox-index]');
 
     let currentIndex = 0;
     const totalImages = slides.length || 1;
 
-    // Store all thumbnail pictures for swapping
-    const thumbPictures: HTMLElement[] = [];
-    thumbnails.forEach((thumb) => {
-      const picture = thumb.querySelector('picture');
-      if (picture) thumbPictures.push(picture.cloneNode(true) as HTMLElement);
-    });
-
-    // Update main gallery image by swapping picture element content
+    // Slide the gallery track to the given index
     function updateMainImage(index: number) {
       currentIndex = index;
+
+      // Slide the track
+      if (galleryTrack) {
+        galleryTrack.style.transform = `translateX(-${index * 100}%)`;
+      }
 
       // Update thumbnail states
       thumbnails.forEach((thumb, i) => {
@@ -327,25 +357,6 @@ const lightboxSizes = '100vw';
         thumb.classList.toggle('ring-primary-600', i === index);
         thumb.setAttribute('aria-selected', i === index ? 'true' : 'false');
       });
-
-      // Swap main picture with thumbnail picture
-      if (mainPicture && thumbPictures[index]) {
-        const newPicture = thumbPictures[index].cloneNode(true) as HTMLElement;
-        const newImg = newPicture.querySelector('img');
-        if (newImg) {
-          // Apply main image styles
-          newImg.className = 'w-full h-full object-contain p-4 gallery-main-image';
-          newImg.setAttribute('loading', 'eager');
-          newImg.setAttribute('fetchpriority', 'high');
-          newImg.setAttribute('data-main-image', '');
-          newImg.setAttribute('data-index', String(index));
-        }
-        if (mainPicture) {
-          mainPicture.replaceWith(newPicture);
-          // Update reference to the new picture
-          mainPicture = mainImageContainer?.querySelector('picture');
-        }
-      }
 
       // Update counter
       if (currentIndexEl) {
@@ -372,6 +383,9 @@ const lightboxSizes = '100vw';
       if (lightboxIndexEl) {
         lightboxIndexEl.textContent = String(index + 1);
       }
+
+      // Keep main gallery in sync
+      updateMainImage(index);
     }
 
     // Open lightbox
@@ -389,7 +403,7 @@ const lightboxSizes = '100vw';
       document.body.style.overflow = '';
     }
 
-    // Navigate
+    // Lightbox navigation
     function goNext() {
       updateLightbox((currentIndex + 1) % totalImages);
     }
@@ -398,13 +412,30 @@ const lightboxSizes = '100vw';
       updateLightbox((currentIndex - 1 + totalImages) % totalImages);
     }
 
-    // Event listeners - thumbnails open lightbox at that index
+    // Gallery-level navigation (without lightbox)
+    function galleryNext() {
+      updateMainImage((currentIndex + 1) % totalImages);
+    }
+
+    function galleryPrev() {
+      updateMainImage((currentIndex - 1 + totalImages) % totalImages);
+    }
+
+    // Thumbnails change main image only (no lightbox)
     thumbnails.forEach((thumb, i) => {
       thumb.addEventListener('click', () => {
         updateMainImage(i);
-        updateLightbox(i);
-        openLightbox();
       });
+    });
+
+    // Gallery arrows
+    galleryPrevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      galleryPrev();
+    });
+    galleryNextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      galleryNext();
     });
 
     openBtn?.addEventListener('click', openLightbox);
@@ -424,41 +455,54 @@ const lightboxSizes = '100vw';
       if (e.key === 'ArrowRight') goNext();
     });
 
-    // Click outside to close
+    // Click outside to close lightbox
     lightbox?.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
-      // Close if clicking the backdrop or slide container (not the image itself)
       if (target === lightbox || target.hasAttribute('data-slide')) {
         closeLightbox();
       }
     });
 
-    // Touch swipe support
+    // Touch swipe support (lightbox)
     let touchStartX = 0;
-    let touchEndX = 0;
 
     lightbox?.addEventListener('touchstart', (e) => {
       touchStartX = (e as TouchEvent).changedTouches[0].screenX;
     }, { passive: true });
 
     lightbox?.addEventListener('touchend', (e) => {
-      touchEndX = (e as TouchEvent).changedTouches[0].screenX;
+      const touchEndX = (e as TouchEvent).changedTouches[0].screenX;
       const diff = touchStartX - touchEndX;
       if (Math.abs(diff) > 50) {
         if (diff > 0) goNext();
         else goPrev();
       }
     }, { passive: true });
+
+    // Touch swipe support (main gallery)
+    let galleryTouchStartX = 0;
+
+    mainImageContainer?.addEventListener('touchstart', (e) => {
+      galleryTouchStartX = (e as TouchEvent).changedTouches[0].screenX;
+    }, { passive: true });
+
+    mainImageContainer?.addEventListener('touchend', (e) => {
+      const galleryTouchEndX = (e as TouchEvent).changedTouches[0].screenX;
+      const diff = galleryTouchStartX - galleryTouchEndX;
+      if (Math.abs(diff) > 50) {
+        e.preventDefault();
+        if (diff > 0) galleryNext();
+        else galleryPrev();
+      }
+    });
   });
 </script>
 
 <style>
-  .gallery-main-image {
-    transition: transform 0.3s ease;
-  }
-
-  [data-open-lightbox]:hover .gallery-main-image {
-    transform: scale(1.02);
+  /* Slide transition for gallery track */
+  .gallery-track {
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
   }
 
   /* Smooth transitions in lightbox */
@@ -469,5 +513,13 @@ const lightboxSizes = '100vw';
   /* Focus for keyboard nav */
   [data-lightbox]:focus {
     outline: none;
+  }
+
+  /* Gallery arrows always visible on touch devices */
+  @media (hover: none) {
+    [data-gallery-prev],
+    [data-gallery-next] {
+      opacity: 1 !important;
+    }
   }
 </style>

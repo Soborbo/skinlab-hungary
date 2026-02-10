@@ -26,7 +26,7 @@ export const COMPANY = {
 };
 
 export const FOUNDERS = [
-  { name: 'Horváth László', role: 'Technikai szakértő' },
+  { name: 'Horváth László', role: 'Technikai szakértő', image: '/images/misc/horvath-laszlo.jpg' },
   { name: 'Gaszler Simonetta', role: 'Kezelési szakértő' },
 ];
 

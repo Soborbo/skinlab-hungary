@@ -231,6 +231,17 @@
     "testimonialText": "A betanítás szuper volt, és bármikor felhívhatom őket ha kérdésem van.",
     "testimonialAuthor": "Nagy Éva, Skin Studio"
   },
+  "search": {
+    "placeholder": "Termék keresése név alapján...",
+    "noResults": "Nincs találat",
+    "noResultsHint": "Próbáljon másik kulcsszót vagy böngésszen kategóriák szerint",
+    "types": {
+      "product": "Termék",
+      "training": "Képzés",
+      "blog": "Blog",
+      "category": "Kategória"
+    }
+  },
   "common": {
     "learnMore": "Tudjon meg többet",
     "viewAll": "Összes megtekintése",

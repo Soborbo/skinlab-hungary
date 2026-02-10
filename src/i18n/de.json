@@ -229,6 +229,17 @@
     "testimonialText": "Die Schulung war groBartig, und ich kann sie jederzeit anrufen, wenn ich eine Frage habe.",
     "testimonialAuthor": "Eva Nagy, Skin Studio"
   },
+  "search": {
+    "placeholder": "Produkte nach Name suchen...",
+    "noResults": "Keine Ergebnisse",
+    "noResultsHint": "Versuchen Sie ein anderes Stichwort oder durchsuchen Sie die Kategorien",
+    "types": {
+      "product": "Produkt",
+      "training": "Schulung",
+      "blog": "Blog",
+      "category": "Kategorie"
+    }
+  },
   "common": {
     "learnMore": "Mehr erfahren",
     "viewAll": "Alle ansehen",

@@ -229,6 +229,17 @@
     "testimonialText": "Skoleni bylo skvele a mohu jim kdykoliv zavolat, kdyz mam dotaz.",
     "testimonialAuthor": "Eva Nagy, Skin Studio"
   },
+  "search": {
+    "placeholder": "Hledat produkty podle názvu...",
+    "noResults": "Žádné výsledky",
+    "noResultsHint": "Zkuste jiné klíčové slovo nebo procházejte kategorie",
+    "types": {
+      "product": "Produkt",
+      "training": "Školení",
+      "blog": "Blog",
+      "category": "Kategorie"
+    }
+  },
   "common": {
     "learnMore": "Zjistit vice",
     "viewAll": "Zobrazit vse",

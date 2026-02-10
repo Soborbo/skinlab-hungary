@@ -8,6 +8,7 @@ interface Testimonial {
   name: string;
   role?: string;
   location?: string;
+  date?: string;
   text: string;
   rating?: number;
   image?: string;
@@ -16,10 +17,23 @@ interface Testimonial {
 interface Props {
   testimonials?: Testimonial[];
   productName?: string;
+  productSlug?: string;
   category?: string;
 }
 
-const { testimonials, productName = 'termék', category } = Astro.props;
+const { testimonials, productName = 'termék', productSlug, category } = Astro.props;
+
+// Termék-specifikus vélemények
+const productTestimonials: Record<string, Testimonial[]> = {
+  'hydrascan-pro': [
+    {
+      name: 'Kozma Orsi',
+      date: '2025. 07. 25.',
+      text: 'Én nagyon szeretem ezt a gépet! Féltem a betanítás résztől, mert oké persze 7 éve mikor csináltam a kozmetikus sulit használtam az alapgépeket, de manapság teljesen más irányba vettem a kezelések vonalát... úgyhogy kellett a frissítés, de <mark>mindent megkaptam, amire szükségem lehet</mark>. Ugyan utólag is kellett egy kis segítség a mesterséges intelligencia részhez, meg a termékfeltöltéshez, de nagyon kedvesek voltak és azonnal segítettek, úgyhogy az első éles kezelésem is nagyon szuperül sikerült! Köszönöm szépen!',
+      rating: 5,
+    },
+  ],
+};
 
 // Alapértelmezett vélemények kategóriánként
 const defaultTestimonials: Record<string, Testimonial[]> = {
@@ -214,9 +228,11 @@ const globalDefaultTestimonials: Testimonial[] = [
 // Vélemények kiválasztása
 const displayTestimonials = testimonials && testimonials.length > 0
   ? testimonials
-  : (category && defaultTestimonials[category])
-    ? defaultTestimonials[category]
-    : globalDefaultTestimonials;
+  : (productSlug && productTestimonials[productSlug])
+    ? productTestimonials[productSlug]
+    : (category && defaultTestimonials[category])
+      ? defaultTestimonials[category]
+      : globalDefaultTestimonials;
 
 // Star rating component
 const renderStars = (rating: number = 5) => {
@@ -238,26 +254,32 @@ const renderStars = (rating: number = 5) => {
       </div>
 
       <!-- Testimonials Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class:list={[
+        "grid gap-6",
+        displayTestimonials.length === 1 ? "max-w-xl mx-auto" : displayTestimonials.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : "md:grid-cols-2 lg:grid-cols-3"
+      ]}>
         {displayTestimonials.slice(0, 3).map((testimonial) => (
           <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full">
-            <!-- Stars -->
-            <div class="flex gap-1 mb-4">
-              {renderStars(testimonial.rating).map((star) => (
-                <svg
-                  class={`w-5 h-5 ${star === 'filled' ? 'text-yellow-400' : 'text-gray-200'}`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
+            <!-- Stars + Date -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex gap-1">
+                {renderStars(testimonial.rating).map((star) => (
+                  <svg
+                    class={`w-5 h-5 ${star === 'filled' ? 'text-yellow-400' : 'text-gray-200'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              {testimonial.date && (
+                <span class="text-xs text-gray-400">{testimonial.date}</span>
+              )}
             </div>
 
             <!-- Quote -->
-            <blockquote class="text-gray-700 leading-relaxed flex-grow">
-              "{testimonial.text}"
-            </blockquote>
+            <blockquote class="text-gray-700 leading-relaxed flex-grow review-quote" set:html={`"${testimonial.text}"`} />
 
             <!-- Author - always at bottom -->
             <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-100">
@@ -276,24 +298,17 @@ const renderStars = (rating: number = 5) => {
               )}
               <div>
                 <div class="font-semibold text-gray-900">{testimonial.name}</div>
-                <div class="text-sm text-gray-500">
-                  {testimonial.role}{testimonial.location && `, ${testimonial.location}`}
-                </div>
+                {(testimonial.role || testimonial.location) && (
+                  <div class="text-sm text-gray-500">
+                    {testimonial.role}{testimonial.location && `, ${testimonial.location}`}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <!-- Trust indicator -->
-      <div class="mt-10 text-center">
-        <div class="inline-flex items-center gap-2 text-gray-600">
-          <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>150+ elégedett szalon használja gépeinket</span>
-        </div>
-      </div>
     </div>
   </section>
 )}

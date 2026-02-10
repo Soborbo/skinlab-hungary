@@ -1,0 +1,81 @@
+---
+/**
+ * FunctionCards - Kezelőfejek/funkciók vizuális grid
+ *
+ * 3 oszlopos grid, minden kártya egy funkció/kezelőfej.
+ * Slug-alapú tartalom, kategória fallback.
+ */
+
+interface FunctionItem {
+  icon: string;
+  name: string;
+  description: string;
+}
+
+interface Props {
+  productName: string;
+  productSlug?: string;
+  category: string;
+}
+
+const { productName, productSlug, category } = Astro.props;
+
+// SVG icon paths for each function
+const iconPaths: Record<string, string> = {
+  droplet: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21c-4.97 0-9-4.03-9-9 0-3.87 5.4-8.4 7.8-10.5a1.5 1.5 0 012.4 0C15.6 3.6 21 8.13 21 12c0 4.97-4.03 9-9 9z" />',
+  sound: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 12h.01M9 9v6" />',
+  bubbles: '<circle cx="12" cy="12" r="3" stroke-width="2" /><circle cx="7" cy="8" r="2" stroke-width="2" /><circle cx="17" cy="16" r="2" stroke-width="2" />',
+  bolt: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />',
+  snowflake: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />',
+  spray: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5M5 12l7-7 7 7M8 8h0M16 8h0M6 14h0M18 14h0" />',
+  brain: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />',
+  chart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />',
+  clipboard: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />',
+};
+
+const productFunctions: Record<string, FunctionItem[]> = {
+  'hydrascan-pro': [
+    { icon: 'droplet', name: 'Hidrodermabrázió', description: 'Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása' },
+    { icon: 'sound', name: 'Ultrahangos infúzió', description: 'Hatóanyagbevitel mély rétegekbe szérumok segítségével' },
+    { icon: 'bubbles', name: 'O₂ Bubble + H₂O₂', description: 'Oxigénes hidratálás és antioxidáns kezelés' },
+    { icon: 'bolt', name: 'Bipoláris RF lifting', description: 'Arcfeszesítés, kollagénstimuláció rádiófrekvenciával' },
+    { icon: 'snowflake', name: 'Hideg-meleg kalapács', description: 'Bőrnyugtatás, pórusösszehúzás, keringésserkentés' },
+    { icon: 'spray', name: 'Spray gun', description: 'Kezelést lezáró tonizáló és hidratáló spray' },
+    { icon: 'brain', name: 'AI bőranalízis', description: 'Valós idejű, 9+ paraméteres mesterséges intelligencia elemzés' },
+    { icon: 'chart', name: 'Digitális konzultáció', description: 'Előtte-utána képek, grafikonok, kezelési javaslatok' },
+    { icon: 'clipboard', name: 'Kezelési napló', description: 'Online vendégkarton, kezelési protokollok mentése és nyomon követés' },
+  ],
+};
+
+const categoryFunctions: Record<string, FunctionItem[]> = {
+  'hydrafacial': [
+    { icon: 'droplet', name: 'Hidrodermabrázió', description: 'Vákuumos mélytisztítás és hámlasztás' },
+    { icon: 'sound', name: 'Ultrahang', description: 'Hatóanyagbevitel mély rétegekbe' },
+    { icon: 'bubbles', name: 'Oxigénes kezelés', description: 'O₂ hidratálás és revitalizálás' },
+    { icon: 'bolt', name: 'RF lifting', description: 'Bőrfeszesítés rádiófrekvenciával' },
+    { icon: 'snowflake', name: 'Kriotermia', description: 'Hideg-meleg kezelés pórusösszehúzáshoz' },
+    { icon: 'spray', name: 'Spray gun', description: 'Kezelést lezáró tonizálás' },
+  ],
+};
+
+const functions = (productSlug && productFunctions[productSlug]) || categoryFunctions[category] || [];
+if (functions.length === 0) return;
+---
+
+<div class="mt-12">
+  <h3 class="text-xl font-bold text-gray-900 text-center mb-8">
+    Kezelési funkciók
+  </h3>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {functions.map((func) => (
+      <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-center">
+        <div class="w-10 h-10 mx-auto mb-3 bg-primary-50 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={iconPaths[func.icon] || iconPaths.droplet} />
+        </div>
+        <h4 class="font-semibold text-gray-900 text-sm mb-1.5">{func.name}</h4>
+        <p class="text-xs text-gray-500 leading-relaxed">{func.description}</p>
+      </div>
+    ))}
+  </div>
+</div>

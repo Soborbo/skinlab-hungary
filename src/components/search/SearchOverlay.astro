@@ -1,0 +1,401 @@
+---
+import { getCollection } from 'astro:content';
+import { CATEGORIES } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Resolve product images at build time
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/products/*.webp',
+  { eager: true }
+);
+
+function resolveImageUrl(imagePath: string): string | null {
+  if (!imagePath) return null;
+  const normalized = imagePath.replace('@assets/', '/src/assets/');
+  const mod = imageModules[normalized];
+  return mod?.default?.src || null;
+}
+
+// Build search index at build time
+const products = await getCollection('products');
+const trainings = await getCollection('trainings');
+const blog = await getCollection('blog');
+
+// Create a category lookup for display names
+const categoryMap = Object.fromEntries(
+  CATEGORIES.map(c => [c.id, c.nameShort])
+);
+
+const searchIndex = [
+  // Products
+  ...products.map(p => ({
+    name: p.data.name,
+    type: 'product' as const,
+    url: `/${p.data.categorySlug}/${p.data.slug}`,
+    category: categoryMap[p.data.categorySlug] || p.data.categorySlug,
+    price: p.data.price,
+    image: resolveImageUrl(p.data.image),
+  })),
+  // Trainings
+  ...trainings.map(tr => ({
+    name: tr.data.name,
+    type: 'training' as const,
+    url: `/kepzesek/${tr.slug}`,
+    category: t(locale, 'nav.trainings'),
+    price: tr.data.price || null,
+    image: null,
+  })),
+  // Blog posts
+  ...blog.map(post => ({
+    name: post.data.title,
+    type: 'blog' as const,
+    url: `/blog/${post.slug}`,
+    category: t(locale, 'nav.blog'),
+    price: null,
+    image: null,
+  })),
+  // Categories
+  ...CATEGORIES.map(c => ({
+    name: c.nameShort,
+    type: 'category' as const,
+    url: `/${c.slug}`,
+    category: t(locale, 'nav.products'),
+    price: null,
+    image: null,
+  })),
+];
+
+const searchIndexJson = JSON.stringify(searchIndex);
+
+const placeholderText = t(locale, 'search.placeholder');
+const noResultsText = t(locale, 'search.noResults');
+const noResultsHintText = t(locale, 'search.noResultsHint');
+const closeText = t(locale, 'common.close');
+const searchLabel = t(locale, 'common.search');
+
+const typeLabels: Record<string, string> = {
+  product: t(locale, 'search.types.product'),
+  training: t(locale, 'search.types.training'),
+  blog: t(locale, 'search.types.blog'),
+  category: t(locale, 'search.types.category'),
+};
+const typeLabelsJson = JSON.stringify(typeLabels);
+---
+
+<!-- Search trigger button -->
+<button
+  type="button"
+  class="inline-flex items-center justify-center p-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+  aria-label={searchLabel}
+  data-search-trigger
+>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</button>
+
+<!-- Search overlay -->
+<div
+  class="fixed inset-0 z-[100] hidden"
+  data-search-overlay
+  role="dialog"
+  aria-modal="true"
+  aria-label={searchLabel}
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" data-search-backdrop></div>
+
+  <!-- Search panel -->
+  <div class="relative max-w-2xl mx-auto mt-20 sm:mt-24 px-4">
+    <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+      <!-- Input area -->
+      <div class="flex items-center border-b border-gray-200 px-4">
+        <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          type="text"
+          class="w-full py-4 px-3 text-base text-gray-900 placeholder-gray-400 focus:outline-none"
+          placeholder={placeholderText}
+          autocomplete="off"
+          role="combobox"
+          aria-expanded="false"
+          aria-controls="search-results"
+          aria-activedescendant=""
+          data-search-input
+        />
+        <button
+          type="button"
+          class="shrink-0 p-1.5 text-gray-400 hover:text-gray-600 rounded-md hover:bg-gray-100 transition-colors"
+          aria-label={closeText}
+          data-search-close
+        >
+          <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-medium text-gray-400 bg-gray-100 rounded border border-gray-200">ESC</kbd>
+          <svg class="w-5 h-5 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Results area -->
+      <div
+        id="search-results"
+        role="listbox"
+        class="max-h-80 overflow-y-auto hidden"
+        data-search-results
+      >
+        <!-- Results injected here by JS -->
+      </div>
+
+      <!-- No results -->
+      <div class="hidden px-6 py-8 text-center" data-search-empty>
+        <svg class="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <p class="text-sm font-medium text-gray-900">{noResultsText}</p>
+        <p class="text-sm text-gray-500 mt-1">{noResultsHintText}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ searchIndexJson, typeLabelsJson, locale }}>
+  // Make data available to the module script
+  window.__searchIndex = JSON.parse(searchIndexJson);
+  window.__typeLabels = JSON.parse(typeLabelsJson);
+  window.__searchLocale = locale;
+</script>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  const searchIndex = (window as any).__searchIndex;
+  const typeLabels = (window as any).__typeLabels;
+  const searchLocale = (window as any).__searchLocale;
+
+  const trigger = document.querySelector('[data-search-trigger]') as HTMLButtonElement;
+  const overlay = document.querySelector('[data-search-overlay]') as HTMLDivElement;
+  const backdrop = document.querySelector('[data-search-backdrop]') as HTMLDivElement;
+  const input = document.querySelector('[data-search-input]') as HTMLInputElement;
+  const resultsContainer = document.querySelector('[data-search-results]') as HTMLDivElement;
+  const emptyState = document.querySelector('[data-search-empty]') as HTMLDivElement;
+  const closeBtn = document.querySelector('[data-search-close]') as HTMLButtonElement;
+
+  let fuse: Fuse<any> | null = null;
+  let activeIndex = -1;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+
+  function initFuse() {
+    if (!fuse) {
+      fuse = new Fuse(searchIndex, {
+        keys: [
+          { name: 'name', weight: 5 },
+          { name: 'category', weight: 1 },
+        ],
+        threshold: 0.3,
+        distance: 100,
+        minMatchCharLength: 2,
+        includeMatches: true,
+      });
+    }
+    return fuse;
+  }
+
+  function formatPrice(price: number): string {
+    return new Intl.NumberFormat(searchLocale === 'hu' ? 'hu-HU' : searchLocale, {
+      style: 'currency',
+      currency: 'HUF',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  }
+
+  const typeColors: Record<string, string> = {
+    product: 'bg-primary-100 text-primary-700',
+    training: 'bg-green-100 text-green-700',
+    blog: 'bg-orange-100 text-orange-700',
+    category: 'bg-purple-100 text-purple-700',
+  };
+
+  function highlightMatch(text: string, indices: readonly [number, number][]): string {
+    if (!indices || indices.length === 0) return escapeHtml(text);
+
+    let result = '';
+    let lastIndex = 0;
+
+    for (const [start, end] of indices) {
+      result += escapeHtml(text.slice(lastIndex, start));
+      result += `<mark class="bg-yellow-200 text-gray-900 rounded-sm px-0.5">${escapeHtml(text.slice(start, end + 1))}</mark>`;
+      lastIndex = end + 1;
+    }
+    result += escapeHtml(text.slice(lastIndex));
+    return result;
+  }
+
+  function escapeHtml(str: string): string {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderResults(results: Fuse.FuseResult<any>[]) {
+    const limited = results.slice(0, 8);
+
+    if (limited.length === 0) {
+      resultsContainer.classList.add('hidden');
+      emptyState.classList.remove('hidden');
+      input.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    emptyState.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+    input.setAttribute('aria-expanded', 'true');
+
+    resultsContainer.innerHTML = limited.map((result, i) => {
+      const item = result.item;
+      const nameMatch = result.matches?.find(m => m.key === 'name');
+      const displayName = nameMatch
+        ? highlightMatch(item.name, nameMatch.indices as [number, number][])
+        : escapeHtml(item.name);
+
+      const typeLabel = typeLabels[item.type] || item.type;
+      const colorClass = typeColors[item.type] || 'bg-gray-100 text-gray-700';
+
+      const pricePart = item.price
+        ? `<span class="text-gray-400 mx-1.5">&middot;</span><span>${formatPrice(item.price)}</span>`
+        : '';
+
+      const imagePart = item.image
+        ? `<img src="${item.image}" alt="" class="w-10 h-10 object-contain rounded-md bg-gray-50 shrink-0" loading="lazy" />`
+        : `<span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-gray-100 shrink-0">
+            <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-medium rounded ${colorClass}">${escapeHtml(typeLabel)}</span>
+          </span>`;
+
+      return `
+        <a
+          href="${item.url}"
+          id="search-result-${i}"
+          role="option"
+          aria-selected="${i === activeIndex}"
+          class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer ${i === activeIndex ? 'bg-gray-50' : ''}"
+          data-search-result
+        >
+          ${imagePart}
+          <div class="min-w-0 flex-1">
+            <div class="text-sm font-medium text-gray-900 truncate">${displayName}</div>
+            <div class="text-xs text-gray-500 mt-0.5">
+              <span>${escapeHtml(item.category || '')}</span>${pricePart}
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      `;
+    }).join('');
+
+    activeIndex = -1;
+  }
+
+  function doSearch(query: string) {
+    if (query.length < 2) {
+      resultsContainer.classList.add('hidden');
+      emptyState.classList.add('hidden');
+      input.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    const fuseInstance = initFuse();
+    const results = fuseInstance.search(query);
+    renderResults(results);
+  }
+
+  function openSearch() {
+    overlay.classList.remove('hidden');
+    input.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSearch() {
+    overlay.classList.add('hidden');
+    input.value = '';
+    resultsContainer.classList.add('hidden');
+    emptyState.classList.add('hidden');
+    input.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    activeIndex = -1;
+    trigger.focus();
+  }
+
+  function updateActiveResult() {
+    const items = resultsContainer.querySelectorAll('[data-search-result]');
+    items.forEach((item, i) => {
+      const isActive = i === activeIndex;
+      item.classList.toggle('bg-gray-50', isActive);
+      item.setAttribute('aria-selected', String(isActive));
+    });
+    if (activeIndex >= 0 && items[activeIndex]) {
+      input.setAttribute('aria-activedescendant', `search-result-${activeIndex}`);
+      items[activeIndex].scrollIntoView({ block: 'nearest' });
+    } else {
+      input.setAttribute('aria-activedescendant', '');
+    }
+  }
+
+  // Event listeners
+  trigger.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      doSearch(input.value.trim());
+    }, 150);
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const items = resultsContainer.querySelectorAll('[data-search-result]');
+    const count = items.length;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeSearch();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (count > 0) {
+        activeIndex = (activeIndex + 1) % count;
+        updateActiveResult();
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (count > 0) {
+        activeIndex = activeIndex <= 0 ? count - 1 : activeIndex - 1;
+        updateActiveResult();
+      }
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeIndex >= 0 && items[activeIndex]) {
+        (items[activeIndex] as HTMLAnchorElement).click();
+      }
+    }
+  });
+
+  // Global "/" shortcut to open search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && overlay.classList.contains('hidden')) {
+      const target = e.target as HTMLElement;
+      const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+      if (!isInput) {
+        e.preventDefault();
+        openSearch();
+      }
+    }
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+      closeSearch();
+    }
+  });
+</script>

@@ -229,6 +229,17 @@
     "testimonialText": "Obuka je bila odlicna i mogu ih nazvati bilo kada imam pitanje.",
     "testimonialAuthor": "Eva Nagy, Skin Studio"
   },
+  "search": {
+    "placeholder": "Pretraži proizvode po imenu...",
+    "noResults": "Nema rezultata",
+    "noResultsHint": "Pokušajte s drugom ključnom riječju ili pregledajte kategorije",
+    "types": {
+      "product": "Proizvod",
+      "training": "Edukacija",
+      "blog": "Blog",
+      "category": "Kategorija"
+    }
+  },
   "common": {
     "learnMore": "Saznaj vise",
     "viewAll": "Pogledaj sve",
