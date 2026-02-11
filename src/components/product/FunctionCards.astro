@@ -2,23 +2,20 @@
 /**
  * FunctionCards - Kezelőfejek/funkciók vizuális grid
  *
- * 3 oszlopos grid, minden kártya egy funkció/kezelőfej.
- * Slug-alapú tartalom, kategória fallback.
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
  */
 
-interface FunctionItem {
-  icon: string;
-  name: string;
-  description: string;
-}
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import type { ProductContentFunctionCard } from '@/lib/types/product-content';
 
 interface Props {
-  productName: string;
-  productSlug?: string;
-  category: string;
+  locale: Locale;
+  functions: ProductContentFunctionCard[];
 }
 
-const { productName, productSlug, category } = Astro.props;
+const { locale, functions } = Astro.props;
 
 // SVG icon paths for each function
 const iconPaths: Record<string, string> = {
@@ -32,50 +29,24 @@ const iconPaths: Record<string, string> = {
   chart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />',
   clipboard: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />',
 };
-
-const productFunctions: Record<string, FunctionItem[]> = {
-  'hydrascan-pro': [
-    { icon: 'droplet', name: 'Hidrodermabrázió', description: 'Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása' },
-    { icon: 'sound', name: 'Ultrahangos infúzió', description: 'Hatóanyagbevitel mély rétegekbe szérumok segítségével' },
-    { icon: 'bubbles', name: 'O₂ Bubble + H₂O₂', description: 'Oxigénes hidratálás és antioxidáns kezelés' },
-    { icon: 'bolt', name: 'Bipoláris RF lifting', description: 'Arcfeszesítés, kollagénstimuláció rádiófrekvenciával' },
-    { icon: 'snowflake', name: 'Hideg-meleg kalapács', description: 'Bőrnyugtatás, pórusösszehúzás, keringésserkentés' },
-    { icon: 'spray', name: 'Spray gun', description: 'Kezelést lezáró tonizáló és hidratáló spray' },
-    { icon: 'brain', name: 'AI bőranalízis', description: 'Valós idejű, 9+ paraméteres mesterséges intelligencia elemzés' },
-    { icon: 'chart', name: 'Digitális konzultáció', description: 'Előtte-utána képek, grafikonok, kezelési javaslatok' },
-    { icon: 'clipboard', name: 'Kezelési napló', description: 'Online vendégkarton, kezelési protokollok mentése és nyomon követés' },
-  ],
-};
-
-const categoryFunctions: Record<string, FunctionItem[]> = {
-  'hydrafacial': [
-    { icon: 'droplet', name: 'Hidrodermabrázió', description: 'Vákuumos mélytisztítás és hámlasztás' },
-    { icon: 'sound', name: 'Ultrahang', description: 'Hatóanyagbevitel mély rétegekbe' },
-    { icon: 'bubbles', name: 'Oxigénes kezelés', description: 'O₂ hidratálás és revitalizálás' },
-    { icon: 'bolt', name: 'RF lifting', description: 'Bőrfeszesítés rádiófrekvenciával' },
-    { icon: 'snowflake', name: 'Kriotermia', description: 'Hideg-meleg kezelés pórusösszehúzáshoz' },
-    { icon: 'spray', name: 'Spray gun', description: 'Kezelést lezáró tonizálás' },
-  ],
-};
-
-const functions = (productSlug && productFunctions[productSlug]) || categoryFunctions[category] || [];
-if (functions.length === 0) return;
 ---
 
-<div class="mt-12">
-  <h3 class="text-xl font-bold text-gray-900 text-center mb-8">
-    Kezelési funkciók
-  </h3>
+{functions.length > 0 && (
+  <div class="mt-12">
+    <h3 class="text-xl font-bold text-gray-900 text-center mb-8">
+      {t(locale, 'product.functionCardsTitle')}
+    </h3>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {functions.map((func) => (
-      <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-center">
-        <div class="w-10 h-10 mx-auto mb-3 bg-primary-50 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={iconPaths[func.icon] || iconPaths.droplet} />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {functions.map((func) => (
+        <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-center">
+          <div class="w-10 h-10 mx-auto mb-3 bg-primary-50 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={iconPaths[func.icon] || iconPaths.droplet} />
+          </div>
+          <h4 class="font-semibold text-gray-900 text-sm mb-1.5">{func.name}</h4>
+          <p class="text-xs text-gray-500 leading-relaxed">{func.description}</p>
         </div>
-        <h4 class="font-semibold text-gray-900 text-sm mb-1.5">{func.name}</h4>
-        <p class="text-xs text-gray-500 leading-relaxed">{func.description}</p>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
-</div>
+)}

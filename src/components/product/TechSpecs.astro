@@ -1,67 +1,24 @@
 ---
 /**
  * TechSpecs - Technikai specifikációk megjelenítése
- * Accordion vagy táblázat formátumban
+ *
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
  */
 
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl } from '@/i18n/ui';
+
 interface Props {
-  specs?: Record<string, string>;
-  productName?: string;
-  category?: string;
+  locale: Locale;
+  specs: Record<string, string>;
+  productName: string;
 }
 
-const { specs, productName = 'termék', category } = Astro.props;
+const { locale, specs, productName } = Astro.props;
 
-// Alapértelmezett specs kategóriánként
-const defaultSpecs: Record<string, Record<string, string>> = {
-  'diodalezerek': {
-    'Hullámhossz': '755nm + 808nm + 940nm + 1064nm',
-    'Teljesítmény': '1200W - 2400W',
-    'Energia': 'Max 120J/cm²',
-    'Impulzus frekvencia': '1-10 Hz',
-    'Kezelőfej méret': '12x20mm / 15x35mm',
-    'Hűtés': 'Szafír kontakt hűtés (-5°C)',
-    'Kijelző': '10.4" érintőképernyő',
-    'Tápellátás': '220V / 50Hz',
-    'Garancia': '2 év',
-  },
-  'hydrafacial': {
-    'Funkciók száma': '6-12 in 1',
-    'Vákuum erősség': '0-80 kPa állítható',
-    'Kezelőfejek': '4-8 db',
-    'Kijelző': '10" HD érintőképernyő',
-    'Tápellátás': '220V / 50Hz',
-    'Garancia': '2 év',
-  },
-  'nd-yag-lezerek': {
-    'Lézer típus': 'Q-kapcsolt Nd:YAG',
-    'Hullámhossz': '1064nm + 532nm',
-    'Energia': 'Max 2000mJ',
-    'Impulzus szélesség': '6-10ns',
-    'Frekvencia': '1-10 Hz',
-    'Spotméret': '2-10mm állítható',
-    'Hűtés': 'Vízhűtéses + légkondicionáló',
-    'Garancia': '2 év',
-  },
-  'sminktetovalas': {
-    'Motor típus': 'Svájci Maxon motor',
-    'Fordulatszám': '0-15000 RPM',
-    'Működési mód': 'Pen / Direct Drive',
-    'Tűmélység': '0-3.5mm állítható',
-    'Súly': '< 200g',
-    'Garancia': '2 év',
-  },
-};
-
-// Specs kiválasztása
-const displaySpecs = specs && Object.keys(specs).length > 0
-  ? specs
-  : (category && defaultSpecs[category])
-    ? defaultSpecs[category]
-    : null;
-
-// Specs csoportosítása (opcionális - ha vannak kategória prefixek)
-const specEntries = displaySpecs ? Object.entries(displaySpecs) : [];
+const specEntries = Object.entries(specs);
 ---
 
 {specEntries.length > 0 && (
@@ -70,10 +27,10 @@ const specEntries = displaySpecs ? Object.entries(displaySpecs) : [];
       <!-- Header -->
       <div class="text-center mb-10">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-          Technikai specifikációk
+          {t(locale, 'product.specsTitle')}
         </h2>
         <p class="text-gray-600">
-          A {productName} részletes műszaki adatai
+          {t(locale, 'product.specsSubtitle', { productName })}
         </p>
       </div>
 
@@ -99,13 +56,13 @@ const specEntries = displaySpecs ? Object.entries(displaySpecs) : [];
       <!-- Download spec sheet CTA -->
       <div class="mt-8 text-center">
         <a
-          href="/kapcsolat"
+          href={getLocalizedUrl(locale, '/kapcsolat')}
           class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          A gyári adatlap letöltése
+          {t(locale, 'product.downloadDatasheet')}
         </a>
       </div>
     </div>

@@ -2,85 +2,23 @@
 /**
  * TrainingCard - Képzés szekció képpel és árkártyával
  *
- * Bal oldal: képzés tartalom lista
- * Jobb oldal: kép + árkártya CTA-val
- * Slug-alapú tartalom, kategória fallback.
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
  */
 
 import { Image } from 'astro:assets';
 import trainingImage from '../../assets/training-image.jpg';
-
-interface TrainingContent {
-  headline: string;
-  badge: string;
-  intro: string;
-  priceLabel?: string;
-  items: string[];
-  closingParagraphs?: string[];
-  price: string;
-  originalPrice?: string;
-  priceNote: string;
-  freeText?: string;
-  duration: string;
-  ctaText: string;
-}
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl } from '@/i18n/ui';
+import type { ProductContentTraining } from '@/lib/types/product-content';
 
 interface Props {
-  productName: string;
-  productSlug?: string;
-  category: string;
+  locale: Locale;
+  content: ProductContentTraining;
 }
 
-const { productName, productSlug, category } = Astro.props;
-
-const productTraining: Record<string, TrainingContent> = {
-  'hydrascan-pro': {
-    headline: 'Gépkezelői oktatás – hivatalos felnőttképzés keretében',
-    badge: 'Hivatalos tanúsítvánnyal',
-    intro: 'A HYDRASCAN PRO készülékhez elérhető egy professzionális gépkezelői oktatás, amelyet hivatalosan bejelentett felnőttképzés keretein belül biztosítunk. Az oktatás célja, hogy a résztvevők teljes körű, elméleti és gyakorlati tudást szerezzenek a készülék szakszerű és biztonságos használatáról.',
-    priceLabel: 'Képzés díja: 69.990 Ft',
-    items: [
-      'A HYDRASCAN PRO működési elve, technológiái és kezelőfejei',
-      'Az intelligens bőranalízis rendszer értelmezése és gyakorlati alkalmazása',
-      'Kezelési protokollok különböző bőrtípusokhoz és problémákhoz',
-      'Vendégkommunikáció és kezelési napló vezetése',
-      'Előtte–utána dokumentáció készítése',
-      'Gyakorlati kezelések modelleken',
-    ],
-    closingParagraphs: [
-      'Modellt természetesen hozhatsz a képzésre, így valós környezetben tudod elsajátítani a kezelési technikákat, biztonságos és felügyelt oktatási környezetben.',
-      'A képzés elvégzése után hivatalos tanúsítványt állítunk ki, amely igazolja a HYDRASCAN PRO készülék szakszerű kezeléséhez szükséges kompetenciát.',
-      'Ez a tudás nemcsak a mindennapi munkádban jelent óriási segítséget, hanem abban is, hogy még magabiztosabban, professzionális szinten nyújtsd szolgáltatásaidat vendégeid számára.',
-      'Amennyiben érdekes lehet számodra a tanfolyami lehetőség, kérlek vedd fel velünk a kapcsolatot elérhetőségeink egyikén, időpont-egyeztetés céljából!',
-    ],
-    price: '69.990 Ft',
-    priceNote: 'értékű képzés',
-    freeText: 'INGYENES a gépvásárlás mellé!',
-    duration: 'Egynapos intenzív képzés',
-    ctaText: 'Érdekel a képzés',
-  },
-};
-
-const categoryTraining: Record<string, TrainingContent> = {
-  'hydrafacial': {
-    headline: 'Professzionális gépkezelői képzés',
-    badge: 'FAR tanúsítvánnyal',
-    intro: 'Minden hydrofacial készülékünkhöz elérhető személyes betanítás és hivatalos gépkezelői képzés.',
-    items: [
-      'A készülék működési elve és technológiái',
-      'Kezelési protokollok különböző bőrtípusokhoz',
-      'Gyakorlati kezelések modelleken',
-      'Vendégkommunikáció',
-    ],
-    price: 'Kérjen ajánlatot',
-    priceNote: 'Hivatalos felnőttképzés',
-    duration: 'Egynapos képzés',
-    ctaText: 'Érdekel a képzés',
-  },
-};
-
-const content = (productSlug && productTraining[productSlug]) || categoryTraining[category];
-if (!content) return;
+const { locale, content } = Astro.props;
 ---
 
 <section class="py-16 bg-gray-50" id="kepzes">
@@ -118,7 +56,7 @@ if (!content) return;
         <div class="rounded-2xl overflow-hidden shadow-lg">
           <Image
             src={trainingImage}
-            alt="SkinLab gépkezelői képzés"
+            alt={t(locale, 'product.trainingTitle')}
             class="w-full h-auto object-cover aspect-[16/10]"
             widths={[400, 600]}
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -127,7 +65,7 @@ if (!content) return;
         </div>
 
         <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
-          <h3 class="text-lg font-bold text-gray-900 mb-3">Gépkezelői képzés</h3>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">{t(locale, 'product.trainingTitle')}</h3>
 
           <div class="text-3xl font-extrabold text-gray-900 mb-1">
             {content.price}
@@ -142,7 +80,7 @@ if (!content) return;
             </div>
           )}
 
-          <h4 class="text-left text-sm font-semibold text-gray-900 mb-3">A képzés tartalma:</h4>
+          <h4 class="text-left text-sm font-semibold text-gray-900 mb-3">{t(locale, 'product.trainingContent')}</h4>
           <ul class="text-left space-y-2 mb-6">
             {content.items.map((item) => (
               <li class="flex items-start gap-2">
@@ -155,7 +93,7 @@ if (!content) return;
           </ul>
 
           <a
-            href="/kapcsolat"
+            href={getLocalizedUrl(locale, '/kapcsolat')}
             class="block w-full px-6 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors text-center"
           >
             {content.ctaText}

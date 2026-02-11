@@ -7,6 +7,7 @@ const variantSchema = z.object({
   value: z.string(),
   price: z.number().nullable(),
   image: z.string().optional(),
+  images: z.array(z.string()).optional(),
   available: z.boolean().optional(),
 });
 

@@ -1,74 +1,24 @@
 ---
 /**
  * WhatsIncluded - Mi jár a géphez komponens
- * Lista a csomagban foglalt tételekről
+ *
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
  */
 
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+
 interface Props {
-  items?: string[];
-  productName?: string;
-  category?: string;
+  locale: Locale;
+  items: string[];
+  productName: string;
 }
 
-const { items, productName = 'gép', category } = Astro.props;
-
-// Alapértelmezett tartalom kategóriánként
-const defaultItems: Record<string, string[]> = {
-  'diodalezerek': [
-    'Diódalézer készülék',
-    'Kezelőfej(ek)',
-    'Védőszemüveg (2 db)',
-    'Hűtőgél',
-    'Használati útmutató (magyar)',
-    'Ingyenes betanítás',
-    'FAR tanúsítvány',
-    '2 év garancia',
-  ],
-  'hydrafacial': [
-    'HydraFacial készülék',
-    'Kezelőfejek készlet',
-    'Indító szérum csomag',
-    'Használati útmutató (magyar)',
-    'Ingyenes betanítás',
-    '2 év garancia',
-  ],
-  'nd-yag-lezerek': [
-    'ND:YAG lézer készülék',
-    'Kezelőfej(ek)',
-    'Védőszemüveg (2 db)',
-    'Használati útmutató (magyar)',
-    'Ingyenes betanítás',
-    'FAR tanúsítvány',
-    '2 év garancia',
-  ],
-  'sminktetovalas': [
-    'Sminktetováló gép',
-    'Tűmodulok (induló készlet)',
-    'Hálózati adapter / töltő',
-    'Tároló tok',
-    'Használati útmutató',
-    '2 év garancia',
-  ],
-};
-
-// Globális alapértelmezett
-const globalDefaultItems: string[] = [
-  'Készülék',
-  'Tartozékok',
-  'Használati útmutató (magyar)',
-  'Ingyenes betanítás',
-  '2 év garancia',
-];
-
-// Tartalom kiválasztása
-const displayItems = items && items.length > 0
-  ? items
-  : (category && defaultItems[category])
-    ? defaultItems[category]
-    : globalDefaultItems;
+const { locale, items, productName } = Astro.props;
 ---
 
-{displayItems.length > 0 && (
+{items.length > 0 && (
   <section class="py-12 lg:py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
@@ -77,20 +27,20 @@ const displayItems = items && items.length > 0
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
           </svg>
-          Csomag tartalma
+          {t(locale, 'product.whatsIncludedBadge')}
         </div>
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-          Mi jár a {productName} mellé?
+          {t(locale, 'product.whatsIncludedTitle', { productName })}
         </h2>
         <p class="text-gray-600">
-          Minden, ami a sikeres induláshoz kell
+          {t(locale, 'product.whatsIncludedSubtitle')}
         </p>
       </div>
 
       <!-- Items Grid -->
       <div class="bg-white rounded-2xl shadow-lg p-8">
         <ul class="grid sm:grid-cols-2 gap-4">
-          {displayItems.map((item) => (
+          {items.map((item) => (
             <li class="flex items-start gap-3">
               <div class="flex-shrink-0 w-6 h-6 rounded-full bg-success-100 flex items-center justify-center mt-0.5">
                 <svg class="w-4 h-4 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,19 +59,19 @@ const displayItems = items && items.length > 0
               <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <span>Teljes körű garancia</span>
+              <span>{t(locale, 'product.whatsIncludedFullWarranty')}</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Nincs rejtett költség</span>
+              <span>{t(locale, 'product.whatsIncludedNoHiddenCost')}</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              <span>Azonnali használat</span>
+              <span>{t(locale, 'product.whatsIncludedImmediateUse')}</span>
             </div>
           </div>
         </div>

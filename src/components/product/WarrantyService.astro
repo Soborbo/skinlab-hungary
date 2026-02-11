@@ -2,77 +2,62 @@
 /**
  * WarrantyService - Garancia és szerviz szekció
  *
- * Bemutatja a SkinLab garanciális és szerviz előnyeit:
- * - 2 év garancia (dupla iparági standard)
- * - Saját szervizműhely
- * - Cseregép program
- * - Gyors javítási idő
+ * Props-based: locale for i18n. All labels use t(locale, 'warranty.*').
+ * No internal content maps.
  */
 
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl } from '@/i18n/ui';
+
 interface Props {
+  locale: Locale;
   productName?: string;
-  /** Override default warranty years */
   warrantyYears?: number;
-  /** Show extended warranty option */
   showExtendedWarranty?: boolean;
 }
 
 const {
+  locale,
   productName,
   warrantyYears = 2,
   showExtendedWarranty = false
 } = Astro.props;
 
-// Warranty features
+// Warranty features - labels from i18n
 const warrantyFeatures = [
   {
     icon: 'shield',
-    title: `${warrantyYears} év teljes garancia`,
-    description: 'Minden alkatrészre és munkadíjra, az iparági standard duplája.',
+    title: t(locale, 'warranty.yearsWarranty', { years: String(warrantyYears) }),
+    description: t(locale, 'warranty.features.fullWarranty'),
     highlight: true
   },
   {
     icon: 'refresh',
-    title: 'Cseregép program',
-    description: 'Javítás idejére ingyenes cseregépet biztosítunk, hogy ne álljon a munkád.',
+    title: t(locale, 'warranty.features.replacementDevice'),
+    description: t(locale, 'warranty.features.replacementDeviceDesc'),
     highlight: false
   },
   {
     icon: 'tool',
-    title: 'Saját szervizműhely',
-    description: 'Magyarországi javítás, nem kell hónapokat várni külföldi szervizre.',
+    title: t(locale, 'warranty.features.ownWorkshop'),
+    description: t(locale, 'warranty.features.ownWorkshopDesc'),
     highlight: false
   },
   {
     icon: 'clock',
-    title: 'Gyors javítás',
-    description: 'A legtöbb hibát 3-5 munkanapon belül kijavítjuk.',
+    title: t(locale, 'warranty.features.fastRepair'),
+    description: t(locale, 'warranty.features.fastRepairDesc'),
     highlight: false
   }
 ];
 
-// Service process steps
+// Service process steps - labels from i18n
 const serviceSteps = [
-  {
-    step: 1,
-    title: 'Hibabejelentés',
-    description: 'Hívj minket vagy írj emailt a hiba leírásával.'
-  },
-  {
-    step: 2,
-    title: 'Cseregép',
-    description: 'Futárral küldünk cseregépet, viszik a hibásat.'
-  },
-  {
-    step: 3,
-    title: 'Javítás',
-    description: 'Saját műhelyünkben megjavítjuk a készüléked.'
-  },
-  {
-    step: 4,
-    title: 'Visszaküldés',
-    description: 'Visszakapod a javított gépet, visszavesszük a cserét.'
-  }
+  { step: 1, title: t(locale, 'warranty.steps.step1Title'), description: t(locale, 'warranty.steps.step1Desc') },
+  { step: 2, title: t(locale, 'warranty.steps.step2Title'), description: t(locale, 'warranty.steps.step2Desc') },
+  { step: 3, title: t(locale, 'warranty.steps.step3Title'), description: t(locale, 'warranty.steps.step3Desc') },
+  { step: 4, title: t(locale, 'warranty.steps.step4Title'), description: t(locale, 'warranty.steps.step4Desc') },
 ];
 
 // Icon paths
@@ -90,15 +75,15 @@ const icons: Record<string, string> = {
     <!-- Section Header -->
     <div class="text-center mb-12">
       <span class="inline-block px-4 py-1 bg-success-100 text-success-700 text-sm font-medium rounded-full mb-4">
-        Nyugalom és biztonság
+        {t(locale, 'warranty.badge')}
       </span>
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        Garancia és szerviz
+        {t(locale, 'warranty.title')}
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         {productName
-          ? `A ${productName} készülékre ${warrantyYears} év teljes garanciát adunk, saját magyarországi szervizháttérrel.`
-          : `${warrantyYears} év teljes garancia minden készülékre, saját magyarországi szervizháttérrel.`
+          ? t(locale, 'warranty.subtitle', { productName, years: String(warrantyYears) })
+          : t(locale, 'warranty.subtitleGeneric', { years: String(warrantyYears) })
         }
       </p>
     </div>
@@ -154,7 +139,7 @@ const icons: Record<string, string> = {
           {/* Highlight badge */}
           {feature.highlight && (
             <div class="absolute -top-3 -right-3 bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-              2x iparági standard
+              {t(locale, 'warranty.industryStandardMultiple')}
             </div>
           )}
         </div>
@@ -164,7 +149,7 @@ const icons: Record<string, string> = {
     <!-- Service Process -->
     <div class="bg-white rounded-3xl border border-gray-200 p-8 lg:p-12">
       <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">
-        Hogyan működik a szerviz?
+        {t(locale, 'warranty.steps.title')}
       </h3>
 
       <!-- Desktop Grid with Connecting Line -->
@@ -254,17 +239,17 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h4 class="font-bold text-amber-900">Kiterjesztett garancia</h4>
+            <h4 class="font-bold text-amber-900">{t(locale, 'warranty.extendedWarranty')}</h4>
             <p class="text-sm text-amber-700">
-              Hosszabbítsd meg a garanciát további 1 évvel kedvezményes áron!
+              {t(locale, 'warranty.extendedWarrantyDesc')}
             </p>
           </div>
         </div>
         <a
-          href="/kapcsolat?tema=garancia"
+          href={getLocalizedUrl(locale, '/kapcsolat?tema=garancia')}
           class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-white font-semibold rounded-xl hover:bg-amber-600 transition-colors whitespace-nowrap"
         >
-          Érdeklődöm
+          {t(locale, 'warranty.extendedWarrantyButton')}
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -277,34 +262,34 @@ const icons: Record<string, string> = {
       <table class="w-full text-left">
         <thead>
           <tr class="border-b border-gray-200">
-            <th class="py-4 pr-4 text-gray-500 font-medium">Összehasonlítás</th>
+            <th class="py-4 pr-4 text-gray-500 font-medium">{t(locale, 'warranty.comparison.title')}</th>
             <th class="py-4 px-4 text-center">
               <span class="inline-block px-3 py-1 bg-primary-100 text-primary-700 font-bold rounded-full text-sm">
                 SkinLab
               </span>
             </th>
             <th class="py-4 px-4 text-center text-gray-400 font-medium">
-              Iparági átlag
+              {t(locale, 'warranty.comparison.industryAverage')}
             </th>
           </tr>
         </thead>
         <tbody class="text-sm">
           <tr class="border-b border-gray-100">
-            <td class="py-4 pr-4 text-gray-700">Garancia időtartam</td>
+            <td class="py-4 pr-4 text-gray-700">{t(locale, 'warranty.comparison.warrantyDuration')}</td>
             <td class="py-4 px-4 text-center">
-              <span class="font-bold text-primary-600">{warrantyYears} év</span>
+              <span class="font-bold text-primary-600">{warrantyYears} {t(locale, 'warranty.comparison.year')}</span>
             </td>
-            <td class="py-4 px-4 text-center text-gray-400">1 év</td>
+            <td class="py-4 px-4 text-center text-gray-400">1 {t(locale, 'warranty.comparison.year')}</td>
           </tr>
           <tr class="border-b border-gray-100">
-            <td class="py-4 pr-4 text-gray-700">Szerviz helyszíne</td>
+            <td class="py-4 pr-4 text-gray-700">{t(locale, 'warranty.comparison.serviceLocation')}</td>
             <td class="py-4 px-4 text-center">
-              <span class="font-bold text-primary-600">Magyarország</span>
+              <span class="font-bold text-primary-600">{t(locale, 'warranty.comparison.hungary')}</span>
             </td>
-            <td class="py-4 px-4 text-center text-gray-400">Kína</td>
+            <td class="py-4 px-4 text-center text-gray-400">{t(locale, 'warranty.comparison.china')}</td>
           </tr>
           <tr class="border-b border-gray-100">
-            <td class="py-4 pr-4 text-gray-700">Cseregép</td>
+            <td class="py-4 pr-4 text-gray-700">{t(locale, 'warranty.comparison.replacementDevice')}</td>
             <td class="py-4 px-4 text-center">
               <svg class="w-5 h-5 text-success-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons.check} />
             </td>
@@ -315,14 +300,14 @@ const icons: Record<string, string> = {
             </td>
           </tr>
           <tr class="border-b border-gray-100">
-            <td class="py-4 pr-4 text-gray-700">Javítási idő</td>
+            <td class="py-4 pr-4 text-gray-700">{t(locale, 'warranty.comparison.repairTime')}</td>
             <td class="py-4 px-4 text-center">
-              <span class="font-bold text-primary-600">3-5 nap</span>
+              <span class="font-bold text-primary-600">{t(locale, 'warranty.comparison.repairTimeSkinlab')}</span>
             </td>
-            <td class="py-4 px-4 text-center text-gray-400">2-3 hónap</td>
+            <td class="py-4 px-4 text-center text-gray-400">{t(locale, 'warranty.comparison.repairTimeAverage')}</td>
           </tr>
           <tr>
-            <td class="py-4 pr-4 text-gray-700">Magyar nyelvű támogatás</td>
+            <td class="py-4 pr-4 text-gray-700">{t(locale, 'warranty.comparison.hungarianSupport')}</td>
             <td class="py-4 px-4 text-center">
               <svg class="w-5 h-5 text-success-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons.check} />
             </td>

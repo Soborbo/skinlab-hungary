@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TERMÉK_NÉV}} – Skinlab</title>
+<style>
+/* ============================================
+   SKINLAB PRODUCT PAGE TEMPLATE v1.0
+   Általános sablon – változók a tetején
+   ============================================ */
+
+:root {
+  --sl-primary: #1a6b8a;
+  --sl-primary-light: #e8f4f8;
+  --sl-primary-dark: #0e4a61;
+  --sl-accent: #2ecc71;
+  --sl-accent-hover: #27ae60;
+  --sl-dark: #1a1a2e;
+  --sl-text: #333;
+  --sl-text-light: #666;
+  --sl-bg: #ffffff;
+  --sl-bg-alt: #f8fafb;
+  --sl-bg-dark: #0f2b3d;
+  --sl-border: #e2e8f0;
+  --sl-radius: 12px;
+  --sl-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --sl-shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --sl-max-width: 1140px;
+  --sl-section-padding: 70px 0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--sl-text);
+  line-height: 1.7;
+  background: var(--sl-bg);
+}
+
+.sl-container {
+  max-width: var(--sl-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   1. USP STATS BAR
+   ============================================ */
+.sl-stats-bar {
+  background: var(--sl-bg-dark);
+  padding: 28px 0;
+  color: #fff;
+}
+
+.sl-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.sl-stat-item {
+  padding: 10px;
+}
+
+.sl-stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.sl-stat-number span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  margin-left: 3px;
+}
+
+.sl-stat-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   2. VIDEO + LEÍRÁS
+   ============================================ */
+.sl-video-section {
+  padding: var(--sl-section-padding);
+}
+
+.sl-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.sl-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  border-radius: var(--sl-radius);
+  overflow: hidden;
+  box-shadow: var(--sl-shadow-lg);
+}
+
+.sl-video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.sl-video-text h2 {
+  font-size: 1.8rem;
+  color: var(--sl-dark);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.sl-video-text p {
+  color: var(--sl-text-light);
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+
+/* ============================================
+   3. SOCIAL PROOF
+   ============================================ */
+.sl-social-proof {
+  background: var(--sl-bg-alt);
+  padding: 50px 0;
+  border-top: 1px solid var(--sl-border);
+  border-bottom: 1px solid var(--sl-border);
+}
+
+.sl-proof-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sl-proof-header h2 {
+  font-size: 1.6rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-proof-header p {
+  color: var(--sl-text-light);
+  font-size: 1.05rem;
+}
+
+.sl-testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sl-testimonial {
+  background: #fff;
+  border-radius: var(--sl-radius);
+  padding: 28px;
+  box-shadow: var(--sl-shadow);
+  position: relative;
+}
+
+.sl-testimonial-stars {
+  color: #f5a623;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.sl-testimonial p {
+  font-style: italic;
+  color: var(--sl-text);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.sl-testimonial-author {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--sl-primary);
+}
+
+.sl-testimonial-role {
+  font-size: 0.8rem;
+  color: var(--sl-text-light);
+}
+
+/* Trustindex placeholder */
+.sl-trustindex-placeholder {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: var(--sl-radius);
+  border: 2px dashed var(--sl-border);
+  color: var(--sl-text-light);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   4. 5x PAIN → SOLUTION FEATURE ROWS
+   ============================================ */
+.sl-features {
+  padding: var(--sl-section-padding);
+}
+
+.sl-features-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sl-features-header h2 {
+  font-size: 2rem;
+  color: var(--sl-dark);
+  margin-bottom: 10px;
+}
+
+.sl-features-header p {
+  color: var(--sl-text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sl-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.sl-feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.sl-feature-row.sl-reversed .sl-feature-image {
+  order: 2;
+}
+
+.sl-feature-row.sl-reversed .sl-feature-content {
+  order: 1;
+}
+
+.sl-feature-image {
+  border-radius: var(--sl-radius);
+  overflow: hidden;
+  box-shadow: var(--sl-shadow-lg);
+}
+
+.sl-feature-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Placeholder for images */
+.sl-feature-image-placeholder {
+  background: linear-gradient(135deg, var(--sl-primary-light), #dbeef5);
+  border-radius: var(--sl-radius);
+  padding: 80px 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--sl-primary);
+  box-shadow: var(--sl-shadow);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sl-feature-pain {
+  display: inline-block;
+  background: #fef3f2;
+  color: #c0392b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sl-feature-content h3 {
+  font-size: 1.5rem;
+  color: var(--sl-dark);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.sl-feature-content p {
+  color: var(--sl-text-light);
+  font-size: 1.02rem;
+  margin-bottom: 12px;
+}
+
+.sl-feature-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--sl-primary-light);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+
+.sl-feature-highlight-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--sl-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.sl-feature-highlight p {
+  font-size: 0.92rem;
+  color: var(--sl-primary-dark);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   5. KÉPZÉS SZEKCIÓ
+   ============================================ */
+.sl-training {
+  background: var(--sl-bg-alt);
+  padding: var(--sl-section-padding);
+  border-top: 1px solid var(--sl-border);
+  border-bottom: 1px solid var(--sl-border);
+}
+
+.sl-training-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.sl-training-content h2 {
+  font-size: 1.8rem;
+  color: var(--sl-dark);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.sl-training-content > p {
+  color: var(--sl-text-light);
+  margin-bottom: 20px;
+  font-size: 1.02rem;
+}
+
+.sl-training-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e8faf0;
+  color: #1a8a4a;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.sl-training-list {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.sl-training-list li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  color: var(--sl-text);
+  font-size: 0.98rem;
+}
+
+.sl-training-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--sl-primary);
+  font-weight: 800;
+}
+
+.sl-training-card {
+  background: #fff;
+  border-radius: var(--sl-radius);
+  padding: 36px;
+  box-shadow: var(--sl-shadow-lg);
+  text-align: center;
+}
+
+.sl-training-card h3 {
+  font-size: 1.2rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-training-price {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--sl-primary);
+  margin-bottom: 4px;
+}
+
+.sl-training-price-note {
+  font-size: 0.85rem;
+  color: var(--sl-text-light);
+  margin-bottom: 20px;
+}
+
+.sl-training-free {
+  background: #e8faf0;
+  color: #1a8a4a;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sl-training-card-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.sl-training-card-list li {
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--sl-text-light);
+  border-bottom: 1px solid var(--sl-border);
+}
+
+.sl-training-card-list li:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   6. SZAKÉRTŐI AJÁNLÁS
+   ============================================ */
+.sl-expert {
+  padding: var(--sl-section-padding);
+}
+
+.sl-expert-card {
+  background: linear-gradient(135deg, var(--sl-bg-dark) 0%, #163d52 100%);
+  border-radius: 16px;
+  padding: 50px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sl-expert-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+.sl-expert-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder */
+.sl-expert-photo-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 4px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+
+.sl-expert-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+}
+
+.sl-expert-body h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.sl-expert-body p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 12px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.sl-expert-name {
+  font-weight: 700;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.sl-expert-title {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+}
+
+.sl-expert-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   7. MŰSZAKI ADATOK
+   ============================================ */
+.sl-specs {
+  background: var(--sl-bg-alt);
+  padding: var(--sl-section-padding);
+  border-top: 1px solid var(--sl-border);
+  border-bottom: 1px solid var(--sl-border);
+}
+
+.sl-specs-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sl-specs-header h2 {
+  font-size: 1.8rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-specs-header p {
+  color: var(--sl-text-light);
+}
+
+.sl-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sl-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--sl-radius);
+  overflow: hidden;
+  box-shadow: var(--sl-shadow);
+  font-size: 0.95rem;
+}
+
+.sl-specs-table thead th {
+  background: var(--sl-primary);
+  color: #fff;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sl-specs-table tbody td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--sl-border);
+  color: var(--sl-text);
+}
+
+.sl-specs-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.sl-specs-table tbody tr:hover {
+  background: var(--sl-primary-light);
+}
+
+.sl-specs-table .sl-spec-label {
+  font-weight: 600;
+  color: var(--sl-dark);
+  width: 40%;
+}
+
+/* Funkciók grid – kezelőfejek stb. */
+.sl-functions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.sl-function-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: var(--sl-shadow);
+  transition: transform 0.2s;
+}
+
+.sl-function-card:hover {
+  transform: translateY(-3px);
+}
+
+.sl-function-icon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.sl-function-card h4 {
+  font-size: 0.95rem;
+  color: var(--sl-dark);
+  margin-bottom: 6px;
+}
+
+.sl-function-card p {
+  font-size: 0.82rem;
+  color: var(--sl-text-light);
+  line-height: 1.5;
+}
+
+/* ============================================
+   8. GARANCIA ÉS SZERVIZ
+   ============================================ */
+.sl-warranty {
+  padding: var(--sl-section-padding);
+}
+
+.sl-warranty-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sl-warranty-header h2 {
+  font-size: 1.8rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-warranty-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.sl-warranty-item {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--sl-bg-alt);
+  border-radius: var(--sl-radius);
+  border: 1px solid var(--sl-border);
+  transition: box-shadow 0.2s;
+}
+
+.sl-warranty-item:hover {
+  box-shadow: var(--sl-shadow);
+}
+
+.sl-warranty-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--sl-primary-light);
+  color: var(--sl-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 16px;
+}
+
+.sl-warranty-item h3 {
+  font-size: 1.05rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-warranty-item p {
+  font-size: 0.88rem;
+  color: var(--sl-text-light);
+  line-height: 1.6;
+}
+
+/* ============================================
+   9. ALSÓ CTA
+   ============================================ */
+.sl-bottom-cta {
+  background: linear-gradient(135deg, var(--sl-primary) 0%, var(--sl-primary-dark) 100%);
+  padding: 60px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.sl-bottom-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.sl-bottom-cta p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sl-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Shared button styles */
+.sl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sl-btn-primary {
+  background: var(--sl-accent);
+  color: #fff;
+}
+
+.sl-btn-primary:hover {
+  background: var(--sl-accent-hover);
+  transform: translateY(-1px);
+}
+
+.sl-btn-secondary {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.sl-btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.sl-btn-white {
+  background: #fff;
+  color: var(--sl-primary);
+}
+
+.sl-btn-white:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.sl-btn-outline-white {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.sl-btn-outline-white:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.sl-cta-phone {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.sl-cta-phone a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ============================================
+   10. KAPCSOLÓDÓ TERMÉKEK
+   ============================================ */
+.sl-related {
+  padding: var(--sl-section-padding);
+  background: var(--sl-bg-alt);
+  border-top: 1px solid var(--sl-border);
+}
+
+.sl-related-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sl-related-header h2 {
+  font-size: 1.6rem;
+  color: var(--sl-dark);
+  margin-bottom: 8px;
+}
+
+.sl-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.sl-product-card {
+  background: #fff;
+  border-radius: var(--sl-radius);
+  overflow: hidden;
+  box-shadow: var(--sl-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sl-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sl-shadow-lg);
+}
+
+.sl-product-card-image {
+  aspect-ratio: 4/3;
+  background: var(--sl-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sl-primary);
+  font-size: 0.85rem;
+}
+
+.sl-product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sl-product-card-body {
+  padding: 18px;
+}
+
+.sl-product-card-body h3 {
+  font-size: 1rem;
+  color: var(--sl-dark);
+  margin-bottom: 6px;
+}
+
+.sl-product-card-body p {
+  font-size: 0.85rem;
+  color: var(--sl-text-light);
+  margin-bottom: 10px;
+}
+
+.sl-product-card-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--sl-primary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 968px) {
+  .sl-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sl-video-grid,
+  .sl-feature-row,
+  .sl-training-grid,
+  .sl-expert-card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .sl-feature-row.sl-reversed .sl-feature-image,
+  .sl-feature-row.sl-reversed .sl-feature-content {
+    order: unset;
+  }
+  .sl-testimonials {
+    grid-template-columns: 1fr;
+  }
+  .sl-functions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sl-warranty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sl-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sl-expert-card {
+    text-align: center;
+    padding: 36px 28px;
+  }
+  .sl-expert-photo-placeholder,
+  .sl-expert-photo {
+    margin: 0 auto;
+  }
+  .sl-expert-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --sl-section-padding: 50px 0;
+  }
+  .sl-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .sl-stat-number {
+    font-size: 1.8rem;
+  }
+  .sl-functions-grid {
+    grid-template-columns: 1fr;
+  }
+  .sl-warranty-grid {
+    grid-template-columns: 1fr;
+  }
+  .sl-related-grid {
+    grid-template-columns: 1fr;
+  }
+  .sl-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sl-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .sl-bottom-cta h2 {
+    font-size: 1.5rem;
+  }
+  .sl-feature-content h3 {
+    font-size: 1.3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     A HERO RÉSZ (kép, név, ár, CTA) A WEBSHOP
+     PLATFORMBÓL JÖN – EZ A SABLON ALATTA INDUL
+     ============================================ -->
+
+
+<!-- =============================================
+     1. USP STATS BAR
+     Cseréld a számokat és címkéket termékenként
+     ============================================= -->
+<section class="sl-stats-bar">
+  <div class="sl-container">
+    <div class="sl-stats-grid">
+      <div class="sl-stat-item">
+        <div class="sl-stat-number">2 <span>év</span></div>
+        <div class="sl-stat-label">Garancia</div>
+      </div>
+      <div class="sl-stat-item">
+        <div class="sl-stat-number">8+1</div>
+        <div class="sl-stat-label">Funkció egyben</div>
+      </div>
+      <div class="sl-stat-item">
+        <div class="sl-stat-number">30 <span>perc</span></div>
+        <div class="sl-stat-label">Kezelési idő</div>
+      </div>
+      <div class="sl-stat-item">
+        <div class="sl-stat-number">100<span>%</span></div>
+        <div class="sl-stat-label">Fájdalommentes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     2. VIDEO + LEÍRÁS
+     YouTube ID-t és szöveget cseréld
+     ============================================= -->
+<section class="sl-video-section">
+  <div class="sl-container">
+    <div class="sl-video-grid">
+      <div class="sl-video-wrapper">
+        <!-- YOUTUBE EMBED – cseréld a VIDEO_ID-t -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID}}"
+          title="{{TERMÉK_NÉV}} bemutató"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="sl-video-text">
+        <h2>{{VIDEO_SZEKCIÓ_CÍM}}</h2>
+        <p>{{VIDEO_SZEKCIÓ_BEKEZDÉS_1}}</p>
+        <p>{{VIDEO_SZEKCIÓ_BEKEZDÉS_2}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     3. SOCIAL PROOF
+     Véleményeket cseréld, vagy Trustindex widgetet szúrj be
+     ============================================= -->
+<section class="sl-social-proof">
+  <div class="sl-container">
+    <div class="sl-proof-header">
+      <h2>Amit ügyfeleink mondanak</h2>
+      <p>Valós vélemények szakemberektől, akik nap mint nap használják</p>
+    </div>
+
+    <div class="sl-testimonials">
+      <!-- VÉLEMÉNY 1 -->
+      <div class="sl-testimonial">
+        <div class="sl-testimonial-stars">★★★★★</div>
+        <p>„{{VÉLEMÉNY_1_SZÖVEG}}"</p>
+        <div class="sl-testimonial-author">{{VÉLEMÉNY_1_NÉV}}</div>
+        <div class="sl-testimonial-role">{{VÉLEMÉNY_1_TITULUS}}</div>
+      </div>
+
+      <!-- VÉLEMÉNY 2 -->
+      <div class="sl-testimonial">
+        <div class="sl-testimonial-stars">★★★★★</div>
+        <p>„{{VÉLEMÉNY_2_SZÖVEG}}"</p>
+        <div class="sl-testimonial-author">{{VÉLEMÉNY_2_NÉV}}</div>
+        <div class="sl-testimonial-role">{{VÉLEMÉNY_2_TITULUS}}</div>
+      </div>
+
+      <!-- VÉLEMÉNY 3 -->
+      <div class="sl-testimonial">
+        <div class="sl-testimonial-stars">★★★★★</div>
+        <p>„{{VÉLEMÉNY_3_SZÖVEG}}"</p>
+        <div class="sl-testimonial-author">{{VÉLEMÉNY_3_NÉV}}</div>
+        <div class="sl-testimonial-role">{{VÉLEMÉNY_3_TITULUS}}</div>
+      </div>
+    </div>
+
+    <!-- Opcionális: Trustindex widget ide -->
+    <div class="sl-trustindex-placeholder">
+      <!-- TRUSTINDEX WIDGET KÓDJA IDE -->
+      [Trustindex / Google Reviews widget helye]
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     4. 5x PAIN → SOLUTION FEATURE ROWS
+     Váltakozó elrendezés: kép bal/jobb
+     ============================================= -->
+<section class="sl-features">
+  <div class="sl-container">
+    <div class="sl-features-header">
+      <h2>{{FEATURES_FŐCÍM}}</h2>
+      <p>{{FEATURES_ALCÍM}}</p>
+    </div>
+
+    <!-- FEATURE 1 – kép bal, szöveg jobb -->
+    <div class="sl-feature-row">
+      <div class="sl-feature-image-placeholder">
+        [{{FEATURE_1_KÉP_LEÍRÁS}}]
+      </div>
+      <div class="sl-feature-content">
+        <div class="sl-feature-pain">{{FEATURE_1_PAIN}}</div>
+        <h3>{{FEATURE_1_CÍM}}</h3>
+        <p>{{FEATURE_1_SZÖVEG}}</p>
+        <div class="sl-feature-highlight">
+          <div class="sl-feature-highlight-icon">✓</div>
+          <p>{{FEATURE_1_HIGHLIGHT}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE 2 – fordított: szöveg bal, kép jobb -->
+    <div class="sl-feature-row sl-reversed">
+      <div class="sl-feature-image-placeholder">
+        [{{FEATURE_2_KÉP_LEÍRÁS}}]
+      </div>
+      <div class="sl-feature-content">
+        <div class="sl-feature-pain">{{FEATURE_2_PAIN}}</div>
+        <h3>{{FEATURE_2_CÍM}}</h3>
+        <p>{{FEATURE_2_SZÖVEG}}</p>
+        <div class="sl-feature-highlight">
+          <div class="sl-feature-highlight-icon">✓</div>
+          <p>{{FEATURE_2_HIGHLIGHT}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE 3 – kép bal -->
+    <div class="sl-feature-row">
+      <div class="sl-feature-image-placeholder">
+        [{{FEATURE_3_KÉP_LEÍRÁS}}]
+      </div>
+      <div class="sl-feature-content">
+        <div class="sl-feature-pain">{{FEATURE_3_PAIN}}</div>
+        <h3>{{FEATURE_3_CÍM}}</h3>
+        <p>{{FEATURE_3_SZÖVEG}}</p>
+        <div class="sl-feature-highlight">
+          <div class="sl-feature-highlight-icon">✓</div>
+          <p>{{FEATURE_3_HIGHLIGHT}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE 4 – fordított -->
+    <div class="sl-feature-row sl-reversed">
+      <div class="sl-feature-image-placeholder">
+        [{{FEATURE_4_KÉP_LEÍRÁS}}]
+      </div>
+      <div class="sl-feature-content">
+        <div class="sl-feature-pain">{{FEATURE_4_PAIN}}</div>
+        <h3>{{FEATURE_4_CÍM}}</h3>
+        <p>{{FEATURE_4_SZÖVEG}}</p>
+        <div class="sl-feature-highlight">
+          <div class="sl-feature-highlight-icon">✓</div>
+          <p>{{FEATURE_4_HIGHLIGHT}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE 5 – kép bal -->
+    <div class="sl-feature-row">
+      <div class="sl-feature-image-placeholder">
+        [{{FEATURE_5_KÉP_LEÍRÁS}}]
+      </div>
+      <div class="sl-feature-content">
+        <div class="sl-feature-pain">{{FEATURE_5_PAIN}}</div>
+        <h3>{{FEATURE_5_CÍM}}</h3>
+        <p>{{FEATURE_5_SZÖVEG}}</p>
+        <div class="sl-feature-highlight">
+          <div class="sl-feature-highlight-icon">✓</div>
+          <p>{{FEATURE_5_HIGHLIGHT}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     5. KÉPZÉS SZEKCIÓ
+     ============================================= -->
+<section class="sl-training">
+  <div class="sl-container">
+    <div class="sl-training-grid">
+      <div class="sl-training-content">
+        <h2>{{KÉPZÉS_CÍM}}</h2>
+        <div class="sl-training-badge">🎓 {{KÉPZÉS_BADGE}}</div>
+        <p>{{KÉPZÉS_BEVEZETŐ}}</p>
+        <ul class="sl-training-list">
+          <li>{{KÉPZÉS_PONT_1}}</li>
+          <li>{{KÉPZÉS_PONT_2}}</li>
+          <li>{{KÉPZÉS_PONT_3}}</li>
+          <li>{{KÉPZÉS_PONT_4}}</li>
+          <li>{{KÉPZÉS_PONT_5}}</li>
+          <li>{{KÉPZÉS_PONT_6}}</li>
+        </ul>
+      </div>
+      <div class="sl-training-card">
+        <h3>Gépkezelői képzés</h3>
+        <div class="sl-training-price">{{KÉPZÉS_ÁR}}</div>
+        <div class="sl-training-price-note">Hivatalos felnőttképzés keretében</div>
+        <div class="sl-training-free">🎁 {{KÉPZÉS_INGYENES_SZÖVEG}}</div>
+        <ul class="sl-training-card-list">
+          <li>📅 {{KÉPZÉS_IDŐTARTAM}}</li>
+          <li>📜 Hivatalos tanúsítvány</li>
+          <li>👩‍🔬 Gyakorlat modelleken</li>
+          <li>📖 Elméleti + gyakorlati oktatás</li>
+        </ul>
+        <a href="#cta" class="sl-btn sl-btn-primary" style="width:100%; justify-content:center;">
+          Érdekel a képzés
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     6. SZAKÉRTŐI AJÁNLÁS
+     ============================================= -->
+<section class="sl-expert">
+  <div class="sl-container">
+    <div class="sl-expert-card">
+      <div class="sl-expert-photo-placeholder">
+        [Portré]
+      </div>
+      <div class="sl-expert-body">
+        <div class="sl-expert-label">A szakértő ajánlása</div>
+        <h2>{{SZAKÉRTŐ_CÍM}}</h2>
+        <p>{{SZAKÉRTŐ_SZÖVEG_1}}</p>
+        <p>{{SZAKÉRTŐ_SZÖVEG_2}}</p>
+        <div class="sl-expert-name">{{SZAKÉRTŐ_NÉV}}</div>
+        <div class="sl-expert-title">{{SZAKÉRTŐ_TITULUS}}</div>
+        <div class="sl-expert-cta">
+          <a href="#cta" class="sl-btn sl-btn-white">Ingyenes konzultáció</a>
+          <a href="tel:{{TELEFON}}" class="sl-btn sl-btn-outline-white">📞 Hívás most</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     7. MŰSZAKI ADATOK
+     ============================================= -->
+<section class="sl-specs">
+  <div class="sl-container">
+    <div class="sl-specs-header">
+      <h2>Műszaki adatok</h2>
+      <p>{{SPECS_ALCÍM}}</p>
+    </div>
+
+    <div class="sl-table-scroll">
+      <table class="sl-specs-table">
+        <thead>
+          <tr>
+            <th>Paraméter</th>
+            <th>Érték</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="sl-spec-label">{{SPEC_1_NÉV}}</td><td>{{SPEC_1_ÉRTÉK}}</td></tr>
+          <tr><td class="sl-spec-label">{{SPEC_2_NÉV}}</td><td>{{SPEC_2_ÉRTÉK}}</td></tr>
+          <tr><td class="sl-spec-label">{{SPEC_3_NÉV}}</td><td>{{SPEC_3_ÉRTÉK}}</td></tr>
+          <tr><td class="sl-spec-label">{{SPEC_4_NÉV}}</td><td>{{SPEC_4_ÉRTÉK}}</td></tr>
+          <tr><td class="sl-spec-label">{{SPEC_5_NÉV}}</td><td>{{SPEC_5_ÉRTÉK}}</td></tr>
+          <tr><td class="sl-spec-label">{{SPEC_6_NÉV}}</td><td>{{SPEC_6_ÉRTÉK}}</td></tr>
+          <!-- További sorok szükség szerint -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Opcionális: Funkció kártyák (kezelőfejek stb.) -->
+    <div class="sl-functions-grid">
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_1_IKON}}</div>
+        <h4>{{FUNKCIÓ_1_NÉV}}</h4>
+        <p>{{FUNKCIÓ_1_LEÍRÁS}}</p>
+      </div>
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_2_IKON}}</div>
+        <h4>{{FUNKCIÓ_2_NÉV}}</h4>
+        <p>{{FUNKCIÓ_2_LEÍRÁS}}</p>
+      </div>
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_3_IKON}}</div>
+        <h4>{{FUNKCIÓ_3_NÉV}}</h4>
+        <p>{{FUNKCIÓ_3_LEÍRÁS}}</p>
+      </div>
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_4_IKON}}</div>
+        <h4>{{FUNKCIÓ_4_NÉV}}</h4>
+        <p>{{FUNKCIÓ_4_LEÍRÁS}}</p>
+      </div>
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_5_IKON}}</div>
+        <h4>{{FUNKCIÓ_5_NÉV}}</h4>
+        <p>{{FUNKCIÓ_5_LEÍRÁS}}</p>
+      </div>
+      <div class="sl-function-card">
+        <div class="sl-function-icon">{{FUNKCIÓ_6_IKON}}</div>
+        <h4>{{FUNKCIÓ_6_NÉV}}</h4>
+        <p>{{FUNKCIÓ_6_LEÍRÁS}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     8. GARANCIA ÉS SZERVIZ
+     ============================================= -->
+<section class="sl-warranty">
+  <div class="sl-container">
+    <div class="sl-warranty-header">
+      <h2>Garancia és szerviz</h2>
+    </div>
+    <div class="sl-warranty-grid">
+      <div class="sl-warranty-item">
+        <div class="sl-warranty-icon">🛡️</div>
+        <h3>{{GARANCIA_IDEJÉ}}</h3>
+        <p>{{GARANCIA_SZÖVEG}}</p>
+      </div>
+      <div class="sl-warranty-item">
+        <div class="sl-warranty-icon">🔧</div>
+        <h3>Saját szerviz</h3>
+        <p>{{SZERVIZ_SZÖVEG}}</p>
+      </div>
+      <div class="sl-warranty-item">
+        <div class="sl-warranty-icon">📦</div>
+        <h3>Alkatrész</h3>
+        <p>{{ALKATRÉSZ_SZÖVEG}}</p>
+      </div>
+      <div class="sl-warranty-item">
+        <div class="sl-warranty-icon">📞</div>
+        <h3>Támogatás</h3>
+        <p>{{TÁMOGATÁS_SZÖVEG}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     9. ALSÓ CTA
+     ============================================= -->
+<section class="sl-bottom-cta" id="cta">
+  <div class="sl-container">
+    <h2>{{ALSÓ_CTA_CÍM}}</h2>
+    <p>{{ALSÓ_CTA_SZÖVEG}}</p>
+    <div class="sl-cta-buttons">
+      <a href="{{KONZULTÁCIÓ_URL}}" class="sl-btn sl-btn-white">Ingyenes konzultáció</a>
+      <a href="tel:{{TELEFON}}" class="sl-btn sl-btn-outline-white">📞 Hívás most</a>
+    </div>
+    <div class="sl-cta-phone">
+      <a href="tel:{{TELEFON}}">{{TELEFON_KIÍRVA}}</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     10. KAPCSOLÓDÓ TERMÉKEK
+     ============================================= -->
+<section class="sl-related">
+  <div class="sl-container">
+    <div class="sl-related-header">
+      <h2>Kapcsolódó termékek</h2>
+    </div>
+    <div class="sl-related-grid">
+
+      <a href="{{KAPCSOLÓDÓ_1_URL}}" class="sl-product-card">
+        <div class="sl-product-card-image">[{{KAPCSOLÓDÓ_1_KÉP}}]</div>
+        <div class="sl-product-card-body">
+          <h3>{{KAPCSOLÓDÓ_1_NÉV}}</h3>
+          <p>{{KAPCSOLÓDÓ_1_LEÍRÁS}}</p>
+          <div class="sl-product-card-price">{{KAPCSOLÓDÓ_1_ÁR}}</div>
+        </div>
+      </a>
+
+      <a href="{{KAPCSOLÓDÓ_2_URL}}" class="sl-product-card">
+        <div class="sl-product-card-image">[{{KAPCSOLÓDÓ_2_KÉP}}]</div>
+        <div class="sl-product-card-body">
+          <h3>{{KAPCSOLÓDÓ_2_NÉV}}</h3>
+          <p>{{KAPCSOLÓDÓ_2_LEÍRÁS}}</p>
+          <div class="sl-product-card-price">{{KAPCSOLÓDÓ_2_ÁR}}</div>
+        </div>
+      </a>
+
+      <a href="{{KAPCSOLÓDÓ_3_URL}}" class="sl-product-card">
+        <div class="sl-product-card-image">[{{KAPCSOLÓDÓ_3_KÉP}}]</div>
+        <div class="sl-product-card-body">
+          <h3>{{KAPCSOLÓDÓ_3_NÉV}}</h3>
+          <p>{{KAPCSOLÓDÓ_3_LEÍRÁS}}</p>
+          <div class="sl-product-card-price">{{KAPCSOLÓDÓ_3_ÁR}}</div>
+        </div>
+      </a>
+
+      <a href="{{KAPCSOLÓDÓ_4_URL}}" class="sl-product-card">
+        <div class="sl-product-card-image">[{{KAPCSOLÓDÓ_4_KÉP}}]</div>
+        <div class="sl-product-card-body">
+          <h3>{{KAPCSOLÓDÓ_4_NÉV}}</h3>
+          <p>{{KAPCSOLÓDÓ_4_LEÍRÁS}}</p>
+          <div class="sl-product-card-price">{{KAPCSOLÓDÓ_4_ÁR}}</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

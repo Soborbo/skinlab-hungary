@@ -1,29 +1,24 @@
 ---
 /**
  * ROICalculator - Megtérülés kalkulátor komponens
- * Jelentőségteljes megjelenés, de max ~90vh asztali nézetben.
+ *
+ * Props-based: locale for i18n, defaultTreatmentPrice from product content.
+ * All labels use t(locale, 'roi.*'). Client-side JS uses data-locale.
  */
 
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl } from '@/i18n/ui';
+
 interface Props {
+  locale: Locale;
   productPrice?: number | null;
   productName?: string;
-  category?: string;
+  defaultTreatmentPrice?: number;
 }
 
-const { productPrice, productName = 'gép', category = 'diodalezerek' } = Astro.props;
+const { locale, productPrice, productName = '', defaultTreatmentPrice = 15000 } = Astro.props;
 
-// Default kezelési díjak kategóriánként (forint)
-const defaultTreatmentPrices: Record<string, number> = {
-  'diodalezerek': 15000,
-  'hydrafacial': 25000,
-  'nd-yag-lezerek': 20000,
-  'pico-lezerek': 25000,
-  'hiemt': 30000,
-  'anti-aging': 35000,
-  'sminktetovalas': 50000,
-};
-
-const defaultTreatmentPrice = defaultTreatmentPrices[category] || 15000;
 const hasPrice = productPrice && productPrice > 0;
 
 // Format price for display
@@ -40,18 +35,18 @@ const formatPriceDisplay = (price: number) => {
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
-        Megtérülés kalkulátor
+        {t(locale, 'roi.badge')}
       </div>
       <h2 class="text-2xl lg:text-4xl font-bold text-gray-900 mb-2">
-        Mennyi idő alatt térül meg a befektetés?
+        {t(locale, 'roi.title')}
       </h2>
       <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-        Számold ki az adataid alapján
+        {t(locale, 'roi.subtitle')}
       </p>
     </div>
 
     <!-- Calculator Card -->
-    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden" id="roi-calculator">
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden" id="roi-calculator" data-locale={locale}>
       <div class="grid lg:grid-cols-2">
 
         <!-- Input Side -->
@@ -62,11 +57,11 @@ const formatPriceDisplay = (price: number) => {
               <!-- Machine Price -->
               <div>
                 <label for="machine-price" class="block text-sm font-bold text-gray-700 mb-2">
-                  Gép ára (bruttó)
+                  {t(locale, 'roi.machinePrice')}
                 </label>
                 {hasPrice ? (
                   <div class="px-4 py-3 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl text-xl font-bold text-gray-900 border border-gray-200">
-                    {formatPriceDisplay(productPrice)} Ft
+                    {formatPriceDisplay(productPrice)} {t(locale, 'roi.currency')}
                     <input type="hidden" id="machine-price" value={productPrice} />
                   </div>
                 ) : (
@@ -74,12 +69,12 @@ const formatPriceDisplay = (price: number) => {
                     <input
                       type="number"
                       id="machine-price"
-                      placeholder="Add meg az árát"
+                      placeholder={t(locale, 'roi.machinePricePlaceholder')}
                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-semibold pr-12"
                       min="0"
                       step="10000"
                     />
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Ft</span>
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">{t(locale, 'roi.currency')}</span>
                   </div>
                 )}
               </div>
@@ -87,7 +82,7 @@ const formatPriceDisplay = (price: number) => {
               <!-- Treatment Price -->
               <div>
                 <label for="treatment-price" class="block text-sm font-bold text-gray-700 mb-2">
-                  Átlagos kezelési díj
+                  {t(locale, 'roi.treatmentPrice')}
                 </label>
                 <div class="relative">
                   <input
@@ -98,7 +93,7 @@ const formatPriceDisplay = (price: number) => {
                     min="1000"
                     step="1000"
                   />
-                  <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">Ft</span>
+                  <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">{t(locale, 'roi.currency')}</span>
                 </div>
               </div>
             </div>
@@ -108,7 +103,7 @@ const formatPriceDisplay = (price: number) => {
               <!-- Daily Clients -->
               <div class="bg-gray-50 rounded-xl p-4">
                 <label class="block text-sm font-bold text-gray-700 mb-3">
-                  Napi vendégszám
+                  {t(locale, 'roi.treatmentsPerDay')}
                 </label>
                 <div class="flex items-center gap-4">
                   <input
@@ -121,7 +116,7 @@ const formatPriceDisplay = (price: number) => {
                   />
                   <div class="w-16 text-center">
                     <span id="clients-value" class="text-2xl font-bold text-primary-600">3</span>
-                    <span class="text-sm text-gray-500 block">fő</span>
+                    <span class="text-sm text-gray-500 block">{t(locale, 'roi.persons')}</span>
                   </div>
                 </div>
               </div>
@@ -129,7 +124,7 @@ const formatPriceDisplay = (price: number) => {
               <!-- Working Days -->
               <div class="bg-gray-50 rounded-xl p-4">
                 <label class="block text-sm font-bold text-gray-700 mb-3">
-                  Munkanapok havonta
+                  {t(locale, 'roi.workingDays')}
                 </label>
                 <div class="flex items-center gap-4">
                   <input
@@ -142,7 +137,7 @@ const formatPriceDisplay = (price: number) => {
                   />
                   <div class="w-16 text-center">
                     <span id="days-value" class="text-2xl font-bold text-primary-600">22</span>
-                    <span class="text-sm text-gray-500 block">nap</span>
+                    <span class="text-sm text-gray-500 block">{t(locale, 'roi.days')}</span>
                   </div>
                 </div>
               </div>
@@ -152,9 +147,9 @@ const formatPriceDisplay = (price: number) => {
             <div class="bg-gray-50 rounded-xl p-4">
               <div class="flex items-center justify-between mb-3">
                 <label class="text-sm font-bold text-gray-700">
-                  Haszonkulcs
+                  {t(locale, 'roi.profitMargin')}
                 </label>
-                <span class="text-xs text-gray-500">(rezsi és anyagköltség levonása után)</span>
+                <span class="text-xs text-gray-500">{t(locale, 'roi.profitMarginNote')}</span>
               </div>
               <div class="flex items-center gap-4">
                 <input
@@ -183,10 +178,10 @@ const formatPriceDisplay = (price: number) => {
           <div class="relative z-10">
             <!-- ROI Time - Hero -->
             <div class="text-center mb-8">
-              <div class="text-sm font-semibold text-primary-200 uppercase tracking-widest mb-2">Megtérülési idő</div>
+              <div class="text-sm font-semibold text-primary-200 uppercase tracking-widest mb-2" data-roi-label="paybackPeriod">{t(locale, 'roi.paybackPeriod')}</div>
               <div class="flex items-baseline justify-center gap-2">
                 <span class="text-7xl lg:text-8xl font-black leading-none" id="roi-months">-</span>
-                <span class="text-2xl lg:text-3xl font-semibold text-primary-200">hónap</span>
+                <span class="text-2xl lg:text-3xl font-semibold text-primary-200" data-roi-label="perMonth">{t(locale, 'roi.perMonth')}</span>
               </div>
             </div>
 
@@ -196,24 +191,24 @@ const formatPriceDisplay = (price: number) => {
             <!-- Stats Grid -->
             <div class="grid grid-cols-2 gap-4 mb-6">
               <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">Havi bevétel</div>
+                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">{t(locale, 'roi.monthlyRevenue')}</div>
                 <div class="text-xl lg:text-2xl font-bold" id="monthly-revenue">-</div>
               </div>
               <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">Havi haszon</div>
+                <div class="text-xs font-semibold text-primary-200 uppercase tracking-wide mb-1">{t(locale, 'roi.monthlyProfit')}</div>
                 <div class="text-xl lg:text-2xl font-bold" id="monthly-profit">-</div>
               </div>
             </div>
 
             <!-- Yearly Profit - Highlighted -->
             <div class="bg-gradient-to-r from-green-500/30 to-emerald-500/30 backdrop-blur rounded-xl p-5 text-center border border-green-400/30">
-              <div class="text-sm font-semibold text-green-200 uppercase tracking-wide mb-1">Éves tiszta haszon</div>
+              <div class="text-sm font-semibold text-green-200 uppercase tracking-wide mb-1">{t(locale, 'roi.yearlyRevenue')}</div>
               <div class="text-3xl lg:text-4xl font-black text-green-300" id="yearly-profit">-</div>
             </div>
 
             <!-- Note -->
             <p class="text-xs text-primary-300 text-center mt-6">
-              * Kalkuláció becsült értékek alapján, egyéni eredmények eltérhetnek
+              {t(locale, 'roi.disclaimer')}
             </p>
           </div>
         </div>
@@ -223,10 +218,10 @@ const formatPriceDisplay = (price: number) => {
     <!-- CTA below -->
     <div class="mt-6 text-center">
       <a
-        href="/kapcsolat"
+        href={getLocalizedUrl(locale, '/kapcsolat')}
         class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-base group"
       >
-        Kérj személyre szabott kalkulációt szakértőnktől
+        {t(locale, 'roi.personalCalculation')}
         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
@@ -239,6 +234,8 @@ const formatPriceDisplay = (price: number) => {
   function initROICalculator() {
     const calculator = document.getElementById('roi-calculator');
     if (!calculator) return;
+
+    const dataLocale = calculator.getAttribute('data-locale') || 'hu';
 
     const machinePrice = document.getElementById('machine-price') as HTMLInputElement;
     const treatmentPrice = document.getElementById('treatment-price') as HTMLInputElement;
@@ -255,11 +252,18 @@ const formatPriceDisplay = (price: number) => {
     const monthlyProfit = document.getElementById('monthly-profit');
     const yearlyProfit = document.getElementById('yearly-profit');
 
+    // Map locale to Intl locale
+    const intlLocaleMap: Record<string, string> = {
+      hu: 'hu-HU', en: 'en-US', sk: 'sk-SK', ro: 'ro-RO',
+      de: 'de-DE', cs: 'cs-CZ', hr: 'hr-HR', sr: 'sr-RS', sl: 'sl-SI',
+    };
+    const intlLocale = intlLocaleMap[dataLocale] || 'hu-HU';
+
     function formatNumber(num: number): string {
       if (num >= 1000000) {
         return (num / 1000000).toFixed(1) + ' M Ft';
       }
-      return new Intl.NumberFormat('hu-HU').format(Math.round(num)) + ' Ft';
+      return new Intl.NumberFormat(intlLocale).format(Math.round(num)) + ' Ft';
     }
 
     function calculate() {

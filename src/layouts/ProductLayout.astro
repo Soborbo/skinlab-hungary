@@ -1,23 +1,40 @@
 ---
+/**
+ * ProductLayout - Unified product page layout
+ *
+ * Section order (matches hydrascan-pro reference):
+ * Hero → Stats → ROI → VideoDescription → CTA(light) → FeatureRows → CTA(accent) →
+ * Training → Testimonials → Expert → TechSpecs+FunctionCards → FAQ →
+ * WhatsIncluded → Warranty → CTA(primary) → Related
+ *
+ * i18n-aware: uses loadProductContent for locale-specific content,
+ * t() for UI chrome, getLocalizedUrl for links.
+ */
+
 import BaseLayout from './BaseLayout.astro';
 import ProductGallery from '../components/product/ProductGallery.astro';
-import ROICalculator from '../components/product/ROICalculator.astro';
 import StatsBar from '../components/product/StatsBar.astro';
-import ProductFAQ from '../components/product/ProductFAQ.astro';
-import WhatsIncluded from '../components/product/WhatsIncluded.astro';
-import VideoDemo from '../components/product/VideoDemo.astro';
-import TechSpecs from '../components/product/TechSpecs.astro';
+import ROICalculator from '../components/product/ROICalculator.astro';
+import VideoDescription from '../components/product/VideoDescription.astro';
+import ProductCTA from '../components/product/ProductCTA.astro';
+import FeatureRows from '../components/product/FeatureRows.astro';
+import TrainingCard from '../components/product/TrainingCard.astro';
 import Testimonials from '../components/product/Testimonials.astro';
 import ExpertQuote from '../components/product/ExpertQuote.astro';
+import FunctionCards from '../components/product/FunctionCards.astro';
+import WhatsIncluded from '../components/product/WhatsIncluded.astro';
+import BuyerChecklist from '../components/product/BuyerChecklist.astro';
+import ProductFAQ from '../components/product/ProductFAQ.astro';
 import WarrantyService from '../components/product/WarrantyService.astro';
-import ComparisonTable from '../components/product/ComparisonTable.astro';
-import ProblemSolution from '../components/product/ProblemSolution.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import InstallmentBadge from '../components/ui/InstallmentBadge.astro';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
-import { SITE, CONTACT, TRUST_BADGES, CATEGORIES } from '../lib/constants';
+import { SITE, CONTACT, CATEGORIES } from '../lib/constants';
+import { getLocaleFromUrl, t, getLocalizedUrl, formatPrice as i18nFormatPrice } from '@/i18n';
+import { loadProductContent } from '@/lib/load-product-content';
+import type { ProductContentStat, ProductContentFAQItem } from '@/lib/types/product-content';
 
 interface Variant {
   sku: string;
@@ -25,6 +42,7 @@ interface Variant {
   value: string;
   price: number | null;
   image?: string;
+  images?: string[];
 }
 
 interface Stat {
@@ -66,47 +84,68 @@ interface Props {
 
 const { product } = Astro.props;
 
+// Determine locale from URL
+const locale = getLocaleFromUrl(Astro.url);
+
+// Load localized product content (cascades: product JSON → category JSON → undefined)
+const { content } = loadProductContent(locale, product.slug, product.categorySlug);
+
+// Resolve content with fallbacks to collection data
+const displayName = content.name || product.name;
+const displayShortDesc = content.shortDescription || product.shortDescription;
+const displayDesc = content.description || product.description;
+const resolvedStats = (content.stats || product.stats || []) as ProductContentStat[];
+const resolvedFaq = (content.faq || product.faq || []) as ProductContentFAQItem[];
+const resolvedWhatsIncluded = content.whatsIncluded || product.whatsIncluded || [];
+const resolvedSpecs = content.specs || product.specs || {} as Record<string, string>;
+const resolvedTestimonials = content.testimonials || [];
+const resolvedExpertQuote = content.expertQuote;
+const resolvedFunctionCards = content.functionCards || [];
+
 // Find category info
 const category = CATEGORIES.find(c => c.slug === product.categorySlug);
 const categoryName = category?.nameShort || product.categorySlug;
 
-// Format price
-const formatPrice = (price: number | null) => {
+// Format price with locale
+const displayPrice = (price: number | null) => {
   if (!price) return null;
-  return new Intl.NumberFormat('hu-HU').format(price) + ' Ft';
+  return i18nFormatPrice(price, locale);
 };
 
-// Availability info
-const availabilityInfo = {
-  in_stock: { label: 'Raktáron', color: 'success', icon: 'check' },
-  preorder: { label: 'Előrendelhető', color: 'amber', icon: 'clock' },
-  out_of_stock: { label: 'Nem elérhető', color: 'gray', icon: 'x' },
+// Availability info with i18n labels
+const availabilityInfo: Record<string, { label: string; color: string; icon: string }> = {
+  in_stock: { label: t(locale, 'product.inStock'), color: 'success', icon: 'check' },
+  preorder: { label: t(locale, 'product.preorder'), color: 'amber', icon: 'clock' },
+  out_of_stock: { label: t(locale, 'product.outOfStock'), color: 'gray', icon: 'x' },
 };
 const availability = availabilityInfo[product.availability];
 
 // Page URL
-const pageUrl = `${SITE.url}/${product.categorySlug}/${product.slug}`;
+const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}`;
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
-  { name: 'Főoldal', url: SITE.url },
-  { name: categoryName, url: `${SITE.url}/${product.categorySlug}` },
-  { name: product.name }
+  { name: t(locale, 'breadcrumb.home'), url: SITE.url },
+  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}` },
+  { name: displayName }
 ];
 
+// Extract first YouTube video URL
+const firstVideoUrl = product.youtubeVideos?.[0] || '';
+
 // FAQ questions for schema (if available)
-const faqQuestions = product.faq?.map(item => ({
+const faqQuestions = resolvedFaq.map(item => ({
   question: item.question,
   answer: item.answer
-})) || [];
+}));
 
-// Product schema (kept inline because ProductSchema component requires price)
+// Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": `${pageUrl}#product`,
-  "name": product.name,
-  "description": product.shortDescription || product.description?.slice(0, 200),
+  "name": displayName,
+  "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
   "brand": { "@type": "Brand", "name": "SkinLab" },
   "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
@@ -157,6 +196,14 @@ const productSchema = product.price ? {
   }
 } : null;
 
+// Trust badges with i18n keys
+const trustBadges = [
+  { icon: 'shield-check', labelKey: 'trust.warranty' },
+  { icon: 'truck', labelKey: 'trust.shipping' },
+  { icon: 'graduation-cap', labelKey: 'trust.training' },
+  { icon: 'wrench', labelKey: 'trust.service' },
+];
+
 // Trust badge icons
 const icons: Record<string, string> = {
   'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
@@ -165,16 +212,23 @@ const icons: Record<string, string> = {
   'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
 };
 
-// All images for gallery
+// All images for gallery (fallback when no variant image sets)
 const allImages = [
   product.image,
   ...product.gallery
 ].filter(Boolean);
+
+// Build variant image sets (only if variants have per-variant images)
+const variantImageSets = product.hasVariants && product.variants.some(v => v.images && v.images.length > 0)
+  ? product.variants
+      .filter(v => v.images && v.images.length > 0)
+      .map(v => ({ value: v.value, images: v.images! }))
+  : undefined;
 ---
 
 <BaseLayout
-  title={product.metaTitle || product.name}
-  description={product.metaDescription || product.shortDescription || product.description?.slice(0, 160)}
+  title={content.metaTitle || product.metaTitle || displayName}
+  description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
   schema={productSchema}
 >
   <!-- Schema.org Structured Data -->
@@ -188,19 +242,19 @@ const allImages = [
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol class="flex items-center gap-2 text-sm">
           <li>
-            <a href="/" class="text-gray-500 hover:text-primary-600">Főoldal</a>
+            <a href={getLocalizedUrl(locale, '/')} class="text-gray-500 hover:text-primary-600">{t(locale, 'breadcrumb.home')}</a>
           </li>
-          <li class="text-gray-400">›</li>
+          <li class="text-gray-400">&rsaquo;</li>
           <li>
-            <a href={`/${product.categorySlug}`} class="text-gray-500 hover:text-primary-600">{categoryName}</a>
+            <a href={getLocalizedUrl(locale, `/${product.categorySlug}`)} class="text-gray-500 hover:text-primary-600">{categoryName}</a>
           </li>
-          <li class="text-gray-400">›</li>
-          <li class="text-gray-900 font-medium truncate max-w-[200px]">{product.name}</li>
+          <li class="text-gray-400">&rsaquo;</li>
+          <li class="text-gray-900 font-medium truncate max-w-[200px]">{displayName}</li>
         </ol>
       </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="bg-white py-8 lg:py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
@@ -208,11 +262,12 @@ const allImages = [
           <!-- Media Gallery -->
           <ProductGallery
             images={allImages}
-            productName={product.name}
+            productName={displayName}
             badges={{
               featured: product.featured,
               variantCount: product.hasVariants ? product.variants.length : undefined
             }}
+            variantImageSets={variantImageSets}
           />
 
           <!-- Product Info -->
@@ -237,18 +292,18 @@ const allImages = [
             </div>
 
             <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              {product.name}
+              {displayName}
             </h1>
 
             <p class="text-lg text-gray-600 mb-6">
-              {product.shortDescription || product.description?.slice(0, 200)}
+              {displayShortDesc}
             </p>
 
             <!-- Variants (if any) -->
             {product.hasVariants && product.variants.length > 0 && (
               <div class="mb-6">
                 <label class="block text-sm font-medium text-gray-700 mb-2">
-                  Válassz variációt:
+                  {t(locale, 'product.selectVariant')}
                 </label>
                 <div class="flex flex-wrap gap-2">
                   {product.variants.map((variant, i) => (
@@ -260,6 +315,7 @@ const allImages = [
                           : 'border-gray-200 hover:border-primary-300 text-gray-700'
                       }`}
                       data-variant={variant.sku}
+                      data-variant-value={variant.value}
                       data-variant-image={variant.image}
                     >
                       {variant.name}
@@ -273,11 +329,11 @@ const allImages = [
             <div class="mb-6">
               {product.price ? (
                 <>
-                  <div class="text-3xl font-bold text-gray-900">{formatPrice(product.price)}</div>
-                  <div class="text-sm text-gray-500 mt-1">Bruttó ár (ÁFA-val)</div>
+                  <div class="text-3xl font-bold text-gray-900">{displayPrice(product.price)}</div>
+                  <div class="text-sm text-gray-500 mt-1">{t(locale, 'product.grossPrice')}</div>
                 </>
               ) : (
-                <div class="text-2xl font-bold text-primary-600">Kérjen egyedi ajánlatot!</div>
+                <div class="text-2xl font-bold text-primary-600">{t(locale, 'product.priceOnRequest')}</div>
               )}
             </div>
 
@@ -286,10 +342,10 @@ const allImages = [
 
             <!-- Trust badges mini -->
             <div class="grid grid-cols-2 gap-3 mb-8">
-              {TRUST_BADGES.map((badge) => (
+              {trustBadges.map((badge) => (
                 <div class="flex items-center gap-2 text-sm">
                   <svg class="w-5 h-5 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[badge.icon]} />
-                  <span class="text-gray-700">{badge.title}</span>
+                  <span class="text-gray-700">{t(locale, badge.labelKey)}</span>
                 </div>
               ))}
             </div>
@@ -297,10 +353,10 @@ const allImages = [
             <!-- CTAs -->
             <div class="flex flex-col sm:flex-row gap-3">
               <a
-                href="/kapcsolat"
+                href={getLocalizedUrl(locale, '/kapcsolat')}
                 class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors shadow-lg"
               >
-                Ingyenes konzultáció
+                {t(locale, 'product.freeConsultation')}
               </a>
               <a
                 href={CONTACT.phoneTel}
@@ -309,123 +365,199 @@ const allImages = [
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Hívás most
+                {t(locale, 'product.callNow')}
               </a>
             </div>
 
             <!-- SKU -->
             <div class="mt-6 text-xs text-gray-400">
-              Cikkszám: {product.sku}
+              {t(locale, 'product.sku')}: {product.sku}
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS BAR -->
-    <StatsBar stats={product.stats} category={product.categorySlug} />
+    <!-- 2. STATS BAR -->
+    {resolvedStats.length > 0 && (
+      <StatsBar locale={locale} stats={resolvedStats} />
+    )}
 
-    <!-- ROI CALCULATOR -->
+    <!-- 3. ROI CALCULATOR -->
     <ROICalculator
+      locale={locale}
       productPrice={product.price}
-      productName={product.name}
-      category={product.categorySlug}
+      productName={displayName}
+      defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
     />
 
-    <!-- VIDEO DEMO -->
-    <VideoDemo videos={product.youtubeVideos} productName={product.name} />
+    <!-- 4. VIDEO + DESCRIPTION -->
+    {content.videoDescription && (
+      <VideoDescription
+        locale={locale}
+        videoUrl={firstVideoUrl}
+        productName={displayName}
+        content={content.videoDescription}
+      />
+    )}
 
-    <!-- PROBLEM SOLUTION -->
-    <ProblemSolution
-      productName={product.name}
-      category={product.categorySlug}
+    <!-- CTA: after video -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="light"
+      headline={content.cta?.afterVideo?.text}
+      buttonLabel={content.cta?.afterVideo?.buttonLabel}
+      phoneLabel={content.cta?.afterVideo?.phoneLabel}
+      showPhone={true}
     />
 
-    <!-- DESCRIPTION SECTION -->
-    {product.description && (
-      <section class="py-12 bg-gray-50">
+    <!-- 5. FEATURE ROWS -->
+    {content.featureRows && (
+      <FeatureRows
+        locale={locale}
+        content={content.featureRows}
+      />
+    )}
+
+    <!-- CTA: after features -->
+    {content.featureRows && (
+      <ProductCTA
+        locale={locale}
+        productName={displayName}
+        variant="accent"
+        headline={content.cta?.afterFeatures?.headline}
+        subtitle={content.cta?.afterFeatures?.subtitle}
+        buttonLabel={content.cta?.afterFeatures?.buttonLabel}
+        showPhone={true}
+      />
+    )}
+
+    <!-- 6. TRAINING SECTION -->
+    {content.training && (
+      <TrainingCard
+        locale={locale}
+        content={content.training}
+      />
+    )}
+
+    <!-- 7. TESTIMONIALS -->
+    {resolvedTestimonials.length > 0 && (
+      <Testimonials
+        locale={locale}
+        testimonials={resolvedTestimonials}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 8. EXPERT QUOTE -->
+    {resolvedExpertQuote && (
+      <ExpertQuote
+        locale={locale}
+        quote={resolvedExpertQuote.quote}
+        author={resolvedExpertQuote.author}
+        role={resolvedExpertQuote.role}
+        image={resolvedExpertQuote.image}
+      />
+    )}
+
+    <!-- 9. TECH SPECS + FUNCTION CARDS -->
+    {(Object.keys(resolvedSpecs).length > 0 || resolvedFunctionCards.length > 0) && (
+      <section class="py-12 lg:py-16 bg-gray-50 border-t border-b border-gray-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Részletes leírás</h2>
-          <div class="prose prose-lg max-w-none text-gray-600 whitespace-pre-line">
-            <p>{product.description}</p>
+          <!-- Specs Header -->
+          <div class="text-center mb-10">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+              {t(locale, 'product.specs')}
+            </h2>
+            <p class="text-gray-600">
+              {t(locale, 'product.specsSubtitle', { productName: displayName })}
+            </p>
           </div>
+
+          <!-- Specs Table -->
+          {Object.keys(resolvedSpecs).length > 0 && (
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+              <dl class="divide-y divide-gray-200">
+                {Object.entries(resolvedSpecs).map(([key, value], index) => (
+                  <div class:list={[
+                    "flex flex-col sm:flex-row sm:items-center px-6 py-4",
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  ]}>
+                    <dt class="text-sm font-semibold text-gray-900 sm:w-1/3 mb-1 sm:mb-0">{key}</dt>
+                    <dd class="text-sm text-gray-600 sm:w-2/3">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+
+          <!-- Download CTA -->
+          <div class="mt-8 text-center">
+            <a href={getLocalizedUrl(locale, '/kapcsolat')} class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              {t(locale, 'product.downloadDatasheet')}
+            </a>
+          </div>
+
+          <!-- Function Cards -->
+          {resolvedFunctionCards.length > 0 && (
+            <FunctionCards
+              locale={locale}
+              functions={resolvedFunctionCards}
+            />
+          )}
         </div>
       </section>
     )}
 
-    <!-- TECH SPECS -->
-    <TechSpecs
-      specs={product.specs}
-      productName={product.name}
-      category={product.categorySlug}
+    <!-- 10. FAQ -->
+    {resolvedFaq.length > 0 && (
+      <ProductFAQ
+        locale={locale}
+        faq={resolvedFaq}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 10.5 BUYER CHECKLIST -->
+    {content.buyerChecklist && content.buyerChecklist.items.length > 0 && (
+      <BuyerChecklist
+        locale={locale}
+        headline={content.buyerChecklist.headline}
+        subtitle={content.buyerChecklist.subtitle}
+        items={content.buyerChecklist.items}
+      />
+    )}
+
+    <!-- 11. WHATS INCLUDED -->
+    {resolvedWhatsIncluded.length > 0 && (
+      <WhatsIncluded
+        locale={locale}
+        items={resolvedWhatsIncluded}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 12. WARRANTY -->
+    <WarrantyService locale={locale} productName={displayName} />
+
+    <!-- 13. CTA SECTION -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="primary"
+      headline={content.cta?.final?.headline}
+      subtitle={content.cta?.final?.subtitle}
+      buttonLabel={content.cta?.final?.buttonLabel}
+      showPhone={true}
     />
 
-    <!-- COMPARISON TABLE -->
-    <ComparisonTable
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- WHATS INCLUDED -->
-    <WhatsIncluded
-      items={product.whatsIncluded}
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- PRODUCT FAQ -->
-    <ProductFAQ
-      faq={product.faq}
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- TESTIMONIALS -->
-    <Testimonials
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- EXPERT QUOTE -->
-    <ExpertQuote
-      productName={product.name}
-      category={product.categorySlug}
-    />
-
-    <!-- WARRANTY & SERVICE -->
-    <WarrantyService productName={product.name} />
-
-    <!-- CTA SECTION -->
-    <section class="py-16 bg-primary-600">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
-          Érdekel a {product.name}?
-        </h2>
-        <p class="text-lg text-primary-100 mb-8">
-          Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/kapcsolat"
-            class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition-colors"
-          >
-            Konzultáció kérése
-          </a>
-          <a
-            href={CONTACT.phoneTel}
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-400 transition-colors"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            {CONTACT.phoneDisplay}
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RELATED PRODUCTS -->
+    <!-- 14. RELATED PRODUCTS -->
     <RelatedProducts
+      locale={locale}
       currentSlug={product.slug}
       categorySlug={product.categorySlug}
     />
@@ -444,6 +576,14 @@ const allImages = [
       });
       btn.classList.remove('border-gray-200', 'text-gray-700');
       btn.classList.add('border-primary-600', 'bg-primary-50', 'text-primary-700');
+
+      // Dispatch variant-change event for gallery switching
+      const variantValue = (btn as HTMLElement).getAttribute('data-variant-value');
+      if (variantValue) {
+        document.dispatchEvent(new CustomEvent('variant-change', {
+          detail: { value: variantValue }
+        }));
+      }
     });
   });
 </script>

@@ -1,21 +1,27 @@
 ---
 /**
  * RelatedProducts - Kapcsolódó termékek szekció
- * Ugyanabból a kategóriából mutat más termékeket
+ *
+ * Props-based: locale for i18n. Uses t() for labels, formatPrice with locale,
+ * getLocalizedUrl for links. Data still comes from astro:content collection.
  */
 
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl, formatPrice } from '@/i18n/ui';
 import { CATEGORIES } from '../../lib/constants';
 
 interface Props {
+  locale: Locale;
   currentSlug: string;
   categorySlug: string;
   maxProducts?: number;
 }
 
-const { currentSlug, categorySlug, maxProducts = 4 } = Astro.props;
+const { locale, currentSlug, categorySlug, maxProducts = 4 } = Astro.props;
 
 // Get category info
 const category = CATEGORIES.find(c => c.slug === categorySlug);
@@ -35,10 +41,10 @@ const relatedProducts = allProducts
   })
   .slice(0, maxProducts);
 
-// Format price
-const formatPrice = (price: number | null) => {
-  if (!price) return 'Kérjen ajánlatot';
-  return new Intl.NumberFormat('hu-HU').format(price) + ' Ft';
+// Format price with locale
+const displayPrice = (price: number | null) => {
+  if (!price) return t(locale, 'product.priceOnRequest');
+  return formatPrice(price, locale);
 };
 
 // Import all product images for dynamic resolution
@@ -75,10 +81,10 @@ function resolveImage(imgPath: string): ImageMetadata | null {
       <!-- Header -->
       <div class="text-center mb-10">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-          További {categoryName} termékek
+          {t(locale, 'product.relatedTitle', { categoryName })}
         </h2>
         <p class="text-gray-600">
-          Fedezd fel a többi professzionális készülékünket
+          {t(locale, 'product.relatedSubtitle')}
         </p>
       </div>
 
@@ -86,7 +92,7 @@ function resolveImage(imgPath: string): ImageMetadata | null {
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((product) => {
           const resolvedImage = resolveImage(product.data.image);
-          const productUrl = `/${product.data.categorySlug}/${product.data.slug}`;
+          const productUrl = getLocalizedUrl(locale, `/${product.data.categorySlug}/${product.data.slug}`);
 
           return (
             <a
@@ -124,7 +130,7 @@ function resolveImage(imgPath: string): ImageMetadata | null {
                 {/* Availability badge */}
                 {product.data.availability === 'in_stock' && (
                   <span class="absolute top-3 right-3 bg-success-500 text-white text-xs font-medium px-2 py-1 rounded-full">
-                    Raktáron
+                    {t(locale, 'product.inStock')}
                   </span>
                 )}
               </div>
@@ -143,11 +149,11 @@ function resolveImage(imgPath: string): ImageMetadata | null {
 
                 <div class="mt-auto">
                   <div class="text-lg font-bold text-gray-900">
-                    {formatPrice(product.data.price)}
+                    {displayPrice(product.data.price)}
                   </div>
 
                   <div class="mt-3 flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
-                    <span>Részletek</span>
+                    <span>{t(locale, 'product.relatedDetails')}</span>
                     <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -162,10 +168,10 @@ function resolveImage(imgPath: string): ImageMetadata | null {
       <!-- View All CTA -->
       <div class="mt-10 text-center">
         <a
-          href={`/${categorySlug}`}
+          href={getLocalizedUrl(locale, `/${categorySlug}`)}
           class="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-xl font-semibold text-gray-700 hover:border-primary-500 hover:text-primary-600 transition-colors"
         >
-          Összes {categoryName} termék
+          {t(locale, 'product.relatedViewAll', { categoryName })}
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

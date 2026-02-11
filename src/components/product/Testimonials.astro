@@ -1,238 +1,22 @@
 ---
 /**
  * Testimonials - Vásárlói vélemények szekció
- * Carousel vagy grid megjelenítés
+ *
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
  */
 
-interface Testimonial {
-  name: string;
-  role?: string;
-  location?: string;
-  date?: string;
-  text: string;
-  rating?: number;
-  image?: string;
-}
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import type { ProductContentTestimonial } from '@/lib/types/product-content';
 
 interface Props {
-  testimonials?: Testimonial[];
-  productName?: string;
-  productSlug?: string;
-  category?: string;
+  locale: Locale;
+  testimonials: ProductContentTestimonial[];
+  productName: string;
 }
 
-const { testimonials, productName = 'termék', productSlug, category } = Astro.props;
-
-// Termék-specifikus vélemények
-const productTestimonials: Record<string, Testimonial[]> = {
-  'hydrascan-pro': [
-    {
-      name: 'Kozma Orsi',
-      date: '2025. 07. 25.',
-      text: 'Én nagyon szeretem ezt a gépet! Féltem a betanítás résztől, mert oké persze 7 éve mikor csináltam a kozmetikus sulit használtam az alapgépeket, de manapság teljesen más irányba vettem a kezelések vonalát... úgyhogy kellett a frissítés, de <mark>mindent megkaptam, amire szükségem lehet</mark>. Ugyan utólag is kellett egy kis segítség a mesterséges intelligencia részhez, meg a termékfeltöltéshez, de nagyon kedvesek voltak és azonnal segítettek, úgyhogy az első éles kezelésem is nagyon szuperül sikerült! Köszönöm szépen!',
-      rating: 5,
-    },
-  ],
-};
-
-// Alapértelmezett vélemények kategóriánként
-const defaultTestimonials: Record<string, Testimonial[]> = {
-  'diodalezerek': [
-    {
-      name: 'Kovács Anita',
-      role: 'Szalon tulajdonos',
-      location: 'Budapest',
-      text: 'A Novalight diódalézer 4 hónap alatt megtérült! A vendégeim imádják, hogy fájdalommentes és gyors a kezelés. A SkinLab csapata végig segített a betanulásban.',
-      rating: 5,
-    },
-    {
-      name: 'Nagy Eszter',
-      role: 'Kozmetikus',
-      location: 'Debrecen',
-      text: 'Már a harmadik gépemet vásárolom a SkinLabtól. A minőség és az ár-érték arány verhetetlen. A 2 év garancia és a gyors szerviz nyugalmat ad.',
-      rating: 5,
-    },
-    {
-      name: 'Tóth Réka',
-      role: 'Beauty szalon vezető',
-      location: 'Szeged',
-      text: 'Korábban egy drága, márkás lézert használtam. A SkinLab gépe ugyanolyan eredményt hoz, de harmad áron. Nem is értem, miért fizettem korábban ennyit!',
-      rating: 5,
-    },
-  ],
-  'hydrafacial': [
-    {
-      name: 'Szabó Kata',
-      role: 'Kozmetikus',
-      location: 'Győr',
-      text: 'A HydraFacial gép a szalonom slágere lett! A vendégek már az első kezelés után látványos eredményt tapasztalnak.',
-      rating: 5,
-    },
-    {
-      name: 'Kiss Mónika',
-      role: 'Szépségszalon tulajdonos',
-      location: 'Pécs',
-      text: 'Profi gép, könnyű kezelni, és az ügyfelek imádják. A SkinLab betanítás nagyon alapos volt.',
-      rating: 5,
-    },
-    {
-      name: 'Hegedűs Fanni',
-      role: 'Kozmetikus',
-      location: 'Budapest',
-      text: 'A multifunkciós gépem mindent tud, amire szükségem van. Arctisztítás, hidratálás, lifting - egy készülékben.',
-      rating: 5,
-    },
-  ],
-  'sminktetovalas': [
-    {
-      name: 'Varga Lilla',
-      role: 'Sminktetováló művész',
-      location: 'Budapest',
-      text: 'A MAST gépek precíziója lenyűgöző. Vezeték nélküli verzióval dolgozom, tökéletes ergonómia és egyenletes pigmentbeépülés.',
-      rating: 5,
-    },
-    {
-      name: 'Horváth Petra',
-      role: 'PMU művész',
-      location: 'Miskolc',
-      text: 'Korábban más márkát használtam, de a MAST minősége és a SkinLab support felülmúlhatatlan. Csak ajánlani tudom!',
-      rating: 5,
-    },
-    {
-      name: 'Balogh Vivien',
-      role: 'PMU oktatói',
-      location: 'Győr',
-      text: 'Tanfolyamaimon kizárólag MAST gépeket használok. Megbízhatóak, precízek, és a tanítványaim is ezeket választják utána.',
-      rating: 5,
-    },
-  ],
-  'nd-yag-lezerek': [
-    {
-      name: 'Papp Dóra',
-      role: 'Kozmetikus',
-      location: 'Budapest',
-      text: 'A carbon peeling lett a szalonom slágere! A vendégek imádják az azonnali eredményt, és a gép könnyen kezelhető.',
-      rating: 5,
-    },
-    {
-      name: 'Németh Zsófia',
-      role: 'Szalon tulajdonos',
-      location: 'Székesfehérvár',
-      text: 'Tetoválás eltávolításra kerestem gépet, és a SkinLab ajánlása tökéletes volt. Gyors megtérülés, elégedett vendégek.',
-      rating: 5,
-    },
-    {
-      name: 'Lakatos Bettina',
-      role: 'Bőrgyógyász asszisztens',
-      location: 'Debrecen',
-      text: 'Professzionális készülék, ami minden elvárásomnak megfelel. A 6 kezelőfej sokféle beavatkozást tesz lehetővé.',
-      rating: 5,
-    },
-  ],
-  'pico-lezerek': [
-    {
-      name: 'Farkas Adrienn',
-      role: 'Kozmetikus',
-      location: 'Budapest',
-      text: 'A pico lézer fantasztikus eredményeket hoz pigmentfoltok kezelésében. A vendégeim már 2-3 alkalom után látványos javulást tapasztalnak.',
-      rating: 5,
-    },
-    {
-      name: 'Szűcs Nikolett',
-      role: 'Szépségszalon vezető',
-      location: 'Pécs',
-      text: 'Régóta kerestem megbízható pico lézert. A SkinLab gépe ár-érték arányban verhetetlen, és a szerviz is gyors.',
-      rating: 5,
-    },
-    {
-      name: 'Vincze Laura',
-      role: 'Esztétikus',
-      location: 'Szeged',
-      text: 'A legmodernebb technológia elérhető áron. A betanítás alapos volt, és bármikor fordulhatok a SkinLab csapatához.',
-      rating: 5,
-    },
-  ],
-  'hiemt': [
-    {
-      name: 'Takács Réka',
-      role: 'Fitness szalon tulajdonos',
-      location: 'Budapest',
-      text: 'A HIEMT gép teljesen új ügyfélkört hozott. Azok is jönnek, akik edzéssel nem érik el a kívánt eredményt.',
-      rating: 5,
-    },
-    {
-      name: 'Orbán Kitti',
-      role: 'Wellness központ vezető',
-      location: 'Siófok',
-      text: 'A vendégek imádják, hogy 30 perc alatt érezhető az izommunka. A gép megbízható és könnyen kezelhető.',
-      rating: 5,
-    },
-    {
-      name: 'Major Anett',
-      role: 'Szépségszalon tulajdonos',
-      location: 'Győr',
-      text: 'Kiegészítő szolgáltatásként vezettük be, és azonnal sláger lett. A megtérülés gyorsabb volt, mint vártuk.',
-      rating: 5,
-    },
-  ],
-  'anti-aging': [
-    {
-      name: 'Török Eszter',
-      role: 'Kozmetikus',
-      location: 'Budapest',
-      text: 'A HIFU kezelések iránt óriási az érdeklődés. A gép precíz, és a vendégek elégedettek az eredménnyel.',
-      rating: 5,
-    },
-    {
-      name: 'Simon Orsolya',
-      role: 'Anti-aging specialista',
-      location: 'Debrecen',
-      text: 'Végre megfizethető áron kaptam profi anti-aging gépet. A SkinLab tanácsai is sokat segítettek a kezdésben.',
-      rating: 5,
-    },
-    {
-      name: 'Gál Viktória',
-      role: 'Szépségszalon tulajdonos',
-      location: 'Szeged',
-      text: 'A bőrfiatalító kezelések a legkeresettebb szolgáltatásaink közé tartoznak. A gép minősége kiváló.',
-      rating: 5,
-    },
-  ],
-};
-
-// Globális alapértelmezett vélemények
-const globalDefaultTestimonials: Testimonial[] = [
-  {
-    name: 'Molnár Andrea',
-    role: 'Szépségszalon tulajdonos',
-    location: 'Budapest',
-    text: 'A SkinLab csapatával öröm együttműködni. Gyors szállítás, profi betanítás, és ha kérdésem van, mindig elérhetők.',
-    rating: 5,
-  },
-  {
-    name: 'Fekete Judit',
-    role: 'Kozmetikus',
-    location: 'Kecskemét',
-    text: 'Már több gépet is vettem tőlük. Megbízhatóak, a garancia valódi biztonságot jelent, és az árak korrektek.',
-    rating: 5,
-  },
-  {
-    name: 'Király Brigitta',
-    role: 'Beauty szalon vezető',
-    location: 'Miskolc',
-    text: 'A SkinLab nemcsak gépeket ad el, hanem valódi partneri kapcsolatot épít. A szerviz és támogatás példaértékű.',
-    rating: 5,
-  },
-];
-
-// Vélemények kiválasztása
-const displayTestimonials = testimonials && testimonials.length > 0
-  ? testimonials
-  : (productSlug && productTestimonials[productSlug])
-    ? productTestimonials[productSlug]
-    : (category && defaultTestimonials[category])
-      ? defaultTestimonials[category]
-      : globalDefaultTestimonials;
+const { locale, testimonials, productName } = Astro.props;
 
 // Star rating component
 const renderStars = (rating: number = 5) => {
@@ -240,25 +24,25 @@ const renderStars = (rating: number = 5) => {
 };
 ---
 
-{displayTestimonials.length > 0 && (
+{testimonials.length > 0 && (
   <section class="py-12 lg:py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-10">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-          Ügyfeleink mondták
+          {t(locale, 'product.testimonialsTitle')}
         </h2>
         <p class="text-gray-600">
-          Valódi visszajelzések a {productName} gépről
+          {t(locale, 'product.testimonialsSubtitle', { productName })}
         </p>
       </div>
 
       <!-- Testimonials Grid -->
       <div class:list={[
         "grid gap-6",
-        displayTestimonials.length === 1 ? "max-w-xl mx-auto" : displayTestimonials.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : "md:grid-cols-2 lg:grid-cols-3"
+        testimonials.length === 1 ? "max-w-xl mx-auto" : testimonials.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : "md:grid-cols-2 lg:grid-cols-3"
       ]}>
-        {displayTestimonials.slice(0, 3).map((testimonial) => (
+        {testimonials.slice(0, 3).map((testimonial) => (
           <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full">
             <!-- Stars + Date -->
             <div class="flex items-center justify-between mb-4">
