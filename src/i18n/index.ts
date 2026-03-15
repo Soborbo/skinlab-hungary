@@ -14,8 +14,6 @@ export {
   defaultLocale,
   locales,
   localeConfig,
-  DOMAINS,
-
   // Functions
   t,
   getLocaleFromUrl,

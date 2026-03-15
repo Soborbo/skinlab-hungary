@@ -113,7 +113,7 @@ const productsLink = locale === 'hu' ? '/termekek' : `/${locale}/termekek`;
   // Track conversion in Google Analytics
   if (typeof gtag === 'function' && leadId) {
     gtag('event', 'conversion', {
-      send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL', // TODO: Replace with actual conversion ID
+      send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL', // Replace with actual Google Ads conversion ID
       value: 1.0,
       currency: 'HUF',
       transaction_id: leadId,

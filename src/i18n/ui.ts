@@ -15,16 +15,6 @@ import sl from './sl.json';
 // All available translations
 const translations = { hu, en, sk, ro, de, cs, hr, sr, sl } as const;
 
-// Domain configuration (not used for URL generation anymore, kept for reference)
-// All languages are served from the same domain with path-based routing:
-// - / = Hungarian (default)
-// - /en/ = English
-// - /sk/ = Slovak
-// - etc.
-export const DOMAINS = {
-  hungarian: 'https://skinlabhungary.hu',
-  europe: 'https://skinlabeurope.com',
-} as const;
 
 // Type definitions
 export type Locale = keyof typeof translations;

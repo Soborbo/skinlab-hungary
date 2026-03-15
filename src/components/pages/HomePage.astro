@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../sections/Hero.astro';
+import Categories from '../sections/Categories.astro';
+import BrandMarquee from '../sections/BrandMarquee.astro';
+import Stats from '../sections/Stats.astro';
+import WhyUs from '../sections/WhyUs.astro';
+import FeaturedProduct from '../sections/FeaturedProduct.astro';
+import Testimonials from '../sections/Testimonials.astro';
+import HowItWorks from '../sections/HowItWorks.astro';
+import FinalCTA from '../sections/FinalCTA.astro';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+---
+
+<BaseLayout
+  title={t(locale, 'home.title')}
+  description={t(locale, 'home.description')}
+>
+  <div id="main-content">
+    <Hero />
+    <Categories />
+    <BrandMarquee />
+    <Stats />
+    <WhyUs />
+    <FeaturedProduct />
+    <Testimonials />
+    <HowItWorks />
+    <FinalCTA />
+  </div>
+</BaseLayout>
