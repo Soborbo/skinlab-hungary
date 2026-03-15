@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { CONTACT, LOCATIONS } from '../../lib/constants';
 import CourseSchema from '../../components/schema/CourseSchema.astro';
 
@@ -8,13 +8,13 @@ export async function getStaticPaths() {
   const trainings = await getCollection('trainings');
 
   return trainings.map((training) => ({
-    params: { slug: training.slug },
+    params: { slug: training.id },
     props: { training },
   }));
 }
 
 const { training } = Astro.props;
-const { Content } = await training.render();
+const { Content } = await render(training);
 ---
 
 <BaseLayout
@@ -203,6 +203,8 @@ const { Content } = await training.render();
 </BaseLayout>
 
 <style>
+  @reference "../../styles/global.css";
+
   .prose h2 {
     @apply text-xl font-bold text-gray-900 mt-8 mb-4;
   }

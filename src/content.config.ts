@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { glob, file } from 'astro/loaders';
 
 // Variant schema for products with multiple options
 const variantSchema = z.object({
@@ -19,7 +20,7 @@ const statSchema = z.object({
   icon: z.string().optional(),
 });
 
-// Product schema - updated for JSON data files
+// Product schema - JSON data files
 const productSchema = z.object({
   slug: z.string(),
   sku: z.string(),
@@ -32,7 +33,6 @@ const productSchema = z.object({
   price: z.number().nullable(),
   salePrice: z.number().nullable().optional(),
   image: z.string().default('/images/placeholder.jpg'),
-  // Support both 'gallery' and 'images' field names (some products use 'images')
   gallery: z.array(z.string()).default([]),
   images: z.array(z.string()).default([]),
   youtubeVideos: z.array(z.string()).default([]),
@@ -40,7 +40,7 @@ const productSchema = z.object({
   hasVariants: z.boolean().default(false),
   variants: z.array(variantSchema).default([]),
   featured: z.boolean().default(false),
-  specs: z.record(z.string()).optional(),
+  specs: z.record(z.string(), z.string()).optional(),
   stats: z.array(statSchema).optional(),
   faq: z.array(z.object({
     question: z.string(),
@@ -70,8 +70,8 @@ const blogSchema = z.object({
   title: z.string(),
   description: z.string(),
   author: z.string().default('SkinLab'),
-  publishedAt: z.date(),
-  updatedAt: z.date().optional(),
+  publishedAt: z.coerce.date(),
+  updatedAt: z.coerce.date().optional(),
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
@@ -79,15 +79,15 @@ const blogSchema = z.object({
 
 export const collections = {
   products: defineCollection({
-    type: 'data', // Changed from 'content' to 'data' for JSON files
+    loader: glob({ pattern: '**/[!_]*.json', base: './src/content/products' }),
     schema: productSchema,
   }),
   trainings: defineCollection({
-    type: 'content',
+    loader: glob({ pattern: '**/*.md', base: './src/content/trainings' }),
     schema: trainingSchema,
   }),
   blog: defineCollection({
-    type: 'content',
+    loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
     schema: blogSchema,
   }),
 };

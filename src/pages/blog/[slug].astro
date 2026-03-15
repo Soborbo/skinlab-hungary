@@ -1,24 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { CONTACT } from '../../lib/constants';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Get related posts (same tags, excluding current)
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
-  .filter((p) => p.slug !== post.slug)
+  .filter((p) => p.slug !== post.id)
   .filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)))
   .slice(0, 3);
 
@@ -51,7 +51,7 @@ const blogSchema = {
   image: post.data.image,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': `https://skinlabhungary.hu/blog/${post.slug}`,
+    '@id': `https://skinlabhungary.hu/blog/${post.id}`,
   },
 };
 ---
@@ -144,7 +144,7 @@ const blogSchema = {
           <p class="text-gray-600 mb-4">Oszd meg a cikket:</p>
           <div class="flex gap-3">
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://skinlabhungary.hu/blog/${post.slug}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://skinlabhungary.hu/blog/${post.id}`}
               target="_blank"
               rel="noopener noreferrer"
               class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
@@ -155,7 +155,7 @@ const blogSchema = {
               </svg>
             </a>
             <a
-              href={`https://twitter.com/intent/tweet?url=https://skinlabhungary.hu/blog/${post.slug}&text=${encodeURIComponent(post.data.title)}`}
+              href={`https://twitter.com/intent/tweet?url=https://skinlabhungary.hu/blog/${post.id}&text=${encodeURIComponent(post.data.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
@@ -166,7 +166,7 @@ const blogSchema = {
               </svg>
             </a>
             <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=https://skinlabhungary.hu/blog/${post.slug}&title=${encodeURIComponent(post.data.title)}`}
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=https://skinlabhungary.hu/blog/${post.id}&title=${encodeURIComponent(post.data.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
@@ -190,7 +190,7 @@ const blogSchema = {
 
           <div class="grid md:grid-cols-3 gap-8">
             {relatedPosts.map((relatedPost) => (
-              <a href={`/blog/${relatedPost.slug}`} class="group">
+              <a href={`/blog/${relatedPost.id}`} class="group">
                 <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
                   {relatedPost.data.image ? (
                     <img
@@ -233,6 +233,8 @@ const blogSchema = {
 </BaseLayout>
 
 <style>
+  @reference "../../styles/global.css";
+
   .prose h2 {
     @apply text-2xl font-bold text-gray-900 mt-10 mb-4;
   }
