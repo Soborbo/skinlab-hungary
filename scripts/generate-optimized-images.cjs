@@ -250,6 +250,10 @@ async function generateVariants(srcPath, seoSlug, outSubfolder) {
         } else if (format === 'webp') {
           pipeline = pipeline.webp({ quality: QUALITY.webp });
         } else {
+          // JPEG doesn't support transparency — flatten with white background
+          if (metadata.hasAlpha) {
+            pipeline = pipeline.flatten({ background: { r: 255, g: 255, b: 255 } });
+          }
           pipeline = pipeline.jpeg({ quality: QUALITY.jpeg, progressive: true });
         }
 
