@@ -8,7 +8,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate:images": "node scripts/generate-optimized-images.cjs",
-    "prebuild": "node scripts/generate-optimized-images.cjs",
     "validate:content": "npx tsx scripts/validate-content.ts"
   },
   "dependencies": {
