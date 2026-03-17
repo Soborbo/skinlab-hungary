@@ -2,7 +2,7 @@
 import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
 import { Logo } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import skinlabLogo from '../../assets/logo.png';
+const skinlabLogo = '@assets/logo.png';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;

@@ -4,47 +4,23 @@ import { CONTACT, NAV_ITEMS, MEGA_MENU } from '../../lib/constants';
 import { Logo, FifthImage } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SearchOverlay from '../search/SearchOverlay.astro';
-import skinlabLogo from '../../assets/logo.png';
+import { hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
-import type { ImageMetadata } from 'astro';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/kapcsolat');
-
-// Import all product images for megamenu thumbnails
-const productImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
-  { eager: true }
-);
-
-function resolveImage(imgPath: string): ImageMetadata | null {
-  if (!imgPath) return null;
-  let normalizedPath = imgPath;
-  if (normalizedPath.startsWith('@assets/')) {
-    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
-  } else if (normalizedPath.startsWith('assets/')) {
-    normalizedPath = `/src/${normalizedPath}`;
-  } else if (normalizedPath.startsWith('/assets/')) {
-    normalizedPath = `/src${normalizedPath}`;
-  } else if (!normalizedPath.startsWith('/src/')) {
-    const filename = normalizedPath.split('/').pop();
-    normalizedPath = `/src/assets/products/${filename}`;
-  }
-  const resolved = productImages[normalizedPath];
-  return resolved?.default || null;
-}
+const skinlabLogo = '@assets/logo.png';
 
 // Get first product image per category slug for megamenu
 const allProducts = await getCollection('products');
-const megaMenuImages: Record<string, ImageMetadata | null> = {};
+const megaMenuImages: Record<string, string | null> = {};
 for (const column of MEGA_MENU.columns) {
   for (const item of column.items) {
     const slug = item.href.replace(/^\//, '');
     const categoryProducts = allProducts.filter(p => p.data.categorySlug === slug);
     for (const product of categoryProducts) {
-      const resolved = resolveImage(product.data.image);
-      if (resolved) {
-        megaMenuImages[slug] = resolved;
+      if (product.data.image && hasImage(product.data.image)) {
+        megaMenuImages[slug] = product.data.image;
         break;
       }
     }

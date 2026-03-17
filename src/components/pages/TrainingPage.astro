@@ -10,22 +10,14 @@ import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Import training images
-import trainingHero from '../../assets/training-hero.jpg';
-import trainingImg1 from '../../assets/training-1.jpg';
-import trainingImg2 from '../../assets/training-2.jpg';
-import trainingImg3 from '../../assets/training-3.jpg';
-import trainingImg4 from '../../assets/training-4.jpg';
-import trainingImg5 from '../../assets/training-5.jpg';
-import trainingImg6 from '../../assets/training-6.jpg';
-
-// Gallery images
-import galleryImg1 from '../../assets/training-gallery-1.jpg';
-import galleryImg2 from '../../assets/training-gallery-2.jpg';
-import galleryImg3 from '../../assets/training-gallery-3.jpg';
-import galleryImg4 from '../../assets/training-gallery-4.jpg';
-import galleryImg5 from '../../assets/training-gallery-5.jpg';
-import galleryImg6 from '../../assets/training-gallery-6.jpg';
+// Training images (string paths for pre-generated images)
+const trainingHero = '@assets/training-hero.jpg';
+const trainingImg1 = '@assets/training-1.jpg';
+const trainingImg2 = '@assets/training-2.jpg';
+const trainingImg3 = '@assets/training-3.jpg';
+const trainingImg4 = '@assets/training-4.jpg';
+const trainingImg5 = '@assets/training-5.jpg';
+const trainingImg6 = '@assets/training-6.jpg';
 
 const trainings = await getCollection('trainings');
 
@@ -33,12 +25,12 @@ const trainings = await getCollection('trainings');
 const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
 
 const galleryImages = [
-  { src: galleryImg1, alt: t(locale, 'training.galleryAlt1') },
-  { src: galleryImg2, alt: t(locale, 'training.galleryAlt2') },
-  { src: galleryImg3, alt: t(locale, 'training.galleryAlt3') },
-  { src: galleryImg4, alt: t(locale, 'training.galleryAlt4') },
-  { src: galleryImg5, alt: t(locale, 'training.galleryAlt5') },
-  { src: galleryImg6, alt: t(locale, 'training.galleryAlt6') },
+  { src: '@assets/training-gallery-1.jpg', alt: t(locale, 'training.galleryAlt1') },
+  { src: '@assets/training-gallery-2.jpg', alt: t(locale, 'training.galleryAlt2') },
+  { src: '@assets/training-gallery-3.jpg', alt: t(locale, 'training.galleryAlt3') },
+  { src: '@assets/training-gallery-4.jpg', alt: t(locale, 'training.galleryAlt4') },
+  { src: '@assets/training-gallery-5.jpg', alt: t(locale, 'training.galleryAlt5') },
+  { src: '@assets/training-gallery-6.jpg', alt: t(locale, 'training.galleryAlt6') },
 ];
 ---
 

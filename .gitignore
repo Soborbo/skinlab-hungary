@@ -6,6 +6,9 @@ dist/
 .astro/
 .wrangler/
 
+# pre-generated optimized images (regenerate with: npm run generate:images)
+public/images/opt/
+
 # environment variables
 .env
 .env.*

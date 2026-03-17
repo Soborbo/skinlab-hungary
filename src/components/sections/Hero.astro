@@ -1,7 +1,6 @@
 ---
 import { CONTACT } from '../../lib/constants';
 import { ContentImage } from '../images';
-import heroImage from '../../assets/hero-image.jpg';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 // Get locale from URL
@@ -69,7 +68,7 @@ const contactLink = getLocalizedUrl(locale, '/kapcsolat');
       <div class="relative hidden lg:block">
         <div class="aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden">
           <ContentImage
-            src={heroImage}
+            src="@assets/hero-image.jpg"
             alt={t(locale, 'hero.title')}
             class="w-full h-full object-cover"
             priority={true}

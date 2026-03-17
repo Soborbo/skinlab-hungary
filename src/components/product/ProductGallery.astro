@@ -2,25 +2,19 @@
 /**
  * ProductGallery - Optimized product image gallery with thumbnails
  *
- * Accepts string paths and resolves them to ImageMetadata via glob import.
- * Uses ContentImage pattern for main image (50vw desktop, 100vw mobile)
+ * Uses pre-generated optimized images from /images/opt/ via manifest.
+ * Zero build-time image processing.
  *
  * Features:
  * - Lightbox with zoom
  * - Thumbnail navigation
  * - Keyboard navigation (arrows, escape)
  * - Touch swipe support
- * - Optimized images via Astro Picture
+ * - Pre-generated avif/webp/jpeg with responsive srcset
  * - Per-variant image sets (when variantImageSets is provided)
  */
-import { Picture } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-
-// Import all product images for dynamic resolution
-const productImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
-  { eager: true }
-);
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import { normalizeImagePath, getImageEntry, hasImage } from '@/lib/resolve-image';
 
 interface VariantImageSet {
   value: string;
@@ -28,7 +22,7 @@ interface VariantImageSet {
 }
 
 interface Props {
-  /** Array of image paths (strings) - will be resolved to ImageMetadata */
+  /** Array of image paths (strings) */
   images: string[];
   productName: string;
   badges?: {
@@ -41,35 +35,8 @@ interface Props {
 
 const { images, productName, badges, variantImageSets } = Astro.props;
 
-// Resolve image path to ImageMetadata
-function resolveImage(imgPath: string): ImageMetadata | null {
-  if (!imgPath) return null;
-
-  // Normalize path variations
-  let normalizedPath = imgPath;
-
-  // Handle @assets/ prefix (from content files)
-  if (normalizedPath.startsWith('@assets/')) {
-    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
-  }
-  // Handle assets/ prefix (without @)
-  else if (normalizedPath.startsWith('assets/')) {
-    normalizedPath = `/src/${normalizedPath}`;
-  }
-  // Handle /assets/ prefix
-  else if (normalizedPath.startsWith('/assets/')) {
-    normalizedPath = `/src${normalizedPath}`;
-  }
-  // Handle paths without prefix - assume products folder
-  else if (!normalizedPath.startsWith('/src/')) {
-    const filename = normalizedPath.split('/').pop();
-    normalizedPath = `/src/assets/products/${filename}`;
-  }
-
-  // Look up in glob imports
-  const resolved = productImages[normalizedPath];
-  return resolved?.default || null;
-}
+// Filter to images that exist in manifest
+const resolvedImages = images.filter(img => img && hasImage(img));
 
 // Check if we have variant image sets
 const hasVariants = variantImageSets && variantImageSets.length > 0;
@@ -78,18 +45,9 @@ const hasVariants = variantImageSets && variantImageSets.length > 0;
 const resolvedVariantSets = hasVariants
   ? variantImageSets!.map(set => ({
       value: set.value,
-      images: set.images
-        .filter(Boolean)
-        .map(resolveImage)
-        .filter((img): img is ImageMetadata => img !== null),
+      images: set.images.filter(img => img && hasImage(img)),
     })).filter(set => set.images.length > 0)
   : [];
-
-// Fallback: resolve default images (used when no variant sets)
-const resolvedImages = images
-  .filter(Boolean)
-  .map(resolveImage)
-  .filter((img): img is ImageMetadata => img !== null);
 
 // Main image pattern: ContentImage (50vw desktop, 100vw mobile)
 const mainWidths = [320, 480, 640, 960, 1280, 1600];
@@ -105,6 +63,13 @@ const lightboxSizes = '100vw';
 
 // Use variant sets or fallback to single image set
 const useVariantMode = resolvedVariantSets.length > 0;
+
+// Helper to get alt text from manifest
+function getAlt(imgPath: string, index: number, totalImages: number): string {
+  const entry = getImageEntry(imgPath);
+  if (entry?.alt) return entry.alt;
+  return `${productName}${totalImages > 1 ? ` - kép ${index + 1}` : ''}`;
+}
 ---
 
 <div class="product-gallery" data-gallery data-has-variants={useVariantMode ? 'true' : undefined}>
@@ -128,13 +93,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
               <div class="flex h-full gallery-track" data-gallery-track>
                 {set.images.map((img, i) => (
                   <div class="w-full h-full flex-shrink-0">
-                    <Picture
+                    <OptimizedPicture
                       src={img}
-                      alt={`${productName}${set.images.length > 1 ? ` - kép ${i + 1}` : ''}`}
+                      alt={getAlt(img, i, set.images.length)}
                       widths={mainWidths}
                       sizes={mainSizes}
-                      formats={['avif', 'webp', 'jpeg']}
-                      quality={75}
                       class="w-full h-full object-contain p-4"
                       loading={setIndex === 0 && i === 0 ? 'eager' : 'lazy'}
                       fetchpriority={setIndex === 0 && i === 0 ? 'high' : 'low'}
@@ -202,7 +165,7 @@ const useVariantMode = resolvedVariantSets.length > 0;
                   type="button"
                   role="tab"
                   aria-selected={i === 0 ? 'true' : 'false'}
-                  aria-label={`${productName} - kép ${i + 1}`}
+                  aria-label={getAlt(img, i, set.images.length)}
                   class:list={[
                     'aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
                     'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
@@ -210,13 +173,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
                   ]}
                   data-thumbnail={i}
                 >
-                  <Picture
+                  <OptimizedPicture
                     src={img}
-                    alt={`${productName} - kép ${i + 1}`}
+                    alt={getAlt(img, i, set.images.length)}
                     widths={thumbWidths}
                     sizes={thumbSizes}
-                    formats={['avif', 'webp', 'jpeg']}
-                    quality={60}
                     class="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -288,13 +249,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
                   ]}
                   data-slide={i}
                 >
-                  <Picture
+                  <OptimizedPicture
                     src={img}
-                    alt={`${productName} - kép ${i + 1}`}
+                    alt={getAlt(img, i, set.images.length)}
                     widths={lightboxWidths}
                     sizes={lightboxSizes}
-                    formats={['avif', 'webp', 'jpeg']}
-                    quality={85}
                     class="max-w-full max-h-full object-contain"
                     loading="lazy"
                   />
@@ -323,13 +282,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
                     data-lightbox-thumb={i}
                     aria-label={`Kép ${i + 1}`}
                   >
-                    <Picture
+                    <OptimizedPicture
                       src={img}
                       alt=""
                       widths={[160, 320]}
                       sizes="64px"
-                      formats={['avif', 'webp', 'jpeg']}
-                      quality={50}
                       class="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -355,13 +312,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
             <div class="flex h-full gallery-track" data-gallery-track>
               {resolvedImages.map((img, i) => (
                 <div class="w-full h-full flex-shrink-0">
-                  <Picture
+                  <OptimizedPicture
                     src={img}
-                    alt={`${productName}${resolvedImages.length > 1 ? ` - kép ${i + 1}` : ''}`}
+                    alt={getAlt(img, i, resolvedImages.length)}
                     widths={mainWidths}
                     sizes={mainSizes}
-                    formats={['avif', 'webp', 'jpeg']}
-                    quality={75}
                     class="w-full h-full object-contain p-4"
                     loading={i === 0 ? 'eager' : 'lazy'}
                     fetchpriority={i === 0 ? 'high' : 'low'}
@@ -443,7 +398,7 @@ const useVariantMode = resolvedVariantSets.length > 0;
               type="button"
               role="tab"
               aria-selected={i === 0 ? 'true' : 'false'}
-              aria-label={`${productName} - kép ${i + 1}`}
+              aria-label={getAlt(img, i, resolvedImages.length)}
               class:list={[
                 'aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
                 'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
@@ -451,13 +406,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
               ]}
               data-thumbnail={i}
             >
-              <Picture
+              <OptimizedPicture
                 src={img}
-                alt={`${productName} - kép ${i + 1}`}
+                alt={getAlt(img, i, resolvedImages.length)}
                 widths={thumbWidths}
                 sizes={thumbSizes}
-                formats={['avif', 'webp', 'jpeg']}
-                quality={60}
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -529,13 +482,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
               ]}
               data-slide={i}
             >
-              <Picture
+              <OptimizedPicture
                 src={img}
-                alt={`${productName} - kép ${i + 1}`}
+                alt={getAlt(img, i, resolvedImages.length)}
                 widths={lightboxWidths}
                 sizes={lightboxSizes}
-                formats={['avif', 'webp', 'jpeg']}
-                quality={85}
                 class="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
@@ -564,13 +515,11 @@ const useVariantMode = resolvedVariantSets.length > 0;
                 data-lightbox-thumb={i}
                 aria-label={`Kép ${i + 1}`}
               >
-                <Picture
+                <OptimizedPicture
                   src={img}
                   alt=""
                   widths={[160, 320]}
                   sizes="64px"
-                  formats={['avif', 'webp', 'jpeg']}
-                  quality={50}
                   class="w-full h-full object-cover"
                   loading="lazy"
                 />

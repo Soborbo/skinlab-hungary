@@ -1,0 +1,157 @@
+---
+/**
+ * OptimizedPicture - Serves pre-generated optimized images from /images/opt/
+ *
+ * Reads the image manifest to map original @assets/ paths to pre-generated
+ * avif/webp/jpeg variants at multiple widths. Zero build-time processing.
+ *
+ * Drop-in replacement for Astro's <Picture> component.
+ */
+import type { ImageMetadata } from 'astro';
+import manifest from '@/lib/image-manifest.json';
+
+interface ManifestEntry {
+  seoSlug: string;
+  alt: string;
+  width: number;
+  height: number;
+  widths: number[];
+  basePath: string;
+}
+
+interface Props {
+  /** ImageMetadata from import or glob, OR string path like "@assets/products/foo.webp" */
+  src: ImageMetadata | string;
+  alt?: string;
+  widths?: number[];
+  sizes?: string;
+  formats?: string[];
+  quality?: number; // ignored — quality is baked into pre-generated files
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  decoding?: 'async' | 'auto' | 'sync';
+  style?: string;
+}
+
+const {
+  src,
+  alt: altProp,
+  widths: requestedWidths,
+  sizes = '100vw',
+  class: className,
+  loading = 'lazy',
+  fetchpriority,
+  decoding = 'async',
+  style,
+} = Astro.props;
+
+// Resolve the manifest key from src
+function getManifestKey(src: ImageMetadata | string): string | null {
+  if (typeof src === 'string') {
+    // Direct string path like "@assets/products/foo.webp"
+    return src.startsWith('@assets/') ? src : null;
+  }
+
+  // ImageMetadata — extract the original path from .src
+  // Astro's ImageMetadata.src looks like "/_astro/foo.hash.webp" or the raw path
+  // We need to match against manifest keys which are "@assets/..." paths
+  // The fsPath is available on ImageMetadata in dev mode
+  const imgSrc = (src as any).fsPath || (src as any).src || '';
+
+  // Try to extract the relative path
+  // fsPath: "D:/skinlab/skinlab-hungary-master/src/assets/products/DAHLIA_NOIR.webp"
+  // We need: "@assets/products/DAHLIA_NOIR.webp"
+  const srcAssetsMatch = imgSrc.replace(/\\/g, '/').match(/src\/assets\/(.+)$/);
+  if (srcAssetsMatch) {
+    return `@assets/${srcAssetsMatch[1]}`;
+  }
+
+  // Fallback: try matching by filename
+  const filename = imgSrc.replace(/\\/g, '/').split('/').pop();
+  if (filename) {
+    // Check products first, then other directories
+    for (const prefix of ['@assets/products/', '@assets/banners/', '@assets/brands/', '@assets/misc/', '@assets/']) {
+      const key = `${prefix}${filename}`;
+      if ((manifest as Record<string, ManifestEntry>)[key]) return key;
+    }
+  }
+
+  return null;
+}
+
+const manifestData = manifest as Record<string, ManifestEntry>;
+const key = getManifestKey(src);
+const entry = key ? manifestData[key] : null;
+
+// Determine alt text: prop > manifest > empty
+const altText = altProp || entry?.alt || '';
+
+// Get applicable widths
+const availableWidths = entry?.widths || [];
+const effectiveWidths = requestedWidths
+  ? requestedWidths.filter(w => availableWidths.includes(w) || availableWidths.some(aw => Math.abs(aw - w) < 40))
+  : availableWidths;
+
+// Map requested widths to nearest available widths
+const finalWidths = requestedWidths
+  ? requestedWidths.map(w => {
+      if (availableWidths.includes(w)) return w;
+      // Find nearest available width
+      return availableWidths.reduce((prev, curr) =>
+        Math.abs(curr - w) < Math.abs(prev - w) ? curr : prev
+      , availableWidths[0]);
+    }).filter((w, i, arr) => arr.indexOf(w) === i) // dedupe
+  : availableWidths;
+
+// Build srcset strings
+function buildSrcset(basePath: string, widths: number[], ext: string): string {
+  return widths.map(w => `${basePath}-${w}w.${ext} ${w}w`).join(', ');
+}
+
+const basePath = entry?.basePath;
+const imgWidth = entry?.width;
+const imgHeight = entry?.height;
+
+// Fallback src (largest webp)
+const fallbackWidth = finalWidths.length > 0 ? finalWidths[finalWidths.length - 1] : 640;
+const fallbackSrc = basePath ? `${basePath}-${fallbackWidth}w.jpg` : (typeof src === 'string' ? src : (src as ImageMetadata).src);
+---
+
+{entry && basePath ? (
+  <picture>
+    <source
+      type="image/avif"
+      srcset={buildSrcset(basePath, finalWidths, 'avif')}
+      sizes={sizes}
+    />
+    <source
+      type="image/webp"
+      srcset={buildSrcset(basePath, finalWidths, 'webp')}
+      sizes={sizes}
+    />
+    <img
+      src={fallbackSrc}
+      srcset={buildSrcset(basePath, finalWidths, 'jpg')}
+      sizes={sizes}
+      alt={altText}
+      width={imgWidth}
+      height={imgHeight}
+      class={className}
+      loading={loading}
+      fetchpriority={fetchpriority}
+      decoding={decoding}
+      style={style}
+    />
+  </picture>
+) : (
+  /* Fallback: render a plain img if not in manifest */
+  <img
+    src={typeof src === 'string' ? src : (src as ImageMetadata).src}
+    alt={altText}
+    class={className}
+    loading={loading}
+    decoding={decoding}
+    style={style}
+  />
+)}

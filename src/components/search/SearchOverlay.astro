@@ -5,17 +5,15 @@ import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Resolve product images at build time
-const imageModules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/products/*.webp',
-  { eager: true }
-);
+import { getImageEntry } from '@/lib/resolve-image';
 
 function resolveImageUrl(imagePath: string): string | null {
   if (!imagePath) return null;
-  const normalized = imagePath.replace('@assets/', '/src/assets/');
-  const mod = imageModules[normalized];
-  return mod?.default?.src || null;
+  const entry = getImageEntry(imagePath);
+  if (!entry) return null;
+  // Return a small webp variant for search thumbnails
+  const smallWidth = entry.widths[1] || entry.widths[0]; // ~320px
+  return `${entry.basePath}-${smallWidth}w.webp`;
 }
 
 // Build search index at build time

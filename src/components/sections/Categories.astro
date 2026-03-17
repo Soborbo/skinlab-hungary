@@ -1,52 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
 import { FifthImage } from '../images';
-import type { ImageMetadata } from 'astro';
+import { hasImage } from '@/lib/resolve-image';
 import { CATEGORIES } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Import all product images for dynamic resolution
-const productImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
-  { eager: true }
-);
-
-// Resolve image path to ImageMetadata
-function resolveImage(imgPath: string): ImageMetadata | null {
-  if (!imgPath) return null;
-
-  let normalizedPath = imgPath;
-
-  if (normalizedPath.startsWith('@assets/')) {
-    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
-  } else if (normalizedPath.startsWith('assets/')) {
-    normalizedPath = `/src/${normalizedPath}`;
-  } else if (normalizedPath.startsWith('/assets/')) {
-    normalizedPath = `/src${normalizedPath}`;
-  } else if (!normalizedPath.startsWith('/src/')) {
-    const filename = normalizedPath.split('/').pop();
-    normalizedPath = `/src/assets/products/${filename}`;
-  }
-
-  const resolved = productImages[normalizedPath];
-  return resolved?.default || null;
-}
-
 // Fetch all products and group by category
 const allProducts = await getCollection('products');
 
-// Get first product image for each category
-const categoryImages: Record<string, ImageMetadata | null> = {};
+// Get first product image string path for each category
+const categoryImages: Record<string, string | null> = {};
 for (const category of CATEGORIES) {
   const categoryProducts = allProducts.filter(p => p.data.categorySlug === category.slug);
-  // Find first product with a valid image
   for (const product of categoryProducts) {
-    const resolved = resolveImage(product.data.image);
-    if (resolved) {
-      categoryImages[category.slug] = resolved;
+    if (product.data.image && hasImage(product.data.image)) {
+      categoryImages[category.slug] = product.data.image;
       break;
     }
   }
