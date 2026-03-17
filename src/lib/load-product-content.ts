@@ -71,6 +71,7 @@ const CASCADE_FIELDS: (keyof CategoryContent)[] = [
   'faq',
   'whatsIncluded',
   'stats',
+  'buyerChecklist',
 ];
 
 export interface LoadProductContentResult {

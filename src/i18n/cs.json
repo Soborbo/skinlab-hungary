@@ -47,11 +47,17 @@
     "service": "Vlastni servis",
     "serviceDesc": "Okamzita oprava, nahradni zarizeni"
   },
+  "brands": {
+    "title": "Naše značky",
+    "subtitle": "Exkluzivní distributor prémiových kosmetických značek v Maďarsku"
+  },
   "stats": {
     "soldUnits": "Prodanych jednotek Novalight",
     "warranty": "Zaruka",
     "deliveryTime": "Doba dodani",
-    "legalImport": "Legalni dovoz"
+    "legalImport": "Legalni dovoz",
+    "yearsSuffix": "let",
+    "weeksSuffix": "týdnů"
   },
   "product": {
     "inStock": "Skladem",
@@ -72,7 +78,34 @@
     "whatsIncluded": "Co je v baleni?",
     "warranty": "Zaruka a servis",
     "warrantyInfo": "2leta plna zaruka, nahradni zarizeni behem opravy",
-    "videoDemo": "Video ukazka"
+    "videoDemo": "Video ukazka",
+    "specsTitle": "Technické specifikace",
+    "specsSubtitle": "Podrobné technické údaje {productName}",
+    "downloadDatasheet": "Stáhnout výrobní datový list",
+    "faqTitle": "Často kladené dotazy",
+    "faqSubtitle": "Vše, co potřebujete vědět o {productName}",
+    "faqNotFound": "Nenašli jste odpověď? Neváhejte se zeptat!",
+    "faqContact": "Kontaktujte nás",
+    "relatedTitle": "Další produkty {categoryName}",
+    "relatedSubtitle": "Objevte naše další profesionální zařízení",
+    "relatedViewAll": "Všechny produkty {categoryName}",
+    "relatedDetails": "Detaily",
+    "testimonialsTitle": "Co říkají naši klienti",
+    "testimonialsSubtitle": "Skutečné ohlasy na {productName}",
+    "functionCardsTitle": "Funkce ošetření",
+    "whatsIncludedTitle": "Co je součástí {productName}?",
+    "whatsIncludedSubtitle": "Vše, co potřebujete pro úspěšný start",
+    "whatsIncludedBadge": "Obsah balení",
+    "whatsIncludedFullWarranty": "Plná záruka",
+    "whatsIncludedNoHiddenCost": "Žádné skryté náklady",
+    "whatsIncludedImmediateUse": "Okamžité použití",
+    "buyerChecklistBadge": "Užitečné tipy",
+    "buyerChecklistTitle": "Na co si dát pozor před koupí?",
+    "buyerChecklistNote": "Naši odborníci vám pomohou zorientovat se v detailech – požádejte o bezplatnou konzultaci pro personalizované rady.",
+    "videoPlaceholder": "Ukázkové video již brzy",
+    "videoPlayLabel": "Přehrát video: ukázka {title}",
+    "trainingTitle": "Školení obsluhy",
+    "trainingContent": "Obsah školení:"
   },
   "form": {
     "name": "Jmeno",
@@ -98,7 +131,9 @@
     "honeypot": "Toto pole nevyplnujte",
     "firstName": "Jmeno",
     "lastName": "Prijmeni",
-    "selectCategory": "Vyberte kategorii"
+    "selectCategory": "Vyberte kategorii",
+    "networkError": "Došlo k chybě sítě. Zkuste to prosím znovu.",
+    "validationError": "Zkontrolujte prosím zadané údaje."
   },
   "header": {
     "skipToContent": "Prejit na obsah",
@@ -112,7 +147,18 @@
     "title": "Mate dotazy?",
     "subtitle": "Pozadejte o bezplatnou konzultaci a pomuzeme vam najit spravne vybaveni.",
     "button": "Pozadat o konzultaci",
-    "callUs": "Zavolejte nam"
+    "callUs": "Zavolejte nam",
+    "defaultHeadline": "Zajímá vás {productName}?",
+    "defaultSubtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout se, zda je to pro vás nejlepší volba.",
+    "defaultButton": "Požádat o konzultaci",
+    "defaultPhone": "Zavolejte nám",
+    "afterVideoText": "Máte dotazy ohledně zařízení? Rádi pomůžeme!",
+    "afterFeaturesHeadline": "Chcete vidět {productName} naživo?",
+    "afterFeaturesSubtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ho osobně!",
+    "afterFeaturesButton": "Rezervovat termín",
+    "finalHeadline": "Zajímá vás {productName}?",
+    "finalSubtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout se, zda je to pro vás nejlepší volba.",
+    "finalButton": "Požádat o konzultaci"
   },
   "finalCta": {
     "title": "Pripraveni modernizovat svuj salon?",
@@ -123,6 +169,22 @@
     "inPersonOrOnline": "Osobne nebo online",
     "roiCalculation": "Vypocet navratnosti",
     "orCallDirectly": "Nebo zavolejte primo:"
+  },
+  "megaMenu": {
+    "lasers": "Lasery",
+    "treatments": "Ošetřovací přístroje",
+    "pmu": "PMU",
+    "salon": "Salon",
+    "diodeDesc": "Trvalé odstranění chloupků",
+    "ndyagDesc": "Odstranění tetování",
+    "picoDesc": "Léčba pigmentace",
+    "hydrafacialDesc": "Čištění pleti, hydratace",
+    "hiemtDesc": "Budování svalů, spalování tuků",
+    "antiAgingDesc": "HIFU, RF technologie",
+    "pmuDesc": "PMU přístroje",
+    "tattooDesc": "Profesionální přístroje",
+    "furnitureDesc": "Nábytek, vozíky",
+    "accessoriesDesc": "Jehlové moduly, roztoky"
   },
   "footer": {
     "company": "Informace o spolecnosti",
@@ -136,7 +198,8 @@
     "copyright": "(c) {year} Skinlab Beauty Equipment Kft. Vsechna prava vyhrazena.",
     "newsletter": "Odber novinek",
     "newsletterPlaceholder": "Vase e-mailova adresa",
-    "subscribe": "Prihlasit se"
+    "subscribe": "Prihlasit se",
+    "shipping": "Doprava a platba"
   },
   "contact": {
     "title": "Kontakt",
@@ -208,7 +271,69 @@
     "treatmentsPerDay": "Osetreni/den",
     "workingDays": "Pracovnich dnu/mesic",
     "monthlyRevenue": "Mesicni prijem",
-    "paybackPeriod": "Doba navratnosti"
+    "paybackPeriod": "Doba navratnosti",
+    "badge": "Kalkulačka návratnosti",
+    "subtitle": "Vypočítejte na základě vašich údajů",
+    "monthlyProfit": "Měsíční zisk",
+    "yearlyRevenue": "Roční čistý zisk",
+    "machinePrice": "Cena zařízení (s DPH)",
+    "machinePricePlaceholder": "Zadejte cenu",
+    "profitMargin": "Zisková marže",
+    "profitMarginNote": "(po odečtení režijních a materiálových nákladů)",
+    "disclaimer": "* Výpočet na základě odhadovaných hodnot, individuální výsledky se mohou lišit",
+    "calculate": "Vypočítat",
+    "results": "Výsledky",
+    "currency": "€",
+    "perMonth": "měsíc",
+    "perYear": "rok",
+    "persons": "osob",
+    "days": "dní",
+    "personalCalculation": "Požádejte o individuální výpočet od našeho odborníka"
+  },
+  "warranty": {
+    "title": "Záruka a servis",
+    "subtitle": "Na {productName} poskytujeme {years}letou plnou záruku s vlastním servisním centrem v Maďarsku.",
+    "subtitleGeneric": "{years}letá plná záruka na všechna zařízení s vlastním servisním centrem v Maďarsku.",
+    "badge": "Klid a jistota",
+    "yearsWarranty": "{years}letá plná záruka",
+    "extendedWarranty": "Rozšířená záruka",
+    "extendedWarrantyDesc": "Prodlužte si záruku o další rok za zvýhodněnou cenu!",
+    "extendedWarrantyButton": "Mám zájem",
+    "industryStandardMultiple": "2x průmyslový standard",
+    "features": {
+      "fullWarranty": "Pokrývá všechny díly a práci – dvojnásobek průmyslového standardu.",
+      "replacementDevice": "Program náhradního zařízení",
+      "replacementDeviceDesc": "Během opravy poskytujeme bezplatné náhradní zařízení, aby vaše práce nestála.",
+      "ownWorkshop": "Vlastní servisní dílna",
+      "ownWorkshopDesc": "Opravy v Maďarsku – nemusíte čekat měsíce na zahraniční servis.",
+      "fastRepair": "Rychlá oprava",
+      "fastRepairDesc": "Většinu problémů vyřešíme do 3-5 pracovních dnů."
+    },
+    "steps": {
+      "title": "Jak funguje servis?",
+      "step1Title": "Nahlášení závady",
+      "step1Desc": "Zavolejte nám nebo pošlete e-mail s popisem závady.",
+      "step2Title": "Náhradní zařízení",
+      "step2Desc": "Kurýrem pošleme náhradní zařízení a převezmeme vadné.",
+      "step3Title": "Oprava",
+      "step3Desc": "Zařízení opravíme v naší vlastní dílně.",
+      "step4Title": "Vrácení",
+      "step4Desc": "Dostanete zpět opravené zařízení, převezmeme náhradní."
+    },
+    "comparison": {
+      "title": "Srovnání",
+      "industryAverage": "Průmyslový průměr",
+      "warrantyDuration": "Doba záruky",
+      "serviceLocation": "Místo servisu",
+      "hungary": "Maďarsko",
+      "china": "Čína",
+      "replacementDevice": "Náhradní zařízení",
+      "repairTime": "Doba opravy",
+      "repairTimeSkinlab": "3-5 dní",
+      "repairTimeAverage": "2-3 měsíce",
+      "hungarianSupport": "Podpora v místním jazyce",
+      "year": "let"
+    }
   },
   "breadcrumb": {
     "home": "Domu"
@@ -301,7 +426,9 @@
     "orMonthly": "nebo mesicne",
     "viewDetails": "Zobrazit detaily",
     "requestDemo": "Zadat o demo",
-    "productPlaceholder": "foto produktu"
+    "productPlaceholder": "foto produktu",
+    "warrantyValue": "2 roky",
+    "monthlyPrice": "~250 €"
   },
   "ctaSection": {
     "title": "Mate otazky? Jsme tu, abychom pomohli!",

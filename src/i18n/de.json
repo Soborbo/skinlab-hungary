@@ -11,7 +11,7 @@
     "home": "Startseite",
     "products": "Produkte",
     "trainings": "Schulungen",
-    "about": "Uber uns",
+    "about": "Über uns",
     "contact": "Kontakt",
     "allProducts": "Alle Produkte",
     "blog": "Blog",
@@ -47,11 +47,17 @@
     "service": "Eigener Service",
     "serviceDesc": "Sofortige Reparatur, Leihgerat"
   },
+  "brands": {
+    "title": "Unsere Marken",
+    "subtitle": "Exklusivvertrieb von Premium-Kosmetikmarken in Ungarn"
+  },
   "stats": {
     "soldUnits": "Verkaufte Novalight",
     "warranty": "Garantie",
     "deliveryTime": "Lieferzeit",
-    "legalImport": "Legaler Import"
+    "legalImport": "Legaler Import",
+    "yearsSuffix": "Jahre",
+    "weeksSuffix": "Wochen"
   },
   "product": {
     "inStock": "Auf Lager",
@@ -72,7 +78,34 @@
     "whatsIncluded": "Was ist enthalten?",
     "warranty": "Garantie & Service",
     "warrantyInfo": "2 Jahre Vollgarantie, Leihgerat wahrend der Reparatur",
-    "videoDemo": "Video-Demo"
+    "videoDemo": "Video-Demo",
+    "specsTitle": "Technische Spezifikationen",
+    "specsSubtitle": "Detaillierte technische Daten des {productName}",
+    "downloadDatasheet": "Werksdatenblatt herunterladen",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faqSubtitle": "Alles, was Sie über das {productName} wissen sollten",
+    "faqNotFound": "Antwort nicht gefunden? Fragen Sie uns!",
+    "faqContact": "Kontakt aufnehmen",
+    "relatedTitle": "Weitere {categoryName} Produkte",
+    "relatedSubtitle": "Entdecken Sie unsere weiteren professionellen Geräte",
+    "relatedViewAll": "Alle {categoryName} Produkte",
+    "relatedDetails": "Details",
+    "testimonialsTitle": "Was unsere Kunden sagen",
+    "testimonialsSubtitle": "Echtes Feedback zum {productName}",
+    "functionCardsTitle": "Behandlungsfunktionen",
+    "whatsIncludedTitle": "Was ist beim {productName} dabei?",
+    "whatsIncludedSubtitle": "Alles, was Sie für einen erfolgreichen Start brauchen",
+    "whatsIncludedBadge": "Paketinhalt",
+    "whatsIncludedFullWarranty": "Volle Garantie",
+    "whatsIncludedNoHiddenCost": "Keine versteckten Kosten",
+    "whatsIncludedImmediateUse": "Sofort einsatzbereit",
+    "buyerChecklistBadge": "Hilfreiche Tipps",
+    "buyerChecklistTitle": "Worauf vor dem Kauf achten?",
+    "buyerChecklistNote": "Unsere Experten helfen Ihnen bei den Details – fordern Sie eine kostenlose Beratung für persönliche Empfehlungen an.",
+    "videoPlaceholder": "Demo-Video in Kürze",
+    "videoPlayLabel": "Video abspielen: {title} Demo",
+    "trainingTitle": "Bedienerschulung",
+    "trainingContent": "Schulungsinhalte:"
   },
   "form": {
     "name": "Name",
@@ -94,6 +127,8 @@
     "successMessage": "Wir haben Ihre Nachricht erhalten und werden uns in Kurze bei Ihnen melden.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "errorMessage": "Bitte versuchen Sie es spater erneut.",
+    "networkError": "Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "validationError": "Bitte überprüfen Sie die eingegebenen Daten.",
     "required": "Pflichtfeld",
     "honeypot": "Dieses Feld nicht ausfullen",
     "firstName": "Vorname",
@@ -112,7 +147,18 @@
     "title": "Haben Sie Fragen?",
     "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen, die richtige Ausrustung zu finden.",
     "button": "Beratung anfordern",
-    "callUs": "Rufen Sie uns an"
+    "callUs": "Rufen Sie uns an",
+    "defaultHeadline": "Interessiert am {productName}?",
+    "defaultSubtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+    "defaultButton": "Beratung anfordern",
+    "defaultPhone": "Rufen Sie uns an",
+    "afterVideoText": "Haben Sie Fragen zum Gerät? Wir helfen gerne!",
+    "afterFeaturesHeadline": "Möchten Sie das {productName} live sehen?",
+    "afterFeaturesSubtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie es persönlich!",
+    "afterFeaturesButton": "Termin vereinbaren",
+    "finalHeadline": "Interessiert am {productName}?",
+    "finalSubtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+    "finalButton": "Beratung anfordern"
   },
   "finalCta": {
     "title": "Bereit, Ihren Salon aufzuwerten?",
@@ -123,6 +169,22 @@
     "inPersonOrOnline": "Personlich oder online",
     "roiCalculation": "ROI-Berechnung",
     "orCallDirectly": "Oder rufen Sie direkt an:"
+  },
+  "megaMenu": {
+    "lasers": "Laser",
+    "treatments": "Behandlungsgeräte",
+    "pmu": "PMU",
+    "salon": "Salon",
+    "diodeDesc": "Dauerhafte Haarentfernung",
+    "ndyagDesc": "Tattooentfernung",
+    "picoDesc": "Pigmentbehandlung",
+    "hydrafacialDesc": "Gesichtsreinigung, Hydration",
+    "hiemtDesc": "Muskelaufbau, Fettverbrennung",
+    "antiAgingDesc": "HIFU, RF-Technologie",
+    "pmuDesc": "PMU-Geräte",
+    "tattooDesc": "Professionelle Maschinen",
+    "furnitureDesc": "Möbel, Trolleys",
+    "accessoriesDesc": "Nadelmodule, Lösungen"
   },
   "footer": {
     "company": "Unternehmensinformationen",
@@ -136,7 +198,8 @@
     "copyright": "© {year} Skinlab Beauty Equipment Kft. Alle Rechte vorbehalten.",
     "newsletter": "Newsletter-Anmeldung",
     "newsletterPlaceholder": "Ihre E-Mail-Adresse",
-    "subscribe": "Abonnieren"
+    "subscribe": "Abonnieren",
+    "shipping": "Versand und Zahlung"
   },
   "contact": {
     "title": "Kontakt",
@@ -208,7 +271,69 @@
     "treatmentsPerDay": "Behandlungen/Tag",
     "workingDays": "Arbeitstage/Monat",
     "monthlyRevenue": "Monatlicher Umsatz",
-    "paybackPeriod": "Amortisationszeit"
+    "paybackPeriod": "Amortisationszeit",
+    "badge": "ROI-Rechner",
+    "subtitle": "Berechnen Sie basierend auf Ihren Daten",
+    "monthlyProfit": "Monatlicher Gewinn",
+    "yearlyRevenue": "Jährlicher Nettogewinn",
+    "machinePrice": "Gerätepreis (brutto)",
+    "machinePricePlaceholder": "Preis eingeben",
+    "profitMargin": "Gewinnmarge",
+    "profitMarginNote": "(nach Abzug von Gemeinkosten und Materialkosten)",
+    "disclaimer": "* Berechnung auf Basis geschätzter Werte, individuelle Ergebnisse können abweichen",
+    "calculate": "Berechnen",
+    "results": "Ergebnisse",
+    "currency": "€",
+    "perMonth": "Monat",
+    "perYear": "Jahr",
+    "persons": "Personen",
+    "days": "Tage",
+    "personalCalculation": "Fordern Sie eine individuelle Berechnung von unserem Experten an"
+  },
+  "warranty": {
+    "title": "Garantie & Service",
+    "subtitle": "Wir gewähren {years} Jahre Vollgarantie auf das {productName}, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleGeneric": "{years} Jahre Vollgarantie auf alle Geräte, mit eigenem Servicezentrum in Ungarn.",
+    "badge": "Ruhe & Sicherheit",
+    "yearsWarranty": "{years} Jahre Vollgarantie",
+    "extendedWarranty": "Erweiterte Garantie",
+    "extendedWarrantyDesc": "Verlängern Sie Ihre Garantie um ein weiteres Jahr zum Vorzugspreis!",
+    "extendedWarrantyButton": "Ich bin interessiert",
+    "industryStandardMultiple": "2x Branchenstandard",
+    "features": {
+      "fullWarranty": "Deckt alle Teile und Arbeitskosten ab – das Doppelte des Branchenstandards.",
+      "replacementDevice": "Ersatzgeräteprogramm",
+      "replacementDeviceDesc": "Wir stellen während der Reparatur ein kostenloses Leihgerät bereit, damit Ihr Geschäft weiterläuft.",
+      "ownWorkshop": "Eigene Servicewerkstatt",
+      "ownWorkshopDesc": "Reparaturen in Ungarn – kein monatelanges Warten auf ausländischen Service.",
+      "fastRepair": "Schnelle Reparatur",
+      "fastRepairDesc": "Die meisten Probleme werden innerhalb von 3-5 Werktagen behoben."
+    },
+    "steps": {
+      "title": "Wie funktioniert der Service?",
+      "step1Title": "Fehlermeldung",
+      "step1Desc": "Rufen Sie uns an oder senden Sie eine E-Mail mit der Fehlerbeschreibung.",
+      "step2Title": "Ersatzgerät",
+      "step2Desc": "Wir senden per Kurier ein Ersatzgerät und holen das defekte ab.",
+      "step3Title": "Reparatur",
+      "step3Desc": "Wir reparieren Ihr Gerät in unserer eigenen Werkstatt.",
+      "step4Title": "Rücksendung",
+      "step4Desc": "Sie erhalten das reparierte Gerät zurück, wir holen das Ersatzgerät ab."
+    },
+    "comparison": {
+      "title": "Vergleich",
+      "industryAverage": "Branchendurchschnitt",
+      "warrantyDuration": "Garantiedauer",
+      "serviceLocation": "Servicestandort",
+      "hungary": "Ungarn",
+      "china": "China",
+      "replacementDevice": "Ersatzgerät",
+      "repairTime": "Reparaturzeit",
+      "repairTimeSkinlab": "3-5 Tage",
+      "repairTimeAverage": "2-3 Monate",
+      "hungarianSupport": "Lokaler Sprachsupport",
+      "year": "Jahre"
+    }
   },
   "breadcrumb": {
     "home": "Startseite"
@@ -301,7 +426,9 @@
     "orMonthly": "oder monatlich",
     "viewDetails": "Details ansehen",
     "requestDemo": "Demo anfordern",
-    "productPlaceholder": "Produktfoto"
+    "productPlaceholder": "Produktfoto",
+    "warrantyValue": "2 Jahre",
+    "monthlyPrice": "~250 €"
   },
   "ctaSection": {
     "title": "Haben Sie Fragen? Wir helfen gerne!",

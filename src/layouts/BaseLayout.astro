@@ -81,7 +81,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(image, SITE.url)} />
-  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:locale" content={localeConfig[currentLocale].hreflang.replace('-', '_')} />
   <meta property="og:site_name" content="SkinLab Hungary" />
   
   <!-- Twitter -->

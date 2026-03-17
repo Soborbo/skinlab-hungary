@@ -284,7 +284,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                   >
                     <OptimizedPicture
                       src={img}
-                      alt=""
+                      alt={getAlt(img, i, set.images.length)}
                       widths={[160, 320]}
                       sizes="64px"
                       class="w-full h-full object-cover"

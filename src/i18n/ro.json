@@ -47,11 +47,17 @@
     "service": "Service propriu",
     "serviceDesc": "Reparatie imediata, aparat de rezerva"
   },
+  "brands": {
+    "title": "Brandurile noastre",
+    "subtitle": "Distribuitor exclusiv de branduri cosmetice premium în Ungaria"
+  },
   "stats": {
     "soldUnits": "Unitati Novalight vandute",
     "warranty": "Garantie",
     "deliveryTime": "Timp de livrare",
-    "legalImport": "Import legal"
+    "legalImport": "Import legal",
+    "yearsSuffix": "ani",
+    "weeksSuffix": "săptămâni"
   },
   "product": {
     "inStock": "In stoc",
@@ -72,7 +78,34 @@
     "whatsIncluded": "Ce este inclus?",
     "warranty": "Garantie si service",
     "warrantyInfo": "Garantie completa 2 ani, aparat de rezerva in timpul reparatiilor",
-    "videoDemo": "Demo video"
+    "videoDemo": "Demo video",
+    "specsTitle": "Specificații tehnice",
+    "specsSubtitle": "Date tehnice detaliate ale {productName}",
+    "downloadDatasheet": "Descărcați fișa tehnică de fabrică",
+    "faqTitle": "Întrebări frecvente",
+    "faqSubtitle": "Tot ce trebuie să știți despre {productName}",
+    "faqNotFound": "Nu ați găsit răspunsul? Nu ezitați să întrebați!",
+    "faqContact": "Contactați-ne",
+    "relatedTitle": "Mai multe produse {categoryName}",
+    "relatedSubtitle": "Descoperiți celelalte dispozitive profesionale",
+    "relatedViewAll": "Toate produsele {categoryName}",
+    "relatedDetails": "Detalii",
+    "testimonialsTitle": "Ce spun clienții noștri",
+    "testimonialsSubtitle": "Feedback real despre {productName}",
+    "functionCardsTitle": "Funcții de tratament",
+    "whatsIncludedTitle": "Ce primești cu {productName}?",
+    "whatsIncludedSubtitle": "Tot ce ai nevoie pentru un start de succes",
+    "whatsIncludedBadge": "Conținutul pachetului",
+    "whatsIncludedFullWarranty": "Garanție completă",
+    "whatsIncludedNoHiddenCost": "Fără costuri ascunse",
+    "whatsIncludedImmediateUse": "Utilizare imediată",
+    "buyerChecklistBadge": "Sfaturi utile",
+    "buyerChecklistTitle": "La ce să fii atent înainte de cumpărare?",
+    "buyerChecklistNote": "Experții noștri te ajută să navighezi detaliile – solicită o consultație gratuită pentru sfaturi personalizate.",
+    "videoPlaceholder": "Video demonstrativ în curând",
+    "videoPlayLabel": "Redă video: demonstrație {title}",
+    "trainingTitle": "Curs de operare",
+    "trainingContent": "Cursul include:"
   },
   "form": {
     "name": "Nume",
@@ -98,7 +131,9 @@
     "honeypot": "Nu completati acest camp",
     "firstName": "Prenume",
     "lastName": "Nume de familie",
-    "selectCategory": "Selectati o categorie"
+    "selectCategory": "Selectati o categorie",
+    "networkError": "A apărut o eroare de rețea. Vă rugăm să încercați din nou.",
+    "validationError": "Vă rugăm să verificați datele introduse."
   },
   "header": {
     "skipToContent": "Salt la continut",
@@ -112,7 +147,18 @@
     "title": "Aveti intrebari?",
     "subtitle": "Solicitati o consultatie gratuita si va ajutam sa gasiti echipamentul potrivit.",
     "button": "Solicitati consultatie",
-    "callUs": "Sunati-ne"
+    "callUs": "Sunati-ne",
+    "defaultHeadline": "Te interesează {productName}?",
+    "defaultSubtitle": "Solicită o consultație gratuită și te ajutăm să decizi dacă aceasta este cea mai bună alegere pentru tine.",
+    "defaultButton": "Solicită consultație",
+    "defaultPhone": "Sună-ne",
+    "afterVideoText": "Ai întrebări despre echipament? Cu plăcere te ajutăm!",
+    "afterFeaturesHeadline": "Vrei să vezi {productName} în persoană?",
+    "afterFeaturesSubtitle": "Vizitează showroom-ul nostru din Érd și încearcă-l personal!",
+    "afterFeaturesButton": "Programează o vizită",
+    "finalHeadline": "Te interesează {productName}?",
+    "finalSubtitle": "Solicită o consultație gratuită și te ajutăm să decizi dacă aceasta este cea mai bună alegere pentru tine.",
+    "finalButton": "Solicită consultație"
   },
   "finalCta": {
     "title": "Esti pregatit sa iti modernizezi salonul?",
@@ -123,6 +169,22 @@
     "inPersonOrOnline": "Personal sau online",
     "roiCalculation": "Calcul rentabilitate",
     "orCallDirectly": "Sau suna direct:"
+  },
+  "megaMenu": {
+    "lasers": "Lasere",
+    "treatments": "Dispozitive de tratament",
+    "pmu": "PMU",
+    "salon": "Salon",
+    "diodeDesc": "Epilare definitivă",
+    "ndyagDesc": "Îndepărtarea tatuajelor",
+    "picoDesc": "Tratament pigmentare",
+    "hydrafacialDesc": "Curățare facială, hidratare",
+    "hiemtDesc": "Dezvoltare musculară, arderea grăsimilor",
+    "antiAgingDesc": "Tehnologie HIFU, RF",
+    "pmuDesc": "Aparate PMU",
+    "tattooDesc": "Aparate profesionale",
+    "furnitureDesc": "Mobilier, cărucioare",
+    "accessoriesDesc": "Module de ace, soluții"
   },
   "footer": {
     "company": "Informatii companie",
@@ -136,7 +198,8 @@
     "copyright": "© {year} Skinlab Beauty Equipment Kft. Toate drepturile rezervate.",
     "newsletter": "Abonare newsletter",
     "newsletterPlaceholder": "Adresa dumneavoastra de email",
-    "subscribe": "Abonare"
+    "subscribe": "Abonare",
+    "shipping": "Livrare și plată"
   },
   "contact": {
     "title": "Contact",
@@ -208,7 +271,69 @@
     "treatmentsPerDay": "Tratamente/zi",
     "workingDays": "Zile lucratoare/luna",
     "monthlyRevenue": "Venit lunar",
-    "paybackPeriod": "Perioada de recuperare"
+    "paybackPeriod": "Perioada de recuperare",
+    "badge": "Calculator rentabilitate",
+    "subtitle": "Calculează pe baza datelor tale",
+    "monthlyProfit": "Profit lunar",
+    "yearlyRevenue": "Profit net anual",
+    "machinePrice": "Prețul echipamentului (brut)",
+    "machinePricePlaceholder": "Introduceți prețul",
+    "profitMargin": "Marjă de profit",
+    "profitMarginNote": "(după deducerea cheltuielilor generale și de materiale)",
+    "disclaimer": "* Calcul bazat pe valori estimate, rezultatele individuale pot varia",
+    "calculate": "Calculează",
+    "results": "Rezultate",
+    "currency": "€",
+    "perMonth": "lună",
+    "perYear": "an",
+    "persons": "persoane",
+    "days": "zile",
+    "personalCalculation": "Solicită un calcul personalizat de la expertul nostru"
+  },
+  "warranty": {
+    "title": "Garanție și service",
+    "subtitle": "Oferim {years} ani de garanție completă pentru {productName}, cu centru de service propriu în Ungaria.",
+    "subtitleGeneric": "{years} ani de garanție completă pentru toate dispozitivele, cu centru de service propriu în Ungaria.",
+    "badge": "Liniște și siguranță",
+    "yearsWarranty": "{years} ani garanție completă",
+    "extendedWarranty": "Garanție extinsă",
+    "extendedWarrantyDesc": "Prelungește garanția cu încă un an la preț avantajos!",
+    "extendedWarrantyButton": "Sunt interesat",
+    "industryStandardMultiple": "2x standardul industriei",
+    "features": {
+      "fullWarranty": "Acoperă toate piesele și manopera – dublul standardului industriei.",
+      "replacementDevice": "Program echipament de rezervă",
+      "replacementDeviceDesc": "Pe durata reparației, oferim gratuit un echipament de rezervă ca afacerea ta să nu se oprească.",
+      "ownWorkshop": "Atelier de service propriu",
+      "ownWorkshopDesc": "Reparații în Ungaria – nu mai aștepți luni de zile pentru service străin.",
+      "fastRepair": "Reparație rapidă",
+      "fastRepairDesc": "Majoritatea problemelor sunt rezolvate în 3-5 zile lucrătoare."
+    },
+    "steps": {
+      "title": "Cum funcționează service-ul?",
+      "step1Title": "Raportare defecțiune",
+      "step1Desc": "Sună-ne sau trimite un email cu descrierea problemei.",
+      "step2Title": "Echipament de rezervă",
+      "step2Desc": "Trimitem prin curier echipamentul de rezervă și preluăm pe cel defect.",
+      "step3Title": "Reparație",
+      "step3Desc": "Reparăm dispozitivul în atelierul nostru propriu.",
+      "step4Title": "Returnare",
+      "step4Desc": "Primești înapoi dispozitivul reparat, preluăm echipamentul de rezervă."
+    },
+    "comparison": {
+      "title": "Comparație",
+      "industryAverage": "Media industriei",
+      "warrantyDuration": "Durata garanției",
+      "serviceLocation": "Locația service-ului",
+      "hungary": "Ungaria",
+      "china": "China",
+      "replacementDevice": "Echipament de rezervă",
+      "repairTime": "Timp de reparație",
+      "repairTimeSkinlab": "3-5 zile",
+      "repairTimeAverage": "2-3 luni",
+      "hungarianSupport": "Suport în limba locală",
+      "year": "ani"
+    }
   },
   "breadcrumb": {
     "home": "Acasa"
@@ -301,7 +426,9 @@
     "orMonthly": "sau lunar",
     "viewDetails": "Vezi detalii",
     "requestDemo": "Solicita demonstratie",
-    "productPlaceholder": "foto produs"
+    "productPlaceholder": "foto produs",
+    "warrantyValue": "2 ani",
+    "monthlyPrice": "~250 €"
   },
   "ctaSection": {
     "title": "Ai intrebari? Suntem aici sa ajutam!",

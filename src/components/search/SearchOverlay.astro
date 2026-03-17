@@ -267,14 +267,14 @@ const typeLabelsJson = JSON.stringify(typeLabels);
         : '';
 
       const imagePart = item.image
-        ? `<img src="${item.image}" alt="" class="w-10 h-10 object-contain rounded-md bg-gray-50 shrink-0" loading="lazy" />`
+        ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="w-10 h-10 object-contain rounded-md bg-gray-50 shrink-0" loading="lazy" />`
         : `<span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-gray-100 shrink-0">
             <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-medium rounded ${colorClass}">${escapeHtml(typeLabel)}</span>
           </span>`;
 
       return `
         <a
-          href="${item.url}"
+          href="${escapeHtml(item.url)}"
           id="search-result-${i}"
           role="option"
           aria-selected="${i === activeIndex}"

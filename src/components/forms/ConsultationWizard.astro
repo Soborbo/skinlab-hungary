@@ -757,8 +757,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         const formData = new FormData(form);
 
         // Combine firstName and lastName into name
-        const firstName = formData.get('firstName') as string;
-        const lastName = formData.get('lastName') as string;
+        const firstName = (formData.get('firstName') as string) || '';
+        const lastName = (formData.get('lastName') as string) || '';
         formData.set('name', `${lastName} ${firstName}`);
 
         // Get all selected products as comma-separated string

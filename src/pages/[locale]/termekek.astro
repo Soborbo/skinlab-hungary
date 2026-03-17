@@ -1,13 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { CATEGORIES, COMPANY } from '../lib/constants';
-import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../i18n/ui';
+import { CATEGORIES } from '../../lib/constants';
+import { locales, defaultLocale, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const products = await getCollection('products');
 
-// Group products by category
 const productsByCategory = CATEGORIES.map(cat => ({
   ...cat,
   products: products.filter(p => p.data.categorySlug === cat.slug)

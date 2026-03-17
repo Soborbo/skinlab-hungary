@@ -47,11 +47,17 @@
     "service": "Lasten servis",
     "serviceDesc": "Takojsnje popravilo, nadomestna naprava"
   },
+  "brands": {
+    "title": "Naše blagovne znamke",
+    "subtitle": "Ekskluzivni distributer premium kozmetičnih blagovnih znamk na Madžarskem"
+  },
   "stats": {
     "soldUnits": "Prodanih enot Novalight",
     "warranty": "Garancija",
     "deliveryTime": "Cas dostave",
-    "legalImport": "Legalen uvoz"
+    "legalImport": "Legalen uvoz",
+    "yearsSuffix": "let",
+    "weeksSuffix": "tednov"
   },
   "product": {
     "inStock": "Na zalogi",
@@ -72,7 +78,34 @@
     "whatsIncluded": "Kaj je vkljuceno?",
     "warranty": "Garancija in servis",
     "warrantyInfo": "2-letna polna garancija, nadomestna naprava med popravilom",
-    "videoDemo": "Video predstavitev"
+    "videoDemo": "Video predstavitev",
+    "specsTitle": "Tehnične specifikacije",
+    "specsSubtitle": "Podrobni tehnični podatki za {productName}",
+    "downloadDatasheet": "Prenesite tovarniški podatkovni list",
+    "faqTitle": "Pogosta vprašanja",
+    "faqSubtitle": "Vse, kar morate vedeti o {productName}",
+    "faqNotFound": "Niste našli odgovora? Vprašajte nas!",
+    "faqContact": "Kontaktirajte nas",
+    "relatedTitle": "Več izdelkov {categoryName}",
+    "relatedSubtitle": "Odkrijte naše ostale profesionalne naprave",
+    "relatedViewAll": "Vsi izdelki {categoryName}",
+    "relatedDetails": "Podrobnosti",
+    "testimonialsTitle": "Kaj pravijo naše stranke",
+    "testimonialsSubtitle": "Resnične povratne informacije o {productName}",
+    "functionCardsTitle": "Funkcije tretmajev",
+    "whatsIncludedTitle": "Kaj dobite z {productName}?",
+    "whatsIncludedSubtitle": "Vse, kar potrebujete za uspešen začetek",
+    "whatsIncludedBadge": "Vsebina paketa",
+    "whatsIncludedFullWarranty": "Popolna garancija",
+    "whatsIncludedNoHiddenCost": "Brez skritih stroškov",
+    "whatsIncludedImmediateUse": "Takoj pripravljeno za uporabo",
+    "buyerChecklistBadge": "Koristni nasveti",
+    "buyerChecklistTitle": "Na kaj biti pozoren pred nakupom?",
+    "buyerChecklistNote": "Naši strokovnjaki vam pomagajo pri podrobnostih – zahtevajte brezplačno svetovanje za prilagojene nasvete.",
+    "videoPlaceholder": "Demo video kmalu",
+    "videoPlayLabel": "Predvajaj video: {title} predstavitev",
+    "trainingTitle": "Usposabljanje operaterjev",
+    "trainingContent": "Usposabljanje vključuje:"
   },
   "form": {
     "name": "Ime",
@@ -98,7 +131,9 @@
     "honeypot": "Tega polja ne izpolnjujte",
     "firstName": "Ime",
     "lastName": "Priimek",
-    "selectCategory": "Izberite kategorijo"
+    "selectCategory": "Izberite kategorijo",
+    "networkError": "Prišlo je do omrežne napake. Poskusite znova.",
+    "validationError": "Preverite vnesene podatke."
   },
   "header": {
     "skipToContent": "Skok na vsebino",
@@ -112,7 +147,18 @@
     "title": "Imate vprasanja?",
     "subtitle": "Zahtevajte brezplacno svetovanje in pomagali vam bomo najti pravo opremo.",
     "button": "Zahtevaj svetovanje",
-    "callUs": "Poklicite nas"
+    "callUs": "Poklicite nas",
+    "defaultHeadline": "Vas zanima {productName}?",
+    "defaultSubtitle": "Zahtevajte brezplačno svetovanje in pomagali vam bomo odločiti, ali je to najboljša izbira za vas.",
+    "defaultButton": "Zahtevajte svetovanje",
+    "defaultPhone": "Pokličite nas",
+    "afterVideoText": "Imate vprašanja o napravi? Z veseljem pomagamo!",
+    "afterFeaturesHeadline": "Želite videti {productName} v živo?",
+    "afterFeaturesSubtitle": "Obiščite naš razstavni prostor v Érdu in ga preizkusite osebno!",
+    "afterFeaturesButton": "Rezervirajte termin",
+    "finalHeadline": "Vas zanima {productName}?",
+    "finalSubtitle": "Zahtevajte brezplačno svetovanje in pomagali vam bomo odločiti, ali je to najboljša izbira za vas.",
+    "finalButton": "Zahtevajte svetovanje"
   },
   "finalCta": {
     "title": "Pripravljeni nadgraditi svoj salon?",
@@ -123,6 +169,22 @@
     "inPersonOrOnline": "Osebno ali online",
     "roiCalculation": "Izracun donosnosti",
     "orCallDirectly": "Ali poklicite neposredno:"
+  },
+  "megaMenu": {
+    "lasers": "Laserji",
+    "treatments": "Naprave za tretmaje",
+    "pmu": "PMU",
+    "salon": "Salon",
+    "diodeDesc": "Trajna odstranitev dlačic",
+    "ndyagDesc": "Odstranjevanje tetovaž",
+    "picoDesc": "Tretma pigmentacije",
+    "hydrafacialDesc": "Čiščenje obraza, hidratacija",
+    "hiemtDesc": "Izgradnja mišic, izgorevanje maščobe",
+    "antiAgingDesc": "HIFU, RF tehnologija",
+    "pmuDesc": "PMU naprave",
+    "tattooDesc": "Profesionalne naprave",
+    "furnitureDesc": "Pohištvo, vozički",
+    "accessoriesDesc": "Moduli igel, raztopine"
   },
   "footer": {
     "company": "Podatki o podjetju",
@@ -136,7 +198,8 @@
     "copyright": "(c) {year} Skinlab Beauty Equipment Kft. Vse pravice pridrzane.",
     "newsletter": "Prijava na novice",
     "newsletterPlaceholder": "Vas e-postni naslov",
-    "subscribe": "Naroci se"
+    "subscribe": "Naroci se",
+    "shipping": "Dostava in plačilo"
   },
   "contact": {
     "title": "Kontakt",
@@ -208,7 +271,69 @@
     "treatmentsPerDay": "Tretmajev/dan",
     "workingDays": "Delovnih dni/mesec",
     "monthlyRevenue": "Mesecni prihodek",
-    "paybackPeriod": "Obdobje vracila"
+    "paybackPeriod": "Obdobje vracila",
+    "badge": "Kalkulator donosnosti",
+    "subtitle": "Izračunajte na podlagi vaših podatkov",
+    "monthlyProfit": "Mesečni dobiček",
+    "yearlyRevenue": "Letni neto dobiček",
+    "machinePrice": "Cena naprave (bruto)",
+    "machinePricePlaceholder": "Vnesite ceno",
+    "profitMargin": "Stopnja dobička",
+    "profitMarginNote": "(po odbitku režijskih in materialnih stroškov)",
+    "disclaimer": "* Izračun na podlagi ocenjenih vrednosti, individualni rezultati se lahko razlikujejo",
+    "calculate": "Izračunaj",
+    "results": "Rezultati",
+    "currency": "€",
+    "perMonth": "mesec",
+    "perYear": "leto",
+    "persons": "oseb",
+    "days": "dni",
+    "personalCalculation": "Zahtevajte prilagojen izračun od našega strokovnjaka"
+  },
+  "warranty": {
+    "title": "Garancija in servis",
+    "subtitle": "Za {productName} zagotavljamo {years}-letno polno garancijo z lastnim servisnim centrom na Madžarskem.",
+    "subtitleGeneric": "{years}-letna polna garancija za vse naprave z lastnim servisnim centrom na Madžarskem.",
+    "badge": "Mir in varnost",
+    "yearsWarranty": "{years}-letna polna garancija",
+    "extendedWarranty": "Podaljšana garancija",
+    "extendedWarrantyDesc": "Podaljšajte garancijo za dodatno leto po ugodni ceni!",
+    "extendedWarrantyButton": "Me zanima",
+    "industryStandardMultiple": "2x industrijski standard",
+    "features": {
+      "fullWarranty": "Pokriva vse dele in delo – dvakratnik industrijskega standarda.",
+      "replacementDevice": "Program nadomestne naprave",
+      "replacementDeviceDesc": "Med popravilom zagotavljamo brezplačno nadomestno napravo, da vaš posel ne stoji.",
+      "ownWorkshop": "Lastna servisna delavnica",
+      "ownWorkshopDesc": "Popravila na Madžarskem – ni treba čakati mesecev na tuji servis.",
+      "fastRepair": "Hitro popravilo",
+      "fastRepairDesc": "Večino težav rešimo v 3-5 delovnih dneh."
+    },
+    "steps": {
+      "title": "Kako deluje servis?",
+      "step1Title": "Prijava okvare",
+      "step1Desc": "Pokličite nas ali pošljite e-pošto z opisom okvare.",
+      "step2Title": "Nadomestna naprava",
+      "step2Desc": "S kurirjem pošljemo nadomestno napravo in prevzamemo okvarjeno.",
+      "step3Title": "Popravilo",
+      "step3Desc": "Napravo popravimo v naši lastni delavnici.",
+      "step4Title": "Vračilo",
+      "step4Desc": "Prejmete nazaj popravljeno napravo, prevzamemo nadomestno."
+    },
+    "comparison": {
+      "title": "Primerjava",
+      "industryAverage": "Industrijski povprečje",
+      "warrantyDuration": "Trajanje garancije",
+      "serviceLocation": "Lokacija servisa",
+      "hungary": "Madžarska",
+      "china": "Kitajska",
+      "replacementDevice": "Nadomestna naprava",
+      "repairTime": "Čas popravila",
+      "repairTimeSkinlab": "3-5 dni",
+      "repairTimeAverage": "2-3 mesece",
+      "hungarianSupport": "Podpora v lokalnem jeziku",
+      "year": "let"
+    }
   },
   "breadcrumb": {
     "home": "Domov"
@@ -301,7 +426,9 @@
     "orMonthly": "ali mesecno",
     "viewDetails": "Oglej si podrobnosti",
     "requestDemo": "Zahtevaj predstavitev",
-    "productPlaceholder": "foto izdelka"
+    "productPlaceholder": "foto izdelka",
+    "warrantyValue": "2 leti",
+    "monthlyPrice": "~250 €"
   },
   "ctaSection": {
     "title": "Imate vprasanja? Tukaj smo, da pomagamo!",

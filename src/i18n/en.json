@@ -47,11 +47,17 @@
     "service": "In-house Service",
     "serviceDesc": "Immediate repair, loaner device"
   },
+  "brands": {
+    "title": "Our Brands",
+    "subtitle": "Exclusive distributor of premium cosmetic brands in Hungary"
+  },
   "stats": {
     "soldUnits": "Novalight Units Sold",
     "warranty": "Warranty",
     "deliveryTime": "Delivery Time",
-    "legalImport": "Legal Import"
+    "legalImport": "Legal Import",
+    "yearsSuffix": "years",
+    "weeksSuffix": "weeks"
   },
   "product": {
     "inStock": "In Stock",
@@ -72,7 +78,34 @@
     "whatsIncluded": "What's Included?",
     "warranty": "Warranty & Service",
     "warrantyInfo": "2-year full warranty, loaner device during repairs",
-    "videoDemo": "Video Demo"
+    "videoDemo": "Video Demo",
+    "specsTitle": "Technical Specifications",
+    "specsSubtitle": "Detailed technical data of the {productName}",
+    "downloadDatasheet": "Download factory datasheet",
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Everything you need to know about the {productName}",
+    "faqNotFound": "Didn't find the answer? Feel free to ask!",
+    "faqContact": "Contact Us",
+    "relatedTitle": "More {categoryName} products",
+    "relatedSubtitle": "Discover our other professional devices",
+    "relatedViewAll": "All {categoryName} products",
+    "relatedDetails": "Details",
+    "testimonialsTitle": "What our clients say",
+    "testimonialsSubtitle": "Real feedback about the {productName}",
+    "functionCardsTitle": "Treatment Functions",
+    "whatsIncludedTitle": "What comes with the {productName}?",
+    "whatsIncludedSubtitle": "Everything you need for a successful start",
+    "whatsIncludedBadge": "Package contents",
+    "whatsIncludedFullWarranty": "Full warranty",
+    "whatsIncludedNoHiddenCost": "No hidden costs",
+    "whatsIncludedImmediateUse": "Immediate use",
+    "buyerChecklistBadge": "Helpful tips",
+    "buyerChecklistTitle": "What to look for before buying?",
+    "buyerChecklistNote": "Our experts help you navigate the details – request a free consultation for personalized advice.",
+    "videoPlaceholder": "Demo video coming soon",
+    "videoPlayLabel": "Play video: {title} demo",
+    "trainingTitle": "Operator Training",
+    "trainingContent": "Training includes:"
   },
   "form": {
     "name": "Name",
@@ -114,7 +147,18 @@
     "title": "Have Questions?",
     "subtitle": "Request a free consultation and we'll help you find the right equipment.",
     "button": "Request Consultation",
-    "callUs": "Call Us"
+    "callUs": "Call Us",
+    "defaultHeadline": "Interested in the {productName}?",
+    "defaultSubtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+    "defaultButton": "Request Consultation",
+    "defaultPhone": "Call Us",
+    "afterVideoText": "Have questions about the device? We're happy to help!",
+    "afterFeaturesHeadline": "Want to see the {productName} in person?",
+    "afterFeaturesSubtitle": "Visit our showroom in Érd and try it yourself!",
+    "afterFeaturesButton": "Book an Appointment",
+    "finalHeadline": "Interested in the {productName}?",
+    "finalSubtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+    "finalButton": "Request Consultation"
   },
   "finalCta": {
     "title": "Ready to Upgrade Your Salon?",
@@ -125,6 +169,22 @@
     "inPersonOrOnline": "In-person or online",
     "roiCalculation": "ROI calculation",
     "orCallDirectly": "Or call directly:"
+  },
+  "megaMenu": {
+    "lasers": "Lasers",
+    "treatments": "Treatment Devices",
+    "pmu": "PMU",
+    "salon": "Salon",
+    "diodeDesc": "Permanent hair removal",
+    "ndyagDesc": "Tattoo removal",
+    "picoDesc": "Pigmentation treatment",
+    "hydrafacialDesc": "Facial cleansing, hydration",
+    "hiemtDesc": "Muscle building, fat burning",
+    "antiAgingDesc": "HIFU, RF technology",
+    "pmuDesc": "PMU machines",
+    "tattooDesc": "Professional machines",
+    "furnitureDesc": "Furniture, trolleys",
+    "accessoriesDesc": "Needle modules, solutions"
   },
   "footer": {
     "company": "Company Info",
@@ -138,7 +198,8 @@
     "copyright": "© {year} Skinlab Beauty Equipment Kft. All rights reserved.",
     "newsletter": "Newsletter Signup",
     "newsletterPlaceholder": "Your email address",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "shipping": "Shipping & Payment"
   },
   "contact": {
     "title": "Contact",
@@ -210,7 +271,69 @@
     "treatmentsPerDay": "Treatments/Day",
     "workingDays": "Working Days/Month",
     "monthlyRevenue": "Monthly Revenue",
-    "paybackPeriod": "Payback Period"
+    "paybackPeriod": "Payback Period",
+    "badge": "ROI Calculator",
+    "subtitle": "Calculate based on your data",
+    "monthlyProfit": "Monthly Profit",
+    "yearlyRevenue": "Annual Net Profit",
+    "machinePrice": "Machine Price (gross)",
+    "machinePricePlaceholder": "Enter the price",
+    "profitMargin": "Profit Margin",
+    "profitMarginNote": "(after deducting overhead and material costs)",
+    "disclaimer": "* Calculation based on estimated values, individual results may vary",
+    "calculate": "Calculate",
+    "results": "Results",
+    "currency": "€",
+    "perMonth": "month",
+    "perYear": "year",
+    "persons": "persons",
+    "days": "days",
+    "personalCalculation": "Request a personalized calculation from our expert"
+  },
+  "warranty": {
+    "title": "Warranty & Service",
+    "subtitle": "We provide {years} years of full warranty on the {productName}, with our own service center in Hungary.",
+    "subtitleGeneric": "{years} years of full warranty on all devices, with our own service center in Hungary.",
+    "badge": "Peace of mind & security",
+    "yearsWarranty": "{years} years full warranty",
+    "extendedWarranty": "Extended Warranty",
+    "extendedWarrantyDesc": "Extend your warranty by an additional year at a discounted price!",
+    "extendedWarrantyButton": "I'm interested",
+    "industryStandardMultiple": "2x industry standard",
+    "features": {
+      "fullWarranty": "Covers all parts and labor – double the industry standard.",
+      "replacementDevice": "Replacement Device Program",
+      "replacementDeviceDesc": "We provide a free loaner device during repairs so your business keeps running.",
+      "ownWorkshop": "In-house Service Workshop",
+      "ownWorkshopDesc": "Repairs in Hungary – no waiting months for foreign service.",
+      "fastRepair": "Fast Repair",
+      "fastRepairDesc": "Most issues are resolved within 3-5 business days."
+    },
+    "steps": {
+      "title": "How does the service work?",
+      "step1Title": "Report Issue",
+      "step1Desc": "Call us or send an email describing the problem.",
+      "step2Title": "Replacement Device",
+      "step2Desc": "We send a replacement via courier and collect the faulty one.",
+      "step3Title": "Repair",
+      "step3Desc": "We fix your device in our own workshop.",
+      "step4Title": "Return",
+      "step4Desc": "You get back the repaired device, we collect the replacement."
+    },
+    "comparison": {
+      "title": "Comparison",
+      "industryAverage": "Industry Average",
+      "warrantyDuration": "Warranty Duration",
+      "serviceLocation": "Service Location",
+      "hungary": "Hungary",
+      "china": "China",
+      "replacementDevice": "Replacement Device",
+      "repairTime": "Repair Time",
+      "repairTimeSkinlab": "3-5 days",
+      "repairTimeAverage": "2-3 months",
+      "hungarianSupport": "Local Language Support",
+      "year": "years"
+    }
   },
   "breadcrumb": {
     "home": "Home"
@@ -303,7 +426,9 @@
     "orMonthly": "or monthly",
     "viewDetails": "View Details",
     "requestDemo": "Request Demo",
-    "productPlaceholder": "product photo"
+    "productPlaceholder": "product photo",
+    "warrantyValue": "2 years",
+    "monthlyPrice": "~€250"
   },
   "ctaSection": {
     "title": "Have Questions? We're Here to Help!",

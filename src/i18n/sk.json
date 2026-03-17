@@ -47,11 +47,17 @@
     "service": "Vlastný servis",
     "serviceDesc": "Okamžitá oprava, náhradné zariadenie"
   },
+  "brands": {
+    "title": "Naše značky",
+    "subtitle": "Exkluzívny distribútor prémiových kozmetických značiek v Maďarsku"
+  },
   "stats": {
     "soldUnits": "Predaných jednotiek Novalight",
     "warranty": "Záruka",
     "deliveryTime": "Doba dodania",
-    "legalImport": "Legálny dovoz"
+    "legalImport": "Legálny dovoz",
+    "yearsSuffix": "rokov",
+    "weeksSuffix": "týždňov"
   },
   "product": {
     "inStock": "Na sklade",
@@ -72,7 +78,34 @@
     "whatsIncluded": "Čo je v balení?",
     "warranty": "Záruka a servis",
     "warrantyInfo": "2-ročná plná záruka, náhradné zariadenie počas opravy",
-    "videoDemo": "Video ukážka"
+    "videoDemo": "Video ukážka",
+    "specsTitle": "Technické špecifikácie",
+    "specsSubtitle": "Podrobné technické údaje {productName}",
+    "downloadDatasheet": "Stiahnuť výrobný dátový list",
+    "faqTitle": "Často kladené otázky",
+    "faqSubtitle": "Všetko, čo potrebujete vedieť o {productName}",
+    "faqNotFound": "Nenašli ste odpoveď? Neváhajte sa opýtať!",
+    "faqContact": "Kontaktujte nás",
+    "relatedTitle": "Ďalšie produkty {categoryName}",
+    "relatedSubtitle": "Objavte naše ďalšie profesionálne zariadenia",
+    "relatedViewAll": "Všetky produkty {categoryName}",
+    "relatedDetails": "Detaily",
+    "testimonialsTitle": "Čo hovoria naši klienti",
+    "testimonialsSubtitle": "Skutočné ohlasy na {productName}",
+    "functionCardsTitle": "Funkcie ošetrenia",
+    "whatsIncludedTitle": "Čo je súčasťou {productName}?",
+    "whatsIncludedSubtitle": "Všetko, čo potrebujete pre úspešný štart",
+    "whatsIncludedBadge": "Obsah balenia",
+    "whatsIncludedFullWarranty": "Plná záruka",
+    "whatsIncludedNoHiddenCost": "Žiadne skryté náklady",
+    "whatsIncludedImmediateUse": "Okamžité použitie",
+    "buyerChecklistBadge": "Užitočné tipy",
+    "buyerChecklistTitle": "Na čo si dať pozor pred kúpou?",
+    "buyerChecklistNote": "Naši odborníci vám pomôžu zorientovať sa v detailoch – požiadajte o bezplatnú konzultáciu pre personalizované rady.",
+    "videoPlaceholder": "Ukážkové video čoskoro",
+    "videoPlayLabel": "Prehrať video: ukážka {title}",
+    "trainingTitle": "Školenie obsluhy",
+    "trainingContent": "Obsah školenia:"
   },
   "form": {
     "name": "Meno",
@@ -98,7 +131,9 @@
     "honeypot": "Toto pole nevypĺňajte",
     "firstName": "Meno",
     "lastName": "Priezvisko",
-    "selectCategory": "Vyberte kategóriu"
+    "selectCategory": "Vyberte kategóriu",
+    "networkError": "Vyskytla sa chyba siete. Skúste to prosím znova.",
+    "validationError": "Skontrolujte prosím zadané údaje."
   },
   "header": {
     "skipToContent": "Preskočiť na obsah",
@@ -112,7 +147,18 @@
     "title": "Máte otázky?",
     "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám nájsť správne vybavenie.",
     "button": "Požiadať o konzultáciu",
-    "callUs": "Zavolajte nám"
+    "callUs": "Zavolajte nám",
+    "defaultHeadline": "Zaujíma vás {productName}?",
+    "defaultSubtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+    "defaultButton": "Požiadať o konzultáciu",
+    "defaultPhone": "Zavolajte nám",
+    "afterVideoText": "Máte otázky ohľadom zariadenia? Radi pomôžeme!",
+    "afterFeaturesHeadline": "Chcete vidieť {productName} naživo?",
+    "afterFeaturesSubtitle": "Príďte do nášho showroomu v Érde a vyskúšajte si ho osobne!",
+    "afterFeaturesButton": "Rezervovať termín",
+    "finalHeadline": "Zaujíma vás {productName}?",
+    "finalSubtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+    "finalButton": "Požiadať o konzultáciu"
   },
   "footer": {
     "company": "Informácie o spoločnosti",
@@ -126,7 +172,8 @@
     "copyright": "© {year} Skinlab Beauty Equipment Kft. Všetky práva vyhradené.",
     "newsletter": "Odber noviniek",
     "newsletterPlaceholder": "Vaša e-mailová adresa",
-    "subscribe": "Prihlásiť sa"
+    "subscribe": "Prihlásiť sa",
+    "shipping": "Doprava a platba"
   },
   "contact": {
     "title": "Kontakt",
@@ -198,7 +245,69 @@
     "treatmentsPerDay": "Ošetrení/deň",
     "workingDays": "Pracovných dní/mesiac",
     "monthlyRevenue": "Mesačný príjem",
-    "paybackPeriod": "Doba návratnosti"
+    "paybackPeriod": "Doba návratnosti",
+    "badge": "Kalkulačka návratnosti",
+    "subtitle": "Vypočítajte na základe vašich údajov",
+    "monthlyProfit": "Mesačný zisk",
+    "yearlyRevenue": "Ročný čistý zisk",
+    "machinePrice": "Cena zariadenia (s DPH)",
+    "machinePricePlaceholder": "Zadajte cenu",
+    "profitMargin": "Zisková marža",
+    "profitMarginNote": "(po odpočítaní réžie a materiálových nákladov)",
+    "disclaimer": "* Výpočet na základe odhadovaných hodnôt, individuálne výsledky sa môžu líšiť",
+    "calculate": "Vypočítať",
+    "results": "Výsledky",
+    "currency": "€",
+    "perMonth": "mesiac",
+    "perYear": "rok",
+    "persons": "osôb",
+    "days": "dní",
+    "personalCalculation": "Požiadajte o individuálny výpočet od nášho odborníka"
+  },
+  "warranty": {
+    "title": "Záruka a servis",
+    "subtitle": "Na {productName} poskytujeme {years}-ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
+    "subtitleGeneric": "{years}-ročná plná záruka na všetky zariadenia s vlastným servisným centrom v Maďarsku.",
+    "badge": "Pokoj a istota",
+    "yearsWarranty": "{years}-ročná plná záruka",
+    "extendedWarranty": "Rozšírená záruka",
+    "extendedWarrantyDesc": "Predĺžte si záruku o ďalší rok za zvýhodnenú cenu!",
+    "extendedWarrantyButton": "Mám záujem",
+    "industryStandardMultiple": "2x priemyselný štandard",
+    "features": {
+      "fullWarranty": "Pokrýva všetky diely a prácu – dvojnásobok priemyselného štandardu.",
+      "replacementDevice": "Program náhradného zariadenia",
+      "replacementDeviceDesc": "Počas opravy poskytujeme bezplatné náhradné zariadenie, aby vaša práca nestála.",
+      "ownWorkshop": "Vlastná servisná dielňa",
+      "ownWorkshopDesc": "Opravy v Maďarsku – nemusíte čakať mesiace na zahraničný servis.",
+      "fastRepair": "Rýchla oprava",
+      "fastRepairDesc": "Väčšinu problémov vyriešime do 3-5 pracovných dní."
+    },
+    "steps": {
+      "title": "Ako funguje servis?",
+      "step1Title": "Nahlásenie poruchy",
+      "step1Desc": "Zavolajte nám alebo pošlite e-mail s popisom poruchy.",
+      "step2Title": "Náhradné zariadenie",
+      "step2Desc": "Kuriérom pošleme náhradné zariadenie a prevezmeme poškodené.",
+      "step3Title": "Oprava",
+      "step3Desc": "Zariadenie opravíme v našej vlastnej dielni.",
+      "step4Title": "Vrátenie",
+      "step4Desc": "Dostanete späť opravené zariadenie, prevezmeme náhradné."
+    },
+    "comparison": {
+      "title": "Porovnanie",
+      "industryAverage": "Priemyselný priemer",
+      "warrantyDuration": "Doba záruky",
+      "serviceLocation": "Miesto servisu",
+      "hungary": "Maďarsko",
+      "china": "Čína",
+      "replacementDevice": "Náhradné zariadenie",
+      "repairTime": "Doba opravy",
+      "repairTimeSkinlab": "3-5 dní",
+      "repairTimeAverage": "2-3 mesiace",
+      "hungarianSupport": "Podpora v miestnom jazyku",
+      "year": "rokov"
+    }
   },
   "breadcrumb": {
     "home": "Domov"
@@ -245,6 +354,22 @@
     "inPersonOrOnline": "Osobne alebo online",
     "roiCalculation": "Výpočet návratnosti",
     "orCallDirectly": "Alebo zavolajte priamo:"
+  },
+  "megaMenu": {
+    "lasers": "Lasery",
+    "treatments": "Ošetrujúce zariadenia",
+    "pmu": "PMU",
+    "salon": "Salón",
+    "diodeDesc": "Trvalé odstránenie chĺpkov",
+    "ndyagDesc": "Odstránenie tetovania",
+    "picoDesc": "Liečba pigmentácie",
+    "hydrafacialDesc": "Čistenie pleti, hydratácia",
+    "hiemtDesc": "Budovanie svalov, spaľovanie tukov",
+    "antiAgingDesc": "HIFU, RF technológia",
+    "pmuDesc": "PMU prístroje",
+    "tattooDesc": "Profesionálne prístroje",
+    "furnitureDesc": "Nábytok, vozíky",
+    "accessoriesDesc": "Ihlové moduly, roztoky"
   },
   "whyUs": {
     "title": "Prečo úspešné salóny vyberajú SkinLab?",
@@ -301,7 +426,9 @@
     "orMonthly": "alebo mesačne",
     "viewDetails": "Zobraziť detaily",
     "requestDemo": "Požiadať o ukážku",
-    "productPlaceholder": "fotografia produktu"
+    "productPlaceholder": "fotografia produktu",
+    "warrantyValue": "2 roky",
+    "monthlyPrice": "~250 €"
   },
   "ctaSection": {
     "title": "Máte otázky? Sme tu, aby sme pomohli!",
