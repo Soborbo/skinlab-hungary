@@ -1,0 +1,152 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import TopCtaBar from '../components/layout/TopCtaBar.astro';
+import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
+import WhatsAppButton from '../components/layout/WhatsAppButton.astro';
+import { LCPTracker } from '../components/images';
+import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
+import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, SEO_DEFAULTS } from '../lib/constants';
+import {
+  locales,
+  localeConfig,
+  defaultLocale,
+  getLocaleFromUrl,
+  getLocalizedPath,
+  getLocalizedUrl,
+  getHtmlLang,
+} from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+  schema?: object | object[] | null;
+}
+
+const {
+  title = SEO_DEFAULTS.defaultTitle,
+  description = SEO_DEFAULTS.defaultDescription,
+  image = '/og-image.jpg',
+  noIndex = false,
+  schema,
+} = Astro.props;
+
+// Get current locale from URL
+const currentLocale = getLocaleFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+const htmlLang = getHtmlLang(currentLocale);
+
+// Generate canonical URL - absolute URL for SEO
+// Using SITE.url as base for all languages (path-based routing)
+const localizedPath = getLocalizedUrl(currentLocale, currentPath);
+const canonicalURL = `${SITE.url}${localizedPath}`;
+const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
+
+// Generate hreflang links for all locales - absolute URLs for SEO
+const hreflangLinks = locales.map((locale) => ({
+  locale,
+  hreflang: localeConfig[locale].hreflang,
+  href: `${SITE.url}${getLocalizedUrl(locale, currentPath)}`,
+}));
+
+// Helper to render schema(s)
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Boolean) : [];
+---
+
+<!DOCTYPE html>
+<html lang={htmlLang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Hreflang tags for international SEO -->
+  {hreflangLinks.map(({ hreflang, href }) => (
+    <link rel="alternate" hreflang={hreflang} href={href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={`${SITE.url}${getLocalizedUrl(defaultLocale, currentPath)}`} />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, SITE.url)} />
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:site_name" content="SkinLab Hungary" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image, SITE.url)} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Schema.org - Global schemas -->
+  <LocalBusinessSchema
+    name={COMPANY.name}
+    url={SITE.url}
+    telephone={CONTACT.phone}
+    email={CONTACT.email}
+    streetAddress={LOCATIONS.showroom.streetAddress}
+    city={LOCATIONS.showroom.city}
+    postalCode={LOCATIONS.showroom.postalCode}
+    country="HU"
+    latitude={LOCATIONS.showroom.geo.latitude}
+    longitude={LOCATIONS.showroom.geo.longitude}
+    type="HealthAndBeautyBusiness"
+    logo={`${SITE.url}/logo.png`}
+    image={`${SITE.url}/showroom.jpg`}
+    priceRange={COMPANY.priceRange as '€€€€'}
+    paymentAccepted={COMPANY.paymentAccepted}
+    areaServed={COMPANY.areaServed.map(code => ({ type: 'Country', name: code }))}
+    sameAs={[SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url]}
+  />
+  <OrganizationSchema
+    name={COMPANY.name}
+    legalName={COMPANY.legalName}
+    url={SITE.url}
+    logo={`${SITE.url}/logo.png`}
+    image={`${SITE.url}/showroom.jpg`}
+    slogan={COMPANY.slogan}
+    foundingDate={COMPANY.foundingDate}
+    email={CONTACT.email}
+    telephone={CONTACT.phone}
+    sameAs={[SOCIAL.facebook.url, SOCIAL.instagram.url, SOCIAL.tiktok.url]}
+  />
+  {schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+  
+  <!-- Generator -->
+  <meta name="generator" content={Astro.generator} />
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
+  <Header />
+  <main id="main-content" class="flex-1 pb-20 lg:pb-0">
+    <slot />
+  </main>
+  <Footer />
+  <MobileStickyCta />
+  <WhatsAppButton />
+<LCPTracker />
+</body>
+</html>
+

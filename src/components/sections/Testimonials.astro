@@ -1,0 +1,89 @@
+---
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Localized reviews link
+const reviewsLink = getLocalizedUrl(locale, '/velemenyek');
+
+const testimonials = [
+  {
+    quoteKey: 'testimonials.quote1',
+    nameKey: 'testimonials.name1',
+    businessKey: 'testimonials.business1',
+    locationKey: 'testimonials.location1',
+    rating: 5,
+    color: 'bg-purple-200',
+  },
+  {
+    quoteKey: 'testimonials.quote2',
+    nameKey: 'testimonials.name2',
+    businessKey: 'testimonials.business2',
+    locationKey: 'testimonials.location2',
+    rating: 5,
+    color: 'bg-pink-200',
+  },
+  {
+    quoteKey: 'testimonials.quote3',
+    nameKey: 'testimonials.name3',
+    businessKey: 'testimonials.business3',
+    locationKey: 'testimonials.location3',
+    rating: 4,
+    color: 'bg-blue-200',
+  },
+];
+---
+
+<section class="py-16 lg:py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 lg:mb-14">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+        {t(locale, 'testimonials.title')}
+      </h2>
+      <p class="text-gray-600">
+        {t(locale, 'testimonials.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100">
+          <!-- Stars -->
+          <div class="flex gap-0.5 mb-4 text-yellow-400 text-lg">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span class={i < testimonial.rating ? '' : 'text-gray-300'}>
+                {i < testimonial.rating ? '★' : '☆'}
+              </span>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <p class="text-gray-700 mb-6" set:html={`"${t(locale, testimonial.quoteKey)}"`} />
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class={`w-12 h-12 ${testimonial.color} rounded-full flex items-center justify-center text-xl`}>
+              <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-bold text-gray-900">{t(locale, testimonial.nameKey)}</div>
+              <div class="text-sm text-gray-500">{t(locale, testimonial.businessKey)} • {t(locale, testimonial.locationKey)}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <a href={reviewsLink} class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700">
+        {t(locale, 'testimonials.readMore')}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

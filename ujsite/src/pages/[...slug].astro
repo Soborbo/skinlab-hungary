@@ -1,0 +1,49 @@
+---
+import { routeMap, languages, type Lang } from "../i18n/config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeContent from "../components/HomeContent.astro";
+import ServicesContent from "../components/ServicesContent.astro";
+import ContactContent from "../components/ContactContent.astro";
+import TrainingContent from "../components/TrainingContent.astro";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const [pageKey, slugs] of Object.entries(routeMap)) {
+    for (const lang of languages) {
+      const slug = slugs[lang];
+      let urlParts: string[];
+      if (lang === "hu") {
+        urlParts = slug ? [slug] : [];
+      } else if (lang === "en") {
+        urlParts = slug ? ["en", slug] : ["en"];
+      } else {
+        urlParts = slug ? [lang, slug] : [lang];
+      }
+      paths.push({
+        params: { slug: urlParts.length > 0 ? urlParts.join("/") : undefined },
+        props: { lang: lang as Lang, pageKey },
+      });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  lang: Lang;
+  pageKey: string;
+}
+
+const { lang, pageKey } = Astro.props;
+const translations = await import(`../i18n/translations/${lang}.json`);
+const t = translations.default ?? translations;
+const pageData = t[pageKey] ?? {};
+const title = pageData.title ?? "SkinLab";
+const description = pageData.meta_description ?? "";
+---
+
+<BaseLayout lang={lang} pageKey={pageKey} title={title} description={description}>
+  {pageKey === "home" && <HomeContent t={t} lang={lang} />}
+  {pageKey === "services" && <ServicesContent t={t} lang={lang} />}
+  {pageKey === "contact" && <ContactContent t={t} lang={lang} />}
+  {pageKey === "training" && <TrainingContent t={t} lang={lang} />}
+</BaseLayout>

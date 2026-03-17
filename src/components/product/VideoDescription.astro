@@ -1,0 +1,92 @@
+---
+/**
+ * VideoDescription - YouTube video + description side-by-side section
+ *
+ * Two-column layout: YouTube facade (left) + heading + paragraphs (right).
+ * Reuses the shared .video-facade click-to-load pattern from VideoDemo.astro.
+ */
+
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import type { ProductContentVideoDescription } from '@/lib/types/product-content';
+
+interface Props {
+  locale: Locale;
+  videoUrl?: string;
+  productName: string;
+  content: ProductContentVideoDescription;
+}
+
+const { locale, videoUrl, productName, content } = Astro.props;
+
+// Extract YouTube video ID
+const getVideoId = (url: string): string | null => {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+    /^([a-zA-Z0-9_-]{11})$/,
+  ];
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+};
+
+const videoId = videoUrl ? getVideoId(videoUrl) : null;
+---
+
+<section class="py-12 lg:py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Left: Video -->
+      <div class="relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 aspect-video">
+        {videoId ? (
+          <div
+            class="video-facade relative w-full h-full cursor-pointer group"
+            data-video-id={videoId}
+            data-video-title={`${productName} ${t(locale, 'product.videoDemo')}`}
+            role="button"
+            tabindex="0"
+            aria-label={t(locale, 'product.videoPlayLabel', { title: productName })}
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+              alt={t(locale, 'product.videoPlayLabel', { title: productName })}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700">
+                <svg class="w-8 h-8 lg:w-10 lg:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div class="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+            <div class="text-center p-8">
+              <svg class="w-16 h-16 text-primary-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <p class="text-sm text-primary-400">{t(locale, 'product.videoPlaceholder')}</p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Right: Description -->
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+          {content.headline}
+        </h2>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          {content.paragraphs.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

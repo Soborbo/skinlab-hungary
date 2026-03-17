@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CONTACT, COMPANY, LOCATIONS } from '../../lib/constants';
+import { t, getLocaleFromUrl, type Locale, localeConfig } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Localized contact link
+const contactLink = locale === 'hu' ? '/kapcsolat' : `/${locale}/kapcsolat`;
+
+// FAQ categories and questions - using translation keys
+const faqCategories = [
+  {
+    categoryKey: 'faq.category.orderShipping',
+    questions: [
+      { questionKey: 'faq.orderShipping.q1', answerKey: 'faq.orderShipping.a1' },
+      { questionKey: 'faq.orderShipping.q2', answerKey: 'faq.orderShipping.a2' },
+      { questionKey: 'faq.orderShipping.q3', answerKey: 'faq.orderShipping.a3' },
+      { questionKey: 'faq.orderShipping.q4', answerKey: 'faq.orderShipping.a4' },
+    ],
+  },
+  {
+    categoryKey: 'faq.category.warrantyService',
+    questions: [
+      { questionKey: 'faq.warrantyService.q1', answerKey: 'faq.warrantyService.a1' },
+      { questionKey: 'faq.warrantyService.q2', answerKey: 'faq.warrantyService.a2' },
+      { questionKey: 'faq.warrantyService.q3', answerKey: 'faq.warrantyService.a3' },
+      { questionKey: 'faq.warrantyService.q4', answerKey: 'faq.warrantyService.a4' },
+    ],
+  },
+  {
+    categoryKey: 'faq.category.training',
+    questions: [
+      { questionKey: 'faq.training.q1', answerKey: 'faq.training.a1' },
+      { questionKey: 'faq.training.q2', answerKey: 'faq.training.a2' },
+      { questionKey: 'faq.training.q3', answerKey: 'faq.training.a3' },
+      { questionKey: 'faq.training.q4', answerKey: 'faq.training.a4' },
+    ],
+  },
+  {
+    categoryKey: 'faq.category.products',
+    questions: [
+      { questionKey: 'faq.products.q1', answerKey: 'faq.products.a1' },
+      { questionKey: 'faq.products.q2', answerKey: 'faq.products.a2' },
+      { questionKey: 'faq.products.q3', answerKey: 'faq.products.a3' },
+      { questionKey: 'faq.products.q4', answerKey: 'faq.products.a4' },
+    ],
+  },
+  {
+    categoryKey: 'faq.category.general',
+    questions: [
+      { questionKey: 'faq.general.q1', answerKey: 'faq.general.a1' },
+      { questionKey: 'faq.general.q2', answerKey: 'faq.general.a2' },
+      { questionKey: 'faq.general.q3', answerKey: 'faq.general.a3' },
+    ],
+  },
+];
+
+// Generate FAQPage schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((category) =>
+    category.questions.map((q) => ({
+      '@type': 'Question',
+      name: t(locale, q.questionKey),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: t(locale, q.answerKey, {
+          phone: CONTACT.phoneDisplay,
+          email: CONTACT.email,
+          showroom: LOCATIONS.showroom.fullAddress
+        }),
+      },
+    }))
+  ),
+};
+---
+
+<BaseLayout
+  title={t(locale, 'faq.title')}
+  description={t(locale, 'faq.subtitle')}
+  schema={faqSchema}
+>
+  <div id="main-content">
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {t(locale, 'faq.title')}
+          </h1>
+          <p class="text-lg text-gray-600">
+            {t(locale, 'faq.subtitle')}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Sections -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {faqCategories.map((category, categoryIndex) => (
+          <div class={categoryIndex > 0 ? 'mt-12' : ''}>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <span class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 font-bold text-lg">
+                {categoryIndex + 1}
+              </span>
+              {t(locale, category.categoryKey)}
+            </h2>
+
+            <div class="space-y-4">
+              {category.questions.map((faq) => (
+                <details class="group bg-gray-50 rounded-xl">
+                  <summary class="flex items-center justify-between cursor-pointer p-5 font-medium text-gray-900 hover:bg-gray-100 rounded-xl transition-colors">
+                    <span class="pr-4">{t(locale, faq.questionKey)}</span>
+                    <svg class="w-5 h-5 text-gray-500 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-5 pb-5 text-gray-600 leading-relaxed">
+                    {t(locale, faq.answerKey, {
+                      phone: CONTACT.phoneDisplay,
+                      email: CONTACT.email,
+                      showroom: LOCATIONS.showroom.fullAddress
+                    })}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+    <!-- Still have questions CTA -->
+    <section class="py-12 lg:py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            {t(locale, 'faq.ctaTitle')}
+          </h2>
+          <p class="text-gray-600 mb-8">
+            {t(locale, 'faq.ctaSubtitle')}
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={CONTACT.phoneTel}
+              class="inline-flex items-center justify-center px-6 py-3 bg-success-600 text-white font-semibold rounded-xl hover:bg-success-700 transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={contactLink}
+              class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
+            >
+              {t(locale, 'nav.contact')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

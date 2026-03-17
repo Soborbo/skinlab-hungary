@@ -1,0 +1,45 @@
+---
+/**
+ * StatsBar - Termék statisztikák sáv
+ *
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
+ */
+
+import type { Locale } from '@/i18n';
+import type { ProductContentStat } from '@/lib/types/product-content';
+
+interface Props {
+  locale: Locale;
+  stats: ProductContentStat[];
+}
+
+const { locale, stats } = Astro.props;
+---
+
+<section class="py-4 bg-gray-900">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <!-- Value -->
+          <div class="flex items-baseline justify-center gap-1">
+            <span class="text-2xl lg:text-3xl font-black text-white">
+              {stat.value}
+            </span>
+            {stat.unit && (
+              <span class="text-base lg:text-lg font-semibold text-primary-400">
+                {stat.unit}
+              </span>
+            )}
+          </div>
+
+          <!-- Label -->
+          <div class="text-xs text-gray-400 font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

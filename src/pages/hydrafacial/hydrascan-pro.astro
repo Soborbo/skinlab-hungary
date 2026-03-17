@@ -1,0 +1,482 @@
+---
+/**
+ * Dedikált HydraSCAN Pro termékoldal
+ *
+ * Statikus route — felülírja a [slug].astro dinamikus route-ot.
+ * Új szekció-sorrend a referencia template alapján:
+ * Hero → Stats → ROI → VideoDescription → FeatureRows → Training → Testimonials →
+ * Expert → TechSpecs + FunctionCards → WhatsIncluded → FAQ → Warranty → CTA → Related
+ *
+ * Nem használ: ComparisonTable, ProblemSolution, Description szekció
+ *
+ * i18n-aware: uses loadProductContent for locale-specific content,
+ * t() for UI chrome, getLocalizedUrl for links.
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGallery from '../../components/product/ProductGallery.astro';
+import StatsBar from '../../components/product/StatsBar.astro';
+import ROICalculator from '../../components/product/ROICalculator.astro';
+import VideoDescription from '../../components/product/VideoDescription.astro';
+import ProductCTA from '../../components/product/ProductCTA.astro';
+import FeatureRows from '../../components/product/FeatureRows.astro';
+import TrainingCard from '../../components/product/TrainingCard.astro';
+import Testimonials from '../../components/product/Testimonials.astro';
+import ExpertQuote from '../../components/product/ExpertQuote.astro';
+import FunctionCards from '../../components/product/FunctionCards.astro';
+import WhatsIncluded from '../../components/product/WhatsIncluded.astro';
+import ProductFAQ from '../../components/product/ProductFAQ.astro';
+import WarrantyService from '../../components/product/WarrantyService.astro';
+import RelatedProducts from '../../components/product/RelatedProducts.astro';
+import InstallmentBadge from '../../components/ui/InstallmentBadge.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
+import { getCollection } from 'astro:content';
+import { SITE, CONTACT, CATEGORIES } from '../../lib/constants';
+import { getLocaleFromUrl, t, getLocalizedUrl, formatPrice as i18nFormatPrice } from '@/i18n';
+import { loadProductContent } from '@/lib/load-product-content';
+
+// Determine locale from URL
+const locale = getLocaleFromUrl(Astro.url);
+
+// Fetch product data from collection
+const products = await getCollection('products', ({ data }) => {
+  return data.slug === 'hydrascan-pro';
+});
+
+if (!products.length) {
+  return Astro.redirect(getLocalizedUrl(locale, '/hydrafacial'));
+}
+
+const productEntry = products[0];
+const product = {
+  name: productEntry.data.name,
+  sku: productEntry.data.sku,
+  slug: productEntry.data.slug,
+  categorySlug: productEntry.data.categorySlug,
+  description: productEntry.data.description,
+  shortDescription: productEntry.data.shortDescription,
+  price: productEntry.data.price,
+  image: productEntry.data.image,
+  gallery: productEntry.data.images || productEntry.data.gallery || [],
+  youtubeVideos: productEntry.data.youtubeVideos,
+  availability: productEntry.data.availability,
+  hasVariants: productEntry.data.hasVariants,
+  variants: productEntry.data.variants,
+  featured: productEntry.data.featured,
+  metaTitle: productEntry.data.metaTitle,
+  metaDescription: productEntry.data.metaDescription,
+  stats: productEntry.data.stats,
+  faq: productEntry.data.faq,
+  whatsIncluded: productEntry.data.whatsIncluded,
+  specs: productEntry.data.specs,
+};
+
+// Load localized product content (cascades: product JSON → category JSON → undefined)
+const { content } = loadProductContent(locale, product.slug, product.categorySlug);
+
+// Resolve content with fallbacks to collection data
+const displayName = content.name || product.name;
+const displayShortDesc = content.shortDescription || product.shortDescription;
+const displayDesc = content.description || product.description;
+
+// Category info
+const category = CATEGORIES.find(c => c.slug === product.categorySlug);
+const categoryName = category?.nameShort || product.categorySlug;
+
+// Format price with locale
+const displayPrice = (price: number | null) => {
+  if (!price) return null;
+  return i18nFormatPrice(price, locale);
+};
+
+// Availability with i18n labels
+const availabilityInfo: Record<string, { label: string; color: string; icon: string }> = {
+  in_stock: { label: t(locale, 'product.inStock'), color: 'success', icon: 'check' },
+  preorder: { label: t(locale, 'product.preorder'), color: 'amber', icon: 'clock' },
+  out_of_stock: { label: t(locale, 'product.outOfStock'), color: 'gray', icon: 'x' },
+};
+const availability = availabilityInfo[product.availability];
+
+// URLs
+const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}`;
+
+// Breadcrumb
+const breadcrumbItems = [
+  { name: t(locale, 'breadcrumb.home'), url: SITE.url },
+  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}` },
+  { name: displayName }
+];
+
+// Extract first YouTube video URL
+const firstVideoUrl = product.youtubeVideos?.[0] || '';
+
+// FAQ schema
+const resolvedFaq = content.faq || product.faq || [];
+const faqQuestions = resolvedFaq.map(item => ({
+  question: item.question,
+  answer: item.answer
+}));
+
+// Product schema
+const productSchema = product.price ? {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": `${pageUrl}#product`,
+  "name": displayName,
+  "description": displayShortDesc || displayDesc?.slice(0, 200),
+  "sku": product.sku,
+  "brand": { "@type": "Brand", "name": "SkinLab" },
+  "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
+  "offers": {
+    "@type": "Offer",
+    "url": pageUrl,
+    "priceCurrency": "HUF",
+    "price": String(product.price),
+    "availability": product.availability === 'in_stock'
+      ? "https://schema.org/InStock"
+      : product.availability === 'preorder'
+        ? "https://schema.org/PreOrder"
+        : "https://schema.org/OutOfStock",
+    "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "SkinLab Hungary" },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "HUF" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "HU" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 20, "unitCode": "DAY" }
+      }
+    }
+  }
+} : null;
+
+// Trust badges with i18n keys
+const trustBadges = [
+  { icon: 'shield-check', labelKey: 'trust.warranty' },
+  { icon: 'truck', labelKey: 'trust.shipping' },
+  { icon: 'graduation-cap', labelKey: 'trust.training' },
+  { icon: 'wrench', labelKey: 'trust.service' },
+];
+
+// Trust badge icons
+const icons: Record<string, string> = {
+  'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+  'truck': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+  'graduation-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
+  'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+};
+
+// All images for gallery
+const allImages = [product.image, ...product.gallery].filter(Boolean);
+
+// Resolved content sections
+const resolvedStats = content.stats || product.stats || [];
+const resolvedWhatsIncluded = content.whatsIncluded || product.whatsIncluded || [];
+const resolvedSpecs = content.specs || product.specs || {};
+const resolvedTestimonials = content.testimonials || [];
+const resolvedExpertQuote = content.expertQuote;
+const resolvedFunctionCards = content.functionCards || [];
+---
+
+<BaseLayout
+  title={content.metaTitle || product.metaTitle || displayName}
+  description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
+  schema={productSchema}
+>
+  <!-- Schema.org -->
+  <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
+  {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
+
+  <div id="main-content">
+
+    <!-- BREADCRUMB -->
+    <nav class="bg-gray-100 border-b" aria-label="Breadcrumb">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <ol class="flex items-center gap-2 text-sm">
+          <li><a href={getLocalizedUrl(locale, '/')} class="text-gray-500 hover:text-primary-600">{t(locale, 'breadcrumb.home')}</a></li>
+          <li class="text-gray-400">›</li>
+          <li><a href={getLocalizedUrl(locale, `/${product.categorySlug}`)} class="text-gray-500 hover:text-primary-600">{categoryName}</a></li>
+          <li class="text-gray-400">›</li>
+          <li class="text-gray-900 font-medium truncate max-w-[200px]">{displayName}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="bg-white py-8 lg:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+
+          <ProductGallery
+            images={allImages}
+            productName={displayName}
+            badges={{ featured: product.featured, variantCount: product.hasVariants ? product.variants.length : undefined }}
+          />
+
+          <div>
+            <!-- Availability -->
+            <div class={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-4 ${
+              availability.color === 'success' ? 'bg-success-50 text-success-600' :
+              availability.color === 'amber' ? 'bg-amber-50 text-amber-600' :
+              'bg-gray-100 text-gray-600'
+            }`}>
+              {availability.icon === 'check' && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              )}
+              {availability.icon === 'clock' && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              )}
+              {availability.label}
+            </div>
+
+            <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              {displayName}
+            </h1>
+
+            <p class="text-lg text-gray-600 mb-6">
+              {displayShortDesc}
+            </p>
+
+            <!-- Price -->
+            <div class="mb-6">
+              {product.price ? (
+                <>
+                  <div class="text-3xl font-bold text-gray-900">{displayPrice(product.price)}</div>
+                  <div class="text-sm text-gray-500 mt-1">{t(locale, 'product.grossPrice')}</div>
+                </>
+              ) : (
+                <div class="text-2xl font-bold text-primary-600">{t(locale, 'product.priceOnRequest')}</div>
+              )}
+            </div>
+
+            <InstallmentBadge price={product.price || 0} class="mb-6" />
+
+            <!-- Trust badges mini -->
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              {trustBadges.map((badge) => (
+                <div class="flex items-center gap-2 text-sm">
+                  <svg class="w-5 h-5 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[badge.icon]} />
+                  <span class="text-gray-700">{t(locale, badge.labelKey)}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href={getLocalizedUrl(locale, '/kapcsolat')} class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors shadow-lg">
+                {t(locale, 'product.freeConsultation')}
+              </a>
+              <a href={CONTACT.phoneTel} class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 bg-success-50 text-success-700 font-semibold rounded-xl hover:bg-success-100 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {t(locale, 'product.callNow')}
+              </a>
+            </div>
+
+            <div class="mt-6 text-xs text-gray-400">{t(locale, 'product.sku')}: {product.sku}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. STATS BAR -->
+    {resolvedStats.length > 0 && (
+      <StatsBar locale={locale} stats={resolvedStats} />
+    )}
+
+    <!-- 3. ROI CALCULATOR -->
+    <ROICalculator
+      locale={locale}
+      productPrice={product.price}
+      productName={displayName}
+      defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+    />
+
+    <!-- 4. VIDEO + DESCRIPTION -->
+    {content.videoDescription && (
+      <VideoDescription
+        locale={locale}
+        videoUrl={firstVideoUrl}
+        productName={displayName}
+        content={content.videoDescription}
+      />
+    )}
+
+    <!-- CTA: after video -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="light"
+      headline={content.cta?.afterVideo?.text}
+      buttonLabel={content.cta?.afterVideo?.buttonLabel}
+      phoneLabel={content.cta?.afterVideo?.phoneLabel}
+      showPhone={true}
+    />
+
+    <!-- 5. FEATURE ROWS -->
+    {content.featureRows && (
+      <FeatureRows
+        locale={locale}
+        content={content.featureRows}
+      />
+    )}
+
+    <!-- CTA: after features -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="accent"
+      headline={content.cta?.afterFeatures?.headline}
+      subtitle={content.cta?.afterFeatures?.subtitle}
+      buttonLabel={content.cta?.afterFeatures?.buttonLabel}
+      showPhone={true}
+    />
+
+    <!-- 6. TRAINING SECTION -->
+    {content.training && (
+      <TrainingCard
+        locale={locale}
+        content={content.training}
+      />
+    )}
+
+    <!-- 7. TESTIMONIALS -->
+    {resolvedTestimonials.length > 0 && (
+      <Testimonials
+        locale={locale}
+        testimonials={resolvedTestimonials}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 8. EXPERT QUOTE -->
+    {resolvedExpertQuote && (
+      <ExpertQuote
+        locale={locale}
+        quote={resolvedExpertQuote.quote}
+        author={resolvedExpertQuote.author}
+        role={resolvedExpertQuote.role}
+        image={resolvedExpertQuote.image}
+      />
+    )}
+
+    <!-- 9. TECH SPECS + FUNCTION CARDS -->
+    {(Object.keys(resolvedSpecs).length > 0 || resolvedFunctionCards.length > 0) && (
+      <section class="py-12 lg:py-16 bg-gray-50 border-t border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Specs Header -->
+          <div class="text-center mb-10">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+              {t(locale, 'product.specs')}
+            </h2>
+            <p class="text-gray-600">
+              {t(locale, 'product.specsSubtitle', { productName: displayName })}
+            </p>
+          </div>
+
+          <!-- Specs Table (inline) -->
+          {Object.keys(resolvedSpecs).length > 0 && (
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+              <dl class="divide-y divide-gray-200">
+                {Object.entries(resolvedSpecs).map(([key, value], index) => (
+                  <div class:list={[
+                    "flex flex-col sm:flex-row sm:items-center px-6 py-4",
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  ]}>
+                    <dt class="text-sm font-semibold text-gray-900 sm:w-1/3 mb-1 sm:mb-0">{key}</dt>
+                    <dd class="text-sm text-gray-600 sm:w-2/3">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+
+          <!-- Download CTA -->
+          <div class="mt-8 text-center">
+            <a href={getLocalizedUrl(locale, '/kapcsolat')} class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              {t(locale, 'product.downloadDatasheet')}
+            </a>
+          </div>
+
+          <!-- Function Cards -->
+          {resolvedFunctionCards.length > 0 && (
+            <FunctionCards
+              locale={locale}
+              functions={resolvedFunctionCards}
+            />
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- 10. FAQ -->
+    {resolvedFaq.length > 0 && (
+      <ProductFAQ
+        locale={locale}
+        faq={resolvedFaq}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 11. WHATS INCLUDED -->
+    {resolvedWhatsIncluded.length > 0 && (
+      <WhatsIncluded
+        locale={locale}
+        items={resolvedWhatsIncluded}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 12. WARRANTY -->
+    <WarrantyService locale={locale} productName={displayName} />
+
+    <!-- 13. CTA SECTION -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="primary"
+      headline={content.cta?.final?.headline}
+      subtitle={content.cta?.final?.subtitle}
+      buttonLabel={content.cta?.final?.buttonLabel}
+      showPhone={true}
+    />
+
+    <!-- 14. RELATED PRODUCTS -->
+    <RelatedProducts
+      locale={locale}
+      currentSlug={product.slug}
+      categorySlug={product.categorySlug}
+    />
+
+  </div>
+</BaseLayout>
+
+<script>
+  // Variant selection (not used for this product but kept for consistency)
+  document.querySelectorAll('[data-variant]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-variant]').forEach(b => {
+        b.classList.remove('border-primary-600', 'bg-primary-50', 'text-primary-700');
+        b.classList.add('border-gray-200', 'text-gray-700');
+      });
+      btn.classList.remove('border-gray-200', 'text-gray-700');
+      btn.classList.add('border-primary-600', 'bg-primary-50', 'text-primary-700');
+    });
+  });
+</script>

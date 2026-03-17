@@ -1,0 +1,64 @@
+---
+// src/components/schema/OrganizationSchema.astro
+import type { OrganizationProps } from './helpers/types';
+import { clean } from './helpers/clean';
+import { schemaId, isValidSchemaUrl, ID_SUFFIX } from './helpers/ids';
+
+type Props = OrganizationProps;
+
+const {
+  name,
+  url,
+  logo,
+  legalName,
+  slogan,
+  foundingDate,
+  email,
+  telephone,
+  image,
+  sameAs,
+  locale = 'hu-HU',
+} = Astro.props;
+
+// ============================================
+// GUARDS
+// ============================================
+
+if (!name) throw new Error('OrganizationSchema: name is required');
+if (!url) throw new Error('OrganizationSchema: url is required');
+if (!logo) throw new Error('OrganizationSchema: logo is required');
+
+// Validate sameAs URLs
+if (sameAs?.length) {
+  sameAs.forEach((link, i) => {
+    if (!isValidSchemaUrl(link)) {
+      throw new Error(`OrganizationSchema: sameAs[${i}] must be absolute HTTPS URL, got: ${link}`);
+    }
+  });
+}
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+const schema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': schemaId(url, ID_SUFFIX.organization),
+  name,
+  legalName,
+  url,
+  logo,
+  image,
+  slogan,
+  foundingDate,
+  email,
+  telephone,
+  inLanguage: locale,
+  sameAs,
+};
+
+const output = JSON.stringify(clean(schema));
+---
+
+<script type="application/ld+json" set:html={output} />

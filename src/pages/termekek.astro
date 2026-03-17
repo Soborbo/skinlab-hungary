@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, COMPANY } from '../lib/constants';
+
+const products = await getCollection('products');
+
+// Group products by category
+const productsByCategory = CATEGORIES.map(cat => ({
+  ...cat,
+  products: products.filter(p => p.data.categorySlug === cat.slug)
+})).filter(cat => cat.products.length > 0);
+---
+
+<BaseLayout
+  title="Összes termék - Professzionális kozmetikai berendezések"
+  description="Fedezze fel teljes kínálatunkat: diódalézerek, sminktetováló gépek, ND:YAG lézerek, hydrafacial készülékek és szalonberendezések."
+>
+  <div class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Összes termék</h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Professzionális kozmetikai berendezések közvetlen forgalmazása 2 év garanciával és ingyenes betanítással.
+        </p>
+      </div>
+
+      {productsByCategory.map((category) => (
+        <section class="mb-16">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">{category.name}</h2>
+            <a href={`/${category.slug}`} class="text-primary-600 hover:text-primary-700 font-medium">
+              Összes megtekintése →
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {category.products.slice(0, 4).map((product) => (
+              <a
+                href={`/${category.slug}/${product.data.slug}`}
+                class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div class="aspect-square bg-gray-100 flex items-center justify-center">
+                  <span class="text-gray-400">Kép</span>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 line-clamp-2">
+                    {product.data.name}
+                  </h3>
+                  {product.data.price && (
+                    <p class="mt-2 text-lg font-bold text-gray-900">
+                      {new Intl.NumberFormat('hu-HU').format(product.data.price)} Ft
+                    </p>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

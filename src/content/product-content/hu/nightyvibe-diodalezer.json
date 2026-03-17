@@ -1,0 +1,202 @@
+{
+  "name": "NightyVibe Diódalézer",
+  "shortDescription": "2500W intelligens diódalézer SAFE-OPTION technológiával. 40 millió lövés élettartam, digitális kezelőfej beépített lövésszámlálóval. Szakorvosi tananyaggal és teljes üzleti modullal.",
+  "description": "A NightyVibe egy intelligens, 4 hullámhosszon működő diódalézer, amelyet a hatékonyság, biztonság és prémium technológia jegyében fejlesztettek ki. Az intelligens vezérlés klinikai adatok alapján programozott kezelőfelületet biztosít, a SAFE-OPTION technológia pedig kizárja a hibás vagy veszélyes beállításokat.",
+  "metaTitle": "NightyVibe Diódalézer | 2500W, SAFE-OPTION, intelligens vezérlés",
+  "metaDescription": "NightyVibe 2500W intelligens diódalézer 4 hullámhosszal, SAFE-OPTION technológiával. 40M lövés, digitális kezelőfej, szakorvosi oktatás. B-számos tanúsítvány.",
+  "stats": [
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Teljesítmény",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Lövés élettartam",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
+  "videoDescription": {
+    "headline": "NightyVibe – A profik okos lézere",
+    "paragraphs": [
+      "A jövő diódalézeres szőrtelenítő technológiája megérkezett. A NightyVibe egy intelligens, 4 hullámhosszon működő diódalézer, amelyet a hatékonyság, biztonság és prémium technológia jegyében fejlesztettek ki.",
+      "A NightyVibe nem csak egy lézer – hanem egy üzleti szintlépés. Szakorvosi tananyag, marketing kampányterv és valódi szakmai támogatás jár mellé."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a NightyVibe-bal kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a NightyVibe-ot?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a NightyVibe diódalézer?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért választják a profik a NightyVibe-ot?",
+    "subtitle": "2500W teljesítmény, SAFE-OPTION technológia, teljes üzleti csomag.",
+    "features": [
+      {
+        "title": "2500W teljesítmény – villámgyors kezelések",
+        "description": "A NightyVibe 2500W teljesítménye az egyik legmagasabb a piacon. Ez a teljesítmény lehetővé teszi a nagyobb területek rendkívül gyors lefedését, a kezelési idő drasztikus csökkentését és több vendég kiszolgálását naponta.",
+        "highlight": "Az egyik legmagasabb teljesítményű diódalézer a magyar piacon.",
+        "image": "@assets/products/a60a5251-0957-4306-be62-263b8adc2936.webp"
+      },
+      {
+        "title": "4 hullámhossz – minden bőr- és szőrtípusra",
+        "description": "A NightyVibe négy hullámhosszon dolgozik, így minden Fitzpatrick bőrtípuson (I–VI) biztonságosan és hatékonyan alkalmazható.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – világos, vékony szőrszálak</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzális, legtöbb szőrtípus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – sötétebb szőrzet</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – mélyen ülő szőrszálak</div>\n</div>",
+        "image": "@assets/products/nightyvibediodalezer2.webp"
+      },
+      {
+        "title": "SAFE-OPTION technológia – maximális biztonság",
+        "description": "A SAFE-OPTION technológia kizárja a hibás vagy veszélyes beállításokat, így maximális biztonságot nyújt minden vendégnek. Az intelligens vezérlés klinikai adatok alapján programozott kezelőfelületet biztosít – a gép automatikusan optimalizálja a beállításokat.",
+        "highlight": "A SAFE-OPTION kizárja a hibás beállításokat – maximális biztonság.",
+        "image": "@assets/products/nightyvibediodalezer3.webp"
+      },
+      {
+        "title": "Digitális kezelőfej – beépített lövésszámláló",
+        "description": "A modern, érintőképernyős kijelző könnyű használatot biztosít, a digitális kezelőfej beépített lövésszámlálója pedig lehetővé teszi a pontos kezelésszám nyomon követését.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Beépített lövésszámláló a pontos nyomon követéshez</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>40 millió lövés élettartam</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kontakthűtés a fájdalommentes kezelésekhez</div>\n</div>",
+        "image": "@assets/products/nightyvibediodalezer4.webp"
+      },
+      {
+        "title": "Teljes üzleti csomag – nem csak egy lézer",
+        "description": "A NightyVibe vásárlásához komplett üzleti támogatás jár, amely segít a sikeres indulásban és növekedésben.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szakorvosi tananyag – kozmetológus orvos által összeállítva</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Marketing kampányterv és árstratégia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vevőszerző tippek és üzleti modul</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Utókövetés és folyamatos szakmai támogatás</div>\n</div>",
+        "highlight": "A NightyVibe nem csak egy lézer – hanem egy üzleti szintlépés.",
+        "image": "@assets/products/a60a5251-0957-4306-be62-263b8adc2936.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – hivatalos felnőttképzés keretében",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "A NightyVibe diódalézerhez hivatalos oktatást biztosítunk B-számos tanúsítvánnyal. A tanfolyamot kozmetológus orvos állította össze, és a gép árában benne van.",
+    "items": [
+      "A diódalézer technológia működési elve és biztonsági szempontjai",
+      "SAFE-OPTION technológia működése és alkalmazása",
+      "Kezelési paraméterek beállítása bőr- és szőrtípus szerint",
+      "Gyakorlati kezelések modelleken – különböző testtájakon",
+      "Kontraindikációk, vendégkiválasztás és előkezelési protokollok",
+      "Marketing és üzleti modul – vevőszerzés, árstratégia"
+    ],
+    "closingParagraphs": [
+      "Modellt természetesen hozhatsz a képzésre, így valós környezetben tudod elsajátítani a kezelési technikákat.",
+      "A képzés elvégzése után B-számos felnőttképzési tanúsítványt állítunk ki, amely igazolja a készülék szakszerű kezeléséhez szükséges kompetenciát."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "testimonials": [
+    {
+      "name": "Németh Katalin",
+      "date": "2025. 06. 20.",
+      "text": "A NightyVibe SAFE-OPTION funkciója hatalmas megkönnyebbülés. <mark>Nem kell aggódnom, hogy rossz beállítást választok</mark> – a gép egyszerűen nem engedi. A 2500W-os teljesítmény pedig érezhetően gyorsabb kezeléseket tesz lehetővé.",
+      "rating": 5
+    },
+    {
+      "name": "Varga Szilvia",
+      "date": "2025. 05. 15.",
+      "text": "Az üzleti csomag az, ami igazán megkülönbözteti a NightyVibe-ot. <mark>A marketing kampányterv és a szakorvosi tananyag segített a szalonom beindításában</mark>. A gép maga is fantasztikus.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "A NightyVibe 2500W teljesítményével és SAFE-OPTION technológiájával az egyik legbiztonságosabb és leghatékonyabb diódalézer. A komplett üzleti csomag pedig különösen értékes az induló szalonok számára.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "2500W teljesítmény",
+      "description": "Az egyik legmagasabb teljesítmény a piacon."
+    },
+    {
+      "icon": "sun",
+      "name": "4 hullámhossz",
+      "description": "755, 808, 940, 1064 nm – minden bőrtípusra."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Kizárja a hibás vagy veszélyes beállításokat."
+    },
+    {
+      "icon": "chart",
+      "name": "Lövésszámláló",
+      "description": "Digitális kezelőfej beépített számlálóval."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligens vezérlés",
+      "description": "Klinikai adatok alapján optimalizált beállítások."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Üzleti csomag",
+      "description": "Marketing terv, árstratégia, vevőszerzés."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Mi az a SAFE-OPTION technológia?",
+      "answer": "A SAFE-OPTION egy intelligens biztonsági rendszer, amely kizárja a hibás vagy veszélyes beállításokat. Ez azt jelenti, hogy a gép nem engedi, hogy a kezelő olyan paramétereket állítson be, amelyek nem biztonságosak az adott bőrtípus vagy szőrtípus kezeléséhez."
+    },
+    {
+      "question": "Mit tartalmaz az üzleti csomag?",
+      "answer": "A NightyVibe vásárlásához szakorvosi tananyag (kozmetológus orvos által összeállítva), marketing kampányterv, árstratégia, vevőszerző tippek és folyamatos utókövetési támogatás jár."
+    },
+    {
+      "question": "Mennyi a lövés élettartam?",
+      "answer": "A NightyVibe kb. 40 millió lövés kapacitással rendelkezik, amely napi 10-15 vendéggel számolva több éves élettartamot jelent."
+    },
+    {
+      "question": "Milyen képzés jár a géphez?",
+      "answer": "Hivatalos, B-számos tanúsítvánnyal záruló felnőttképzés, amely a gép árában benne van. A tanfolyamot kozmetológus orvos állította össze."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg?",
+      "answer": "Átlagosan 2-4 hónap alatt, napi 5-8 vendéggel számolva. Használja a ROI kalkulátorunkat az oldalon a pontos számításhoz!"
+    },
+    {
+      "question": "Milyen garanciát kapok?",
+      "answer": "2 év teljes körű garanciát biztosítunk. Saját szervizháttérrel rendelkezünk, és javítás idejére cseregépet biztosítunk, hogy a szalonod működése ne álljon le."
+    }
+  ],
+  "whatsIncluded": [
+    "NightyVibe diódalézer készülék (2500W)",
+    "Digitális kezelőfej lövésszámlálóval",
+    "Szakorvosi tananyag",
+    "Marketing kampányterv és üzleti modul",
+    "Védőszemüveg (kezelő + vendég)",
+    "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (B-számos tanúsítvány)",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "name": "MediLUX PRO professzionális diódalézer",
+  "shortDescription": "2500W professzionális diódalézer 4 hullámhosszal, állítható spotmérettel és UV-sterilizációs applikátortartóval. Egyedi színekben rendelhető.",
+  "description": "A MediLUX a legmodernebb diódalézeres technológia, amelyet professzionális szalonok és klinikák számára fejlesztettünk.\n\nA készülék 4 hullámhosszon (755 nm, 808 nm, 940 nm, 1064 nm) működik, így minden bőrtípuson és szőrszál-sűrűségen hatékony és biztonságos kezelést biztosít.\n\nAz állítható spotméret lehetővé teszi a különböző testtájakhoz való alkalmazkodást, az UV-sterilizációs applikátortartó pedig garantálja a maximális higiéniát.",
+  "metaTitle": "MediLUX PRO professzionális, 4 hullámhosszon operáló diódalézer készülék",
+  "metaDescription": "MediLUX PRO 2500W diódalézer 4 hullámhosszal (755, 808, 940, 1064 nm). Állítható spotméret, -16°C hűtés, UV-sterilizációs tartó. Egyedi színekben rendelhető.",
+  "stats": [
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Teljesítmény",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
+    },
+    {
+      "value": "-16°C",
+      "label": "Hűtés",
+      "icon": "snowflake"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 40000
+  },
+  "videoDescription": {
+    "headline": "MediLUX PRO – Klinikai szintű diódalézer, egyedi designnal",
+    "paragraphs": [
+      "A MediLUX a legmodernebb diódalézeres technológia, amelyet professzionális szalonok és klinikák számára fejlesztettünk.",
+      "2500W teljesítmény, 4 hullámhossz, -16°C-ig hűtő zafír kontakt rendszer – minden, amire egy prémium szalonnak szüksége van.",
+      "A MediLUX nemcsak technológiai szempontból nyújt kiemelkedő teljesítményt, hanem esztétikailag is prémium színvonalat képvisel. Rendelhető egyedi színekben: rosegold, pezsgőarany, modern szürke, elegáns ezüst, holo-effect és púderrózsaszín."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a MediLUX PRO-val kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a MediLUX PRO-t?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a MediLUX PRO diódalézer?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért választják a szakemberek a MediLUX PRO-t?",
+    "subtitle": "2500W teljesítmény, klinikai szintű minőség, prémium megjelenés",
+    "features": [
+      {
+        "title": "2500W teljesítmény – a kategória élvonala",
+        "description": "A MediLUX PRO 2500W-os teljesítménye kiemelkedő a diódalézer piacon. Ez a teljesítmény gyors, precíz és hatékony szőrtelenítést tesz lehetővé, még a legigényesebb szalonhasználat mellett is.",
+        "highlight": "A 2500W teljesítmény a legnagyobb területek kezelését is felgyorsítja.",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      },
+      {
+        "title": "4 hullámhossz – univerzális hatékonyság",
+        "description": "A MediLUX PRO 4 hullámhosszon működik, így minden bőrtípuson és szőrszál-sűrűségen hatékony.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – világos, vékony szőrszálak</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzális hullámhossz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – sötétebb bőrtónusok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – mélyen ülő szőrtüszők</div>\n</div>",
+        "image": "@assets/products/Adjustable.webp"
+      },
+      {
+        "title": "-16°C zafír kontakt hűtés – maximális komfort",
+        "description": "A MediLUX PRO fejlett hűtőrendszere vízhűtést, léghűtést, TEC hűtőrendszert és zafír kontakt hűtést kombinál, -16°C-ig hűtve a kezelőfejet. Ez a vendégek számára kényelmes, fájdalommentes kezelést biztosít.",
+        "highlight": "A -16°C-os zafír kontakt hűtés a legmagasabb komfortszintet biztosítja.",
+        "image": "@assets/products/MediLUXGray2.webp"
+      },
+      {
+        "title": "UV-sterilizációs applikátortartó",
+        "description": "Az UV-sterilizációs applikátortartó garantálja a maximális higiéniát és biztonságot minden kezelésnél. A kezelőfej minden használat után automatikusan sterilizálódik.",
+        "highlight": "Maximális higiénia, automatikus sterilizáció.",
+        "image": "@assets/products/MediLUXRosegold.webp"
+      },
+      {
+        "title": "Egyedi design – prémium megjelenés",
+        "description": "A MediLUX rendelhető egyedi színekben, így teljes mértékben igazítható a szalon arculatához.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rosegold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pezsgőarany</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Modern szürke</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Elegáns ezüst</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Holo-effect</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Púderrózsaszín</div>\n</div>",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – teljeskörű szakmai háttér",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "A MediLUX PRO készülékhez részletes, egészségügyi szakemberek – köztük kozmetológus orvosok – közreműködésével összeállított tananyagot biztosítunk. A dokumentáció nemcsak a gép működtetésére tér ki, hanem részletes kezelési protokollokat is tartalmaz.",
+    "items": [
+      "A diódalézer technológia működési elve",
+      "4 hullámhossz alkalmazási területei",
+      "Kezelési protokollok minden bőrtípusra és szőrszínre",
+      "UV-sterilizáció és higiéniai irányelvek",
+      "Vendég-dokumentáció, marketing és üzleti modul",
+      "Gyakorlati kezelések modelleken"
+    ],
+    "closingParagraphs": [
+      "A képzés elvégzése után hivatalos tanúsítványt állítunk ki.",
+      "A betanítás szükség esetén online formában is elérhető."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "specs": {
+    "Teljesítmény": "2500W",
+    "Hullámhosszak": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Energia": "0–120 J/cm²",
+    "Spotméret": "Állítható (precíziós, 5×5 cm, 10×10 cm, 12×20 cm)",
+    "Frekvencia": "1–10 Hz",
+    "Hűtési rendszer": "Vízhűtés + léghűtés + TEC + zafír kontakt (-16°C)",
+    "Kijelző": "Nagy felbontású érintőképernyő",
+    "UV-sterilizáció": "Beépített applikátortartó",
+    "Méretek": "53 × 45 × 110 cm",
+    "Súly": "58 kg",
+    "Tápellátás": "220V / 50Hz"
+  },
+  "faq": [
+    {
+      "question": "Miben különbözik a MediLUX PRO a többi diódalézertől?",
+      "answer": "A MediLUX PRO a 2500W-os teljesítményével, -16°C-ig hűtő zafír kontakt rendszerével és UV-sterilizációs applikátortartójával emelkedik ki. Emellett egyedi színekben rendelhető, így a szalon arculatához igazítható."
+    },
+    {
+      "question": "Milyen színekben rendelhető?",
+      "answer": "A MediLUX rendelhető rosegold, pezsgőarany, modern szürke, elegáns ezüst, holo-effect és púderrózsaszín színekben."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg a MediLUX PRO?",
+      "answer": "A 2500W-os teljesítmény és a 4 hullámhossz lehetővé teszi a gyors, hatékony kezeléseket. Napi 5-8 vendéggel számolva általában 2-3 hónap alatt megtérül. Használja a ROI kalkulátorunkat!"
+    },
+    {
+      "question": "Elérhető részletfizetés?",
+      "answer": "Igen! A MediLUX PRO kedvező részletfizetési konstrukcióval is elérhető. Kérjen egyedi ajánlatot!"
+    },
+    {
+      "question": "Van lehetőség a gép megtekintésére?",
+      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheted és kipróbálhatod a MediLUX PRO-t előzetes időpontfoglalással."
+    }
+  ],
+  "whatsIncluded": [
+    "MediLUX PRO diódalézer készülék",
+    "Ergonomikus diódalézer applikátor",
+    "UV-sterilizációs applikátortartó",
+    "Állítható spotméretű kezelőfejek",
+    "Védőszemüveg (kezelő + vendég)",
+    "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (tanúsítvány)",
+    "24 hónap teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$comment": "Product collection entry séma — src/content/products/{slug}.json. Ez a termék alap-adatait tartalmazza (ár, SKU, képek, elérhetőség). A lokalizált tartalom a content JSON-ben van.",
+  "slug": "termek-slug",
+  "sku": "SKU001",
+  "name": "Termék neve",
+  "categorySlug": "diodalezerek",
+  "shortDescription": "Rövid leírás (fallback ha nincs content JSON)",
+  "description": "Hosszabb leírás (fallback ha nincs content JSON)",
+  "metaTitle": "SEO title",
+  "metaDescription": "SEO meta description, max 160 karakter",
+  "price": 999990,
+  "image": "@assets/products/slug.webp",
+  "youtubeVideos": [],
+  "availability": "in_stock",
+  "hasVariants": false,
+  "variants": [],
+  "featured": false,
+  "images": [
+    "@assets/products/slug-1.webp",
+    "@assets/products/slug-2.webp"
+  ],
+  "stats": [],
+  "faq": [],
+  "whatsIncluded": [],
+  "specs": {},
+
+  "$variants_example": [
+    {
+      "sku": "SKU001-A",
+      "name": "nighty black",
+      "value": "nighty-black",
+      "price": 999990,
+      "image": "@assets/products/slug-black.webp"
+    }
+  ]
+}

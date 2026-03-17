@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PrivacyContent from '../../components/pages/PrivacyContent.astro';
+import { locales, defaultLocale, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { t } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+---
+
+<BaseLayout
+  title={t(locale, 'privacy.title')}
+  description={t(locale, 'privacy.metaDescription')}
+>
+  <PrivacyContent locale={locale} />
+</BaseLayout>

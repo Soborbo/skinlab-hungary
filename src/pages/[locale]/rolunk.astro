@@ -1,0 +1,12 @@
+---
+import AboutPage from '../../components/pages/AboutPage.astro';
+import { locales, defaultLocale } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+---
+
+<AboutPage />

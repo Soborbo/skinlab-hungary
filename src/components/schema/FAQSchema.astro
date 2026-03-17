@@ -1,0 +1,44 @@
+---
+// src/components/schema/FAQSchema.astro
+import type { FAQProps } from './helpers/types';
+import { schemaId, ID_SUFFIX } from './helpers/ids';
+
+type Props = FAQProps;
+
+const { url, questions } = Astro.props;
+
+// ============================================
+// GUARDS
+// ============================================
+
+if (!url) throw new Error('FAQSchema: url is required');
+if (!questions?.length) throw new Error('FAQSchema: at least one question is required');
+
+// Validate each question has both question and answer
+questions.forEach((q, i) => {
+  if (!q.question) throw new Error(`FAQSchema: question[${i}].question is required`);
+  if (!q.answer) throw new Error(`FAQSchema: question[${i}].answer is required`);
+});
+
+// ============================================
+// BUILD SCHEMA
+// ============================================
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': schemaId(url, ID_SUFFIX.faq),
+  mainEntity: questions.map((q) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer,
+    },
+  })),
+};
+
+const output = JSON.stringify(schema);
+---
+
+<script type="application/ld+json" set:html={output} />

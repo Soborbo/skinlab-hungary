@@ -1,0 +1,205 @@
+{
+  "name": "NeoSkin Smart+",
+  "shortDescription": "Okos diódalézer beépített bőranalízis mikrokamerával. 4 hullámhossz, 140 J/cm² energia, 13.3\" érintőkijelző. Intelligens és szakértői üzemmód, személyre szabott kezelések.",
+  "description": "A NeoSkin Smart+ a legmodernebb diódalézeres szőrtelenítő rendszer, amely egyedülálló okos-bőranalízis funkcióval rendelkezik. A beépített mikrokamera segít precízebb, személyre szabottabb és hatékonyabb lézeres kezeléseket végezni. A 755, 808, 940 és 1064 nm hullámhossz minden bőr- és szőrtípuson hatékony.",
+  "metaTitle": "NeoSkin Smart+ Diódalézer | Bőranalízis mikrokamera, 4 hullámhossz",
+  "metaDescription": "NeoSkin Smart+ diódalézer bőranalízis mikrokamerával. 4 hullámhossz, intelligens beállítás, 140 J/cm², 13.3\" kijelző. B-számos oktatással, 2 év garancia.",
+  "stats": [
+    {
+      "value": "140",
+      "unit": "J/cm²",
+      "label": "Max. energia",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
+    },
+    {
+      "value": "13.3\"",
+      "label": "Kijelző",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
+  "videoDescription": {
+    "headline": "NeoSkin Smart+ – Az okos diódalézer bőranalízis mikrokamerával",
+    "paragraphs": [
+      "A NeoSkin Smart+ egy egyedülálló, okos-bőranalízis funkcióval ellátott diódalézer gép. A beépített mikrokamera lehetővé teszi a bőr és a szőrszálak pontos vizsgálatát, így a kezelések precízebbek, személyre szabottabbak és hatékonyabbak.",
+      "Az intelligens üzemmód automatikusan beállítja a paramétereket a bőrtípus és szőrszín alapján, míg a szakértői mód teljes szabadságot ad a kezelőnek."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a NeoSkin Smart+-szal kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a NeoSkin Smart+-t?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a NeoSkin Smart+ diódalézer?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért különleges a NeoSkin Smart+?",
+    "subtitle": "Bőranalízis mikrokamera, intelligens vezérlés, 140 J/cm² energia.",
+    "features": [
+      {
+        "title": "Bőranalízis mikrokamera – egyedülálló innováció",
+        "description": "A NeoSkin Smart+ beépített mikrokamerás bőranalízis funkciója lehetővé teszi a bőr és szőrszálak pontos vizsgálatát a kezelés előtt, alatt és után.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">A mikrokamera előnyei:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőr fototípusának pontos meghatározása (Fitzpatrick-skála)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szőrszál vastagság, minőség és pigmentáció elemzése</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Érzékeny területek és bőrproblémák felismerése</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Előtte-utána dokumentáció a vendégek számára</div>\n</div>",
+        "highlight": "Objektív bőranalízis minden kezelés előtt – precízebb, hatékonyabb eredmények.",
+        "image": "@assets/products/neoskin1.webp"
+      },
+      {
+        "title": "4 hullámhossz – minden bőrtípusra",
+        "description": "A NeoSkin Smart+ négy hullámhosszon dolgozik a teljes bőrtípus-lefedettségért.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – világos, vékony szőrszálak</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzális, legtöbb szőrtípus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – sötétebb szőrzet</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – mélyen ülő szőrszálak</div>\n</div>",
+        "image": "@assets/products/IMG_6359.webp"
+      },
+      {
+        "title": "Intelligens és szakértői üzemmód",
+        "description": "A NeoSkin Smart+ két kezelési módot kínál, amelyek minden tapasztalati szintnek megfelelnek.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Intelligens mód – automatikus paraméterbeállítás bőrtípus és szőrszín alapján</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szakértői mód – teljes szabadság az egyéni beállításokhoz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energia: 1–140 J/cm²</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n</div>",
+        "highlight": "Az intelligens mód automatikusan optimalizál – a szakértői mód teljes szabadságot ad.",
+        "image": "@assets/products/neoskin2.webp"
+      },
+      {
+        "title": "Kettős hűtőrendszer – biztonságos, kényelmes kezelés",
+        "description": "A készülék zárt ciklusú vízhűtést, ventilátorhűtést és félvezető hűtést tartalmaz. A zafír hűtési hőmérséklete 7 fokig állítható, megakadályozva a bőrirritációt és a bőrpírt.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Zárt ciklusú vízhűtés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ventilátorhűtés + félvezető hűtés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Állítható zafír hűtés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Beépített biztonsági funkciók (vészleállító, önellenőrzés)</div>\n</div>",
+        "image": "@assets/products/neoskin3.webp"
+      },
+      {
+        "title": "13,3\" érintőképernyő és LCD kezelőfej",
+        "description": "A 13,3 hüvelykes színes érintőképernyő megkönnyíti a beállítások közötti navigálást. A fogantyú LCD-képernyője valós idejű visszajelzést ad az energiasűrűségről, hűtési hőmérsékletről és egyéb paraméterekről.\n<p class=\"text-gray-600 mt-3\">A NeoSkin Smart+ kompakt méretéből és súlyából adódóan könnyen áthelyezhető, nem foglal nagy helyet – ideális kisebb szalonokba is.</p>",
+        "image": "@assets/products/neoskin2.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – hivatalos felnőttképzés keretében",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "A NeoSkin Smart+ diódalézerhez hivatalos oktatást biztosítunk B-számos tanúsítvánnyal. A tananyagot tapasztalt kozmetikusok és dióda-lézer specialisták állították össze.",
+    "items": [
+      "A diódalézer technológia működési elve és biztonsági szempontjai",
+      "Bőranalízis mikrokamera használata és értelmezése",
+      "Intelligens és szakértői üzemmód alkalmazása",
+      "Kezelési paraméterek beállítása bőr- és szőrtípus szerint",
+      "Gyakorlati kezelések modelleken – különböző testtájakon",
+      "Kontraindikációk, vendégkiválasztás és előkezelési protokollok"
+    ],
+    "closingParagraphs": [
+      "Modellt természetesen hozhatsz a képzésre, így valós környezetben tudod elsajátítani a kezelési technikákat.",
+      "A képzés elvégzése után B-számos felnőttképzési tanúsítványt állítunk ki, amely igazolja a készülék szakszerű kezeléséhez szükséges kompetenciát."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "testimonials": [
+    {
+      "name": "Juhász Tímea",
+      "date": "2025. 07. 22.",
+      "text": "A bőranalízis mikrokamera volt a döntő érv számomra. <mark>A vendégeim imádják, hogy megmutathatom nekik a kezelés előtti és utáni állapotot</mark> – ez hatalmas bizalomépítő. A 140 J/cm² energia is kiemelkedő.",
+      "rating": 5
+    },
+    {
+      "name": "Tóth Nikolett",
+      "date": "2025. 06. 08.",
+      "text": "Az intelligens üzemmód tökéletes, mert <mark>automatikusan beállítja a paramétereket a bőrtípus alapján</mark>. Ha pedig személyre akarom szabni, a szakértői mód mindent lehetővé tesz. Nagyon okos gép!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "A NeoSkin Smart+ bőranalízis mikrokamerája egyedülálló innováció a magyar piacon. A személyre szabott kezelések, a 140 J/cm² energia és az intelligens vezérlés kiváló versenyelőnyt jelent a szépségiparban.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+  "functionCards": [
+    {
+      "icon": "eye",
+      "name": "Bőranalízis kamera",
+      "description": "Beépített mikrokamera a pontos bőrvizsgálathoz."
+    },
+    {
+      "icon": "sun",
+      "name": "4 hullámhossz",
+      "description": "755, 808, 940, 1064 nm – minden bőrtípusra."
+    },
+    {
+      "icon": "zap",
+      "name": "140 J/cm²",
+      "description": "Kiemelkedő energiasűrűség."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligens mód",
+      "description": "Automatikus paraméterbeállítás bőrtípus alapján."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Kettős hűtés",
+      "description": "Víz + ventilátor + félvezető + zafír."
+    },
+    {
+      "icon": "chart",
+      "name": "Dokumentáció",
+      "description": "Előtte-utána felvételek a mikrokamerával."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Mi az a bőranalízis mikrokamera?",
+      "answer": "A NeoSkin Smart+ beépített mikrokamerája lehetővé teszi a bőr és szőrszálak pontos vizsgálatát: fototípus meghatározás, szőrszál vastagság elemzés, érzékeny területek felismerése és előtte-utána dokumentáció. Ez precízebb, hatékonyabb kezeléseket eredményez."
+    },
+    {
+      "question": "Milyen üzemmódok érhetők el?",
+      "answer": "Két mód: az intelligens üzemmód automatikusan beállítja a paramétereket a bőrtípus és szőrszín alapján, a szakértői mód pedig teljes szabadságot ad az egyéni beállításokhoz (1–140 J/cm², 1–10 Hz)."
+    },
+    {
+      "question": "Mekkora a maximális energiasűrűség?",
+      "answer": "A NeoSkin Smart+ 1–140 J/cm² energiatartományban dolgozik, ami kiemelkedő a piacon és lehetővé teszi a kezelések pontos finomhangolását."
+    },
+    {
+      "question": "Milyen képzés jár a géphez?",
+      "answer": "Hivatalos, B-számos tanúsítvánnyal záruló felnőttképzés, amely a gép árában benne van. A tananyagot tapasztalt kozmetikusok és dióda-lézer specialisták állították össze."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg?",
+      "answer": "Átlagosan 2-4 hónap alatt, napi 5-8 vendéggel számolva. Használja a ROI kalkulátorunkat a pontos számításhoz!"
+    },
+    {
+      "question": "Milyen garanciát kapok?",
+      "answer": "2 év teljes körű garanciát biztosítunk. Saját szervizháttérrel rendelkezünk, és javítás idejére cseregépet biztosítunk."
+    },
+    {
+      "question": "Van lehetőség a gép megtekintésére?",
+      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheted és kipróbálhatod a NeoSkin Smart+-t előzetes időpontfoglalással."
+    }
+  ],
+  "whatsIncluded": [
+    "NeoSkin Smart+ diódalézer készülék",
+    "Kezelő fogantyú LCD-kijelzővel",
+    "Bőranalízis mikrokamera",
+    "Tápkábel és lábkapcsoló",
+    "Védőszemüveg (kezelő + vendég)",
+    "Részletes magyar nyelvű felhasználói kézikönyv",
+    "Gépkezelői oktatás (B-számos tanúsítvány)",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "SnowlineTrolley",
+  "shortDescription": "Fehér alumíniumvázas kozmetikai trolley három edzett üvegpolccal. Négy görgő, nagyító lámpa rögzíthető, könnyen tisztítható.",
+  "description": "A SnowlineTrolley egy praktikus és funkcionális kozmetikai asztalka, amelyet kifejezetten szépségszalonok, SPA-k és esztétikai kezelőhelyiségek számára terveztek.\n\nHárom edzett üvegpolcja ideális kozmetikumok, kezelési eszközök és tartozékok rendszerezett elhelyezésére. A letisztult, fehér színű alumíniumváz modern megjelenést biztosít, a sima felületek pedig egyszerűen tisztíthatók.\n\nNégy gördülékeny kerékkel van felszerelve, így könnyedén áthelyezhető egyik helyiségből a másikba. A váz kialakítása lehetővé teszi nagyító lámpa rögzítését is.",
+  "metaTitle": "SnowlineTrolley | Kozmetikai trolley üvegpolcokkal",
+  "metaDescription": "SnowlineTrolley kozmetikai trolley fehér alumíniumvázzal és három edzett üvegpolccal. Görgős, könnyen mozgatható, nagyító lámpa rögzíthető.",
+  "stats": [
+    {
+      "value": "3",
+      "label": "Edzett üvegpolc",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Görgő",
+      "icon": "refresh"
+    },
+    {
+      "value": "ALU",
+      "label": "Alumíniumváz",
+      "icon": "shield"
+    },
+    {
+      "value": "1",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "award"
+    }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Érdekel a SnowlineTrolley?",
+      "subtitle": "Kérj ingyenes konzultációt, vagy rendeld meg közvetlenül!",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért a SnowlineTrolley?",
+    "subtitle": "Praktikus, modern és megbízható kozmetikai trolley",
+    "features": [
+      {
+        "title": "Három edzett üvegpolc",
+        "description": "A három átlátszó, edzett üvegpolc ideális kozmetikumok, kezelési eszközök és tartozékok áttekinthető, rendszerezett elhelyezésére. Minden egy pillanat alatt kézre áll.",
+        "image": "@assets/products/Mary2.webp"
+      },
+      {
+        "title": "Modern dizájn és könnyű mozgathatóság",
+        "description": "A fehér alumíniumváz letisztult, modern megjelenést biztosít. A négy gördülékeny keréknek köszönhetően a trolley könnyedén mozgatható a szalonban.",
+        "image": "@assets/products/Mary1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Szükséges-e összeszerelni a trolley-t?",
+      "answer": "Igen, minimális összeszerelés szükséges: a vázra kell felhelyezni az üvegpolcokat és rögzíteni a görgőket. Az összeszerelés néhány perc alatt elvégezhető."
+    },
+    {
+      "question": "Milyen súlyt bír el egy-egy polc?",
+      "answer": "Az edzett üvegpolcok tartósak és strapabíróak, alkalmasak kozmetikumok, kisebb készülékek és kezelési eszközök elhelyezésére."
+    },
+    {
+      "question": "Hogyan tisztítható?",
+      "answer": "Az üvegpolcok és az alumíniumváz egyszerűen letörölhető nedves kendővel vagy felületfertőtlenítővel. Az üveg felület mindig higiénikus és könnyen tisztán tartható."
+    },
+    {
+      "question": "Rögzíthető-e nagyító lámpa a trolley-ra?",
+      "answer": "Igen, a váz kialakítása lehetővé teszi nagyító lámpa rögzítését, így a SnowlineTrolley még sokoldalúbbá válik."
+    }
+  ],
+  "whatsIncluded": [
+    "SnowlineTrolley alumíniumváz",
+    "3 db edzett üvegpolc",
+    "4 db görgő",
+    "Összeszerelési útmutató",
+    "1 év garancia"
+  ]
+}

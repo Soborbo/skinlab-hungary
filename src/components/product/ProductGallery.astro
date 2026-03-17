@@ -1,0 +1,818 @@
+---
+/**
+ * ProductGallery - Optimized product image gallery with thumbnails
+ *
+ * Accepts string paths and resolves them to ImageMetadata via glob import.
+ * Uses ContentImage pattern for main image (50vw desktop, 100vw mobile)
+ *
+ * Features:
+ * - Lightbox with zoom
+ * - Thumbnail navigation
+ * - Keyboard navigation (arrows, escape)
+ * - Touch swipe support
+ * - Optimized images via Astro Picture
+ * - Per-variant image sets (when variantImageSets is provided)
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+// Import all product images for dynamic resolution
+const productImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/products/**/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true }
+);
+
+interface VariantImageSet {
+  value: string;
+  images: string[];
+}
+
+interface Props {
+  /** Array of image paths (strings) - will be resolved to ImageMetadata */
+  images: string[];
+  productName: string;
+  badges?: {
+    featured?: boolean;
+    variantCount?: number;
+  };
+  /** Per-variant image sets. When provided, gallery switches images on variant change. */
+  variantImageSets?: VariantImageSet[];
+}
+
+const { images, productName, badges, variantImageSets } = Astro.props;
+
+// Resolve image path to ImageMetadata
+function resolveImage(imgPath: string): ImageMetadata | null {
+  if (!imgPath) return null;
+
+  // Normalize path variations
+  let normalizedPath = imgPath;
+
+  // Handle @assets/ prefix (from content files)
+  if (normalizedPath.startsWith('@assets/')) {
+    normalizedPath = `/src/assets/${normalizedPath.slice(8)}`;
+  }
+  // Handle assets/ prefix (without @)
+  else if (normalizedPath.startsWith('assets/')) {
+    normalizedPath = `/src/${normalizedPath}`;
+  }
+  // Handle /assets/ prefix
+  else if (normalizedPath.startsWith('/assets/')) {
+    normalizedPath = `/src${normalizedPath}`;
+  }
+  // Handle paths without prefix - assume products folder
+  else if (!normalizedPath.startsWith('/src/')) {
+    const filename = normalizedPath.split('/').pop();
+    normalizedPath = `/src/assets/products/${filename}`;
+  }
+
+  // Look up in glob imports
+  const resolved = productImages[normalizedPath];
+  return resolved?.default || null;
+}
+
+// Check if we have variant image sets
+const hasVariants = variantImageSets && variantImageSets.length > 0;
+
+// Resolve variant image sets
+const resolvedVariantSets = hasVariants
+  ? variantImageSets!.map(set => ({
+      value: set.value,
+      images: set.images
+        .filter(Boolean)
+        .map(resolveImage)
+        .filter((img): img is ImageMetadata => img !== null),
+    })).filter(set => set.images.length > 0)
+  : [];
+
+// Fallback: resolve default images (used when no variant sets)
+const resolvedImages = images
+  .filter(Boolean)
+  .map(resolveImage)
+  .filter((img): img is ImageMetadata => img !== null);
+
+// Main image pattern: ContentImage (50vw desktop, 100vw mobile)
+const mainWidths = [320, 480, 640, 960, 1280, 1600];
+const mainSizes = '(min-width: 1024px) 50vw, 100vw';
+
+// Thumbnail pattern: small fixed sizes
+const thumbWidths = [160, 320, 480];
+const thumbSizes = '80px';
+
+// Lightbox pattern: HeroImage (100vw)
+const lightboxWidths = [320, 480, 640, 828, 1080, 1200, 1920, 2560];
+const lightboxSizes = '100vw';
+
+// Use variant sets or fallback to single image set
+const useVariantMode = resolvedVariantSets.length > 0;
+---
+
+<div class="product-gallery" data-gallery data-has-variants={useVariantMode ? 'true' : undefined}>
+
+  {useVariantMode ? (
+    <>
+      {/* === VARIANT MODE: One gallery group per variant === */}
+      {resolvedVariantSets.map((set, setIndex) => (
+        <div
+          class:list={['variant-gallery-group', setIndex > 0 && 'hidden']}
+          data-variant-gallery={set.value}
+        >
+          {/* Main Image Container */}
+          <div class="group relative aspect-[4/3] max-h-[50vh] bg-white rounded-2xl overflow-hidden mb-4">
+            <button
+              type="button"
+              class="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset overflow-hidden"
+              data-open-lightbox
+              aria-label="Kép nagyítása"
+            >
+              <div class="flex h-full gallery-track" data-gallery-track>
+                {set.images.map((img, i) => (
+                  <div class="w-full h-full flex-shrink-0">
+                    <Picture
+                      src={img}
+                      alt={`${productName}${set.images.length > 1 ? ` - kép ${i + 1}` : ''}`}
+                      widths={mainWidths}
+                      sizes={mainSizes}
+                      formats={['avif', 'webp', 'jpeg']}
+                      quality={75}
+                      class="w-full h-full object-contain p-4"
+                      loading={setIndex === 0 && i === 0 ? 'eager' : 'lazy'}
+                      fetchpriority={setIndex === 0 && i === 0 ? 'high' : 'low'}
+                    />
+                  </div>
+                ))}
+              </div>
+            </button>
+
+            {/* Badges */}
+            {(badges?.featured || badges?.variantCount) && setIndex === 0 && (
+              <div class="absolute top-4 left-4 flex flex-col gap-2 pointer-events-none">
+                {badges.featured && (
+                  <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    BESTSELLER
+                  </span>
+                )}
+                {badges.variantCount && badges.variantCount > 1 && (
+                  <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                    {badges.variantCount} variáció
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Gallery navigation arrows */}
+            {set.images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  class="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg border border-gray-200 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                  data-gallery-prev
+                  aria-label="Előző kép"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg border border-gray-200 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                  data-gallery-next
+                  aria-label="Következő kép"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Zoom indicator */}
+            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg pointer-events-none">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Thumbnails */}
+          {set.images.length > 1 && (
+            <div class="grid grid-cols-5 sm:grid-cols-6 gap-2" role="tablist" aria-label="Termékképek">
+              {set.images.slice(0, 6).map((img, i) => (
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={i === 0 ? 'true' : 'false'}
+                  aria-label={`${productName} - kép ${i + 1}`}
+                  class:list={[
+                    'aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
+                    'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
+                    i === 0 ? 'ring-2 ring-primary-600' : ''
+                  ]}
+                  data-thumbnail={i}
+                >
+                  <Picture
+                    src={img}
+                    alt={`${productName} - kép ${i + 1}`}
+                    widths={thumbWidths}
+                    sizes={thumbSizes}
+                    formats={['avif', 'webp', 'jpeg']}
+                    quality={60}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Image counter for mobile */}
+          {set.images.length > 1 && (
+            <div class="mt-3 text-center text-sm text-gray-500 sm:hidden">
+              <span data-current-index>1</span> / {set.images.length} kép
+            </div>
+          )}
+
+          {/* Lightbox */}
+          <div
+            class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm"
+            data-lightbox
+            role="dialog"
+            aria-modal="true"
+            aria-label="Képnagyító"
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              data-close-lightbox
+              aria-label="Bezárás"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Navigation arrows */}
+            {set.images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                  data-prev
+                  aria-label="Előző kép"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                  data-next
+                  aria-label="Következő kép"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Lightbox image container */}
+            <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+              {set.images.map((img, i) => (
+                <div
+                  class:list={[
+                    'lightbox-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                    i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  ]}
+                  data-slide={i}
+                >
+                  <Picture
+                    src={img}
+                    alt={`${productName} - kép ${i + 1}`}
+                    widths={lightboxWidths}
+                    sizes={lightboxSizes}
+                    formats={['avif', 'webp', 'jpeg']}
+                    quality={85}
+                    class="max-w-full max-h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Counter */}
+            {set.images.length > 1 && (
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm bg-white/10 px-3 py-1 rounded-full">
+                <span data-lightbox-index>1</span> / {set.images.length}
+              </div>
+            )}
+
+            {/* Thumbnail strip */}
+            {set.images.length > 1 && (
+              <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 max-w-full overflow-x-auto px-4 pb-2">
+                {set.images.map((img, i) => (
+                  <button
+                    type="button"
+                    class:list={[
+                      'w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden transition-all',
+                      'hover:ring-2 hover:ring-white/50',
+                      i === 0 ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-100'
+                    ]}
+                    data-lightbox-thumb={i}
+                    aria-label={`Kép ${i + 1}`}
+                  >
+                    <Picture
+                      src={img}
+                      alt=""
+                      widths={[160, 320]}
+                      sizes="64px"
+                      formats={['avif', 'webp', 'jpeg']}
+                      quality={50}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </>
+  ) : (
+    <>
+      {/* === DEFAULT MODE: Single image set (no variants) === */}
+      <div class="group relative aspect-[4/3] max-h-[50vh] bg-white rounded-2xl overflow-hidden mb-4">
+        {resolvedImages.length > 0 ? (
+          <button
+            type="button"
+            class="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset overflow-hidden"
+            data-open-lightbox
+            aria-label="Kép nagyítása"
+          >
+            <div class="flex h-full gallery-track" data-gallery-track>
+              {resolvedImages.map((img, i) => (
+                <div class="w-full h-full flex-shrink-0">
+                  <Picture
+                    src={img}
+                    alt={`${productName}${resolvedImages.length > 1 ? ` - kép ${i + 1}` : ''}`}
+                    widths={mainWidths}
+                    sizes={mainSizes}
+                    formats={['avif', 'webp', 'jpeg']}
+                    quality={75}
+                    class="w-full h-full object-contain p-4"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 ? 'high' : 'low'}
+                  />
+                </div>
+              ))}
+            </div>
+          </button>
+        ) : (
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white shadow-lg flex items-center justify-center">
+                <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p class="text-gray-500 font-medium">Kép hamarosan</p>
+            </div>
+          </div>
+        )}
+
+        {/* Badges */}
+        {(badges?.featured || badges?.variantCount) && (
+          <div class="absolute top-4 left-4 flex flex-col gap-2 pointer-events-none">
+            {badges.featured && (
+              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                BESTSELLER
+              </span>
+            )}
+            {badges.variantCount && badges.variantCount > 1 && (
+              <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                {badges.variantCount} variáció
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Gallery navigation arrows */}
+        {resolvedImages.length > 1 && (
+          <>
+            <button
+              type="button"
+              class="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg border border-gray-200 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+              data-gallery-prev
+              aria-label="Előző kép"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-gray-900 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full shadow-lg border border-gray-200 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+              data-gallery-next
+              aria-label="Következő kép"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+
+        {/* Zoom indicator */}
+        {resolvedImages.length > 0 && (
+          <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg pointer-events-none">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+            </svg>
+          </div>
+        )}
+      </div>
+
+      {/* Thumbnails */}
+      {resolvedImages.length > 1 && (
+        <div class="grid grid-cols-5 sm:grid-cols-6 gap-2" role="tablist" aria-label="Termékképek">
+          {resolvedImages.slice(0, 6).map((img, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-label={`${productName} - kép ${i + 1}`}
+              class:list={[
+                'aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
+                'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
+                i === 0 ? 'ring-2 ring-primary-600' : ''
+              ]}
+              data-thumbnail={i}
+            >
+              <Picture
+                src={img}
+                alt={`${productName} - kép ${i + 1}`}
+                widths={thumbWidths}
+                sizes={thumbSizes}
+                formats={['avif', 'webp', 'jpeg']}
+                quality={60}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Image counter for mobile */}
+      {resolvedImages.length > 1 && (
+        <div class="mt-3 text-center text-sm text-gray-500 sm:hidden">
+          <span data-current-index>1</span> / {resolvedImages.length} kép
+        </div>
+      )}
+
+      {/* Lightbox */}
+      <div
+        class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm"
+        data-lightbox
+        role="dialog"
+        aria-modal="true"
+        aria-label="Képnagyító"
+      >
+        {/* Close button */}
+        <button
+          type="button"
+          class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+          data-close-lightbox
+          aria-label="Bezárás"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* Navigation arrows */}
+        {resolvedImages.length > 1 && (
+          <>
+            <button
+              type="button"
+              class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              data-prev
+              aria-label="Előző kép"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              data-next
+              aria-label="Következő kép"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+
+        {/* Lightbox image container */}
+        <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+          {resolvedImages.map((img, i) => (
+            <div
+              class:list={[
+                'lightbox-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              ]}
+              data-slide={i}
+            >
+              <Picture
+                src={img}
+                alt={`${productName} - kép ${i + 1}`}
+                widths={lightboxWidths}
+                sizes={lightboxSizes}
+                formats={['avif', 'webp', 'jpeg']}
+                quality={85}
+                class="max-w-full max-h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Counter */}
+        {resolvedImages.length > 1 && (
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm bg-white/10 px-3 py-1 rounded-full">
+            <span data-lightbox-index>1</span> / {resolvedImages.length}
+          </div>
+        )}
+
+        {/* Thumbnail strip */}
+        {resolvedImages.length > 1 && (
+          <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 max-w-full overflow-x-auto px-4 pb-2">
+            {resolvedImages.map((img, i) => (
+              <button
+                type="button"
+                class:list={[
+                  'w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden transition-all',
+                  'hover:ring-2 hover:ring-white/50',
+                  i === 0 ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-100'
+                ]}
+                data-lightbox-thumb={i}
+                aria-label={`Kép ${i + 1}`}
+              >
+                <Picture
+                  src={img}
+                  alt=""
+                  widths={[160, 320]}
+                  sizes="64px"
+                  formats={['avif', 'webp', 'jpeg']}
+                  quality={50}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  )}
+</div>
+
+<script>
+  // Initialize all galleries on the page
+  document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+    const hasVariants = gallery.getAttribute('data-has-variants') === 'true';
+
+    // Initialize a gallery group (either the single gallery or a variant group)
+    function initGalleryGroup(group: Element) {
+      const galleryTrack = group.querySelector('[data-gallery-track]') as HTMLElement | null;
+      const mainImageContainer = group.querySelector('[data-open-lightbox]');
+      const thumbnails = group.querySelectorAll('[data-thumbnail]');
+      const lightbox = group.querySelector('[data-lightbox]');
+      const slides = group.querySelectorAll('[data-slide]');
+      const lightboxThumbs = group.querySelectorAll('[data-lightbox-thumb]');
+      const openBtn = group.querySelector('[data-open-lightbox]');
+      const closeBtn = group.querySelector('[data-close-lightbox]');
+      const prevBtn = group.querySelector('[data-prev]');
+      const nextBtn = group.querySelector('[data-next]');
+      const galleryPrevBtn = group.querySelector('[data-gallery-prev]');
+      const galleryNextBtn = group.querySelector('[data-gallery-next]');
+      const currentIndexEl = group.querySelector('[data-current-index]');
+      const lightboxIndexEl = group.querySelector('[data-lightbox-index]');
+
+      let currentIndex = 0;
+      const totalImages = slides.length || 1;
+
+      function updateMainImage(index: number) {
+        currentIndex = index;
+        if (galleryTrack) {
+          galleryTrack.style.transform = `translateX(-${index * 100}%)`;
+        }
+        thumbnails.forEach((thumb, i) => {
+          thumb.classList.toggle('ring-2', i === index);
+          thumb.classList.toggle('ring-primary-600', i === index);
+          thumb.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        if (currentIndexEl) {
+          currentIndexEl.textContent = String(index + 1);
+        }
+      }
+
+      function updateLightbox(index: number) {
+        currentIndex = index;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('opacity-100', i === index);
+          slide.classList.toggle('opacity-0', i !== index);
+          slide.classList.toggle('pointer-events-none', i !== index);
+        });
+        lightboxThumbs.forEach((thumb, i) => {
+          thumb.classList.toggle('ring-2', i === index);
+          thumb.classList.toggle('ring-white', i === index);
+          thumb.classList.toggle('opacity-60', i !== index);
+        });
+        if (lightboxIndexEl) {
+          lightboxIndexEl.textContent = String(index + 1);
+        }
+        updateMainImage(index);
+      }
+
+      function openLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        updateLightbox(currentIndex);
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      function goNext() {
+        updateLightbox((currentIndex + 1) % totalImages);
+      }
+
+      function goPrev() {
+        updateLightbox((currentIndex - 1 + totalImages) % totalImages);
+      }
+
+      function galleryNext() {
+        updateMainImage((currentIndex + 1) % totalImages);
+      }
+
+      function galleryPrev() {
+        updateMainImage((currentIndex - 1 + totalImages) % totalImages);
+      }
+
+      // Reset to first image (used on variant change)
+      function reset() {
+        currentIndex = 0;
+        if (galleryTrack) {
+          galleryTrack.style.transform = 'translateX(0)';
+        }
+        thumbnails.forEach((thumb, i) => {
+          thumb.classList.toggle('ring-2', i === 0);
+          thumb.classList.toggle('ring-primary-600', i === 0);
+          thumb.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        });
+        if (currentIndexEl) {
+          currentIndexEl.textContent = '1';
+        }
+      }
+
+      thumbnails.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => updateMainImage(i));
+      });
+
+      galleryPrevBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        galleryPrev();
+      });
+      galleryNextBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        galleryNext();
+      });
+
+      openBtn?.addEventListener('click', openLightbox);
+      closeBtn?.addEventListener('click', closeLightbox);
+      prevBtn?.addEventListener('click', goPrev);
+      nextBtn?.addEventListener('click', goNext);
+
+      lightboxThumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => updateLightbox(i));
+      });
+
+      // Keyboard navigation
+      const keyHandler = (e: KeyboardEvent) => {
+        if (!lightbox || lightbox.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') goPrev();
+        if (e.key === 'ArrowRight') goNext();
+      };
+      document.addEventListener('keydown', keyHandler);
+
+      // Click outside to close lightbox
+      lightbox?.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target === lightbox || target.hasAttribute('data-slide')) {
+          closeLightbox();
+        }
+      });
+
+      // Touch swipe support (lightbox)
+      let touchStartX = 0;
+      lightbox?.addEventListener('touchstart', (e) => {
+        touchStartX = (e as TouchEvent).changedTouches[0].screenX;
+      }, { passive: true });
+      lightbox?.addEventListener('touchend', (e) => {
+        const touchEndX = (e as TouchEvent).changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) goNext();
+          else goPrev();
+        }
+      }, { passive: true });
+
+      // Touch swipe support (main gallery)
+      let galleryTouchStartX = 0;
+      mainImageContainer?.addEventListener('touchstart', (e) => {
+        galleryTouchStartX = (e as TouchEvent).changedTouches[0].screenX;
+      }, { passive: true });
+      mainImageContainer?.addEventListener('touchend', (e) => {
+        const galleryTouchEndX = (e as TouchEvent).changedTouches[0].screenX;
+        const diff = galleryTouchStartX - galleryTouchEndX;
+        if (Math.abs(diff) > 50) {
+          e.preventDefault();
+          if (diff > 0) galleryNext();
+          else galleryPrev();
+        }
+      });
+
+      return { reset };
+    }
+
+    if (hasVariants) {
+      // Variant mode: init each variant group separately
+      const variantGroups = gallery.querySelectorAll('[data-variant-gallery]');
+      const groupControllers = new Map<string, { reset: () => void }>();
+
+      variantGroups.forEach((group) => {
+        const value = group.getAttribute('data-variant-gallery')!;
+        const controller = initGalleryGroup(group);
+        groupControllers.set(value, controller);
+      });
+
+      // Listen for variant-change events
+      document.addEventListener('variant-change', ((e: CustomEvent) => {
+        const newVariant = e.detail?.value;
+        if (!newVariant) return;
+
+        variantGroups.forEach((group) => {
+          const groupValue = group.getAttribute('data-variant-gallery') ?? '';
+          if (groupValue === newVariant) {
+            group.classList.remove('hidden');
+            // Reset gallery position when switching
+            groupControllers.get(groupValue)?.reset();
+          } else {
+            group.classList.add('hidden');
+          }
+        });
+      }) as EventListener);
+    } else {
+      // Default mode: init the gallery directly
+      initGalleryGroup(gallery);
+    }
+  });
+</script>
+
+<style>
+  /* Slide transition for gallery track */
+  .gallery-track {
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+  }
+
+  /* Smooth transitions in lightbox */
+  .lightbox-slide {
+    will-change: opacity;
+  }
+
+  /* Focus for keyboard nav */
+  [data-lightbox]:focus {
+    outline: none;
+  }
+
+  /* Gallery arrows always visible on touch devices */
+  @media (hover: none) {
+    [data-gallery-prev],
+    [data-gallery-next] {
+      opacity: 1 !important;
+    }
+  }
+</style>

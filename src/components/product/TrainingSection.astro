@@ -1,0 +1,196 @@
+---
+/**
+ * TrainingSection - Product training/education section
+ *
+ * Displays information about the included training with the product:
+ * - FAR certificate
+ * - Training duration and format
+ * - What's covered
+ * - Location info
+ */
+
+interface TrainingItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  /** Section title */
+  title?: string;
+  /** Section subtitle */
+  subtitle?: string;
+  /** Training duration (e.g., "1 nap", "2x4 óra") */
+  duration?: string;
+  /** Training format (e.g., "Személyes", "Online + Személyes") */
+  format?: string;
+  /** Training location */
+  location?: string;
+  /** Is FAR certificate included */
+  farCertificate?: boolean;
+  /** Training topics covered */
+  topics?: string[];
+  /** Custom training items (overrides default) */
+  items?: TrainingItem[];
+  /** Background style */
+  background?: 'white' | 'gray' | 'primary';
+  /** Custom class */
+  class?: string;
+}
+
+const {
+  title = 'Ingyenes betanítás',
+  subtitle = 'Minden gépünkhöz hivatalos képzést biztosítunk',
+  duration = '1 nap',
+  format = 'Személyes',
+  location = 'SkinLab SHOWROOM, Érd',
+  farCertificate = true,
+  topics = [
+    'Gépkezelés és beállítások',
+    'Biztonsági protokollok',
+    'Kezelési technikák bőrtípusonként',
+    'Ügyfélkonzultáció és árképzés',
+    'Hibaelhárítás és karbantartás',
+  ],
+  items,
+  background = 'gray',
+  class: className = '',
+} = Astro.props;
+
+// Default training items if not provided
+const defaultItems: TrainingItem[] = [
+  {
+    icon: 'certificate',
+    title: 'FAR tanúsítvány',
+    description: 'Hivatalos gépkezelői végzettség, ami biztosítási szempontból is elfogadott',
+  },
+  {
+    icon: 'clock',
+    title: duration,
+    description: `${format} képzés a ${location} helyszínen`,
+  },
+  {
+    icon: 'users',
+    title: 'Szakértő oktatók',
+    description: 'László és Simonetta személyesen oktatnak több éves tapasztalattal',
+  },
+  {
+    icon: 'refresh',
+    title: 'Ingyenes frissítő',
+    description: 'Bármikor visszajöhet ismétlő képzésre, ha szükségesnek érzi',
+  },
+];
+
+const trainingItems = items || defaultItems;
+
+// Background styles
+const bgStyles = {
+  white: 'bg-white',
+  gray: 'bg-gray-50',
+  primary: 'bg-primary-50',
+};
+
+// Icons
+const icons: Record<string, string> = {
+  certificate: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />`,
+  clock: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  users: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />`,
+  refresh: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />`,
+  check: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />`,
+  'graduation-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
+  book: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />`,
+};
+---
+
+<section class:list={[bgStyles[background], 'py-16 lg:py-20', className]}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      {farCertificate && (
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+          FAR tanúsítvány a gép árában
+        </div>
+      )}
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {title}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Training Features -->
+      <div class="grid sm:grid-cols-2 gap-6">
+        {trainingItems.map((item) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[item.icon] || icons['check']} />
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Training Topics -->
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons['book']} />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Mit tanulhat a képzésen?</h3>
+        </div>
+
+        <ul class="space-y-4">
+          {topics.map((topic) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">{topic}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Location info -->
+        <div class="mt-8 pt-6 border-t border-gray-100">
+          <div class="flex items-center gap-3 text-sm text-gray-600">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Helyszín: <strong class="text-gray-900">{location}</strong></span>
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-600 mt-2">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Időtartam: <strong class="text-gray-900">{duration}</strong> ({format})</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-12 text-center">
+      <p class="text-gray-600 mb-4">
+        Kérdése van a képzéssel kapcsolatban?
+      </p>
+      <a
+        href="/kepzesek"
+        class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+      >
+        Tudjon meg többet a képzéseinkről
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

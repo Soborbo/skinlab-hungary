@@ -1,0 +1,31 @@
+---
+import Hero from "./sections/Hero.astro";
+import Categories from "./sections/Categories.astro";
+import BrandMarquee from "./sections/BrandMarquee.astro";
+import Stats from "./sections/Stats.astro";
+import WhyUs from "./sections/WhyUs.astro";
+import FeaturedProduct from "./sections/FeaturedProduct.astro";
+import Testimonials from "./sections/Testimonials.astro";
+import HowItWorks from "./sections/HowItWorks.astro";
+import FinalCTA from "./sections/FinalCTA.astro";
+import type { Lang } from "../i18n/config";
+
+interface Props {
+  t: Record<string, any>;
+  lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+---
+
+<div>
+  <Hero t={t} lang={lang} />
+  <Categories t={t} />
+  <BrandMarquee t={t} />
+  <Stats t={t} />
+  <WhyUs t={t} />
+  <FeaturedProduct t={t} lang={lang} />
+  <Testimonials t={t} />
+  <HowItWorks t={t} />
+  <FinalCTA t={t} lang={lang} />
+</div>

@@ -1,0 +1,115 @@
+---
+/**
+ * Textarea - Reusable textarea component
+ *
+ * Supports label, error state, helper text, character count
+ */
+
+interface Props {
+  name: string;
+  id?: string;
+  label?: string;
+  placeholder?: string;
+  value?: string;
+  rows?: number;
+  required?: boolean;
+  disabled?: boolean;
+  error?: string;
+  helperText?: string;
+  maxLength?: number;
+  showCharCount?: boolean;
+  class?: string;
+}
+
+const {
+  name,
+  id = name,
+  label,
+  placeholder,
+  value = '',
+  rows = 4,
+  required = false,
+  disabled = false,
+  error,
+  helperText,
+  maxLength,
+  showCharCount = false,
+  class: className = '',
+} = Astro.props;
+
+const textareaBaseStyles = 'block w-full px-4 py-3 rounded-lg border bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 resize-y';
+
+const textareaStateStyles = error
+  ? 'border-red-300 focus:border-red-500 focus:ring-red-500'
+  : 'border-gray-300 focus:border-primary-500 focus:ring-primary-500';
+
+const disabledStyles = disabled ? 'bg-gray-50 text-gray-500 cursor-not-allowed resize-none' : '';
+
+const textareaClasses = [textareaBaseStyles, textareaStateStyles, disabledStyles, className].filter(Boolean).join(' ');
+
+const textareaId = `textarea-${id}`;
+---
+
+<div class="w-full">
+  {label && (
+    <label for={id} class="block text-sm font-medium text-gray-700 mb-2">
+      {label}
+      {required && <span class="text-red-500 ml-1">*</span>}
+    </label>
+  )}
+
+  <textarea
+    name={name}
+    id={id}
+    placeholder={placeholder}
+    rows={rows}
+    required={required}
+    disabled={disabled}
+    maxlength={maxLength}
+    class={textareaClasses}
+    aria-invalid={error ? 'true' : 'false'}
+    aria-describedby={error ? `${id}-error` : helperText ? `${id}-helper` : undefined}
+    data-textarea-id={showCharCount ? textareaId : undefined}
+  >{value}</textarea>
+
+  <div class="flex justify-between items-start mt-2">
+    <div class="flex-1">
+      {error && (
+        <p id={`${id}-error`} class="text-sm text-red-600 flex items-center gap-1">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+          {error}
+        </p>
+      )}
+
+      {!error && helperText && (
+        <p id={`${id}-helper`} class="text-sm text-gray-500">
+          {helperText}
+        </p>
+      )}
+    </div>
+
+    {showCharCount && maxLength && (
+      <span class="text-sm text-gray-400 ml-2" data-char-count={textareaId}>
+        <span data-current-count>{value.length}</span>/{maxLength}
+      </span>
+    )}
+  </div>
+</div>
+
+{showCharCount && (
+  <script>
+    document.querySelectorAll('[data-textarea-id]').forEach((textarea) => {
+      const id = textarea.getAttribute('data-textarea-id');
+      const countEl = document.querySelector(`[data-char-count="${id}"] [data-current-count]`);
+
+      if (countEl) {
+        textarea.addEventListener('input', (e) => {
+          const target = e.target as HTMLTextAreaElement;
+          countEl.textContent = String(target.value.length);
+        });
+      }
+    });
+  </script>
+)}

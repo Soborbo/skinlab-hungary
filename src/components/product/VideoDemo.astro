@@ -1,0 +1,192 @@
+---
+/**
+ * VideoDemo - YouTube videók szekció termékekhez
+ * Facade pattern: poster + play button, no iframe until click
+ * Privacy-enhanced: youtube-nocookie.com
+ * GA4 tracking: video_play event
+ * Keyboard accessible: Enter/Space
+ */
+
+interface Props {
+  videos?: string[];
+  productName?: string;
+}
+
+const { videos = [], productName = 'termék' } = Astro.props;
+
+// Extract YouTube video IDs from various URL formats
+const getVideoId = (url: string): string | null => {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+    /^([a-zA-Z0-9_-]{11})$/ // Just the ID
+  ];
+
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+};
+
+const videoIds = videos
+  .map(url => getVideoId(url))
+  .filter((id): id is string => id !== null);
+
+// Don't render if no valid videos
+if (videoIds.length === 0) {
+  return null;
+}
+
+// VideoObject schema for SEO
+const videoSchemas = videoIds.map((videoId, index) => ({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": `${productName} bemutató videó ${index + 1}`,
+  "description": `Videós bemutató a ${productName} gépről`,
+  "thumbnailUrl": `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  "contentUrl": `https://www.youtube.com/watch?v=${videoId}`,
+  "embedUrl": `https://www.youtube-nocookie.com/embed/${videoId}`
+}));
+---
+
+{videoIds.length > 0 && (
+  <section class="py-12 lg:py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+          Nézd meg működés közben
+        </h2>
+        <p class="text-gray-600">
+          Videós bemutató a {productName} gépről
+        </p>
+      </div>
+
+      <!-- Videos Grid -->
+      <div class:list={[
+        "grid gap-6",
+        videoIds.length === 1 ? "max-w-3xl mx-auto" : "",
+        videoIds.length === 2 ? "lg:grid-cols-2" : "",
+        videoIds.length >= 3 ? "lg:grid-cols-2 xl:grid-cols-3" : ""
+      ]}>
+        {videoIds.map((videoId, index) => (
+          <div
+            class="video-facade relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 aspect-video cursor-pointer group"
+            data-video-id={videoId}
+            data-video-title={`${productName} bemutató videó ${index + 1}`}
+            role="button"
+            tabindex="0"
+            aria-label={`Videó lejátszása: ${productName} bemutató`}
+          >
+            <!-- Thumbnail (remote for now, should be local for best performance) -->
+            <img
+              src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+              alt={`${productName} bemutató videó ${index + 1}`}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+
+            <!-- Play button (simple, no YouTube trademark) -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700">
+                <svg class="w-8 h-8 lg:w-10 lg:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- View more on YouTube -->
+      {videoIds.length >= 3 && (
+        <div class="mt-8 text-center">
+          <a
+            href="https://www.youtube.com/@skinlabhungary"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+          >
+            További videók a csatornánkon
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+
+    <!-- VideoObject Schema for SEO -->
+    {videoSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </section>
+)}
+
+<script is:inline>
+  (function() {
+    function initVideoFacades() {
+      document.querySelectorAll('.video-facade[data-video-id]').forEach(function(facade) {
+        if (facade.dataset.initialized) return;
+        facade.dataset.initialized = 'true';
+
+        var played = false;
+
+        var handler = function() {
+          if (played) return;
+          played = true;
+
+          var videoId = facade.dataset.videoId;
+          var title = facade.dataset.videoTitle || 'Video';
+
+          // GA4 Event tracking
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'video_play',
+              video_id: videoId,
+              video_title: title
+            });
+          }
+
+          // Create iframe with privacy-enhanced embed
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+          iframe.title = title;
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          iframe.className = 'absolute inset-0 w-full h-full';
+
+          // Replace content with iframe
+          facade.replaceChildren(iframe);
+          facade.classList.remove('cursor-pointer');
+          facade.removeAttribute('role');
+          facade.removeAttribute('tabindex');
+          facade.removeAttribute('aria-label');
+        };
+
+        // Click handler
+        facade.addEventListener('click', handler);
+
+        // Keyboard accessibility (Enter/Space)
+        facade.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handler();
+          }
+        });
+      });
+    }
+
+    // Init immediately and on navigation
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVideoFacades);
+    } else {
+      initVideoFacades();
+    }
+    document.addEventListener('astro:page-load', initVideoFacades);
+  })();
+</script>

@@ -1,0 +1,14 @@
+---
+import { languages, getLocalizedUrl, type Lang } from "../i18n/config";
+
+interface Props {
+  pageKey: string;
+}
+
+const { pageKey } = Astro.props;
+---
+
+{languages.map((lang: Lang) => (
+  <link rel="alternate" hreflang={lang} href={getLocalizedUrl(pageKey, lang)} />
+))}
+<link rel="alternate" hreflang="x-default" href={getLocalizedUrl(pageKey, "en")} />

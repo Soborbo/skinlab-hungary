@@ -1,0 +1,206 @@
+---
+/**
+ * ProductFAQ - Termék-specifikus GYIK komponens
+ *
+ * Props-based: content comes from the page level via loadProductContent.
+ * No internal content maps.
+ * Accordion stílusú FAQ schema.org markup-pal.
+ */
+
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import { getLocalizedUrl } from '@/i18n/ui';
+import type { ProductContentFAQItem } from '@/lib/types/product-content';
+
+interface Props {
+  locale: Locale;
+  faq: ProductContentFAQItem[];
+  productName: string;
+}
+
+const { locale, faq, productName } = Astro.props;
+
+// Schema.org FAQPage markup
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+{faq.length > 0 && (
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+          {t(locale, 'product.faqTitle')}
+        </h2>
+        <p class="text-gray-600">
+          {t(locale, 'product.faqSubtitle', { productName })}
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="space-y-3" id="product-faq">
+        {faq.map((item, index) => (
+          <div
+            class:list={[
+              "border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 faq-item",
+              { "active": index === 0 }
+            ]}
+            data-faq-item
+          >
+            <button
+              type="button"
+              class="w-full flex items-center justify-between px-6 py-5 text-left bg-primary-50 hover:bg-white transition-colors duration-200"
+              data-faq-trigger
+              aria-expanded={index === 0 ? "true" : "false"}
+            >
+              <span class="text-base lg:text-lg font-semibold text-gray-900 pr-4">
+                {item.question}
+              </span>
+              <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center shrink-0 transition-all duration-300" data-faq-icon-wrapper>
+                <svg
+                  class="w-4 h-4 text-primary-600 transition-transform duration-300"
+                  data-faq-icon
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={index === 0 ? "transform: rotate(180deg)" : ""}
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div
+              class:list={["faq-content bg-white", { "open": index === 0 }]}
+              data-faq-content
+            >
+              <div class="faq-content-inner">
+                <p class="text-gray-600 leading-relaxed px-6 pb-5">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 text-center">
+        <p class="text-gray-600 mb-4">
+          {t(locale, 'product.faqNotFound')}
+        </p>
+        <a
+          href={getLocalizedUrl(locale, '/kapcsolat')}
+          class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors"
+        >
+          {t(locale, 'product.faqContact')}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </section>
+)}
+
+<style>
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out, opacity 0.2s ease-out;
+    opacity: 0;
+  }
+
+  .faq-content.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .faq-content-inner {
+    overflow: hidden;
+  }
+
+  [data-faq-item].active {
+    border-color: rgb(var(--color-primary-300, 124 200 251));
+  }
+
+  [data-faq-item].active [data-faq-trigger] {
+    background-color: white;
+  }
+
+  [data-faq-item].active [data-faq-icon-wrapper] {
+    background-color: rgb(var(--color-primary-600, 0 112 196));
+  }
+
+  [data-faq-item].active [data-faq-icon] {
+    color: white;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initProductFAQ() {
+      var faqItems = document.querySelectorAll('[data-faq-item]');
+
+      faqItems.forEach(function(item) {
+        var trigger = item.querySelector('[data-faq-trigger]');
+        var content = item.querySelector('[data-faq-content]');
+        var icon = item.querySelector('[data-faq-icon]');
+
+        if (trigger && !trigger.dataset.initialized) {
+          trigger.dataset.initialized = 'true';
+
+          trigger.addEventListener('click', function() {
+            var isOpen = item.classList.contains('active');
+
+            // Close all others with animation
+            faqItems.forEach(function(otherItem) {
+              var otherContent = otherItem.querySelector('[data-faq-content]');
+              var otherIcon = otherItem.querySelector('[data-faq-icon]');
+              var otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+
+              otherItem.classList.remove('active');
+              if (otherContent) otherContent.classList.remove('open');
+              if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+              if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+            });
+
+            // Toggle current with delay for smooth animation
+            if (!isOpen) {
+              item.classList.add('active');
+              if (content) {
+                // Small delay for smoother animation
+                setTimeout(function() {
+                  content.classList.add('open');
+                }, 50);
+              }
+              if (icon) icon.style.transform = 'rotate(180deg)';
+              trigger.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
+    }
+
+    // Init immediately and on navigation
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProductFAQ);
+    } else {
+      initProductFAQ();
+    }
+    document.addEventListener('astro:page-load', initProductFAQ);
+  })();
+</script>

@@ -1,0 +1,50 @@
+---
+/**
+ * Badge - Reusable badge/tag component
+ *
+ * Variants: primary, success, warning, gray
+ * Sizes: sm, md
+ */
+
+interface Props {
+  variant?: 'primary' | 'success' | 'warning' | 'gray';
+  size?: 'sm' | 'md';
+  pill?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'sm',
+  pill = true,
+  class: className = '',
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center font-medium';
+
+const variantStyles = {
+  primary: 'bg-primary-100 text-primary-700',
+  success: 'bg-success-100 text-success-700',
+  warning: 'bg-warning-100 text-warning-600',
+  gray: 'bg-gray-100 text-gray-600',
+};
+
+const sizeStyles = {
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-2.5 py-1 text-sm',
+};
+
+const radiusStyles = pill ? 'rounded-full' : 'rounded';
+
+const classes = [
+  baseStyles,
+  variantStyles[variant],
+  sizeStyles[size],
+  radiusStyles,
+  className,
+].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>

@@ -1,0 +1,63 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'ColdPlasma készülékek',
+  nameShort: 'ColdPlasma',
+  slug: 'coldplasma',
+  description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
+  heroDescription: 'Professzionális hidegplazma készülékek bőrmegújításhoz, anti-aging kezelésekhez és aknékezeléshez. Fájdalommentes, nem invazív technológia, nincs regenerációs idő.',
+  badge: 'Innovatív technológia',
+  color: 'sky',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'coldplasma';
+});
+
+const benefits = [
+  {
+    icon: 'snowflake',
+    title: 'Fájdalommentes kezelés',
+    description: 'A hidegplazma technológia kíméletes, érzékeny bőrre is alkalmazható. Nincs égő érzés, nincs regenerációs idő.',
+  },
+  {
+    icon: 'zap',
+    title: '3 plazma technológia',
+    description: 'Hidegplazma, termoplazma és ózonplazma egyetlen készülékben. Széles kezelési spektrum.',
+  },
+  {
+    icon: 'shield',
+    title: 'Kozmetikus kompetencia',
+    description: 'Hivatalosan kozmetikus kompetencia-körbe sorolható készülékek. Teljes jogi dokumentáció.',
+  },
+  {
+    icon: 'coins',
+    title: 'Gyors megtérülés',
+    description: 'Hidegplazma kezelés: 15-35.000 Ft. Napi 3-5 vendéggel 2-4 hónap alatt megtérül.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség a hidegplazma és a hagyományos plazma pen között?',
+    answer: 'A hagyományos plazma pen (fibroblast) égési pontokat hoz létre a bőrön, ami fájdalmas és jelentős regenerációs idővel jár. A hidegplazma technológia ezzel szemben nem invazív, fájdalommentes, és nincs felépülési idő.',
+  },
+  {
+    question: 'Kozmetikusként jogszerűen használhatom a készüléket?',
+    answer: 'Igen! A hidegplazma készülékeink hivatalosan kozmetikus kompetencia-körbe sorolhatók. Minden tőlünk vásárolt készülékhez teljes körű jogi dokumentációt biztosítunk.',
+  },
+  {
+    question: 'Milyen bőrproblémákra alkalmas a hidegplazma?',
+    answer: 'Széles körben alkalmazható: aknés és problémás bőr, finom ráncok, bőregyenetlenségek, bőrlazítság, tónustalan arc, fejbőrproblémák. Az ózonplazma különösen hatékony gyulladásos bőrállapotoknál.',
+  },
+];
+
+const comparison = {
+  features: ['Ár', 'Technológia', 'Funkciók száma', 'Fájdalom', 'Regeneráció', 'Ajánlott'],
+  products: [],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

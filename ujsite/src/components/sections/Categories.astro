@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+import imgDiode from "../../assets/products/prestige4wavemain.webp";
+import imgNdyag from "../../assets/products/NyxQueen.webp";
+import imgPico from "../../assets/products/Pixelwebshop1.webp";
+import imgHiemt from "../../assets/products/evosculpt.webp";
+import imgHydra from "../../assets/products/hydracrown.webp";
+import imgAntiAging from "../../assets/products/dermatechplus.webp";
+import imgPmu from "../../assets/products/mastp60set.webp";
+import imgTattoo from "../../assets/products/mastfoldprosnake.webp";
+import imgSalon from "../../assets/products/AlbaRoyal.webp";
+import imgAccessories from "../../assets/products/ocheart.webp";
+
+interface Props {
+  t: Record<string, any>;
+}
+
+const { t } = Astro.props;
+
+const categories = [
+  { slug: "diodalezerek", image: imgDiode },
+  { slug: "nd-yag-lezerek", image: imgNdyag },
+  { slug: "pico-lezerek", image: imgPico },
+  { slug: "hiemt", image: imgHiemt },
+  { slug: "hydrafacial", image: imgHydra },
+  { slug: "anti-aging", image: imgAntiAging },
+  { slug: "sminktetovalas", image: imgPmu },
+  { slug: "tetovalogepek", image: imgTattoo },
+  { slug: "szalonberendezes", image: imgSalon },
+  { slug: "kellekek", image: imgAccessories },
+];
+---
+
+<section class="py-12 lg:py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+        {t.categories.title}
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        {t.categories.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
+      {categories.map((category) => (
+        <div class="group relative bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer">
+          <div class="aspect-square relative overflow-hidden">
+            <Image
+              src={category.image}
+              alt={t.categories[category.slug] || category.slug}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              widths={[200, 400]}
+              sizes="(max-width: 768px) 50vw, 20vw"
+            />
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent">
+            <h3 class="font-semibold text-white text-sm lg:text-base group-hover:text-primary-300 transition-colors line-clamp-2">
+              {t.categories[category.slug] || category.slug}
+            </h3>
+          </div>
+          <div class="absolute top-2 right-2 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

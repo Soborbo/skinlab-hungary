@@ -1,0 +1,32 @@
+---
+import { languages, languageNames, getLocalizedUrl, type Lang } from "../i18n/config";
+
+interface Props {
+  currentLang: Lang;
+  pageKey: string;
+}
+
+const { currentLang, pageKey } = Astro.props;
+const otherLanguages = languages.filter((l) => l !== currentLang);
+---
+
+<details class="relative">
+  <summary class="flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
+    {languageNames[currentLang]}
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </summary>
+  <ul class="absolute right-0 z-50 mt-1 min-w-[160px] rounded-lg border border-gray-200 bg-white py-1 shadow-lg">
+    {otherLanguages.map((lang) => (
+      <li>
+        <a
+          href={getLocalizedUrl(pageKey, lang)}
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700"
+        >
+          {languageNames[lang]}
+        </a>
+      </li>
+    ))}
+  </ul>
+</details>

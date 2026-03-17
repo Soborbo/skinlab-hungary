@@ -1,0 +1,49 @@
+---
+/**
+ * Consultation Request Page
+ * /konzultacio
+ *
+ * Multi-step consultation wizard for lead generation
+ * Clean, conversion-optimized design
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ConsultationWizard from '@/components/forms/ConsultationWizard.astro';
+import { CONTACT } from '@/lib/constants';
+
+// Get pre-selected product from URL
+const product = Astro.url.searchParams.get('product') || '';
+---
+
+<BaseLayout
+  title="Ingyenes konzultáció kérése"
+  description="Kérjen ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás."
+>
+  <section class="min-h-screen bg-gradient-to-b from-primary-50/50 to-white py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <!-- Header -->
+      <div class="text-center mb-8 max-w-2xl mx-auto">
+        <p class="text-primary-600 font-medium mb-2">Ingyenes és kötelezettségmentes</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          Kérjen személyre szabott ajánlatot
+        </h1>
+        <p class="text-gray-600">
+          Töltse ki a rövid kérdőívet és szakértőink 1 munkanapon belül felveszik Önnel a kapcsolatot.
+        </p>
+      </div>
+
+      <!-- Wizard -->
+      <ConsultationWizard product={product} />
+
+      <!-- Alternative contact -->
+      <div class="mt-12 text-center">
+        <p class="text-gray-500 mb-3">Inkább telefonon egyeztetne?</p>
+        <a
+          href={`tel:${CONTACT.phone}`}
+          class="inline-flex items-center gap-2 text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+        >
+          {CONTACT.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

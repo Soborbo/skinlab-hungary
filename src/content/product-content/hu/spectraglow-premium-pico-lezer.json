@@ -1,0 +1,220 @@
+{
+  "name": "SpectraGlow prémium pico lézer",
+  "shortDescription": "PicoSecond ND:YAG lézer 2000ps impulzussal. 1600 mJ energia, 2–10 mm spotméret, tetoválás eltávolítás akár 3–4 alkalom alatt.",
+  "description": "A SpectraGlow prémium pico lézer a legfejlettebb esztétikai lézertechnológiát képviseli, amely ultrarövid, pikoszekundumos impulzusokkal dolgozik.\n\nA hagyományos Q-Switch lézerekhez képest sokkal kisebb részecskékre bontja a pigmenteket, így a szervezet gyorsabban és hatékonyabban tudja azokat eltávolítani. Ez kevesebb kezelést igényel, miközben a bőr kisebb mértékben sérül, a gyógyulás gyorsabb és kevésbé fájdalmas.\n\nAz 1064 nm és 532 nm hullámhosszak (opcionálisan 585 nm és 650 nm) lefedik a teljes pigmentspektrumot a sötét tetoválások eltávolításától a piros pigmenteken át a bőrfiatalításig.",
+  "metaTitle": "SpectraGlow prémium pico lézer | Tetoválás, pigment, bőrfiatalítás",
+  "metaDescription": "SpectraGlow PicoSecond ND:YAG lézer 2000ps impulzussal. Tetoválás eltávolítás 3–4 alkalom alatt, pigmentkezelés, bőrfiatalítás. 1600 mJ energia, 2 év garancia.",
+  "stats": [
+    {
+      "value": "2000",
+      "unit": "ps",
+      "label": "Impulzushossz",
+      "icon": "zap"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "Max. energia",
+      "icon": "bolt"
+    },
+    {
+      "value": "3–4",
+      "label": "Alkalom (tetoválás)",
+      "icon": "sparkles"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 50000
+  },
+  "videoDescription": {
+    "headline": "SpectraGlow – A pikoszekundumos technológia csúcsa",
+    "paragraphs": [
+      "A SpectraGlow nem egyszerűen egy újabb lézer – ez a pigmenteltávolítás és bőrfiatalítás legfejlettebb technológiája. A pikoszekundumos impulzusok trilliomásodperc alatt bontják le a pigmentrészecskéket, messze meghaladva a hagyományos nanoszekundumos lézerek hatékonyságát.",
+      "Két alap hullámhosszon (1064 nm és 532 nm) dolgozik, opcionálisan pedig 585 nm és 650 nm hullámhosszakkal is kiegészíthető – így szinte minden színű tetoválást és pigmentációt képes kezelni.",
+      "A 2–10 mm-es állítható spotméret és az 1–10 Hz frekvencia lehetővé teszi a precíz, személyre szabott kezelést minden területen."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a SpectraGlow pico lézerrel kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a SpectraGlow-t?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a SpectraGlow prémium pico lézer?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért a SpectraGlow a legjobb befektetés?",
+    "subtitle": "Pikoszekundumos technológia, amely forradalmasítja a kezeléseidet",
+    "features": [
+      {
+        "title": "Pikoszekundumos impulzus – gyorsabb és hatékonyabb",
+        "description": "A 2000 pikoszekundumos impulzushossz trilliomásodperc alatt bontja le a pigmentrészecskéket, amit a szervezet sokkal könnyebben felszív és eltávolít. A hagyományos nanoszekundumos lézerekhez képest kevesebb kezelés szükséges, és a bőr kevésbé sérül.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">A pikoszekundumos előny:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kisebb pigmentrészecskék = gyorsabb felszívódás</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kevesebb kezelés szükséges (tetoválás: 3–4 alkalom)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Minimális bőrkárosodás, gyorsabb gyógyulás</div>\n</div>",
+        "highlight": "A SpectraGlow pikoszekundumos impulzusa akár felére csökkentheti a szükséges kezelések számát.",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      },
+      {
+        "title": "Teljes pigmentspektrum – minden színű tetoválásra",
+        "description": "Az 1064 nm hullámhossz a sötét pigmentekre (fekete, kék, szürke, zöld), az 532 nm pedig a meleg árnyalatokra (piros, narancs, barna) hatékony. Opcionálisan 585 nm és 650 nm hullámhosszakkal is kiegészíthető a teljes színspektrum lefedéséhez.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak és alkalmazásuk:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – fekete, kék, szürke, zöld pigmentek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – piros, narancs, meleg barna pigmentek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>585 nm</strong> (opcionális) – speciális pigmentek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>650 nm</strong> (opcionális) – kiegészítő spektrum</div>\n</div>",
+        "highlight": "Opcionális hullámhosszakkal a SpectraGlow szinte minden pigmentszínt képes kezelni.",
+        "image": "@assets/products/faa97a56-d7b4-42ee-91f9-427b1df20ea8.webp"
+      },
+      {
+        "title": "Tetoválás eltávolítás – kevesebb alkalommal",
+        "description": "A pikoszekundumos technológia legfőbb előnye a tetováláseltávolításban mutatkozik meg: míg a hagyományos Q-switched lézerek 6–12 alkalmat igényelnek, a SpectraGlow akár 3–4 alkalom alatt eltávolítja a tetoválásokat.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Testtetoválások eltávolítása</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sminktetoválások korrekciója</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Többrétegű tetoválások</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Professzionális és amatőr munkák</div>\n</div>",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      },
+      {
+        "title": "Bőrfiatalítás és pigmentkezelés",
+        "description": "A SpectraGlow nem csak tetováláseltávolításra alkalmas – a pikoszekundumos impulzusok kollagénstimuláló hatása révén hatékonyan kezeli a bőröregedés jeleit is.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pigmentfoltok halványítása</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrfeszesítés és kollagénstimuláció</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Akne hegek halványítása</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrtónus javítása</div>\n</div>",
+        "highlight": "A pikoszekundumos impulzusok a kollagéntermelést is stimulálják – fiatalabb, feszesebb bőrt eredményezve.",
+        "image": "@assets/products/faa97a56-d7b4-42ee-91f9-427b1df20ea8.webp"
+      },
+      {
+        "title": "Professzionális műszaki paraméterek",
+        "description": "A SpectraGlow 113 kg-os, 90×45×170 cm méretű professzionális álló készülék, amely a legmagasabb szintű kezelésekhez nyújt megbízható teljesítményt.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Főbb paraméterek:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Impulzusenergia: max. 1600 mJ (double)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Impulzushossz: 2000 ps</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spotméret: 2–10 mm</div>\n</div>",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – prémium pico lézer képzés",
+    "badge": "FAR tanúsítvánnyal",
+    "intro": "A SpectraGlow prémium pico lézerhez hivatalos, FAR-regisztrált gépkezelői képzés jár. A tananyag egészségügyi szakemberek és lézerspecialista orvosok közreműködésével készült, és a pikoszekundumos technológia speciális kezelési protokolljait is tartalmazza.",
+    "items": [
+      "A pikoszekundumos lézertechnológia elméleti alapjai és működési elve",
+      "Különbségek a nanoszekundumos (Q-switched) és pikoszekundumos lézerek között",
+      "Hullámhosszak és alkalmazási területek (tetoválás, pigment, bőrfiatalítás)",
+      "Kezelési protokollok különböző pigmenttípusokhoz és bőrproblémákhoz",
+      "Kontraindikációk, bőrtípus-felmérés és biztonságos kezelés",
+      "Gyakorlati kezelések modelleken"
+    ],
+    "closingParagraphs": [
+      "A képzés célja, hogy a résztvevők magabiztosan és biztonságosan tudják alkalmazni a SpectraGlow pico lézert a legigényesebb kezelésekhez is.",
+      "A képzés elvégzése után hivatalos FAR tanúsítványt állítunk ki."
+    ],
+    "price": "149.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Kétnapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "testimonials": [
+    {
+      "name": "Dr. Szűcs Andrea",
+      "date": "2025. 06. 15.",
+      "text": "A SpectraGlow pico lézer a klinikám legfontosabb eszköze lett. <mark>A tetováláseltávolítás eredményei sokkal gyorsabban látszanak, mint a korábbi Q-switched lézeremmel</mark> – a vendégek 3–4 alkalom után elégedettek, korábban ez 8–10 kezelés volt.",
+      "rating": 5
+    },
+    {
+      "name": "Balogh Krisztina",
+      "date": "2025. 08. 22.",
+      "text": "Eleinte szkeptikus voltam a pico lézer árcédulája miatt, de az eredmények meggyőztek. <mark>A pigmentfolt-kezelés és a bőrfiatalítás is fantasztikus eredményeket hoz</mark>, a vendégeim imádják. A gép már az első félévben visszahozta az árát.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "A pikoszekundumos lézertechnológia a pigmenteltávolítás és bőrfiatalítás jelenlegi csúcsa. A SpectraGlow az egyik leghatékonyabb pico lézer a piacon – a 2000 ps impulzushossz és az 1600 mJ energia kombináció a legnehezebb tetoválásokat is hatékonyan kezeli.",
+    "author": "Horváth László",
+    "role": "Lézertechnológiai szakértő"
+  },
+  "specs": {
+    "Típus": "PicoSecond ND:YAG lézer",
+    "Hullámhosszak": "1064 nm, 532 nm (opcionális: 585 nm, 650 nm)",
+    "Impulzusenergia (single)": "max. 400 mJ (532 nm), max. 800 mJ (1064 nm)",
+    "Impulzusenergia (double)": "max. 800 mJ (532 nm), max. 1600 mJ (1064 nm)",
+    "Impulzushossz": "2000 ps",
+    "Frekvencia": "1–10 Hz",
+    "Spotméret": "2–10 mm",
+    "Méretek": "90 × 45 × 170 cm",
+    "Súly": "113 kg",
+    "Tanúsítványok": "CE"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Tetoválás eltávolítás",
+      "description": "Minden színű tetoválás gyors és hatékony eltávolítása pikoszekundumos impulzussal, akár 3–4 alkalom alatt"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigmentfolt kezelés",
+      "description": "Szeplők, napfoltok, öregségi pigmentációk, melasma hatékony halványítása és eltávolítása"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Bőrfiatalítás",
+      "description": "Kollagénstimuláció, bőrfeszesítés és textúra javítás a pikoszekundumos impulzusok rejuvenáló hatásával"
+    },
+    {
+      "icon": "eye",
+      "name": "Sminktetoválás eltávolítás",
+      "description": "Szemöldök, ajak és szemhéj sminktetoválások precíz korrekciója és eltávolítása"
+    },
+    {
+      "icon": "droplet",
+      "name": "Akne hegek kezelése",
+      "description": "Akne utáni hegek, hiperpigmentáció és egyenetlen bőrfelszín halványítása"
+    },
+    {
+      "icon": "bolt",
+      "name": "Érproblémák kezelése",
+      "description": "Megfelelő kompetencia birtokában az érelváltozások kezelésére is alkalmas"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Miben különbözik a pico lézer a hagyományos Q-switched lézertől?",
+      "answer": "A legfőbb különbség az impulzushosszban van: a pico lézer pikoszekundumokban (trilliomásodperc), míg a Q-switched nanoszekundumokban (milliárdod másodperc) dolgozik. A rövidebb impulzus sokkal kisebb részecskékre bontja a pigmentet, amit a szervezet könnyebben és gyorsabban felszív. Eredmény: kevesebb kezelés, gyorsabb gyógyulás, kisebb bőrterhelés."
+    },
+    {
+      "question": "Hány kezelés szükséges a tetoválás eltávolításához?",
+      "answer": "A SpectraGlow pico lézerrel átlagosan 3–4 kezelés elegendő a legtöbb tetoválás eltávolításához, szemben a hagyományos lézerek 6–12 alkalmas protokolljával. A pontos szám függ a tetoválás méretétől, színétől, mélységétől és a bőrtípustól."
+    },
+    {
+      "question": "Milyen tetoválásszíneket tud kezelni?",
+      "answer": "Az 1064 nm hullámhossz a sötét pigmentekre (fekete, kék, szürke, zöld), az 532 nm a meleg színekre (piros, narancs, barna) hatékony. Opcionálisan 585 nm és 650 nm hullámhosszakkal a teljes színspektrum lefedhető."
+    },
+    {
+      "question": "Fájdalmas-e a kezelés?",
+      "answer": "A pikoszekundumos impulzusok kevésbé terhelik a bőrt, mint a nanoszekundumos lézerek, így a kezelés általában kevésbé fájdalmas. Érzéstelenítés általában nem szükséges, de igény esetén helyi érzéstelenítő krém alkalmazható."
+    },
+    {
+      "question": "Milyen bőrtípusokra alkalmazható?",
+      "answer": "A SpectraGlow minden bőrtípusra biztonságosan alkalmazható (Fitzpatrick I–VI). A pikoszekundumos technológia minimalizálja a hőhatást, ami csökkenti a mellékhatások kockázatát sötétebb bőrtípusoknál is."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg a SpectraGlow?",
+      "answer": "A tetováláseltávolítás kezelésenként 30.000–80.000 Ft, a pigmentkezelés 20.000–50.000 Ft, a bőrfiatalítás 25.000–60.000 Ft. Napi 3–5 vendéggel számolva a SpectraGlow átlagosan 4–6 hónap alatt megtérül. Használja a ROI kalkulátorunkat a pontos számításhoz!"
+    },
+    {
+      "question": "Van lehetőség a gép megtekintésére vásárlás előtt?",
+      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheted és kipróbálhatod a SpectraGlow pico lézert előzetes időpontfoglalással."
+    }
+  ],
+  "whatsIncluded": [
+    "SpectraGlow prémium PicoSecond ND:YAG lézer",
+    "1064 nm kezelőfej (sötét pigmentek)",
+    "532 nm kezelőfej (világos, meleg pigmentek)",
+    "Védőszemüveg (kezelő + vendég)",
+    "Lábpedál",
+    "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (FAR tanúsítvány)",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

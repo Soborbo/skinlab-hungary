@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import skinlabLogo from "../../assets/brands/skinlab-logo.jpg";
+import mastLogo from "../../assets/brands/mast-logo.png";
+import dragonhawkLogo from "../../assets/brands/dragonhawk-logo.png";
+import wjxLogo from "../../assets/brands/wjx-logo.png";
+
+interface Props {
+  t: Record<string, any>;
+}
+
+const { t } = Astro.props;
+
+const brands = [
+  { name: "SkinLab", logo: skinlabLogo, width: 80 },
+  { name: "MAST", logo: mastLogo, width: 120 },
+  { name: "Dragonhawk", logo: dragonhawkLogo, width: 140 },
+  { name: "WJX", logo: wjxLogo, width: 100 },
+];
+---
+
+<section class="py-10 lg:py-12 bg-gray-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2">
+        {t.brands.title}
+      </h2>
+      <p class="text-gray-600 text-sm">
+        {t.brands.subtitle}
+      </p>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+
+    <div class="marquee-track flex">
+      {[...Array(4)].map((_, setIndex) => (
+        <div class="marquee-content flex items-center gap-12 lg:gap-16 px-6" aria-hidden={setIndex > 0 ? "true" : undefined}>
+          {brands.map((brand) => (
+            <div class="flex-shrink-0 flex items-center justify-center h-16 px-6 bg-white rounded-xl shadow-sm border border-gray-100">
+              <Image
+                src={brand.logo}
+                alt={`${brand.name} logo`}
+                width={brand.width}
+                height={40}
+                class="h-10 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-content {
+    flex-shrink: 0;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    .marquee-content:not(:first-child) { display: none; }
+  }
+</style>

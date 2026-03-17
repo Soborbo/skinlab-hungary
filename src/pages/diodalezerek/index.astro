@@ -1,0 +1,125 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Professzionális diódalézerek',
+  nameShort: 'Diódalézerek',
+  slug: 'diodalezerek',
+  description: 'Professzionális 4 hullámhosszas diódalézerek tartós szőrtelenítéshez.',
+  heroDescription: 'Tartós szőrtelenítés 4 hullámhosszú technológiával. Minden bőrtípusra, minden szőrtípusra. Gyors megtérülés, elégedett vendégek.',
+  badge: 'Bestseller kategória',
+  color: 'blue',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'diodalezerek';
+});
+
+const benefits = [
+  {
+    icon: 'trend-up',
+    title: '3-4 hónap megtérülés',
+    description: 'Napi 5 vendéggel átlag 12.000 Ft/kezelés áron havonta 1.3M Ft bevétel. A gép 3-4 hónap alatt kitermeli magát.',
+  },
+  {
+    icon: 'users',
+    title: 'Visszatérő vendégek',
+    description: 'A vendégek 6-8 alkalmas kúrát vesznek, aztán évente fenntartó kezelésre járnak. Stabil bevétel.',
+  },
+  {
+    icon: 'zap',
+    title: 'IPL-nél hatékonyabb',
+    description: 'A diódalézer célzottabb, mélyebbre hatol, kevesebb kezelés kell. Vendégeid gyorsabban látják az eredményt.',
+  },
+  {
+    icon: 'target',
+    title: 'Minden bőrtípusra',
+    description: 'A 4 hullámhosszú rendszerek világos és sötét bőrön, vékony és vastag szőrön egyaránt hatékonyak.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség az 1, 3 és 4 hullámhosszú gépeknél?',
+    answer: '<strong>1 hullámhossz (808nm):</strong> A klasszikus, legelterjedtebb. Világos-közepes bőrre, átlag szőrre ideális. Belépő szintű gépek.<br><br><strong>3 hullámhossz (755+808+1064nm):</strong> Már sötétebb bőrt és finomabb szőrt is kezel. Sokoldalúbb.<br><br><strong>4 hullámhossz (755+808+940+1064nm):</strong> A legsokoldalúbb. Minden bőr- és szőrtípusra, a melanin-szegény szőrre (szőke, vörös) is hatékonyabb. Profik választása.',
+  },
+  {
+    question: 'Miért fontos a teljesítmény (watt)?',
+    answer: 'Nagyobb teljesítmény = gyorsabb kezelés. Egy 1200W-os gép akár 2x gyorsabb lehet mint egy 600W-os. Ez több vendéget jelent naponta, gyorsabb megtérülést. Nagy forgalmú szalonnak mindenképp 1000W+ ajánlott.',
+  },
+  {
+    question: 'Fáj a vendégnek a diódalézeres kezelés?',
+    answer: 'A modern diódalézerek hűtőrendszerrel rendelkeznek. A -5°C-os zafír hűtés szinte fájdalommentessé teszi a kezelést. A legtöbb vendég csak enyhe melegséget érez. Ez az egyik fő oka, hogy a vendégek visszajönnek!',
+  },
+  {
+    question: 'Mennyi idő egy kezelés?',
+    answer: 'Függ a testterülettől és a gép teljesítményétől. Hónalj: 5-10 perc. Láb: 20-40 perc. Teljes test: 60-90 perc. Az 1200W-os gépekkel 30-50%-kal rövidebb a kezelés mint az alacsonyabb teljesítményűekkel.',
+  },
+];
+
+const comparison = {
+  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Hűtés', 'Kijelző', 'Ajánlott'],
+  products: [
+    {
+      name: 'NyxQueen 4Wave',
+      tag: '6 szín',
+      tagColor: 'purple',
+      link: '/diodalezerek/nyxqueen-diodalezer',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4 (755+808+940+1064nm)',
+        'Teljesítmény': '600W',
+        'Hűtés': 'Zafír hűtés',
+        'Kijelző': '12"',
+        'Ajánlott': 'Kis-közepes szalonok',
+      },
+    },
+    {
+      name: 'PeonyLUXE',
+      tag: 'Prémium',
+      tagColor: 'rose',
+      link: '/diodalezerek/peonyluxe-4-hullamhosszon-operalo-vertikalis-premium-diodalezer-767',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4',
+        'Teljesítmény': '1200W',
+        'Hűtés': '-5°C Zafír',
+        'Kijelző': '15.6" HD',
+        'Ajánlott': 'Prémium szalonok',
+      },
+    },
+    {
+      name: 'Prestige4WAVE',
+      tag: 'Bestseller',
+      tagColor: 'green',
+      highlighted: true,
+      link: '/diodalezerek/prestige4wave_diodalezer',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4',
+        'Teljesítmény': '1200W',
+        'Hűtés': '-5°C Zafír',
+        'Kijelző': '15.6" HD',
+        'Ajánlott': 'Nagy forgalmú szalonok',
+      },
+    },
+    {
+      name: 'LUNOX 2in1',
+      tag: 'Dióda + ND:YAG',
+      tagColor: 'blue',
+      link: '/diodalezerek/lunox_2in1_lezerkeszulek',
+      specs: {
+        'Ár': 'Kérjen ajánlatot',
+        'Hullámhosszak': '4 + ND:YAG',
+        'Teljesítmény': '1200W',
+        'Hűtés': 'Kombinált',
+        'Kijelző': '15"',
+        'Ajánlott': 'Teljes lézerstúdió',
+      },
+    },
+  ],
+};
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

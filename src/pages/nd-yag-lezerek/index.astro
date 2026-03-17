@@ -1,0 +1,111 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Q-kapcsolt ND:YAG lézerkészülékek',
+  nameShort: 'ND:YAG lézerek',
+  slug: 'nd-yag-lezerek',
+  description: 'Tetoválás és pigmentfolt eltávolító lézerek.',
+  heroDescription: 'Tetoválás eltávolítás, carbon peeling, pigmentfolt kezelés. Professzionális Q-kapcsolt technológia, minimális fájdalom.',
+  badge: 'Prémium technológia',
+  color: 'purple',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'nd-yag-lezerek';
+});
+
+const benefits = [
+  {
+    icon: 'palette',
+    title: 'Minden szín eltávolítható',
+    description: 'A Q-kapcsolt ND:YAG lézer minden színű tetoválást képes eltávolítani, beleértve a nehéz zöldet és kéket is.',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Carbon peeling',
+    description: 'Hollywood facial néven is ismert kezelés. Azonnali ragyogás, pórusok összehúzása, zsíros bőr kezelése.',
+  },
+  {
+    icon: 'microscope',
+    title: 'Pigmentfolt kezelés',
+    description: 'Napfolt, öregségi folt, melasma kezelése hatékonyan és biztonságosan.',
+  },
+  {
+    icon: 'coins',
+    title: 'Magas árrés',
+    description: 'Tetoválás eltávolítás: 15-50.000 Ft/alkalom. Carbon peeling: 8-15.000 Ft. Gyorsan megtérülő befektetés.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Hány alkalom kell egy tetoválás teljes eltávolításához?',
+    answer: 'Függ a tetoválás méretétől, színétől és régiségétől. Átlagosan 6-12 kezelés szükséges, 6-8 hetes szünetekkel. A fekete és sötét színek gyorsabban tűnnek el.',
+  },
+  {
+    question: 'Fájdalmas a tetoválás eltávolítás?',
+    answer: 'Modern hűtőrendszerrel rendelkező gépeknél a fájdalom minimális. Sokan a tetoválás készítéséhez hasonlítják – kellemetlen, de elviselhető. Érzéstelenítő krém is használható.',
+  },
+  {
+    question: 'Mi a carbon peeling és kinek ajánlott?',
+    answer: 'A carbon peeling során szénmaszkot viszünk fel az arcra, amit lézerrel eltávolítunk. Kiváló zsíros, pattanásos bőrre, tág pórusokra. Azonnali, látványos eredmény, nincs regenerációs idő.',
+  },
+];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Pico mód', 'Hűtés', 'Ajánlott'],
+  products: [
+    {
+      name: 'Q-Switch Basic',        // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/nd-yag-lezerek/qswitch-basic',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.5M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064nm',    // 🔴 DUMMY
+        'Teljesítmény': '800mJ',      // 🔴 DUMMY
+        'Pico mód': '✗',
+        'Hűtés': 'Levegő',            // 🔴 DUMMY
+        'Ajánlott': 'Carbon peeling',
+      },
+    },
+    {
+      name: 'PicoStar Pro',          // 🔴 DUMMY
+      tag: 'Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/nd-yag-lezerek/picostar-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '3.5M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064 + 532nm',  // 🔴 DUMMY
+        'Teljesítmény': '2000mJ',     // 🔴 DUMMY
+        'Pico mód': '✓',
+        'Hűtés': 'Cryo -10°C',        // 🔴 DUMMY
+        'Ajánlott': 'Tetoválás + carbon',
+      },
+    },
+    {
+      name: 'ND:YAG Tattoo Eraser',  // 🔴 DUMMY
+      tag: 'Specialista',
+      tagColor: 'blue',
+      link: '/nd-yag-lezerek/tattoo-eraser',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '2.8M Ft',             // 🔴 DUMMY
+        'Hullámhosszak': '1064 + 532 + 755nm',  // 🔴 DUMMY
+        'Teljesítmény': '1500mJ',     // 🔴 DUMMY
+        'Pico mód': '✗',
+        'Hűtés': 'Kontakt hűtés',     // 🔴 DUMMY
+        'Ajánlott': 'Színes tetoválások',
+      },
+    },
+  ],
+};
+// ============================================================
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

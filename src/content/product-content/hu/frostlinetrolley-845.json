@@ -1,0 +1,74 @@
+{
+  "name": "FrostLineTrolley",
+  "shortDescription": "Modern, fehér kozmetikai eszközkocsi masszív fémvázzal. Két polcos kialakítás, rögzíthető kerekek, higiénikus felületek.",
+  "description": "A FrostLineTrolley egy modern, fehér kozmetikai eszközkocsi, amely a rendezettséget és a professzionális megjelenést ötvözi.\n\nErős fémszerkezete garantálja a megbízhatóságot és a tartósságot. Két polcos kialakítása lehetővé teszi a készülékek és kellékek áttekinthető, rendszerezett tárolását.\n\nNégy kerékkel felszerelt, amelyek rögzíthetők is, így használat közben stabilan áll. A sima felületek egyszerűen tisztán tarthatók, a hófehér szín és a minimalista vonalvezetés pedig elegáns megjelenést biztosít.",
+  "metaTitle": "FrostLineTrolley | Modern kozmetikai eszközkocsi",
+  "metaDescription": "FrostLineTrolley fehér kozmetikai eszközkocsi masszív fémvázzal. Két polc, rögzíthető kerekek, könnyen tisztítható. Professzionális szalonbútor.",
+  "stats": [
+    {
+      "value": "2",
+      "label": "Polc",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Rögzíthető kerék",
+      "icon": "refresh"
+    },
+    {
+      "value": "FÉM",
+      "label": "Masszív váz",
+      "icon": "shield"
+    },
+    {
+      "value": "1",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "award"
+    }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Érdekel a FrostLineTrolley?",
+      "subtitle": "Kérj ingyenes konzultációt, vagy rendeld meg közvetlenül!",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért a FrostLineTrolley?",
+    "subtitle": "Stabil, modern és praktikus eszközkocsi",
+    "features": [
+      {
+        "title": "Rögzíthető kerekek a maximális stabilitásért",
+        "description": "A négy kerék nemcsak a könnyű mozgathatóságot biztosítja, hanem rögzíthető is, így a trolley használat közben stabilan áll. Ideális készülékek és eszközök biztonságos elhelyezésére.",
+        "image": "@assets/products/MADDISON2.webp"
+      },
+      {
+        "title": "Két polcos, rendszerezett tárolás",
+        "description": "A két polc lehetővé teszi a készülékek és kellékek áttekinthető tárolását. A higiénikus, könnyen tisztítható felületek pedig biztosítják a mindig kifogástalan megjelenést.",
+        "image": "@assets/products/M1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Szükséges-e összeszerelni?",
+      "answer": "Igen, minimális összeszerelés szükséges: a vázra kell felhelyezni a polcokat és rögzíteni a görgőket. Az összeszerelés néhány perc alatt elvégezhető."
+    },
+    {
+      "question": "Miben különbözik a SnowlineTrolley-tól és az ArcticTrolley-tól?",
+      "answer": "A FrostLineTrolley két polcos kialakítással és rögzíthető kerekekkel rendelkezik. A SnowlineTrolley három edzett üvegpolcos, alumíniumvázas, míg az ArcticTrolley nyitott polcrendszerű, masszív fémszerkezetű. Mindhárom trolley a professzionális szalonhasználatra tervezett."
+    },
+    {
+      "question": "Hogyan tisztítható?",
+      "answer": "A sima felületek egyszerűen letörölhetők nedves kendővel vagy felületfertőtlenítővel. A fehér szín és a minimalista kialakítás mindig tiszta megjelenést biztosít."
+    }
+  ],
+  "whatsIncluded": [
+    "FrostLineTrolley fémváz",
+    "2 db polc",
+    "4 db rögzíthető kerék",
+    "Összeszerelési útmutató",
+    "1 év garancia"
+  ]
+}

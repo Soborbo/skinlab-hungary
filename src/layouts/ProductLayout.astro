@@ -1,0 +1,383 @@
+---
+/**
+ * ProductLayout - Unified product page layout
+ *
+ * Section order:
+ * Breadcrumb → Hero → Stats → ROI → VideoDescription → CTA(light) →
+ * FeatureRows → CTA(accent) → Training → Testimonials → Expert →
+ * TechSpecs → FunctionCards → FAQ → BuyerChecklist →
+ * WhatsIncluded → Warranty → CTA(primary) → Related
+ *
+ * All sections are standalone components — zero inline HTML.
+ * i18n-aware: uses loadProductContent for locale-specific content,
+ * t() for UI chrome, getLocalizedUrl for links.
+ */
+
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/product/Breadcrumb.astro';
+import ProductHero from '../components/product/ProductHero.astro';
+import StatsBar from '../components/product/StatsBar.astro';
+import ROICalculator from '../components/product/ROICalculator.astro';
+import VideoDescription from '../components/product/VideoDescription.astro';
+import ProductCTA from '../components/product/ProductCTA.astro';
+import FeatureRows from '../components/product/FeatureRows.astro';
+import TrainingCard from '../components/product/TrainingCard.astro';
+import Testimonials from '../components/product/Testimonials.astro';
+import ExpertQuote from '../components/product/ExpertQuote.astro';
+import TechSpecs from '../components/product/TechSpecs.astro';
+import FunctionCards from '../components/product/FunctionCards.astro';
+import WhatsIncluded from '../components/product/WhatsIncluded.astro';
+import BuyerChecklist from '../components/product/BuyerChecklist.astro';
+import ProductFAQ from '../components/product/ProductFAQ.astro';
+import WarrantyService from '../components/product/WarrantyService.astro';
+import RelatedProducts from '../components/product/RelatedProducts.astro';
+// Schema components
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import { SITE, CATEGORIES } from '../lib/constants';
+import { getLocaleFromUrl, t, getLocalizedUrl } from '@/i18n';
+import { loadProductContent } from '@/lib/load-product-content';
+import type { ProductContentStat, ProductContentFAQItem } from '@/lib/types/product-content';
+
+interface Variant {
+  sku: string;
+  name: string;
+  value: string;
+  price: number | null;
+  image?: string;
+  images?: string[];
+}
+
+interface Stat {
+  value: string;
+  unit?: string;
+  label: string;
+  icon?: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  product: {
+    name: string;
+    sku: string;
+    slug: string;
+    categorySlug: string;
+    description: string;
+    shortDescription: string;
+    price: number | null;
+    image: string;
+    gallery: string[];
+    youtubeVideos?: string[];
+    availability: 'in_stock' | 'preorder' | 'out_of_stock';
+    hasVariants: boolean;
+    variants: Variant[];
+    featured?: boolean;
+    metaTitle?: string;
+    metaDescription?: string;
+    stats?: Stat[];
+    faq?: FAQItem[];
+    whatsIncluded?: string[];
+    specs?: Record<string, string>;
+  };
+}
+
+const { product } = Astro.props;
+
+// Determine locale from URL
+const locale = getLocaleFromUrl(Astro.url);
+
+// Load localized product content (cascades: product JSON → category JSON → undefined)
+const { content } = loadProductContent(locale, product.slug, product.categorySlug);
+
+// Resolve content with fallbacks to collection data
+const displayName = content.name || product.name;
+const displayShortDesc = content.shortDescription || product.shortDescription;
+const displayDesc = content.description || product.description;
+const resolvedStats = (content.stats || product.stats || []) as ProductContentStat[];
+const resolvedFaq = (content.faq || product.faq || []) as ProductContentFAQItem[];
+const resolvedWhatsIncluded = content.whatsIncluded || product.whatsIncluded || [];
+const resolvedSpecs = content.specs || product.specs || {} as Record<string, string>;
+const resolvedTestimonials = content.testimonials || [];
+const resolvedExpertQuote = content.expertQuote;
+const resolvedFunctionCards = content.functionCards || [];
+
+// Find category info
+const category = CATEGORIES.find(c => c.slug === product.categorySlug);
+const categoryName = category?.nameShort || product.categorySlug;
+
+// Page URL
+const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}`;
+
+// Breadcrumb items for schema
+const breadcrumbItems = [
+  { name: t(locale, 'breadcrumb.home'), url: SITE.url },
+  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}` },
+  { name: displayName }
+];
+
+// Extract first YouTube video URL
+const firstVideoUrl = product.youtubeVideos?.[0] || '';
+
+// FAQ questions for schema (if available)
+const faqQuestions = resolvedFaq.map(item => ({
+  question: item.question,
+  answer: item.answer
+}));
+
+// Build variant image sets (only if variants have per-variant images)
+const variantImageSets = product.hasVariants && product.variants.some(v => v.images && v.images.length > 0)
+  ? product.variants
+      .filter(v => v.images && v.images.length > 0)
+      .map(v => ({ value: v.value, images: v.images! }))
+  : undefined;
+
+// Product schema
+const productSchema = product.price ? {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": `${pageUrl}#product`,
+  "name": displayName,
+  "description": displayShortDesc || displayDesc?.slice(0, 200),
+  "sku": product.sku,
+  "brand": { "@type": "Brand", "name": "SkinLab" },
+  "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
+  "offers": {
+    "@type": "Offer",
+    "url": pageUrl,
+    "priceCurrency": "HUF",
+    "price": String(product.price),
+    "availability": product.availability === 'in_stock'
+      ? "https://schema.org/InStock"
+      : product.availability === 'preorder'
+        ? "https://schema.org/PreOrder"
+        : "https://schema.org/OutOfStock",
+    "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "SkinLab Hungary" },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "HUF"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "HU"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 10,
+          "maxValue": 20,
+          "unitCode": "DAY"
+        }
+      }
+    }
+  }
+} : null;
+---
+
+<BaseLayout
+  title={content.metaTitle || product.metaTitle || displayName}
+  description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
+  schema={productSchema}
+>
+  <!-- Schema.org Structured Data -->
+  <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
+  {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
+
+  <div id="main-content">
+
+    <!-- 0. BREADCRUMB -->
+    <Breadcrumb
+      locale={locale}
+      categorySlug={product.categorySlug}
+      categoryName={categoryName}
+      productName={displayName}
+    />
+
+    <!-- 1. HERO SECTION -->
+    <ProductHero
+      locale={locale}
+      name={displayName}
+      sku={product.sku}
+      shortDescription={displayShortDesc}
+      description={displayDesc}
+      price={product.price}
+      image={product.image}
+      gallery={product.gallery}
+      availability={product.availability}
+      hasVariants={product.hasVariants}
+      variants={product.variants}
+      featured={product.featured}
+      categorySlug={product.categorySlug}
+      variantImageSets={variantImageSets}
+    />
+
+    <!-- 2. STATS BAR -->
+    {resolvedStats.length > 0 && (
+      <StatsBar locale={locale} stats={resolvedStats} />
+    )}
+
+    <!-- 3. ROI CALCULATOR -->
+    <ROICalculator
+      locale={locale}
+      productPrice={product.price}
+      productName={displayName}
+      defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+    />
+
+    <!-- 4. VIDEO + DESCRIPTION -->
+    {content.videoDescription && (
+      <VideoDescription
+        locale={locale}
+        videoUrl={firstVideoUrl}
+        productName={displayName}
+        content={content.videoDescription}
+      />
+    )}
+
+    <!-- 5. CTA: after video -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="light"
+      headline={content.cta?.afterVideo?.text}
+      buttonLabel={content.cta?.afterVideo?.buttonLabel}
+      phoneLabel={content.cta?.afterVideo?.phoneLabel}
+      showPhone={true}
+    />
+
+    <!-- 6. FEATURE ROWS -->
+    {content.featureRows && (
+      <FeatureRows
+        locale={locale}
+        content={content.featureRows}
+      />
+    )}
+
+    <!-- 7. CTA: after features -->
+    {content.featureRows && (
+      <ProductCTA
+        locale={locale}
+        productName={displayName}
+        variant="accent"
+        headline={content.cta?.afterFeatures?.headline}
+        subtitle={content.cta?.afterFeatures?.subtitle}
+        buttonLabel={content.cta?.afterFeatures?.buttonLabel}
+        showPhone={true}
+      />
+    )}
+
+    <!-- 8. TRAINING SECTION -->
+    {content.training && (
+      <TrainingCard
+        locale={locale}
+        content={content.training}
+      />
+    )}
+
+    <!-- 9. TESTIMONIALS -->
+    {resolvedTestimonials.length > 0 && (
+      <Testimonials
+        locale={locale}
+        testimonials={resolvedTestimonials}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 10. EXPERT QUOTE -->
+    {resolvedExpertQuote && (
+      <ExpertQuote
+        locale={locale}
+        quote={resolvedExpertQuote.quote}
+        author={resolvedExpertQuote.author}
+        role={resolvedExpertQuote.role}
+        image={resolvedExpertQuote.image}
+      />
+    )}
+
+    <!-- 11. TECH SPECS -->
+    {Object.keys(resolvedSpecs).length > 0 && (
+      <TechSpecs
+        locale={locale}
+        specs={resolvedSpecs}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 12. FUNCTION CARDS -->
+    {resolvedFunctionCards.length > 0 && (
+      <FunctionCards
+        locale={locale}
+        functions={resolvedFunctionCards}
+      />
+    )}
+
+    <!-- 13. FAQ -->
+    {resolvedFaq.length > 0 && (
+      <ProductFAQ
+        locale={locale}
+        faq={resolvedFaq}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 13.5 BUYER CHECKLIST -->
+    {content.buyerChecklist && content.buyerChecklist.items.length > 0 && (
+      <BuyerChecklist
+        locale={locale}
+        headline={content.buyerChecklist.headline}
+        subtitle={content.buyerChecklist.subtitle}
+        items={content.buyerChecklist.items}
+      />
+    )}
+
+    <!-- 14. WHATS INCLUDED -->
+    {resolvedWhatsIncluded.length > 0 && (
+      <WhatsIncluded
+        locale={locale}
+        items={resolvedWhatsIncluded}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 15. WARRANTY -->
+    <WarrantyService locale={locale} productName={displayName} />
+
+    <!-- 16. CTA SECTION -->
+    <ProductCTA
+      locale={locale}
+      productName={displayName}
+      variant="primary"
+      headline={content.cta?.final?.headline}
+      subtitle={content.cta?.final?.subtitle}
+      buttonLabel={content.cta?.final?.buttonLabel}
+      showPhone={true}
+    />
+
+    <!-- 17. RELATED PRODUCTS -->
+    <RelatedProducts
+      locale={locale}
+      currentSlug={product.slug}
+      categorySlug={product.categorySlug}
+    />
+
+  </div>
+</BaseLayout>

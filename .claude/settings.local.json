@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(npx tsx scripts/validate-content.ts)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node -e:*)",
+      "Bash(curl:*)",
+      "Bash(npm run validate:content:*)",
+      "Bash(git status:*)",
+      "Bash(find /d/skinlab/skinlab-hungary-master/src -type f \\\\\\(-name *frost* -o -name *product* \\\\\\) -not -path */node_modules/*)"
+    ]
+  }
+}

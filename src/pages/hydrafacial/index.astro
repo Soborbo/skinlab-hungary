@@ -1,0 +1,111 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Hidrodermabrázió és multifunkcionális gépek',
+  nameShort: 'Hydrafacial gépek',
+  slug: 'hydrafacial',
+  description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
+  heroDescription: 'Bőrmegújítás, mélytisztítás, anti-aging kezelések egy készülékben. AI bőrdiagnosztikával, azonnali látványos eredmény.',
+  badge: 'AI diagnosztika',
+  color: 'cyan',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hydrafacial';
+});
+
+const benefits = [
+  {
+    icon: 'sparkles',
+    title: 'Azonnali eredmény',
+    description: 'Már az első kezelés után látványosan szebb, ragyogóbb bőr. Vendégeid azonnal érzik a különbséget.',
+  },
+  {
+    icon: 'microscope',
+    title: 'AI bőrdiagnosztika',
+    description: 'Személyre szabott kezelési tervek. Lenyűgöző high-tech élmény a vendégeknek.',
+  },
+  {
+    icon: 'target',
+    title: 'Sokoldalú kezelések',
+    description: 'Tisztítás, hidratálás, anti-aging, pigmentfolt kezelés – egy géppel mindent megoldhatsz.',
+  },
+  {
+    icon: 'coins',
+    title: 'Magas kezelési árak',
+    description: 'Hydrafacial kezelésekért 15-30.000 Ft-ot is elkérhetnek a szalonok. Gyors megtérülés.',
+  },
+];
+
+const faq = [
+  {
+    question: 'Mi a különbség a hagyományos arctisztítás és a hydrafacial között?',
+    answer: 'A hydrafacial vákuumos technológiával dolgozik, ami a mélytisztítás mellett szérum-infúziót is biztosít. Fájdalommentes, nincs kipirulás, a vendég azonnal mehet tovább. A hagyományos tisztítás után sokszor napokig piros az arc.',
+  },
+  {
+    question: 'Milyen gyakran lehet hydrafacial kezelést végezni?',
+    answer: 'Általában 4-6 hetente ajánlott a fenntartó kezelés. Kúraszerűen hetente is végezhető a bőrállapot javítására. Nagyon kíméletes eljárás.',
+  },
+  {
+    question: 'Minden bőrtípusra alkalmas?',
+    answer: 'Igen! A hydrafacial az egyik legkíméletesebb arckezelés, érzékeny bőrre, rozáceára is alkalmazható. Egyedül aktív gyulladásos aknénál nem javasolt.',
+  },
+];
+
+// ============================================================
+// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
+// ============================================================
+const comparison = {
+  features: ['Ár', 'Funkciók száma', 'AI diagnosztika', 'Szérum adagoló', 'Kijelző', 'Ajánlott'],
+  products: [
+    {
+      name: 'HydraBasic 6in1',       // 🔴 DUMMY
+      tag: 'Belépő szint',
+      tagColor: 'purple',
+      link: '/hydrafacial/hydrabasic-6in1',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '890.000 Ft',          // 🔴 DUMMY
+        'Funkciók száma': '6',        // 🔴 DUMMY
+        'AI diagnosztika': '✗',
+        'Szérum adagoló': '✗',
+        'Kijelző': '7"',              // 🔴 DUMMY
+        'Ajánlott': 'Kisszalonok',
+      },
+    },
+    {
+      name: 'HydraCrown 12in1',      // 🔴 DUMMY
+      tag: 'Bestseller',
+      tagColor: 'red',
+      highlighted: true,
+      link: '/hydrafacial/hydracrown-12in1',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.8M Ft',             // 🔴 DUMMY
+        'Funkciók száma': '12',       // 🔴 DUMMY
+        'AI diagnosztika': '✓',
+        'Szérum adagoló': '✓',
+        'Kijelző': '15" érintő',      // 🔴 DUMMY
+        'Ajánlott': 'Profik, klinikák',
+      },
+    },
+    {
+      name: 'AquaPeel Pro',          // 🔴 DUMMY
+      tag: 'Új modell',
+      tagColor: 'blue',
+      link: '/hydrafacial/aquapeel-pro',  // 🔴 DUMMY LINK
+      specs: {
+        'Ár': '1.4M Ft',             // 🔴 DUMMY
+        'Funkciók száma': '9',        // 🔴 DUMMY
+        'AI diagnosztika': '✓',
+        'Szérum adagoló': '✗',
+        'Kijelző': '10"',             // 🔴 DUMMY
+        'Ajánlott': 'Közepes szalonok',
+      },
+    },
+  ],
+};
+// ============================================================
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

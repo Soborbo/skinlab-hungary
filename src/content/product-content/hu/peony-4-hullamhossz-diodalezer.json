@@ -1,0 +1,199 @@
+{
+  "name": "PEONY Premium Diódalézer",
+  "shortDescription": "1200W professzionális diódalézer 4 hullámhosszal. Zafír kontakt hűtés 0-5°C, 12×12 mm kezelőfej, memóriamód 5 egyéni beállítással visszatérő vendégekhez.",
+  "description": "A Peony diódalézeres szőrtelenítő készülék új szintre emeli a tartós szőrtelenítést. A gép 1200W teljesítményű, fejlett hűtőrendszerrel rendelkezik, és négy különböző hullámhosszon működik: 755, 808, 940 és 1064 nm. Ez a kombináció lehetővé teszi, hogy minden bőrtípuson hatékony és biztonságos kezelést végezhessünk, gyorsan és fájdalommentesen.",
+  "metaTitle": "PEONY Premium Diódalézer | 1200W, 4 hullámhossz, memóriamód",
+  "metaDescription": "PEONY 1200W diódalézer 4 hullámhosszal (755, 808, 940, 1064 nm). Zafír hűtés 0-5°C, memóriamód 5 egyéni beállítással. Német vízpumpa, 2 év garancia.",
+  "stats": [
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Teljesítmény",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
+    },
+    {
+      "value": "5",
+      "label": "Memóriamód",
+      "icon": "layers"
+    },
+    {
+      "value": "0-5°C",
+      "label": "Hűtés",
+      "icon": "heart"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
+  "videoDescription": {
+    "headline": "PEONY – Professzionális teljesítmény, intelligens memóriamód",
+    "paragraphs": [
+      "A Peony diódalézeres szőrtelenítő készülék új szintre emeli a tartós szőrtelenítést. A 1200W teljesítmény és a 4 hullámhossz kombinációja minden bőrtípuson hatékony és biztonságos kezelést biztosít.",
+      "Az egyedülálló memóriamód 5 egyéni beállítás elmentését teszi lehetővé visszatérő vendégekhez, ami gyorsabb és személyre szabottabb kezeléseket jelent."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a Peony-val kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a Peony-t?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a PEONY Premium diódalézer?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért válaszd a PEONY-t?",
+    "subtitle": "1200W teljesítmény, zafír hűtés, memóriamód – professzionális szőrtelenítés.",
+    "features": [
+      {
+        "title": "4 hullámhossz – minden bőrtípusra és szőrszínre",
+        "description": "A Peony négy hullámhosszon dolgozik, lefedve a különböző mélységű szőrtüszőket és bőrtípusokat.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – világos, vékony szőrszálak</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzális, aranyszabvány</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – sötétebb bőrtónusok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – mélyen fekvő szőrtüszők</div>\n</div>",
+        "image": "@assets/products/PEONY_2.webp"
+      },
+      {
+        "title": "1200W teljesítmény – gyors, hatékony kezelések",
+        "description": "Az 1200W lézerrúd-teljesítmény nagy energiasűrűséget biztosít, így a kezelések gyorsak és hatékonyak. A 12×12 mm-es kezelőfej nagyobb lefedettséget és kevesebb kezelési időt jelent.",
+        "highlight": "12×12 mm-es kezelőfej a gyorsabb kezelésekhez.",
+        "image": "@assets/products/PEONY.webp"
+      },
+      {
+        "title": "Zafír kontakt hűtés – 0-5°C",
+        "description": "A TEC + zafír hűtőrendszer 0-5°C közötti hőmérsékleten tartja a kezelőfejet, így a kezelés kellemes, fájdalommentes élményt nyújt a vendégeknek. A német import vízpumpa 5L/perc keringetési sebességgel biztosítja a stabil hűtést.",
+        "highlight": "Német vízpumpa 5L/perc keringetési sebességgel.",
+        "image": "@assets/products/PEONY_1.webp"
+      },
+      {
+        "title": "Memóriamód – 5 egyéni beállítás",
+        "description": "A Peony egyedülálló memóriamódja lehetővé teszi, hogy 5 egyéni beállítást mentsünk el visszatérő vendégekhez. Ez gyorsabb kezelésindítást és személyre szabott élményt jelent.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>5 egyéni beállítás elmenthető</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Gyors kezelésindítás visszatérő vendégeknél</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energia: 10–80 J/cm²</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulzushossz: 10–100 ms</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n</div>",
+        "highlight": "Visszatérő vendégeknél azonnal betölthetők a korábbi beállítások.",
+        "image": "@assets/products/PEONY_2.webp"
+      },
+      {
+        "title": "Univerzális alkalmazás – nőknek és férfiaknak",
+        "description": "A Peony minden bőrtípuson (I–VI) biztonságosan alkalmazható, és kiváló választás szalonok, orvosesztétikai rendelők és mobil kozmetikusok számára egyaránt.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Kezelhető területek:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Lábak, karok, hát, mellkas</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hónalj, intim terület</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Arc, áll, ajak, bajusz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Férfi vendégek (sűrű, erős szőrzet)</div>\n</div>",
+        "image": "@assets/products/PEONY.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – hivatalos felnőttképzés keretében",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "A Peony diódalézerhez elérhető egy professzionális gépkezelői oktatás, amelyet hivatalosan bejelentett felnőttképzés keretein belül biztosítunk. Az oktatás célja, hogy a résztvevők teljes körű, elméleti és gyakorlati tudást szerezzenek a készülék szakszerű és biztonságos használatáról.",
+    "items": [
+      "A diódalézer technológia működési elve és biztonsági szempontjai",
+      "A Peony kezelési paramétereinek beállítása bőr- és szőrtípus szerint",
+      "Memóriamód használata és beállítása",
+      "Gyakorlati kezelések modelleken – különböző testtájakon",
+      "Kontraindikációk, vendégkiválasztás és előkezelési protokollok",
+      "Utókezelés és vendégkommunikáció"
+    ],
+    "closingParagraphs": [
+      "Modellt természetesen hozhatsz a képzésre, így valós környezetben tudod elsajátítani a kezelési technikákat.",
+      "A képzés elvégzése után hivatalos FAR tanúsítványt állítunk ki, amely igazolja a készülék szakszerű kezeléséhez szükséges kompetenciát."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "testimonials": [
+    {
+      "name": "Takács Dóra",
+      "date": "2025. 08. 18.",
+      "text": "A Peony memóriamódja zseniális! <mark>A visszatérő vendégeknél azonnal betöltöm a korábbi beállításokat</mark>, így sokkal gyorsabb a kezelés. A zafír hűtés pedig a vendégeim kedvence.",
+      "rating": 5
+    },
+    {
+      "name": "Papp Renáta",
+      "date": "2025. 07. 05.",
+      "text": "1200W teljesítmény kiváló ár-érték arányban. <mark>A német vízpumpa és a stabil működés meggyőzött</mark>. Már fél éve használom, és semmi probléma nem volt vele.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "A Peony az 1200W teljesítményével és az egyedülálló memóriamódjával kiváló középkategóriás professzionális diódalézer. A zafír hűtés és a német vízpumpa megbízható működést garantál.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "1200W teljesítmény",
+      "description": "Nagy energiasűrűség, gyors kezelések."
+    },
+    {
+      "icon": "sun",
+      "name": "4 hullámhossz",
+      "description": "755, 808, 940, 1064 nm – minden bőrtípusra."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Zafír hűtés",
+      "description": "0-5°C közötti fájdalommentes kezelés."
+    },
+    {
+      "icon": "brain",
+      "name": "Memóriamód",
+      "description": "5 egyéni beállítás visszatérő vendégekhez."
+    },
+    {
+      "icon": "sparkles",
+      "name": "Német vízpumpa",
+      "description": "5L/perc keringetés, stabil működés."
+    },
+    {
+      "icon": "layers",
+      "name": "12×12 mm fejméret",
+      "description": "Nagyobb lefedettség, gyorsabb munka."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Mi az a memóriamód?",
+      "answer": "A Peony memóriamódja lehetővé teszi, hogy 5 egyéni beállítást mentsünk el (energia, pulzushossz, frekvencia). Visszatérő vendégeknél azonnal betölthetők a korábbi beállítások, ami gyorsabb és személyre szabottabb kezelést jelent."
+    },
+    {
+      "question": "Milyen hűtőrendszere van?",
+      "answer": "TEC + zafír kontakt hűtés, amely 0-5°C közötti hőmérsékleten tartja a kezelőfejet. A német import vízpumpa 5L/perc keringetési sebességgel biztosítja a stabil hűtést."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg?",
+      "answer": "Átlagosan 2-4 hónap alatt, napi 5-8 vendéggel számolva. Használja a ROI kalkulátorunkat a pontos számításhoz!"
+    },
+    {
+      "question": "Milyen bőrtípusokon használható?",
+      "answer": "Minden Fitzpatrick bőrtípuson (I–VI) biztonságosan alkalmazható. A 4 hullámhossz kombinációja világos és sötét bőrtónusokon egyaránt kiváló eredményt nyújt."
+    },
+    {
+      "question": "Milyen garanciát kapok?",
+      "answer": "2 év teljes körű garanciát biztosítunk. Saját szervizháttérrel rendelkezünk, és javítás idejére cseregépet biztosítunk."
+    },
+    {
+      "question": "Van lehetőség a gép megtekintésére?",
+      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheted és kipróbálhatod a Peony-t előzetes időpontfoglalással."
+    }
+  ],
+  "whatsIncluded": [
+    "PEONY Premium diódalézer készülék (1200W)",
+    "Kezelőfej (12×12 mm)",
+    "Védőszemüveg (kezelő + vendég)",
+    "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (FAR tanúsítvány)",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

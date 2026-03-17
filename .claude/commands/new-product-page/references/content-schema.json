@@ -1,0 +1,127 @@
+{
+  "$comment": "Product content JSON séma — src/content/product-content/hu/{slug}.json",
+  "name": "Termék neve",
+  "shortDescription": "Rövid leírás a hero szekcióhoz (1-2 mondat)",
+  "description": "Hosszabb termékleírás (több bekezdés)",
+  "metaTitle": "SEO title | SkinLab Hungary",
+  "metaDescription": "SEO meta description, max 160 karakter",
+
+  "stats": [
+    { "value": "600", "unit": "W", "label": "Teljesítmény", "icon": "zap" },
+    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" }
+  ],
+
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
+
+  "videoDescription": {
+    "headline": "Cím a videó mellé",
+    "paragraphs": [
+      "Első bekezdés.",
+      "Második bekezdés."
+    ]
+  },
+
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni?",
+      "subtitle": "Gyere el showroomunkba Érdre!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a termék?",
+      "subtitle": "Kérj ingyenes konzultációt!",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+
+  "featureRows": {
+    "headline": "Miért válasszák a szakemberek?",
+    "subtitle": "Alcím",
+    "review": {
+      "name": "Vásárló neve",
+      "date": "2025. 01. 01.",
+      "text": "Vélemény szövege. A <mark>kiemelés</mark> így működik.",
+      "rating": 5
+    },
+    "features": [
+      {
+        "title": "Feature cím",
+        "description": "Leírás. Támogat HTML-t is (checklistek, grid-ek). Lásd patterns.md."
+      }
+    ]
+  },
+
+  "training": {
+    "headline": "Gépkezelői oktatás – hivatalos felnőttképzés keretében",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "Bevezető bekezdés az oktatásról.",
+    "items": [
+      "Tananyag pont 1",
+      "Tananyag pont 2"
+    ],
+    "closingParagraphs": [
+      "Záró bekezdés 1.",
+      "Záró bekezdés 2."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+
+  "testimonials": [
+    {
+      "name": "Név",
+      "date": "2025. 01. 01.",
+      "text": "Vélemény. <mark>Kiemelés</mark> támogatott.",
+      "rating": 5
+    }
+  ],
+
+  "expertQuote": {
+    "quote": "Szakértői idézet szövege.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+
+  "specs": {
+    "Teljesítmény": "600W",
+    "Hullámhosszak": "808 nm"
+  },
+
+  "functionCards": [
+    { "icon": "zap", "name": "Funkció neve", "description": "Rövid leírás" }
+  ],
+
+  "faq": [
+    {
+      "question": "Kérdés szövege?",
+      "answer": "Válasz szövege. 2-3 mondat."
+    }
+  ],
+
+  "buyerChecklist": {
+    "headline": "Opcionális egyedi cím (ha nincs, i18n fallback: 'Mire figyeljen vásárlás előtt?')",
+    "subtitle": "Opcionális alcím",
+    "items": [
+      "Első szempont, amire figyelni kell vásárlás előtt.",
+      "Második szempont – részletes magyarázattal.",
+      "Harmadik szempont – praktikus tanács."
+    ]
+  },
+
+  "whatsIncluded": [
+    "Készülék",
+    "Kezelőfej",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

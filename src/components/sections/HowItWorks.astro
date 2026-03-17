@@ -1,0 +1,63 @@
+---
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+// Get locale from URL
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+const steps = [
+  {
+    number: '1',
+    titleKey: 'howItWorks.step1Title',
+    descKey: 'howItWorks.step1Desc',
+    color: 'bg-blue-100 text-blue-600',
+  },
+  {
+    number: '2',
+    titleKey: 'howItWorks.step2Title',
+    descKey: 'howItWorks.step2Desc',
+    color: 'bg-green-100 text-green-600',
+  },
+  {
+    number: '3',
+    titleKey: 'howItWorks.step3Title',
+    descKey: 'howItWorks.step3Desc',
+    color: 'bg-purple-100 text-purple-600',
+  },
+  {
+    number: '4',
+    titleKey: 'howItWorks.step4Title',
+    descKey: 'howItWorks.step4Desc',
+    color: 'bg-amber-100 text-amber-600',
+  },
+];
+---
+
+<section class="py-16 lg:py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 lg:mb-14">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+        {t(locale, 'howItWorks.title')}
+      </h2>
+      <p class="text-gray-600">
+        {t(locale, 'howItWorks.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {steps.map((step, index) => (
+        <div class="text-center relative">
+          <!-- Connector line (hidden on last item and mobile) -->
+          {index < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200" aria-hidden="true"></div>
+          )}
+
+          <div class={`w-14 h-14 lg:w-16 lg:h-16 ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl lg:text-2xl font-bold relative z-10`}>
+            {step.number}
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>
+          <p class="text-gray-600 text-sm">{t(locale, step.descKey)}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

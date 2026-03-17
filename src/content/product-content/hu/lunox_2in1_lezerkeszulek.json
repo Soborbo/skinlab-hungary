@@ -1,0 +1,177 @@
+{
+  "name": "LUNOX 2in1 4-wave diódalézer & Q-kapcsolt ND:YAG lézerkészülék",
+  "shortDescription": "2in1 diódalézer + Q-switched ND:YAG egy gépben. 4 hullámhossz, szőrtelenítés, tetoválás eltávolítás, carbon peeling.",
+  "description": "A LUNOX nem csupán egy újabb lézerkészülék – ez egy komplex, jövőbiztos beruházás, amely képes helyettesíteni több külön gépet is a kozmetikában.\n\nA diódalézer és a Q-Switched ND:YAG technológia együttesen lefedi a legkeresettebb, legjövedelmezőbb szolgáltatásokat, így a LUNOX segítségével egyetlen készülékkel felépítheted az egész kezelési portfóliódat.",
+  "metaTitle": "LUNOX 2in1 diódalézer & Q-kapcsolt ND:YAG készülék",
+  "metaDescription": "LUNOX 2in1 diódalézer és ND:YAG lézer egyben – gyors megtérülés, hegmentes kezelések, intelligens beállítások és hivatalos oktatás tanúsítvánnyal.",
+  "stats": [
+    {
+      "value": "2in1",
+      "label": "Technológia",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz (dióda)",
+      "icon": "wave"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "ND:YAG energia",
+      "icon": "zap"
+    },
+    {
+      "value": "-4°C",
+      "label": "Hűtés",
+      "icon": "snowflake"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
+  "videoDescription": {
+    "headline": "LUNOX – Két technológia, végtelen lehetőség",
+    "paragraphs": [
+      "A LUNOX nem csupán egy újabb lézerkészülék – ez egy komplex, jövőbiztos beruházás, amely képes helyettesíteni több külön gépet is a kozmetikában.",
+      "A diódalézer és a Q-Switched ND:YAG technológia együttesen lefedi a legkeresettebb, legjövedelmezőbb szolgáltatásokat: szőrtelenítés, tetováláseltávolítás, pigmentkezelés, carbon peeling és bőrfiatalítás.",
+      "A LUNOX segítségével egyetlen készülékkel felépítheted az egész kezelési portfóliódat – több gép helyett egy, gyors megtérüléssel."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a LUNOX-szal kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a LUNOX-ot?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a LUNOX 2in1 lézerkészülék?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogy ez-e a legjobb választás számodra.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért éri meg a LUNOX?",
+    "subtitle": "Két legkeresettebb technológia egyetlen gépben – maximális megtérülés",
+    "features": [
+      {
+        "title": "Diódalézeres szőrtelenítés – 4 hullámhosszon",
+        "description": "Hatékony, tartós szőrtelenítés minden bőrtípuson (I–VI fototípus).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – világos, vékony szőrszálak</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzális, átlagos gyökérmélység</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – sötétebb szőrzet</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – mélyen ülő szőrszálak</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Fájdalommentes, gyors és vendégbarát eljárás a -4°C-os hűtésnek köszönhetően.</p>",
+        "image": "@assets/products/lunox3.webp"
+      },
+      {
+        "title": "Q-Switched ND:YAG – tetoválás és pigment eltávolítás",
+        "description": "A LUNOX Q-switched ND:YAG lézere éles, koncentrált spot-nyomot, erős energialeadást és stabil impulzust biztosít minden kezelés során.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm és 532 nm hullámhossz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Akár 1600 mJ teljesítmény</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>3–5 ns impulzushossz – hegmentes kezelés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fekete, kék, barna, zöld, piros és sárga pigmentek</div>\n</div>",
+        "highlight": "Amerikai Coherent lézerrúd garantálja a több évig stabil, megbízható működést.",
+        "image": "@assets/products/lunox1.webp"
+      },
+      {
+        "title": "Carbon peeling – a Hollywood-kezelés",
+        "description": "Az 1320 nm-es kezelőfej és a Q-Switched impulzus kombinációja fekete szénmaszkkal végzett prémium arckezelést tesz lehetővé.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mélytisztítja a pórusokat</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szabályozza a faggyútermelést</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Csökkenti a gyulladást</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Azonnal simább, frissebb bőrfelszín</div>\n</div>",
+        "image": "@assets/products/lunox2.webp"
+      },
+      {
+        "title": "Okos diódalézer – intelligens paraméterbeállítás",
+        "description": "A beépített intelligens szoftver automatikusan felismeri a kiválasztott kezelési paramétereket és önállóan beállítja az optimális értékeket.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrtípus (I–VI fototípus)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kezelendő terület</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szőr minősége és mennyisége</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Automatikusan beállítja a teljesítményt, frekvenciát, impulzushosszt és hűtési értéket.</p>",
+        "image": "@assets/products/lunox4.webp"
+      },
+      {
+        "title": "Több gép helyett egy – maximális megtérülés",
+        "description": "Nem kell külön diódalézert, pigment- vagy tetováláseltávolító lézert vásárolnod – a LUNOX mindezt egyetlen, kompakt berendezésben nyújtja.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Szőrtelenítés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tetoválás eltávolítás</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pigmentfolt kezelés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrfiatalítás és rejuvenáció</div>\n</div>",
+        "highlight": "A LUNOX segítségével már néhány hónap alatt visszahozhatod a teljes vételárát.",
+        "image": "@assets/products/lunox5.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gépkezelői oktatás – komplex képzési program",
+    "badge": "Hivatalos tanúsítvánnyal",
+    "intro": "A LUNOX készülékhez komplex oktatási program elérhető, amely a kezelőket teljes körűen felkészíti a gép biztonságos és hatékony használatára. A képzés hivatalosan jóváhagyott a FAR-rendszerben, orvosok és egészségügyi oktatók közreműködésével.",
+    "items": [
+      "A diódalézer és Q-switched ND:YAG technológia elméleti és gyakorlati ismertetése",
+      "Kezelési protokollok különböző bőrtípusokra és problémákra",
+      "Részletes kezelői dokumentáció",
+      "Ügyfélkezelési és utóápolási iránymutatások",
+      "Marketing- és árképzési javaslatok a sikeres szalonhasználathoz",
+      "Gyakorlati kezelések modelleken"
+    ],
+    "closingParagraphs": [
+      "A képzés elvégzése után hivatalos, névre szóló tanúsítványt kapsz, amely igazolja a LUNOX készülék szakszerű használatának elsajátítását.",
+      "A cél, hogy ne csak egy gépet kapj, hanem valós, gyakorlati tudást és üzleti támogatást."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "értékű képzés",
+    "freeText": "INGYENES a gépvásárlás mellé!",
+    "duration": "Egynapos intenzív képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Diódalézeres szőrtelenítés",
+      "description": "Tartós szőrtelenítés 4 hullámhosszon, minden bőrtípuson"
+    },
+    {
+      "icon": "eye",
+      "name": "Tetoválás eltávolítás",
+      "description": "Fekete, kék, barna, zöld, piros és sárga pigmentek eltávolítása"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigmentfolt kezelés",
+      "description": "Szeplők, melasma, napfoltok, öregségi pigmentációk halványítása"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hollywood-kezelés: mélytisztítás, pórusösszehúzás, bőrfiatalítás"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bőrfiatalítás",
+      "description": "Kollagénstimuláció, bőrfeszesítés, textúra javítás"
+    },
+    {
+      "icon": "droplet",
+      "name": "Sminktetoválás eltávolítás",
+      "description": "Szemöldök, ajak, szemhéj sminktetoválások korrekciója"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Miért érdemes 2in1 készüléket választani?",
+      "answer": "A LUNOX egyetlen gépben egyesíti a diódalézeres szőrtelenítést és a Q-switched ND:YAG technológiát. Nem kell külön gépeket vásárolnod – a szőrtelenítés, tetováláseltávolítás, pigmentkezelés, carbon peeling és bőrfiatalítás mind egyetlen készülékkel elvégezhető, ami jelentős költségmegtakarítást jelent."
+    },
+    {
+      "question": "Mennyi idő alatt térül meg a LUNOX?",
+      "answer": "A diódalézeres szőrtelenítés és az ND:YAG kezelések a legjövedelmezőbb kozmetikai szolgáltatások közé tartoznak. Napi 3-5 vendéggel számolva a LUNOX általában 2-4 hónap alatt megtérül. Használja a ROI kalkulátorunkat a pontos számításhoz!"
+    },
+    {
+      "question": "Milyen pigmenteket tud kezelni az ND:YAG rész?",
+      "answer": "A Q-switched ND:YAG lézer az 1064 nm és 532 nm hullámhosszakkal hatékonyan kezeli a fekete, kék, barna, zöld, piros és sárga pigmenteket. Alkalmazható test- és sminktetoválások eltávolítására egyaránt."
+    },
+    {
+      "question": "Milyen képzés jár a LUNOX-hoz?",
+      "answer": "Komplex oktatási program, amely FAR-rendszerben jóváhagyott és orvosok közreműködésével készült. A képzés ingyenes a gépvásárlás mellé, és hivatalos tanúsítvánnyal zárul."
+    },
+    {
+      "question": "Van lehetőség a gép megtekintésére vásárlás előtt?",
+      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheted és kipróbálhatod a LUNOX-ot előzetes időpontfoglalással."
+    }
+  ],
+  "whatsIncluded": [
+    "LUNOX 2in1 lézerkészülék",
+    "Diódalézer kezelőfej (4 hullámhossz)",
+    "Q-switched ND:YAG kezelőfejek (1064 nm, 532 nm, 1320 nm)",
+    "Védőszemüveg (kezelő + vendég)",
+    "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (FAR tanúsítvány)",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

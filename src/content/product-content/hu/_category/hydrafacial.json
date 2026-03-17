@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" },
+    { "value": "6+", "label": "Funkció egyben", "icon": "layers" },
+    { "value": "30", "unit": "perc", "label": "Kezelési idő", "icon": "clock" },
+    { "value": "100%", "label": "Fájdalommentes", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Szabó Kata",
+      "role": "Kozmetikus",
+      "location": "Győr",
+      "text": "A HydraFacial gép a szalonom slágere lett! A vendégek már az első kezelés után látványos eredményt tapasztalnak.",
+      "rating": 5
+    },
+    {
+      "name": "Kiss Mónika",
+      "role": "Szépségszalon tulajdonos",
+      "location": "Pécs",
+      "text": "Profi gép, könnyű kezelni, és az ügyfelek imádják. A SkinLab betanítás nagyon alapos volt.",
+      "rating": 5
+    },
+    {
+      "name": "Hegedűs Fanni",
+      "role": "Kozmetikus",
+      "location": "Budapest",
+      "text": "A multifunkciós gépem mindent tud, amire szükségem van. Arctisztítás, hidratálás, lifting - egy készülékben.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "A HydraFacial az egyik legjobb megtérülésű befektetés egy szalonban. A vendégek azonnal látják az eredményt, és rendszeresen visszatérnek - ez garantált bevételt jelent.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+  "featureRows": {
+    "headline": "Miért válassz multifunkciós hydrofacial gépet?",
+    "subtitle": "Komplex arctisztítás és kezelés egyetlen készülékkel",
+    "features": [
+      {
+        "title": "Minden kezelés egyetlen gépben",
+        "description": "Nem kell külön hidrodermabráziós, ultrahangos és RF gépet vásárolni. A multifunkciós hydrofacial készülékek 6-12 funkciót kínálnak egyetlen kompakt egységben.",
+        "highlight": "Egy gép, egy betanulás, végtelen lehetőség."
+      },
+      {
+        "title": "Gyors, hatékony kezelési protokollok",
+        "description": "30-45 perces komplex kezelés egyetlen üléssel. A vendég azonnal látja és érzi az eredményt – már az első alkalommal.",
+        "highlight": "Naponta akár 8-10 vendéget is fogadhat a gép segítségével."
+      },
+      {
+        "title": "Megfizethető professzionális technológia",
+        "description": "A SkinLab hydrofacial gépek töredék áron kínálják ugyanazt a minőséget, amit a nagy márkák milliókért adnak. 2 év garanciával és magyar szervizháttérrel.",
+        "highlight": "Professzionális minőség, megfizethető áron – 2 év garanciával."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Professzionális gépkezelői képzés",
+    "badge": "FAR tanúsítvánnyal",
+    "intro": "Minden hydrofacial készülékünkhöz elérhető személyes betanítás és hivatalos gépkezelői képzés.",
+    "items": [
+      "A készülék működési elve és technológiái",
+      "Kezelési protokollok különböző bőrtípusokhoz",
+      "Gyakorlati kezelések modelleken",
+      "Vendégkommunikáció"
+    ],
+    "price": "Kérjen ajánlatot",
+    "priceNote": "Hivatalos felnőttképzés",
+    "duration": "Egynapos képzés",
+    "ctaText": "Érdekel a képzés"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hidrodermabrázió", "description": "Vákuumos mélytisztítás és hámlasztás" },
+    { "icon": "sound", "name": "Ultrahang", "description": "Hatóanyagbevitel mély rétegekbe" },
+    { "icon": "bubbles", "name": "Oxigénes kezelés", "description": "O₂ hidratálás és revitalizálás" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Bőrfeszesítés rádiófrekvenciával" },
+    { "icon": "snowflake", "name": "Kriotermia", "description": "Hideg-meleg kezelés pórusösszehúzáshoz" },
+    { "icon": "spray", "name": "Spray gun", "description": "Kezelést lezáró tonizálás" }
+  ],
+  "faq": [
+    {
+      "question": "Milyen bőrtípusokra alkalmas a HydraFacial kezelés?",
+      "answer": "A HydraFacial minden bőrtípusra alkalmas, beleértve az érzékeny bőrt is. A kezelés intenzitása személyre szabható."
+    },
+    {
+      "question": "Mennyi kezelés végezhető naponta?",
+      "answer": "Egy kezelés kb. 30-45 perc, így naponta akár 8-10 vendéget is fogadhat."
+    },
+    {
+      "question": "Milyen fogyóanyagok szükségesek?",
+      "answer": "A géphez speciális szérumok és oldatok szükségesek, melyeket kedvezményes áron biztosítunk ügyfeleinknek."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial készülék",
+    "Kezelőfejek készlet",
+    "Indító szérum csomag",
+    "Használati útmutató (magyar)",
+    "Ingyenes betanítás",
+    "2 év garancia"
+  ]
+}
