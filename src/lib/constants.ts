@@ -132,8 +132,9 @@ export const CATEGORIES = [
     slug: 'anti-aging',
     description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
     icon: 'sparkles',
-    featured: true,
-    productCount: 1,
+    featured: false,
+    draft: true,
+    productCount: 0,
   },
   {
     id: 'sminktetovalas',
@@ -219,14 +220,13 @@ export const MEGA_MENU = {
       titleKey: 'megaMenu.pmu',
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
-        { labelKey: 'categories.anti-aging', href: '/anti-aging', count: 1, descriptionKey: 'megaMenu.antiAgingDesc' },
+        { labelKey: 'categories.kellekek', href: '/kellekek', count: 7, descriptionKey: 'megaMenu.accessoriesDesc' },
       ],
     },
     {
       titleKey: 'megaMenu.salon',
       items: [
         { labelKey: 'categories.szalonberendezes', href: '/szalonberendezes', count: 6, descriptionKey: 'megaMenu.furnitureDesc' },
-        { labelKey: 'categories.kellekek', href: '/kellekek', count: 7, descriptionKey: 'megaMenu.accessoriesDesc' },
       ],
     },
   ],
