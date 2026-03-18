@@ -1,0 +1,123 @@
+{
+  "name": "AURA by skinlab. – Cold Plasma Device",
+  "shortDescription": "AURA by skinlab. is a cold atmospheric plasma (CAP) technology cosmetic device that provides antibacterial effects, enhanced active ingredient absorption, and skin regeneration – gently and painlessly.",
+  "description": "AURA by skinlab. is a modern, professional cold atmospheric plasma (Cold Atmospheric Plasma – CAP) device that creates ionized air at low temperature.\n\nCAP technology, upon contact with the skin, does not burn but triggers beneficial biological effects: it creates an antibacterial environment, enhances active ingredient absorption, and supports the skin's natural regeneration.\n\nAURA is the ideal choice for estheticians seeking effective, safe, and affordable cold plasma technology.",
+  "metaTitle": "AURA Cold Plasma Device | CAP Technology | SkinLab Hungary",
+  "metaDescription": "AURA by skinlab. cold plasma device with CAP technology. Antibacterial effect, active ingredient delivery, skin regeneration. Esthetician competence, CE certified.",
+  "stats": [
+    { "value": "CAP", "label": "Technology", "icon": "zap" },
+    { "value": "4", "label": "Main application areas", "icon": "layers" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" },
+    { "value": "0", "unit": "min", "label": "Recovery time", "icon": "clock" }
+  ],
+  "roi": { "defaultTreatmentPrice": 12000 },
+  "videoDescription": {
+    "headline": "What is CAP – and why introduce it now?",
+    "paragraphs": [
+      "Cold Atmospheric Plasma (CAP) technology creates ionized air at low temperature. Upon contact with the skin, it doesn't burn but triggers beneficial biological effects: it reduces bacteria, enhances active ingredient absorption, and supports skin regeneration.",
+      "AURA is an affordable, professional CAP device that enables you to offer cold plasma treatments in your salon – at competitive pricing with proven technology.",
+      "Plasma treatments are increasingly sought after by clients, and with AURA you can enter this rapidly growing market segment."
+    ]
+  },
+  "cta": {
+    "afterVideo": { "text": "Have questions about the AURA cold plasma device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
+    "afterFeatures": { "headline": "Want to try the AURA in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
+    "final": { "headline": "Interested in the AURA cold plasma device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+  },
+  "featureRows": {
+    "headline": "Why do professionals choose AURA?",
+    "subtitle": "CAP technology, antibacterial effect, active ingredient delivery – in one device",
+    "features": [
+      {
+        "title": "What is Cold Atmospheric Plasma (CAP)?",
+        "description": "Plasma is the fourth state of matter. CAP technology creates ionized plasma from normal air at room temperature, which does not damage the skin.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Biochemical effects of plasma:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reactive oxygen and nitrogen species are generated</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Loosens intercellular junctions</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Antibacterial and anti-inflammatory</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stimulates cell renewal and skin regeneration</div>\n</div>",
+        "image": "@assets/products/hidegplazma.webp"
+      },
+      {
+        "title": "Enhanced active ingredient absorption",
+        "description": "Plasma reduces the tightness of intercellular junctions (e.g., E-cadherin), allowing serums and ampoules to penetrate deeper into the skin.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>More effective when combined with mesotherapy serums</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Deeper penetration of skin renewal ingredients</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ideal preparation before hyaluronic acid treatments</div>\n</div>",
+        "image": "@assets/products/hidegplazma.webp"
+      },
+      {
+        "title": "Antibacterial effect – acne and inflamed skin",
+        "description": "Plasma produces reactive oxygen and nitrogen molecules that naturally reduce bacteria and disinfect the skin.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Acne skin treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reducing inflammatory skin problems</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Wound healing support</div>\n</div>\n<div class=\"flex flex-wrap items-center gap-3 mt-3 mb-1\"><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>non-invasive</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>painless</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>no recovery time</span></div>",
+        "image": "@assets/products/hidegplazma.webp"
+      },
+      {
+        "title": "Pigmentation fading and skin barrier strengthening",
+        "description": "Plasma can help reduce melanin activity and improve the absorption of brightening ingredients, while also stimulating cell renewal and skin regeneration.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fading freckles and pigmentation spots</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sun-damaged skin treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sensitive skin and damaged skin barrier support</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Soothing irritated skin</div>\n</div>",
+        "image": "@assets/products/hidegplazma.webp"
+      },
+      {
+        "title": "Esthetician competence – safe and legal use",
+        "description": "The AURA cold plasma device is designed for cosmetic aesthetic use and falls entirely within the esthetician competence scope.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Not a medical device</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Can be used in cosmetic settings</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>CE certified</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Legal documentation provided</div>\n</div>",
+        "image": "@assets/products/hidegplazma.webp"
+      },
+      {
+        "title": "Who is AURA recommended for?",
+        "description": "<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Estheticians wanting to introduce cold plasma technology</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Salons seeking an affordable CAP solution</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>For acne treatment and problem skin therapy</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>To complement active ingredient delivery treatments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>For skin regeneration and skin barrier strengthening protocols</div>\n</div>",
+        "image": "@assets/products/hidegplazma.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Operator training – official adult education program",
+    "badge": "With official certificate",
+    "intro": "We provide professional operator training for the AURA cold plasma device within the framework of officially registered adult education. The goal of the training is for participants to fully understand the operation and applications of CAP technology.",
+    "items": [
+      "Operating principles of Cold Atmospheric Plasma (CAP)",
+      "Antibacterial treatment protocols for acne skin",
+      "Active ingredient delivery techniques with serums",
+      "Pigmentation fading protocols",
+      "Skin barrier strengthening treatment guidelines",
+      "Contraindications and safety rules",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.",
+      "Upon completion of the training, we issue an official certificate confirming your competence in the professional operation of the AURA device.",
+      "If you're interested in the training opportunity, please contact us through any of our channels to arrange an appointment!"
+    ],
+    "price": "49.990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Fehér Nikolett",
+      "date": "2026. 01. 10.",
+      "text": "AURA was my first cold plasma device, and it's a <mark>perfect entry-level tool</mark>. My acne clients achieve fantastic results with it, and the active ingredient delivery function is also excellent. Great value for money!",
+      "rating": 5
+    },
+    {
+      "name": "Balogh Eszter",
+      "date": "2026. 02. 14.",
+      "text": "I specifically chose AURA because <mark>it offers CAP technology at an affordable price</mark>. My clients love that the treatment is completely painless, and the effectiveness of active ingredient treatments has truly improved. It paid for itself in two months!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "AURA is an excellent choice for estheticians who want to enter the cold plasma market without immediately buying the most expensive device. CAP technology has proven effectiveness, and AURA makes it accessible at a professional level.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "faq": [
+    { "question": "What's the difference between AURA and THE FROST?", "answer": "AURA is a Cold Atmospheric Plasma (CAP) device primarily focused on antibacterial effect, active ingredient delivery, and skin regeneration. THE FROST is a more complex system with 9 functions, including cold plasma, thermoplasma, and ozone plasma technologies. AURA is an excellent entry-level device, while THE FROST is the complete plasma treatment system." },
+    { "question": "Can I legally use AURA as an esthetician?", "answer": "Yes! AURA is designed for cosmetic aesthetic purposes and falls entirely within the esthetician competence scope. It comes with CE certification and legal documentation." },
+    { "question": "What treatments is it suitable for?", "answer": "AURA can be used for acne treatment support, bacteria reduction, pigmentation fading, enhancing active ingredient absorption, stimulating skin regeneration, and soothing inflamed skin." },
+    { "question": "Is the treatment painful?", "answer": "No, CAP technology is completely painless. The plasma operates at room temperature, doesn't burn, and doesn't damage the skin. The treatment is pleasant, and no anesthesia is needed." },
+    { "question": "How quickly does AURA pay for itself?", "answer": "Cold plasma treatment prices typically range from 8,000–18,000 Ft. With 3–4 clients per day, the device generally pays for itself within 2–3 months. Use our ROI calculator for exact figures!" },
+    { "question": "Are consumables needed?", "answer": "Plasma treatments themselves don't require consumables – the device generates plasma from normal air. If you're performing active ingredient delivery treatments, you'll naturally need the appropriate serum or ampoule." },
+    { "question": "What training comes with the device?", "answer": "A one-day operator training within an official adult education framework, which is free with device purchase. The training covers CAP technology operation, treatment protocols, and includes practical treatments. We issue a certificate." }
+  ],
+  "whatsIncluded": [
+    "AURA by skinlab. cold plasma device",
+    "CAP treatment handpiece",
+    "User manual (Hungarian)",
+    "Legal documentation",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

@@ -14,7 +14,7 @@ const { locale } = Astro.params;
 const category = getCategoryTranslation(locale!, 'szalonberendezes');
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'szalonberendezes';
+  return data.categorySlug === 'szalonberendezes' && !data.draft;
 });
 ---
 

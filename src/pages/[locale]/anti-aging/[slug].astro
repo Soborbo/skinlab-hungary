@@ -6,7 +6,7 @@ import { locales, defaultLocale } from '../../../i18n/ui';
 export async function getStaticPaths() {
   const nonDefaultLocales = locales.filter((l) => l !== defaultLocale);
   const products = await getCollection('products', ({ data }) => {
-    return data.categorySlug === 'anti-aging';
+    return data.categorySlug === 'anti-aging' && !data.draft;
   });
 
   return nonDefaultLocales.flatMap((locale) =>

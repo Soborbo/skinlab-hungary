@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" },
+    { "value": "6+", "label": "Funkcí v jednom", "icon": "layers" },
+    { "value": "30", "unit": "min", "label": "Doba ošetření", "icon": "clock" },
+    { "value": "100%", "label": "Bezbolestné", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Petra Dvořáková",
+      "role": "Kosmetička",
+      "location": "Brno",
+      "text": "HydraFacial přístroj se stal hitem mého salonu! Klientky vidí výrazné výsledky už po prvním ošetření.",
+      "rating": 5
+    },
+    {
+      "name": "Jana Novotná",
+      "role": "Majitelka kosmetického salonu",
+      "location": "Plzeň",
+      "text": "Profesionální přístroj, snadné ovládání a klientky ho milují. Zaškolení od SkinLab bylo velmi důkladné.",
+      "rating": 5
+    },
+    {
+      "name": "Markéta Horáková",
+      "role": "Kosmetička",
+      "location": "Praha",
+      "text": "Můj multifunkční přístroj umí vše, co potřebuji. Čištění pleti, hydratace, lifting – v jednom zařízení.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial je jednou z nejlepších investic s návratností v salonu. Klientky okamžitě vidí výsledky a pravidelně se vracejí – to znamená garantovaný příjem.",
+    "author": "Horváth László",
+    "role": "Technický odborník"
+  },
+  "featureRows": {
+    "headline": "Proč zvolit multifunkční hydrofacial přístroj?",
+    "subtitle": "Komplexní čištění a ošetření pleti jedním přístrojem",
+    "features": [
+      {
+        "title": "Všechna ošetření v jednom přístroji",
+        "description": "Nemusíte kupovat samostatný hydrodermabrazní, ultrazvukový a RF přístroj. Multifunkční hydrofacial zařízení nabízejí 6–12 funkcí v jedné kompaktní jednotce.",
+        "highlight": "Jeden přístroj, jedno zaškolení, nekonečné možnosti."
+      },
+      {
+        "title": "Rychlé a efektivní ošetřovací protokoly",
+        "description": "30–45minutové komplexní ošetření v jedné relaci. Klientka okamžitě vidí a cítí výsledky – už po první návštěvě.",
+        "highlight": "Denně můžete přijmout až 8–10 klientek díky tomuto přístroji."
+      },
+      {
+        "title": "Dostupná profesionální technologie",
+        "description": "Hydrofacial přístroje SkinLab nabízejí stejnou kvalitu jako velké značky za miliony – za zlomek ceny. S 2letou zárukou a českým servisním zázemím.",
+        "highlight": "Profesionální kvalita za dostupnou cenu – s 2letou zárukou."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Profesionální školení obsluhy přístrojů",
+    "badge": "S certifikátem FAR",
+    "intro": "Ke každému hydrofacial přístroji nabízíme osobní zaškolení a oficiální školení obsluhy.",
+    "items": [
+      "Princip fungování přístroje a jeho technologie",
+      "Ošetřovací protokoly pro různé typy pleti",
+      "Praktická ošetření na modelech",
+      "Komunikace s klientkami"
+    ],
+    "price": "Vyžádejte si nabídku",
+    "priceNote": "Oficiální vzdělávání",
+    "duration": "Jednodenní školení",
+    "ctaText": "Mám zájem o školení"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabraze", "description": "Hloubkové čištění a peeling vakuem" },
+    { "icon": "sound", "name": "Ultrazvuk", "description": "Vpravení účinných látek do hlubších vrstev" },
+    { "icon": "bubbles", "name": "Kyslíkové ošetření", "description": "O₂ hydratace a revitalizace" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Zpevnění pleti radiofrekvenční technologií" },
+    { "icon": "snowflake", "name": "Krioterapie", "description": "Ošetření chladem a teplem pro stažení pórů" },
+    { "icon": "spray", "name": "Spray gun", "description": "Závěrečná tonizace ošetření" }
+  ],
+  "faq": [
+    {
+      "question": "Pro jaké typy pleti je HydraFacial ošetření vhodné?",
+      "answer": "HydraFacial je vhodný pro všechny typy pleti, včetně citlivé. Intenzitu ošetření lze individuálně přizpůsobit."
+    },
+    {
+      "question": "Kolik ošetření lze provést za den?",
+      "answer": "Jedno ošetření trvá přibližně 30–45 minut, takže denně můžete přijmout až 8–10 klientek."
+    },
+    {
+      "question": "Jaké spotřební materiály jsou potřeba?",
+      "answer": "K přístroji jsou potřeba speciální séra a roztoky, které našim zákazníkům dodáváme za zvýhodněné ceny."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial přístroj",
+    "Sada ošetřovacích hlavic",
+    "Úvodní balíček sér",
+    "Uživatelský manuál (český)",
+    "Bezplatné zaškolení",
+    "2 roky záruky"
+  ]
+}

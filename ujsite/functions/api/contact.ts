@@ -21,8 +21,8 @@ interface Env {
 }
 
 const ALLOWED_ORIGINS = [
-  "https://skinlab.hu",
-  "https://www.skinlab.hu",
+  "https://skinlabhungary.hu",
+  "https://www.skinlabhungary.hu",
   "https://skinlabeurope.com",
   "https://www.skinlabeurope.com",
 ];

@@ -14,7 +14,7 @@ const { locale } = Astro.params;
 const category = getCategoryTranslation(locale!, 'anti-aging');
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'anti-aging';
+  return data.categorySlug === 'anti-aging' && !data.draft;
 });
 ---
 

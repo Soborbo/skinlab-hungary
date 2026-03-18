@@ -1,0 +1,115 @@
+{
+  "name": "HYDRAMAX",
+  "shortDescription": "8-in-1 professional hydrofacial device. Dermabrasion, ultrasound, oxygen infusion, LED therapy, galvanic treatment, CE certified.",
+  "description": "The HydraMax 8-in-1 facial treatment device is a high-performance, professional unit that meets all EU compatibility and safety requirements.\n\nThe device combines the most advanced technologies for comprehensive skin treatment: hydrodermabrasion, ultrasonic treatment, oxygen infusion, galvanic treatment, vacuum therapy, LED light therapy, hot-cold hammer, and microdermabrasion.\n\nAn ideal choice for beauty salons and cosmetic service providers seeking premium quality, multifunctional facial treatment at a cost-effective price.",
+  "metaTitle": "HydraMax | 8-in-1 Professional Hydrofacial Device",
+  "metaDescription": "HydraMax 8-in-1 hydrofacial: dermabrasion, ultrasound, LED, oxygen infusion. 399,990 Ft, EU-compatible, CE certified, 2-year warranty.",
+  "stats": [
+    { "value": "8", "label": "Treatment functions", "icon": "layers" },
+    { "value": "CE", "label": "Certification", "icon": "shield" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" },
+    { "value": "~30", "unit": "min", "label": "Treatment time", "icon": "clock" }
+  ],
+  "roi": { "defaultTreatmentPrice": 20000 },
+  "videoDescription": {
+    "headline": "The HydraMax – professional skin cleansing and renewal with a single device",
+    "paragraphs": [
+      "The HydraMax 8-in-1 facial treatment device combines the most advanced technologies for comprehensive skin treatment, while meeting all EU compatibility and safety requirements.",
+      "With a single device, complete facial cleansing, hydration, firming, and skin renewal can be performed – cost-effectively and space-efficiently.",
+      "Wide range of applications for all skin types, with an easy-to-use, modern design."
+    ]
+  },
+  "cta": {
+    "afterVideo": { "text": "Have questions about the device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
+    "afterFeatures": { "headline": "Want to see the HydraMax in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
+    "final": { "headline": "Interested in the HydraMax?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+  },
+  "featureRows": {
+    "headline": "Why do estheticians choose the HydraMax?",
+    "subtitle": "8 functions in one device – cost-effective and space-efficient solution",
+    "features": [
+      {
+        "title": "8 treatment functions in a single device",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrasion and water jet peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasonic treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxygen infusion</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Galvanic and iontophoresis</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vacuum therapy</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED light therapy (blue, red, green)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hot-cold hammer</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Microdermabrasion</div>\n</div>",
+        "image": "@assets/products/HydraMax1.webp"
+      },
+      {
+        "title": "Professional skin cleansing and hydration",
+        "description": "Hydrodermabrasion deeply cleanses pores, removes dead skin cells and impurities. Oxygen infusion boosts skin oxygen supply and vitality, while vacuum therapy stimulates microcirculation and firms the skin.",
+        "image": "@assets/products/hydramax.webp"
+      },
+      {
+        "title": "Active ingredient delivery and skin firming",
+        "description": "Ultrasonic treatment promotes deeper penetration of active ingredients into the skin. Galvanic treatment improves serum absorption, and LED light therapy enables targeted treatment of various skin concerns.",
+        "image": "@assets/products/HydraMax2.webp"
+      },
+      {
+        "title": "EU-compatible, CE certified",
+        "description": "The HydraMax is a professional device that meets all EU standards, with CE certification. It delivers salon-quality results for all skin types with an easy-to-use, modern design.",
+        "image": "@assets/products/HydraMax3.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Operator training – official adult education program",
+    "badge": "With official certificate",
+    "intro": "A professional operator training course is available for the HydraMax device, provided within the framework of officially registered adult education. The goal is for you to acquire comprehensive theoretical and practical knowledge for the professional use of the device.",
+    "items": [
+      "HydraMax operating principles, technologies, and treatment heads",
+      "Treatment protocols for different skin types and concerns",
+      "LED light therapy, galvanic treatment proper application",
+      "Skin analysis basics and personalized treatment plan creation",
+      "Client communication and treatment documentation",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.",
+      "Upon completion of the training, we issue an official certificate confirming your competence in the professional operation of the HydraMax device.",
+      "If you're interested in the training opportunity, please contact us through any of our channels to arrange an appointment!"
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "expertQuote": {
+    "quote": "The HydraMax is an excellent entry point into the world of hydrofacial treatments. 8 functions, CE certification, and clients immediately see results – that means guaranteed revenue.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Deep cleansing, dead skin cell and impurity removal" },
+    { "icon": "sound", "name": "Ultrasonic treatment", "description": "Active ingredient delivery and micromassage into deeper layers" },
+    { "icon": "wind", "name": "Oxygen infusion", "description": "Boosting skin oxygen supply and revitalization" },
+    { "icon": "zap", "name": "Galvanic treatment", "description": "Iontophoresis for better serum absorption" },
+    { "icon": "bolt", "name": "Vacuum therapy", "description": "Microcirculation stimulation and skin firming" },
+    { "icon": "sun", "name": "LED light therapy", "description": "Blue, red, green light for various skin concerns" },
+    { "icon": "snowflake", "name": "Hot-cold hammer", "description": "Skin soothing, pore tightening, circulation stimulation" },
+    { "icon": "sparkle", "name": "Microdermabrasion", "description": "Gentle exfoliation, skin renewal, texture improvement" }
+  ],
+  "faq": [
+    { "question": "What functions does the HydraMax have?", "answer": "The HydraMax combines 8 functions in a single device: hydrodermabrasion and water jet peeling, ultrasonic treatment, oxygen infusion, galvanic and iontophoresis, vacuum therapy, LED light therapy, hot-cold hammer, and microdermabrasion." },
+    { "question": "What training comes with the HydraMax?", "answer": "A 69,990 Ft value official adult education course is included FREE with device purchase. The training covers all functions, treatment protocols, and practical treatments. We issue an official certificate." },
+    { "question": "How quickly does the HydraMax pay for itself?", "answer": "Thanks to the favorable price-to-value ratio, on average within 1-3 months, with 3-5 clients per day. A hydrofacial treatment is priced between 12,000-25,000 Ft. Use our on-page ROI calculator for exact figures!" },
+    { "question": "What skin types is the treatment suitable for?", "answer": "The HydraMax is suitable for all skin types, including sensitive skin. The various functions and intensity levels allow treatment personalization." },
+    { "question": "Does the device have CE certification?", "answer": "Yes, the HydraMax meets all EU compatibility and safety requirements and features CE marking. It is a high-performance device designed for professional use." },
+    { "question": "What consumables are needed?", "answer": "Special serums and solutions are needed for hydrodermabrasion treatments, such as from the HydraLiquid product line. We provide these to our clients at discounted prices." },
+    { "question": "Can I view the device before purchasing?", "answer": "Yes! You can view and try the HydraMax in person at our showroom (Érd, Budai út 28.) by appointment." }
+  ],
+  "whatsIncluded": [
+    "HydraMax device",
+    "Hydrodermabrasion treatment head",
+    "Ultrasonic treatment head",
+    "Oxygen infusion treatment head",
+    "Galvanic treatment head",
+    "Vacuum therapy treatment head",
+    "LED light therapy module",
+    "Hot-cold hammer treatment head",
+    "Microdermabrasion treatment head",
+    "Starter serum package",
+    "User manual (Hungarian)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

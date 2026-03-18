@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'diodalezerek';
+  return data.categorySlug === 'diodalezerek' && !data.draft;
 });
 
 const benefits = [
@@ -76,17 +76,17 @@ const comparison = {
       },
     },
     {
-      name: 'PeonyLUXE',
-      tag: 'Prémium',
+      name: 'MediLUX PRO',
+      tag: 'Professzionális',
       tagColor: 'rose',
-      link: '/diodalezerek/peonyluxe-4-hullamhosszon-operalo-vertikalis-premium-diodalezer-767',
+      link: '/diodalezerek/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-836',
       specs: {
         'Ár': 'Kérjen ajánlatot',
-        'Hullámhosszak': '4',
+        'Hullámhosszak': '4 (755+808+940+1064nm)',
         'Teljesítmény': '1200W',
         'Hűtés': '-5°C Zafír',
         'Kijelző': '15.6" HD',
-        'Ajánlott': 'Prémium szalonok',
+        'Ajánlott': 'Klinikák, prémium szalonok',
       },
     },
     {

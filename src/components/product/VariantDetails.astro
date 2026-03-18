@@ -1,0 +1,139 @@
+---
+/**
+ * VariantDetails - Variant description + comparison table
+ *
+ * Shows the selected variant's description (reactive to variant-change event)
+ * and a comparison table with all variants side by side.
+ * Only renders when variants have descriptions or specs.
+ */
+
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+
+interface VariantData {
+  sku: string;
+  name: string;
+  value: string;
+  description?: string;
+  specs?: Record<string, string>;
+}
+
+interface Props {
+  locale: Locale;
+  variants: VariantData[];
+  productName: string;
+}
+
+const { locale, variants, productName } = Astro.props;
+
+// Only render if at least one variant has description or specs
+const hasDescriptions = variants.some(v => v.description);
+const hasSpecs = variants.some(v => v.specs && Object.keys(v.specs).length > 0);
+
+if (!hasDescriptions && !hasSpecs) return;
+
+// Collect all spec keys across variants for comparison table
+const allSpecKeys = [...new Set(variants.flatMap(v => Object.keys(v.specs || {})))];
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Variant Description (changes on selection) -->
+    {hasDescriptions && (
+      <div class="mb-10">
+        {variants.map((variant, i) => (
+          <div
+            class={`variant-description-block ${i === 0 ? '' : 'hidden'}`}
+            data-variant-desc={variant.value}
+          >
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {variant.name}
+              </h3>
+              {variant.description && (
+                <p class="text-gray-600 leading-relaxed">{variant.description}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Comparison Table -->
+    {hasSpecs && allSpecKeys.length > 0 && (
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+          {t(locale, 'product.variantComparison') || 'Variánsok összehasonlítása'}
+        </h2>
+
+        <!-- Desktop table -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <thead>
+              <tr class="bg-primary-50">
+                <th class="text-left px-6 py-4 text-sm font-semibold text-gray-700 border-b border-gray-100">
+                  {t(locale, 'product.feature') || 'Tulajdonság'}
+                </th>
+                {variants.map(variant => (
+                  <th class="text-center px-4 py-4 text-sm font-semibold text-gray-900 border-b border-gray-100">
+                    {variant.name}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {allSpecKeys.map((key, rowIdx) => (
+                <tr class={rowIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                  <td class="px-6 py-3 text-sm font-medium text-gray-700 border-r border-gray-100">
+                    {key}
+                  </td>
+                  {variants.map(variant => (
+                    <td class="px-4 py-3 text-sm text-center text-gray-600">
+                      {variant.specs?.[key] || '—'}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="md:hidden space-y-4">
+          {variants.map(variant => (
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+              <h4 class="font-bold text-gray-900 mb-3 text-lg">{variant.name}</h4>
+              <dl class="space-y-2">
+                {allSpecKeys.map(key => (
+                  <div class="flex justify-between">
+                    <dt class="text-sm text-gray-500">{key}</dt>
+                    <dd class="text-sm font-medium text-gray-900">{variant.specs?.[key] || '—'}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+  </div>
+</section>
+
+<script>
+  // Listen for variant-change events and show/hide descriptions
+  document.addEventListener('variant-change', ((e: CustomEvent) => {
+    const newVariant = e.detail?.value;
+    if (!newVariant) return;
+
+    document.querySelectorAll('.variant-description-block').forEach((block) => {
+      const blockValue = (block as HTMLElement).getAttribute('data-variant-desc');
+      if (blockValue === newVariant) {
+        block.classList.remove('hidden');
+      } else {
+        block.classList.add('hidden');
+      }
+    });
+  }) as EventListener);
+</script>

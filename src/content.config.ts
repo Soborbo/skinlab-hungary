@@ -10,6 +10,8 @@ const variantSchema = z.object({
   image: z.string().optional(),
   images: z.array(z.string()).optional(),
   available: z.boolean().optional(),
+  description: z.string().optional(),
+  specs: z.record(z.string(), z.string()).optional(),
 });
 
 // Stat schema for product stats bar
@@ -23,6 +25,7 @@ const statSchema = z.object({
 // Product schema - JSON data files
 const productSchema = z.object({
   slug: z.string(),
+  draft: z.boolean().default(false),
   sku: z.string(),
   name: z.string(),
   categorySlug: z.string(),

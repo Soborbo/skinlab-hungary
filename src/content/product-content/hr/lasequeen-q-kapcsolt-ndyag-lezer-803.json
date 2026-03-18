@@ -1,0 +1,112 @@
+{
+  "name": "LaseQueen Q-switched Nd:YAG laser",
+  "shortDescription": "LaseQueen Q-switched Nd:YAG laser sa 6 tretmanskih glava. Tetovaže, pigment, carbon peeling, tretman ožiljaka, gljivice noktiju. S obukom i potvrdom.",
+  "description": "LaseQueen Q-switched Nd:YAG laser ima 6 tretmanskih glava različitih valnih duljina koje pružaju sveobuhvatnije funkcije od uobičajenih uređaja s 3 glave. Uklanjanje tjelesnih tetovaža i trajne šminke, carbon peeling, tretman ožiljaka, gljivica noktiju i uklanjanje pigmenta – jednim uređajem.",
+  "metaTitle": "LaseQueen Q-switched ND:YAG laser – tetovaže, pigment, carbon peeling",
+  "metaDescription": "LaseQueen ND:YAG laser sa 6 glava pogodan za sve tetovaže, pigment, carbon peeling, tretman ožiljaka i gljivica noktiju, preciznom i nježnom metodom.",
+  "stats": [
+    {"value": "6", "label": "Tretmanskih glava", "icon": "layers"},
+    {"value": "F5", "label": "Laserski kristal", "icon": "award"},
+    {"value": "Hybrid", "label": "Sustav hlađenja", "icon": "wave"},
+    {"value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield"}
+  ],
+  "roi": {"defaultTreatmentPrice": 25000},
+  "videoDescription": {
+    "headline": "LaseQueen – 6 tretmanskih glava, beskonačne mogućnosti",
+    "paragraphs": [
+      "LaseQueen ima 6 tretmanskih glava različitih valnih duljina koje pružaju sveobuhvatnije funkcije od uobičajenih setova s 532/1064/1320 nm. Ovaj uređaj ne uklanja samo tetovaže – pogodan je i za tretman ožiljaka i gljivica noktiju.",
+      "Hibridni sustav hlađenja vodom i zrakom s kondenzatorom te F5 ružičasti laserski kristal jamče dugi vijek trajanja i ujednačeno emitiranje energije pri svakom tretmanu.",
+      "Tretmanska glava je opremljena preciznom skalom za fokusiranje i infracrvenom točkom za ciljanje, što olakšava precizni tretman – čak i na najmanjim područjima."
+    ]
+  },
+  "cta": {
+    "afterVideo": {"text": "Imate pitanja o LaseQueen laseru? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
+    "afterFeatures": {"headline": "Želite vidjeti LaseQueen ND:YAG laser uživo?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
+    "final": {"headline": "Zanima vas LaseQueen ND:YAG laser?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+  },
+  "featureRows": {
+    "headline": "Zašto je LaseQueen prvak svestranosti?",
+    "subtitle": "6 tretmanskih glava, hibridno hlađenje, F5 laserski kristal – i tretman gljivica noktiju",
+    "features": [
+      {
+        "title": "6 tretmanskih glava – više od uobičajenog",
+        "description": "LaseQueen ima 6 različitih tretmanskih glava koje pružaju znatno više mogućnosti tretmana od uobičajenih uređaja s 3 glave.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Tretmanske glave:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – crvenkasti, svijetlosmeđi pigmenti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm No Scar</strong> – nježno uklanjanje pigmenta</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>755 nm</strong> – Hollywood carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – tamni pigmenti, duboke tetovaže</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm No Scar</strong> – uklanjanje tetovaža bez ožiljaka</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling / blackdoll</div>\n</div>",
+        "image": "@assets/products/lasequeen1.webp"
+      },
+      {
+        "title": "Široka paleta tretmana",
+        "description": "LaseQueen je osim uklanjanja tetovaža pogodan i za tretman ožiljaka i gljivica noktiju.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Područja primjene:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Uklanjanje tjelesnih tetovaža</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Uklanjanje trajne šminke</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Uklanjanje pigmentnih mrlja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tretman ožiljaka</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tretman gljivica noktiju</div>\n</div>",
+        "image": "@assets/products/lasequeen4.webp"
+      },
+      {
+        "title": "F5 laserski kristal i hibridni sustav hlađenja",
+        "description": "F5 ružičasti laserski kristal i hibridni sustav hlađenja vodom i zrakom s kondenzatorom jamče ujednačeno emitiranje energije i dugi vijek trajanja.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Tehnološke karakteristike:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>F5 ružičasti laserski kristal</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hibridni sustav hlađenja vodom i zrakom s kondenzatorom</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Infracrvena točka za ciljanje i skala za fokusiranje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kratka širina impulsa – minimalno oštećenje kože</div>\n</div>",
+        "image": "@assets/products/lasequeen1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rukovanje uređajem – službena obuka s potvrdom",
+    "badge": "S FAR potvrdom",
+    "intro": "Za LaseQueen ND:YAG laser dostupna je službena obuka u okviru obrazovanja odraslih. Nakon završetka obuke izdajemo potvrdu koja potvrđuje završetak tečaja.",
+    "items": [
+      "Princip rada Q-switched ND:YAG laserske tehnologije",
+      "Područja primjene i pravilno korištenje 6 tretmanskih glava",
+      "Tretmanski protokoli: tetovaže, pigment, carbon peeling, ožiljci",
+      "Laserski protokol za tretman gljivica noktiju",
+      "Kontraindikacije, procjena tipa kože i siguran tretman",
+      "Praktični tretmani na modelima"
+    ],
+    "closingParagraphs": [
+      "Cilj obuke je da polaznici mogu sigurno i u skladu s propisima primjenjivati LaseQueen laser za kozmetičke i estetske tretmane.",
+      "Nakon završetka obuke izdajemo službenu FAR potvrdu."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "vrijednosti obuka",
+    "freeText": "BESPLATNO uz kupnju uređaja!",
+    "duration": "Jednodnevna intenzivna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "testimonials": [
+    {
+      "name": "Ana Babić",
+      "date": "2025. 05. 14.",
+      "text": "LaseQueen je iznenađujuće svestran uređaj – <mark>6 tretmanskih glava zaista može više od uobičajenih uređaja s 3 glave</mark>. Tretman ožiljaka i carbon peeling daju izvrsne rezultate, klijenti ih obožavaju!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "LaseQueen sa 6 tretmanskih glava i specijalnim funkcijama – tretman ožiljaka, gljivice noktiju – otvara mogućnosti tretmana koje drugi ND:YAG laseri ne nude u ovoj cjenovnoj kategoriji.",
+    "author": "Horvat László",
+    "role": "Tehnički stručnjak"
+  },
+  "functionCards": [
+    {"icon": "zap", "name": "Uklanjanje tetovaža", "description": "Uklanjanje tjelesnih tetovaža svih boja na valnim duljinama 1064 nm i 532 nm"},
+    {"icon": "eye", "name": "Uklanjanje trajne šminke", "description": "Korekcija trajne šminke obrva i usana No Scar glavama"},
+    {"icon": "sparkles", "name": "Carbon peeling", "description": "Hollywood tretman tretmanskim glavama 1320 nm i 755 nm"},
+    {"icon": "droplet", "name": "Tretman pigmentnih mrlja", "description": "Posvjetljivanje sunčanih pjega, pjegica i staračkih mrlja"},
+    {"icon": "bolt", "name": "Tretman ožiljaka", "description": "Posvjetljivanje ožiljaka od akni i posttraumatskih ožiljaka"},
+    {"icon": "sun", "name": "Tretman gljivica noktiju", "description": "Laserski tretman gljivica noktiju"}
+  ],
+  "faq": [
+    {"question": "Po čemu se LaseQueen razlikuje od uobičajenih ND:YAG lasera s 3 glave?", "answer": "LaseQueen ima 6 različitih tretmanskih glava: 532 nm, 532 nm No Scar, 755 nm (Hollywood carbon tip), 1064 nm, 1064 nm No Scar i 1320 nm. No Scar glave omogućuju nježniji tretman, a pogodan je i za tretman ožiljaka i gljivica noktiju."},
+    {"question": "Je li pogodan za tretman gljivica noktiju?", "answer": "Da! LaseQueen laser učinkovito tretira gljivice noktiju. To je dodatna mogućnost tretmana i izvor prihoda koji mali broj ND:YAG lasera nudi."},
+    {"question": "Za koliko se vremena LaseQueen isplati?", "answer": "Kombinacijom povoljne cjenovne kategorije i svestrane primjene, prosječno se isplati za 1-2 mjeseca s 3-5 klijenata dnevno. Koristite naš ROI kalkulator za točan izračun!"},
+    {"question": "Kakva obuka ide uz uređaj?", "answer": "Službena obuka za rukovanje uređajem registrirana u FAR sustavu ide BESPLATNO uz kupnju uređaja (u vrijednosti 79.990 Ft). Obuka pokriva korištenje svih 6 tretmanskih glava do specijalnih tretmana."},
+    {"question": "Postoji li mogućnost pregleda uređaja prije kupnje?", "answer": "Da! U našem izložbenom prostoru (Érd, Budai út 28.) možete osobno pogledati i isprobati LaseQueen ND:YAG laser uz prethodni dogovor termina."}
+  ],
+  "whatsIncluded": [
+    "LaseQueen Q-switched Nd:YAG laserski uređaj",
+    "532 nm tretmanska glava (crvenkasti pigmenti)",
+    "532 nm No Scar tretmanska glava (nježno uklanjanje pigmenta)",
+    "755 nm tretmanska glava (Hollywood carbon peeling)",
+    "1064 nm tretmanska glava (tamni pigmenti)",
+    "1064 nm No Scar tretmanska glava (uklanjanje tetovaža bez ožiljaka)",
+    "1320 nm tretmanska glava (carbon peeling / blackdoll)",
+    "Zaštitne naočale (za operatera + klijenta)",
+    "Korisnički priručnik (na hrvatskom jeziku)",
+    "Obuka za rukovanje uređajem (FAR potvrda)",
+    "2 godine potpunog jamstva",
+    "Zamjenski uređaj za vrijeme popravka"
+  ]
+}

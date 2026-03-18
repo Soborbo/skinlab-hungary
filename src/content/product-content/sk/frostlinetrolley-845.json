@@ -1,0 +1,57 @@
+{
+  "name": "FrostLineTrolley",
+  "shortDescription": "Moderny biely kozmeticky vozik s masivnym kovovym ramom. Dvojpolicova konstrukcia, aretovatelne kolieska, hygienicke povrchy.",
+  "description": "FrostLineTrolley je moderny biely kozmeticky vozik, ktory kombinuje poriadok a profesionalny vzhlad.\n\nSilna kovova konstrukcia zaruciuje spolahlívost a trvacnost. Dvojpolicova konstrukcia umoznuje prehladne a systematicke ulozenie pristrojov a doplnkov.\n\nVybaveny styrmi kolieskami, ktore sa daju aj aretovat, takze pri pouzivani stabilne stoji. Hladke povrchy sa daju jednoducho udrziavat v cistote, snehobiela farba a minimalisticke tvary zabezpecuju elegantny vzhlad.",
+  "metaTitle": "FrostLineTrolley | Moderny kozmeticky vozik",
+  "metaDescription": "FrostLineTrolley biely kozmeticky vozik s masivnym kovovym ramom. Dve police, aretovatelne kolieska, jednoducho cistitelny. Profesionalny salonovy nabytok.",
+  "stats": [
+    { "value": "2", "label": "Polica", "icon": "layers" },
+    { "value": "4", "label": "Aretovatelne koliesko", "icon": "refresh" },
+    { "value": "KOV", "label": "Masivny ram", "icon": "shield" },
+    { "value": "1", "unit": "rokov", "label": "Zaruka", "icon": "award" }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Zaujima vas FrostLineTrolley?",
+      "subtitle": "Poziadajte o bezplatnu konzultaciu alebo si priamo objednajte!",
+      "buttonLabel": "Poziadat o konzultaciu"
+    }
+  },
+  "featureRows": {
+    "headline": "Preco FrostLineTrolley?",
+    "subtitle": "Stabilny, moderny a prakticky vozik",
+    "features": [
+      {
+        "title": "Aretovatelne kolieska pre maximalnu stabilitu",
+        "description": "Styri kolieska nezabezpecuju len jednoduchu manipulaciu, ale sa daju aj aretovat, takze vozik pri pouzivani stabilne stoji. Idealny na bezpecne umiestnenie pristrojov a nastrojov.",
+        "image": "@assets/products/MADDISON2.webp"
+      },
+      {
+        "title": "Dvojpolicove systematicke ulozenie",
+        "description": "Dve police umoznuju prehladne ulozenie pristrojov a doplnkov. Hygienicke, jednoducho cistitelne povrchy zabezpecuju vzdy bezchybny vzhlad.",
+        "image": "@assets/products/M1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Je potrebna montaz?",
+      "answer": "Ano, je potrebna minimalna montaz: na ram treba nasadit police a pripevnit kolieska. Montaz zvladnete za par minut."
+    },
+    {
+      "question": "V com sa lisi od SnowlineTrolley a ArcticTrolley?",
+      "answer": "FrostLineTrolley ma dvojpolicovu konstrukciu s aretovateľnymi kolieskami. SnowlineTrolley ma tri police z kaleneho skla s hliníkovym ramom, zatial co ArcticTrolley ma otvoreny policovy system s masivnou kovovou konstrukciou. Vsetky tri voziky su navrhnuté na profesionalne salonove pouzitie."
+    },
+    {
+      "question": "Ako sa cisti?",
+      "answer": "Hladke povrchy sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou. Biela farba a minimalisticka konstrukcia vzdy zabezpecuje cisty vzhlad."
+    }
+  ],
+  "whatsIncluded": [
+    "FrostLineTrolley kovovy ram",
+    "2 ks polica",
+    "4 ks aretovatelne koliesko",
+    "Navod na montaz",
+    "1-rocna zaruka"
+  ]
+}

@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'pico-lezerek';
+  return data.categorySlug === 'pico-lezerek' && !data.draft;
 });
 
 const benefits = [

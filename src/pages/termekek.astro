@@ -5,7 +5,7 @@ import { CATEGORIES, COMPANY } from '../lib/constants';
 import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-const products = await getCollection('products');
+const products = await getCollection('products', ({ data }) => !data.draft);
 
 // Group products by category
 const productsByCategory = CATEGORIES.map(cat => ({

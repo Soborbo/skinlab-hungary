@@ -1,0 +1,161 @@
+{
+  "name": "BLACK PEARL Diode Laser",
+  "shortDescription": "Compact, 12 kg portable diode laser with 4 wavelengths. 500W power, -5°C cooling, 280-gram ultra-light handpiece. Ideal for mobile services and growing salons.",
+  "description": "The Black Pearl is a compact, lightweight yet powerful diode laser hair removal device that offers the most advanced technology for all skin types. The four integrated wavelengths (755, 808, 940, 1064 nm) enable precise and effective treatment for all hair types. The 12 kg device weight and 280-gram handpiece make it ideal for mobile services.",
+  "metaTitle": "BLACK PEARL Diode Laser | 500W, 4 wavelengths, portable",
+  "metaDescription": "Black Pearl compact diode laser with 4 wavelengths (755, 808, 940, 1064 nm). 500W, 12 kg, -5°C cooling. Ideal for mobile services. 2-year warranty.",
+  "stats": [
+    { "value": "500", "unit": "W", "label": "Power", "icon": "zap" },
+    { "value": "4", "label": "Wavelengths", "icon": "wave" },
+    { "value": "12", "unit": "kg", "label": "Device weight", "icon": "layers" },
+    { "value": "-5°C", "label": "Cooling", "icon": "heart" }
+  ],
+  "roi": { "defaultTreatmentPrice": 15000 },
+  "videoDescription": {
+    "headline": "BLACK PEARL – Compact power, maximum efficiency",
+    "paragraphs": [
+      "The Black Pearl is a compact, lightweight yet powerful diode laser that offers the most advanced technology for all skin types. A perfect choice for beginner and advanced beauticians, mobile service providers, or salons with an expanding service portfolio.",
+      "The four integrated wavelengths enable precise and effective treatment for all hair types, while the quad cooling system ensures a painless treatment experience."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the Black Pearl? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the Black Pearl in person?",
+      "subtitle": "Visit our showroom in Érd and try it out in person!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the BLACK PEARL diode laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why choose the Black Pearl?",
+    "subtitle": "Compact size, professional performance – take it anywhere.",
+    "features": [
+      {
+        "title": "4 wavelengths – for all skin types and hair colors",
+        "description": "The four integrated wavelengths enable precise and effective treatment for all hair types – from light, fine hair to dark, dense hair.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair (phototype I–III)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – deep follicles, dense hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – inhibiting follicle regeneration</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – dark skin types (IV–VI), deep penetration</div>\n</div>",
+        "image": "@assets/products/Blac_Pearl.webp"
+      },
+      {
+        "title": "Ultra-light, compact design – 12 kg",
+        "description": "The Black Pearl weighs only 12 kg total, and the 280-gram ergonomic handpiece ensures comfortable use even during long treatments. Easy to move, ideal for mobile services.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12 kg total device weight</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>280 g ergonomic handpiece</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12×15 mm spot size</div>\n</div>",
+        "highlight": "Ideal for mobile beauticians and growing salons.",
+        "image": "@assets/products/blackpearl2.webp"
+      },
+      {
+        "title": "Quad cooling system – painless treatment",
+        "description": "The Black Pearl's quad cooling system (semiconductor + fan + sapphire + TEC) maintains the handpiece temperature between -5°C and +5°C, making the treatment pleasant and painless for clients.",
+        "highlight": "-5°C to +5°C cooling range.",
+        "image": "@assets/products/Blac_Pearl.webp"
+      },
+      {
+        "title": "Intelligent treatment modes",
+        "description": "The Black Pearl offers three treatment modes, allowing everyone from beginners to professionals to find the right settings.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Preset – automatic parameter setting for beginners</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Professional – freely adjustable fluence (0–60 J/cm²)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin rejuvenation mode – tightening, pore reduction</div>\n</div>",
+        "image": "@assets/products/blackpearl2.webp"
+      },
+      {
+        "title": "Treatment areas – hair removal and skin rejuvenation",
+        "description": "The Black Pearl is suitable not only for hair removal but also for skin rejuvenation treatments. The skin rejuvenation mode enables skin tightening, pore reduction, and tone improvement.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatable areas:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Legs, arms, back, chest</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Underarms, intimate area</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Face, chin, lip, mustache</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin rejuvenation (tightening, tone improvement)</div>\n</div>",
+        "image": "@assets/products/Blac_Pearl.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – within official adult education",
+    "badge": "With official certificate",
+    "intro": "Professional device operator training is available for the Black Pearl diode laser, provided within an officially registered adult education program. The training aims to provide participants with comprehensive theoretical and practical knowledge for the professional and safe use of the device.",
+    "items": [
+      "Operating principles and safety aspects of diode laser technology",
+      "Setting Black Pearl treatment parameters by skin and hair type",
+      "Practical application of HR Preset and HR Professional modes",
+      "Practical treatments on models – on different body areas",
+      "Contraindications, client selection, and pre-treatment protocols",
+      "Skin rejuvenation treatment applications"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn treatment techniques in a real-world setting.",
+      "Upon completion of the training, we issue an official FAR certificate confirming competence for the professional operation of the device."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I'm interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Kiss Anita",
+      "date": "2025. 08. 20.",
+      "text": "I used to work as a mobile beautician with IPL, but <mark>the Black Pearl is a completely different level</mark>. 12 kilos, easy to carry, and clients immediately feel the difference. The 4 wavelengths work on every skin type.",
+      "rating": 5
+    },
+    {
+      "name": "Horváth Réka",
+      "date": "2025. 07. 14.",
+      "text": "As a beginner beautician, I was looking for a reliable device. <mark>The HR Preset mode is perfect because it automatically sets the parameters</mark>, so I can work safely. The skin rejuvenation mode is a great bonus too!",
+      "rating": 5
+    },
+    {
+      "name": "GlowSkin Studio",
+      "date": "2025. 06. 30.",
+      "text": "We bought it as a second device for the salon and <mark>it fits perfectly in our smaller treatment room</mark>. Compact, quiet, and the results speak for themselves.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "The Black Pearl is an ideal entry-level professional diode laser. The 4 wavelengths, compact size, and skin rejuvenation function offer excellent value for money – especially for mobile beauticians and new salons.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "500W power", "description": "Effective treatments in a compact size." },
+    { "icon": "sun", "name": "4 wavelengths", "description": "755, 808, 940, 1064 nm – for all skin types." },
+    { "icon": "snowflake", "name": "-5°C cooling", "description": "Quad cooling system for painless treatments." },
+    { "icon": "sparkles", "name": "Skin rejuvenation", "description": "Tightening, pore reduction, tone improvement." },
+    { "icon": "brain", "name": "Intelligent modes", "description": "HR Preset and Professional operating modes." },
+    { "icon": "layers", "name": "12 kg, compact", "description": "Lightweight, portable design." }
+  ],
+  "faq": [
+    {
+      "question": "How portable is the Black Pearl?",
+      "answer": "The Black Pearl weighs only 12 kg total, making it easy to move and ideal for mobile services. The 280-gram ergonomic handpiece ensures comfortable use even during long treatments."
+    },
+    {
+      "question": "What treatment modes are available?",
+      "answer": "Three modes are available: HR Preset (automatic parameter setting for beginners), HR Professional (freely adjustable fluence 0–60 J/cm², frequency 1–10 Hz), and skin rejuvenation mode (tightening, pore reduction, tone improvement)."
+    },
+    {
+      "question": "Is it suitable for beginners?",
+      "answer": "Yes! The HR Preset mode automatically sets the parameters based on skin type, hair color, and density, so even beginner beauticians can work safely with it."
+    },
+    {
+      "question": "How quickly does it pay for itself?",
+      "answer": "With the low acquisition price, it typically pays for itself in 2–3 months with 4–6 clients per day. Use our ROI calculator on the page for exact calculations!"
+    },
+    {
+      "question": "What warranty do I get?",
+      "answer": "We provide a 2-year comprehensive warranty. We have our own service background, and we provide a replacement device during repairs."
+    },
+    {
+      "question": "Is it possible to see the device before purchasing?",
+      "answer": "Yes! You can view and try the Black Pearl in person at our showroom (Érd, Budai út 28.) by appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "BLACK PEARL diode laser device",
+    "Ergonomic handpiece (280 g, 12×15 mm)",
+    "Safety goggles (operator + client)",
+    "User manual (Hungarian)",
+    "Device operator training (FAR certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

@@ -4,9 +4,9 @@
   "name": "OxyGenX Pod Szettek",
   "categorySlug": "kellekek",
   "shortDescription": "6 db kapszula + 6 primer gél + 6 szérum OxyGenX géphez. 7 típus: Glam, Revive, Detox, Hydrate, Balance, Illuminate, Retouch.",
-  "description": "Az OxygenX Pod szett egyedülálló megoldást kínál a bőr mélytisztítására, oxigenizálására és táplálására. A szett különböző kapszulákat (podokat), primer gélt és szérumot tartalmaz, amelyek együttesen biztosítják a bőr egészséges ragyogását. A szett tartalma: 6 db OxygenX kapszula (pod) 6 db primer gél 6 db szérum Főbb előnyök: Mélytisztítás: A podok és a primer gél kombinációja eltávolítja az elhalt hámsejteket és a szennyeződéseket. Oxigenizálás: A kezelés során felszabaduló CO₂ serkenti a bőr természetes oxigéntermelését, javítva annak vitalitását. Táplálás: A szérumok értékes hatóanyagokat juttatnak a bőr mélyebb rétegeibe, elősegítve a regenerációt és a hidratálást. Glam Pod – Nyugtató és feszesítő kezelés az egészséges bőrért Balance – Kiegyensúlyozza a bőrt, segít a faggyútermelés szabályozásában Hydrate – Intenzív hidratálás és bőrmegújítás Detox – Mélytisztító és méregtelenítő hatás Revive – Feszesítő és ránccsökkentő hatás Retouch – Anti-aging Illuminate – Ragyogást ad és kiegyenlíti a fakó bőrtónust",
-  "metaTitle": "OxygenX Pod szett",
-  "metaDescription": "Fedezd fel az OxygenX Pod szett előnyeit: mélytisztítás, oxigenizálás és táplálás egyetlen kezelésben.",
+  "description": "Az OxygenX Pod szett egyedülálló megoldást kínál a bőr mélytisztítására, oxigenizálására és táplálására. A szett különböző kapszulákat (podokat), primer gélt és szérumot tartalmaz, amelyek együttesen biztosítják a bőr egészséges ragyogását. A szett tartalma: 6 db OxygenX kapszula (pod) + 6 db primer gél + 6 db szérum. A kezelés során felszabaduló CO₂ serkenti a bőr természetes oxigéntermelését (Bohr-effektus), javítva annak vitalitását. 7 különböző típus érhető el különböző bőrproblémákra.",
+  "metaTitle": "OxygenX Pod szettek | 7 típus az OxyGenX kezelőgéphez",
+  "metaDescription": "OxygenX Pod szettek: Glam, Revive, Detox, Hydrate, Balance, Illuminate, Retouch. 6 kapszula + 6 primer gél + 6 szérum minden szettben.",
   "price": 12990,
   "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
   "availability": "in_stock",
@@ -17,49 +17,105 @@
       "name": "GLAM",
       "value": "glam",
       "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
-    },
-    {
-      "sku": "oxyretouch001",
-      "name": "RETOUCH",
-      "value": "retouch",
-      "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
-    },
-    {
-      "sku": "oxyillumh001",
-      "name": "ILLUMINATE",
-      "value": "illuminate",
-      "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Nyugtató és feszesítő kezelés az egészséges, ragyogó bőrért. Anti-aging hatás, kollagénstimuláció, megelőzi a korai öregedési jeleket.",
+      "specs": {
+        "Kezelési cél": "Anti-aging, kollagénstimuláció",
+        "Célbőrtípus": "Normál, érett bőr",
+        "Hatás": "Nyugtatás, feszesítés, ragyogás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
     },
     {
       "sku": "oxyrevive001",
       "name": "REVIVE",
       "value": "revive",
       "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
-    },
-    {
-      "sku": "oxybalance001",
-      "name": "BALANCE",
-      "value": "balance",
-      "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
-    },
-    {
-      "sku": "oxyhydrate001",
-      "name": "HYDRATE",
-      "value": "hydrate",
-      "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Feszesítő és ránccsökkentő kezelés érett bőrre. Javítja a bőr textúráját, csökkenti a finom vonalakat és visszaadja a bőr fiatalos megjelenését.",
+      "specs": {
+        "Kezelési cél": "Feszesítés, ránccsökkentés",
+        "Célbőrtípus": "Érett, petyhüdt bőr",
+        "Hatás": "Lifting, bőrmegújítás, textúrajavítás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
     },
     {
       "sku": "oxydetox001",
       "name": "DETOX",
       "value": "detox",
       "price": 12990,
-      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp"
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Mélytisztító és méregtelenítő kezelés irritált, környezeti stressznek kitett bőrre. Eltávolítja a szennyeződéseket és támogatja a bőr természetes védekezőképességét.",
+      "specs": {
+        "Kezelési cél": "Mélytisztítás, méregtelenítés",
+        "Célbőrtípus": "Irritált, stresszelt bőr",
+        "Hatás": "Detox, tisztítás, bőrvédelem",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
+    },
+    {
+      "sku": "oxyhydrate001",
+      "name": "HYDRATE",
+      "value": "hydrate",
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Intenzív hidratáló és bőrmegújító kezelés száraz, fakó, dehidratált bőrre. Mélyen hidratál és visszaadja a bőr egészséges ragyogását.",
+      "specs": {
+        "Kezelési cél": "Intenzív hidratálás",
+        "Célbőrtípus": "Száraz, dehidratált bőr",
+        "Hatás": "Hidratálás, bőrmegújítás, ragyogás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
+    },
+    {
+      "sku": "oxybalance001",
+      "name": "BALANCE",
+      "value": "balance",
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Kiegyensúlyozó kezelés zsíros, pattanásra hajlamos bőrre. Szabályozza a faggyútermelést és segít visszaállítani a bőr természetes egyensúlyát.",
+      "specs": {
+        "Kezelési cél": "Faggyúszabályozás, egyensúly",
+        "Célbőrtípus": "Zsíros, pattanásos bőr",
+        "Hatás": "Szabályozás, tisztítás, mattítás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
+    },
+    {
+      "sku": "oxyillumh001",
+      "name": "ILLUMINATE",
+      "value": "illuminate",
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Ragyogást adó és bőrtónus-kiegyenlítő kezelés fakó, egyenetlen bőrre. Halványítja a pigmentfoltokat és visszaadja a bőr természetes fényét.",
+      "specs": {
+        "Kezelési cél": "Ragyogás, tónuskiegyenlítés",
+        "Célbőrtípus": "Fakó, egyenetlen tónusú bőr",
+        "Hatás": "Világosítás, pigmentfolt-halványítás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
+    },
+    {
+      "sku": "oxyretouch001",
+      "name": "RETOUCH",
+      "value": "retouch",
+      "price": 12990,
+      "image": "@assets/products/Glam-Pods-Oxy-Genx.webp",
+      "available": true,
+      "description": "Anti-aging és bőrmegújító kezelés. Csökkenti a ráncokat, stimulálja a bőr megújulását és javítja az összképet.",
+      "specs": {
+        "Kezelési cél": "Anti-aging, bőrmegújítás",
+        "Célbőrtípus": "Érett, öregedő bőr",
+        "Hatás": "Ránccsökkentés, megújítás",
+        "Tartalom": "6 kapszula + 6 primer gél + 6 szérum"
+      }
     }
   ],
   "featured": false,

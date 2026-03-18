@@ -8,8 +8,8 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const path = url.pathname;
   const langPrefixes = ["/de", "/sk", "/fr", "/it", "/es", "/pl", "/cs", "/ro"];
 
-  // skinlab.hu: csak magyar tartalom, nyelvi prefixet redirect-elj skinlabeurope.com-ra
-  if (host === "skinlab.hu" || host === "www.skinlab.hu") {
+  // skinlabhungary.hu: csak magyar tartalom, nyelvi prefixet redirect-elj skinlabeurope.com-ra
+  if (host === "skinlabhungary.hu" || host === "www.skinlabhungary.hu") {
     const hasLangPrefix = langPrefixes.some(p => path.startsWith(p + "/") || path === p);
     const hasEnPrefix = path.startsWith("/en/") || path === "/en";
     if (hasLangPrefix || hasEnPrefix) {

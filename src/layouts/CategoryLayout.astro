@@ -2,7 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { SITE, CONTACT } from '../lib/constants';
 import OptimizedPicture from '../components/images/OptimizedPicture.astro';
-import { hasImage, getImageAlt } from '@/lib/resolve-image';
+import { hasImage, getImageAlt, getOgImagePath } from '@/lib/resolve-image';
 
 interface ComparisonProduct {
   name: string;
@@ -111,11 +111,16 @@ const colorClasses: Record<string, { gradient: string; badge: string }> = {
 };
 
 const colors = colorClasses[category.color || 'blue'] || colorClasses.blue;
+
+// OG image — use the first product's main image if available
+const firstProductImage = products.length > 0 ? products[0].data.image : '';
+const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og-image.jpg';
 ---
 
 <BaseLayout
   title={category.name}
   description={category.description}
+  image={ogImage}
   schema={breadcrumbSchema}
 >
   <div id="main-content">

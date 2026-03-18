@@ -17,7 +17,7 @@ function resolveImageUrl(imagePath: string): string | null {
 }
 
 // Build search index at build time
-const products = await getCollection('products');
+const products = await getCollection('products', ({ data }) => !data.draft);
 const trainings = await getCollection('trainings');
 const blog = await getCollection('blog');
 

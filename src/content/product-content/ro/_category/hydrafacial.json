@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" },
+    { "value": "6+", "label": "Funcții într-unul singur", "icon": "layers" },
+    { "value": "30", "unit": "min", "label": "Durată tratament", "icon": "clock" },
+    { "value": "100%", "label": "Nedureros", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Elena Marinescu",
+      "role": "Cosmeticiană",
+      "location": "Cluj-Napoca",
+      "text": "Aparatul HydraFacial a devenit vedeta salonului meu! Clienții observă rezultate vizibile încă de la primul tratament.",
+      "rating": 5
+    },
+    {
+      "name": "Maria Ionescu",
+      "role": "Proprietar salon de frumusețe",
+      "location": "Timișoara",
+      "text": "Aparat profesional, ușor de utilizat, iar clienții îl adoră. Instruirea oferită de SkinLab a fost foarte detaliată.",
+      "rating": 5
+    },
+    {
+      "name": "Ioana Dumitrescu",
+      "role": "Cosmeticiană",
+      "location": "București",
+      "text": "Aparatul meu multifuncțional face tot ce am nevoie. Curățare facială, hidratare, lifting - totul într-un singur dispozitiv.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial este una dintre cele mai profitabile investiții pentru un salon. Clienții văd imediat rezultatele și revin regulat - ceea ce înseamnă venituri garantate.",
+    "author": "László Horváth",
+    "role": "Expert tehnic"
+  },
+  "featureRows": {
+    "headline": "De ce să alegi un aparat multifuncțional hydrofacial?",
+    "subtitle": "Curățare facială complexă și tratament cu un singur dispozitiv",
+    "features": [
+      {
+        "title": "Toate tratamentele într-un singur aparat",
+        "description": "Nu este necesar să achiziționați separat un aparat de hidrodermabraziune, ultrasunete și RF. Dispozitivele multifuncționale hydrofacial oferă 6-12 funcții într-o singură unitate compactă.",
+        "highlight": "Un aparat, o singură învățare, posibilități infinite."
+      },
+      {
+        "title": "Protocoale de tratament rapide și eficiente",
+        "description": "Tratament complex de 30-45 de minute într-o singură ședință. Clientul vede și simte imediat rezultatele – chiar de la prima ședință.",
+        "highlight": "Cu ajutorul aparatului puteți primi până la 8-10 clienți pe zi."
+      },
+      {
+        "title": "Tehnologie profesională accesibilă",
+        "description": "Aparatele hydrofacial SkinLab oferă aceeași calitate la o fracțiune din prețul mărcilor mari care cer milioane. Cu 2 ani garanție și service local.",
+        "highlight": "Calitate profesională, la preț accesibil – cu 2 ani garanție."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Instruire profesională pentru operare aparat",
+    "badge": "Cu certificat FAR",
+    "intro": "Pentru fiecare aparat hydrofacial oferim instruire personală și curs oficial de operare a aparatului.",
+    "items": [
+      "Principiul de funcționare și tehnologiile aparatului",
+      "Protocoale de tratament pentru diferite tipuri de piele",
+      "Tratamente practice pe modele",
+      "Comunicare cu clienții"
+    ],
+    "price": "Solicitați ofertă",
+    "priceNote": "Instruire oficială pentru adulți",
+    "duration": "Curs de o zi",
+    "ctaText": "Mă interesează cursul"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hidrodermabraziune", "description": "Curățare profundă și exfoliere cu vacuum" },
+    { "icon": "sound", "name": "Ultrasunete", "description": "Introducerea ingredientelor active în straturile profunde" },
+    { "icon": "bubbles", "name": "Tratament cu oxigen", "description": "Hidratare și revitalizare cu O₂" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Fermitate a pielii cu radiofrecvență" },
+    { "icon": "snowflake", "name": "Criotermie", "description": "Tratament rece-cald pentru micșorarea porilor" },
+    { "icon": "spray", "name": "Spray gun", "description": "Tonifiere la finalul tratamentului" }
+  ],
+  "faq": [
+    {
+      "question": "Pentru ce tipuri de piele este potrivit tratamentul HydraFacial?",
+      "answer": "HydraFacial este potrivit pentru toate tipurile de piele, inclusiv pielea sensibilă. Intensitatea tratamentului poate fi personalizată."
+    },
+    {
+      "question": "Câte tratamente se pot efectua pe zi?",
+      "answer": "Un tratament durează aproximativ 30-45 de minute, astfel că puteți primi până la 8-10 clienți pe zi."
+    },
+    {
+      "question": "Ce consumabile sunt necesare?",
+      "answer": "Aparatul necesită seruri și soluții speciale, pe care le oferim clienților noștri la prețuri preferențiale."
+    }
+  ],
+  "whatsIncluded": [
+    "Aparat HydraFacial",
+    "Set de capete de tratament",
+    "Pachet de seruri de start",
+    "Manual de utilizare (în limba română)",
+    "Instruire gratuită",
+    "2 ani garanție"
+  ]
+}

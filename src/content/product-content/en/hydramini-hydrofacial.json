@@ -1,0 +1,83 @@
+{
+  "name": "HYDRAMINI",
+  "shortDescription": "6+1 function compact hydrofacial device with LED mask. Jet Peel, RF lifting, ultrasound, cold hammer. Ideal for smaller salons.",
+  "description": "The HydraMini is a compact yet professional facial treatment device that includes 6 treatment heads and an LED mask in a single unit.\n\nThe advanced oxygen jet peel and hydrodermabrasion device provides deep cleansing, peeling, active ingredient delivery, hydration, and skin firming – painlessly, safely even on sensitive skin.\n\nAn ideal choice for smaller salons, beginning estheticians, and mobile service providers seeking a professional solution in a compact size.",
+  "metaTitle": "HydraMini | 6+1 Function Compact Hydrofacial with LED Mask",
+  "metaDescription": "HydraMini 6+1 hydrofacial: Jet Peel, RF lifting, ultrasound, cold hammer, LED mask. 169,990 Ft, compact size, professional results.",
+  "stats": [
+    { "value": "6+1", "label": "Treatment functions", "icon": "layers" },
+    { "value": "LED", "label": "Face mask", "icon": "sun" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" },
+    { "value": "~30", "unit": "min", "label": "Treatment time", "icon": "clock" }
+  ],
+  "roi": { "defaultTreatmentPrice": 15000 },
+  "videoDescription": {
+    "headline": "The HydraMini – professional hydrofacial in a compact size",
+    "paragraphs": [
+      "The HydraMini combines 6 treatment heads and an LED mask in a single compact device, designed for professional use.",
+      "The water-oxygen deep cleansing, RF lifting, ultrasound, and cold hammer combination enables a complete facial treatment protocol.",
+      "An ideal choice for smaller salons and beginning estheticians seeking a professional solution in a compact size."
+    ]
+  },
+  "cta": {
+    "afterVideo": { "text": "Have questions about the device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
+    "afterFeatures": { "headline": "Want to see the HydraMini in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
+    "final": { "headline": "Interested in the HydraMini?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+  },
+  "featureRows": {
+    "headline": "Why do estheticians choose the HydraMini?",
+    "subtitle": "Compact size, professional results",
+    "features": [
+      {
+        "title": "6 treatment heads + LED mask in a single device",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spray/atomizer nozzle</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasonic head</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cold hammer</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasonic spatula (skin scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrasion head</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF treatment head</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED light therapy face mask</div>\n</div>",
+        "image": "@assets/products/HydraMini.webp"
+      },
+      { "title": "Water-oxygen deep cleansing and RF lifting", "description": "Water-oxygen deep cleansing helps remove impurities, blackheads, and dead skin cells. Radio frequency (RF) lifting results in firmer, more contoured facial skin in a non-invasive way. Ultrasound promotes active ingredient delivery and provides micromassage.", "image": "@assets/products/HydraMinihydrofacial.webp" },
+      { "title": "LED mask and cold hammer to finish the treatment", "description": "The LED mask provides targeted light therapy for skin regeneration, inflammation reduction, and pigmentation fading. The cold hammer has anti-inflammatory and skin-soothing effects, perfectly finishing off the treatment.", "image": "@assets/products/HydraMinihydrofacial1.webp" },
+      { "title": "Compact, lightweight, ideal for smaller salons", "description": "The HydraMini's compact size and light weight make it ideal for smaller salons, home offices, and mobile service providers. Professional performance at an affordable price with minimal space requirements.", "image": "@assets/products/HydraMini.webp" }
+    ]
+  },
+  "training": {
+    "headline": "Operator training – official adult education program",
+    "badge": "With official certificate",
+    "intro": "A professional operator training course is available for the HydraMini device, provided within the framework of officially registered adult education.",
+    "items": [
+      "HydraMini operating principles, technologies, and treatment heads",
+      "Treatment protocols for different skin types and concerns",
+      "RF lifting and LED light therapy proper application",
+      "Skin analysis basics and personalized treatment plan",
+      "Client communication and treatment documentation",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.",
+      "Upon completion of the training, we issue an official certificate confirming your competence in the professional operation of the HydraMini device."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "expertQuote": { "quote": "The HydraMini is the perfect entry point into the world of hydrofacial treatments. Compact size, professional results – ideal for smaller salons and beginning estheticians.", "author": "Horváth László", "role": "Technical expert" },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabrasion head", "description": "Vacuum deep cleansing, pore clearing" },
+    { "icon": "spray", "name": "Spray nozzle", "description": "Hydration with oxygen spray, atomized water and oxygen" },
+    { "icon": "sound", "name": "Ultrasonic head", "description": "Active ingredient delivery and micromassage" },
+    { "icon": "bolt", "name": "RF treatment head", "description": "Radio frequency lifting, firming" },
+    { "icon": "snowflake", "name": "Cold hammer", "description": "Anti-inflammatory, skin soothing" },
+    { "icon": "layers", "name": "Ultrasonic spatula", "description": "Skin scrubber, dead skin cell removal" },
+    { "icon": "sun", "name": "LED face mask", "description": "Light therapy for regeneration, inflammation reduction" }
+  ],
+  "faq": [
+    { "question": "What functions does the HydraMini have?", "answer": "The HydraMini includes 6 treatment heads and an LED mask: spray nozzle, ultrasonic head, cold hammer, ultrasonic spatula (skin scrubber), hydrodermabrasion head, RF treatment head, and LED light therapy face mask." },
+    { "question": "Who is the HydraMini ideal for?", "answer": "The HydraMini is ideal for smaller cosmetic salons, beginning estheticians, home offices, and mobile service providers. It delivers professional results in a compact size." },
+    { "question": "How quickly does the HydraMini pay for itself?", "answer": "The HydraMini is available at a very favorable price, so it can pay for itself in as little as 1-2 months with 2-3 clients per day. A hydrofacial treatment is priced between 10,000-20,000 Ft." },
+    { "question": "What skin types is it suitable for?", "answer": "The HydraMini is suitable for all skin types, including sensitive skin. The treatment is painless and non-invasive." },
+    { "question": "What consumables are needed?", "answer": "Special serums and solutions are needed for hydrodermabrasion treatments, such as from the HydraLiquid product line. We provide these to our clients at discounted prices." }
+  ],
+  "whatsIncluded": [
+    "HydraMini device", "Spray/atomizer nozzle", "Ultrasonic treatment head", "Cold hammer treatment head", "Ultrasonic spatula (skin scrubber)", "Hydrodermabrasion treatment head", "RF treatment head", "LED light therapy face mask", "User manual (Hungarian)", "2-year comprehensive warranty", "Replacement device during repairs"
+  ]
+}

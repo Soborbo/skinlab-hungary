@@ -1,0 +1,28 @@
+{
+  "name": "FrostLineTrolley",
+  "shortDescription": "Moderner, weißer Kosmetik-Gerätewagen mit massivem Metallrahmen. Zwei-Regal-Design, feststellbare Rollen, hygienische Oberflächen.",
+  "description": "Der FrostLineTrolley ist ein moderner, weißer Kosmetik-Gerätewagen, der Ordnung und professionelles Erscheinungsbild vereint.\n\nSein starker Metallrahmen garantiert Zuverlässigkeit und Langlebigkeit. Das Zwei-Regal-Design ermöglicht die übersichtliche, organisierte Aufbewahrung von Geräten und Zubehör.\n\nMit vier Rollen ausgestattet, die auch feststellbar sind, sodass er während der Nutzung stabil steht. Die glatten Oberflächen sind einfach sauber zu halten, und die schneeweiße Farbe mit minimalistischer Linienführung sorgt für ein elegantes Erscheinungsbild.",
+  "metaTitle": "FrostLineTrolley | Moderner Kosmetik-Gerätewagen",
+  "metaDescription": "FrostLineTrolley weißer Kosmetik-Gerätewagen mit massivem Metallrahmen. Zwei Regale, feststellbare Rollen, leicht zu reinigen. Professionelles Salonmöbel.",
+  "stats": [
+    { "value": "2", "label": "Regale", "icon": "layers" },
+    { "value": "4", "label": "Feststellbare Rollen", "icon": "refresh" },
+    { "value": "METALL", "label": "Massiver Rahmen", "icon": "shield" },
+    { "value": "1", "unit": "Jahr", "label": "Garantie", "icon": "award" }
+  ],
+  "cta": { "final": { "headline": "Interessiert am FrostLineTrolley?", "subtitle": "Fordern Sie eine kostenlose Beratung an oder bestellen Sie direkt!", "buttonLabel": "Beratung anfordern" } },
+  "featureRows": {
+    "headline": "Warum der FrostLineTrolley?",
+    "subtitle": "Stabil, modern und praktischer Gerätewagen",
+    "features": [
+      { "title": "Feststellbare Rollen für maximale Stabilität", "description": "Die vier Rollen ermöglichen nicht nur leichtes Bewegen, sondern sind auch feststellbar, sodass der Trolley während der Nutzung stabil steht. Ideal für die sichere Aufstellung von Geräten und Instrumenten.", "image": "@assets/products/MADDISON2.webp" },
+      { "title": "Zwei-Regal organisierte Aufbewahrung", "description": "Die zwei Regale ermöglichen die übersichtliche Aufbewahrung von Geräten und Zubehör. Die hygienischen, leicht zu reinigenden Oberflächen sorgen für ein stets makelloses Erscheinungsbild.", "image": "@assets/products/M1.webp" }
+    ]
+  },
+  "faq": [
+    { "question": "Muss er zusammengebaut werden?", "answer": "Ja, minimaler Zusammenbau erforderlich: Die Regale müssen am Rahmen befestigt und die Rollen angebracht werden. Der Zusammenbau ist in wenigen Minuten erledigt." },
+    { "question": "Was unterscheidet ihn vom SnowlineTrolley und ArcticTrolley?", "answer": "Der FrostLineTrolley hat ein Zwei-Regal-Design mit feststellbaren Rollen. Der SnowlineTrolley verfügt über drei gehärtete Glasregale mit Aluminiumrahmen, während der ArcticTrolley ein offenes Regalsystem mit massiver Metallkonstruktion hat. Alle drei Trolleys sind für den professionellen Salonbetrieb konzipiert." },
+    { "question": "Wie lässt er sich reinigen?", "answer": "Die glatten Oberflächen lassen sich einfach mit einem feuchten Tuch oder Flächendesinfektionsmittel abwischen. Die weiße Farbe und das minimalistische Design sorgen stets für ein sauberes Erscheinungsbild." }
+  ],
+  "whatsIncluded": [ "FrostLineTrolley Metallrahmen", "2 Stück Regale", "4 Stück feststellbare Rollen", "Montageanleitung", "1 Jahr Garantie" ]
+}

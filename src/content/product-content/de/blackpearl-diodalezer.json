@@ -1,0 +1,205 @@
+{
+  "name": "BLACK PEARL Diodenlaser",
+  "shortDescription": "Kompakter, 12 kg schwerer tragbarer Diodenlaser mit 4 Wellenlängen. 500W Leistung, -5°C Kühlung, 280 Gramm ultraleichter Behandlungskopf. Ideal für mobile Dienstleistungen und wachsende Salons.",
+  "description": "Der Black Pearl ist ein kompakter, leichter und dennoch leistungsstarker Diodenlaser zur Haarentfernung, der modernste Technologie für alle Hauttypen bietet. Die vier integrierten Wellenlängen (755, 808, 940, 1064 nm) ermöglichen eine präzise und effektive Behandlung bei allen Haartypen. Das Gerätegewicht von 12 kg und der 280 Gramm schwere Behandlungskopf machen ihn ideal für mobile Dienstleistungen.",
+  "metaTitle": "BLACK PEARL Diodenlaser | 500W, 4 Wellenlängen, tragbar",
+  "metaDescription": "Black Pearl kompakter Diodenlaser mit 4 Wellenlängen (755, 808, 940, 1064 nm). 500W, 12 kg, -5°C Kühlung. Ideal für mobile Dienstleistungen. 2 Jahre Garantie.",
+  "stats": [
+    {
+      "value": "500",
+      "unit": "W",
+      "label": "Leistung",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "12",
+      "unit": "kg",
+      "label": "Gerätegewicht",
+      "icon": "layers"
+    },
+    {
+      "value": "-5°C",
+      "label": "Kühlung",
+      "icon": "heart"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
+  "videoDescription": {
+    "headline": "BLACK PEARL – Kompakte Kraft, maximale Effizienz",
+    "paragraphs": [
+      "Der Black Pearl ist ein kompakter, leichter und dennoch leistungsstarker Diodenlaser, der modernste Technologie für alle Hauttypen bietet. Perfekte Wahl für Anfänger und fortgeschrittene Kosmetiker, mobile Dienstleister oder Salons mit wachsendem Dienstleistungsportfolio.",
+      "Die vier integrierten Wellenlängen ermöglichen eine präzise und effektive Behandlung bei allen Haartypen, während das Vierfach-Kühlsystem ein schmerzfreies Behandlungserlebnis gewährleistet."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum Black Pearl? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie den Black Pearl live sehen?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie ihn persönlich!",
+      "buttonLabel": "Termin vereinbaren"
+    },
+    "final": {
+      "headline": "Interessiert am BLACK PEARL Diodenlaser?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  },
+  "featureRows": {
+    "headline": "Warum den Black Pearl wählen?",
+    "subtitle": "Kompakte Größe, professionelle Leistung – überall hin mitnehmen.",
+    "features": [
+      {
+        "title": "4 Wellenlängen – für alle Hauttypen und Haarfarben",
+        "description": "Die vier integrierten Wellenlängen ermöglichen eine präzise und effektive Behandlung bei allen Haartypen – von hellen, feinen Haaren bis zu dunklem, dichtem Haarwuchs.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wellenlängen:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – helles, feines Haar (Fototyp I–III)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – tiefe Haarfollikel, dichter Haarwuchs</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – Hemmung der Haarfollikel-Regeneration</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – dunkle Hauttypen (IV–VI), tiefe Penetration</div>\n</div>",
+        "image": "@assets/products/Blac_Pearl.webp"
+      },
+      {
+        "title": "Ultraleichtes, kompaktes Design – 12 kg",
+        "description": "Der Black Pearl wiegt nur 12 kg, und der 280 Gramm schwere ergonomische Behandlungskopf sorgt für komfortable Nutzung auch bei langen Behandlungen. Leicht zu bewegen, ideal für mobile Dienstleistungen.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12 kg Gesamtgewicht</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>280 g ergonomischer Behandlungskopf</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12×15 mm Spotgröße</div>\n</div>",
+        "highlight": "Ideal für mobile Kosmetiker und wachsende Salons.",
+        "image": "@assets/products/blackpearl2.webp"
+      },
+      {
+        "title": "Vierfach-Kühlsystem – schmerzfreie Behandlung",
+        "description": "Das Vierfach-Kühlsystem des Black Pearl (Halbleiter + Ventilator + Saphir + TEC) hält die Temperatur des Behandlungskopfes zwischen -5°C und +5°C, sodass die Behandlung für die Kunden angenehm und schmerzfrei ist.",
+        "highlight": "-5°C bis +5°C Kühlbereich.",
+        "image": "@assets/products/Blac_Pearl.webp"
+      },
+      {
+        "title": "Intelligente Behandlungsmodi",
+        "description": "Der Black Pearl bietet drei Behandlungsmodi, mit denen vom Anfänger bis zum Profi jeder die passende Einstellung findet.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Preset – automatische Parametrierung für Anfänger</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Professional – frei einstellbare Fluenz (0–60 J/cm²)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hauterneuerungsmodus – Straffung, Porenverfeinerung</div>\n</div>",
+        "image": "@assets/products/blackpearl2.webp"
+      },
+      {
+        "title": "Anwendungsbereiche – Haarentfernung und Hauterneuerung",
+        "description": "Der Black Pearl eignet sich nicht nur zur Haarentfernung, sondern auch für Hauterneuerungsbehandlungen. Mit dem Hauterneuerungsmodus können Hautstraffung, Porenverfeinerung und Tonusverbesserung durchgeführt werden.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Behandelbare Bereiche:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Beine, Arme, Rücken, Brust</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Achseln, Intimbereich</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Gesicht, Kinn, Lippe, Oberlippe</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hauterneuerung (Straffung, Tonusverbesserung)</div>\n</div>",
+        "image": "@assets/products/Blac_Pearl.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gerätebediener-Schulung – im Rahmen offizieller Weiterbildung",
+    "badge": "Mit offiziellem Zertifikat",
+    "intro": "Für den Black Pearl Diodenlaser ist eine professionelle Gerätebediener-Schulung verfügbar, die wir im Rahmen einer offiziell registrierten Weiterbildung anbieten. Ziel der Schulung ist es, den Teilnehmern umfassendes theoretisches und praktisches Wissen für den fachgerechten und sicheren Umgang mit dem Gerät zu vermitteln.",
+    "items": [
+      "Funktionsprinzip und Sicherheitsaspekte der Diodenlaser-Technologie",
+      "Einstellung der Behandlungsparameter des Black Pearl nach Haut- und Haartyp",
+      "Praktische Anwendung der HR Preset und HR Professional Modi",
+      "Praktische Behandlungen an Modellen – an verschiedenen Körperbereichen",
+      "Kontraindikationen, Kundenauswahl und Vorbehandlungsprotokolle",
+      "Anwendung von Hauterneuerungsbehandlungen"
+    ],
+    "closingParagraphs": [
+      "Sie können selbstverständlich ein Modell zur Schulung mitbringen, um die Behandlungstechniken in realer Umgebung zu erlernen.",
+      "Nach Abschluss der Schulung stellen wir ein offizielles FAR-Zertifikat aus, das die Kompetenz für den fachgerechten Umgang mit dem Gerät bestätigt."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "Schulung im Wert von",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Intensivschulung",
+    "ctaText": "Ich interessiere mich für die Schulung"
+  },
+  "testimonials": [
+    {
+      "name": "Anna Müller",
+      "date": "2025. 08. 20.",
+      "text": "Als mobile Kosmetikerin habe ich bisher mit IPL gearbeitet, aber <mark>der Black Pearl ist ein völlig anderes Niveau</mark>. 12 Kilo, leicht mitzunehmen, und die Kunden spüren sofort den Unterschied. Die 4 Wellenlängen funktionieren bei jedem Hauttyp.",
+      "rating": 5
+    },
+    {
+      "name": "Rebekka Hoffmann",
+      "date": "2025. 07. 14.",
+      "text": "Als Anfängerin in der Kosmetik suchte ich ein zuverlässiges Gerät. <mark>Der HR Preset Modus ist perfekt, da er die Parameter automatisch einstellt</mark>, sodass ich sicher arbeiten kann. Der Hauterneuerungsmodus ist auch ein tolles Extra!",
+      "rating": 5
+    },
+    {
+      "name": "GlowSkin Studio",
+      "date": "2025. 06. 30.",
+      "text": "Wir haben es als zweites Gerät für den Salon gekauft und <mark>es passt perfekt in unseren kleineren Behandlungsraum</mark>. Kompakt, leise, und die Ergebnisse sprechen für sich.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Der Black Pearl ist ein idealer professioneller Diodenlaser für den Einstieg. Die 4 Wellenlängen, die kompakte Größe und die Hauterneuerungsfunktion bieten ein hervorragendes Preis-Leistungs-Verhältnis – besonders für mobile Kosmetiker und neue Salons.",
+    "author": "László Horváth",
+    "role": "Technischer Experte"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "500W Leistung",
+      "description": "Effektive Behandlungen im kompakten Format."
+    },
+    {
+      "icon": "sun",
+      "name": "4 Wellenlängen",
+      "description": "755, 808, 940, 1064 nm – für alle Hauttypen."
+    },
+    {
+      "icon": "snowflake",
+      "name": "-5°C Kühlung",
+      "description": "Vierfach-Kühlsystem für schmerzfreie Behandlung."
+    },
+    {
+      "icon": "sparkles",
+      "name": "Hauterneuerung",
+      "description": "Straffung, Porenverfeinerung, Tonusverbesserung."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligente Modi",
+      "description": "HR Preset und Professional Betriebsmodus."
+    },
+    {
+      "icon": "layers",
+      "name": "12 kg, kompakt",
+      "description": "Leichtes, tragbares Design."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Wie tragbar ist der Black Pearl?",
+      "answer": "Der Black Pearl wiegt nur 12 kg und ist daher leicht zu transportieren und ideal für mobile Dienstleistungen. Der 280 Gramm schwere ergonomische Behandlungskopf sorgt für komfortable Nutzung auch bei langen Behandlungen."
+    },
+    {
+      "question": "Welche Behandlungsmodi sind verfügbar?",
+      "answer": "Drei Modi sind verfügbar: HR Preset (automatische Parametrierung für Anfänger), HR Professional (frei einstellbare Fluenz 0–60 J/cm², Frequenz 1–10 Hz) sowie Hauterneuerungsmodus (Straffung, Porenverfeinerung, Tonusverbesserung)."
+    },
+    {
+      "question": "Ist er auch für Anfänger geeignet?",
+      "answer": "Ja! Der HR Preset Modus stellt die Parameter automatisch basierend auf Hauttyp, Haarfarbe und -dichte ein, sodass auch Anfänger sicher damit arbeiten können."
+    },
+    {
+      "question": "Wie schnell amortisiert er sich?",
+      "answer": "Bei niedrigem Anschaffungspreis durchschnittlich in 2-3 Monaten, bei 4-6 Kunden pro Tag. Nutzen Sie unseren ROI-Rechner auf der Seite für eine genaue Berechnung!"
+    },
+    {
+      "question": "Welche Garantie erhalte ich?",
+      "answer": "Wir bieten 2 Jahre Vollgarantie. Wir verfügen über einen eigenen Service und stellen während der Reparaturzeit ein Ersatzgerät zur Verfügung."
+    },
+    {
+      "question": "Kann ich das Gerät besichtigen?",
+      "answer": "Ja! In unserem Showroom (Érd, Budai út 28.) können Sie den Black Pearl nach vorheriger Terminvereinbarung persönlich besichtigen und testen."
+    }
+  ],
+  "whatsIncluded": [
+    "BLACK PEARL Diodenlaser-Gerät",
+    "Ergonomischer Behandlungskopf (280 g, 12×15 mm)",
+    "Schutzbrillen (Behandler + Kunde)",
+    "Bedienungsanleitung (deutschsprachig)",
+    "Gerätebediener-Schulung (FAR-Zertifikat)",
+    "2 Jahre Vollgarantie",
+    "Ersatzgerät während der Reparaturzeit"
+  ]
+}

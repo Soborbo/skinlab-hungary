@@ -1,0 +1,107 @@
+{
+  "name": "LUNOX 2in1 4-wave diodni laser & Q-switched ND:YAG laserski uređaj",
+  "shortDescription": "2in1 diodni laser + Q-switched ND:YAG u jednom uređaju. 4 valne duljine, uklanjanje dlačica, uklanjanje tetovaža, carbon peeling.",
+  "description": "LUNOX nije samo još jedan laserski uređaj – to je složena, budućnosti usmjerena investicija koja može zamijeniti više zasebnih uređaja u kozmetičkom salonu.\n\nDiodni laser i Q-Switched ND:YAG tehnologija zajedno pokrivaju najtraženije i najprofitabilnije usluge, pa s LUNOX-om možete jednim uređajem izgraditi cijeli tretmanski portfelj.",
+  "metaTitle": "LUNOX 2in1 diodni laser & Q-switched ND:YAG uređaj",
+  "metaDescription": "LUNOX 2in1 diodni laser i ND:YAG laser u jednom – brz povrat ulaganja, tretmani bez ožiljaka, inteligentne postavke i službena obuka s potvrdom.",
+  "stats": [
+    {"value": "2in1", "label": "Tehnologija", "icon": "layers"},
+    {"value": "4", "label": "Valne duljine (dioda)", "icon": "wave"},
+    {"value": "1600", "unit": "mJ", "label": "ND:YAG energija", "icon": "zap"},
+    {"value": "-4°C", "label": "Hlađenje", "icon": "snowflake"}
+  ],
+  "roi": {"defaultTreatmentPrice": 35000},
+  "videoDescription": {
+    "headline": "LUNOX – Dvije tehnologije, beskonačne mogućnosti",
+    "paragraphs": [
+      "LUNOX nije samo još jedan laserski uređaj – to je složena, budućnosti usmjerena investicija koja može zamijeniti više zasebnih uređaja u kozmetičkom salonu.",
+      "Diodni laser i Q-Switched ND:YAG tehnologija zajedno pokrivaju najtraženije i najprofitabilnije usluge: uklanjanje dlačica, uklanjanje tetovaža, tretman pigmentacije, carbon peeling i pomlađivanje kože.",
+      "S LUNOX-om možete jednim uređajem izgraditi cijeli tretmanski portfelj – umjesto više uređaja jedan, s brzim povratom ulaganja."
+    ]
+  },
+  "cta": {
+    "afterVideo": {"text": "Imate pitanja o LUNOX-u? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
+    "afterFeatures": {"headline": "Želite vidjeti LUNOX uživo?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
+    "final": {"headline": "Zanima vas LUNOX 2in1 laserski uređaj?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+  },
+  "featureRows": {
+    "headline": "Zašto se LUNOX isplati?",
+    "subtitle": "Dvije najtraženije tehnologije u jednom uređaju – maksimalni povrat ulaganja",
+    "features": [
+      {
+        "title": "Uklanjanje dlačica diodnim laserom – na 4 valne duljine",
+        "description": "Učinkovito, trajno uklanjanje dlačica na svim tipovima kože (I–VI fototip).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Valne duljine:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – svijetle, tanke dlačice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzalna, prosječna dubina korijena</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tamnije dlačice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – duboko usađene dlačice</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Bezbolan, brz i ugodan postupak zahvaljujući hlađenju na -4°C.</p>",
+        "image": "@assets/products/lunox3.webp"
+      },
+      {
+        "title": "Q-Switched ND:YAG – uklanjanje tetovaža i pigmenta",
+        "description": "LUNOX Q-switched ND:YAG laser pruža oštar, koncentrirani otisak spota, snažno emitiranje energije i stabilan impuls pri svakom tretmanu.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Valne duljine 1064 nm i 532 nm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Do 1600 mJ snage</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Duljina impulsa 3–5 ns – tretman bez ožiljaka</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Crni, plavi, smeđi, zeleni, crveni i žuti pigmenti</div>\n</div>",
+        "highlight": "Američki Coherent laserski štap jamči višegodišnje stabilno i pouzdano funkcioniranje.",
+        "image": "@assets/products/lunox1.webp"
+      },
+      {
+        "title": "Carbon peeling – Hollywood tretman",
+        "description": "Kombinacija 1320 nm tretmanske glave i Q-Switched impulsa omogućuje premium tretman lica s maskom od crnog ugljena.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Dubinski čisti pore</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Regulira proizvodnju sebuma</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Smanjuje upale</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Odmah glađa, svježija površina kože</div>\n</div>",
+        "image": "@assets/products/lunox2.webp"
+      },
+      {
+        "title": "Pametni diodni laser – inteligentno podešavanje parametara",
+        "description": "Ugrađeni inteligentni softver automatski prepoznaje odabrane parametre tretmana i samostalno postavlja optimalne vrijednosti.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tip kože (I–VI fototip)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Područje tretmana</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kvaliteta i gustoća dlačica</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Automatski podešava snagu, frekvenciju, duljinu impulsa i vrijednost hlađenja.</p>",
+        "image": "@assets/products/lunox4.webp"
+      },
+      {
+        "title": "Umjesto više uređaja jedan – maksimalni povrat ulaganja",
+        "description": "Ne morate kupovati zasebni diodni laser, laser za pigment ili uklanjanje tetovaža – LUNOX sve to pruža u jednom kompaktnom uređaju.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Uklanjanje dlačica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Uklanjanje tetovaža</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tretman pigmentnih mrlja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pomlađivanje i rejuvenacija kože</div>\n</div>",
+        "highlight": "S LUNOX-om možete već za nekoliko mjeseci vratiti punu kupovnu cijenu.",
+        "image": "@assets/products/lunox5.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rukovanje uređajem – složeni program obuke",
+    "badge": "Sa službenom potvrdom",
+    "intro": "Za uređaj LUNOX dostupan je složeni program obuke koji operatere sveobuhvatno priprema za sigurno i učinkovito korištenje uređaja. Obuka je službeno odobrena u FAR sustavu, uz sudjelovanje liječnika i zdravstvenih edukatora.",
+    "items": [
+      "Teorijsko i praktično upoznavanje s diodnim laserom i Q-switched ND:YAG tehnologijom",
+      "Tretmanski protokoli za različite tipove kože i probleme",
+      "Detaljna dokumentacija za operatera",
+      "Smjernice za komunikaciju s klijentima i naknadnu njegu",
+      "Prijedlozi za marketing i cjenovnu politiku za uspješno korištenje u salonu",
+      "Praktični tretmani na modelima"
+    ],
+    "closingParagraphs": [
+      "Nakon završetka obuke dobivate službenu, imeničnu potvrdu koja potvrđuje stručno svladavanje korištenja LUNOX uređaja.",
+      "Cilj je da ne dobijete samo uređaj, već stvarno, praktično znanje i poslovnu podršku."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "vrijednosti obuka",
+    "freeText": "BESPLATNO uz kupnju uređaja!",
+    "duration": "Jednodnevna intenzivna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "functionCards": [
+    {"icon": "zap", "name": "Uklanjanje dlačica diodnim laserom", "description": "Trajno uklanjanje dlačica na 4 valne duljine, za sve tipove kože"},
+    {"icon": "eye", "name": "Uklanjanje tetovaža", "description": "Uklanjanje crnih, plavih, smeđih, zelenih, crvenih i žutih pigmenata"},
+    {"icon": "sun", "name": "Tretman pigmentnih mrlja", "description": "Posvjetljivanje pjegica, melasme, sunčanih pjega i staračke pigmentacije"},
+    {"icon": "sparkles", "name": "Carbon peeling", "description": "Hollywood tretman: dubinsko čišćenje, stezanje pora, pomlađivanje kože"},
+    {"icon": "bolt", "name": "Pomlađivanje kože", "description": "Stimulacija kolagena, učvršćivanje kože, poboljšanje teksture"},
+    {"icon": "droplet", "name": "Uklanjanje trajne šminke", "description": "Korekcija trajne šminke obrva, usana i kapaka"}
+  ],
+  "faq": [
+    {"question": "Zašto se isplati odabrati 2in1 uređaj?", "answer": "LUNOX u jednom uređaju ujedinjuje uklanjanje dlačica diodnim laserom i Q-switched ND:YAG tehnologiju. Ne morate kupovati zasebne uređaje – uklanjanje dlačica, tetovaža, tretman pigmentacije, carbon peeling i pomlađivanje kože sve je moguće jednim uređajem, što znači značajnu uštedu troškova."},
+    {"question": "Za koliko se vremena LUNOX isplati?", "answer": "Uklanjanje dlačica diodnim laserom i ND:YAG tretmani spadaju među najprofitabilnije kozmetičke usluge. Računajući s 3-5 klijenata dnevno, LUNOX se obično isplati za 2-4 mjeseca. Koristite naš ROI kalkulator za točan izračun!"},
+    {"question": "Koje pigmente može tretirati ND:YAG dio?", "answer": "Q-switched ND:YAG laser s valnim duljinama 1064 nm i 532 nm učinkovito tretira crne, plave, smeđe, zelene, crvene i žute pigmente. Primjenjiv je za uklanjanje tjelesnih tetovaža i trajne šminke."},
+    {"question": "Kakva obuka ide uz LUNOX?", "answer": "Složeni program obuke odobren u FAR sustavu i izrađen uz sudjelovanje liječnika. Obuka je besplatna uz kupnju uređaja i završava službenom potvrdom."},
+    {"question": "Postoji li mogućnost pregleda uređaja prije kupnje?", "answer": "Da! U našem izložbenom prostoru (Érd, Budai út 28.) možete osobno pogledati i isprobati LUNOX uz prethodni dogovor termina."}
+  ],
+  "whatsIncluded": [
+    "LUNOX 2in1 laserski uređaj",
+    "Tretmanska glava diodnog lasera (4 valne duljine)",
+    "Q-switched ND:YAG tretmanske glave (1064 nm, 532 nm, 1320 nm)",
+    "Zaštitne naočale (za operatera + klijenta)",
+    "Korisnički priručnik (na hrvatskom jeziku)",
+    "Obuka za rukovanje uređajem (FAR potvrda)",
+    "2 godine potpunog jamstva",
+    "Zamjenski uređaj za vrijeme popravka"
+  ]
+}

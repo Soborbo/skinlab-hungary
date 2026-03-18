@@ -9,7 +9,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Fetch all products and group by category
-const allProducts = await getCollection('products');
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
 
 // Get first product image string path for each category
 const categoryImages: Record<string, string | null> = {};

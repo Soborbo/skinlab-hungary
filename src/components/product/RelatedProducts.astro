@@ -29,7 +29,7 @@ const categoryName = category?.nameShort || categorySlug;
 
 // Fetch other products from the same category
 const allProducts = await getCollection('products', ({ data }) => {
-  return data.categorySlug === categorySlug && data.slug !== currentSlug;
+  return data.categorySlug === categorySlug && data.slug !== currentSlug && !data.draft;
 });
 
 // Sort by featured first, then take maxProducts

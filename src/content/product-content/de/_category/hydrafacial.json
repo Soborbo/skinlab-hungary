@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "shield" },
+    { "value": "6+", "label": "Funktionen in einem", "icon": "layers" },
+    { "value": "30", "unit": "Min", "label": "Behandlungszeit", "icon": "clock" },
+    { "value": "100%", "label": "Schmerzfrei", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Katrin Schneider",
+      "role": "Kosmetikerin",
+      "location": "München",
+      "text": "Das HydraFacial-Gerät ist der Bestseller meines Salons geworden! Die Kunden sehen bereits nach der ersten Behandlung sichtbare Ergebnisse.",
+      "rating": 5
+    },
+    {
+      "name": "Monika Weber",
+      "role": "Inhaberin eines Schönheitssalons",
+      "location": "Hamburg",
+      "text": "Professionelles Gerät, einfach zu bedienen, und die Kunden lieben es. Die SkinLab-Einschulung war sehr gründlich.",
+      "rating": 5
+    },
+    {
+      "name": "Fiona Hoffmann",
+      "role": "Kosmetikerin",
+      "location": "Berlin",
+      "text": "Mein multifunktionales Gerät kann alles, was ich brauche. Gesichtsreinigung, Hydratation, Lifting – alles in einem Gerät.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial ist eine der rentabelsten Investitionen in einem Salon. Die Kunden sehen sofort Ergebnisse und kommen regelmäßig wieder – das bedeutet garantierte Einnahmen.",
+    "author": "László Horváth",
+    "role": "Technischer Experte"
+  },
+  "featureRows": {
+    "headline": "Warum ein multifunktionales HydraFacial-Gerät wählen?",
+    "subtitle": "Komplexe Gesichtsreinigung und Behandlung mit einem einzigen Gerät",
+    "features": [
+      {
+        "title": "Alle Behandlungen in einem Gerät",
+        "description": "Sie müssen kein separates Hydrodermabrasions-, Ultraschall- und RF-Gerät kaufen. Die multifunktionalen HydraFacial-Geräte bieten 6-12 Funktionen in einer einzigen kompakten Einheit.",
+        "highlight": "Ein Gerät, eine Einarbeitung, unbegrenzte Möglichkeiten."
+      },
+      {
+        "title": "Schnelle, effektive Behandlungsprotokolle",
+        "description": "30-45 Minuten komplexe Behandlung in einer einzigen Sitzung. Der Kunde sieht und spürt das Ergebnis sofort – bereits beim ersten Mal.",
+        "highlight": "Mit dem Gerät können Sie täglich bis zu 8-10 Kunden behandeln."
+      },
+      {
+        "title": "Erschwingliche professionelle Technologie",
+        "description": "Die SkinLab HydraFacial-Geräte bieten dieselbe Qualität zu einem Bruchteil des Preises, den große Marken für Millionen verlangen. Mit 2 Jahren Garantie und deutschem Kundendienst.",
+        "highlight": "Professionelle Qualität zum erschwinglichen Preis – mit 2 Jahren Garantie."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Professionelle Gerätebediener-Schulung",
+    "badge": "Mit FAR-Zertifikat",
+    "intro": "Für alle unsere HydraFacial-Geräte ist eine persönliche Einschulung und offizielle Gerätebediener-Schulung verfügbar.",
+    "items": [
+      "Funktionsprinzip und Technologien des Geräts",
+      "Behandlungsprotokolle für verschiedene Hauttypen",
+      "Praktische Behandlungen an Modellen",
+      "Kundenkommunikation"
+    ],
+    "price": "Angebot anfordern",
+    "priceNote": "Offizielle Weiterbildung",
+    "duration": "Eintägige Schulung",
+    "ctaText": "Ich interessiere mich für die Schulung"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Vakuum-Tiefenreinigung und Peeling" },
+    { "icon": "sound", "name": "Ultraschall", "description": "Wirkstoffeinschleusung in tiefe Schichten" },
+    { "icon": "bubbles", "name": "Sauerstoffbehandlung", "description": "O₂-Hydratation und Revitalisierung" },
+    { "icon": "bolt", "name": "RF-Lifting", "description": "Hautstraffung mit Radiofrequenz" },
+    { "icon": "snowflake", "name": "Kryotherapie", "description": "Kalt-Warm-Behandlung zur Porenverfeinerung" },
+    { "icon": "spray", "name": "Spray Gun", "description": "Abschließende Tonisierung der Behandlung" }
+  ],
+  "faq": [
+    {
+      "question": "Für welche Hauttypen ist die HydraFacial-Behandlung geeignet?",
+      "answer": "HydraFacial ist für alle Hauttypen geeignet, einschließlich empfindlicher Haut. Die Behandlungsintensität kann individuell angepasst werden."
+    },
+    {
+      "question": "Wie viele Behandlungen können täglich durchgeführt werden?",
+      "answer": "Eine Behandlung dauert ca. 30-45 Minuten, sodass Sie täglich bis zu 8-10 Kunden behandeln können."
+    },
+    {
+      "question": "Welche Verbrauchsmaterialien werden benötigt?",
+      "answer": "Für das Gerät werden spezielle Seren und Lösungen benötigt, die wir unseren Kunden zu vergünstigten Preisen anbieten."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial-Gerät",
+    "Behandlungsköpfe-Set",
+    "Starter-Serum-Paket",
+    "Bedienungsanleitung (Deutsch)",
+    "Kostenlose Einschulung",
+    "2 Jahre Garantie"
+  ]
+}

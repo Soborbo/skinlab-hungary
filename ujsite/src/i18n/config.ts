@@ -2,7 +2,7 @@ export const languages = ["hu", "en", "de", "sk", "fr", "it", "es", "pl", "cs", 
 export type Lang = (typeof languages)[number];
 
 export const domainMap: Record<Lang, string> = {
-  hu: "https://skinlab.hu",
+  hu: "https://skinlabhungary.hu",
   en: "https://skinlabeurope.com",
   de: "https://skinlabeurope.com/de",
   sk: "https://skinlabeurope.com/sk",

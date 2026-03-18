@@ -242,7 +242,6 @@ export const MEGA_MENU = {
       titleKey: 'megaMenu.pmu',
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 7, descriptionKey: 'megaMenu.pmuDesc' },
-        { labelKey: 'categories.tetovalogepek', href: '/tetovalogepek', count: 2, descriptionKey: 'megaMenu.tattooDesc' },
       ],
     },
     {

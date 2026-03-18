@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const products = await getCollection('products', ({ data }) => {
-    return data.categorySlug === 'kellekek';
+    return data.categorySlug === 'kellekek' && !data.draft;
   });
 
   return products.map((product) => ({

@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "rokov", "label": "Zaruka", "icon": "shield" },
+    { "value": "6+", "label": "Funkcia v jednom", "icon": "layers" },
+    { "value": "30", "unit": "min", "label": "Cas osetrenia", "icon": "clock" },
+    { "value": "100%", "label": "Bezbolestne", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Katarina Szaboova",
+      "role": "Kozmeticka",
+      "location": "Bratislava",
+      "text": "HydraFacial pristroj sa stal hitom mojho salonu! Klienti uz po prvom osetreni zazivaju viditelne vysledky.",
+      "rating": 5
+    },
+    {
+      "name": "Monika Kissova",
+      "role": "Majitelka kozmetickeho salonu",
+      "location": "Kosice",
+      "text": "Profesionalny pristroj, jednoducho sa ovlada a klienti ho zboznuju. Zaskolenie od SkinLab bolo velmi dokladne.",
+      "rating": 5
+    },
+    {
+      "name": "Fanni Hegedusova",
+      "role": "Kozmeticka",
+      "location": "Bratislava",
+      "text": "Moj multifunkcny pristroj zvlada vsetko, co potrebujem. Cistenie tvare, hydratacia, lifting - v jednom zariadeni.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial je jednou z najlepsiech investicii s navratnostou v salone. Klienti okamzite vidia vysledky a pravidelne sa vracaju - to znamena garantovany prijem.",
+    "author": "Horvath Laszlo",
+    "role": "Technicky expert"
+  },
+  "featureRows": {
+    "headline": "Preco si vybrat multifunkcny hydrofacial pristroj?",
+    "subtitle": "Komplexne cistenie tvare a osetrenie jednym pristrojom",
+    "features": [
+      {
+        "title": "Vsetky osetrenia v jednom pristroji",
+        "description": "Nemusite kupovat zvlast hydrodermabraziovy, ultrazvukovy a RF pristroj. Multifunkcne hydrofacial pristroje ponukaju 6-12 funkcii v jednej kompaktnej jednotke.",
+        "highlight": "Jeden pristroj, jedno zaskolenie, nekonecne moznosti."
+      },
+      {
+        "title": "Rychle, ucinne osetrovacie protokoly",
+        "description": "30-45 minutove komplexne osetrenie na jedno sedenie. Klient okamzite vidi a citi vysledok – uz pri prvom osetreni.",
+        "highlight": "Denne mozete prijat az 8-10 klientov s pomocou pristroja."
+      },
+      {
+        "title": "Cenovo dostupna profesionalna technologia",
+        "description": "Hydrofacial pristroje SkinLab ponukaju rovnaku kvalitu za zlomok ceny, ktoru velke znacky uctuiu za miliony. S 2-rocnou zarukou a slovenskim servisnym zazemiom.",
+        "highlight": "Profesionalna kvalita za dostupnu cenu – s 2-rocnou zarukou."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Profesionalne skolenie obsluhy zariadenia",
+    "badge": "S certifikatom FAR",
+    "intro": "Ku kazdemu naskmu hydrofacial pristroju je k dispozicii osobne zaskolenie a oficialne skolenie obsluhy zariadenia.",
+    "items": [
+      "Princip fungovania zariadenia a jeho technologie",
+      "Osetrovacie protokoly pre rozne typy pleti",
+      "Prakticke osetrenia na modelkach",
+      "Komunikacia s klientmi"
+    ],
+    "price": "Vyziadajte si ponuku",
+    "priceNote": "Oficialne vzdelavanie dospelych",
+    "duration": "Jednodnove skolenie",
+    "ctaText": "Mam zaujem o skolenie"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabrazia", "description": "Hlbkove cistenie a peeling vakuom" },
+    { "icon": "sound", "name": "Ultrazvuk", "description": "Vpravovanie ucinnych latok do hlbokych vrstiev" },
+    { "icon": "bubbles", "name": "Kyslickove osetrenie", "description": "O2 hydratacia a revitalizacia" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Spevnovanie pleti radiofrekvenciou" },
+    { "icon": "snowflake", "name": "Kriotermia", "description": "Osetrenie chladom a teplom na stiahovanie porov" },
+    { "icon": "spray", "name": "Spray gun", "description": "Tonizacia na zaver osetrenia" }
+  ],
+  "faq": [
+    {
+      "question": "Pre ake typy pleti je vhodne osetrenie HydraFacial?",
+      "answer": "HydraFacial je vhodny pre vsetky typy pleti vrátane citlivej pleti. Intenzita osetrenia sa da prisposobit individualnym potrebam."
+    },
+    {
+      "question": "Kolko osetreni mozno vykonat denne?",
+      "answer": "Jedno osetrenie trva priblizne 30-45 minut, takze denne mozete prijat az 8-10 klientov."
+    },
+    {
+      "question": "Ake spotrebne materialy su potrebne?",
+      "answer": "K pristroju su potrebne specialne sera a roztoky, ktore nasim klientom poskytujeme za zvyhodnenu cenu."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial pristroj",
+    "Sada osetrovacich hlavic",
+    "Startovaci balik sera",
+    "Navod na pouzitie (v slovencine)",
+    "Bezplatne zaskolenie",
+    "2-rocna zaruka"
+  ]
+}

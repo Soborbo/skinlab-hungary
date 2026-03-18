@@ -12,7 +12,7 @@ const contactLink = getLocalizedUrl(locale, '/kapcsolat');
 const skinlabLogo = '@assets/logo.png';
 
 // Get first product image per category slug for megamenu
-const allProducts = await getCollection('products');
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
 const megaMenuImages: Record<string, string | null> = {};
 for (const column of MEGA_MENU.columns) {
   for (const item of column.items) {

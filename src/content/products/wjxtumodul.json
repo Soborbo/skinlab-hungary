@@ -14,31 +14,35 @@
   "variants": [
     {
       "sku": "wjx0251rl",
-      "name": " WJX tűmodul 0.25 1RL",
+      "name": "WJX tűmodul 0.25 1RL",
       "value": "wjx0251rl",
       "price": 10990,
-      "image": "@assets/products/IMG_0218.webp"
+      "image": "@assets/products/IMG_0218.webp",
+      "available": true
     },
     {
       "sku": "wjx0253rl",
-      "name": " WJX tűmodul 0.25 3RL",
+      "name": "WJX tűmodul 0.25 3RL",
       "value": "wjx0253rl",
       "price": 10990,
-      "image": "@assets/products/IMG_0218.webp"
+      "image": "@assets/products/IMG_0218.webp",
+      "available": true
     },
     {
       "sku": "wjx0301rl",
-      "name": " WJX tűmodul 0.30 1RL",
+      "name": "WJX tűmodul 0.30 1RL",
       "value": "wjx0301rl",
       "price": 10990,
-      "image": "@assets/products/IMG_0218.webp"
+      "image": "@assets/products/IMG_0218.webp",
+      "available": true
     },
     {
       "sku": "wjx0351rl",
-      "name": " WJX tűmodul 0.35 1RL",
+      "name": "WJX tűmodul 0.35 1RL",
       "value": "wjx0351rl",
       "price": 10990,
-      "image": "@assets/products/IMG_0218.webp"
+      "image": "@assets/products/IMG_0218.webp",
+      "available": true
     }
   ],
   "featured": false,

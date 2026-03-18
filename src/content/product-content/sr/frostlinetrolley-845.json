@@ -1,0 +1,57 @@
+{
+  "name": "FrostLineTrolley",
+  "shortDescription": "Moderna bela kolica za kozmetičku opremu sa masivnim metalnim ramom. Dvopolični dizajn, zaključivi točkići, higijenske površine.",
+  "description": "FrostLineTrolley su moderna bela kolica za kozmetičku opremu koja kombinuju organizovanost i profesionalan izgled.\n\nJaka metalna konstrukcija garantuje pouzdanost i trajnost. Dvopolični dizajn omogućava pregledno i organizovano odlaganje uređaja i pribora.\n\nOpremljena su sa četiri točkića koji se mogu zaključati, tako da tokom korišćenja stabilno stoje. Glatke površine se lako održavaju čistim, a snežno bela boja i minimalistične linije obezbeđuju elegantan izgled.",
+  "metaTitle": "FrostLineTrolley | Moderna kolica za kozmetičku opremu",
+  "metaDescription": "FrostLineTrolley bela kolica za kozmetičku opremu sa masivnim metalnim ramom. Dve police, zaključivi točkići, lako se čiste. Profesionalni salonski nameštaj.",
+  "stats": [
+    { "value": "2", "label": "Polica", "icon": "layers" },
+    { "value": "4", "label": "Zaključivi točkić", "icon": "refresh" },
+    { "value": "METAL", "label": "Masivan ram", "icon": "shield" },
+    { "value": "1", "unit": "god.", "label": "Garancija", "icon": "award" }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Zanima vas FrostLineTrolley?",
+      "subtitle": "Zatražite besplatnu konsultaciju ili naručite direktno!",
+      "buttonLabel": "Zatražite konsultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto FrostLineTrolley?",
+    "subtitle": "Stabilna, moderna i praktična kolica za opremu",
+    "features": [
+      {
+        "title": "Zaključivi točkići za maksimalnu stabilnost",
+        "description": "Četiri točkića ne samo da obezbeđuju lako pomeranje, već se mogu i zaključati, tako da kolica tokom korišćenja stabilno stoje. Idealna za bezbedno odlaganje uređaja i opreme.",
+        "image": "@assets/products/MADDISON2.webp"
+      },
+      {
+        "title": "Organizovano odlaganje sa dve police",
+        "description": "Dve police omogućavaju pregledno odlaganje uređaja i pribora. Higijenske površine koje se lako čiste obezbeđuju uvek besprekoran izgled.",
+        "image": "@assets/products/M1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Da li je potrebno sklapanje?",
+      "answer": "Da, potrebno je minimalno sklapanje: na ram treba postaviti police i pričvrstiti točkiće. Sklapanje se može obaviti za nekoliko minuta."
+    },
+    {
+      "question": "Po čemu se razlikuje od SnowlineTrolley i ArcticTrolley?",
+      "answer": "FrostLineTrolley ima dvopolični dizajn sa zaključivim točkićima. SnowlineTrolley ima tri police od kaljenog stakla sa aluminijumskim ramom, dok ArcticTrolley ima otvoreni sistem polica sa masivnom metalnom konstrukcijom. Sva tri kolica su dizajnirana za profesionalnu upotrebu u salonu."
+    },
+    {
+      "question": "Kako se čiste?",
+      "answer": "Glatke površine se lako brišu vlažnom krpom ili sredstvom za dezinfekciju. Bela boja i minimalistički dizajn uvek obezbeđuju čist izgled."
+    }
+  ],
+  "whatsIncluded": [
+    "FrostLineTrolley metalni ram",
+    "2 kom. polica",
+    "4 kom. zaključivih točkića",
+    "Uputstvo za sklapanje",
+    "1 godina garancije"
+  ]
+}

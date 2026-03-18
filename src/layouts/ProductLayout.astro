@@ -31,12 +31,14 @@ import BuyerChecklist from '../components/product/BuyerChecklist.astro';
 import ProductFAQ from '../components/product/ProductFAQ.astro';
 import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
+import VariantDetails from '../components/product/VariantDetails.astro';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
 import { SITE, CATEGORIES } from '../lib/constants';
 import { getLocaleFromUrl, t, getLocalizedUrl } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
+import { getOgImagePath } from '@/lib/resolve-image';
 import type { ProductContentStat, ProductContentFAQItem } from '@/lib/types/product-content';
 
 interface Variant {
@@ -46,6 +48,8 @@ interface Variant {
   price: number | null;
   image?: string;
   images?: string[];
+  description?: string;
+  specs?: Record<string, string>;
 }
 
 interface Stat {
@@ -135,6 +139,9 @@ const variantImageSets = product.hasVariants && product.variants.some(v => v.ima
       .map(v => ({ value: v.value, images: v.images! }))
   : undefined;
 
+// OG image — use the product's main image
+const ogImage = getOgImagePath(product.image) || '/og-image.jpg';
+
 // Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
@@ -196,6 +203,7 @@ const productSchema = product.price ? {
 <BaseLayout
   title={content.metaTitle || product.metaTitle || displayName}
   description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
+  image={ogImage}
   schema={productSchema}
 >
   <!-- Schema.org Structured Data -->
@@ -229,6 +237,15 @@ const productSchema = product.price ? {
       categorySlug={product.categorySlug}
       variantImageSets={variantImageSets}
     />
+
+    <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
+    {product.hasVariants && product.variants.length > 0 && (
+      <VariantDetails
+        locale={locale}
+        variants={product.variants}
+        productName={displayName}
+      />
+    )}
 
     <!-- 2. STATS BAR -->
     {resolvedStats.length > 0 && (

@@ -13,53 +13,60 @@
   "hasVariants": true,
   "variants": [
     {
-      "sku": "MOH0301RL",
-      "name": "0.30mm 1RL",
-      "value": "0.30mm1rl",
+      "sku": "MOH0181RL",
+      "name": "0.18mm 1RL",
+      "value": "018-1rl",
       "price": 9990,
-      "image": "@assets/products/ocheart.webp"
-    },
-    {
-      "sku": "MOH0253RL",
-      "name": "0.25mm 3RL",
-      "value": "0.25mm3rl",
-      "price": 9990,
-      "image": "@assets/products/ocheart.webp"
-    },
-    {
-      "sku": "MOH0251RL",
-      "name": "0.25mm 1RL",
-      "value": "0.25mm1rl",
-      "price": 9990,
-      "image": "@assets/products/ocheart.webp"
+      "image": "@assets/products/ocheart.webp",
+      "available": true
     },
     {
       "sku": "MOH0201RL",
       "name": "0.20mm 1RL",
-      "value": "0.20mm1rl",
+      "value": "020-1rl",
       "price": 9990,
-      "image": "@assets/products/ocheart.webp"
+      "image": "@assets/products/ocheart.webp",
+      "available": true
     },
     {
-      "sku": "MOH0351RL",
-      "name": "0.35mm 1RL",
-      "value": "0.35mm1rl",
+      "sku": "MOH0251RL",
+      "name": "0.25mm 1RL",
+      "value": "025-1rl",
       "price": 9990,
-      "image": "@assets/products/ocheart.webp"
+      "image": "@assets/products/ocheart.webp",
+      "available": true
     },
     {
-      "sku": "MOH0181RL",
-      "name": "0.18mm 1RL",
-      "value": "0.18mm1rl",
+      "sku": "MOH0253RL",
+      "name": "0.25mm 3RL",
+      "value": "025-3rl",
       "price": 9990,
-      "image": "@assets/products/ocheart.webp"
+      "image": "@assets/products/ocheart.webp",
+      "available": true
+    },
+    {
+      "sku": "MOH0301RL",
+      "name": "0.30mm 1RL",
+      "value": "030-1rl",
+      "price": 9990,
+      "image": "@assets/products/ocheart.webp",
+      "available": true
     },
     {
       "sku": "MOH0303RL",
       "name": "0.30mm 3RL",
-      "value": "0.30mm3rl",
+      "value": "030-3rl",
       "price": 9990,
-      "image": "@assets/products/ocheart.webp"
+      "image": "@assets/products/ocheart.webp",
+      "available": true
+    },
+    {
+      "sku": "MOH0351RL",
+      "name": "0.35mm 1RL",
+      "value": "035-1rl",
+      "price": 9990,
+      "image": "@assets/products/ocheart.webp",
+      "available": true
     }
   ],
   "featured": false,

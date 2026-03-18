@@ -4,9 +4,9 @@
   "name": "HydraLiquid Oldatok",
   "categorySlug": "kellekek",
   "shortDescription": "Farmona Professional hidrodermabráziós oldatok 500 ml. 6 típus: hámlasztó, lifting, C-vitaminos, revitalizáló, hidratáló, hialuronsavas.",
-  "description": "Farmona Professional Hydra Technology – Erősen hámlasztó HydraLiquid (500 ml) Kb. 50 kezelésre elegendő kiszerelés. A Farmona Professional lengyel márka mögött bőrgyógyászok és biotechnológusok szakértelme áll. A Hydra Technology termékcsaládot kifejezetten professzionális kozmetikai eljárásokhoz fejlesztették ki, többek között kavitációs peelinghez, hidrogénes tisztításhoz, hidroabrázióhoz, illetve az ezek közötti ápoláshoz. A tonik erőteljes hámlasztó hatását tejsav, allantoin, betain, valamint eper-, szeder- és málnakivonatok biztosítják. Összetételének köszönhetően a kezelések során lágy, mégis hatékony bőrtisztítást és előkészítést nyújt. Főbb előnyök Hatékonyan eltávolítja az elhalt hámsejteket Kisimítja a bőrfelszínt Támogatja a sejtek megújulását Javítja a bőr regenerációs folyamatait Csökkenti a pattanások és gyulladások intenzitását Egységesíti az arcbőrt Növeli a rugalmasságot és lassítja a bőröregedés jeleit A termék kifejezetten hidroabráziós készülékekhez tervezett professzionális liquid , amely egyedülálló összetételének köszönhetően stabil működést, kiváló csúszást és kiemelkedő eredményt biztosít a készülékek számára. Használható továbbá oxigénes terápiás és oxigéninfúziós kezelésekhez , ahol elősegíti a hatóanyagok mélyebb bejutását és fokozza a bőrmegújító folyamatokat. Kizárólag professzionális felhasználásra!",
-  "metaTitle": "HydraLiquid peeling hatással hidrodermabrázióhoz",
-  "metaDescription": "Farmona Professional erősen hámlasztó hidrodermabráziós folyadék problémás bőrre.",
+  "description": "Farmona Professional Hydra Technology – professzionális hidrodermabráziós oldatok (500 ml). Kb. 50 kezelésre elegendő kiszerelés. A Farmona Professional lengyel márka mögött bőrgyógyászok és biotechnológusok szakértelme áll. A Hydra Technology termékcsaládot kifejezetten professzionális kozmetikai eljárásokhoz fejlesztették ki, többek között kavitációs peelinghez, hidrogénes tisztításhoz, hidroabrázióhoz. 6 különböző típus érhető el: erősen hámlasztó, lifting bioretinollal, C-vitaminos világosító, revitalizáló hegyikristállyal, hidratáló és hialuronsavas feltöltő. Kizárólag professzionális felhasználásra!",
+  "metaTitle": "HydraLiquid oldatok hidrodermabrázióhoz | 6 típus",
+  "metaDescription": "Farmona Professional hidrodermabráziós oldatok 500 ml. 6 típus: hámlasztó, lifting, C-vitaminos, revitalizáló, hidratáló, hialuronsavas. Professzionális felhasználásra.",
   "price": 5990,
   "image": "@assets/products/hamlasztooldat.webp",
   "availability": "in_stock",
@@ -14,45 +14,123 @@
   "variants": [
     {
       "sku": "FHLP1",
-      "name": "erősen hámlasztó",
-      "value": "erősen-hámlasztó",
+      "name": "Erősen hámlasztó",
+      "value": "erosen-hamlaszto",
       "price": 5990,
-      "image": "@assets/products/hamlasztooldat.webp"
+      "image": "@assets/products/hamlasztooldat.webp",
+      "images": [
+        "@assets/products/hamlasztooldat.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "Erőteljes hámlasztó hatású oldat tejsavval, allantoinnal, betainnal és bogyós kivonatokkal. Hatékonyan eltávolítja az elhalt hámsejteket, kisimítja a bőrfelszínt és támogatja a sejtek megújulását. Csökkenti a pattanások és gyulladások intenzitását.",
+      "specs": {
+        "Hatóanyag": "Tejsav, allantoin, betain, bogyós kivonatok",
+        "Célbőrtípus": "Problémás, pattanásos bőr",
+        "Hatás": "Hámlasztás, bőrtisztítás, sejtmegújítás",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     },
     {
       "sku": "HLB2",
-      "name": "lifting, bioretinollal",
-      "value": "lifting,-bioretinollal",
+      "name": "Lifting, bioretinollal",
+      "value": "lifting-bioretinollal",
       "price": 5990,
-      "image": "@assets/products/Hydraliftingoldat.webp"
+      "image": "@assets/products/Hydraliftingoldat.webp",
+      "images": [
+        "@assets/products/Hydraliftingoldat.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "Korszerű bioretinolos lifting oldat, amely intenzíven támogatja a bőr regenerációját és feszesítését. A bioretinol és niacinamid (B3-vitamin) serkentik a kollagén- és elasztintermelést, finomítják a ráncokat és egységesítik a bőrtónust.",
+      "specs": {
+        "Hatóanyag": "Bioretinol, niacinamid (B3-vitamin)",
+        "Célbőrtípus": "Érett, ráncosodásra hajlamos bőr",
+        "Hatás": "Lifting, kollagénstimuláció, ránccsökkentés",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     },
     {
       "sku": "HLCV",
       "name": "C-vitaminos, világosító",
-      "value": "c-vitaminos,-világosító",
+      "value": "c-vitaminos-vilagosito",
       "price": 5990,
-      "image": "@assets/products/vilagositooldat.webp"
+      "image": "@assets/products/vilagositooldat.webp",
+      "images": [
+        "@assets/products/vilagositooldat.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "C-vitaminos világosító oldat a hiperpigmentáció, pattanás utáni foltok és egyenetlen bőrtónus kezelésére. C-vitamin, niacinamid és tejsav célozza meg a bőr elszíneződéseit, antioxidáns védelmet és ragyogó tónust biztosít.",
+      "specs": {
+        "Hatóanyag": "C-vitamin, niacinamid, tejsav, glicerin",
+        "Célbőrtípus": "Pigmentfoltos, egyenetlen tónusú bőr",
+        "Hatás": "Világosítás, pigmentfolt-halványítás, antioxidáns",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     },
     {
       "sku": "HLRH",
-      "name": "revitalizáló, hegyikristállyal",
-      "value": "revitalizáló,-hegyikristállyal",
+      "name": "Revitalizáló, hegyikristállyal",
+      "value": "revitalizalo-hegyikristallyal",
       "price": 5990,
-      "image": "@assets/products/hidraliquidkrist.webp"
+      "image": "@assets/products/hidraliquidkrist.webp",
+      "images": [
+        "@assets/products/hidraliquidkrist.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "Hegyikristály-kivonatos revitalizáló oldat, amely értékes ásványi anyagokkal tölti fel az epidermiszt. Szabályozza a faggyúkiválasztást, világosítja a bőrt és a niacinamid erősíti a lipidréteget. Különösen zsíros és problémás bőrre ajánlott.",
+      "specs": {
+        "Hatóanyag": "Hegyikristály-kivonat, niacinamid, ásványi anyagok",
+        "Célbőrtípus": "Zsíros, problémás bőr",
+        "Hatás": "Revitalizálás, faggyúszabályozás, méregtelenítés",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     },
     {
       "sku": "HLH3",
-      "name": "hidratáló",
-      "value": "hidratáló",
+      "name": "Hidratáló",
+      "value": "hidratalo",
       "price": 5990,
-      "image": "@assets/products/hidrahidra.webp"
+      "image": "@assets/products/hidrahidra.webp",
+      "images": [
+        "@assets/products/hidrahidra.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "Intenzíven regeneráló és hidratáló oldat rókagomba-, eper-, szeder- és málnakivonattal, betainnal és allantoinnal. Mélyen hidratálja a bőrt, csökkenti az irritációt és revitalizálja a fakó, fáradt bőrt.",
+      "specs": {
+        "Hatóanyag": "Rókagomba-kivonat, betain, allantoin, bogyós kivonatok",
+        "Célbőrtípus": "Fakó, fáradt, irritált bőr",
+        "Hatás": "Hidratálás, regenerálás, nyugtatás",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     },
     {
       "sku": "HLH4",
-      "name": "hyaluronsavas feltöltő",
-      "value": "hyaluronsavas-feltöltő",
+      "name": "Hyaluronsavas feltöltő",
+      "value": "hyaluronsavas-feltolto",
       "price": 5990,
-      "image": "@assets/products/hyalu.webp"
+      "image": "@assets/products/hyalu.webp",
+      "images": [
+        "@assets/products/hyalu.webp",
+        "@assets/products/hydraoldatok.webp",
+        "@assets/products/hydraoldatokmeggep.webp"
+      ],
+      "available": true,
+      "description": "Erősen hidratáló, bőrkondicionáló oldat nátrium-hialuronáttal és villánvízzel. Intenzíven támogatja a bőr vízmegkötő képességét, enyhíti az irritációt és segíti a hámréteg természetes regenerálódását. Érzékeny és dehidratált bőrre ideális.",
+      "specs": {
+        "Hatóanyag": "Nátrium-hialuronát, villánvíz, bogyós kivonatok",
+        "Célbőrtípus": "Dehidratált, érzékeny bőr",
+        "Hatás": "Mély hidratálás, vízmegkötés, feltöltés",
+        "Kiszerelés": "500 ml (~50 kezelés)"
+      }
     }
   ],
   "featured": false,

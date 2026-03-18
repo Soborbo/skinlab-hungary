@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "years", "label": "Warranty", "icon": "shield" },
+    { "value": "6+", "label": "Functions in one", "icon": "layers" },
+    { "value": "30", "unit": "min", "label": "Treatment time", "icon": "clock" },
+    { "value": "100%", "label": "Painless", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Szabó Kata",
+      "role": "Beautician",
+      "location": "Győr",
+      "text": "The HydraFacial machine has become the star of my salon! Clients experience visible results after the very first treatment.",
+      "rating": 5
+    },
+    {
+      "name": "Kiss Mónika",
+      "role": "Beauty salon owner",
+      "location": "Pécs",
+      "text": "Professional device, easy to operate, and clients love it. The SkinLab training was very thorough.",
+      "rating": 5
+    },
+    {
+      "name": "Hegedűs Fanni",
+      "role": "Beautician",
+      "location": "Budapest",
+      "text": "My multifunctional device does everything I need. Facial cleansing, hydration, lifting – all in one machine.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial is one of the best return-on-investment purchases for a salon. Clients see results immediately and return regularly – that means guaranteed revenue.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "featureRows": {
+    "headline": "Why choose a multifunctional hydrofacial device?",
+    "subtitle": "Comprehensive facial cleansing and treatment with a single device",
+    "features": [
+      {
+        "title": "Every treatment in a single device",
+        "description": "No need to buy separate hydrodermabrasion, ultrasound, and RF devices. Multifunctional hydrofacial machines offer 6–12 functions in a single compact unit.",
+        "highlight": "One device, one learning curve, endless possibilities."
+      },
+      {
+        "title": "Fast, effective treatment protocols",
+        "description": "30–45 minute comprehensive treatments in a single session. The client sees and feels results immediately – from the very first appointment.",
+        "highlight": "You can serve up to 8–10 clients per day with the device."
+      },
+      {
+        "title": "Affordable professional technology",
+        "description": "SkinLab hydrofacial devices offer the same quality at a fraction of the price that major brands charge millions for. With a 2-year warranty and Hungarian service support.",
+        "highlight": "Professional quality at an affordable price – with a 2-year warranty."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Professional device operator training",
+    "badge": "With FAR certificate",
+    "intro": "Personal training and official device operator certification are available for all our hydrofacial devices.",
+    "items": [
+      "Operating principles and technologies of the device",
+      "Treatment protocols for different skin types",
+      "Practical treatments on models",
+      "Client communication"
+    ],
+    "price": "Request a quote",
+    "priceNote": "Official adult education",
+    "duration": "One-day training",
+    "ctaText": "I'm interested in the training"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Vacuum deep cleansing and exfoliation" },
+    { "icon": "sound", "name": "Ultrasound", "description": "Active ingredient infusion into deep layers" },
+    { "icon": "bubbles", "name": "Oxygen treatment", "description": "O₂ hydration and revitalization" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Skin tightening with radiofrequency" },
+    { "icon": "snowflake", "name": "Cryotherapy", "description": "Hot-cold treatment for pore tightening" },
+    { "icon": "spray", "name": "Spray gun", "description": "Toning to close the treatment" }
+  ],
+  "faq": [
+    {
+      "question": "What skin types is HydraFacial treatment suitable for?",
+      "answer": "HydraFacial is suitable for all skin types, including sensitive skin. The treatment intensity can be customized for each individual."
+    },
+    {
+      "question": "How many treatments can be performed per day?",
+      "answer": "A single treatment takes approximately 30–45 minutes, so you can serve up to 8–10 clients per day."
+    },
+    {
+      "question": "What consumables are required?",
+      "answer": "The device requires special serums and solutions, which we provide to our clients at discounted prices."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial device",
+    "Treatment head set",
+    "Starter serum package",
+    "User manual (Hungarian)",
+    "Free training",
+    "2-year warranty"
+  ]
+}

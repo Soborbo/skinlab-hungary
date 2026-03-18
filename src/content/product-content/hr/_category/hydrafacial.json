@@ -1,0 +1,102 @@
+{
+  "stats": [
+    { "value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield" },
+    { "value": "6+", "label": "Funkcija u jednom", "icon": "layers" },
+    { "value": "30", "unit": "min", "label": "Vrijeme tretmana", "icon": "clock" },
+    { "value": "100%", "label": "Bezbolno", "icon": "heart" }
+  ],
+  "testimonials": [
+    {
+      "name": "Ivana Novak",
+      "role": "Kozmetičarka",
+      "location": "Zagreb",
+      "text": "HydraFacial uređaj postao je hit u mom salonu! Klijenti već nakon prvog tretmana primjećuju vidljive rezultate.",
+      "rating": 5
+    },
+    {
+      "name": "Marina Kovačević",
+      "role": "Vlasnica kozmetičkog salona",
+      "location": "Split",
+      "text": "Profesionalni uređaj, jednostavan za korištenje, a klijenti ga obožavaju. SkinLab obuka bila je iznimno temeljita.",
+      "rating": 5
+    },
+    {
+      "name": "Ana Horvat",
+      "role": "Kozmetičarka",
+      "location": "Rijeka",
+      "text": "Moj multifunkcionalni uređaj ima sve što mi treba. Čišćenje lica, hidratacija, lifting - sve u jednom uređaju.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "HydraFacial je jedna od najisplativijih investicija u salonu. Klijenti odmah vide rezultate i redovito se vraćaju - to znači zajamčeni prihod.",
+    "author": "Horváth László",
+    "role": "Tehnički stručnjak"
+  },
+  "featureRows": {
+    "headline": "Zašto odabrati multifunkcionalni hydrofacial uređaj?",
+    "subtitle": "Kompletno čišćenje i njega lica jednim uređajem",
+    "features": [
+      {
+        "title": "Svi tretmani u jednom uređaju",
+        "description": "Ne trebate kupovati zasebne uređaje za hidrodermabraziju, ultrazvuk i RF. Multifunkcionalni hydrofacial uređaji nude 6-12 funkcija u jednoj kompaktnoj jedinici.",
+        "highlight": "Jedan uređaj, jedna obuka, beskonačne mogućnosti."
+      },
+      {
+        "title": "Brzi, učinkoviti protokoli tretmana",
+        "description": "30-45 minuta kompleksnog tretmana u jednoj seansi. Klijent odmah vidi i osjeća rezultate – već od prvog puta.",
+        "highlight": "Dnevno možete primiti čak 8-10 klijenata uz pomoć uređaja."
+      },
+      {
+        "title": "Pristupačna profesionalna tehnologija",
+        "description": "SkinLab hydrofacial uređaji nude istu kvalitetu koju veliki brendovi prodaju za višestruko veću cijenu. Uz 2 godine jamstva i servisnu podršku.",
+        "highlight": "Profesionalna kvaliteta po pristupačnoj cijeni – uz 2 godine jamstva."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Profesionalna obuka za rukovanje uređajem",
+    "badge": "S FAR certifikatom",
+    "intro": "Za svaki naš hydrofacial uređaj dostupna je osobna obuka i službena obuka za rukovanje uređajem.",
+    "items": [
+      "Princip rada uređaja i tehnologije",
+      "Protokoli tretmana za različite tipove kože",
+      "Praktični tretmani na modelima",
+      "Komunikacija s klijentima"
+    ],
+    "price": "Zatražite ponudu",
+    "priceNote": "Službena edukacija",
+    "duration": "Jednodnevna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Hidrodermabrazija", "description": "Dubinsko čišćenje i piling vakuumom" },
+    { "icon": "sound", "name": "Ultrazvuk", "description": "Unos aktivnih tvari u dublje slojeve" },
+    { "icon": "bubbles", "name": "Kisikov tretman", "description": "O₂ hidratacija i revitalizacija" },
+    { "icon": "bolt", "name": "RF lifting", "description": "Zatezanje kože radiofrekvencijom" },
+    { "icon": "snowflake", "name": "Krioterapija", "description": "Hladno-topli tretman za stezanje pora" },
+    { "icon": "spray", "name": "Spray gun", "description": "Toniziranje za završetak tretmana" }
+  ],
+  "faq": [
+    {
+      "question": "Za koje tipove kože je prikladan HydraFacial tretman?",
+      "answer": "HydraFacial je prikladan za sve tipove kože, uključujući osjetljivu kožu. Intenzitet tretmana može se prilagoditi pojedincu."
+    },
+    {
+      "question": "Koliko tretmana se može obaviti dnevno?",
+      "answer": "Jedan tretman traje oko 30-45 minuta, tako da dnevno možete primiti čak 8-10 klijenata."
+    },
+    {
+      "question": "Koji potrošni materijali su potrebni?",
+      "answer": "Za uređaj su potrebni specijalni serumi i otopine, koje našim klijentima osiguravamo po povoljnim cijenama."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraFacial uređaj",
+    "Komplet nastavaka za tretman",
+    "Početni paket seruma",
+    "Korisnički priručnik",
+    "Besplatna obuka",
+    "2 godine jamstva"
+  ]
+}

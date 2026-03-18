@@ -12,7 +12,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/kapcsolat');
 
 // Fetch the featured product (Prestige4WAVE)
-const allProducts = await getCollection('products');
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
 const featuredProduct = allProducts.find(p => p.data.slug === 'prestige4wave_diodalezer');
 
 const productImagePath = featuredProduct?.data.image || '';

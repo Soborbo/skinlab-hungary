@@ -1,0 +1,109 @@
+{
+  "name": "HYDRAMINI",
+  "shortDescription": "6+1 funkcny kompaktny hydrofacialny pristroj s LED maskou. Jet Peel, RF lifting, ultrazvuk, studene kladivko. Idealny pre mensie salony.",
+  "description": "HydraMini je kompaktny, no pritom profesionalny pristroj na osetrenie tvare, ktory obsahuje 6 osetrujucich hlavic a jednu LED masku v jednom zariadeni.\n\nPristroj s pokrocilou technologiou kyslíkoveho jet peelu a hydrodermabrázie zabezpecuje hlbkove cistenie, peeling, vnaasanie ucinnych latok, hydratáciu a spevnenie pleti – bezbolestne a bezpecne aj pre citlivu plet.\n\nIdealna volba pre mensie salony, zacinajuce kozmeticky a mobilnych poskytovatelov sluzieb, ktori hladaju profesionalne riesenie v kompaktnej velkosti.",
+  "metaTitle": "HydraMini | 6+1 funkcny kompaktny hydrofacial s LED maskou",
+  "metaDescription": "HydraMini 6+1 hydrofacial: Jet Peel, RF lifting, ultrazvuk, studene kladivko, LED maska. Kompaktna velkost, profi vysledky.",
+  "stats": [
+    {"value": "6+1", "label": "Osetrujuca funkcia", "icon": "layers"},
+    {"value": "LED", "label": "Tvarova maska", "icon": "sun"},
+    {"value": "2", "unit": "rok", "label": "Zaruka", "icon": "shield"},
+    {"value": "~30", "unit": "min", "label": "Cas osetrenia", "icon": "clock"}
+  ],
+  "roi": {"defaultTreatmentPrice": 15000},
+  "videoDescription": {
+    "headline": "HydraMini – profesionalny hydrofacial v kompaktnej velkosti",
+    "paragraphs": [
+      "HydraMini zjednocuje 6 osetrujucich hlavic a jednu LED masku v jednom kompaktnom zariadeni navrhnutom na profesionalne pouzitie.",
+      "Kombinacia vodno-kyslíkoveho hlbkoveho cistenia, RF liftingu, ultrazvuku a studeneho kladivka umoznuje kompletný protokol osetrenia tvare.",
+      "Idealna volba pre mensie salony a zacinajuce kozmeticky, ktore hladaju profesionalne riesenie v kompaktnej velkosti."
+    ]
+  },
+  "cta": {
+    "afterVideo": {"text": "Mate otazky ohladom zariadenia? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
+    "afterFeatures": {"headline": "Chcete si HydraMini pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
+    "final": {"headline": "Zaujima vas HydraMini?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+  },
+  "featureRows": {
+    "headline": "Preco si kozmeticky vyberaju HydraMini?",
+    "subtitle": "Kompaktna velkost, profesionalne vysledky",
+    "features": [
+      {
+        "title": "6 osetrujucich hlavic + LED maska v jednom zariadeni",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rozprašovacia/atomizačná tryska</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukova hlavica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studene kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH spatula (skin scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrazna hlavica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF osetrujuca hlavica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED svetelna terapeuticka tvarova maska</div>\n</div>",
+        "image": "@assets/products/HydraMini.webp"
+      },
+      {
+        "title": "Vodno-kyslíkove hlbkove cistenie a RF lifting",
+        "description": "Vodno-kyslíkove hlbkove cistenie pomaha odstranovať necistoty, cierne bodky a odumrete kozne bunky. Radiofrekvencny (RF) lifting vysledkom je pevnejsia, konturovanejsia plet tvare neinvazivnym sposobom. Ultrazvuk podporuje vnaasanie ucinnych latok a zabezpecuje mikromasaz.",
+        "image": "@assets/products/HydraMinihydrofacial.webp"
+      },
+      {
+        "title": "LED maska a studene kladivko na ukoncenie osetrenia",
+        "description": "LED maska zabezpecuje cielenu svetelnu terapiu na regeneraciu pleti, znizenie zapalu a zosvetlenie pigmentovych skvn. Studene kladivko ma protizapalovy a plet upokojujuci ucinok, dokonale uzatvara osetrenie.",
+        "image": "@assets/products/HydraMinihydrofacial1.webp"
+      },
+      {
+        "title": "Kompaktne, lahke, idealne pre mensie salony",
+        "description": "Kompaktna velkost a nizka hmotnost HydraMini ho robia idealnym aj pre mensie salony, domace ordinacie a mobilnych poskytovatelov sluzieb. Profesionalny vykon za dostupnu cenu s minimalnym zaberom priestoru.",
+        "image": "@assets/products/HydraMini.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Skolenie obsluhy zariadenia – v ramci oficialneho vzdelavania dospelych",
+    "badge": "S oficialnym certifikatom",
+    "intro": "K zariadeniu HydraMini je k dispozicii profesionalne skolenie obsluhy zariadenia, ktore poskytujeme v ramci oficialne ohlasenho vzdelavania dospelych.",
+    "items": [
+      "Princip fungovania HydraMini, jeho technologie a osetrujuce hlavice",
+      "Protokoly osetrenia pre rozne typy pleti a problemy",
+      "Spravna aplikacia RF liftingu a LED svetelnej terapie",
+      "Zaklady analyzy pleti a individualny plan osetrenia",
+      "Komunikacia s klientmi a dokumentacia osetreni",
+      "Prakticke osetrenia na modelkach"
+    ],
+    "closingParagraphs": [
+      "Na skolenie si samozrejme mozete priviest modelku, aby ste si techniky osetrenia osvojili v realnom prostredi.",
+      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HydraMini."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "hodnota skolenia",
+    "freeText": "ZADARMO pri kupe zariadenia!",
+    "duration": "Jednodnove intenzivne skolenie",
+    "ctaText": "Mam zaujem o skolenie"
+  },
+  "expertQuote": {
+    "quote": "HydraMini je dokonaly vstup do sveta hydrofacialnych osetreni. Kompaktna velkost, profesionalne vysledky – idealny pre mensie salony a zacinajuce kozmeticky.",
+    "author": "Horvath Laszlo",
+    "role": "Technicky expert"
+  },
+  "functionCards": [
+    {"icon": "droplet", "name": "Hydrodermabrazna hlavica", "description": "Vakuove hlbkove cistenie, cistenie porov"},
+    {"icon": "spray", "name": "Rozprašovacia tryska", "description": "Hydratácia kyslíkovym rozprašovacom, atomizovana voda a kyslík"},
+    {"icon": "sound", "name": "Ultrazvukova hlavica", "description": "Vnaasanie ucinnych latok a mikromasaz"},
+    {"icon": "bolt", "name": "RF osetrujuca hlavica", "description": "Radiofrekvencny lifting, spevnenie"},
+    {"icon": "snowflake", "name": "Studene kladivko", "description": "Protizapalovy ucinok, upokojenie pleti"},
+    {"icon": "layers", "name": "UH spatula", "description": "Skin scrubber, odstranenie odumretych koze"},
+    {"icon": "sun", "name": "LED tvarova maska", "description": "Svetelna terapia na regeneraciu a znizenie zapalu"}
+  ],
+  "faq": [
+    {"question": "Akymi funkciami disponuje HydraMini?", "answer": "HydraMini obsahuje 6 osetrujucich hlavic a jednu LED masku: rozprašovacia tryska, ultrazvukova hlavica, studene kladivko, UH spatula (skin scrubber), hydrodermabrazna hlavica, RF osetrujuca hlavica a LED svetelna terapeuticka tvarova maska."},
+    {"question": "Pre koho je HydraMini idealny?", "answer": "HydraMini je idealny pre mensie kozmeticke salony, zacinajuce kozmeticky, domace ordinacie a mobilnych poskytovatelov sluzieb. V kompaktnej velkosti poskytuje profesionalne vysledky."},
+    {"question": "Za aky cas sa HydraMini vrati?", "answer": "HydraMini je dostupny za velmi priaznivu cenu, preto sa moze vratit az za 1-2 mesiace pri 2-3 klientoch denne. Cena hydrofacialneho osetrenia sa pohybuje medzi 10 000 – 20 000 Ft."},
+    {"question": "Pre ake typy pleti je vhodny?", "answer": "HydraMini je vhodny pre vsetky typy pleti vratane citlivej pleti. Osetrenie je bezbolestne a neinvazivne."},
+    {"question": "Ake spotrebne materialy su potrebne?", "answer": "Na hydrodermabrazne osetrenia su potrebne specialne sera a roztoky, napriklad z radu produktov HydraLiquid. Tieto poskytujeme nasim zakaznikom za zvyhodnenu cenu."}
+  ],
+  "whatsIncluded": [
+    "HydraMini zariadenie",
+    "Rozprašovacia/atomizacna tryska",
+    "Ultrazvukova osetrujuca hlavica",
+    "Studene kladivko osetrujuca hlavica",
+    "UH spatula (skin scrubber)",
+    "Hydrodermabrazna osetrujuca hlavica",
+    "RF osetrujuca hlavica",
+    "LED svetelna terapeuticka tvarova maska",
+    "Navod na pouzitie (v slovencine)",
+    "2-rocna plna zaruka",
+    "Nahradne zariadenie pocas opravy"
+  ]
+}

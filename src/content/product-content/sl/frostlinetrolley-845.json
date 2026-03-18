@@ -1,0 +1,57 @@
+{
+  "name": "FrostLineTrolley",
+  "shortDescription": "Sodoben bel kozmetični voziček z masivnim kovinskim ogrodjem. Dvopolicna zasnova, kolesca z zaklepom, higienske površine.",
+  "description": "FrostLineTrolley je sodoben bel kozmetični voziček, ki združuje urejenost in profesionalen videz.\n\nNjegova močna kovinska konstrukcija zagotavlja zanesljivost in trajnost. Dvopolicna zasnova omogoča pregledno in urejeno shranjevanje naprav in pripomočkov.\n\nOpremljen s štirimi kolesi, ki jih je mogoče tudi zakleniti, tako da med uporabo stabilno stoji. Gladke površine so enostavne za vzdrževanje čistoče, snežno bela barva in minimalistične linije pa zagotavljajo eleganten videz.",
+  "metaTitle": "FrostLineTrolley | Sodoben kozmetični voziček",
+  "metaDescription": "FrostLineTrolley bel kozmetični voziček z masivnim kovinskim ogrodjem. Dve polici, kolesca z zaklepom, enostavno čiščenje. Profesionalno salonsko pohištvo.",
+  "stats": [
+    { "value": "2", "label": "Polici", "icon": "layers" },
+    { "value": "4", "label": "Kolesca z zaklepom", "icon": "refresh" },
+    { "value": "FÉM", "label": "Masivno ogrodje", "icon": "shield" },
+    { "value": "1", "unit": "leto", "label": "Garancija", "icon": "award" }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Vas zanima FrostLineTrolley?",
+      "subtitle": "Zaprosite za brezplačno posvetovanje ali naročite neposredno!",
+      "buttonLabel": "Zaprosi za posvetovanje"
+    }
+  },
+  "featureRows": {
+    "headline": "Zakaj FrostLineTrolley?",
+    "subtitle": "Stabilen, sodoben in praktičen voziček",
+    "features": [
+      {
+        "title": "Kolesca z zaklepom za maksimalno stabilnost",
+        "description": "Štiri kolesca ne zagotavljajo le enostavnega premikanja, temveč jih je mogoče tudi zakleniti, tako da voziček med uporabo stabilno stoji. Idealen za varno namestitev naprav in pripomočkov.",
+        "image": "@assets/products/MADDISON2.webp"
+      },
+      {
+        "title": "Dvopolicna urejena hramba",
+        "description": "Dve polici omogočata pregledno shranjevanje naprav in pripomočkov. Higienske, enostavno čistljive površine pa zagotavljajo vedno brezhiben videz.",
+        "image": "@assets/products/M1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Ali je potrebno sestavljanje?",
+      "answer": "Da, potrebno je minimalno sestavljanje: na okvir je treba namestiti police in pritrditi kolesca. Sestavljanje traja le nekaj minut."
+    },
+    {
+      "question": "V čem se razlikuje od SnowlineTrolley in ArcticTrolley?",
+      "answer": "FrostLineTrolley ima dvopolicno zasnovo in kolesca z zaklepom. SnowlineTrolley ima tri police iz kaljenega stekla z aluminijastim ogrodjem, ArcticTrolley pa odprt sistem polic z masivno kovinsko konstrukcijo. Vsi trije vozički so zasnovani za profesionalno uporabo v salonih."
+    },
+    {
+      "question": "Kako se čisti?",
+      "answer": "Gladke površine enostavno obrišete z vlažno krpo ali sredstvom za razkuževanje površin. Bela barva in minimalistična zasnova vedno zagotavljata čist videz."
+    }
+  ],
+  "whatsIncluded": [
+    "FrostLineTrolley kovinsko ogrodje",
+    "2 kos. polic",
+    "4 kos. kolescev z zaklepom",
+    "Navodila za sestavljanje",
+    "1-letna garancija"
+  ]
+}

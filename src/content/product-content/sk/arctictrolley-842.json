@@ -1,0 +1,57 @@
+{
+  "name": "ArcticTrolley",
+  "shortDescription": "Elegantny biely kozmeticky voziik s masivnou kovovou konstrukciou. Otvoreny policovy system, styri kolieska, kompaktne rozmery (76x40,5x49 cm).",
+  "description": "ArcticTrolley je elegantny biely kozmeticky voziik, navrhnuty specialne pre potreby kozmetickych salonov, SPA a estetickych osetrovni.\n\nJeho masivna kovova konstrukcia bez problemov znesie kozmeticke pristroje, osetrovacie hlavice a prislusenstvo. Otvorene police su dokonale vhodne na systematicke ulozenie nastrojov a kozmetiky.\n\nAj napriek kompaktnym rozmerom (76x40,5x49 cm) ponuka priestrannu ulozisku plochu, pricom zabera malo miesta. Vdaka styrom odolnym kolieskam sa da jednoducho presuvat kamkolvek.",
+  "metaTitle": "ArcticTrolley | Profesionalny kozmeticky voziik",
+  "metaDescription": "ArcticTrolley biely kozmeticky voziik s masivnou kovovou konstrukciou. Otvoreny policovy system, 4 kolieska, kompaktne rozmery. Profesionalny salonovy nabytok.",
+  "stats": [
+    { "value": "76", "unit": "cm", "label": "Vyska", "icon": "layers" },
+    { "value": "40,5", "unit": "cm", "label": "Sirka", "icon": "layers" },
+    { "value": "4", "label": "Koliesko", "icon": "refresh" },
+    { "value": "1", "unit": "rokov", "label": "Zaruka", "icon": "award" }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Zaujima vas ArcticTrolley?",
+      "subtitle": "Poziadajte o bezplatnu konzultaciu alebo si priamo objednajte!",
+      "buttonLabel": "Poziadat o konzultaciu"
+    }
+  },
+  "featureRows": {
+    "headline": "Preco ArcticTrolley?",
+    "subtitle": "Stabilny, prakticky a elegantny kozmeticky voziik",
+    "features": [
+      {
+        "title": "Masivna kovova konstrukcia",
+        "description": "Silny kovovy ram ArcticTrolley stabilne drzi kozmeticke pristroje, osetrovacie hlavice a prislusenstvo. Nekymati sa, nevrzdi – poskytuje solidny zaklad pre profesionalnu pracu.",
+        "image": "@assets/products/Bonnie1.webp"
+      },
+      {
+        "title": "Kompaktna a prakticka konstrukcia",
+        "description": "Vyska 76 cm zabezpecuje pohodlnu pracovnu vysku a sirka 40,5 cm umoznuje umiestnenie aj do maleho priestoru. Otvoreny policovy system zabezpecuje prehladny a rychly pristup.",
+        "image": "@assets/products/Bonnie2.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Je potrebna montaz?",
+      "answer": "Ano, je potrebna minimalna montaz: na ram treba nasadit police a pripevnit kolieska. Montaz zvladnete za par minut."
+    },
+    {
+      "question": "Je vhodny na ukladanie pristrojov?",
+      "answer": "Ano, masivna kovova konstrukcia je vhodna na bezpecne umiestnenie kozmetickych pristrojov, osetrovacich hlavic a prislusenstva."
+    },
+    {
+      "question": "Ako sa cisti?",
+      "answer": "Hladke povrchy sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou, cim vzdy zabezpecite hygienicke pracovne prostredie."
+    }
+  ],
+  "whatsIncluded": [
+    "ArcticTrolley kovovy ram",
+    "Police",
+    "4 ks koliesok",
+    "Navod na montaz",
+    "1-rocna zaruka"
+  ]
+}

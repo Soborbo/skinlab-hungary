@@ -100,3 +100,14 @@ export function matchWidths(available: number[], requested: number[]): number[] 
   const matched = requested.map(w => nearestWidth(available, w));
   return [...new Set(matched)].sort((a, b) => a - b);
 }
+
+/**
+ * Get OG image path for a product image.
+ * Returns the largest available width in jpg format (best social media compatibility).
+ */
+export function getOgImagePath(imgPath: string): string {
+  const entry = getImageEntry(imgPath);
+  if (!entry) return '';
+  const maxWidth = Math.max(...entry.widths);
+  return `${entry.basePath}-${maxWidth}w.jpg`;
+}

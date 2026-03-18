@@ -14,7 +14,7 @@ const { locale } = Astro.params;
 const category = getCategoryTranslation(locale!, 'hiemt');
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'hiemt';
+  return data.categorySlug === 'hiemt' && !data.draft;
 });
 ---
 

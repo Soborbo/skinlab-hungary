@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'coldplasma';
+  return data.categorySlug === 'coldplasma' && !data.draft;
 });
 
 const benefits = [

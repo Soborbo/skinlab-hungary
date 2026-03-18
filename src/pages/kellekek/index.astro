@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'kellekek';
+  return data.categorySlug === 'kellekek' && !data.draft;
 });
 
 const benefits = [

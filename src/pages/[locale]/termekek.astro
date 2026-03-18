@@ -11,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-const products = await getCollection('products');
+const products = await getCollection('products', ({ data }) => !data.draft);
 
 const productsByCategory = CATEGORIES.map(cat => ({
   ...cat,

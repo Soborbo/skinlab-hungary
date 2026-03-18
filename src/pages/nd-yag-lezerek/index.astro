@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'nd-yag-lezerek';
+  return data.categorySlug === 'nd-yag-lezerek' && !data.draft;
 });
 
 const benefits = [

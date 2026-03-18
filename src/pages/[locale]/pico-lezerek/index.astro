@@ -14,7 +14,7 @@ const { locale } = Astro.params;
 const category = getCategoryTranslation(locale!, 'pico-lezerek');
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'pico-lezerek';
+  return data.categorySlug === 'pico-lezerek' && !data.draft;
 });
 ---
 

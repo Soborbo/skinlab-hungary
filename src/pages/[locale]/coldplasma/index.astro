@@ -14,7 +14,7 @@ const { locale } = Astro.params;
 const category = getCategoryTranslation(locale!, 'coldplasma');
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'coldplasma';
+  return data.categorySlug === 'coldplasma' && !data.draft;
 });
 ---
 

@@ -13,7 +13,7 @@ const category = {
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'anti-aging';
+  return data.categorySlug === 'anti-aging' && !data.draft;
 });
 
 const benefits = [
