@@ -1,0 +1,41 @@
+{
+  "name": "THE FROST – ColdPlasma by Skinlab",
+  "shortDescription": "THE FROST je sodobna profesionalna elektrokozmetična naprava, ki združuje tehnologijo hladne plazme, tople plazme in ozonske plazme v eni sami napravi. Njen cilj je vidno izboljšanje stanja kože brez rezov, krvavitev ali dolgega časa okrevanja, zasnovana izključno za kozmetično in estetsko uporabo.",
+  "description": "THE FROST – ColdPlasma by Skinlab je sodobna profesionalna elektrokozmetična naprava, ki združuje tehnologijo hladne plazme, tople plazme in ozonske plazme v eni sami napravi.\n\nNjen cilj je vidno izboljšanje stanja kože brez rezov, krvavitev ali dolgega časa okrevanja, zasnovana izključno za kozmetično in estetsko uporabo.\n\nNaprava ni medicinski pripomoček; uporablja se v kozmetičnem okolju. V celoti spada v pristojnost kozmetičarjev, ob vsaki napravi pa je priložena popolna pravna dokumentacija.",
+  "metaTitle": "THE FROST ColdPlasma | Profesionalna naprava 9 v 1 s hladno plazmo | SkinLab Hungary",
+  "metaDescription": "THE FROST naprava s hladno plazmo: 9 funkcij v enem. Hladna plazma, termoplazma, ozonska plazma. Akne, anti-aging, obnova kože. 2 leti garancije.",
+  "stats": [
+    { "value": "9", "unit": "v 1", "label": "Funkcij", "icon": "layers" },
+    { "value": "3", "label": "Plazemske tehnologije", "icon": "zap" },
+    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" },
+    { "value": "0", "unit": "min", "label": "Čas okrevanja", "icon": "clock" }
+  ],
+  "roi": { "defaultTreatmentPrice": 20000 },
+  "cta": {
+    "afterVideo": { "text": "Imate vprašanja o THE FROST? Z veseljem vam pomagamo!", "buttonLabel": "Zahtevajte posvet", "phoneLabel": "Pokličite nas" },
+    "afterFeatures": { "headline": "Želite videti THE FROST v živo?", "subtitle": "Obiščite naš razstavni prostor in ga preizkusite osebno!", "buttonLabel": "Rezervirajte termin" },
+    "final": { "headline": "Vas zanima THE FROST?", "subtitle": "Zahtevajte brezplačen posvet in pomagali vam bomo pri odločitvi.", "buttonLabel": "Zahtevajte posvet" }
+  },
+  "featureRows": { "headline": "Zakaj strokovnjaki izbirajo THE FROST?", "subtitle": "9 funkcij, 3 plazemske tehnologije, neomejene možnosti tretmaja", "features": [] },
+  "functionCards": [
+    { "icon": "snowflake", "name": "Derma Plasma", "description": "Obnova kože, čiščenje por s hladno plazmo" },
+    { "icon": "zap", "name": "Stamp Plasma", "description": "Mikrostimulacija, izboljšanje teksture kože" },
+    { "icon": "bolt", "name": "Hyper Plasma", "description": "Intenziven antibakterijski učinek" },
+    { "icon": "sparkles", "name": "Scalp Plasma", "description": "Aktivacija lasišča, stimulacija lasnih mešičkov" },
+    { "icon": "spray", "name": "Jet Plasma", "description": "Vnos aktivnih sestavin, osvežujoč tretma" },
+    { "icon": "sun", "name": "Warm Plasma", "description": "Utrjevanje kože, stimulacija kolagena s termoplazmo" },
+    { "icon": "bolt", "name": "Flash Plasma", "description": "Intenzivna aktivacija kože, pomlajevanje" },
+    { "icon": "eye", "name": "Diamond Plasma", "description": "Izpopolnitev površine kože, lifting učinek" },
+    { "icon": "bubbles", "name": "Ozonska plazma", "description": "Naravna antibakterijska razkuževanje z ozonom" }
+  ],
+  "faq": [
+    { "question": "Kakšna je razlika med hladno plazmo in tradicionalnim plazma peresom?", "answer": "Tradicionalno plazma pero (fibroblast) ustvarja opekline na koži, kar je boleče in zahteva dolgo okrevanje. Tehnologija hladne plazme THE FROST je neinvazivna, neboleča in brez časa okrevanja." },
+    { "question": "Ali lahko napravo kot kozmetičar zakonito uporabljam?", "answer": "Da! THE FROST je uradno uvrščen v pristojnost kozmetičarjev. Ob vsaki napravi dobavimo popolno pravno dokumentacijo." },
+    { "question": "Za katere kožne težave je THE FROST primeren?", "answer": "Široka uporabnost: akne, fine gubice, nepravilnosti kože, ohlapna koža, brezizrazen obraz, težave z lasišče. Ozonska plazma je posebej učinkovita pri vnetnih stanjih, termoplazma pa je idealna za anti-aging." },
+    { "question": "Ali je tretma boleč?", "answer": "Tretmaji s hladno plazmo so popolnoma neboleči. Pri termoplazmi je lahko čutiti blag občutek toplote, ki pa ni neprijeten. Noben tip tretmaja ne zahteva anestezije." },
+    { "question": "Kako hitro se THE FROST povrne?", "answer": "Cene tretmajev s hladno plazmo so običajno med 15.000 in 35.000 Ft. Z 3-5 strankami dnevno se naprava običajno povrne v 2-4 mesecih." }
+  ],
+  "whatsIncluded": [
+    "THE FROST ColdPlasma naprava", "Derma Plasma tretmanska glava", "Stamp Plasma tretmanska glava", "Hyper Plasma tretmanska glava", "Scalp Plasma tretmanska glava", "Jet Plasma tretmanska glava", "Warm Plasma tretmanska glava", "Flash Plasma tretmanska glava", "Diamond Plasma tretmanska glava", "Ozonska plazma tretmanska glava", "Nožna pedala", "Uporabniški priročnik", "Pravna dokumentacija", "2 leti polne garancije", "Nadomestna naprava med popravilom"
+  ]
+}

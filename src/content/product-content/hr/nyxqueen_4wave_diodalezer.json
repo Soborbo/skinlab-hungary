@@ -1,0 +1,201 @@
+{
+  "name": "NyxQueen 4Wave Diodni laser",
+  "shortDescription": "Profesionalni diodni laser snage 600 watta, 4 valne duljine, 50 milijuna hitaca životnog vijeka i napredni sustav hlađenja. Idealan za salone s velikim prometom i one koji traže vrhunsku tehnologiju.",
+  "description": "NyxQueen je profesionalni diodni laser snage 600 W koji možete koristiti non-stop – što ga čini izvrsnim izborom i za salone s velikim prometom. Sustav s 4 valne duljine omogućuje učinkovit rad na svakom tipu kože i dlačica, dok napredni sustav hlađenja osigurava ugodne tretmane bez nelagode za vaše klijente.",
+  "metaTitle": "NyxQueen 4Wave Diodni laser | 600W, 4 valne duljine, 50M hitaca",
+  "metaDescription": "NyxQueen 600W diodni laser s 4 valne duljine (755, 808, 940, 1064 nm). 50 milijuna hitaca, napredno hlađenje, premium izrada. 2 godine jamstva, besplatna obuka.",
+  "stats": [
+    { "value": "600", "unit": "W", "label": "Snaga", "icon": "zap" },
+    { "value": "50M", "label": "Životni vijek hitaca", "icon": "clock" },
+    { "value": "4", "label": "Valne duljine", "icon": "wave" },
+    { "value": "-5°C", "label": "Hlađenje", "icon": "heart" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "NyxQueen diodni laser – Kraljica epilacije",
+    "paragraphs": [
+      "NyxQueen je možda najkvalitetniji, najsvestraniji i najotporniji diodni laser za epilaciju na tržištu. I u pogledu učinkovitosti i udobnosti tretmana, to je apsolutna elita koja se može koristiti non-stop, što ga čini izvrsnim izborom i za salone s velikim prometom."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Imate pitanja o NyxQueen? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatražite konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite li vidjeti NyxQueen uživo?",
+      "subtitle": "Posjetite naš showroom u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezervirajte termin"
+    },
+    "final": {
+      "headline": "Zanima vas NyxQueen 4Wave Diodni laser?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatražite konzultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto kozmetičarke biraju NyxQueen?",
+    "subtitle": "Učinkovitost, trajnost i udobnost na najvišoj razini.",
+    "features": [
+      {
+        "title": "4 valne duljine – za sve tipove kože i boje dlačica",
+        "description": "Sustav s više valnih duljina omogućuje učinkovitu primjenu na različitim tipovima kože i područjima s različitom bojom dlačica – nudeći sigurno rješenje za svakog klijenta.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Valne duljine:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – svijetle, fine dlačice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzalno, zlatni standard</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tamniji tonovi kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – duboko smješteni folikuli dlačica</div>\n</div>",
+        "highlight": "Kombiniranom primjenom valnih duljina vidljivi rezultati mogu se postići već nakon prvog tretmana.",
+        "image": "@assets/products/nyxqueenblackdiode.webp"
+      },
+      {
+        "title": "600W snaga – brži tretmani, više klijenata",
+        "description": "Diodni laser NyxQueen snage 600 W brzo pokriva veća područja (poput nogu, leđa), čime se značajno skraćuje vrijeme tretmana i povećava učinkovitost salona.",
+        "highlight": "Potpuna epilacija nogu može se obaviti za samo 15-20 minuta.",
+        "image": "@assets/products/NyxQueen2.webp"
+      },
+      {
+        "title": "Životni vijek od 50 milijuna hitaca",
+        "description": "Diodni modul NyxQueen garantirano je sposoban za najmanje 50 milijuna hitaca, što i uz redovitu uporabu znači višegodišnji životni vijek. Ne morate brinuti o troškovima zamjene dijelova – uređaj pouzdano radi dugoročno.",
+        "highlight": "50 milijuna hitaca – s 10-15 klijenata dnevno – može značiti mnogo godina životnog vijeka.",
+        "image": "@assets/products/IMG_0262.webp"
+      },
+      {
+        "title": "Napredni sustav hlađenja – bezbolni tretman",
+        "description": "Višefazni sustav hlađenja NyxQueen (voda + zrak + TEC) hladi ručku do -5°C, čineći tretman ugodnim i bezbolnim za klijente. To je posebno važno pri tretiranju osjetljivih područja (bikini, pazuh, lice).",
+        "image": "@assets/products/IMG_0269.webp"
+      },
+      {
+        "title": "Podesiva veličina spota – PRO konfiguracija",
+        "description": "Podesiva veličina spota omogućuje operateru prilagodbu veličine svjetlosnog impulsa različitim područjima tijela, čineći tretman bržim, preciznijim i sigurnijim.\n<p class=\"font-semibold text-gray-900 mt-4 mb-1\">Prilagodljivo područjima tijela:</p>\n<p class=\"text-gray-600 mb-3\">Velika veličina spota za brzi tretman nogu, leđa ili prsa, manja veličina spota za precizni rad na licu, pazuhu i bikini području.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Optimalna penetracija:</p>\n<p class=\"text-gray-600 mb-3\">Veća veličina spota doseže dublje smještene folikule dlačica, dok je manja glava idealna za površinske, fine dlačice.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Brži tretmani:</p>\n<p class=\"text-gray-600 mb-3\">Veća područja mogu se tretirati u kraćem vremenu, čime se povećava dnevni broj klijenata.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Veća udobnost i sigurnost:</p>\n<p class=\"text-gray-600\">Gustoća energije može se precizno kontrolirati, omogućujući fino podešavanje snage za svaki tip kože i dio tijela.</p>",
+        "highlight": "Cijena premium konfiguracije: +259.990 Ft",
+        "image": "@assets/products/IMG_0272.webp"
+      },
+      {
+        "title": "Područja tretmana – univerzalno rješenje za svakog klijenta",
+        "description": "Diodni laser NyxQueen nudi univerzalno rješenje za trajnu epilaciju, neovisno o tipu kože i dlačica. Tehnologija radi na više valnih duljina, učinkovito tretirajući kako svjetlije i tamnije tonove kože, tako i finije i jače dlačice.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Područja koja se mogu tretirati:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Noge, ruke, leđa, prsa</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pazuh, intimno područje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Lice, brada, usne, brkovi</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Muški klijenti (guste, jake dlačice)</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Tretmani pokazuju vidljive rezultate već nakon prvog posjeta: dlačice se prorjeđuju, rast usporava, a koža postaje glatkija i ujednačenija.</p>",
+        "highlight": "Snaga od 600W učinkovito tretira čak i guste, jake muške dlačice na većim tjelesnim površinama.",
+        "image": "@assets/products/nyxqueen-black-2.webp"
+      },
+      {
+        "title": "Poslovna prednost – brži povrat ulaganja, veći prihod",
+        "description": "Brzi, učinkoviti i pouzdani rad NyxQueen omogućuje kraće vrijeme pripreme, posluživanje više klijenata i time veći prihod za salon.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Prednosti NyxQueen za vlasnike salona:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kraće vrijeme tretmana = više klijenata dnevno</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilna izvedba i tijekom intenzivnog salonskog korištenja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Niski operativni troškovi (50M hitaca, nema česte zamjene modula)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tretman prilagođen klijentu = zadovoljni klijenti koji se vraćaju</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Kao i kod svake laserske tehnologije, korištenje uređaja zahtijeva odgovornost: pravilna priprema, stručnost operatera i naknadna njega potrebni su za sigurne i zadovoljavajuće rezultate.</p>",
+        "highlight": "S visokom snagom, kombiniranim valnim duljinama i naprednim hlađenjem, NyxQueen je idealan izbor za salone koji nude usluge trajne epilacije.",
+        "image": "@assets/products/nyxqueen-black-4.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rukovanje uređajem – u sklopu službenog obrazovanja odraslih",
+    "badge": "S službenim certifikatom",
+    "intro": "Za diodni laser NyxQueen nudimo profesionalnu obuku za rukovanje uređajem u sklopu službeno registriranog programa obrazovanja odraslih. Obuka ima za cilj pružiti sudionicima sveobuhvatno teoretsko i praktično znanje za profesionalnu i sigurnu uporabu uređaja.",
+    "items": [
+      "Načela rada i sigurnosni aspekti tehnologije diodnog lasera",
+      "Postavljanje parametara tretmana NyxQueen prema tipu kože i dlačica",
+      "Praktični tretmani na modelima – na različitim područjima tijela",
+      "Kontraindikacije, odabir klijenata i pretretmanski protokoli",
+      "Naknadna njega i komunikacija s klijentima",
+      "Održavanje i higijensko znanje"
+    ],
+    "closingParagraphs": [
+      "Na obuku možete dovesti model, kako biste mogli naučiti tehnike tretmana u stvarnom okruženju.",
+      "Nakon završetka obuke izdajemo službeni FAR certifikat koji potvrđuje kompetenciju za profesionalno rukovanje uređajem."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "vrijednost obuke",
+    "freeText": "BESPLATNO uz kupnju uređaja!",
+    "duration": "Jednodnevna intenzivna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "testimonials": [
+    {
+      "name": "Tóth Brigitta",
+      "date": "2025. 05. 12.",
+      "text": "Vrlo sam zadovoljna NyxQueen! <mark>Moje klijentice odmah osjete razliku u usporedbi s mojim prethodnim uređajem</mark> – tretman je brži, hlađenje je fantastično, a rezultati su vidljivi već nakon prvog posjeta. Obuka je također bila sjajna, sve je bilo objašnjeno.",
+      "rating": 5
+    },
+    {
+      "name": "GlamGlow (Rumunjska)",
+      "date": "2025. 12. 07.",
+      "text": "<mark>Nevjerojatan uređaj i nevjerojatna obuka</mark> puno vam hvala za ovaj dan!",
+      "rating": 5
+    },
+    {
+      "name": "Szabó Kitti Lash Stylist",
+      "date": "2025. 10. 22.",
+      "text": "Naručila sam ovu diodu u rosegold boji i drago mi je što jesam! Iako sam morala uskladiti sve ostale metalne boje u salonu, definitivno se isplatilo jer salon sada izgleda prekrasno i <mark>NyxQueen ne samo da sjajno izgleda, već donosi mnogo brže rezultate u usporedbi s mojim prethodno unajmljenim uređajem!</mark>",
+      "rating": 5
+    },
+    {
+      "name": "Szasza (Budapest)",
+      "date": "2025. 10. 04.",
+      "text": "Ovaj uređaj koristim 2 mjeseca, naručila sam ga kad je prvi put objavljen, pa sam bila vrlo uzbuđena kakav će potpuno novi uređaj biti. Prije sam radila IPL, što je sasvim druga tehnika, ali <mark>već vidim razliku i diodni laser je postao velika ljubav za mene i moje klijentice!</mark> Toplo preporučujem 5*",
+      "rating": 5
+    },
+    {
+      "name": "Nagy Annamária",
+      "date": "2025. 09. 24.",
+      "text": "Puno hvala za uređaj i <mark>za obuku koju smo obje s kćerkom smatrale vrlo korisnom</mark>. Uređaj od tada koristimo bez ikakvih problema i imamo samo pozitivna iskustva, kao i naše klijentice.",
+      "rating": 5
+    },
+    {
+      "name": "Ninett - Glow Up Beauty",
+      "date": "2025. 09. 09.",
+      "text": "Naručila sam ovaj uređaj u rosegold boji i toliko je lijep da sam ga stvarno htjela ovdje podijeliti! <mark>S kvalitetom smo također svi zadovoljni</mark> donijeli smo sjajnu odluku kad smo odabrali ovaj, a poklon gel smo već potrošili!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Epilacija diodnim laserom jedna je od najtraženijih kozmetičkih usluga. Sa snagom od 600W i životnim vijekom od 50 milijuna hitaca, NyxQueen nudi jednu od najboljih investicija s obzirom na omjer cijene i kvalitete za salon.",
+    "author": "Horváth László",
+    "role": "Tehnički stručnjak"
+  },
+  "specs": {
+    "Snaga": "600W",
+    "Valne duljine": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Broj hitaca": "50.000.000",
+    "Sustav hlađenja": "Voda + Zrak + TEC (-5°C)",
+    "Veličina spota": "15×25 mm (PRO: podesiva)",
+    "Frekvencija": "1-10 Hz",
+    "Gustoća energije": "1-120 J/cm²",
+    "Zaslon": "10,4\" dodirni zaslon",
+    "Napajanje": "220V / 50Hz",
+    "Certifikati": "CE, FDA"
+  },
+  "faq": [
+    {
+      "question": "Na kojim tipovima kože se može koristiti NyxQueen?",
+      "answer": "NyxQueen radi na 4 valne duljine (755, 808, 940, 1064 nm), čime se može sigurno i učinkovito primjenjivati na svim Fitzpatrickovim tipovima kože (I-VI). Zahvaljujući kombiniranim valnim duljinama, daje izvrsne rezultate na svjetlijim i tamnijim tonovima kože."
+    },
+    {
+      "question": "Koliko brzo se NyxQueen isplati?",
+      "answer": "U prosjeku za 2-4 mjeseca s 5-8 klijenata dnevno. Tretman epilacije diodnim laserom košta između 15.000-50.000 Ft ovisno o tretiranom području. Koristite naš ROI kalkulator na stranici za točan izračun!"
+    },
+    {
+      "question": "Što znači životni vijek od 50 milijuna hitaca?",
+      "answer": "Diodni modul je zajamčen na 50 milijuna impulsa – s 10-15 klijenata dnevno to može značiti 8-10 godina životnog vijeka. To je proizvođačko jamstvo; u praksi modul može proizvesti i više hitaca."
+    },
+    {
+      "question": "Kakva obuka dolazi uz NyxQueen?",
+      "answer": "Uz uređaj dolazi obuka za rukovanje uređajem u vrijednosti 79.990 Ft u sklopu službenog obrazovanja odraslih, BESPLATNO. Obuka završava FAR certifikatom koji potvrđuje kompetenciju za profesionalno rukovanje uređajem."
+    },
+    {
+      "question": "Što je PRO konfiguracija s podesivom veličinom spota?",
+      "answer": "PRO konfiguracija (+259.990 Ft) uključuje posebnu ručku koja vam omogućuje prilagodbu veličine svjetlosnog impulsa za različita područja tijela. Velika veličina spota za brzi tretman nogu i leđa, manja veličina spota za precizni rad na licu i bikini području."
+    },
+    {
+      "question": "Kakvo jamstvo dobivam na uređaj?",
+      "answer": "Nudimo 2 godine potpunog jamstva na NyxQueen. Imamo vlastitu servisnu pozadinu i osiguravamo zamjenski uređaj tijekom popravaka kako rad vašeg salona ne bi morao stati."
+    },
+    {
+      "question": "Je li moguće vidjeti uređaj prije kupnje?",
+      "answer": "Da! NyxQueen možete pogledati i isprobati osobno u našem showroomu (Érd, Budai út 28.) uz prethodni dogovor termina."
+    }
+  ],
+  "whatsIncluded": [
+    "NyxQueen 4Wave diodni laser",
+    "Ručka (15×25 mm veličina spota)",
+    "Zaštitne naočale (operater + klijent)",
+    "Rashladna tekućina i početnički paket",
+    "Korisnički priručnik",
+    "Obuka za rukovanje uređajem (FAR certifikat)",
+    "2 godine potpunog jamstva",
+    "Zamjenski uređaj tijekom popravaka"
+  ]
+}

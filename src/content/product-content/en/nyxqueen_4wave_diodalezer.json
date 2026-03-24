@@ -1,0 +1,201 @@
+{
+  "name": "NyxQueen 4Wave Diode Laser",
+  "shortDescription": "Professional diode laser with 600 watt power, 4 wavelengths, 50 million shot lifespan and advanced cooling system. Ideal for high-traffic salons and those seeking top-tier technology.",
+  "description": "The NyxQueen is a professional-grade, 600W diode laser that you can use around the clock – making it an excellent choice even for high-traffic salons. The 4-wavelength system allows you to work effectively on every skin and hair type, while the advanced cooling system ensures a discomfort-free treatment for your clients.",
+  "metaTitle": "NyxQueen 4Wave Diode Laser | 600W, 4 wavelengths, 50M shots",
+  "metaDescription": "NyxQueen 600W diode laser with 4 wavelengths (755, 808, 940, 1064 nm). 50 million shots, advanced cooling, premium build. 2-year warranty, free training.",
+  "stats": [
+    { "value": "600", "unit": "W", "label": "Power", "icon": "zap" },
+    { "value": "50M", "label": "Shot lifespan", "icon": "clock" },
+    { "value": "4", "label": "Wavelengths", "icon": "wave" },
+    { "value": "-5°C", "label": "Cooling", "icon": "heart" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "NyxQueen diode laser – The queen of hair removal",
+    "paragraphs": [
+      "The NyxQueen is perhaps the highest quality, most versatile and most durable diode laser hair removal device available on the market today. In terms of both effectiveness and treatment comfort, it is the cream of the crop, and can be used around the clock, making it an excellent choice even for high-traffic salons."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the NyxQueen? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the NyxQueen in person?",
+      "subtitle": "Visit our showroom in Érd and try it out in person!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the NyxQueen 4Wave Diode Laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why do beauticians choose the NyxQueen?",
+    "subtitle": "Efficiency, durability and comfort at the highest level.",
+    "features": [
+      {
+        "title": "4 wavelengths – for all skin types and hair colors",
+        "description": "The multi-wavelength system allows the device to be effectively used on different skin types and hair-colored areas – offering a safe solution for every client.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – universal, gold standard</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – darker skin tones</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – deep-seated hair follicles</div>\n</div>",
+        "highlight": "With the combined application of wavelengths, visible results can be achieved even after the first treatment.",
+        "image": "@assets/products/nyxqueenblackdiode.webp"
+      },
+      {
+        "title": "600W power – faster treatments, more clients",
+        "description": "The 600W NyxQueen diode laser quickly covers larger areas (such as legs, back), significantly reducing treatment time and increasing salon efficiency.",
+        "highlight": "A full leg hair removal can be completed in just 15-20 minutes.",
+        "image": "@assets/products/NyxQueen2.webp"
+      },
+      {
+        "title": "50 million shot lifespan",
+        "description": "The NyxQueen's diode module is guaranteed for at least 50 million shots, which means years of lifespan even with regular use. This means you don't have to worry about replacement part costs – the device works reliably in the long term.",
+        "highlight": "50 million shots – with 10-15 clients per day – can mean many years of lifespan.",
+        "image": "@assets/products/IMG_0262.webp"
+      },
+      {
+        "title": "Advanced cooling system – painless treatment",
+        "description": "The NyxQueen's multi-phase cooling system (water + air + TEC) cools the handpiece down to -5°C, making the treatment pleasant and painless for clients. This is especially important when treating sensitive areas (bikini, underarms, face).",
+        "image": "@assets/products/IMG_0269.webp"
+      },
+      {
+        "title": "Adjustable spot size PRO configuration",
+        "description": "The adjustable spot size allows the operator to adapt the light pulse size to different body areas, making the treatment faster, more precise and safer.\n<p class=\"font-semibold text-gray-900 mt-4 mb-1\">Adaptable to body areas:</p>\n<p class=\"text-gray-600 mb-3\">Large spot size for fast treatment of legs, back or chest, smaller spot size for precise work on face, underarms and bikini area.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Optimal penetration:</p>\n<p class=\"text-gray-600 mb-3\">The larger spot size reaches deeper hair follicles, while the smaller head is ideal for superficial, fine hair.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Faster treatments:</p>\n<p class=\"text-gray-600 mb-3\">Larger areas can be treated in less time, increasing the daily client count.</p>\n<p class=\"font-semibold text-gray-900 mb-1\">Greater comfort and safety:</p>\n<p class=\"text-gray-600\">The energy density can be precisely controlled, allowing fine-tuning of power for every skin type and body part.</p>",
+        "highlight": "Premium configuration price: +259,990 Ft",
+        "image": "@assets/products/IMG_0272.webp"
+      },
+      {
+        "title": "Treatment areas – a universal solution for every client",
+        "description": "The NyxQueen diode laser offers a universal solution for permanent hair removal, regardless of skin and hair type. The technology operates on multiple wavelengths, effectively treating lighter and darker skin tones as well as finer and stronger hair.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatable areas:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Legs, arms, back, chest</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Underarms, intimate area</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Face, chin, lip, mustache</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Male clients (dense, strong hair)</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Treatments show visible results after the very first session: hair becomes thinner, growth slows, and skin becomes smoother and more even.</p>",
+        "highlight": "The 600W power effectively treats even dense, strong male hair on larger body surfaces.",
+        "image": "@assets/products/nyxqueen-black-2.webp"
+      },
+      {
+        "title": "Business advantage – faster ROI, higher revenue",
+        "description": "The NyxQueen's fast, efficient and reliable operation enables shorter setup time, serving more clients, and thus higher revenue for the salon.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">NyxQueen advantages for salon owners:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Shorter treatment time = more clients per day</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stable performance even during intensive salon use</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Low operating costs (50M shots, no frequent module replacement)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Client-friendly treatment = satisfied, returning clients</div>\n</div>\n<p class=\"text-gray-600 mt-3\">As with all laser technologies, using the device requires responsibility: proper preparation, operator expertise, and aftercare are necessary for safe and satisfactory results.</p>",
+        "highlight": "With high power, combined wavelengths and advanced cooling, the NyxQueen is an ideal choice for salons offering permanent hair removal services.",
+        "image": "@assets/products/nyxqueen-black-4.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – within official adult education",
+    "badge": "With official certificate",
+    "intro": "Professional device operator training is available for the NyxQueen diode laser, provided within an officially registered adult education program. The training aims to provide participants with comprehensive theoretical and practical knowledge for the professional and safe use of the device.",
+    "items": [
+      "Operating principles and safety aspects of diode laser technology",
+      "Setting NyxQueen treatment parameters by skin and hair type",
+      "Practical treatments on models – on different body areas",
+      "Contraindications, client selection and pre-treatment protocols",
+      "Aftercare and client communication",
+      "Maintenance and hygiene knowledge"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn treatment techniques in a real-world setting.",
+      "Upon completion of the training, we issue an official FAR certificate confirming competence for the professional operation of the device."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I'm interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Tóth Brigitta",
+      "date": "2025. 05. 12.",
+      "text": "I'm very satisfied with the NyxQueen! <mark>My clients immediately feel the difference compared to my previous device</mark> – the treatment is faster, the cooling is fantastic, and the results are visible after the very first session. The training was great too, everything was explained.",
+      "rating": 5
+    },
+    {
+      "name": "GlamGlow (Romania)",
+      "date": "2025. 12. 07.",
+      "text": "<mark>Amazing device and amazing training</mark> thank you very much for this day!",
+      "rating": 5
+    },
+    {
+      "name": "Szabó Kitti Lash Stylist",
+      "date": "2025. 10. 22.",
+      "text": "I ordered this diode in rosegold and I'm glad I did! Although I had to match all the other metal colors in the salon, it was totally worth it because the salon looks beautiful now and <mark>the NyxQueen looks amazing while delivering much faster results compared to my previously rented device!</mark>",
+      "rating": 5
+    },
+    {
+      "name": "Szasza (Budapest)",
+      "date": "2025. 10. 04.",
+      "text": "I've been using this device for 2 months, I ordered it when it was first released, so I was very excited about what a brand new device would be like. I used to do IPL, which is a very different technique but <mark>I can already see the difference and diode laser has become a great love for me and my clients too!</mark> Highly recommend 5*",
+      "rating": 5
+    },
+    {
+      "name": "Nagy Annamária",
+      "date": "2025. 09. 24.",
+      "text": "Thank you very much for the device and <mark>the training, which we both found very useful</mark> with my daughter. We've been operating the device without any issues since then and have only had positive experiences, as have our clients.",
+      "rating": 5
+    },
+    {
+      "name": "Ninett - Glow Up Beauty",
+      "date": "2025. 09. 09.",
+      "text": "I ordered this device in rosegold and it's so beautiful I really wanted to share it here! <mark>We're all satisfied with the quality too</mark> we made a great decision when we chose this one and we've already used up the gift gel!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Diode laser hair removal is one of the most sought-after cosmetic services. With its 600W power and 50 million shot lifespan, the NyxQueen offers one of the best value-for-money investments for a salon.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "specs": {
+    "Power": "600W",
+    "Wavelengths": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Shot count": "50,000,000",
+    "Cooling system": "Water + Air + TEC (-5°C)",
+    "Spot size": "15×25 mm (PRO: adjustable)",
+    "Frequency": "1-10 Hz",
+    "Energy density": "1-120 J/cm²",
+    "Display": "10.4\" touchscreen",
+    "Power supply": "220V / 50Hz",
+    "Certifications": "CE, FDA"
+  },
+  "faq": [
+    {
+      "question": "What skin types can the NyxQueen be used on?",
+      "answer": "The NyxQueen operates on 4 wavelengths (755, 808, 940, 1064 nm), making it safely and effectively applicable on all Fitzpatrick skin types (I-VI). Thanks to the combined wavelengths, it delivers excellent results on both light and dark skin tones."
+    },
+    {
+      "question": "How quickly does the NyxQueen pay for itself?",
+      "answer": "On average within 2-4 months, with 5-8 clients per day. A diode laser hair removal treatment costs between 15,000-50,000 Ft depending on the treated area. Use our ROI calculator on the page for exact calculations!"
+    },
+    {
+      "question": "What does the 50 million shot lifespan mean?",
+      "answer": "The diode module is guaranteed for 50 million pulses – with 10-15 clients per day, this can mean 8-10 years of lifespan. This is a manufacturer guarantee; in practice the module may produce even more shots."
+    },
+    {
+      "question": "What training comes with the NyxQueen?",
+      "answer": "The device comes with a 79,990 Ft value device operator training within official adult education, FREE of charge. The training concludes with an FAR certificate confirming competence for the professional operation of the device."
+    },
+    {
+      "question": "What is the PRO configuration with adjustable spot size?",
+      "answer": "The PRO configuration (+259,990 Ft) includes a special handpiece that allows you to adjust the light pulse size for different body areas. Large spot size for fast treatment of legs and back, smaller spot size for precise work on face and bikini area."
+    },
+    {
+      "question": "What warranty do I get on the device?",
+      "answer": "We provide a 2-year comprehensive warranty on the NyxQueen. We have our own service background, and we provide a replacement device during repairs so your salon operations don't have to stop."
+    },
+    {
+      "question": "Is it possible to see the device before purchasing?",
+      "answer": "Yes! You can view and try the NyxQueen in person at our showroom (Érd, Budai út 28.) by appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "NyxQueen 4Wave diode laser device",
+    "Handpiece (15×25 mm spot size)",
+    "Safety goggles (operator + client)",
+    "Coolant and starter kit",
+    "User manual",
+    "Device operator training (FAR certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

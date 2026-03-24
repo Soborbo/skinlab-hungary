@@ -1,0 +1,134 @@
+{
+  "name": "LUNOX 2in1 4-Wellen-Diodenlaser & Q-switched ND:YAG Lasergerät",
+  "shortDescription": "2in1 Diodenlaser + Q-switched ND:YAG in einem Gerät. 4 Wellenlängen, Haarentfernung, Tattooentfernung, Carbon Peeling.",
+  "description": "LUNOX ist nicht nur ein weiteres Lasergerät – es ist eine zukunftssichere Investition, die mehrere separate Geräte in der Kosmetik ersetzen kann.\n\nDer Diodenlaser und die Q-Switched ND:YAG Technologie decken zusammen die gefragtesten und profitabelsten Dienstleistungen ab, sodass Sie mit LUNOX Ihr gesamtes Behandlungsportfolio mit einem einzigen Gerät aufbauen können.",
+  "metaTitle": "LUNOX 2in1 Diodenlaser & Q-switched ND:YAG Gerät",
+  "metaDescription": "LUNOX 2in1 Diodenlaser und ND:YAG Laser in einem – schnelle Amortisation, narbenfreie Behandlungen, intelligente Einstellungen und offizielle Schulung mit Zertifikat.",
+  "stats": [
+    { "value": "2in1", "label": "Technologie", "icon": "layers" },
+    { "value": "4", "label": "Wellenlängen (Diode)", "icon": "wave" },
+    { "value": "1600", "unit": "mJ", "label": "ND:YAG Energie", "icon": "zap" },
+    { "value": "-4°C", "label": "Kühlung", "icon": "snowflake" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "LUNOX – Zwei Technologien, unbegrenzte Möglichkeiten",
+    "paragraphs": [
+      "LUNOX ist nicht nur ein weiteres Lasergerät – es ist eine zukunftssichere Investition, die mehrere separate Geräte in der Kosmetik ersetzen kann.",
+      "Der Diodenlaser und die Q-Switched ND:YAG Technologie decken zusammen die gefragtesten und profitabelsten Dienstleistungen ab: Haarentfernung, Tattooentfernung, Pigmentbehandlung, Carbon Peeling und Hautverjüngung.",
+      "Mit LUNOX können Sie Ihr gesamtes Behandlungsportfolio mit einem einzigen Gerät aufbauen – ein Gerät statt vieler, mit schneller Amortisation."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zu LUNOX? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie LUNOX persönlich sehen?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie es selbst!",
+      "buttonLabel": "Termin buchen"
+    },
+    "final": {
+      "headline": "Interessiert am LUNOX 2in1 Lasergerät?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  },
+  "featureRows": {
+    "headline": "Warum lohnt sich LUNOX?",
+    "subtitle": "Zwei der gefragtesten Technologien in einem einzigen Gerät – maximale Amortisation",
+    "features": [
+      {
+        "title": "Diodenlaser-Haarentfernung – auf 4 Wellenlängen",
+        "description": "Effektive, dauerhafte Haarentfernung auf allen Hauttypen (Phototyp I–VI).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wellenlängen:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – helle, feine Haare</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – universell, durchschnittliche Wurzeltiefe</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – dunklere Haare</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – tief sitzende Haare</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Schmerzfreie, schnelle und kundenfreundliche Behandlung dank -4°C Kühlung.</p>",
+        "image": "@assets/products/lunox3.webp"
+      },
+      {
+        "title": "Q-Switched ND:YAG – Tattoo- und Pigmententfernung",
+        "description": "Der LUNOX Q-switched ND:YAG Laser liefert eine scharfe, konzentrierte Spot-Markierung, starke Energieabgabe und stabilen Impuls bei jeder Behandlung.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm und 532 nm Wellenlängen</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bis zu 1600 mJ Leistung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>3–5 ns Impulsdauer – narbenfreie Behandlung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Schwarze, blaue, braune, grüne, rote und gelbe Pigmente</div>\n</div>",
+        "highlight": "Der amerikanische Coherent Laserstab garantiert jahrelangen stabilen, zuverlässigen Betrieb.",
+        "image": "@assets/products/lunox1.webp"
+      },
+      {
+        "title": "Carbon Peeling – die Hollywood-Behandlung",
+        "description": "Die Kombination aus dem 1320 nm Behandlungskopf und dem Q-Switched Impuls ermöglicht eine Premium-Gesichtsbehandlung mit schwarzer Kohlenstoffmaske.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tiefenreinigung der Poren</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reguliert die Talgproduktion</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reduziert Entzündungen</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sofort glattere, frischere Hautoberfläche</div>\n</div>",
+        "image": "@assets/products/lunox2.webp"
+      },
+      {
+        "title": "Smarter Diodenlaser – intelligente Parametereinstellung",
+        "description": "Die integrierte intelligente Software erkennt automatisch die gewählten Behandlungsparameter und stellt eigenständig die optimalen Werte ein.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hauttyp (Phototyp I–VI)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Behandlungsbereich</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Haarqualität und -menge</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Stellt automatisch Leistung, Frequenz, Impulsdauer und Kühlwert ein.</p>",
+        "image": "@assets/products/lunox4.webp"
+      },
+      {
+        "title": "Ein Gerät statt vieler – maximale Amortisation",
+        "description": "Sie müssen keinen separaten Diodenlaser, Pigmentlaser oder Tattooentfernungslaser kaufen – LUNOX bietet all das in einem einzigen kompakten Gerät.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Haarentfernung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tattooentfernung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pigmentfleckenbehandlung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon Peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hautverjüngung und Rejuvenation</div>\n</div>",
+        "highlight": "Mit LUNOX können Sie den gesamten Kaufpreis in nur wenigen Monaten zurückholen.",
+        "image": "@assets/products/lunox5.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Bediener-Schulung – Umfassendes Schulungsprogramm",
+    "badge": "Mit offiziellem Zertifikat",
+    "intro": "Zum LUNOX Gerät ist ein umfassendes Schulungsprogramm verfügbar, das die Bediener vollständig auf die sichere und effektive Nutzung vorbereitet. Der Kurs ist offiziell im FAR-System genehmigt, unter Mitwirkung von Ärzten und Gesundheitspädagogen.",
+    "items": [
+      "Theoretische und praktische Vorstellung der Diodenlaser- und Q-switched ND:YAG Technologie",
+      "Behandlungsprotokolle für verschiedene Hauttypen und Probleme",
+      "Detaillierte Bedienerdokumentation",
+      "Richtlinien für Kundenbetreuung und Nachsorge",
+      "Marketing- und Preisempfehlungen für den erfolgreichen Saloneinsatz",
+      "Praktische Behandlungen an Modellen"
+    ],
+    "closingParagraphs": [
+      "Nach Abschluss des Kurses erhalten Sie ein offizielles, persönliches Zertifikat, das die Beherrschung der professionellen LUNOX Gerätebedienung bestätigt.",
+      "Das Ziel ist, dass Sie nicht nur ein Gerät erhalten, sondern echtes, praktisches Wissen und geschäftliche Unterstützung."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "Schulungswert",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Intensivschulung",
+    "ctaText": "Ich interessiere mich für die Schulung"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Diodenlaser-Haarentfernung", "description": "Dauerhafte Haarentfernung auf 4 Wellenlängen, auf allen Hauttypen" },
+    { "icon": "eye", "name": "Tattooentfernung", "description": "Entfernung von schwarzen, blauen, braunen, grünen, roten und gelben Pigmenten" },
+    { "icon": "sun", "name": "Pigmentfleckenbehandlung", "description": "Aufhellung von Sommersprossen, Melasma, Sonnenflecken, Alterspigmentierungen" },
+    { "icon": "sparkles", "name": "Carbon Peeling", "description": "Hollywood-Behandlung: Tiefenreinigung, Porenverfeinerung, Hautverjüngung" },
+    { "icon": "bolt", "name": "Hautverjüngung", "description": "Kollagenstimulation, Hautstraffung, Texturverbesserung" },
+    { "icon": "droplet", "name": "Permanent-Make-up-Entfernung", "description": "Korrektur von Augenbrauen-, Lippen- und Augenlid-Permanent-Make-up" }
+  ],
+  "faq": [
+    {
+      "question": "Warum lohnt sich ein 2in1 Gerät?",
+      "answer": "LUNOX vereint Diodenlaser-Haarentfernung und Q-switched ND:YAG Technologie in einem Gerät. Sie müssen keine separaten Geräte kaufen – Haarentfernung, Tattooentfernung, Pigmentbehandlung, Carbon Peeling und Hautverjüngung sind alle mit einem Gerät durchführbar, was erhebliche Kosteneinsparungen bedeutet."
+    },
+    {
+      "question": "Wie schnell amortisiert sich LUNOX?",
+      "answer": "Diodenlaser-Haarentfernung und ND:YAG Behandlungen gehören zu den profitabelsten kosmetischen Dienstleistungen. Bei 3-5 Kunden pro Tag amortisiert sich LUNOX in der Regel innerhalb von 2-4 Monaten. Nutzen Sie unseren ROI-Rechner für genaue Zahlen!"
+    },
+    {
+      "question": "Welche Pigmente kann der ND:YAG-Teil behandeln?",
+      "answer": "Der Q-switched ND:YAG Laser behandelt effektiv schwarze, blaue, braune, grüne, rote und gelbe Pigmente mit den Wellenlängen 1064 nm und 532 nm. Er kann sowohl für Körpertattoo- als auch für Permanent-Make-up-Entfernung eingesetzt werden."
+    },
+    {
+      "question": "Welche Schulung ist bei LUNOX inklusive?",
+      "answer": "Ein umfassendes Schulungsprogramm, das im FAR-System genehmigt und unter Mitwirkung von Ärzten entwickelt wurde. Die Schulung ist beim Gerätekauf kostenlos und schließt mit einem offiziellen Zertifikat ab."
+    },
+    {
+      "question": "Kann ich das Gerät vor dem Kauf besichtigen?",
+      "answer": "Ja! In unserem Showroom (Érd, Budai út 28.) können Sie LUNOX nach vorheriger Terminvereinbarung persönlich besichtigen und testen."
+    }
+  ],
+  "whatsIncluded": [
+    "LUNOX 2in1 Lasergerät",
+    "Diodenlaser-Behandlungskopf (4 Wellenlängen)",
+    "Q-switched ND:YAG Behandlungsköpfe (1064 nm, 532 nm, 1320 nm)",
+    "Schutzbrille (Bediener + Kunde)",
+    "Bedienungsanleitung",
+    "Bediener-Schulung (FAR-Zertifikat)",
+    "2 Jahre umfassende Garantie",
+    "Ersatzgerät während der Reparatur"
+  ]
+}

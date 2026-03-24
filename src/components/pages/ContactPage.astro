@@ -100,7 +100,7 @@ const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 >
                   <option value="">{t(locale, 'form.productPlaceholder')}</option>
-                  {CATEGORIES.map((cat) => (
+                  {CATEGORIES.filter(c => c.featured).map((cat) => (
                     <option value={cat.id}>{t(locale, `categories.${cat.slug}`) || cat.name}</option>
                   ))}
                   <option value="other">{t(locale, 'common.all')}</option>

@@ -1,0 +1,141 @@
+{
+  "name": "MediLUX PRO Laser profesional cu diodă",
+  "shortDescription": "Laser profesional cu diodă de 2500W cu 4 lungimi de undă, dimensiune spot reglabilă și suport aplicator cu sterilizare UV. Disponibil în culori personalizate.",
+  "description": "MediLUX este cea mai avansată tehnologie laser cu diodă, dezvoltată pentru saloane și clinici profesionale.\n\nAparatul operează pe 4 lungimi de undă (755 nm, 808 nm, 940 nm, 1064 nm), asigurând tratamente eficiente și sigure pe toate tipurile de piele și densitățile de păr.\n\nDimensiunea spot reglabilă permite adaptarea la diferite zone ale corpului, iar suportul aplicator cu sterilizare UV garantează igiena maximă.",
+  "metaTitle": "MediLUX PRO Laser profesional cu diodă cu 4 lungimi de undă",
+  "metaDescription": "MediLUX PRO laser cu diodă de 2500W cu 4 lungimi de undă (755, 808, 940, 1064 nm). Spot reglabil, răcire -16°C, sterilizare UV. În culori personalizate.",
+  "stats": [
+    { "value": "2500", "unit": "W", "label": "Putere", "icon": "zap" },
+    { "value": "4", "label": "Lungimi de undă", "icon": "wave" },
+    { "value": "-16°C", "label": "Răcire", "icon": "snowflake" },
+    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 40000 },
+  "videoDescription": {
+    "headline": "MediLUX PRO – Laser cu diodă de nivel clinic cu design personalizat",
+    "paragraphs": [
+      "MediLUX este cea mai avansată tehnologie laser cu diodă, dezvoltată pentru saloane și clinici profesionale.",
+      "Putere de 2500W, 4 lungimi de undă, sistem de răcire cu contact de safir până la -16°C – tot ce are nevoie un salon premium.",
+      "MediLUX nu oferă doar performanță tehnologică remarcabilă, ci reprezintă și un standard estetic premium. Disponibil în culori personalizate: rose gold, auriu champagne, gri modern, argintiu elegant, holo-effect și roz pudrat."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Aveți întrebări despre MediLUX PRO? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți MediLUX PRO în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează laserul cu diodă MediLUX PRO?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
+  },
+  "featureRows": {
+    "headline": "De ce aleg profesioniștii MediLUX PRO?",
+    "subtitle": "Putere de 2500W, calitate de nivel clinic, design premium",
+    "features": [
+      {
+        "title": "Putere de 2500W – lider în categorie",
+        "description": "Puterea de 2500W a MediLUX PRO se remarcă pe piața laserelor cu diodă. Această putere permite epilarea rapidă, precisă și eficientă, chiar și în cele mai solicitante condiții de salon.",
+        "highlight": "Puterea de 2500W accelerează tratamentul chiar și pe cele mai mari suprafețe.",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      },
+      {
+        "title": "4 lungimi de undă – eficacitate universală",
+        "description": "MediLUX PRO operează pe 4 lungimi de undă, fiind eficient pe toate tipurile de piele și densitățile de păr.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – fire de păr deschise, fine</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – lungime de undă universală</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tonuri mai închise ale pielii</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – foliculi de păr adânci</div>\n</div>",
+        "image": "@assets/products/Adjustable.webp"
+      },
+      {
+        "title": "Răcire cu contact de safir la -16°C – confort maxim",
+        "description": "Sistemul avansat de răcire al MediLUX PRO combină răcirea cu apă, răcirea cu aer, răcirea TEC și răcirea cu contact de safir până la -16°C. Aceasta asigură tratamente confortabile și nedureroase pentru clienți.",
+        "highlight": "Răcirea cu contact de safir la -16°C asigură cel mai înalt nivel de confort.",
+        "image": "@assets/products/MediLUXGray2.webp"
+      },
+      {
+        "title": "Suport aplicator cu sterilizare UV",
+        "description": "Suportul aplicator cu sterilizare UV garantează igiena și siguranța maximă la fiecare tratament. Capul de tratament este sterilizat automat după fiecare utilizare.",
+        "highlight": "Igienă maximă cu sterilizare automată.",
+        "image": "@assets/products/MediLUXRosegold.webp"
+      },
+      {
+        "title": "Design personalizat – aspect premium",
+        "description": "MediLUX este disponibil în culori personalizate, potrivindu-se perfect identității de brand a salonului dumneavoastră.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rose gold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Auriu champagne</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Gri modern</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Argintiu elegant</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Holo-effect</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Roz pudrat</div>\n</div>",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Curs de operare – Suport profesional complet",
+    "badge": "Cu certificat oficial",
+    "intro": "Pentru MediLUX PRO oferim materiale de formare detaliate, elaborate în colaborare cu profesioniști din domeniul sănătății – inclusiv medici cosmetologi. Documentația acoperă nu doar operarea aparatului, ci și protocoale detaliate de tratament.",
+    "items": [
+      "Principiile de funcționare ale tehnologiei laser cu diodă",
+      "Domeniile de aplicare ale celor 4 lungimi de undă",
+      "Protocoale de tratament pentru toate tipurile de piele și culorile de păr",
+      "Sterilizare UV și instrucțiuni de igienă",
+      "Documentația clienților, marketing și modul de afaceri",
+      "Tratamente practice pe modele"
+    ],
+    "closingParagraphs": [
+      "După finalizarea cursului, emitem un certificat oficial.",
+      "Formarea este disponibilă și în format online, dacă este necesar."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "valoarea cursului",
+    "freeText": "GRATUIT la achiziția aparatului!",
+    "duration": "Curs intensiv de o zi",
+    "ctaText": "Mă interesează cursul"
+  },
+  "specs": {
+    "Putere": "2500W",
+    "Lungimi de undă": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Energie": "0–120 J/cm²",
+    "Dimensiune spot": "Reglabilă (precizie, 5×5 cm, 10×10 cm, 12×20 cm)",
+    "Frecvență": "1–10 Hz",
+    "Sistem de răcire": "Răcire cu apă + aer + TEC + contact safir (-16°C)",
+    "Ecran": "Ecran tactil de înaltă rezoluție",
+    "Sterilizare UV": "Suport aplicator integrat",
+    "Dimensiuni": "53 × 45 × 110 cm",
+    "Greutate": "58 kg",
+    "Alimentare": "220V / 50Hz"
+  },
+  "faq": [
+    {
+      "question": "Ce diferențiază MediLUX PRO de alte lasere cu diodă?",
+      "answer": "MediLUX PRO se remarcă prin puterea de 2500W, sistemul de răcire cu contact de safir până la -16°C și suportul aplicator cu sterilizare UV. În plus, este disponibil în culori personalizate pentru a se potrivi identității salonului dumneavoastră."
+    },
+    {
+      "question": "În ce culori este disponibil?",
+      "answer": "MediLUX este disponibil în rose gold, auriu champagne, gri modern, argintiu elegant, holo-effect și roz pudrat."
+    },
+    {
+      "question": "Cât de repede se amortizează MediLUX PRO?",
+      "answer": "Puterea de 2500W și 4 lungimi de undă permit tratamente rapide și eficiente. Cu 5-8 clienți pe zi, se amortizează de obicei în 2-3 luni. Utilizați calculatorul nostru ROI!"
+    },
+    {
+      "question": "Sunt disponibile plățile în rate?",
+      "answer": "Da! MediLUX PRO este disponibil și cu planuri avantajoase de plată în rate. Solicitați o ofertă personalizată!"
+    },
+    {
+      "question": "Pot vizualiza aparatul înainte de cumpărare?",
+      "answer": "Da! Puteți vedea și testa personal MediLUX PRO în showroom-ul nostru (Érd, Budai út 28.) cu programare prealabilă."
+    }
+  ],
+  "whatsIncluded": [
+    "Aparat laser cu diodă MediLUX PRO",
+    "Aplicator ergonomic laser cu diodă",
+    "Suport aplicator cu sterilizare UV",
+    "Capete de tratament cu dimensiune spot reglabilă",
+    "Ochelari de protecție (operator + client)",
+    "Manual de utilizare",
+    "Curs de operare (certificat)",
+    "Garanție completă 24 de luni",
+    "Aparat de schimb pe perioada reparației"
+  ]
+}

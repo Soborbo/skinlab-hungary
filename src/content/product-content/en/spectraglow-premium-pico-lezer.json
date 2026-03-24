@@ -1,0 +1,175 @@
+{
+  "name": "SpectraGlow premium pico laser",
+  "shortDescription": "PicoSecond ND:YAG laser with 2000ps pulse. 1600 mJ energy, 2–10 mm spot size, tattoo removal in as few as 3–4 sessions.",
+  "description": "The SpectraGlow premium pico laser represents the most advanced aesthetic laser technology, working with ultra-short, picosecond pulses.\n\nCompared to traditional Q-Switch lasers, it breaks pigments into much smaller particles, allowing the body to remove them faster and more efficiently. This requires fewer treatments while the skin suffers less damage, healing is faster and less painful.\n\nThe 1064 nm and 532 nm wavelengths (optionally 585 nm and 650 nm) cover the full pigment spectrum from dark tattoo removal through red pigments to skin rejuvenation.",
+  "metaTitle": "SpectraGlow premium pico laser | Tattoo, pigment, skin rejuvenation",
+  "metaDescription": "SpectraGlow PicoSecond ND:YAG laser with 2000ps pulse. Tattoo removal in 3–4 sessions, pigment treatment, skin rejuvenation. 1600 mJ energy, 2-year warranty.",
+  "stats": [
+    { "value": "2000", "unit": "ps", "label": "Pulse duration", "icon": "zap" },
+    { "value": "1600", "unit": "mJ", "label": "Max. energy", "icon": "bolt" },
+    { "value": "3–4", "label": "Sessions (tattoo)", "icon": "sparkles" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 50000 },
+  "videoDescription": {
+    "headline": "SpectraGlow – The pinnacle of picosecond technology",
+    "paragraphs": [
+      "The SpectraGlow is not simply another laser – it is the most advanced technology for pigment removal and skin rejuvenation. Picosecond pulses break down pigment particles in trillionths of a second, far surpassing the efficiency of traditional nanosecond lasers.",
+      "It works on two base wavelengths (1064 nm and 532 nm), and can optionally be expanded with 585 nm and 650 nm wavelengths – treating virtually every colour of tattoo and pigmentation.",
+      "The 2–10 mm adjustable spot size and 1–10 Hz frequency enable precise, personalised treatment for every area."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the SpectraGlow pico laser? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the SpectraGlow in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the SpectraGlow premium pico laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why is the SpectraGlow the best investment?",
+    "subtitle": "Picosecond technology that revolutionises your treatments",
+    "features": [
+      {
+        "title": "Picosecond pulse – faster and more effective",
+        "description": "The 2000 picosecond pulse duration breaks down pigment particles in trillionths of a second, which the body absorbs and removes much more easily. Compared to traditional nanosecond lasers, fewer treatments are needed and the skin suffers less damage.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">The picosecond advantage:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Smaller pigment particles = faster absorption</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fewer treatments needed (tattoo: 3–4 sessions)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Minimal skin damage, faster healing</div>\n</div>",
+        "highlight": "The SpectraGlow's picosecond pulse can reduce the number of required treatments by up to half.",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      },
+      {
+        "title": "Full pigment spectrum – for every tattoo colour",
+        "description": "The 1064 nm wavelength is effective on dark pigments (black, blue, grey, green), while the 532 nm targets warm shades (red, orange, brown). Optionally expandable with 585 nm and 650 nm wavelengths for full colour spectrum coverage.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths and their applications:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – black, blue, grey, green pigments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – red, orange, warm brown pigments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>585 nm</strong> (optional) – special pigments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>650 nm</strong> (optional) – supplementary spectrum</div>\n</div>",
+        "highlight": "With optional wavelengths, the SpectraGlow can treat virtually every pigment colour.",
+        "image": "@assets/products/faa97a56-d7b4-42ee-91f9-427b1df20ea8.webp"
+      },
+      {
+        "title": "Tattoo removal – in fewer sessions",
+        "description": "The main advantage of picosecond technology shows in tattoo removal: while traditional Q-switched lasers require 6–12 sessions, the SpectraGlow can remove tattoos in as few as 3–4 sessions.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Body tattoo removal</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Permanent makeup correction</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Multi-layered tattoos</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Professional and amateur work</div>\n</div>",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      },
+      {
+        "title": "Skin rejuvenation and pigment treatment",
+        "description": "The SpectraGlow is not only for tattoo removal – the collagen-stimulating effect of picosecond pulses effectively treats signs of skin ageing.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pigmentation spot fading</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin tightening and collagen stimulation</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Acne scar fading</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin tone improvement</div>\n</div>",
+        "highlight": "Picosecond pulses also stimulate collagen production – resulting in younger, firmer skin.",
+        "image": "@assets/products/faa97a56-d7b4-42ee-91f9-427b1df20ea8.webp"
+      },
+      {
+        "title": "Professional technical specifications",
+        "description": "The SpectraGlow is a 113 kg, 90x45x170 cm professional standing unit that provides reliable performance for the highest level treatments.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Key specifications:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulse energy: max. 1600 mJ (double)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulse duration: 2000 ps</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spot size: 2–10 mm</div>\n</div>",
+        "image": "@assets/products/71c66475-162d-4d4e-bcf2-de50f27a5c6b.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – premium pico laser course",
+    "badge": "With FAR certificate",
+    "intro": "An official, FAR-registered device operator training is available for the SpectraGlow premium pico laser. The curriculum was developed with the collaboration of healthcare professionals and laser specialist physicians, and includes the special treatment protocols of picosecond technology.",
+    "items": [
+      "Theoretical foundations and operating principles of picosecond laser technology",
+      "Differences between nanosecond (Q-switched) and picosecond lasers",
+      "Wavelengths and application areas (tattoo, pigment, skin rejuvenation)",
+      "Treatment protocols for different pigment types and skin conditions",
+      "Contraindications, skin type assessment and safe treatment",
+      "Hands-on treatments on models"
+    ],
+    "closingParagraphs": [
+      "The aim of the training is to enable participants to confidently and safely apply the SpectraGlow pico laser for even the most demanding treatments.",
+      "Upon completion of the training, an official FAR certificate will be issued."
+    ],
+    "price": "149,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "Two-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Dr. Andrea Szűcs",
+      "date": "15 June 2025",
+      "text": "The SpectraGlow pico laser has become the most important device in my clinic. <mark>Tattoo removal results are visible much faster than with my previous Q-switched laser</mark> – clients are satisfied after 3–4 sessions, previously this took 8–10 treatments.",
+      "rating": 5
+    },
+    {
+      "name": "Krisztina Balogh",
+      "date": "22 August 2025",
+      "text": "I was initially sceptical about the pico laser price tag, but the results convinced me. <mark>Pigmentation treatment and skin rejuvenation deliver fantastic results</mark>, my clients love it. The device paid for itself in the first six months.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Picosecond laser technology is the current pinnacle of pigment removal and skin rejuvenation. The SpectraGlow is one of the most effective pico lasers on the market – the 2000 ps pulse duration and 1600 mJ energy combination effectively treats even the most difficult tattoos.",
+    "author": "László Horváth",
+    "role": "Laser technology expert"
+  },
+  "specs": {
+    "Type": "PicoSecond ND:YAG laser",
+    "Wavelengths": "1064 nm, 532 nm (optional: 585 nm, 650 nm)",
+    "Pulse energy (single)": "max. 400 mJ (532 nm), max. 800 mJ (1064 nm)",
+    "Pulse energy (double)": "max. 800 mJ (532 nm), max. 1600 mJ (1064 nm)",
+    "Pulse duration": "2000 ps",
+    "Frequency": "1–10 Hz",
+    "Spot size": "2–10 mm",
+    "Dimensions": "90 x 45 x 170 cm",
+    "Weight": "113 kg",
+    "Certifications": "CE"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Tattoo removal", "description": "Fast and effective removal of every colour tattoo with picosecond pulses, in as few as 3–4 sessions" },
+    { "icon": "sun", "name": "Pigmentation treatment", "description": "Effective fading and removal of freckles, sun spots, age spots and melasma" },
+    { "icon": "sparkles", "name": "Skin rejuvenation", "description": "Collagen stimulation, skin tightening and texture improvement through the rejuvenating effect of picosecond pulses" },
+    { "icon": "eye", "name": "Permanent makeup removal", "description": "Precise correction and removal of eyebrow, lip and eyelid permanent makeup" },
+    { "icon": "droplet", "name": "Acne scar treatment", "description": "Fading of post-acne scars, hyperpigmentation and uneven skin surface" },
+    { "icon": "bolt", "name": "Vascular treatment", "description": "Also suitable for treating vascular changes with the appropriate competence" }
+  ],
+  "faq": [
+    {
+      "question": "How does the pico laser differ from a traditional Q-switched laser?",
+      "answer": "The main difference lies in the pulse duration: the pico laser works in picoseconds (trillionths of a second), while the Q-switched works in nanoseconds (billionths of a second). The shorter pulse breaks the pigment into much smaller particles, which the body absorbs more easily and quickly. Result: fewer treatments, faster healing, less skin stress."
+    },
+    {
+      "question": "How many treatments are needed for tattoo removal?",
+      "answer": "With the SpectraGlow pico laser, an average of 3–4 treatments is sufficient for most tattoo removals, compared to the 6–12 session protocol of traditional lasers. The exact number depends on the tattoo's size, colour, depth and skin type."
+    },
+    {
+      "question": "What tattoo colours can it treat?",
+      "answer": "The 1064 nm wavelength is effective on dark pigments (black, blue, grey, green), the 532 nm on warm colours (red, orange, brown). Optionally, with 585 nm and 650 nm wavelengths, the full colour spectrum can be covered."
+    },
+    {
+      "question": "Is the treatment painful?",
+      "answer": "Picosecond pulses stress the skin less than nanosecond lasers, so the treatment is generally less painful. Anaesthesia is usually not needed, but topical anaesthetic cream can be applied if desired."
+    },
+    {
+      "question": "What skin types is it suitable for?",
+      "answer": "The SpectraGlow can be safely used on all skin types (Fitzpatrick I–VI). Picosecond technology minimises thermal effects, reducing the risk of side effects even on darker skin types."
+    },
+    {
+      "question": "How quickly does the SpectraGlow pay for itself?",
+      "answer": "Tattoo removal costs 30,000–80,000 Ft per treatment, pigment treatment 20,000–50,000 Ft, skin rejuvenation 25,000–60,000 Ft. With 3–5 clients per day, the SpectraGlow typically pays for itself in 4–6 months. Use our ROI calculator for an exact calculation!"
+    },
+    {
+      "question": "Can I see the device before purchasing?",
+      "answer": "Yes! You can personally view and try out the SpectraGlow pico laser in our showroom (Érd, Budai út 28.) by prior appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "SpectraGlow premium PicoSecond ND:YAG laser",
+    "1064 nm treatment head (dark pigments)",
+    "532 nm treatment head (light, warm pigments)",
+    "Safety goggles (operator + client)",
+    "Foot pedal",
+    "User manual",
+    "Device operator training (FAR certificate)",
+    "2-year full warranty",
+    "Replacement device during repairs"
+  ]
+}

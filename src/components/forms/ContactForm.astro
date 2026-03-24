@@ -42,7 +42,7 @@ const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
 const thankYouLink = locale === 'hu' ? '/koszonjuk' : `/${locale}/koszonjuk`;
 
 // Product options from constants with translations
-const productOptions = CATEGORIES.map((cat) => ({
+const productOptions = CATEGORIES.filter(c => c.featured).map((cat) => ({
   value: cat.id,
   label: t(locale, `categories.${cat.id}`) || cat.nameShort,
 }));

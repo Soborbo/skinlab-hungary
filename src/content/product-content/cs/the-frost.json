@@ -1,0 +1,41 @@
+{
+  "name": "THE FROST – ColdPlasma by Skinlab",
+  "shortDescription": "THE FROST je moderní profesionální elektrokosmetický přístroj, který spojuje technologii studené plazmy, teplé plazmy a ozonové plazmy v jednom zařízení. Cílem je viditelné zlepšení stavu pokožky bez řezů, krvácení a dlouhé doby rekonvalescence, výhradně pro kosmetické a estetické použití.",
+  "description": "THE FROST – ColdPlasma by Skinlab je moderní profesionální elektrokosmetický přístroj, který spojuje technologii studené plazmy, teplé plazmy a ozonové plazmy v jednom zařízení.\n\nCílem je viditelné zlepšení stavu pokožky bez řezů, krvácení a dlouhé doby rekonvalescence, výhradně pro kosmetické a estetické použití.\n\nPřístroj není zdravotnickým prostředkem; používá se v kosmetickém prostředí. Plně spadá do kompetence kosmetiček a ke každému přístroji je přiložena kompletní právní dokumentace.",
+  "metaTitle": "THE FROST ColdPlasma | Profesionální přístroj 9 v 1 se studenou plazmou | SkinLab Hungary",
+  "metaDescription": "THE FROST přístroj se studenou plazmou: 9 funkcí v jednom. Studená plazma, termoplazma, ozonová plazma. Akné, anti-aging, obnova pleti. 2 roky záruky.",
+  "stats": [
+    { "value": "9", "unit": "v 1", "label": "Funkcí", "icon": "layers" },
+    { "value": "3", "label": "Plazmové technologie", "icon": "zap" },
+    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" },
+    { "value": "0", "unit": "min", "label": "Doba rekonvalescence", "icon": "clock" }
+  ],
+  "roi": { "defaultTreatmentPrice": 20000 },
+  "cta": {
+    "afterVideo": { "text": "Máte dotazy k THE FROST? Rádi vám pomůžeme!", "buttonLabel": "Žádost o konzultaci", "phoneLabel": "Zavolejte nám" },
+    "afterFeatures": { "headline": "Chcete vidět THE FROST naživo?", "subtitle": "Navštivte náš showroom a vyzkoušejte si ho osobně!", "buttonLabel": "Rezervovat termín" },
+    "final": { "headline": "Máte zájem o THE FROST?", "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout se.", "buttonLabel": "Žádost o konzultaci" }
+  },
+  "featureRows": { "headline": "Proč odborníci volí THE FROST?", "subtitle": "9 funkcí, 3 plazmové technologie, neomezené možnosti ošetření", "features": [] },
+  "functionCards": [
+    { "icon": "snowflake", "name": "Derma Plasma", "description": "Obnova pokožky, čištění pórů studenou plazmou" },
+    { "icon": "zap", "name": "Stamp Plasma", "description": "Mikrostimulace, zlepšení textury pokožky" },
+    { "icon": "bolt", "name": "Hyper Plasma", "description": "Intenzivní antibakteriální účinek" },
+    { "icon": "sparkles", "name": "Scalp Plasma", "description": "Aktivace pokožky hlavy, stimulace vlasových folikulů" },
+    { "icon": "spray", "name": "Jet Plasma", "description": "Vpravování účinných látek, osvěžující ošetření" },
+    { "icon": "sun", "name": "Warm Plasma", "description": "Zpevnění pokožky, stimulace kolagenu termoplazmou" },
+    { "icon": "bolt", "name": "Flash Plasma", "description": "Intenzivní aktivace pokožky, rejuvenace" },
+    { "icon": "eye", "name": "Diamond Plasma", "description": "Zjemnění povrchu pokožky, liftingový efekt" },
+    { "icon": "bubbles", "name": "Ozonová plazma", "description": "Přirozená antibakteriální dezinfekce ozonem" }
+  ],
+  "faq": [
+    { "question": "Jaký je rozdíl mezi studenou plazmou a tradičním plazma perem?", "answer": "Tradiční plazma pero (fibroblast) vytváří na pokožce spáleniny, což je bolestivé a vyžaduje značnou dobu rekonvalescence. Technologie studené plazmy THE FROST je naopak neinvazivní, bezbolestná a bez doby rekonvalescence." },
+    { "question": "Mohu přístroj jako kosmetička legálně používat?", "answer": "Ano! THE FROST je oficiálně zařazen do kompetence kosmetiček. Ke každému přístroji dodáváme kompletní právní dokumentaci." },
+    { "question": "Na jaké kožní problémy je THE FROST vhodný?", "answer": "Široce použitelný: akné, jemné vrásky, kožní nepravidelnosti, ochablá pokožka, matný obličej, problémy s pokožkou hlavy. Ozonová plazma je zvláště účinná u zánětlivých stavů, termoplazma je ideální pro anti-aging." },
+    { "question": "Je ošetření bolestivé?", "answer": "Ošetření studenou plazmou je zcela bezbolestné. Při termoplazmě může být patrný mírný pocit tepla, který není nepříjemný. Žádný typ ošetření nevyžaduje znecitlivění." },
+    { "question": "Jak rychle se THE FROST vrátí?", "answer": "Ceny ošetření studenou plazmou se obvykle pohybují od 15 000 do 35 000 Ft. Při 3-5 klientech denně se přístroj obvykle vrátí za 2-4 měsíce." }
+  ],
+  "whatsIncluded": [
+    "THE FROST ColdPlasma přístroj", "Derma Plasma ošetřovací hlavice", "Stamp Plasma ošetřovací hlavice", "Hyper Plasma ošetřovací hlavice", "Scalp Plasma ošetřovací hlavice", "Jet Plasma ošetřovací hlavice", "Warm Plasma ošetřovací hlavice", "Flash Plasma ošetřovací hlavice", "Diamond Plasma ošetřovací hlavice", "Ozonová plazma ošetřovací hlavice", "Nožní pedál", "Uživatelský manuál", "Právní dokumentace", "2 roky plné záruky", "Náhradní přístroj po dobu opravy"
+  ]
+}

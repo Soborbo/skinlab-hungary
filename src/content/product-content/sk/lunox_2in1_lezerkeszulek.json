@@ -1,0 +1,134 @@
+{
+  "name": "LUNOX 2in1 4-vlnový diódový laser a Q-switched ND:YAG laserové zariadenie",
+  "shortDescription": "2in1 diódový laser + Q-switched ND:YAG v jednom prístroji. 4 vlnové dĺžky, epilácia, odstraňovanie tetovaní, carbon peeling.",
+  "description": "LUNOX nie je len ďalšie laserové zariadenie – je to budúca investícia schopná nahradiť viacero samostatných prístrojov v kozmetike.\n\nDiódový laser a technológia Q-Switched ND:YAG spoločne pokrývajú najžiadanejšie a najziskovejšie služby, takže s LUNOX môžete vybudovať celé svoje portfólio ošetrení jediným prístrojom.",
+  "metaTitle": "LUNOX 2in1 diódový laser a Q-switched ND:YAG prístroj",
+  "metaDescription": "LUNOX 2in1 diódový laser a ND:YAG laser v jednom – rýchla návratnosť, ošetrenia bez jaziev, inteligentné nastavenia a oficiálne školenie s certifikátom.",
+  "stats": [
+    { "value": "2in1", "label": "Technológia", "icon": "layers" },
+    { "value": "4", "label": "Vlnové dĺžky (dióda)", "icon": "wave" },
+    { "value": "1600", "unit": "mJ", "label": "ND:YAG energia", "icon": "zap" },
+    { "value": "-4°C", "label": "Chladenie", "icon": "snowflake" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "LUNOX – Dve technológie, neobmedzené možnosti",
+    "paragraphs": [
+      "LUNOX nie je len ďalšie laserové zariadenie – je to budúca investícia schopná nahradiť viacero samostatných prístrojov v kozmetike.",
+      "Diódový laser a technológia Q-Switched ND:YAG spoločne pokrývajú najžiadanejšie a najziskovejšie služby: epiláciu, odstraňovanie tetovaní, ošetrenie pigmentu, carbon peeling a omladenie pleti.",
+      "S LUNOX môžete vybudovať celé svoje portfólio ošetrení jediným prístrojom – jeden prístroj namiesto mnohých, s rýchlou návratnosťou."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Máte otázky ohľadom LUNOX? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidieť LUNOX osobne?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho sami!",
+      "buttonLabel": "Rezervovať termín"
+    },
+    "final": {
+      "headline": "Zaujíma vás laserové zariadenie LUNOX 2in1?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
+  },
+  "featureRows": {
+    "headline": "Prečo sa LUNOX oplatí?",
+    "subtitle": "Dve najžiadanejšie technológie v jednom prístroji – maximálna návratnosť",
+    "features": [
+      {
+        "title": "Diódová laserová epilácia – na 4 vlnových dĺžkach",
+        "description": "Účinná, trvalá epilácia na všetkých typoch pleti (fototyp I–VI).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vlnové dĺžky:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – svetlé, jemné chĺpky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzálne, priemerná hĺbka koreňa</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tmavšie ochlpenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – hlboko uložené chĺpky</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Bezbolestný, rýchly a klientsky priateľský zákrok vďaka chladeniu na -4°C.</p>",
+        "image": "@assets/products/lunox3.webp"
+      },
+      {
+        "title": "Q-Switched ND:YAG – odstraňovanie tetovaní a pigmentu",
+        "description": "Q-switched ND:YAG laser LUNOX poskytuje ostrú, koncentrovanú stopu, silné energetické žiarenie a stabilný impulz pri každom ošetrení.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vlnové dĺžky 1064 nm a 532 nm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Výkon až 1600 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Dĺžka impulzu 3–5 ns – ošetrenie bez jaziev</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Čierne, modré, hnedé, zelené, červené a žlté pigmenty</div>\n</div>",
+        "highlight": "Americká laserová tyč Coherent zaručuje stabilnú a spoľahlivú prevádzku po mnoho rokov.",
+        "image": "@assets/products/lunox1.webp"
+      },
+      {
+        "title": "Carbon peeling – hollywoodske ošetrenie",
+        "description": "Kombinácia aplikátora 1320 nm a Q-Switched impulzu umožňuje prémiové ošetrenie tváre s čiernou uhlíkovou maskou.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hĺbkové čistenie pórov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reguluje produkciu kožného mazu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Znižuje zápaly</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Okamžite hladší, sviežejší povrch pleti</div>\n</div>",
+        "image": "@assets/products/lunox2.webp"
+      },
+      {
+        "title": "Inteligentný diódový laser – automatické nastavenie parametrov",
+        "description": "Vstavaný inteligentný softvér automaticky rozpozná zvolené parametre ošetrenia a samostatne nastaví optimálne hodnoty.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Typ pleti (fototyp I–VI)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ošetrovaná oblasť</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kvalita a množstvo ochlpenia</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Automaticky nastaví výkon, frekvenciu, dĺžku impulzu a hodnotu chladenia.</p>",
+        "image": "@assets/products/lunox4.webp"
+      },
+      {
+        "title": "Jeden prístroj namiesto mnohých – maximálna návratnosť",
+        "description": "Nemusíte kupovať samostatný diódový laser, pigmentový laser alebo laser na odstraňovanie tetovaní – LUNOX ponúka všetko v jednom kompaktnom prístroji.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Epilácia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Odstraňovanie tetovaní</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ošetrenie pigmentových škvŕn</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Omladenie a rejuvenácia pleti</div>\n</div>",
+        "highlight": "S LUNOX môžete celú obstarávaciu cenu získať späť už za niekoľko mesiacov.",
+        "image": "@assets/products/lunox5.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Školenie obsluhy – Komplexný školiaci program",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K prístroju LUNOX je k dispozícii komplexný školiaci program, ktorý obsluhu plne pripraví na bezpečné a účinné používanie. Kurz je oficiálne schválený v systéme FAR, za účasti lekárov a zdravotníckych pedagógov.",
+    "items": [
+      "Teoretický a praktický prehľad technológie diódového laseru a Q-switched ND:YAG",
+      "Protokoly ošetrenia pre rôzne typy pleti a problémy",
+      "Podrobná dokumentácia pre obsluhu",
+      "Pokyny pre starostlivosť o klientov a následnú starostlivosť",
+      "Marketingové a cenové odporúčania pre úspešné salónové využitie",
+      "Praktické ošetrenia na modeloch"
+    ],
+    "closingParagraphs": [
+      "Po absolvovaní kurzu obdržíte oficiálny, menný certifikát potvrdzujúci zvládnutie profesionálnej obsluhy prístroja LUNOX.",
+      "Cieľom je, aby ste nezískali len prístroj, ale skutočné, praktické znalosti a obchodnú podporu."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "hodnota školenia",
+    "freeText": "ZADARMO pri kúpe prístroja!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Diódová laserová epilácia", "description": "Trvalá epilácia na 4 vlnových dĺžkach, na všetkých typoch pleti" },
+    { "icon": "eye", "name": "Odstraňovanie tetovaní", "description": "Odstránenie čiernych, modrých, hnedých, zelených, červených a žltých pigmentov" },
+    { "icon": "sun", "name": "Ošetrenie pigmentových škvŕn", "description": "Zosvetlenie pih, melazmy, slnečných škvŕn, vekových pigmentácií" },
+    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hollywoodske ošetrenie: hĺbkové čistenie, stiahnutie pórov, omladenie pleti" },
+    { "icon": "bolt", "name": "Omladenie pleti", "description": "Stimulácia kolagénu, spevnenie pleti, zlepšenie textúry" },
+    { "icon": "droplet", "name": "Odstránenie permanentného make-upu", "description": "Korekcia permanentného make-upu obočia, pier, viečok" }
+  ],
+  "faq": [
+    {
+      "question": "Prečo si vybrať prístroj 2in1?",
+      "answer": "LUNOX spája diódovú laserovú epiláciu a technológiu Q-switched ND:YAG v jednom prístroji. Nemusíte kupovať samostatné prístroje – epilácia, odstraňovanie tetovaní, ošetrenie pigmentu, carbon peeling a omladenie pleti – to všetko je možné vykonávať jedným prístrojom, čo predstavuje významnú úsporu nákladov."
+    },
+    {
+      "question": "Ako rýchlo sa LUNOX zaplatí?",
+      "answer": "Diódová laserová epilácia a ošetrenia ND:YAG patria medzi najziskovejšie kozmetické služby. Pri 3-5 klientoch denne sa LUNOX obvykle zaplatí za 2-4 mesiace. Použite náš ROI kalkulátor pre presný výpočet!"
+    },
+    {
+      "question": "Aké pigmenty dokáže ND:YAG časť ošetriť?",
+      "answer": "Q-switched ND:YAG laser účinne ošetruje čierne, modré, hnedé, zelené, červené a žlté pigmenty s vlnovými dĺžkami 1064 nm a 532 nm. Dá sa použiť na odstraňovanie tetovaní aj permanentného make-upu."
+    },
+    {
+      "question": "Aké školenie je súčasťou LUNOX?",
+      "answer": "Komplexný školiaci program schválený v systéme FAR, vyvinutý za účasti lekárov. Školenie je pri kúpe prístroja zadarmo a je zakončené oficiálnym certifikátom."
+    },
+    {
+      "question": "Môžem si prístroj prezrieť pred nákupom?",
+      "answer": "Áno! V našom showroome (Érd, Budai út 28.) si môžete LUNOX osobne prezrieť a vyskúšať po predchádzajúcej dohode."
+    }
+  ],
+  "whatsIncluded": [
+    "Laserové zariadenie LUNOX 2in1",
+    "Aplikátor diódového laseru (4 vlnové dĺžky)",
+    "Aplikátory Q-switched ND:YAG (1064 nm, 532 nm, 1320 nm)",
+    "Ochranné okuliare (obsluha + klient)",
+    "Návod na použitie",
+    "Školenie obsluhy (certifikát FAR)",
+    "2 roky komplexnej záruky",
+    "Náhradný prístroj počas opravy"
+  ]
+}

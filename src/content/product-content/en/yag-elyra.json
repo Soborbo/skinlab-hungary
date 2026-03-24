@@ -1,0 +1,151 @@
+{
+  "name": "ELYRA Q-Switched ND:YAG Laser Device",
+  "shortDescription": "Compact, portable ND:YAG laser weighing 30 kg. 1064/532/1320 nm wavelengths, 100–2000 mJ energy, ideal for mobile service providers.",
+  "description": "The ELYRA is a state-of-the-art, easily portable ND:YAG nanosecond laser device specifically designed for the removal of pigment spots, tattoos and skin imperfections. The device's short pulse duration enables high-energy pigment destruction while minimising the risk of skin damage.",
+  "metaTitle": "ELYRA Nanosecond Laser – Pigment, Tattoo, Carbon Peeling",
+  "metaDescription": "The ELYRA ND:YAG laser is a compact, 30 kg portable device for pigment spot and tattoo removal and carbon peeling treatments. 100–2000 mJ energy, 2-year warranty.",
+  "stats": [
+    { "value": "3", "label": "Wavelengths", "icon": "wave" },
+    { "value": "2000", "unit": "mJ", "label": "Max. energy", "icon": "zap" },
+    { "value": "30", "unit": "kg", "label": "Net weight", "icon": "layers" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 25000 },
+  "videoDescription": {
+    "headline": "ELYRA – Portable professional laser that makes no compromises",
+    "paragraphs": [
+      "The ELYRA was specifically designed for those who work as mobile beauticians or want to offer laser treatments at multiple locations. At just 30 kg, it's easily transportable yet delivers professional performance.",
+      "It operates with nanosecond pulse duration, enabling targeted pigment destruction with minimal skin damage. The three wavelengths (1064 nm, 532 nm, 1320 nm) cover the complete treatment range.",
+      "Built-in safety features – water temperature protection, remote interlock and safety goggles – guarantee safe operation."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the ELYRA laser? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the ELYRA ND:YAG laser in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the ELYRA ND:YAG laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why is the ELYRA the favourite of mobile beauticians?",
+    "subtitle": "Portable, precise and reliable – without compromises",
+    "features": [
+      {
+        "title": "Nanosecond pulse – targeted pigment destruction",
+        "description": "The ELYRA operates with nanosecond pulse duration, which destroys pigments with high energy while minimising the risk of skin damage. The short pulse time enables precise, controlled treatments.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Key advantages:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>High-energy yet precisely controllable laser</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Targeted pigment destruction with minimal skin damage</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ergonomic, lightweight handpiece for comfortable use</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Modern, aesthetic design and user-friendly interface</div>\n</div>",
+        "highlight": "The nanosecond pulse means fewer sessions and faster healing for clients.",
+        "image": "@assets/products/ELYRA.webp"
+      },
+      {
+        "title": "3 wavelengths – complete treatment range",
+        "description": "The ELYRA operates on three wavelengths, covering everything from tattoo removal to carbon peeling.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths and applications:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – dark pigments (black, blue, grey, green) removal</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – light, warm pigments (red, brown, green) treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, pore tightening, skin texture improvement</div>\n</div>",
+        "image": "@assets/products/ELYRA1.webp"
+      },
+      {
+        "title": "Compact and portable design",
+        "description": "At just 30 kg net weight, the ELYRA is easily transportable, ideal for mobile beauticians and home-based service providers. Despite its compact size (40 x 55 x 115 cm), it delivers professional performance.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Technical specifications:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulse energy: 100–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cooling: condenser + fan</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Aiming light: 650 nm laser pointer</div>\n</div>",
+        "highlight": "30 kg net weight – easily transportable yet professional performance.",
+        "image": "@assets/products/ELYRA2.webp"
+      },
+      {
+        "title": "Built-in safety features",
+        "description": "The ELYRA has a multi-level safety system that protects both the operator and the client.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Safety features:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Water temperature protection (8–55 °C range)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Remote Interlock</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Safety goggles and eye shield (operator + client)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Visible 650 nm laser pointer for precise aiming</div>\n</div>",
+        "image": "@assets/products/ELYRA3.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – official certified course",
+    "badge": "With FAR certificate",
+    "intro": "An official, certified training course registered in the FAR system is available for the ELYRA ND:YAG laser. The curriculum was developed under the mentorship of an instructor with examination authority working in the healthcare sector, and is based on the professional materials of a Russian laser specialist physician.",
+    "items": [
+      "Operating principles of nanosecond ND:YAG laser technology",
+      "Wavelengths and application areas (tattoo, pigment, carbon peeling)",
+      "Treatment protocols for different pigment types",
+      "Contraindications, skin type assessment and safe treatment",
+      "Carbon peeling treatment practice",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "The training aims to enable participants to safely and legally apply the ELYRA laser for cosmetic and aesthetic treatments.",
+      "Upon completion of the training, an official FAR certificate is issued."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Farkas Nikolett",
+      "date": "2025. 07. 21.",
+      "text": "The ELYRA is the perfect device for mobile work. <mark>At 30 kg I can easily transport it, and clients are amazed by the results</mark>. The safety features are also very reassuring – the water temperature protection and remote interlock provide extra security.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "The ELYRA is the ideal choice for mobile beauticians and home-based service providers: compact size, high performance and multi-level safety system. The nanosecond technology enables precise, gentle treatments.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Tattoo removal", "description": "Black and coloured tattoo removal at 1064 nm and 532 nm wavelengths" },
+    { "icon": "sun", "name": "Pigment spot treatment", "description": "Fading of freckles, melasma, sun spots, age spots and hyperpigmentation" },
+    { "icon": "sparkles", "name": "Carbon peeling", "description": "Pore tightening, skin texture improvement and deep cleansing at 1320 nm wavelength" },
+    { "icon": "droplet", "name": "Skin brightening", "description": "Skin tone evening and brightening for uneven pigmentation" },
+    { "icon": "eye", "name": "Permanent makeup removal", "description": "Correction and removal of eyebrow and lip permanent makeup" }
+  ],
+  "faq": [
+    {
+      "question": "How portable is the ELYRA?",
+      "answer": "The ELYRA weighs 30 kg net (45 kg with packaging), measuring 40 x 55 x 115 cm. It's easily transportable by car, ideal for mobile beauticians and home-based service providers. Despite its compact size, it delivers professional performance."
+    },
+    {
+      "question": "What pigments can the ELYRA treat?",
+      "answer": "The 1064 nm wavelength treats dark pigments (black, blue, grey, green), the 532 nm treats light pigments (red, brown, green). Suitable for body and permanent makeup tattoo removal, pigment spots, freckles, melasma and post-inflammatory hyperpigmentation."
+    },
+    {
+      "question": "What safety features does the ELYRA have?",
+      "answer": "The ELYRA features water temperature protection (8–55 °C), remote interlock, 650 nm aiming laser and a safety goggles set. These features guarantee maximum safety for both the operator and the client."
+    },
+    {
+      "question": "What is carbon peeling?",
+      "answer": "Carbon peeling is a premium facial treatment where a special carbon layer is applied to the skin, then removed with 1320 nm laser pulses. The result: pore tightening, skin texture improvement and collagen stimulation. One treatment costs 15,000-30,000 Ft."
+    },
+    {
+      "question": "How quickly does the ELYRA pay for itself?",
+      "answer": "The ELYRA typically pays for itself in 3-4 months with 3-5 clients per day. Tattoo removal costs 15,000-50,000 Ft per session, carbon peeling 15,000-30,000 Ft. Use our ROI calculator for exact figures!"
+    },
+    {
+      "question": "What training comes with the ELYRA?",
+      "answer": "An official, FAR-registered certified device operator training is included FREE with the device purchase (worth 79,990 Ft). The one-day intensive training includes theoretical and practical modules, concluding with certification."
+    },
+    {
+      "question": "Is it possible to view the device before purchasing?",
+      "answer": "Yes! You can view and try the ELYRA ND:YAG laser in person at our showroom (Érd, Budai út 28.) by appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "ELYRA Q-switched ND:YAG laser device",
+    "1064 nm handpiece (dark pigments)",
+    "532 nm handpiece (light pigments)",
+    "1320 nm handpiece (carbon peeling)",
+    "Safety goggles and eye shield (operator + client)",
+    "650 nm aiming laser",
+    "User manual",
+    "Device operator training (FAR certificate)",
+    "2-year full warranty",
+    "Replacement device during repairs"
+  ]
+}

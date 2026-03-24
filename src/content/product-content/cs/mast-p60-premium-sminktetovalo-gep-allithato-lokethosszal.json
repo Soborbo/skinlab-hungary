@@ -1,0 +1,48 @@
+{
+  "name": "MAST P60 Premium PMU přístroj – Gold",
+  "shortDescription": "Bezdrátový PMU přístroj s 5stupňovou nastavitelnou délkou zdvihu, coreless motorem a 3+ hodiny provozu. Ideální pro pigmentaci obočí, rtů a očních linek.",
+  "description": "MAST P60 je bezdrátový PMU přístroj, který Dragonhawk navrhl přímo pro oblast permanentního make-upu.\n\nDíky vestavěnému akumulátoru poskytuje plnou volnost pohybu, zatímco ergonomický design a hmotnost pouhých 121 gramů snižují únavu ruky i při delší práci.\n\nJednou z jeho zvláštností je 5stupňově nastavitelná délka zdvihu (2,2–3,2 mm), což je u PMU přístrojů vzácné. To umožňuje aplikaci technik od jemných vláskování po stínování a přizpůsobení různým typům pleti.\n\nTichý coreless motor minimalizuje hluk a vibrace a nabízí tak příjemnější zážitek pro umělce i klienty.",
+  "metaTitle": "MAST P60 PMU přístroj – bezdrátový, s nastavitelnou délkou zdvihu",
+  "metaDescription": "Bezdrátový MAST P60 s nastavitelnou délkou zdvihu, dlouhou výdrží a tichým chodem. Dokonalý pro permanentní make-up pro začátečníky i profesionály.",
+  "stats": [
+    { "value": "121", "unit": "g", "label": "Ultralehký", "icon": "layers" },
+    { "value": "3+", "unit": "hod.", "label": "Provozní doba", "icon": "clock" },
+    { "value": "5", "label": "Stupňů délky zdvihu", "icon": "zap" },
+    { "value": "11000", "unit": "RPM", "label": "Rychlost motoru", "icon": "award" }
+  ],
+  "cta": {
+    "afterVideo": { "text": "Máte dotazy k MAST P60? Rádi pomůžeme!", "buttonLabel": "Žádost o konzultaci", "phoneLabel": "Zavolejte nám" },
+    "afterFeatures": { "headline": "Chcete si MAST P60 vyzkoušet?", "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ji osobně!", "buttonLabel": "Rezervace termínu" },
+    "final": { "headline": "Máte zájem o MAST P60?", "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám vybrat nejlepší variantu.", "buttonLabel": "Žádost o konzultaci" }
+  },
+  "featureRows": {
+    "headline": "Proč je MAST P60 oblíbencem PMU umělců?",
+    "subtitle": "Preciznost, svoboda a všestrannost v jednom přístroji",
+    "features": [
+      { "title": "5stupňová nastavitelná délka zdvihu", "description": "MAST P60 je jedním z mála PMU přístrojů nabízejících 5 různých délek zdvihu: 2,2 mm, 2,5 mm, 2,7 mm, 2,9 mm a 3,2 mm. To umožňuje aplikaci různých technik jedním přístrojem – od jemného vláskování po stínování, od citlivých očních linek po plnou pigmentaci rtů.", "image": "@assets/products/P60arany.webp" },
+      { "title": "Bezdrátová svoboda s 3+ hodinami provozu", "description": "Vestavěný 900 mAh akumulátor poskytuje více než 3 hodiny nepřetržitého provozu na jedno nabití. Díky Type-C konektoru se nabíjí rychle a pohodlně. Žádný kabel, žádné omezení – plná volnost pohybu při práci.", "image": "@assets/products/WQP-053-1.webp" },
+      { "title": "Tichý, bezvibračný coreless motor", "description": "Coreless motor s rychlostí 11 000 RPM pracuje s minimálním hlukem a vibracemi. To znamená nejen pohodlnější práci pro umělce, ale i lepší zážitek pro klienty – zvláště v citlivých oblastech jako oční linky nebo rty.", "image": "@assets/products/WQP-053-4.webp" },
+      { "title": "Ultralehký, ergonomický design", "description": "S hmotností pouhých 121 gramů a rozměry 27 mm průměr × 150 mm délka je MAST P60 jedním z nejlehčích přístrojů na trhu. Ergonomický úchop snižuje únavu ruky a umožňuje přesnou práci i při vícehodinových ošetřeních.", "image": "@assets/products/WQP-053-5-1024x1024.webp" }
+    ]
+  },
+  "training": {
+    "headline": "Školení obsluhy PMU přístroje", "badge": "S oficiálním certifikátem",
+    "intro": "K MAST P60 přístroji je dostupné profesionální školení obsluhy PMU přístroje v rámci oficiálně registrovaného vzdělávání dospělých.",
+    "items": ["Princip fungování MAST P60, nastavení délky zdvihu a vlastnosti motoru", "PMU obočí: vláskování, stínování, ombré technika", "Pigmentace rtů: kontura, akvarel, plná výplň", "Techniky očních linek: tenké a silnější linky", "Typy pleti a volba správné délky zdvihu", "Hygienické protokoly a sterilní práce", "Praktická ošetření na modelech"],
+    "closingParagraphs": ["Na školení si můžete přivést modela.", "Po absolvování vystavíme oficiální certifikát.", "Kontaktujte nás pro dohodnutí termínu!"],
+    "price": "49.990 Ft", "priceNote": "hodnota školení", "freeText": "ZDARMA při koupi přístroje!", "duration": "Jednodenní intenzivní školení", "ctaText": "Mám zájem o školení"
+  },
+  "testimonials": [{ "name": "Sz. Nikolett", "date": "2025. 09. 12.", "text": "P60 mám moc ráda, protože <mark>díky nastavitelné délce zdvihu dokážu jedním přístrojem udělat vše</mark> – obočí, rty, oční linky. Hmotnost je také perfektní, ruka mě celý den nebolí. Kurz byl také velmi užitečný, se spoustou praktických tipů.", "rating": 5 }],
+  "expertQuote": { "quote": "MAST P60 má jeden z nejlepších poměrů cena/výkon mezi PMU přístroji na trhu. Nastavitelná délka zdvihu je vzácná funkce v této kategorii a přináší značnou výhodu v každodenní práci.", "author": "Horváth László", "role": "Technický odborník" },
+  "specs": { "Hmotnost": "121 g", "Typ motoru": "Coreless motor", "Rychlost motoru": "11 000 ±10% RPM", "Rozměry": "27 mm × 150 mm", "Nastavitelná délka zdvihu": "2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm", "Provozní doba": "3+ hodin", "Provozní napětí": "4–10 V", "Konektor": "Type-C", "Akumulátor": "900 mAh" },
+  "faq": [
+    { "question": "Pro jaké techniky je MAST P60 vhodná?", "answer": "MAST P60 je díky 5stupňové nastavitelné délce zdvihu vhodná pro téměř všechny PMU techniky: vláskované obočí, stínování/ombré, pigmentaci rtů (kontura, akvarel, plná výplň), oční linky." },
+    { "question": "Jak dlouho vydrží akumulátor na jedno nabití?", "answer": "Vestavěný 900 mAh akumulátor poskytuje 3+ hodin nepřetržité práce. Type-C konektor umožňuje rychlé nabíjení." },
+    { "question": "S jakými jehlovými moduly je kompatibilní?", "answer": "MAST P60 používá univerzální patronový systém. Skvěle funguje s MAST Oceanheart a WJX jehlovými moduly." },
+    { "question": "Je vhodná i pro začátečníky?", "answer": "Ano! Nastavitelná délka zdvihu pomáhá při postupném osvojování technik, nízká hmotnost snižuje únavu ruky." },
+    { "question": "Jsou mezi Gold, Rosegold a Purple verzí technické rozdíly?", "answer": "Ne – všechny verze mají identické specifikace. Rozdíl je pouze v barvě/designu." },
+    { "question": "Jaké školení je k přístroji dostupné?", "answer": "Jednodenní intenzivní školení v rámci registrovaného vzdělávání dospělých, zdarma při koupi přístroje." },
+    { "question": "Jaká záruka se na přístroj vztahuje?", "answer": "Na MAST P60 se vztahuje 1 rok záruky. Po dobu opravy poskytujeme náhradní přístroj." }
+  ],
+  "whatsIncluded": ["MAST P60 PMU přístroj (Gold)", "Vestavěný 900 mAh akumulátor", "Type-C nabíjecí kabel", "Návod k použití", "1 rok záruka", "Náhradní přístroj po dobu opravy"]
+}

@@ -1,0 +1,154 @@
+{
+  "name": "Neo Laser Smart+",
+  "shortDescription": "Android-gesteuerter intelligenter ND:YAG Laser mit 13,3\" Touchscreen. Integrierte Handstückkühlung, 4 Wellenlängen, Tattoo- und Pigmententfernung.",
+  "description": "Der NeoLaser Smart+ repräsentiert die modernste intelligente Lasertechnologie: Android-Steuerung, 13,3\" Touchscreen und integrierte Handstückkühlung. Intelligente Software für präzise und effiziente Behandlungen – von der Tattooentfernung bis zum Carbon Peeling.",
+  "metaTitle": "NeoLaser Smart+ – Android ND:YAG Laser für Tattoo- und Pigmentbehandlung",
+  "metaDescription": "Der NeoLaser Smart+ intelligente YAG Laser mit Android-System, 13,3\" Touchscreen, integrierter Kühlung. Tattoo- und Pigmententfernung, Carbon Peeling, Hauterneuerung.",
+  "stats": [
+    { "value": "4", "label": "Wellenlängen", "icon": "wave" },
+    { "value": "2000", "unit": "mJ", "label": "Max. Energie", "icon": "zap" },
+    { "value": "13.3\"", "label": "Touchscreen", "icon": "layers" },
+    { "value": "2", "unit": "J.", "label": "Garantie", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 30000 },
+  "videoDescription": {
+    "headline": "Neo Laser Smart+ – Der intelligente Laser, der für Sie denkt",
+    "paragraphs": [
+      "Der NeoLaser Smart+ ist kein herkömmlicher ND:YAG Laser – er ist ein Android-gesteuertes Smartgerät, das Behandlungen mit intelligenter Software und integrierter Handstückkühlung einfacher und sicherer macht.",
+      "Der 13,3-Zoll-Touchscreen und die intuitive Oberfläche bieten maximalen Komfort, während die 4 Wellenlängen (1064 nm, 532 nm, 755 nm, 1320 nm) das gesamte Behandlungsspektrum abdecken.",
+      "Die einzigartige Handstückkühlung kühlt die Haut sofort, minimiert Schmerzen und das Risiko einer Hautschädigung – für maximalen Kundenkomfort."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum Neo Laser Smart+? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie den Neo Laser Smart+ persönlich sehen?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie ihn selbst!",
+      "buttonLabel": "Termin buchen"
+    },
+    "final": {
+      "headline": "Interessieren Sie sich für den Neo Laser Smart+?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen bei der Entscheidung.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  },
+  "featureRows": {
+    "headline": "Warum ist der Neo Laser Smart+ der Laser der Zukunft?",
+    "subtitle": "Android-Intelligenz, integrierte Kühlung, 4 Wellenlängen",
+    "features": [
+      {
+        "title": "Android Smart-Steuerung – 13,3\" Touchscreen",
+        "description": "Der NeoLaser Smart+ läuft auf einem Android-Betriebssystem mit benutzerfreundlichen und anpassbaren Einstellungen. Der 13,3-Zoll-Farb-Touchscreen bietet kristallklare Anzeige und intuitive Bedienung.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vorteile der Smart-Steuerung:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Android-Betriebssystem – intuitive Steuerung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>13,3\" Farb-Touchscreen-LCD-Display</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Intelligente Software für präzise Einstellungen</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Anpassbare Behandlungsprotokolle</div>\n</div>",
+        "highlight": "Das große Display und das Android-System machen Behandlungen schneller und komfortabler – auch für Anfänger.",
+        "image": "@assets/products/neolaser1.webp"
+      },
+      {
+        "title": "Integrierte Handstückkühlung – einzigartiges Komfortmerkmal",
+        "description": "Der einzigartige Kühlmechanismus im Handstück des NeoLaser Smart+ kühlt die Haut sofort, minimiert Schmerzen und das Risiko einer Hautschädigung. Diese Hightech-Lösung gewährleistet maximalen Kundenkomfort.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vorteile der integrierten Kühlung:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sofortige Hautkühlung während der Behandlung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Minimales Schmerzempfinden</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>15W Kühlleistung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reduziertes Risiko einer Hautschädigung</div>\n</div>",
+        "highlight": "Die integrierte Handstückkühlung ist ein einzigartiges Merkmal des Neo Laser Smart+ – selten in dieser Kategorie.",
+        "image": "@assets/products/IMG_6388.webp"
+      },
+      {
+        "title": "4 Wellenlängen – für jede Behandlung gerüstet",
+        "description": "Der Neo Laser Smart+ arbeitet auf 4 verschiedenen Wellenlängen und deckt so jeden Bedarf von der Tattooentfernung bis zum Carbon Peeling ab.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wellenlängen und Anwendungen:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – dunkle Pigmente, Tattoos (schwarz, blau, grau)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – helle Pigmente (rot, braun, gelblich)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>755 nm</strong> – Pigmentflecken, Sommersprossen, Sonnenflecken</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – Carbon Peeling, Hauttiefenreinigung, Porenverfeinerung</div>\n</div>",
+        "image": "@assets/products/jo.webp"
+      },
+      {
+        "title": "Professionelle Leistung und Zuverlässigkeit",
+        "description": "Der Neo Laser Smart+ arbeitet mit 10–2000 mJ Energiedichte und 1–10 Hz Impulsfrequenz und erzielt beeindruckende Ergebnisse in jedem Behandlungsbereich. Die einstellbare Spotgröße (2–6 mm) ermöglicht präzises Zielen.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Technische Parameter:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energiedichte: 10–2000 mJ/cm²</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Impulsfrequenz: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spotgröße: 2–6 mm (einstellbar)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kühlleistung: 15W</div>\n</div>",
+        "highlight": "Die einstellbare 2–6 mm Spotgröße ermöglicht flexibles Wechseln zwischen großen Flächen und präzisen Punktbehandlungen.",
+        "image": "@assets/products/neolaser2.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gerätebediener-Schulung – offiziell zertifizierter Kurs",
+    "badge": "Mit FAR-Zertifikat",
+    "intro": "Für den Neo Laser Smart+ ist eine offizielle, im FAR-System registrierte zertifizierte Schulung verfügbar. Der Lehrplan wurde unter der Aufsicht eines Dozenten mit Prüfungsberechtigung im Gesundheitswesen entwickelt und basiert auf den Fachmaterialien eines russischen Laserspezialisten.",
+    "items": [
+      "Funktionsprinzipien der Q-geschalteten ND:YAG Lasertechnologie",
+      "Wellenlängen und Anwendungsbereiche (Tattoo, Pigment, Carbon Peeling)",
+      "Nutzung der Android-Oberfläche und intelligenten Software",
+      "Behandlungsprotokolle für verschiedene Pigmenttypen",
+      "Kontraindikationen, Hauttypbestimmung und sichere Behandlung",
+      "Praktische Behandlungen an Modellen"
+    ],
+    "closingParagraphs": [
+      "Ziel der Schulung ist es, dass die Teilnehmer den Neo Laser Smart+ sicher und rechtskonform für kosmetische und ästhetische Behandlungen einsetzen können.",
+      "Nach Abschluss der Schulung wird ein offizielles FAR-Zertifikat ausgestellt."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "Schulungswert",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Intensivschulung",
+    "ctaText": "Interesse an der Schulung"
+  },
+  "testimonials": [
+    {
+      "name": "Molnár Dóra",
+      "date": "2025. 09. 15.",
+      "text": "Das Android-System des Neo Laser Smart+ ist fantastisch – <mark>jede Einstellung ist auf dem 13,3-Zoll-Display kristallklar, und die integrierte Kühlung ist der Liebling meiner Kunden</mark>. Weniger Schmerzen, zufriedenere Kunden und auch für mich sind die Behandlungen komfortabler.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Der Neo Laser Smart+ ist der Gipfel intelligenter Lasertechnologie: Android-Steuerung, 4 Wellenlängen und integrierte Handstückkühlung. Dieses Gerät wurde für die Salons der Zukunft gemacht.",
+    "author": "Horváth László",
+    "role": "Technischer Experte"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Tattooentfernung", "description": "Effektive Entfernung aller Tattoofarben bei 1064 nm und 532 nm Wellenlängen" },
+    { "icon": "sun", "name": "Pigmentfleckenbehandlung", "description": "Behandlung von Sommersprossen, Sonnenflecken, Altersflecken bei 755 nm Wellenlänge" },
+    { "icon": "sparkles", "name": "Carbon Peeling", "description": "Hauttiefenreinigung, Porenverfeinerung mit dem 1320 nm Handstück" },
+    { "icon": "droplet", "name": "Hauterneuerung", "description": "Hautverjüngung, Kollagenstimulation und Hautton-Angleichung" },
+    { "icon": "eye", "name": "Permanent-Make-up-Entfernung", "description": "Präzise Korrektur und Entfernung von Augenbrauen- und Lippen-Permanent-Make-up" },
+    { "icon": "snowflake", "name": "Integrierte Kühlung", "description": "Einzigartige Handstückkühlung für schmerzfreie Behandlungen" }
+  ],
+  "faq": [
+    {
+      "question": "Was ist der Vorteil der Android-Steuerung gegenüber einem herkömmlichen ND:YAG Laser?",
+      "answer": "Das Android-Betriebssystem bietet eine intuitive Oberfläche, ein großes Touchscreen-Display und intelligente Software. Anpassbare Einstellungen und visuelle Behandlungsanleitungen machen die Arbeit schneller und komfortabler – auch für Anfänger."
+    },
+    {
+      "question": "Wie funktioniert die integrierte Handstückkühlung?",
+      "answer": "Der 15W-Kühlmechanismus ist direkt in das Handstück eingebaut und kühlt die Haut sofort während der Laserimpulse. Dies minimiert Schmerzen und das Risiko einer Hautschädigung – für maximalen Kundenkomfort."
+    },
+    {
+      "question": "Welche Behandlungen kann ich mit den 4 Wellenlängen durchführen?",
+      "answer": "1064 nm für dunkle Tattoos, 532 nm für helle Pigmente, 755 nm für Pigmentflecken und Sommersprossen, 1320 nm für Carbon Peeling. So decken Sie alles von der Tattooentfernung bis zur Hautverjüngung ab."
+    },
+    {
+      "question": "Wie groß ist die Spotgröße?",
+      "answer": "Die einstellbare Spotgröße reicht von 2–6 mm und ist damit ideal sowohl für präzise Punktbehandlungen (z.B. Permanent-Make-up-Korrektur) als auch für die Behandlung größerer Flächen (z.B. Körpertattoos)."
+    },
+    {
+      "question": "Wie schnell amortisiert sich der Neo Laser Smart+?",
+      "answer": "Er amortisiert sich in der Regel in 2-4 Monaten bei 3-5 Kunden pro Tag. Tattooentfernung kostet 15.000-50.000 Ft pro Sitzung, Carbon Peeling 15.000-30.000 Ft. Nutzen Sie unseren ROI-Rechner für genaue Zahlen!"
+    },
+    {
+      "question": "Welche Schulung ist beim Neo Laser Smart+ inbegriffen?",
+      "answer": "Eine offizielle, FAR-registrierte zertifizierte Gerätebediener-Schulung ist beim Gerätekauf KOSTENLOS enthalten (im Wert von 79.990 Ft). Die Schulung deckt alles von der Nutzung der Android-Oberfläche bis zu praktischen Behandlungen ab."
+    },
+    {
+      "question": "Kann man das Gerät vor dem Kauf besichtigen?",
+      "answer": "Ja! Sie können den Neo Laser Smart+ persönlich in unserem Showroom (Érd, Budai út 28.) nach Terminvereinbarung besichtigen und testen."
+    }
+  ],
+  "whatsIncluded": [
+    "Neo Laser Smart+ ND:YAG Lasergerät",
+    "1064 nm Handstück (dunkle Pigmente, Tattoos)",
+    "532 nm Handstück (helle Pigmente)",
+    "755 nm Handstück (Pigmentflecken, Sommersprossen)",
+    "1320 nm Handstück (Carbon Peeling)",
+    "Integrierte Handstückkühlung",
+    "Schutzbrille (Bediener + Kunde)",
+    "Bedienungsanleitung",
+    "Gerätebediener-Schulung (FAR-Zertifikat)",
+    "2 Jahre Vollgarantie",
+    "Ersatzgerät während der Reparatur"
+  ]
+}

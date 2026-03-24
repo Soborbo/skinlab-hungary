@@ -1,0 +1,141 @@
+{
+  "name": "MediLUX PRO Profesionalni diodni laser",
+  "shortDescription": "2500W profesionalni diodni laser sa 4 talasne dužine, podesivom veličinom spota i UV-sterilizacionim držačem aplikatora. Dostupan u prilagođenim bojama.",
+  "description": "MediLUX je najsavremenija tehnologija diodnog lasera, razvijena za profesionalne salone i klinike.\n\nUređaj radi na 4 talasne dužine (755 nm, 808 nm, 940 nm, 1064 nm), čime obezbeđuje efikasne i bezbedne tretmane na svim tipovima kože i gustinama dlaka.\n\nPodesiva veličina spota omogućava prilagođavanje različitim delovima tela, dok UV-sterilizacioni držač aplikatora garantuje maksimalnu higijenu.",
+  "metaTitle": "MediLUX PRO Profesionalni diodni laser sa 4 talasne dužine",
+  "metaDescription": "MediLUX PRO 2500W diodni laser sa 4 talasne dužine (755, 808, 940, 1064 nm). Podesiv spot, hlađenje -16°C, UV-sterilizacija. U prilagođenim bojama.",
+  "stats": [
+    { "value": "2500", "unit": "W", "label": "Snaga", "icon": "zap" },
+    { "value": "4", "label": "Talasne dužine", "icon": "wave" },
+    { "value": "-16°C", "label": "Hlađenje", "icon": "snowflake" },
+    { "value": "2", "unit": "godine", "label": "Garancija", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 40000 },
+  "videoDescription": {
+    "headline": "MediLUX PRO – Klinički diodni laser sa prilagođenim dizajnom",
+    "paragraphs": [
+      "MediLUX je najsavremenija tehnologija diodnog lasera, razvijena za profesionalne salone i klinike.",
+      "2500W snaga, 4 talasne dužine, safirno kontaktno hlađenje do -16°C – sve što premium salon treba.",
+      "MediLUX ne pruža samo izvanredne tehnološke performanse, već predstavlja i premium estetski standard. Dostupan u prilagođenim bojama: rose gold, champagne gold, moderna siva, elegantno srebro, holo-efekat i puder roza."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Imate pitanja o MediLUX PRO? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatražite konsultaciju",
+      "phoneLabel": "Pozovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite da vidite MediLUX PRO uživo?",
+      "subtitle": "Posetite naš showroom u Érdu i isprobajte ga lično!",
+      "buttonLabel": "Zakažite termin"
+    },
+    "final": {
+      "headline": "Zanima vas diodni laser MediLUX PRO?",
+      "subtitle": "Zatražite besplatnu konsultaciju i pomoći ćemo vam da odlučite da li je ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatražite konsultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto stručnjaci biraju MediLUX PRO?",
+    "subtitle": "2500W snaga, klinički kvalitet, premium dizajn",
+    "features": [
+      {
+        "title": "2500W snaga – predvodnik kategorije",
+        "description": "Snaga MediLUX PRO od 2500W ističe se na tržištu diodnih lasera. Ova snaga omogućava brzu, preciznu i efikasnu epilaciju, čak i pri najzahtevnijem salonskom korišćenju.",
+        "highlight": "Snaga od 2500W ubrzava tretman čak i na najvećim površinama.",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      },
+      {
+        "title": "4 talasne dužine – univerzalna efikasnost",
+        "description": "MediLUX PRO radi na 4 talasne dužine, čineći ga efikasnim na svim tipovima kože i gustinama dlaka.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – svetle, tanke dlake</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzalna talasna dužina</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tamniji tonovi kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – duboko smešteni folikuli</div>\n</div>",
+        "image": "@assets/products/Adjustable.webp"
+      },
+      {
+        "title": "-16°C safirno kontaktno hlađenje – maksimalna udobnost",
+        "description": "Napredni sistem hlađenja MediLUX PRO kombinuje vodeno hlađenje, vazdušno hlađenje, TEC hlađenje i safirno kontaktno hlađenje do -16°C. To pruža udobne, bezbolne tretmane za klijente.",
+        "highlight": "Safirno kontaktno hlađenje od -16°C obezbeđuje najviši nivo udobnosti.",
+        "image": "@assets/products/MediLUXGray2.webp"
+      },
+      {
+        "title": "UV-sterilizacioni držač aplikatora",
+        "description": "UV-sterilizacioni držač aplikatora garantuje maksimalnu higijenu i bezbednost pri svakom tretmanu. Aplikator se automatski sterilizuje nakon svake upotrebe.",
+        "highlight": "Maksimalna higijena sa automatskom sterilizacijom.",
+        "image": "@assets/products/MediLUXRosegold.webp"
+      },
+      {
+        "title": "Prilagođeni dizajn – premium izgled",
+        "description": "MediLUX je dostupan u prilagođenim bojama, u potpunosti usklađen sa identitetom vašeg salona.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rose gold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Champagne gold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Moderna siva</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Elegantno srebro</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Holo-efekat</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Puder roza</div>\n</div>",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Edukacija operatera – Sveobuhvatna profesionalna podrška",
+    "badge": "Sa zvaničnim sertifikatom",
+    "intro": "Za MediLUX PRO obezbeđujemo detaljne edukativne materijale izrađene u saradnji sa zdravstvenim stručnjacima – uključujući lekare kozmetologe. Dokumentacija pokriva ne samo rukovanje uređajem, već i detaljne protokole tretmana.",
+    "items": [
+      "Principi rada tehnologije diodnog lasera",
+      "Oblasti primene 4 talasne dužine",
+      "Protokoli tretmana za sve tipove kože i boje dlaka",
+      "UV-sterilizacija i higijenske smernice",
+      "Dokumentacija klijenata, marketing i poslovni modul",
+      "Praktični tretmani na modelima"
+    ],
+    "closingParagraphs": [
+      "Nakon završetka edukacije izdajemo zvaničan sertifikat.",
+      "Obuka je po potrebi dostupna i u online formatu."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "vrednost edukacije",
+    "freeText": "BESPLATNO uz kupovinu uređaja!",
+    "duration": "Jednodnevna intenzivna edukacija",
+    "ctaText": "Zanima me edukacija"
+  },
+  "specs": {
+    "Snaga": "2500W",
+    "Talasne dužine": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Energija": "0–120 J/cm²",
+    "Veličina spota": "Podesiva (precizna, 5×5 cm, 10×10 cm, 12×20 cm)",
+    "Frekvencija": "1–10 Hz",
+    "Sistem hlađenja": "Vodeno + vazdušno + TEC + safirni kontakt (-16°C)",
+    "Ekran": "Ekran osetljiv na dodir visoke rezolucije",
+    "UV sterilizacija": "Ugrađeni držač aplikatora",
+    "Dimenzije": "53 × 45 × 110 cm",
+    "Težina": "58 kg",
+    "Napajanje": "220V / 50Hz"
+  },
+  "faq": [
+    {
+      "question": "Šta razlikuje MediLUX PRO od drugih diodnih lasera?",
+      "answer": "MediLUX PRO se ističe snagom od 2500W, safirnim kontaktnim sistemom hlađenja do -16°C i UV-sterilizacionim držačem aplikatora. Osim toga, dostupan je u prilagođenim bojama kako bi odgovarao identitetu vašeg salona."
+    },
+    {
+      "question": "U kojim bojama je dostupan?",
+      "answer": "MediLUX je dostupan u rose gold, champagne gold, modernoj sivoj, elegantnom srebru, holo-efektu i puder roza."
+    },
+    {
+      "question": "Koliko brzo se MediLUX PRO isplati?",
+      "answer": "Snaga od 2500W i 4 talasne dužine omogućavaju brze, efikasne tretmane. Sa 5-8 klijenata dnevno, obično se isplati u roku od 2-3 meseca. Koristite naš ROI kalkulator!"
+    },
+    {
+      "question": "Da li je dostupno plaćanje na rate?",
+      "answer": "Da! MediLUX PRO je dostupan i sa povoljnim planovima otplate na rate. Zatražite prilagođenu ponudu!"
+    },
+    {
+      "question": "Mogu li pogledati uređaj pre kupovine?",
+      "answer": "Da! MediLUX PRO možete lično pogledati i isprobati u našem showroomu (Érd, Budai út 28.) uz prethodnu najavu."
+    }
+  ],
+  "whatsIncluded": [
+    "Diodni laser MediLUX PRO",
+    "Ergonomski aplikator diodnog lasera",
+    "UV-sterilizacioni držač aplikatora",
+    "Ručke sa podesivom veličinom spota",
+    "Zaštitne naočare (operater + klijent)",
+    "Korisničko uputstvo",
+    "Edukacija operatera (sertifikat)",
+    "24 meseca sveobuhvatne garancije",
+    "Zamjenski uređaj tokom popravke"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "MAST P60 Premium 3in1 PMU-Set",
+  "shortDescription": "Komplettes PMU-Set: MAST P60 Gerät mit verstellbarer Hublänge, Ersatz-Akku und RCA-Adapterkopf. Alles, was Sie brauchen, in einem Paket.",
+  "description": "Das MAST P60 3in1 Set ist das perfekte Starterpaket für PMU-Künstler. Das Paket enthält das beliebte kabellose MAST P60 PMU-Gerät mit verstellbarer Hublänge, einen Ersatz-Akku für unterbrechungsfreies Arbeiten sowie einen RCA-Adapterkopf, der die Verwendung mit einem herkömmlichen kabelgebundenen Netzteil ermöglicht.\n\nDie MAST P60 verfügt über eine 5-stufig verstellbare Hublänge (2,2–3,2 mm), was bei PMU-Geräten selten ist. Der leise Coreless-Motor, das ergonomische Design und das Gewicht von nur 121 Gramm sorgen für komfortables und präzises Arbeiten.\n\nMit dem Ersatz-Akku haben Sie praktisch unbegrenzte Laufzeit: Während Sie mit einem arbeiten, wird der andere geladen. Der RCA-Adapter gibt Ihnen Flexibilität – kabellos oder kabelgebunden, Sie entscheiden.",
+  "metaTitle": "MAST P60 3in1 PMU-Set – Gerät + Ersatz-Akku + RCA-Adapter",
+  "metaDescription": "Komplettes MAST P60 Set: PMU-Gerät mit verstellbarer Hublänge, Ersatz-Akku, RCA-Adapter. Professionelles Starterpaket.",
+  "stats": [
+    { "value": "3in1", "label": "Komplettset", "icon": "layers" },
+    { "value": "2×", "label": "Akku", "icon": "zap" },
+    { "value": "5", "label": "Hublängen-Stufen", "icon": "award" },
+    { "value": "121", "unit": "g", "label": "Gerätegewicht", "icon": "clock" }
+  ],
+  "cta": {
+    "afterVideo": { "text": "Fragen zum MAST P60 Set? Wir helfen gerne!", "buttonLabel": "Beratung anfordern", "phoneLabel": "Rufen Sie uns an" },
+    "afterFeatures": { "headline": "Möchten Sie die MAST P60 ausprobieren?", "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie sie persönlich!", "buttonLabel": "Termin buchen" },
+    "final": { "headline": "Interessiert am MAST P60 3in1 Set?", "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen bei der besten Paketwahl.", "buttonLabel": "Beratung anfordern" }
+  },
+  "featureRows": {
+    "headline": "Warum lohnt sich das 3in1 Set?",
+    "subtitle": "Alles enthalten, was für den professionellen Arbeitsstart nötig ist",
+    "features": [
+      { "title": "Ersatz-Akku – unterbrechungsfreies Arbeiten", "description": "Der zweite Akku im Set stellt sicher, dass Sie die Arbeit nie wegen Aufladens unterbrechen müssen. Während Sie mit dem einen arbeiten, wird der andere geladen. Das ist besonders wichtig an geschäftigen Tagen, wenn Kunden nacheinander kommen.", "image": "@assets/products/mastp60set.webp" },
+      { "title": "RCA-Adapterkopf – zwei Nutzungsmodi", "description": "Der RCA-Adapter ermöglicht die Verwendung der MAST P60 mit einem herkömmlichen kabelgebundenen Netzteil. Das kann nützlich sein, wenn Sie bei längeren Behandlungen auf Nummer sicher gehen oder Ihr vorhandenes Netzteil nutzen möchten.", "image": "@assets/products/mastp60set1.webp" },
+      { "title": "5-stufig verstellbare Hublänge", "description": "Die MAST P60 eignet sich mit 5 verschiedenen Hublängen (2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm) für nahezu alle PMU-Techniken: Härchenstriche, Ombré, Lippenpigmentierung, Lidstrich. Ein Gerät für alle Aufgaben.", "image": "@assets/products/mastp60set.webp" },
+      { "title": "Ultraleicht, leise und ergonomisch", "description": "Mit nur 121 Gramm Gewicht und dem leisen Coreless-Motor ist die MAST P60 eines der komfortabelsten PMU-Geräte auf dem Markt. Der ergonomische Griff ermöglicht präzises Arbeiten auch bei ganztägigen Behandlungen.", "image": "@assets/products/mastp60set1.webp" }
+    ]
+  },
+  "training": {
+    "headline": "PMU-Geräteschulung", "badge": "Mit offiziellem Zertifikat",
+    "intro": "Zum MAST P60 Set ist eine professionelle PMU-Geräteschulung im Rahmen einer offiziell registrierten Erwachsenenbildung verfügbar.",
+    "items": ["Funktionsprinzip der MAST P60, Hublängen-Einstellung und RCA-Adapter-Nutzung", "Augenbrauen-PMU: Härchenstriche, Schattierung, Ombré-Technik", "Lippenpigmentierung: Kontur, Aquarell, Vollfüllung", "Lidstrich-Techniken: dünne und dickere Linienführung", "Hauttypen und die richtige Hublängen-Wahl", "Hygieneprotokolle und steriles Arbeiten", "Praktische Behandlungen an Modellen"],
+    "closingParagraphs": ["Sie können ein Modell zur Schulung mitbringen.", "Nach Abschluss stellen wir ein offizielles Zertifikat aus.", "Kontaktieren Sie uns zur Terminvereinbarung!"],
+    "price": "49.990 Ft", "priceNote": "Schulungswert", "freeText": "KOSTENLOS beim Gerätekauf!", "duration": "Eintägige Intensivschulung", "ctaText": "Schulung interessiert mich"
+  },
+  "testimonials": [{ "name": "K. Boglárka", "date": "2025. 10. 05.", "text": "Das 3in1 Set war meine beste Entscheidung! <mark>Der Ersatz-Akku hat mich schon einige Male gerettet, wenn die Kunden nacheinander kamen</mark>. Den RCA-Adapter nutze ich auch, wenn eine besonders lange Behandlung ansteht. Der Preisunterschied zum einzelnen Gerät lohnt sich absolut.", "rating": 5 }],
+  "expertQuote": { "quote": "Das 3in1 Set ist die beste Wahl, wenn Sie die P60 professionell nutzen möchten. Der Ersatz-Akku und der RCA-Adapter sind ein Sicherheitsnetz, das die Investition wert ist.", "author": "Horváth László", "role": "Technischer Experte" },
+  "specs": { "Gewicht": "121 g (Gerät)", "Motortyp": "Coreless Motor", "Motorgeschwindigkeit": "11 000 ±10% RPM", "Maße": "27 mm × 150 mm", "Verstellbare Hublänge": "2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm", "Betriebszeit": "3+ Stunden / Akku", "Betriebsspannung": "4–10 V", "Anschluss": "Type-C", "Akku": "2 × 900 mAh", "Extra": "RCA-Adapterkopf" },
+  "faq": [
+    { "question": "Was ist der Unterschied zwischen dem einzelnen P60 und dem 3in1 Set?", "answer": "Das 3in1 Set enthält das MAST P60 Gerät, einen Ersatz-Akku und einen RCA-Adapterkopf. Das einzelne P60 enthält nur das Gerät und den Standard-Akku. Das Set bietet also doppelte Laufzeit und zwei Nutzungsmodi (kabellos + kabelgebunden)." },
+    { "question": "Wozu dient der RCA-Adapterkopf?", "answer": "Der RCA-Adapter ermöglicht die Nutzung der MAST P60 mit einem herkömmlichen, kabelgebundenen Netzteil. Das ist nützlich, wenn Sie unbegrenzte Laufzeit bei einer längeren Behandlung benötigen oder Ihr vorhandenes Netzteil nutzen möchten." },
+    { "question": "Für welche Techniken ist die MAST P60 geeignet?", "answer": "Dank der 5-stufig verstellbaren Hublänge eignet sie sich für nahezu alle PMU-Techniken: Härchenstriche, Schattierung/Ombré, Lippenpigmentierung, Lidstrich." },
+    { "question": "Wie lange dauert das Laden der zwei Akkus?", "answer": "Beide Akkus werden über Type-C geladen. Während Sie mit einem arbeiten, können Sie den anderen laden, sodass Sie praktisch unterbrechungsfrei den ganzen Tag arbeiten können." },
+    { "question": "Mit welchen Nadelmodulen ist sie kompatibel?", "answer": "Die MAST P60 verwendet ein universelles Kartuschen-System. Sie funktioniert hervorragend mit MAST Oceanheart und WJX Nadelmodulen." },
+    { "question": "Welche Schulung ist zum Set verfügbar?", "answer": "Eine eintägige Intensivschulung im Rahmen der Erwachsenenbildung. Die Schulung ist beim Gerätekauf kostenlos, und wir stellen ein offizielles Zertifikat aus." },
+    { "question": "Welche Garantie gilt für das Set?", "answer": "Für das MAST P60 3in1 Set gilt eine 1-Jahres-Garantie. Während der Reparatur stellen wir ein Ersatzgerät zur Verfügung." }
+  ],
+  "whatsIncluded": ["MAST P60 PMU-Gerät", "2 Stk. 900 mAh Akku (1 eingebaut + 1 Ersatz)", "RCA-Adapterkopf (für kabelgebundene Nutzung)", "Type-C Ladekabel", "Bedienungsanleitung", "1 Jahr Garantie", "Ersatzgerät während der Reparatur"]
+}

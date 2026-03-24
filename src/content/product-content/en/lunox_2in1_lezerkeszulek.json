@@ -1,0 +1,134 @@
+{
+  "name": "LUNOX 2in1 4-wave Diode Laser & Q-switched ND:YAG Laser Device",
+  "shortDescription": "2in1 diode laser + Q-switched ND:YAG in one device. 4 wavelengths, hair removal, tattoo removal, carbon peeling.",
+  "description": "LUNOX is not just another laser device – it is a future-proof investment capable of replacing multiple separate devices in cosmetics.\n\nThe diode laser and Q-Switched ND:YAG technology together cover the most sought-after, most profitable services, so with LUNOX you can build your entire treatment portfolio with a single device.",
+  "metaTitle": "LUNOX 2in1 Diode Laser & Q-switched ND:YAG Device",
+  "metaDescription": "LUNOX 2in1 diode laser and ND:YAG laser in one – fast ROI, scar-free treatments, intelligent settings, and official training with certificate.",
+  "stats": [
+    { "value": "2in1", "label": "Technology", "icon": "layers" },
+    { "value": "4", "label": "Wavelengths (diode)", "icon": "wave" },
+    { "value": "1600", "unit": "mJ", "label": "ND:YAG Energy", "icon": "zap" },
+    { "value": "-4°C", "label": "Cooling", "icon": "snowflake" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "LUNOX – Two Technologies, Unlimited Possibilities",
+    "paragraphs": [
+      "LUNOX is not just another laser device – it is a future-proof investment capable of replacing multiple separate devices in cosmetics.",
+      "The diode laser and Q-Switched ND:YAG technology together cover the most sought-after, most profitable services: hair removal, tattoo removal, pigment treatment, carbon peeling, and skin rejuvenation.",
+      "With LUNOX you can build your entire treatment portfolio with a single device – one device instead of many, with fast ROI."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about LUNOX? We are happy to help!",
+      "buttonLabel": "Request a Consultation",
+      "phoneLabel": "Call Us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see LUNOX in person?",
+      "subtitle": "Visit our showroom in Erd and try it out yourself!",
+      "buttonLabel": "Book an Appointment"
+    },
+    "final": {
+      "headline": "Interested in the LUNOX 2in1 laser device?",
+      "subtitle": "Request a free consultation and we will help you decide if this is the best choice for you.",
+      "buttonLabel": "Request a Consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why is LUNOX worth it?",
+    "subtitle": "Two of the most sought-after technologies in a single device – maximum ROI",
+    "features": [
+      {
+        "title": "Diode laser hair removal – on 4 wavelengths",
+        "description": "Effective, lasting hair removal on all skin types (phototype I–VI).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – universal, average root depth</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – darker hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – deep-rooted hair</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Painless, fast, and client-friendly procedure thanks to -4°C cooling.</p>",
+        "image": "@assets/products/lunox3.webp"
+      },
+      {
+        "title": "Q-Switched ND:YAG – tattoo and pigment removal",
+        "description": "The LUNOX Q-switched ND:YAG laser provides a sharp, concentrated spot mark, strong energy delivery, and stable pulse at every treatment.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm and 532 nm wavelengths</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Up to 1600 mJ power</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>3–5 ns pulse duration – scar-free treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Black, blue, brown, green, red, and yellow pigments</div>\n</div>",
+        "highlight": "American Coherent laser rod guarantees stable, reliable operation for years.",
+        "image": "@assets/products/lunox1.webp"
+      },
+      {
+        "title": "Carbon peeling – the Hollywood treatment",
+        "description": "The combination of the 1320 nm handpiece and Q-Switched pulse enables a premium facial treatment with black carbon mask.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Deep pore cleansing</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Regulates sebum production</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reduces inflammation</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Immediately smoother, fresher skin surface</div>\n</div>",
+        "image": "@assets/products/lunox2.webp"
+      },
+      {
+        "title": "Smart diode laser – intelligent parameter setting",
+        "description": "The built-in intelligent software automatically recognizes the selected treatment parameters and independently sets optimal values.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin type (phototype I–VI)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Treatment area</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hair quality and quantity</div>\n</div>\n<p class=\"text-gray-600 mt-3\">Automatically sets power, frequency, pulse duration, and cooling value.</p>",
+        "image": "@assets/products/lunox4.webp"
+      },
+      {
+        "title": "One device instead of many – maximum ROI",
+        "description": "You don't need to buy a separate diode laser, pigment laser, or tattoo removal laser – LUNOX offers all of this in a single compact device.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hair removal</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tattoo removal</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pigmentation treatment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin rejuvenation and rejuvenation</div>\n</div>",
+        "highlight": "With LUNOX, you can recover the full purchase price in just a few months.",
+        "image": "@assets/products/lunox5.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Operator Training – Comprehensive Training Program",
+    "badge": "With Official Certificate",
+    "intro": "A comprehensive training program is available for the LUNOX device, fully preparing operators for safe and effective use. The course is officially approved in the FAR system, with the involvement of physicians and healthcare educators.",
+    "items": [
+      "Theoretical and practical overview of diode laser and Q-switched ND:YAG technology",
+      "Treatment protocols for different skin types and conditions",
+      "Detailed operator documentation",
+      "Client management and aftercare guidelines",
+      "Marketing and pricing recommendations for successful salon use",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "After completing the course, you receive an official, personalized certificate confirming mastery of professional LUNOX device operation.",
+      "The goal is that you receive not just a device, but real, practical knowledge and business support."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "training value",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I am interested in the training"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Diode laser hair removal", "description": "Lasting hair removal on 4 wavelengths, on all skin types" },
+    { "icon": "eye", "name": "Tattoo removal", "description": "Removal of black, blue, brown, green, red, and yellow pigments" },
+    { "icon": "sun", "name": "Pigmentation treatment", "description": "Fading of freckles, melasma, sun spots, age-related pigmentations" },
+    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hollywood treatment: deep cleansing, pore tightening, skin rejuvenation" },
+    { "icon": "bolt", "name": "Skin rejuvenation", "description": "Collagen stimulation, skin tightening, texture improvement" },
+    { "icon": "droplet", "name": "Permanent makeup removal", "description": "Correction of eyebrow, lip, eyelid permanent makeup" }
+  ],
+  "faq": [
+    {
+      "question": "Why choose a 2in1 device?",
+      "answer": "LUNOX combines diode laser hair removal and Q-switched ND:YAG technology in a single device. You don't need separate devices – hair removal, tattoo removal, pigment treatment, carbon peeling, and skin rejuvenation can all be performed with one device, representing significant cost savings."
+    },
+    {
+      "question": "How quickly does LUNOX pay for itself?",
+      "answer": "Diode laser hair removal and ND:YAG treatments are among the most profitable cosmetic services. With 3-5 clients per day, LUNOX typically pays for itself within 2-4 months. Use our ROI calculator for exact figures!"
+    },
+    {
+      "question": "What pigments can the ND:YAG component treat?",
+      "answer": "The Q-switched ND:YAG laser effectively treats black, blue, brown, green, red, and yellow pigments with 1064 nm and 532 nm wavelengths. It can be used for both body tattoo and permanent makeup removal."
+    },
+    {
+      "question": "What training is included with LUNOX?",
+      "answer": "A comprehensive training program approved in the FAR system, developed with physician involvement. The training is free with device purchase and concludes with an official certificate."
+    },
+    {
+      "question": "Can I view the device before purchasing?",
+      "answer": "Yes! You can view and test LUNOX in person at our showroom (Erd, Budai ut 28.) by prior appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "LUNOX 2in1 laser device",
+    "Diode laser handpiece (4 wavelengths)",
+    "Q-switched ND:YAG handpieces (1064 nm, 532 nm, 1320 nm)",
+    "Protective eyewear (operator + client)",
+    "User manual",
+    "Operator training (FAR certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

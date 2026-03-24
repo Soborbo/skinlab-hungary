@@ -1,0 +1,94 @@
+{
+  "name": "Skitenic AI Artificial Intelligence Skin Analysis Device",
+  "shortDescription": "5-spectrum AI skin analyser with 21.5\" IPS touchscreen. Analysis of 15 skin problems in 15-20 seconds, before-after documentation, cloud-based storage.",
+  "description": "The Skitenic AI represents the new generation of skin analysis. With patented five-spectrum imaging and artificial intelligence-based analysis, it reveals the condition of both surface and deeper skin layers.\n\nThe device not only shows current problems but also provides accurate predictions of expected skin changes over the next 5-10 years. The examination takes just 15-20 seconds, with results appearing instantly on the 21.5\" display in a comprehensive visual report.\n\nThe system automatically creates before-after comparison images and ensures long-term preservation of client profiles with cloud-based storage. This not only builds client trust but also supports treatment and product sales.",
+  "metaTitle": "Skitenic AI Skin Analyser | Artificial Intelligence Skin Analysis",
+  "metaDescription": "Skitenic AI skin analyser with 5 spectrums and 21.5\" display. Analysis of 15 skin problems, AI predictions, before-after comparison, cloud-based client records.",
+  "stats": [
+    { "value": "5", "label": "Spectrum imaging", "icon": "wave" },
+    { "value": "15", "label": "Skin problem models", "icon": "layers" },
+    { "value": "15–20", "unit": "sec", "label": "Examination time", "icon": "zap" },
+    { "value": "21.5\"", "label": "IPS touchscreen", "icon": "monitor" }
+  ],
+  "cta": {
+    "afterVideo": { "text": "Have questions about the Skitenic AI? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
+    "afterFeatures": { "headline": "Want to see the Skitenic AI in person?", "subtitle": "Visit our showroom and try it yourself!", "buttonLabel": "Book an appointment" },
+    "final": { "headline": "Interested in the Skitenic AI skin analyser?", "subtitle": "Request a free consultation and we'll help you decide if it's the best choice for you.", "buttonLabel": "Request consultation" }
+  },
+  "featureRows": {
+    "headline": "Why is the Skitenic AI indispensable?",
+    "subtitle": "Objective, scientific and data-driven skin diagnosis",
+    "features": [
+      {
+        "title": "5-spectrum imaging – what the eye cannot see",
+        "description": "The Skitenic AI uses five different light sources to reveal every layer of the skin.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Lighting modes:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Standard white light</strong> – surface condition</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Polarised light</strong> – sub-surface structures</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>UV light</strong> – hidden damage</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Wood's lamp fluorescence</strong> – bacterial, fungal changes</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Multi-spectrum composite</strong> – comprehensive analysis</div>\n</div>",
+        "highlight": "The artificial intelligence recognises signs that are invisible to the naked eye.",
+        "image": "@assets/products/skinetic.webp"
+      },
+      {
+        "title": "15 skin problems – in a single examination",
+        "description": "The Skitenic AI analyses the skin based on 15 different skin problem models: wrinkles, pores, acne, pigmentation, skin sensitivity, hydration, sebum production, sun damage and much more.\n\nThe intelligent report not only identifies problems but also presents their causes, effects and recommended solutions. All in 15-20 seconds.",
+        "highlight": "Objective diagnosis in 15-20 seconds – what previously required a 30-minute consultation.",
+        "image": "@assets/products/skineticc.webp"
+      },
+      {
+        "title": "AI prediction – 5-10 years ahead",
+        "description": "The artificial intelligence, having learned from hundreds of thousands of previous analyses, not only shows the current condition but also predicts expected skin changes. The client sees exactly what their skin will look like in 5-10 years without treatment – and what it could look like with proper skincare.",
+        "highlight": "The future vision is the most powerful sales tool: the client themselves asks for the treatment.",
+        "image": "@assets/products/skinetic.webp"
+      },
+      {
+        "title": "Before-after documentation and cloud",
+        "description": "The system automatically generates before-after comparison reports, visually demonstrating treatment effects. Client profiles are stored in the cloud and can be retrieved at any time.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Automatic before-after comparison</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cloud-based client records</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Wi-Fi and LAN connectivity</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Three-dimensional facial image capture</div>\n</div>",
+        "image": "@assets/products/skineticc.webp"
+      },
+      {
+        "title": "Business advantage – stronger sales",
+        "description": "The Skitenic AI is not just a diagnostic tool but one of the most powerful sales weapons in the salon. The client receives a tangible, visual report that is much harder to dispute than verbal advice. The objective diagnosis supports treatment recommendations and naturally leads to product sales.",
+        "highlight": "The client themselves asks for the treatment – because numbers and images don't lie.",
+        "image": "@assets/products/skinetic.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – AI skin analysis course",
+    "badge": "With official certificate",
+    "intro": "A comprehensive training programme accompanies the Skitenic AI skin analyser, preparing you for effective device use, interpretation of analysis results, and client communication.",
+    "items": [
+      "Operating principles and use of 5-spectrum imaging",
+      "Interpretation and communication of 15 skin problem models",
+      "AI prediction and client consultation practice",
+      "Before-after documentation and client record management",
+      "Sales techniques based on analysis results",
+      "Practical examinations and analyses on models"
+    ],
+    "closingParagraphs": [
+      "The training aims to help participants master not only device operation but also the business application of AI analyses.",
+      "Upon completion, we issue an official certificate."
+    ],
+    "price": "59,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day training",
+    "ctaText": "Interested in training"
+  },
+  "faq": [
+    { "question": "Why is AI skin analysis better than visual examination?", "answer": "Visual examination is subjective – it depends on the beautician's experience, mood and lighting conditions. The Skitenic AI provides objective, scientific and data-driven analysis that is reproducible and comparable. It also reveals hidden processes invisible to the naked eye." },
+    { "question": "How long does an examination take?", "answer": "The examination takes just 15-20 seconds. Results appear instantly on the 21.5\" touchscreen in a detailed report format." },
+    { "question": "What skin problems does it analyse?", "answer": "The Skitenic AI analyses based on 15 different skin problem models: wrinkles, pores, acne, pigmentation, skin sensitivity, hydration, sebum production, sun damage and more. The AI not only identifies problems but also presents their causes and recommended solutions." },
+    { "question": "How does it help sales?", "answer": "The visual report and AI prediction are the strongest sales tools: the client sees the skin problems and their expected progression with their own eyes. This naturally leads to accepting treatment recommendations and purchasing products." },
+    { "question": "Is internet connection required?", "answer": "Basic functions work without internet, but cloud-based storage, AI updates and client record synchronisation require Wi-Fi or LAN connection." },
+    { "question": "How quickly does it pay for itself?", "answer": "Skin analysis itself can be charged as a service (3,000-8,000 Ft), but the real return lies in increased sales: objective diagnosis and before-after documentation have been proven to increase treatment and product sales." },
+    { "question": "Can I view the device before purchasing?", "answer": "Yes! You can view and try the Skitenic AI in person at our showroom (Érd, Budai út 28.) by prior appointment." }
+  ],
+  "whatsIncluded": [
+    "Skitenic AI skin analyser device",
+    "21.5\" IPS touchscreen display",
+    "5-spectrum imaging unit",
+    "Software (cloud-based, with automatic updates)",
+    "Power cable and adapter",
+    "User manual",
+    "Device operator training (certificate)",
+    "2-year full warranty"
+  ]
+}

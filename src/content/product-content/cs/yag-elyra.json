@@ -1,0 +1,151 @@
+{
+  "name": "ELYRA Q-spínaný ND:YAG laserový přístroj",
+  "shortDescription": "Kompaktní, přenosný ND:YAG laser o hmotnosti 30 kg. Vlnové délky 1064/532/1320 nm, energie 100–2000 mJ, ideální pro mobilní poskytovatele služeb.",
+  "description": "ELYRA je špičkový, snadno přenosný nanosekundový ND:YAG laserový přístroj speciálně navržený pro odstranění pigmentových skvrn, tetování a kožních vad. Díky krátké délce impulzu laser dokáže s vysokou energií rozbíjet pigmenty při minimálním riziku poškození pokožky.",
+  "metaTitle": "ELYRA nanosekundový laser – Pigment, tetování, carbon peeling",
+  "metaDescription": "ELYRA ND:YAG laser je kompaktní, 30 kg přenosný přístroj pro odstranění pigmentových skvrn a tetování a carbon peeling. 100–2000 mJ energie, 2 roky záruka.",
+  "stats": [
+    { "value": "3", "label": "Vlnové délky", "icon": "wave" },
+    { "value": "2000", "unit": "mJ", "label": "Max. energie", "icon": "zap" },
+    { "value": "30", "unit": "kg", "label": "Čistá hmotnost", "icon": "layers" },
+    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 25000 },
+  "videoDescription": {
+    "headline": "ELYRA – Přenosný profesionální laser bez kompromisů",
+    "paragraphs": [
+      "ELYRA byl speciálně navržen pro ty, kdo pracují jako mobilní kosmetičky nebo chtějí nabízet laserová ošetření na více místech. S hmotností pouhých 30 kg je snadno přepravitelný a přitom poskytuje profesionální výkon.",
+      "Pracuje s nanosekundovou délkou impulzu, která umožňuje cílenou destrukci pigmentů při minimálním poškození pokožky. Tři vlnové délky (1064 nm, 532 nm, 1320 nm) pokrývají celou škálu ošetření.",
+      "Vestavěné bezpečnostní funkce – ochrana teploty vody, vzdálený blokovací zámek a ochranné brýle – zaručují bezpečnou práci."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Máte otázky ohledně laseru ELYRA? Rádi vám pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidět laser ELYRA ND:YAG osobně?",
+      "subtitle": "Navštivte náš showroom v Érdu a vyzkoušejte si ho sami!",
+      "buttonLabel": "Rezervovat termín"
+    },
+    "final": {
+      "headline": "Zajímá vás laser ELYRA ND:YAG?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a my vám pomůžeme rozhodnout, zda je to pro vás nejlepší volba.",
+      "buttonLabel": "Žádost o konzultaci"
+    }
+  },
+  "featureRows": {
+    "headline": "Proč je ELYRA favoritem mobilních kosmetiček?",
+    "subtitle": "Přenosný, přesný a spolehlivý – bez kompromisů",
+    "features": [
+      {
+        "title": "Nanosekundový impulz – cílená destrukce pigmentů",
+        "description": "ELYRA pracuje s nanosekundovou délkou impulzu, která rozbíjí pigmenty s vysokou energií při minimálním riziku poškození pokožky. Krátká doba impulzu umožňuje přesná, kontrolovaná ošetření.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hlavní výhody:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vysokoenergetický, přesto přesně regulovatelný laser</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cílená destrukce pigmentů s minimálním poškozením pokožky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ergonomický, lehký aplikátor pro pohodlné použití</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Moderní, estetický design a uživatelsky přívětivé rozhraní</div>\n</div>",
+        "highlight": "Nanosekundový impulz znamená méně sezení a rychlejší hojení pro klienty.",
+        "image": "@assets/products/ELYRA.webp"
+      },
+      {
+        "title": "3 vlnové délky – kompletní nabídka ošetření",
+        "description": "ELYRA pracuje na třech vlnových délkách, pokrývajících vše od odstranění tetování po carbon peeling.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vlnové délky a jejich využití:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – odstranění tmavých pigmentů (černá, modrá, šedá, zelená)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – ošetření světlých, teplých pigmentů (červená, hnědá, zelená)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, zúžení pórů, zlepšení textury pleti</div>\n</div>",
+        "image": "@assets/products/ELYRA1.webp"
+      },
+      {
+        "title": "Kompaktní a přenosný design",
+        "description": "S čistou hmotností pouhých 30 kg je ELYRA snadno přepravitelný, ideální pro mobilní kosmetičky a domácí poskytovatele služeb. Navzdory kompaktním rozměrům (40 x 55 x 115 cm) poskytuje profesionální výkon.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Technické parametry:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energie impulzu: 100–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvence: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Chlazení: kondenzátor + ventilátor</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Zaměřovací světlo: 650 nm laserový pointer</div>\n</div>",
+        "highlight": "30 kg čistá hmotnost – snadno přepravitelný, přesto profesionální výkon.",
+        "image": "@assets/products/ELYRA2.webp"
+      },
+      {
+        "title": "Vestavěné bezpečnostní funkce",
+        "description": "ELYRA má víceúrovňový bezpečnostní systém, který chrání jak operátora, tak klienta.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Bezpečnostní funkce:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ochrana teploty vody (rozsah 8–55 °C)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vzdálený blokovací zámek (Remote Interlock)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ochranné brýle a oční štít (operátor + klient)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Viditelný 650 nm laserový pointer pro přesné zaměřování</div>\n</div>",
+        "image": "@assets/products/ELYRA3.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Školení obsluhy přístroje – oficiální certifikovaný kurz",
+    "badge": "S certifikátem FAR",
+    "intro": "K laseru ELYRA ND:YAG je k dispozici oficiální certifikované školení registrované v systému FAR. Učební plán byl vypracován pod vedením školitele s oprávněním ke zkouškám v oblasti zdravotnictví a vychází z odborných materiálů ruského laserového specialisty.",
+    "items": [
+      "Principy fungování nanosekundové ND:YAG laserové technologie",
+      "Vlnové délky a oblasti použití (tetování, pigment, carbon peeling)",
+      "Ošetřovací protokoly pro různé typy pigmentů",
+      "Kontraindikace, hodnocení typu pleti a bezpečné ošetření",
+      "Carbon peeling ošetření v praxi",
+      "Praktická ošetření na modelech"
+    ],
+    "closingParagraphs": [
+      "Cílem školení je umožnit účastníkům bezpečně a v souladu s předpisy používat laser ELYRA pro kosmetická a estetická ošetření.",
+      "Po absolvování školení je vydán oficiální certifikát FAR."
+    ],
+    "price": "79 990 Ft",
+    "priceNote": "hodnota školení",
+    "freeText": "ZDARMA při nákupu přístroje!",
+    "duration": "Jednodenní intenzivní školení",
+    "ctaText": "Mám zájem o školení"
+  },
+  "testimonials": [
+    {
+      "name": "Farkas Nikolett",
+      "date": "2025. 07. 21.",
+      "text": "ELYRA je dokonalý přístroj pro mobilní práci. <mark>S 30 kg ho snadno přepravím a klienti jsou nadšeni z výsledků</mark>. Bezpečnostní funkce jsou také velmi uklidňující – ochrana teploty vody a vzdálený blokovací zámek poskytují extra bezpečnost.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "ELYRA je ideální volba pro mobilní kosmetičky a domácí poskytovatele služeb: kompaktní rozměry, vysoký výkon a víceúrovňový bezpečnostní systém. Nanosekundová technologie umožňuje přesná, šetrná ošetření.",
+    "author": "Horváth László",
+    "role": "Technický odborník"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "Odstranění tetování", "description": "Odstranění černých a barevných tetování na vlnových délkách 1064 nm a 532 nm" },
+    { "icon": "sun", "name": "Léčba pigmentových skvrn", "description": "Zesvětlení pih, melasmy, slunečních skvrn, stařeckých skvrn a hyperpigmentace" },
+    { "icon": "sparkles", "name": "Carbon peeling", "description": "Zúžení pórů, zlepšení textury pleti a hloubkové čištění na vlnové délce 1320 nm" },
+    { "icon": "droplet", "name": "Zesvětlení pleti", "description": "Sjednocení tónu pleti a zesvětlení při nerovnoměrné pigmentaci" },
+    { "icon": "eye", "name": "Odstranění permanentního make-upu", "description": "Korekce a odstranění permanentního make-upu obočí a rtů" }
+  ],
+  "faq": [
+    {
+      "question": "Jak přenosný je ELYRA?",
+      "answer": "ELYRA váží 30 kg netto (45 kg s balením), rozměry 40 x 55 x 115 cm. Snadno se přepravuje autem, ideální pro mobilní kosmetičky a domácí poskytovatele služeb. Navzdory kompaktním rozměrům poskytuje profesionální výkon."
+    },
+    {
+      "question": "Jaké pigmenty dokáže ELYRA ošetřit?",
+      "answer": "Vlnová délka 1064 nm ošetřuje tmavé pigmenty (černá, modrá, šedá, zelená), 532 nm světlé pigmenty (červená, hnědá, zelená). Vhodný pro odstranění tělesných tetování a permanentního make-upu, pigmentových skvrn, pih, melasmy a pozánětlivé hyperpigmentace."
+    },
+    {
+      "question": "Jaké bezpečnostní funkce má ELYRA?",
+      "answer": "ELYRA má ochranu teploty vody (8–55 °C), vzdálený blokovací zámek (Remote Interlock), zaměřovací laser 650 nm a sadu ochranných brýlí. Tyto funkce zaručují maximální bezpečnost operátora i klienta."
+    },
+    {
+      "question": "Co je carbon peeling?",
+      "answer": "Carbon peeling je prémiové ošetření obličeje, při kterém se na pokožku nanese speciální uhlíková vrstva a poté se odstraní laserovými impulzy o vlnové délce 1320 nm. Výsledek: zúžení pórů, zlepšení textury pleti a stimulace kolagenu. Jedno ošetření stojí 15 000-30 000 Ft."
+    },
+    {
+      "question": "Za jak dlouho se ELYRA zaplatí?",
+      "answer": "ELYRA se průměrně zaplatí za 3-4 měsíce při 3-5 klientech denně. Odstranění tetování stojí 15 000-50 000 Ft za sezení, carbon peeling 15 000-30 000 Ft. Použijte naši ROI kalkulačku pro přesné výpočty!"
+    },
+    {
+      "question": "Jaké školení je k ELYRA přiloženo?",
+      "answer": "Oficiální certifikované školení obsluhy registrované v systému FAR je součástí nákupu ZDARMA (v hodnotě 79 990 Ft). Jednodenní intenzivní školení zahrnuje teoretický a praktický modul a je zakončeno certifikátem."
+    },
+    {
+      "question": "Je možné si přístroj před nákupem prohlédnout?",
+      "answer": "Ano! Laser ELYRA ND:YAG si můžete osobně prohlédnout a vyzkoušet v našem showroomu (Érd, Budai út 28.) po předchozí domluvě termínu."
+    }
+  ],
+  "whatsIncluded": [
+    "ELYRA Q-spínaný ND:YAG laserový přístroj",
+    "1064 nm aplikátor (tmavé pigmenty)",
+    "532 nm aplikátor (světlé pigmenty)",
+    "1320 nm aplikátor (carbon peeling)",
+    "Ochranné brýle a oční štít (operátor + klient)",
+    "650 nm zaměřovací laser",
+    "Návod k použití",
+    "Školení obsluhy přístroje (certifikát FAR)",
+    "2 roky plná záruka",
+    "Náhradní přístroj po dobu opravy"
+  ]
+}

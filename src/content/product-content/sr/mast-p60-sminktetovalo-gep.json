@@ -1,0 +1,48 @@
+{
+  "name": "MAST P60 Premium 3in1 PMU set",
+  "shortDescription": "Kompletan PMU set: MAST P60 uređaj sa podesivom dužinom hoda, rezervni akumulator i RCA adapter. Sve što vam treba, u jednom paketu.",
+  "description": "MAST P60 3in1 set savršen je startni paket za PMU umetnike. Paket sadrži popularni bežični MAST P60 PMU uređaj sa podesivom dužinom hoda, rezervni akumulator za neprekidan rad i RCA adapter koji omogućava korišćenje sa klasičnim žičnim napajanjem.\n\nMAST P60 ima 5-stepeno podesivu dužinu hoda (2,2–3,2 mm), što je kod PMU uređaja retko. Tih coreless motor, ergonomski dizajn i težina od samo 121 grama obezbeđuju udoban i precizan rad.\n\nSa rezervnim akumulatorom imate praktično neograničenu autonomiju: dok radite sa jednim, drugi se puni. RCA adapter vam daje fleksibilnost – bežično ili žično, vi odlučujete.",
+  "metaTitle": "MAST P60 3in1 PMU set – uređaj + rezervni akumulator + RCA adapter",
+  "metaDescription": "Kompletan MAST P60 set: PMU uređaj sa podesivom dužinom hoda, rezervni akumulator, RCA adapter. Profesionalni startni paket.",
+  "stats": [
+    { "value": "3in1", "label": "Kompletan set", "icon": "layers" },
+    { "value": "2×", "label": "Akumulator", "icon": "zap" },
+    { "value": "5", "label": "Stepeni dužine hoda", "icon": "award" },
+    { "value": "121", "unit": "g", "label": "Težina uređaja", "icon": "clock" }
+  ],
+  "cta": {
+    "afterVideo": { "text": "Imate pitanja o MAST P60 setu? Rado pomažemo!", "buttonLabel": "Zatraži konsultaciju", "phoneLabel": "Pozovite nas" },
+    "afterFeatures": { "headline": "Želite da isprobate MAST P60?", "subtitle": "Dođite u naš šourum u Érdu i isprobajte je lično!", "buttonLabel": "Rezervacija termina" },
+    "final": { "headline": "Zanima vas MAST P60 3in1 set?", "subtitle": "Zatražite besplatnu konsultaciju i pomoći ćemo vam da izaberete najbolji paket.", "buttonLabel": "Zatraži konsultaciju" }
+  },
+  "featureRows": {
+    "headline": "Zašto se 3in1 set isplati?",
+    "subtitle": "Sadrži sve potrebno za profesionalni početak",
+    "features": [
+      { "title": "Rezervni akumulator – neprekidan rad", "description": "Drugi akumulator u setu obezbeđuje da nikada ne morate prekinuti rad zbog punjenja. Dok radite sa jednim, drugi se puni. To je posebno važno u prometnim danima kada klijenti dolaze jedan za drugim.", "image": "@assets/products/mastp60set.webp" },
+      { "title": "RCA adapter – dva režima korišćenja", "description": "RCA adapter omogućava korišćenje MAST P60 sa klasičnim žičnim napajanjem. To je korisno ako želite sigurnost pri dužim tretmanima ili da iskoristite vaše postojeće napajanje.", "image": "@assets/products/mastp60set1.webp" },
+      { "title": "5-stepena podesiva dužina hoda", "description": "MAST P60 sa 5 različitih dužina hoda (2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm) odgovara za skoro sve PMU tehnike: dlačice, ombré, pigmentaciju usana, očne linije. Jedan uređaj za sve zadatke.", "image": "@assets/products/mastp60set.webp" },
+      { "title": "Ultralak, tih i ergonomski", "description": "Sa težinom od samo 121 grama i tihim coreless motorom, MAST P60 je jedan od najudobnijih PMU uređaja na tržištu. Ergonomski držak omogućava precizan rad čak i tokom celodnevnih tretmana.", "image": "@assets/products/mastp60set1.webp" }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rukovanje PMU uređajem", "badge": "Sa zvaničnim sertifikatom",
+    "intro": "Uz MAST P60 set dostupna je profesionalna obuka u okviru zvanično prijavljenog obrazovanja odraslih.",
+    "items": ["Princip rada MAST P60, podešavanje dužine hoda i korišćenje RCA adaptera", "PMU obrva: dlačice, senčenje, ombré tehnika", "Pigmentacija usana: kontura, akvarel, puno punjenje", "Tehnike očnih linija: tanke i deblje linije", "Tipovi kože i izbor prave dužine hoda", "Higijenski protokoli i sterilan rad", "Praktični tretmani na modelima"],
+    "closingParagraphs": ["Na obuku možete dovesti modela.", "Po završetku izdajemo zvaničan sertifikat.", "Kontaktirajte nas za dogovor o terminu!"],
+    "price": "49.990 Ft", "priceNote": "vrednost obuke", "freeText": "BESPLATNO uz kupovinu uređaja!", "duration": "Jednodnevna intenzivna obuka", "ctaText": "Zanima me obuka"
+  },
+  "testimonials": [{ "name": "K. Boglárka", "date": "2025. 10. 05.", "text": "3in1 set bio je moja najbolja odluka! <mark>Rezervni akumulator me je već nekoliko puta spasao kada su klijenti dolazili jedan za drugim</mark>. RCA adapter takođe koristim kad je posebno dug tretman. Razlika u ceni u odnosu na sam uređaj se apsolutno isplati.", "rating": 5 }],
+  "expertQuote": { "quote": "3in1 set je najbolji izbor ako želite da P60 koristite profesionalno. Rezervni akumulator i RCA adapter su sigurnosna mreža koja vredi investicije.", "author": "Horváth László", "role": "Tehnički stručnjak" },
+  "specs": { "Težina": "121 g (uređaj)", "Tip motora": "Coreless motor", "Brzina motora": "11 000 ±10% RPM", "Dimenzije": "27 mm × 150 mm", "Podesiva dužina hoda": "2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm", "Autonomija": "3+ sata / akumulator", "Radni napon": "4–10 V", "Priključak": "Type-C", "Akumulator": "2 × 900 mAh", "Dodatno": "RCA adapter" },
+  "faq": [
+    { "question": "Koja je razlika između samog P60 i 3in1 seta?", "answer": "3in1 set sadrži MAST P60 uređaj, rezervni akumulator i RCA adapter. Sam P60 sadrži samo uređaj i standardni akumulator. Set dakle nudi dvostruku autonomiju i dva režima korišćenja." },
+    { "question": "Čemu služi RCA adapter?", "answer": "RCA adapter omogućava korišćenje MAST P60 sa klasičnim žičnim napajanjem za neograničenu autonomiju pri dužim tretmanima." },
+    { "question": "Za koje tehnike je MAST P60 pogodna?", "answer": "Zahvaljujući 5-stepenoj podesivoj dužini hoda za skoro sve PMU tehnike: dlačice, senčenje/ombré, pigmentaciju usana, očne linije." },
+    { "question": "Koliko dugo traje punjenje dva akumulatora?", "answer": "Oba akumulatora se pune preko Type-C. Dok radite sa jednim, možete puniti drugi – praktično neprekidan rad ceo dan." },
+    { "question": "Sa kojim igličnim modulima je kompatibilna?", "answer": "MAST P60 koristi univerzalni patronski sistem. Odlično radi sa MAST Oceanheart i WJX igličnim modulima." },
+    { "question": "Kakva obuka je dostupna uz set?", "answer": "Jednodnevna intenzivna obuka u okviru obrazovanja odraslih, besplatno uz kupovinu. Na kraju izdajemo zvaničan sertifikat." },
+    { "question": "Kakva garancija važi za set?", "answer": "Za MAST P60 3in1 set važi garancija od 1 godine. Tokom popravke obezbeđujemo zamenu uređaja." }
+  ],
+  "whatsIncluded": ["MAST P60 PMU uređaj", "2 kom. 900 mAh akumulator (1 ugrađeni + 1 rezervni)", "RCA adapter (za žično korišćenje)", "Type-C kabl za punjenje", "Uputstvo za upotrebu", "1 godina garancija", "Zamena uređaja tokom popravke"]
+}

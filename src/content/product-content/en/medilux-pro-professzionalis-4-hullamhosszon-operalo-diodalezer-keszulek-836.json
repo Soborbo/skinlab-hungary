@@ -1,0 +1,141 @@
+{
+  "name": "MediLUX PRO Professional Diode Laser",
+  "shortDescription": "2500W professional diode laser with 4 wavelengths, adjustable spot size, and UV-sterilization applicator holder. Available in custom colors.",
+  "description": "MediLUX is the most advanced diode laser technology, developed for professional salons and clinics.\n\nThe device operates on 4 wavelengths (755 nm, 808 nm, 940 nm, 1064 nm), ensuring effective and safe treatment on all skin types and hair densities.\n\nThe adjustable spot size allows adaptation to different body areas, while the UV-sterilization applicator holder guarantees maximum hygiene.",
+  "metaTitle": "MediLUX PRO Professional 4-Wavelength Diode Laser Device",
+  "metaDescription": "MediLUX PRO 2500W diode laser with 4 wavelengths (755, 808, 940, 1064 nm). Adjustable spot size, -16°C cooling, UV-sterilization holder. Available in custom colors.",
+  "stats": [
+    { "value": "2500", "unit": "W", "label": "Power", "icon": "zap" },
+    { "value": "4", "label": "Wavelengths", "icon": "wave" },
+    { "value": "-16°C", "label": "Cooling", "icon": "snowflake" },
+    { "value": "2", "unit": "years", "label": "Warranty", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 40000 },
+  "videoDescription": {
+    "headline": "MediLUX PRO – Clinical-Grade Diode Laser with Custom Design",
+    "paragraphs": [
+      "MediLUX is the most advanced diode laser technology, developed for professional salons and clinics.",
+      "2500W power, 4 wavelengths, sapphire contact cooling system down to -16°C – everything a premium salon needs.",
+      "MediLUX not only delivers outstanding performance in terms of technology, but also represents a premium aesthetic standard. Available in custom colors: rose gold, champagne gold, modern grey, elegant silver, holo-effect, and powder pink."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the MediLUX PRO? We are happy to help!",
+      "buttonLabel": "Request a Consultation",
+      "phoneLabel": "Call Us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the MediLUX PRO in person?",
+      "subtitle": "Visit our showroom in Erd and try it out yourself!",
+      "buttonLabel": "Book an Appointment"
+    },
+    "final": {
+      "headline": "Interested in the MediLUX PRO diode laser?",
+      "subtitle": "Request a free consultation and we will help you decide if this is the best choice for you.",
+      "buttonLabel": "Request a Consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why do professionals choose the MediLUX PRO?",
+    "subtitle": "2500W power, clinical-grade quality, premium design",
+    "features": [
+      {
+        "title": "2500W power – leading the category",
+        "description": "The MediLUX PRO's 2500W power output stands out in the diode laser market. This power enables fast, precise, and effective hair removal, even under the most demanding salon use.",
+        "highlight": "The 2500W power accelerates treatment even on the largest areas.",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      },
+      {
+        "title": "4 wavelengths – universal effectiveness",
+        "description": "The MediLUX PRO operates on 4 wavelengths, making it effective on all skin types and hair densities.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – universal wavelength</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – darker skin tones</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – deep-seated hair follicles</div>\n</div>",
+        "image": "@assets/products/Adjustable.webp"
+      },
+      {
+        "title": "-16°C sapphire contact cooling – maximum comfort",
+        "description": "The MediLUX PRO's advanced cooling system combines water cooling, air cooling, TEC cooling, and sapphire contact cooling down to -16°C. This provides comfortable, painless treatments for clients.",
+        "highlight": "The -16°C sapphire contact cooling ensures the highest comfort level.",
+        "image": "@assets/products/MediLUXGray2.webp"
+      },
+      {
+        "title": "UV-sterilization applicator holder",
+        "description": "The UV-sterilization applicator holder guarantees maximum hygiene and safety at every treatment. The handpiece is automatically sterilized after each use.",
+        "highlight": "Maximum hygiene with automatic sterilization.",
+        "image": "@assets/products/MediLUXRosegold.webp"
+      },
+      {
+        "title": "Custom design – premium appearance",
+        "description": "MediLUX is available in custom colors, fully matching your salon's brand identity.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rose gold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Champagne gold</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Modern grey</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Elegant silver</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Holo-effect</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Powder pink</div>\n</div>",
+        "image": "@assets/products/RoseLUXGrex1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Operator Training – Comprehensive Professional Support",
+    "badge": "With Official Certificate",
+    "intro": "For the MediLUX PRO, we provide detailed training materials compiled with the collaboration of healthcare professionals – including cosmetology physicians. The documentation covers not only device operation but also detailed treatment protocols.",
+    "items": [
+      "Operating principles of diode laser technology",
+      "Application areas of 4 wavelengths",
+      "Treatment protocols for all skin types and hair colors",
+      "UV-sterilization and hygiene guidelines",
+      "Client documentation, marketing, and business module",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "After completing the training, we issue an official certificate.",
+      "Training is also available in online format if needed."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "training value",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I am interested in the training"
+  },
+  "specs": {
+    "Power": "2500W",
+    "Wavelengths": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Energy": "0–120 J/cm²",
+    "Spot size": "Adjustable (precision, 5×5 cm, 10×10 cm, 12×20 cm)",
+    "Frequency": "1–10 Hz",
+    "Cooling system": "Water cooling + air cooling + TEC + sapphire contact (-16°C)",
+    "Display": "High-resolution touchscreen",
+    "UV sterilization": "Built-in applicator holder",
+    "Dimensions": "53 × 45 × 110 cm",
+    "Weight": "58 kg",
+    "Power supply": "220V / 50Hz"
+  },
+  "faq": [
+    {
+      "question": "What makes the MediLUX PRO different from other diode lasers?",
+      "answer": "The MediLUX PRO stands out with its 2500W power, sapphire contact cooling system down to -16°C, and UV-sterilization applicator holder. Additionally, it is available in custom colors to match your salon's brand identity."
+    },
+    {
+      "question": "What colors are available?",
+      "answer": "MediLUX is available in rose gold, champagne gold, modern grey, elegant silver, holo-effect, and powder pink."
+    },
+    {
+      "question": "How quickly does the MediLUX PRO pay for itself?",
+      "answer": "The 2500W power and 4 wavelengths enable fast, effective treatments. With 5-8 clients per day, it typically pays for itself within 2-3 months. Use our ROI calculator!"
+    },
+    {
+      "question": "Are installment payments available?",
+      "answer": "Yes! The MediLUX PRO is also available with favorable installment payment plans. Request a custom quote!"
+    },
+    {
+      "question": "Can I view the device before purchasing?",
+      "answer": "Yes! You can view and test the MediLUX PRO in person at our showroom (Erd, Budai ut 28.) by prior appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "MediLUX PRO diode laser device",
+    "Ergonomic diode laser applicator",
+    "UV-sterilization applicator holder",
+    "Adjustable spot size handpieces",
+    "Protective eyewear (operator + client)",
+    "User manual",
+    "Operator training (certificate)",
+    "24-month comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "name": "NightyVibe Diodový laser",
+  "shortDescription": "2500W inteligentní diodový laser s technologií SAFE-OPTION. Životnost 40 milionů výstřelů, digitální aplikátor s vestavěným počítadlem výstřelů. Včetně odborného školícího materiálu a kompletního obchodního modulu.",
+  "description": "NightyVibe je inteligentní diodový laser se 4 vlnovými délkami, vyvinutý s důrazem na efektivitu, bezpečnost a prémiovou technologii. Inteligentní řízení poskytuje klinicky podložené uživatelské rozhraní, zatímco technologie SAFE-OPTION zabraňuje chybným nebo nebezpečným nastavením.",
+  "metaTitle": "NightyVibe Diodový laser | 2500W, SAFE-OPTION, inteligentní řízení",
+  "metaDescription": "NightyVibe 2500W inteligentní diodový laser se 4 vlnovými délkami a technologií SAFE-OPTION. 40M výstřelů, digitální aplikátor, odborné školení. Certifikováno.",
+  "stats": [
+    { "value": "2500", "unit": "W", "label": "Výkon", "icon": "zap" },
+    { "value": "4", "label": "Vlnové délky", "icon": "wave" },
+    { "value": "40M", "label": "Životnost výstřelů", "icon": "clock" },
+    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 25000 },
+  "videoDescription": {
+    "headline": "NightyVibe – Chytrý laser pro profesionály",
+    "paragraphs": [
+      "Budoucnost technologie diodové laserové epilace je zde. NightyVibe je inteligentní diodový laser se 4 vlnovými délkami, vyvinutý s důrazem na efektivitu, bezpečnost a prémiovou technologii.",
+      "NightyVibe není jen laser – je to obchodní posun na vyšší úroveň. Součástí je odborný školící materiál, marketingový plán kampaní a skutečná profesionální podpora."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Máte dotazy ohledně NightyVibe? Rádi vám pomůžeme!",
+      "buttonLabel": "Požádat o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidět NightyVibe osobně?",
+      "subtitle": "Navštivte náš showroom v Érdu a vyzkoušejte si ho sami!",
+      "buttonLabel": "Rezervovat termín"
+    },
+    "final": {
+      "headline": "Zajímá vás diodový laser NightyVibe?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to pro vás nejlepší volba.",
+      "buttonLabel": "Požádat o konzultaci"
+    }
+  },
+  "featureRows": {
+    "headline": "Proč profesionálové volí NightyVibe?",
+    "subtitle": "2500W výkon, technologie SAFE-OPTION, kompletní obchodní balíček.",
+    "features": [
+      {
+        "title": "2500W výkon – bleskově rychlá ošetření",
+        "description": "Výkon NightyVibe 2500W patří k nejvyšším na trhu. Tento výkon umožňuje extrémně rychlé pokrytí velkých ploch, drastické zkrácení doby ošetření a obsloužení většího počtu klientů denně.",
+        "highlight": "Jeden z nejvýkonnějších diodových laserů na trhu.",
+        "image": "@assets/products/a60a5251-0957-4306-be62-263b8adc2936.webp"
+      },
+      {
+        "title": "4 vlnové délky – pro každý typ pleti a ochlupení",
+        "description": "NightyVibe pracuje na čtyřech vlnových délkách, díky čemuž je bezpečný a účinný pro všechny Fitzpatrickovy typy pleti (I–VI).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vlnové délky:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – světlé, jemné chloupky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – univerzální, většina typů ochlupení</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – tmavší ochlupení</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – hluboko uložené chloupky</div>\n</div>",
+        "image": "@assets/products/nightyvibediodalezer2.webp"
+      },
+      {
+        "title": "Technologie SAFE-OPTION – maximální bezpečnost",
+        "description": "Technologie SAFE-OPTION zabraňuje chybným nebo nebezpečným nastavením a zajišťuje maximální bezpečnost pro každého klienta. Inteligentní řízení poskytuje klinicky podložené uživatelské rozhraní – přístroj automaticky optimalizuje nastavení.",
+        "highlight": "SAFE-OPTION zabraňuje chybným nastavením – maximální bezpečnost.",
+        "image": "@assets/products/nightyvibediodalezer3.webp"
+      },
+      {
+        "title": "Digitální aplikátor – vestavěné počítadlo výstřelů",
+        "description": "Moderní dotykový displej zajišťuje snadné ovládání, zatímco digitální aplikátor s vestavěným počítadlem výstřelů umožňuje přesné sledování ošetření.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vestavěné počítadlo výstřelů pro přesné sledování</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Životnost 40 milionů výstřelů</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kontaktní chlazení pro bezbolestná ošetření</div>\n</div>",
+        "image": "@assets/products/nightyvibediodalezer4.webp"
+      },
+      {
+        "title": "Kompletní obchodní balíček – víc než jen laser",
+        "description": "Koupě NightyVibe zahrnuje komplexní obchodní podporu pro úspěšný start.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Odborný školící materiál – sestavený lékařem kosmetologie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Marketingový plán kampaní a cenová strategie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tipy na získávání klientů a obchodní modul</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Následná péče a průběžná profesionální podpora</div>\n</div>",
+        "highlight": "NightyVibe není jen laser – je to obchodní posun na vyšší úroveň.",
+        "image": "@assets/products/a60a5251-0957-4306-be62-263b8adc2936.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Školení obsluhy – Oficiální odborné vzdělávání",
+    "badge": "S oficiálním certifikátem",
+    "intro": "K diodovému laseru NightyVibe poskytujeme oficiální školení s certifikovaným certifikátem. Kurz sestavil lékař kosmetologie a je zahrnut v ceně přístroje.",
+    "items": [
+      "Principy fungování a bezpečnostní aspekty diodové laserové technologie",
+      "Funkce a aplikace technologie SAFE-OPTION",
+      "Nastavení parametrů ošetření podle typu pleti a ochlupení",
+      "Praktická ošetření na modelech – na různých částech těla",
+      "Kontraindikace, výběr klientů a protokoly před ošetřením",
+      "Marketingový a obchodní modul – získávání klientů, cenová strategie"
+    ],
+    "closingParagraphs": [
+      "Na školení si můžete přivést vlastní model, abyste si techniky ošetření osvojili v reálném prostředí.",
+      "Po absolvování školení vystavíme certifikovaný certifikát o odborném vzdělání potvrzující kompetenci v profesionální obsluze přístroje."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "hodnota školení",
+    "freeText": "ZDARMA při koupi přístroje!",
+    "duration": "Jednodenní intenzivní školení",
+    "ctaText": "Mám zájem o školení"
+  },
+  "testimonials": [
+    {
+      "name": "Katalin Nemeth",
+      "date": "2025. 06. 20.",
+      "text": "Funkce SAFE-OPTION NightyVibe je obrovská úleva. <mark>Nemusím se obávat, že zvolím špatné nastavení</mark> – přístroj to jednoduše nedovolí. A výkon 2500W znatelně zrychluje ošetření.",
+      "rating": 5
+    },
+    {
+      "name": "Szilvia Varga",
+      "date": "2025. 05. 15.",
+      "text": "Obchodní balíček je to, co NightyVibe skutečně odlišuje. <mark>Marketingový plán kampaní a odborný školící materiál mi pomohly s rozjezdem mého salonu</mark>. Samotný přístroj je také fantastický.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Díky výkonu 2500W a technologii SAFE-OPTION je NightyVibe jedním z nejbezpečnějších a nejúčinnějších diodových laserů. Kompletní obchodní balíček je obzvláště cenný pro nově otevírané salony.",
+    "author": "Laszlo Horvath",
+    "role": "Technický expert"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "2500W výkon", "description": "Jeden z nejvyšších výkonů na trhu." },
+    { "icon": "sun", "name": "4 vlnové délky", "description": "755, 808, 940, 1064 nm – pro každý typ pleti." },
+    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Zabraňuje chybným nebo nebezpečným nastavením." },
+    { "icon": "chart", "name": "Počítadlo výstřelů", "description": "Digitální aplikátor s vestavěným počítadlem." },
+    { "icon": "brain", "name": "Inteligentní řízení", "description": "Klinicky optimalizovaná nastavení." },
+    { "icon": "clipboard", "name": "Obchodní balíček", "description": "Marketingový plán, cenová strategie, získávání klientů." }
+  ],
+  "faq": [
+    {
+      "question": "Co je technologie SAFE-OPTION?",
+      "answer": "SAFE-OPTION je inteligentní bezpečnostní systém, který zabraňuje chybným nebo nebezpečným nastavením. To znamená, že přístroj nedovolí obsluze nastavit parametry, které nejsou bezpečné pro daný typ pleti nebo ochlupení."
+    },
+    {
+      "question": "Co obsahuje obchodní balíček?",
+      "answer": "Koupě NightyVibe zahrnuje odborný školící materiál (sestavený lékařem kosmetologie), marketingový plán kampaní, cenovou strategii, tipy na získávání klientů a průběžnou následnou podporu."
+    },
+    {
+      "question": "Jaká je životnost výstřelů?",
+      "answer": "NightyVibe má kapacitu přibližně 40 milionů výstřelů, což při 10-15 klientech denně znamená životnost několik let."
+    },
+    {
+      "question": "Jaké školení je součástí přístroje?",
+      "answer": "Oficiální odborné vzdělávání s certifikovaným certifikátem, které je zahrnuto v ceně přístroje. Kurz sestavil lékař kosmetologie."
+    },
+    {
+      "question": "Jak rychle se přístroj zaplatí?",
+      "answer": "V průměru za 2-4 měsíce při 5-8 klientech denně. Použijte náš ROI kalkulátor na stránce pro přesný výpočet!"
+    },
+    {
+      "question": "Jakou záruku dostanu?",
+      "answer": "Poskytujeme 2letou komplexní záruku. Máme vlastní servisní tým a během oprav poskytujeme náhradní přístroj, aby provoz vašeho salonu nikdy nebyl přerušen."
+    }
+  ],
+  "whatsIncluded": [
+    "Diodový laser NightyVibe (2500W)",
+    "Digitální aplikátor s počítadlem výstřelů",
+    "Odborný školící materiál",
+    "Marketingový plán kampaní a obchodní modul",
+    "Ochranné brýle (obsluha + klient)",
+    "Návod k použití",
+    "Školení obsluhy (certifikovaný certifikát)",
+    "2 roky komplexní záruky",
+    "Náhradní přístroj po dobu opravy"
+  ]
+}

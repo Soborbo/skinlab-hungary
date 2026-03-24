@@ -1,0 +1,131 @@
+{
+  "name": "Mast Nano 2.0",
+  "shortDescription": "Ultralehký PMU přístroj o hmotnosti pouhých 66 gramů s coreless motorem. Kompaktní provedení, minimální hluk a vibrace – zvláště vhodný pro práci na očních linkách.",
+  "description": "MAST Nano 2 je navržena pro odborníky na profesionální permanentní make-up. S hmotností pouhých 66 gramů je jedním z nejlehčích přístrojů na trhu, přesto disponuje výkonným coreless motorem pro dynamický a stabilní výkon.\n\nŠtíhlé, kompaktní provedení je ideální pro dlouhé pracovní procesy, zatímco minimální hluk a vibrace vytvářejí pohodlné a přesné pracovní prostředí.\n\nVynikající volba jak pro začátečníky, tak pro profesionály – pro práci na očních linkách je díky nízké hmotnosti a malým rozměrům obzvláště vhodná.",
+  "metaTitle": "MAST Nano 2 PMU přístroj – Lehký, tichý a přesný",
+  "metaDescription": "66g kompaktní PMU přístroj pro profesionální i začátečnické použití. Minimální vibrace, přesná práce na očních linkách, výkonný a spolehlivý.",
+  "stats": [
+    { "value": "66", "unit": "g", "label": "Ultralehký", "icon": "layers" },
+    { "value": "2,7", "unit": "mm", "label": "Délka zdvihu", "icon": "zap" },
+    { "value": "10000", "unit": "RPM", "label": "Rychlost motoru", "icon": "award" },
+    { "value": "18,8", "unit": "mm", "label": "Průměr", "icon": "clock" }
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Máte dotazy k Mast Nano 2? Rádi pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si Mast Nano 2 vyzkoušet?",
+      "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ji osobně!",
+      "buttonLabel": "Rezervace termínu"
+    },
+    "final": {
+      "headline": "Máte zájem o Mast Nano 2?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout se.",
+      "buttonLabel": "Žádost o konzultaci"
+    }
+  },
+  "featureRows": {
+    "headline": "Proč si PMU umělci volí Mast Nano 2?",
+    "subtitle": "Nejlehčí přístroj, který nedělá kompromisy ve výkonu",
+    "features": [
+      {
+        "title": "Pouhých 66 gramů – nejlehčí ve své kategorii",
+        "description": "Extrémně nízká hmotnost Mast Nano 2 je v ruce téměř nepostřehnutelná. Průměr 18,8 mm a výška 127,9 mm umožňují štíhlý úchop podobný tužce, což je obzvláště důležité při přesné práci – například při tvorbě očních linek.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Výkonný coreless motor s minimální vibrací",
+        "description": "Coreless motor s rychlostí 10 000 RPM poskytuje dynamický a stabilní výkon. Minimální hluk a vibrace slouží nejen pohodlí umělce, ale zajišťují i příjemnější zážitek pro klienta v citlivých oblastech.",
+        "image": "@assets/products/mastnano1.webp"
+      },
+      {
+        "title": "Zvláště ideální pro práci na očních linkách",
+        "description": "Díky malým rozměrům a nízké hmotnosti je Mast Nano 2 jednou z nejlepších voleb pro oblast očních víček. Přesný, bezvibračný motor umožňuje přesné vytváření tenkých linek i v nejcitlivějších oblastech.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Pro začátečníky i profesionály",
+        "description": "Fixní délka zdvihu 2,7 mm a provozní napětí 5–9V zajišťují jednoduchou obsluhu. Žádné složité nastavování – Nano 2 je okamžitě připravena k práci a spolehlivě pracuje v každé situaci.",
+        "image": "@assets/products/mastnano1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Školení obsluhy PMU přístroje",
+    "badge": "S oficiálním certifikátem",
+    "intro": "K přístroji Mast Nano 2 je dostupné profesionální školení obsluhy PMU přístroje, které probíhá v rámci oficiálně registrovaného vzdělávání dospělých.",
+    "items": [
+      "Princip fungování Mast Nano 2 a optimální nastavení",
+      "Techniky očních linek: tenké a silnější linky",
+      "Základy PMU obočí",
+      "Techniky pigmentace rtů",
+      "Rozpoznání a ošetření různých typů pleti",
+      "Hygienické protokoly a sterilní práce",
+      "Praktická ošetření na modelech"
+    ],
+    "closingParagraphs": [
+      "Na školení si samozřejmě můžete přivést modela, abyste si techniky ošetření osvojili v reálném prostředí.",
+      "Po absolvování školení vystavíme oficiální certifikát.",
+      "Pokud vás možnost kurzu zajímá, kontaktujte nás prosím na některém z našich kontaktů za účelem dohodnutí termínu!"
+    ],
+    "price": "49.990 Ft",
+    "priceNote": "hodnota školení",
+    "freeText": "ZDARMA při koupi přístroje!",
+    "duration": "Jednodenní intenzivní školení",
+    "ctaText": "Mám zájem o školení"
+  },
+  "testimonials": [
+    {
+      "name": "M. Vivien",
+      "date": "2025. 08. 18.",
+      "text": "Nano 2 je můj absolutní favorit na oční linky! <mark>Je tak lehká, že ji v ruce téměř necítím, a díky tomu mohu pracovat mnohem přesněji</mark>. Vibrace jsou prakticky nulové, což je v této oblasti naprosto zásadní. Vřele doporučuji!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Mast Nano 2 je mistryní práce na očních linkách. Kombinace 66gramové hmotnosti a minimální vibrace je v této cenové kategorii jedinečná.",
+    "author": "Horváth László",
+    "role": "Technický odborník"
+  },
+  "specs": {
+    "Hmotnost": "66 g",
+    "Typ motoru": "Coreless motor",
+    "Rychlost motoru": "10 000 RPM (12V)",
+    "Průměr": "18,8 mm",
+    "Výška": "127,9 mm",
+    "Délka zdvihu": "2,7 mm",
+    "Provozní napětí": "5–9V"
+  },
+  "faq": [
+    {
+      "question": "V čem se Nano 2 liší od MAST P60?",
+      "answer": "Nano 2 je lehčí (66 g vs. 121 g), menší a kompaktnější. Má fixní délku zdvihu 2,7 mm (P60 má 5stupňovou), je drátová (ne akumulátorová). Nano 2 je ideální zejména pro oblast očních víček a přesnou, jemnou práci, zatímco P60 je všestrannější."
+    },
+    {
+      "question": "S jakými jehlovými moduly je kompatibilní?",
+      "answer": "Mast Nano 2 používá univerzální patronový systém. Skvěle funguje s MAST Oceanheart a WJX jehlovými moduly. Pro oční linky jsou ideální moduly 1RL (0,18–0,25 mm)."
+    },
+    {
+      "question": "Je Nano 2 vhodná i pro začátečníky?",
+      "answer": "Ano! Jednoduchá obsluha a fixní délka zdvihu usnadňují učení. Nízká hmotnost zabraňuje únavě ruky při cvičení. Bezplatné školení při koupi přístroje podporuje bezpečný start."
+    },
+    {
+      "question": "Je Nano 2 vhodná pouze na oční linky?",
+      "answer": "Ne, Nano 2 je vhodná pro všechny PMU techniky – obočí, rty, oční linky. Díky malým rozměrům a nízké hmotnosti je však pro oblast očních víček jednou z nejlepších voleb na trhu."
+    },
+    {
+      "question": "Jaká záruka se na přístroj vztahuje?",
+      "answer": "Na Mast Nano 2 se vztahuje 1 rok záruky. Po dobu opravy poskytujeme náhradní přístroj, aby vaše práce nebyla přerušena."
+    }
+  ],
+  "whatsIncluded": [
+    "Mast Nano 2.0 PMU přístroj",
+    "Připojovací kabel",
+    "Návod k použití",
+    "1 rok záruka",
+    "Náhradní přístroj po dobu opravy"
+  ]
+}

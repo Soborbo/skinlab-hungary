@@ -1,0 +1,161 @@
+{
+  "name": "PEARL Diode Laser",
+  "shortDescription": "Compact, 12 kg portable diode laser with 4 wavelengths. 500W power, -5°C cooling, 280-gram ultra-light handpiece. Ideal for mobile services and beginner beauticians.",
+  "description": "The Pearl is a compact, lightweight yet powerful diode laser hair removal device that offers the most advanced technology for all skin types. The four integrated wavelengths (755, 808, 940, 1064 nm) enable precise and effective treatment for all hair types. Its lightweight design and intelligent interface make it a perfect choice for both beginner and advanced beauticians.",
+  "metaTitle": "PEARL Diode Laser | 500W, 4 wavelengths, portable",
+  "metaDescription": "Pearl compact diode laser with 4 wavelengths (755, 808, 940, 1064 nm). 500W, 12 kg, -5°C cooling, skin rejuvenation mode. Ideal for beginners. 2-year warranty.",
+  "stats": [
+    { "value": "500", "unit": "W", "label": "Power", "icon": "zap" },
+    { "value": "4", "label": "Wavelengths", "icon": "wave" },
+    { "value": "12", "unit": "kg", "label": "Device weight", "icon": "layers" },
+    { "value": "-5°C", "label": "Cooling", "icon": "heart" }
+  ],
+  "roi": { "defaultTreatmentPrice": 15000 },
+  "videoDescription": {
+    "headline": "PEARL – Compact diode laser with professional results",
+    "paragraphs": [
+      "The Pearl is a compact, lightweight yet powerful diode laser that offers the most advanced technology for all skin types.",
+      "A perfect choice for beginner and advanced beauticians, mobile service providers, or salons with an expanding service portfolio."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the Pearl? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the Pearl in person?",
+      "subtitle": "Visit our showroom in Érd and try it out in person!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the PEARL diode laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why choose the Pearl?",
+    "subtitle": "Lightweight, portable, yet professional – the best entry into the world of diode laser hair removal.",
+    "features": [
+      {
+        "title": "4 wavelengths – for all skin types and hair colors",
+        "description": "The four integrated wavelengths enable precise and effective treatment for all hair types.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair (phototype I–III)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – deep follicles, dense hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – inhibiting follicle regeneration</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – dark skin types (IV–VI), deep penetration</div>\n</div>",
+        "image": "@assets/products/pearlwhite1.webp"
+      },
+      {
+        "title": "Compact and lightweight – 12 kg, 280 g handpiece",
+        "description": "The Pearl weighs only 12 kg total, and the 280-gram ergonomic handpiece ensures comfortable use even during long treatments. The 12×15 mm spot size provides efficient body surface coverage.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12 kg total device weight – easy to move</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>280 g ergonomic handpiece</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12×15 mm spot size</div>\n</div>",
+        "highlight": "Ideal for mobile services and smaller salons.",
+        "image": "@assets/products/pearldiode2.webp"
+      },
+      {
+        "title": "Quad cooling system – painless treatment",
+        "description": "The Pearl's quad cooling system (semiconductor + fan + sapphire + TEC) maintains the handpiece temperature between -5°C and +5°C, making the treatment pleasant and painless for clients.",
+        "highlight": "-5°C to +5°C cooling range.",
+        "image": "@assets/products/pearlwhite.webp"
+      },
+      {
+        "title": "Three treatment modes – from beginner to pro",
+        "description": "The Pearl offers three treatment modes for different experience levels.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Preset – automatic parameter setting by skin type</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Professional – freely adjustable fluence (0–60 J/cm²)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin rejuvenation mode – tightening, pore reduction, tone improvement</div>\n</div>",
+        "image": "@assets/products/pearlwhite1.webp"
+      },
+      {
+        "title": "Treatment areas – hair removal and skin rejuvenation",
+        "description": "The Pearl is suitable not only for permanent hair removal but also for skin rejuvenation treatments on all skin types (I–VI).\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatable areas:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Legs, arms, back, chest</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Underarms, intimate area</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Face, chin, lip, mustache</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin rejuvenation (tightening, tone improvement)</div>\n</div>",
+        "image": "@assets/products/pearlwhite1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – within official adult education",
+    "badge": "With official certificate",
+    "intro": "Professional device operator training is available for the Pearl diode laser, provided within an officially registered adult education program. The training aims to provide participants with comprehensive theoretical and practical knowledge for the professional and safe use of the device.",
+    "items": [
+      "Operating principles and safety aspects of diode laser technology",
+      "Setting Pearl treatment parameters by skin and hair type",
+      "Application of HR Preset and HR Professional modes",
+      "Practical treatments on models – on different body areas",
+      "Contraindications, client selection and pre-treatment protocols",
+      "Aftercare and client communication"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn treatment techniques in a real-world setting.",
+      "Upon completion of the training, we issue an official FAR certificate confirming competence for the professional operation of the device."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I'm interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Molnár Vivien",
+      "date": "2025. 09. 12.",
+      "text": "My first diode laser and <mark>I'm very satisfied with the Pearl</mark>. The HR Preset mode helps a lot because it automatically sets the parameters. Lightweight, small, and my clients love the results.",
+      "rating": 5
+    },
+    {
+      "name": "Lakatos Fruzsina",
+      "date": "2025. 08. 03.",
+      "text": "As a mobile beautician, I was looking for an easily transportable device. <mark>The Pearl at 12 kilos is perfect</mark>, and the 4 wavelengths work everywhere. The skin rejuvenation mode has also become a big favorite among my clients.",
+      "rating": 5
+    },
+    {
+      "name": "Beauty Point Szombathely",
+      "date": "2025. 07. 18.",
+      "text": "Excellent value for money! <mark>The Pearl delivers the same 4 wavelengths as more expensive devices</mark>, and the cooling is perfect too. Ideal as a second device for the salon.",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "The Pearl is an ideal choice for those who want to offer professional diode laser hair removal at an affordable price. The 4 wavelengths, compact size and skin rejuvenation function make it an excellent entry-level device.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
+  "functionCards": [
+    { "icon": "zap", "name": "500W power", "description": "Effective treatments in a compact size." },
+    { "icon": "sun", "name": "4 wavelengths", "description": "755, 808, 940, 1064 nm – for all skin types." },
+    { "icon": "snowflake", "name": "-5°C cooling", "description": "Quad cooling system for comfortable treatments." },
+    { "icon": "sparkles", "name": "Skin rejuvenation", "description": "Tightening, pore reduction, tone improvement." },
+    { "icon": "brain", "name": "Intelligent modes", "description": "HR Preset and Professional operating modes." },
+    { "icon": "layers", "name": "12 kg, portable", "description": "Lightweight, compact design." }
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between the Pearl and the Black Pearl?",
+      "answer": "The Pearl and the Black Pearl have identical technical specifications (500W, 4 wavelengths, 12 kg, -5°C cooling). The difference is in appearance – the Pearl is white, the Black Pearl is in black finish."
+    },
+    {
+      "question": "Is it suitable for beginners?",
+      "answer": "Yes! The HR Preset mode automatically sets the parameters based on skin type, hair color and density, so even beginner beauticians can work safely with it."
+    },
+    {
+      "question": "What treatment modes are available?",
+      "answer": "Three modes: HR Preset (automatic, for beginners), HR Professional (freely adjustable fluence 0–60 J/cm², frequency 1–10 Hz), and skin rejuvenation mode (tightening, pore reduction)."
+    },
+    {
+      "question": "How quickly does it pay for itself?",
+      "answer": "On average within 2-3 months, with 4-6 clients per day. Use our ROI calculator on the page for exact calculations!"
+    },
+    {
+      "question": "What warranty do I get?",
+      "answer": "We provide a 2-year comprehensive warranty. We have our own service background, and we provide a replacement device during repairs."
+    },
+    {
+      "question": "Is it suitable for mobile services?",
+      "answer": "Yes! The Pearl weighs only 12 kg, is easily transportable, and operates on 220V/50Hz or 110V/60Hz power supply."
+    }
+  ],
+  "whatsIncluded": [
+    "PEARL diode laser device",
+    "Ergonomic handpiece (280 g, 12×15 mm)",
+    "Safety goggles (operator + client)",
+    "User manual",
+    "Device operator training (FAR certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

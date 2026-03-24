@@ -1,0 +1,136 @@
+{
+  "name": "Prestige4WAVE",
+  "shortDescription": "1200W diode laser with compressor cooling. 5 interchangeable spot sizes, HD touchscreen handpiece, 80%+ hair reduction after 3-4 treatments.",
+  "description": "The Prestige4WAVE is a next-generation, 1200W professional diode laser that provides maximum efficiency on all skin types and hair types with 4 different wavelengths.\n\nThe device features a compressor cooling system that ensures stable, continuous operation and excellent heat dissipation.\n\nThe handpiece has an HD touchscreen display, allowing treatment parameters to be adjusted directly on the handpiece.",
+  "metaTitle": "Diode laser hair removal device 1200W – 755/808/940/1064 nm",
+  "metaDescription": "The Prestige 4Wave 1200W diode laser provides professional, long-lasting hair removal with 4 wavelengths. With official training and certified education.",
+  "stats": [
+    { "value": "1200", "unit": "W", "label": "Power", "icon": "zap" },
+    { "value": "4", "label": "Wavelengths", "icon": "wave" },
+    { "value": "5", "label": "Spot sizes", "icon": "layers" },
+    { "value": "-5°C", "label": "Cooling", "icon": "snowflake" }
+  ],
+  "roi": { "defaultTreatmentPrice": 35000 },
+  "videoDescription": {
+    "headline": "Prestige4WAVE – High performance, professional results",
+    "paragraphs": [
+      "The Prestige4WAVE is a next-generation, 1200W professional diode laser that provides maximum efficiency on all skin types and hair types with 4 different wavelengths.",
+      "The device features a compressor cooling system that ensures stable, continuous operation and excellent heat dissipation. The handpiece has an HD touchscreen display, allowing treatment parameters to be adjusted directly on the handpiece.",
+      "The HR Preset and HR Professional modes enable fast and easy operation even in high-traffic salons."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the Prestige4WAVE? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the Prestige4WAVE in person?",
+      "subtitle": "Visit our showroom in Érd and try it out in person!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the Prestige4WAVE diode laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why do beauticians choose the Prestige4WAVE?",
+    "subtitle": "1200W power, compressor cooling, 5 interchangeable spot sizes",
+    "features": [
+      {
+        "title": "4 wavelengths – for all skin types and hair colors",
+        "description": "The Prestige4WAVE operates on four wavelengths, providing effective and safe treatment for all hair and skin types.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>755 nm – light, fine hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>808 nm – universal, most hair types</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>940 nm – darker hair</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>1064 nm – deep-seated hair follicles</div>\n</div>",
+        "image": "@assets/products/prestige4wavemain2.webp"
+      },
+      {
+        "title": "1200W power – for fast and lasting hair removal",
+        "description": "The 1200W power enables faster coverage of larger areas, significantly reducing treatment time. Clinical studies show over 80% hair reduction in 95% of cases after 3-5 treatments.",
+        "highlight": "80%+ hair reduction after just 3-4 treatments.",
+        "image": "@assets/products/PRESTIGE.webp"
+      },
+      {
+        "title": "Advanced compressor cooling system",
+        "description": "The compressor cooling system is faster and more efficient than traditional TEC cooling. Contact temperature between -5°C and +5°C ensures maximum comfort.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Starts at 22°C, stops at 19°C (adjustable)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stable operating temperature around 20°C</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>360° Peltier ring + sapphire contact cooling</div>\n</div>",
+        "highlight": "Compressor cooling enables long-lasting, painless, and safe treatments.",
+        "image": "@assets/products/prestige4waveblack.webp"
+      },
+      {
+        "title": "5 interchangeable spot sizes – for every body area",
+        "description": "5 different sizes for every area of the body – small spot heads for the face and intimate areas, large heads for fast body treatments.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Φ8 mm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>5×5 mm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>10×10 mm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>12×20 mm</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20×40 mm</div>\n</div>",
+        "image": "@assets/products/prestige4wavemain.webp"
+      },
+      {
+        "title": "Intelligent HD touchscreen handpiece",
+        "description": "The handpiece's modern, high-resolution, color touchscreen allows full parameter control directly on the handpiece.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Laser intensity adjustment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulse width adjustment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency adjustment</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HR Preset and HR Professional modes</div>\n</div>",
+        "image": "@assets/products/prestige4wavenext.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – within official adult education",
+    "badge": "With official certificate",
+    "intro": "When purchasing the Prestige4WAVE, we provide official training included in the price of the device. During the training, we thoroughly demonstrate the device operation, safety regulations, treatment protocols, and practical guidelines for client treatments.",
+    "items": [
+      "Operating principles and safety aspects of diode laser technology",
+      "Application areas and settings for 4 wavelengths",
+      "Treatment protocols for different skin and hair types",
+      "Proper use of 5 spot sizes",
+      "Compressor cooling system operation",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "Upon completion of the training, we issue an officially registered adult education certificate confirming competence for professional device operation.",
+      "This is particularly important for regulatory compliance and ensuring professional service delivery."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I'm interested in the training"
+  },
+  "specs": {
+    "Power": "1200W",
+    "Wavelengths": "755 nm / 808 nm / 940 nm / 1064 nm",
+    "Cooling system": "Compressor + 360° Peltier + sapphire contact (-5°C – +5°C)",
+    "Spot sizes": "Φ8 mm, 5×5 mm, 10×10 mm, 12×20 mm, 20×40 mm",
+    "Handpiece display": "HD touchscreen",
+    "Operating modes": "HR Preset, HR Professional, skin rejuvenation",
+    "Power supply": "220V / 50Hz",
+    "Certifications": "CE"
+  },
+  "faq": [
+    {
+      "question": "What makes the Prestige4WAVE different from other diode lasers?",
+      "answer": "The Prestige4WAVE stands out with its 1200W power, compressor cooling system, and 5 interchangeable spot sizes. The HD touchscreen handpiece allows you to adjust treatment parameters directly on the handpiece, enabling faster and more comfortable operation."
+    },
+    {
+      "question": "What are the advantages of compressor cooling?",
+      "answer": "The compressor cooling system is faster and more efficient than traditional TEC cooling. It maintains a stable operating temperature around 20°C, making treatments longer-lasting, more painless, and safer."
+    },
+    {
+      "question": "How quickly does the Prestige4WAVE pay for itself?",
+      "answer": "On average within 2-4 months, with 5-8 clients per day. A diode laser hair removal treatment costs between 15,000-50,000 Ft depending on the treated area. Use our ROI calculator on the page for exact calculations!"
+    },
+    {
+      "question": "What training comes with the device?",
+      "answer": "Official device operator training is included in the price of the Prestige4WAVE. The training concludes with an officially registered adult education certificate confirming competence for professional device operation."
+    },
+    {
+      "question": "Is it possible to see the device before purchasing?",
+      "answer": "Yes! You can view and try the Prestige4WAVE in person at our showroom (Érd, Budai út 28.) by appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "Prestige4WAVE diode laser device",
+    "5 interchangeable spot size handpiece",
+    "HD touchscreen handle",
+    "Safety goggles (operator + client)",
+    "User manual",
+    "Device operator training (official certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
+  ]
+}

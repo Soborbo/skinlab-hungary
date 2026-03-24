@@ -1,0 +1,184 @@
+{
+  "name": "HYDRAMINI",
+  "shortDescription": "6+1 funktionales kompaktes Hydrofacial-Gerät mit LED-Maske. Jet Peel, RF Lifting, Ultraschall, Kalthammer. Ideal für kleinere Salons.",
+  "description": "Das HydraMini ist ein kompaktes, aber professionelles Gesichtsbehandlungsgerät, das 6 Behandlungsköpfe und eine LED-Maske in einem einzigen Gerät vereint.\n\nDas fortschrittliche Sauerstoff-Jet-Peel- und Hydrodermabrasionsgerät bietet Tiefenreinigung, Peeling, Wirkstoffeinschleusung, Hydratation und Hautstraffung – schmerzfrei und sicher auch für empfindliche Haut.\n\nIdeal für kleinere Salons, angehende Kosmetikerinnen und mobile Dienstleister, die eine professionelle Lösung in kompakter Größe suchen.",
+  "metaTitle": "HydraMini | 6+1 funktionales kompaktes Hydrofacial mit LED-Maske",
+  "metaDescription": "HydraMini 6+1 Hydrofacial: Jet Peel, RF Lifting, Ultraschall, Kalthammer, LED-Maske. Kompakte Größe, professionelle Ergebnisse.",
+  "stats": [
+    {
+      "value": "6+1",
+      "label": "Behandlungsfunktionen",
+      "icon": "layers"
+    },
+    {
+      "value": "LED",
+      "label": "Gesichtsmaske",
+      "icon": "sun"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "shield"
+    },
+    {
+      "value": "~30",
+      "unit": "Min",
+      "label": "Behandlungszeit",
+      "icon": "clock"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
+  "videoDescription": {
+    "headline": "HydraMini – professionelles Hydrofacial in kompakter Größe",
+    "paragraphs": [
+      "Das HydraMini vereint 6 Behandlungsköpfe und eine LED-Maske in einem einzigen kompakten Gerät, konzipiert für den professionellen Einsatz.",
+      "Die Kombination aus Wasser-Sauerstoff-Tiefenreinigung, RF Lifting, Ultraschall und Kalthammer ermöglicht ein umfassendes Gesichtsbehandlungsprotokoll.",
+      "Ideal für kleinere Salons und angehende Kosmetikerinnen, die eine professionelle Lösung in kompakter Größe suchen."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum Gerät? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie das HydraMini persönlich sehen?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und probieren Sie es persönlich aus!",
+      "buttonLabel": "Termin vereinbaren"
+    },
+    "final": {
+      "headline": "Interessiert am HydraMini?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  },
+  "featureRows": {
+    "headline": "Warum wählen Kosmetikerinnen das HydraMini?",
+    "subtitle": "Kompakte Größe, professionelle Ergebnisse",
+    "features": [
+      {
+        "title": "6 Behandlungsköpfe + LED-Maske in einem Gerät",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sprüh-/Zerstäuberdüse</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultraschallkopf</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kalthammer</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH-Spatel (Skin Scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrasions-Kopf</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF-Behandlungskopf</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED-Lichttherapie-Gesichtsmaske</div>\n</div>",
+        "image": "@assets/products/HydraMini.webp"
+      },
+      {
+        "title": "Wasser-Sauerstoff-Tiefenreinigung und RF Lifting",
+        "description": "Die Wasser-Sauerstoff-Tiefenreinigung entfernt Verunreinigungen, Mitesser und abgestorbene Hautzellen. Das Radiofrequenz (RF) Lifting sorgt für straffere, konturiertere Gesichtshaut auf non-invasive Weise. Der Ultraschall fördert die Wirkstoffeinschleusung und bietet Mikromassage.",
+        "image": "@assets/products/HydraMinihydrofacial.webp"
+      },
+      {
+        "title": "LED-Maske und Kalthammer zum Abschluss der Behandlung",
+        "description": "Die LED-Maske bietet gezielte Lichttherapie für die Hautregeneration, zur Reduzierung von Entzündungen und zum Aufhellen von Pigmentflecken. Der Kalthammer wirkt entzündungshemmend und hautberuhigend und schließt die Behandlung perfekt ab.",
+        "image": "@assets/products/HydraMinihydrofacial1.webp"
+      },
+      {
+        "title": "Kompakt, leicht, ideal für kleinere Salons",
+        "description": "Die kompakte Größe und das leichte Gewicht des HydraMini machen es ideal für kleinere Salons, Heimpraxen und mobile Dienstleister. Professionelle Leistung zu einem erschwinglichen Preis mit minimalem Platzbedarf.",
+        "image": "@assets/products/HydraMini.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Gerätebedienungsschulung – im Rahmen offizieller Erwachsenenbildung",
+    "badge": "Mit offiziellem Zertifikat",
+    "intro": "Zum HydraMini-Gerät ist eine professionelle Gerätebedienungsschulung verfügbar, die wir im Rahmen einer offiziell gemeldeten Erwachsenenbildung anbieten.",
+    "items": [
+      "Funktionsprinzip, Technologien und Behandlungsköpfe des HydraMini",
+      "Behandlungsprotokolle für verschiedene Hauttypen und Probleme",
+      "Korrekte Anwendung von RF Lifting und LED-Lichttherapie",
+      "Grundlagen der Hautanalyse und personalisierter Behandlungsplan",
+      "Kundenkommunikation und Behandlungsdokumentation",
+      "Praktische Behandlungen an Modellen"
+    ],
+    "closingParagraphs": [
+      "Sie können selbstverständlich ein Modell zur Schulung mitbringen, um die Behandlungstechniken in einer realen Umgebung zu erlernen.",
+      "Nach Abschluss der Schulung stellen wir ein offizielles Zertifikat aus, das die Kompetenz zur fachgerechten Bedienung des HydraMini-Geräts bestätigt."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "Schulung im Wert von",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Intensivschulung",
+    "ctaText": "Interesse an der Schulung"
+  },
+  "expertQuote": {
+    "quote": "Das HydraMini ist der perfekte Einstieg in die Welt der Hydrofacial-Behandlungen. Kompakte Größe, professionelle Ergebnisse – ideal für kleinere Salons und angehende Kosmetikerinnen.",
+    "author": "Horváth László",
+    "role": "Technischer Experte"
+  },
+  "functionCards": [
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrasions-Kopf",
+      "description": "Vakuum-Tiefenreinigung, Porenreinigung"
+    },
+    {
+      "icon": "spray",
+      "name": "Sprühdüse",
+      "description": "Hydratation mit Sauerstoffspray, zerstäubtes Wasser und Sauerstoff"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultraschallkopf",
+      "description": "Wirkstoffeinschleusung und Mikromassage"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF-Behandlungskopf",
+      "description": "Radiofrequenz-Lifting, Straffung"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Kalthammer",
+      "description": "Entzündungshemmung, Hautberuhigung"
+    },
+    {
+      "icon": "layers",
+      "name": "UH-Spatel",
+      "description": "Skin Scrubber, Entfernung abgestorbener Hautzellen"
+    },
+    {
+      "icon": "sun",
+      "name": "LED-Gesichtsmaske",
+      "description": "Lichttherapie zur Regeneration und Entzündungshemmung"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Welche Funktionen hat das HydraMini?",
+      "answer": "Das HydraMini enthält 6 Behandlungsköpfe und eine LED-Maske: Sprühdüse, Ultraschallkopf, Kalthammer, UH-Spatel (Skin Scrubber), Hydrodermabrasions-Kopf, RF-Behandlungskopf und LED-Lichttherapie-Gesichtsmaske."
+    },
+    {
+      "question": "Für wen ist das HydraMini ideal?",
+      "answer": "Das HydraMini ist ideal für kleinere Kosmetiksalons, angehende Kosmetikerinnen, Heimpraxen und mobile Dienstleister. Es liefert professionelle Ergebnisse in kompakter Größe."
+    },
+    {
+      "question": "Wie schnell amortisiert sich das HydraMini?",
+      "answer": "Das HydraMini ist zu einem sehr günstigen Preis erhältlich, daher kann es sich bereits in 1-2 Monaten amortisieren, bei 2-3 Kunden pro Tag. Der Preis einer Hydrofacial-Behandlung liegt zwischen 10.000-20.000 Ft."
+    },
+    {
+      "question": "Für welche Hauttypen ist es geeignet?",
+      "answer": "Das HydraMini ist für alle Hauttypen geeignet, einschließlich empfindlicher Haut. Die Behandlung ist schmerzfrei und non-invasiv."
+    },
+    {
+      "question": "Welche Verbrauchsmaterialien werden benötigt?",
+      "answer": "Für Hydrodermabrasionsbehandlungen werden spezielle Seren und Lösungen benötigt, beispielsweise aus der HydraLiquid-Produktfamilie. Diese bieten wir unseren Kunden zu vergünstigten Preisen an."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraMini-Gerät",
+    "Sprüh-/Zerstäuberdüse",
+    "Ultraschall-Behandlungskopf",
+    "Kalthammer-Behandlungskopf",
+    "UH-Spatel (Skin Scrubber)",
+    "Hydrodermabrasions-Behandlungskopf",
+    "RF-Behandlungskopf",
+    "LED-Lichttherapie-Gesichtsmaske",
+    "Bedienungsanleitung",
+    "2 Jahre Vollgarantie",
+    "Ersatzgerät während der Reparatur"
+  ]
+}

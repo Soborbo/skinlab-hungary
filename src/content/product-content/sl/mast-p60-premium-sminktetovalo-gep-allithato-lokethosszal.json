@@ -1,0 +1,48 @@
+{
+  "name": "MAST P60 Premium PMU naprava – Gold",
+  "shortDescription": "Brezžična PMU naprava s 5-stopenjsko nastavljivo dolžino hoda, coreless motorjem in 3+ ur delovanja. Idealna za pigmentacijo obrvi, ustnic in očesnih črt.",
+  "description": "MAST P60 je brezžična PMU naprava, ki jo je Dragonhawk zasnoval posebej za področje permanentnega ličenja.\n\nZahvaljujoč vgrajenemu akumulatorju zagotavlja polno svobodo gibanja, medtem ko ergonomska zasnova in teža le 121 gramov zmanjšujeta utrujenost roke tudi pri daljšem delu.\n\nEna od njenih posebnosti je 5-stopenjsko nastavljiva dolžina hoda (2,2–3,2 mm), kar je pri PMU napravah redkost. To omogoča uporabo tehnik od finih dlačic do senčenja in prilagajanje različnim tipom kože.\n\nTih coreless motor minimizira hrup in vibracije ter tako nudi prijetnejšo izkušnjo za umetnika in stranke.",
+  "metaTitle": "MAST P60 PMU naprava – brezžična, z nastavljivo dolžino hoda",
+  "metaDescription": "Brezžična MAST P60 z nastavljivo dolžino hoda, dolgo avtonomijo in tihim delovanjem. Popolna za permanentno ličenje za začetnike in profesionalce.",
+  "stats": [
+    { "value": "121", "unit": "g", "label": "Ultralahka", "icon": "layers" },
+    { "value": "3+", "unit": "ur", "label": "Avtonomija", "icon": "clock" },
+    { "value": "5", "label": "Stopenj dolžine hoda", "icon": "zap" },
+    { "value": "11000", "unit": "RPM", "label": "Hitrost motorja", "icon": "award" }
+  ],
+  "cta": {
+    "afterVideo": { "text": "Imate vprašanja o MAST P60? Z veseljem pomagamo!", "buttonLabel": "Zaprosi posvetovanje", "phoneLabel": "Pokličite nas" },
+    "afterFeatures": { "headline": "Želite preizkusiti MAST P60?", "subtitle": "Pridite v naš razstavni prostor v Érdu in jo preizkusite osebno!", "buttonLabel": "Rezervacija termina" },
+    "final": { "headline": "Vas zanima MAST P60?", "subtitle": "Zaprosite brezplačno posvetovanje in pomagali vam bomo izbrati najboljšo različico.", "buttonLabel": "Zaprosi posvetovanje" }
+  },
+  "featureRows": {
+    "headline": "Zakaj je MAST P60 najljubša PMU umetnikov?",
+    "subtitle": "Natančnost, svoboda in vsestranskost v eni napravi",
+    "features": [
+      { "title": "5-stopenjsko nastavljiva dolžina hoda", "description": "MAST P60 je ena redkih PMU naprav, ki ponuja 5 različnih dolžin hoda: 2,2 mm, 2,5 mm, 2,7 mm, 2,9 mm in 3,2 mm. To omogoča uporabo različnih tehnik z eno napravo – od finih dlačic do senčenja, od občutljivih očesnih črt do polne pigmentacije ustnic.", "image": "@assets/products/P60arany.webp" },
+      { "title": "Brezžična svoboda s 3+ urami delovanja", "description": "Vgrajeni 900 mAh akumulator zagotavlja več kot 3 ure neprekinjenega delovanja na eno polnjenje. Zahvaljujoč Type-C priključku se polni hitro in udobno. Brez kabla, brez omejitev – polna svoboda gibanja pri delu.", "image": "@assets/products/WQP-053-1.webp" },
+      { "title": "Tih coreless motor brez vibracij", "description": "Coreless motor s hitrostjo 11.000 RPM deluje z minimalnim hrupom in vibracijami. To pomeni ne le udobnejše delo za umetnika, temveč tudi boljšo izkušnjo za stranke – posebej na občutljivih območjih kot so očesne črte ali ustnice.", "image": "@assets/products/WQP-053-4.webp" },
+      { "title": "Ultralahka, ergonomska zasnova", "description": "S težo le 121 gramov in dimenzijami 27 mm premer × 150 mm dolžina je MAST P60 ena najlažjih naprav na trgu. Ergonomski prijem zmanjšuje utrujenost roke in omogoča natančno delo tudi pri večurnih tretmajih.", "image": "@assets/products/WQP-053-5-1024x1024.webp" }
+    ]
+  },
+  "training": {
+    "headline": "Usposabljanje za upravljanje PMU naprave", "badge": "Z uradnim certifikatom",
+    "intro": "K MAST P60 napravi je na voljo profesionalno usposabljanje v okviru uradno prijavljenega izobraževanja odraslih.",
+    "items": ["Princip delovanja MAST P60, nastavitev dolžine hoda in lastnosti motorja", "PMU obrvi: dlačice, senčenje, ombré tehnika", "Pigmentacija ustnic: kontura, akvarel, polno polnjenje", "Tehnike očesnih črt: tanke in debelejše črte", "Tipi kože in izbira prave dolžine hoda", "Higienski protokoli in sterilno delo", "Praktični tretmaji na modelih"],
+    "closingParagraphs": ["Na usposabljanje lahko pripeljete modela.", "Po zaključku izdamo uradni certifikat.", "Kontaktirajte nas za dogovor o terminu!"],
+    "price": "49.990 Ft", "priceNote": "vrednost usposabljanja", "freeText": "BREZPLAČNO ob nakupu naprave!", "duration": "Enodnevno intenzivno usposabljanje", "ctaText": "Zanima me usposabljanje"
+  },
+  "testimonials": [{ "name": "Sz. Nikolett", "date": "2025. 09. 12.", "text": "P60 imam zelo rada, ker <mark>zahvaljujoč nastavljivi dolžini hoda lahko z eno napravo naredim vse</mark> – obrvi, ustnice, očesne črte. Teža je tudi popolna, roka me ves dan ne boli. Tečaj je bil prav tako zelo koristen, s številnimi praktičnimi nasveti.", "rating": 5 }],
+  "expertQuote": { "quote": "MAST P60 ima eno najboljših razmerij med ceno in zmogljivostjo med PMU napravami na trgu. Nastavljiva dolžina hoda je redka funkcija v tej kategoriji in prinaša bistveno prednost v vsakodnevnem delu.", "author": "Horváth László", "role": "Tehnični strokovnjak" },
+  "specs": { "Teža": "121 g", "Tip motorja": "Coreless motor", "Hitrost motorja": "11 000 ±10% RPM", "Dimenzije": "27 mm × 150 mm", "Nastavljiva dolžina hoda": "2,2 / 2,5 / 2,7 / 2,9 / 3,2 mm", "Avtonomija": "3+ ur", "Obratovalna napetost": "4–10 V", "Priključek": "Type-C", "Akumulator": "900 mAh" },
+  "faq": [
+    { "question": "Za katere tehnike je MAST P60 primerna?", "answer": "MAST P60 je zahvaljujoč 5-stopenjski nastavljivi dolžini hoda primerna za skoraj vse PMU tehnike: dlačice obrvi, senčenje/ombré, pigmentacijo ustnic, očesne črte." },
+    { "question": "Koliko časa zdrži akumulator na eno polnjenje?", "answer": "Vgrajeni 900 mAh akumulator zagotavlja 3+ ur neprekinjenega dela. Type-C priključek omogoča hitro polnjenje." },
+    { "question": "S katerimi igličnimi moduli je združljiva?", "answer": "MAST P60 uporablja univerzalni kartuški sistem. Odlično deluje z MAST Oceanheart in WJX igličnimi moduli." },
+    { "question": "Ali je primerna tudi za začetnike?", "answer": "Da! Nastavljiva dolžina hoda pomaga pri postopnem osvajanju tehnik, nizka teža zmanjšuje utrujenost roke." },
+    { "question": "Ali so med Gold, Rosegold in Purple različico tehnične razlike?", "answer": "Ne – vse različice imajo identične specifikacije. Razlika je le v barvi/dizajnu." },
+    { "question": "Kakšno usposabljanje je na voljo za napravo?", "answer": "Enodnevno intenzivno usposabljanje v okviru registriranega izobraževanja odraslih, brezplačno ob nakupu naprave." },
+    { "question": "Kakšna garancija velja za napravo?", "answer": "Za MAST P60 velja 1 leto garancije. Med popravilom zagotovimo nadomestno napravo." }
+  ],
+  "whatsIncluded": ["MAST P60 PMU naprava (Gold)", "Vgrajeni 900 mAh akumulator", "Type-C polnilni kabel", "Navodila za uporabo", "1 leto garancija", "Nadomestna naprava med popravilom"]
+}

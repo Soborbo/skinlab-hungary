@@ -55,7 +55,7 @@ const searchIndex = [
     image: null,
   })),
   // Categories
-  ...CATEGORIES.map(c => ({
+  ...CATEGORIES.filter(c => c.featured).map(c => ({
     name: c.nameShort,
     type: 'category' as const,
     url: `/${c.slug}`,

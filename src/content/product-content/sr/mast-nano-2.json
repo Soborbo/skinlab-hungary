@@ -1,0 +1,131 @@
+{
+  "name": "Mast Nano 2.0",
+  "shortDescription": "Ultralak PMU uređaj od samo 66 grama sa coreless motorom. Kompaktan dizajn, minimalna buka i vibracije – posebno pogodan za rad na očnim linijama.",
+  "description": "MAST Nano 2 je dizajnirana za stručnjake profesionalnog permanentnog šminkanja. Sa samo 66 grama je jedan od najlakših uređaja na tržištu, a ipak poseduje snažan coreless motor za dinamične i stabilne performanse.\n\nVitak, kompaktan dizajn savršen je za duge radne procese, dok minimalna buka i vibracije stvaraju udobno i precizno radno okruženje.\n\nOdličan izbor za početnike i profesionalce – za rad na očnim linijama je posebno pogodna zahvaljujući maloj težini i veličini.",
+  "metaTitle": "MAST Nano 2 PMU uređaj – Lak, tih i precizan",
+  "metaDescription": "66g kompaktan PMU uređaj za profesionalnu i početničku upotrebu. Minimalne vibracije, precizan rad na očnim linijama, snažne i pouzdane performanse.",
+  "stats": [
+    { "value": "66", "unit": "g", "label": "Ultralak", "icon": "layers" },
+    { "value": "2,7", "unit": "mm", "label": "Dužina hoda", "icon": "zap" },
+    { "value": "10000", "unit": "RPM", "label": "Brzina motora", "icon": "award" },
+    { "value": "18,8", "unit": "mm", "label": "Prečnik", "icon": "clock" }
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Imate pitanja o Mast Nano 2? Rado pomažemo!",
+      "buttonLabel": "Zatraži konsultaciju",
+      "phoneLabel": "Pozovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite da isprobate Mast Nano 2?",
+      "subtitle": "Dođite u naš šourum u Érdu i isprobajte je lično!",
+      "buttonLabel": "Rezervacija termina"
+    },
+    "final": {
+      "headline": "Zanima vas Mast Nano 2?",
+      "subtitle": "Zatražite besplatnu konsultaciju i pomoći ćemo vam u odluci.",
+      "buttonLabel": "Zatraži konsultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto PMU umetnici biraju Mast Nano 2?",
+    "subtitle": "Najlakši uređaj koji ne pravi kompromise u performansama",
+    "features": [
+      {
+        "title": "Samo 66 grama – najlakši u svojoj kategoriji",
+        "description": "Izuzetno niska težina Mast Nano 2 u ruci je skoro neprimetna. Prečnik od 18,8 mm i visina od 127,9 mm obezbeđuju vitak, držak sličan olovci, što je posebno važno pri preciznom radu – na primer pri izradi očnih linija.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Snažan coreless motor sa minimalnim vibracijama",
+        "description": "Coreless motor brzine 10.000 RPM pruža dinamičan i stabilan rad. Minimalna buka i vibracije služe ne samo udobnosti umetnika, već obezbeđuju i prijatnije iskustvo za klijenta na osetljivim područjima.",
+        "image": "@assets/products/mastnano1.webp"
+      },
+      {
+        "title": "Posebno idealna za rad na očnim linijama",
+        "description": "Zahvaljujući malim dimenzijama i niskoj težini, Mast Nano 2 je jedan od najboljih izbora za područje očnih kapaka. Precizan motor bez vibracija omogućava tačno izvlačenje tankih linija čak i na najosetljivijim područjima.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Za početnike i profesionalce",
+        "description": "Fiksna dužina hoda od 2,7 mm i radni napon 5–9V obezbeđuju jednostavno rukovanje. Bez komplikovanih podešavanja – Nano 2 je odmah spremna za rad i pouzdano radi u svakoj situaciji.",
+        "image": "@assets/products/mastnano1.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rukovanje PMU uređajem",
+    "badge": "Sa zvaničnim sertifikatom",
+    "intro": "Uz Mast Nano 2 uređaj dostupna je profesionalna obuka za rukovanje PMU uređajem, koja se sprovodi u okviru zvanično prijavljenog obrazovanja odraslih.",
+    "items": [
+      "Princip rada Mast Nano 2 i optimalna podešavanja",
+      "Tehnike očnih linija: tanke i deblje linije",
+      "Osnove PMU obrva",
+      "Tehnike pigmentacije usana",
+      "Prepoznavanje i tretman različitih tipova kože",
+      "Higijenski protokoli i sterilan rad",
+      "Praktični tretmani na modelima"
+    ],
+    "closingParagraphs": [
+      "Na obuku naravno možete dovesti modela, tako da tehnike tretmana savladate u realnom okruženju.",
+      "Po završetku obuke izdajemo zvaničan sertifikat.",
+      "Ako vas zanima mogućnost kursa, molimo kontaktirajte nas na nekom od naših kontakata radi dogovora o terminu!"
+    ],
+    "price": "49.990 Ft",
+    "priceNote": "vrednost obuke",
+    "freeText": "BESPLATNO uz kupovinu uređaja!",
+    "duration": "Jednodnevna intenzivna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "testimonials": [
+    {
+      "name": "M. Vivien",
+      "date": "2025. 08. 18.",
+      "text": "Nano 2 je moj apsolutni favorit za očne linije! <mark>Toliko je laka da je u ruci skoro ne osećam, i zato mogu da radim mnogo preciznije</mark>. Vibracije su praktično nulte, što je na ovom području od životnog značaja. Toplo preporučujem!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "Mast Nano 2 je majstor rada na očnim linijama. Kombinacija 66-gramske težine i minimalnih vibracija jedinstvena je u ovoj cenovnoj kategoriji.",
+    "author": "Horváth László",
+    "role": "Tehnički stručnjak"
+  },
+  "specs": {
+    "Težina": "66 g",
+    "Tip motora": "Coreless motor",
+    "Brzina motora": "10 000 RPM (12V)",
+    "Prečnik": "18,8 mm",
+    "Visina": "127,9 mm",
+    "Dužina hoda": "2,7 mm",
+    "Radni napon": "5–9V"
+  },
+  "faq": [
+    {
+      "question": "U čemu se Nano 2 razlikuje od MAST P60?",
+      "answer": "Nano 2 je lakša (66 g naspram 121 g), manja i kompaktnija. Ima fiksnu dužinu hoda od 2,7 mm (P60 ima 5-stepenu), i žična je (ne akumulatorska). Nano 2 je idealna posebno za područje očnih kapaka i precizan, fin rad, dok je P60 svestranija."
+    },
+    {
+      "question": "Sa kojim igličnim modulima je kompatibilna?",
+      "answer": "Mast Nano 2 koristi univerzalni patronski sistem. Odlično radi sa MAST Oceanheart i WJX igličnim modulima. Za očne linije idealni su moduli 1RL (0,18–0,25 mm)."
+    },
+    {
+      "question": "Da li je Nano 2 pogodna i za početnike?",
+      "answer": "Da! Jednostavno rukovanje i fiksna dužina hoda olakšavaju učenje. Niska težina sprečava zamor ruke tokom vežbanja. Besplatna obuka uz kupovinu uređaja podržava siguran početak."
+    },
+    {
+      "question": "Da li je Nano 2 pogodna samo za očne linije?",
+      "answer": "Ne, Nano 2 je pogodna za sve PMU tehnike – obrve, usne, očne linije. Zbog malih dimenzija i niske težine je za područje očnih kapaka jedan od najboljih izbora na tržištu."
+    },
+    {
+      "question": "Kakva garancija važi za uređaj?",
+      "answer": "Za Mast Nano 2 važi garancija od 1 godine. Tokom popravke obezbeđujemo zamenu uređaja da vaš rad ne bude prekinut."
+    }
+  ],
+  "whatsIncluded": [
+    "Mast Nano 2.0 PMU uređaj",
+    "Priključni kabl",
+    "Uputstvo za upotrebu",
+    "1 godina garancija",
+    "Zamena uređaja tokom popravke"
+  ]
+}

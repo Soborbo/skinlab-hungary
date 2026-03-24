@@ -1,0 +1,179 @@
+{
+  "name": "NovaLite Q-switched ND:YAG Laser",
+  "shortDescription": "Compact, portable ND:YAG laser with 6 treatment heads. 3500 mJ energy, CE certified, tattoo removal, pigment treatment and carbon peeling.",
+  "description": "The NovaLite carbon laser combines the latest technology with a compact size and outstanding performance. It is easily portable yet solidly built from quality materials for long-term reliability. Instead of the usual 3 tips, it comes with 6 treatment heads, making its versatility unmatched. The premium metal head not only provides an elegant appearance but also guarantees durability and precision.",
+  "metaTitle": "NovaLite ND:YAG Laser | Tattoo, pigmentation & carbon peeling",
+  "metaDescription": "NovaLite Q-switched ND:YAG laser: compact, portable device with 6 treatment heads, 3500 mJ energy. Tattoo removal, pigment treatment, carbon peeling. CE certified, 2-year warranty.",
+  "stats": [
+    { "value": "6", "label": "Treatment heads", "icon": "layers" },
+    { "value": "3500", "unit": "mJ", "label": "Max. energy", "icon": "zap" },
+    { "value": "2500", "unit": "W", "label": "Power", "icon": "wave" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 25000 },
+  "videoDescription": {
+    "headline": "NovaLite – Compact power, premium quality",
+    "paragraphs": [
+      "The NovaLite is not just a portable laser – it is a professional-grade device you can take anywhere. It comes with 6 treatment heads, 3500 mJ energy and CE certification.",
+      "The 6 different treatment heads cover the full colour spectrum: from dark pigments to reddish shades, from carbon peeling to anti-aging treatments – you can do it all.",
+      "The premium metal treatment head, water and air cooling, and No Scar heads guarantee safe, gentle treatment – and your clients' satisfaction."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about the NovaLite laser? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see the NovaLite ND:YAG laser in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book appointment"
+    },
+    "final": {
+      "headline": "Interested in the NovaLite ND:YAG laser?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why is the NovaLite the best portable ND:YAG?",
+    "subtitle": "6 treatment heads, compact size – and incredible performance",
+    "features": [
+      {
+        "title": "6 treatment heads – the most versatile compact laser on the market",
+        "description": "The NovaLite comes with 6 treatment heads instead of the usual 3, covering every pigment type and treatment need with a single device.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatment heads and their applications:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – reddish pigments, pigmentation spots</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm No Scar</strong> – gentler pigment removal, minimal skin trauma</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>755 nm</strong> – anti-aging, Hollywood carbon peeling, wrinkle reduction</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – deep-layer tattoos (dark colours)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm No Scar</strong> – tattoo removal without scarring</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, deep cleansing, skin rejuvenation</div>\n</div>",
+        "highlight": "The No Scar heads work with minimal skin trauma – ideal for sensitive areas, such as permanent makeup corrections.",
+        "image": "@assets/products/NovaLitecarbon.webp"
+      },
+      {
+        "title": "Tattoo removal – every colour, every type",
+        "description": "The NovaLite effectively treats black and coloured tattoos, as well as permanent makeup. The 3500 mJ peak energy and nanosecond pulse duration ensure fast, gentle and effective pigment destruction.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatable tattoo types:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Black body tattoos</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Coloured tattoos</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Eyebrow permanent makeup</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Lip permanent makeup</div>\n</div>",
+        "highlight": "The 3500 mJ peak energy is the highest value in the compact ND:YAG laser category.",
+        "image": "@assets/products/novalitecarbon1.webp"
+      },
+      {
+        "title": "Carbon peeling and skin rejuvenation",
+        "description": "With the 1320 nm and 755 nm treatment heads, you can perform premium skin rejuvenation treatments. Carbon peeling deeply cleanses pores, regulates sebum production and stimulates collagen production.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Carbon peeling results:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pore tightening</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Sebum regulation</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Collagen stimulation</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Wrinkle reduction</div>\n</div>",
+        "image": "@assets/products/novalitecarbon2.webp"
+      },
+      {
+        "title": "Compact and portable – with professional performance",
+        "description": "The NovaLite is easily portable, so you can take it anywhere: to the salon, events or even mobile treatments. The premium metal treatment head and solid construction guarantee a long lifespan.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Technical specifications:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energy: 3500 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Power: 2500 W</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cooling: water + air</div>\n</div>",
+        "highlight": "CE certified – meets European safety standards.",
+        "image": "@assets/products/novalitecarbon3.webp"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Device operator training – official certified course",
+    "badge": "With FAR certificate",
+    "intro": "An official, certified training course registered in the FAR system is available for the NovaLite ND:YAG laser. The curriculum was developed under the mentorship of a certified instructor working in the healthcare sector and is based on professional materials from a Russian laser specialist physician.",
+    "items": [
+      "Operating principles of Q-switched ND:YAG laser technology",
+      "Wavelengths and application areas (tattoo, pigment, carbon peeling)",
+      "Treatment protocols for different pigment types",
+      "Contraindications, skin type assessment and safe treatment",
+      "Proper use and replacement of the 6 treatment heads",
+      "Hands-on treatments on models"
+    ],
+    "closingParagraphs": [
+      "The aim of the training is to enable participants to safely and legally apply the NovaLite laser for cosmetic and aesthetic treatments.",
+      "Upon completion of the training, an official FAR certificate will be issued."
+    ],
+    "price": "79,990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
+  },
+  "testimonials": [
+    {
+      "name": "Brigitta Tóth",
+      "date": "12 June 2025",
+      "text": "I primarily use the NovaLite for permanent makeup correction, and <mark>the No Scar heads are fantastic – minimal skin trauma, fast healing</mark>. My clients are very satisfied. The compact size also makes it ideal for mobile treatments!",
+      "rating": 5
+    }
+  ],
+  "expertQuote": {
+    "quote": "With 6 treatment heads and 3500 mJ energy, the NovaLite is one of the most powerful devices in the compact ND:YAG category. The No Scar heads are particularly valuable for permanent makeup corrections.",
+    "author": "László Horváth",
+    "role": "Technical expert"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Tattoo removal",
+      "description": "Effective removal of black and coloured tattoos at 1064 nm and 532 nm wavelengths"
+    },
+    {
+      "icon": "sun",
+      "name": "Red pigment treatment",
+      "description": "Removal of reddish, orange and warm brown pigments at 532 nm wavelength"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Deep cleansing, pore tightening and skin rejuvenation with the 1320 nm treatment head"
+    },
+    {
+      "icon": "droplet",
+      "name": "Pigmentation treatment",
+      "description": "Treatment of age spots, sun spots, freckles, liver spots and hyperpigmentation"
+    },
+    {
+      "icon": "eye",
+      "name": "Permanent makeup removal",
+      "description": "Correction of eyebrow and lip permanent makeup with No Scar heads"
+    },
+    {
+      "icon": "bolt",
+      "name": "Anti-aging treatment",
+      "description": "Wrinkle reduction, skin tightening and collagen stimulation with the 755 nm treatment head"
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does the NovaLite differ from other compact ND:YAG lasers?",
+      "answer": "The NovaLite comes with 6 treatment heads instead of the usual 3, with 3500 mJ peak energy and 2500 W power. The No Scar heads (532 nm and 1064 nm) work with minimal skin trauma, and the 755 nm head enables anti-aging treatments. The premium metal treatment head and CE certification are additional advantages."
+    },
+    {
+      "question": "What are the No Scar treatment heads?",
+      "answer": "The No Scar heads are specially designed to minimise skin trauma and the risk of scarring. The 532 nm No Scar is ideal for gentle pigment removal, while the 1064 nm No Scar is perfect for scar-free tattoo removal – especially on sensitive areas such as the face."
+    },
+    {
+      "question": "How portable is the NovaLite?",
+      "answer": "The NovaLite is a compact, easily portable device that you can take anywhere: to the salon, events or mobile treatments. The solid construction from quality materials also guarantees durability during transport."
+    },
+    {
+      "question": "What treatments can I perform with the 755 nm head?",
+      "answer": "The 755 nm treatment head specialises in anti-aging treatments and Hollywood carbon peeling. Wrinkle reduction, skin tightening and collagen stimulation – a premium facial treatment service that is extremely profitable."
+    },
+    {
+      "question": "How quickly does the NovaLite pay for itself?",
+      "answer": "With its affordable price category and versatile applications, the NovaLite typically pays for itself within 1-2 months with 3-5 clients per day. Tattoo removal and carbon peeling are among the most sought-after services."
+    },
+    {
+      "question": "What training comes with the NovaLite?",
+      "answer": "An official, FAR-registered device operator training is included FREE with the device purchase. The one-day intensive training consists of theoretical and practical modules and concludes with a certificate."
+    },
+    {
+      "question": "Can I see the device before purchasing?",
+      "answer": "Yes! You can personally view and try out the NovaLite ND:YAG laser in our showroom (Érd, Budai út 28.) by prior appointment."
+    }
+  ],
+  "whatsIncluded": [
+    "NovaLite Q-switched ND:YAG laser device",
+    "532 nm treatment head (reddish pigments)",
+    "532 nm No Scar treatment head (gentle pigment removal)",
+    "755 nm treatment head (anti-aging, Hollywood carbon peeling)",
+    "1064 nm treatment head (dark pigments)",
+    "1064 nm No Scar treatment head (scar-free tattoo removal)",
+    "1320 nm treatment head (carbon peeling, deep cleansing)",
+    "Safety goggles (operator + client)",
+    "User manual",
+    "Device operator training (FAR certificate)",
+    "2-year full warranty",
+    "Replacement device during repairs"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "SnowlineTrolley",
+  "shortDescription": "Bela kozmetička kolica sa aluminijumskim okvirom i tri police od kaljenog stakla. Četiri točkića, mogućnost montiranja lupe, jednostavno čišćenje.",
+  "description": "SnowlineTrolley je praktičan i funkcionalan kozmetički stočić dizajniran posebno za kozmetičke salone, SPA centre i estetske ordinacije.\n\nNjegove tri police od kaljenog stakla idealne su za organizovano odlaganje kozmetičkih proizvoda, instrumenata za tretmane i pribora. Čist beli aluminijumski okvir obezbeđuje moderan izgled, a glatke površine se jednostavno čiste.\n\nOpremljen sa četiri glatko pokretna točkića, lako se premešta iz jedne prostorije u drugu. Konstrukcija okvira omogućava i montiranje lupe sa lampom.",
+  "metaTitle": "SnowlineTrolley | Kozmetička kolica sa staklenim policama",
+  "metaDescription": "SnowlineTrolley kozmetička kolica sa belim aluminijumskim okvirom i tri police od kaljenog stakla. Na točkićima, lako pokretna, mogućnost montiranja lupe.",
+  "stats": [
+    { "value": "3", "label": "Police od kaljenog stakla", "icon": "layers" },
+    { "value": "4", "label": "Točkića", "icon": "refresh" },
+    { "value": "ALU", "label": "Aluminijumski okvir", "icon": "shield" },
+    { "value": "1", "unit": "god.", "label": "Garancija", "icon": "award" }
+  ],
+  "cta": {
+    "final": {
+      "headline": "Zanima vas SnowlineTrolley?",
+      "subtitle": "Zatražite besplatnu konsultaciju ili naručite direktno!",
+      "buttonLabel": "Zatraži konsultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto SnowlineTrolley?",
+    "subtitle": "Praktična, moderna i pouzdana kozmetička kolica",
+    "features": [
+      {
+        "title": "Tri police od kaljenog stakla",
+        "description": "Tri providne police od kaljenog stakla idealne su za pregledno, organizovano odlaganje kozmetičkih proizvoda, instrumenata za tretmane i pribora. Sve vam je nadohvat ruke za tren.",
+        "image": "@assets/products/Mary2.webp"
+      },
+      {
+        "title": "Moderan dizajn i lako pomeranje",
+        "description": "Beli aluminijumski okvir obezbeđuje čist, moderan izgled. Zahvaljujući četirima glatko pokretnim točkićima, kolica se lako pomeraju po salonu.",
+        "image": "@assets/products/Mary1.webp"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Da li treba kolica sastavljati?",
+      "answer": "Da, potrebno je minimalno sastavljanje: na okvir se postave staklene police i pričvrste točkići. Sastavljanje traje nekoliko minuta."
+    },
+    {
+      "question": "Koliku težinu podnosi jedna polica?",
+      "answer": "Police od kaljenog stakla izdržljive su i otporne, pogodne za odlaganje kozmetičkih proizvoda, manjih uređaja i instrumenata za tretmane."
+    },
+    {
+      "question": "Kako se čiste?",
+      "answer": "Staklene police i aluminijumski okvir jednostavno se brišu vlažnom krpom ili dezinficijensom za površine. Staklena površina uvek je higijenska i lako se održava čistom."
+    },
+    {
+      "question": "Da li se na kolica može montirati lupa sa lampom?",
+      "answer": "Da, konstrukcija okvira omogućava montiranje lupe sa lampom, čime SnowlineTrolley postaje još svestraniji."
+    }
+  ],
+  "whatsIncluded": [
+    "SnowlineTrolley aluminijumski okvir",
+    "3 kom. police od kaljenog stakla",
+    "4 kom. točkića",
+    "Uputstvo za sastavljanje",
+    "1 godina garancija"
+  ]
+}

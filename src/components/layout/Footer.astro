@@ -69,7 +69,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
       <div>
         <h3 class="text-white font-semibold mb-4">{t(locale, 'footer.products')}</h3>
         <ul class="space-y-3">
-          {CATEGORIES.slice(0, 5).map((cat) => {
+          {CATEGORIES.filter(c => c.featured).slice(0, 5).map((cat) => {
             const catKey = `categories.${cat.slug}`;
             const catTranslated = t(locale, catKey);
             const catName = catTranslated !== catKey ? catTranslated : cat.nameShort;
