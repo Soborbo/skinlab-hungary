@@ -1,0 +1,46 @@
+name: Sync Unas Products
+
+on:
+  schedule:
+    # 05:00 UTC = 07:00 Budapest (CET) / 06:00 (CEST)
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync products from Unas API
+        env:
+          UNAS_API_KEY: ${{ secrets.UNAS_API_KEY }}
+        run: node scripts/sync-unas-products.cjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet src/content/products/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Nincs valtozas, skip commit"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Valtozasok talalhatok:"
+            git diff --stat src/content/products/
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/products/*.json
+          git commit -m "chore: sync product data from Unas API"
+          git push

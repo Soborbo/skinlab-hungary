@@ -341,7 +341,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 
   <p>Amennyiben sürgős kérdése van, hívjon minket bátran:</p>
   <p style="font-size: 20px; font-weight: bold; color: #724890;">
-    <a href="tel:+36704136819" style="color: #724890; text-decoration: none;">+36 70 413 6819</a>
+    <a href="tel:+3613009280" style="color: #724890; text-decoration: none;">+36 1 300 9280</a>
   </p>
 
   <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
@@ -678,8 +678,8 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
         Ha gyorsabban szüksége van ránk:
       </p>
       <p style="margin: 0 0 8px;">
-        <a href="tel:+36704136819" style="color: #db2777; font-size: 20px; font-weight: bold; text-decoration: none;">
-          +36 70 413 6819
+        <a href="tel:+3613009280" style="color: #db2777; font-size: 20px; font-weight: bold; text-decoration: none;">
+          +36 1 300 9280
         </a>
       </p>
       <p style="color: #78716c; font-size: 13px; margin: 0;">

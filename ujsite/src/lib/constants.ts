@@ -13,10 +13,10 @@ export const COMPANY = {
 };
 
 export const CONTACT = {
-  phone: '+36704136819',
-  phoneFormatted: '+36 70 413 68 19',
-  phoneDisplay: '+36 70 413 6819',
-  phoneTel: 'tel:+36704136819',
+  phone: '+3613009280',
+  phoneFormatted: '+36 1 300 9280',
+  phoneDisplay: '+36 1 300 9280',
+  phoneTel: 'tel:+3613009280',
   email: 'info@skinlabhungary.hu',
 };
 

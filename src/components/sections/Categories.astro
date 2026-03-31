@@ -73,26 +73,26 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
           >
             <div
               class="category-card relative rounded-2xl overflow-hidden transition-all duration-300"
-              style={colors ? `--cat-accent: ${colors.accent}; --cat-light: ${colors.accentLight}; --cat-dark: ${colors.accentDark}` : ''}
+              style={colors ? `--cat-accent: ${colors.accent}; --cat-light: ${colors.accentLight}; --cat-dark: ${colors.accentDark}; border-color: ${colors.accent}40` : ''}
             >
               <!-- Image with category-colored gradient -->
               <div
                 class="aspect-[4/3] relative overflow-hidden"
-                style={colors ? `background: linear-gradient(145deg, ${colors.accentLight}, white 70%)` : 'background: #fafafa'}
+                style="background: white"
               >
                 {categoryImage ? (
                   CATEGORY_IMAGE_OVERRIDES[category.slug] ? (
                     <img
                       src={categoryImage}
                       alt={categoryName}
-                      class="w-full h-full object-contain p-4 drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   ) : (
                     <FifthImage
                       src={categoryImage}
                       alt={categoryName}
-                      class="w-full h-full object-contain p-4 drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                     />
                   )
                 ) : (
@@ -105,13 +105,13 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
               </div>
 
               <!-- Content -->
-              <div class="p-4 bg-white border-t" style={colors ? `border-color: ${colors.accentLight}` : ''}>
+              <div class="p-4" style={colors ? `background: linear-gradient(135deg, ${colors.accentLight}90, ${colors.accentLight}30)` : 'background: white'}>
                 <div class="flex items-center justify-between">
                   <div>
-                    <h3 class="font-semibold text-sm lg:text-base text-gray-900 group-hover:transition-colors duration-300" style={colors ? `--hover-color: ${colors.accentDark}` : ''}>
+                    <h3 class="font-semibold text-sm lg:text-base transition-colors duration-300" style={colors ? `color: ${colors.accentDark}` : ''}>
                       {categoryName}
                     </h3>
-                    <p class="text-xs text-gray-400 mt-0.5">
+                    <p class="text-xs mt-0.5" style={colors ? `color: ${colors.accent}` : 'color: #9ca3af'}>
                       {category.productCount} {t(locale, 'categories.productCount')}
                     </p>
                   </div>
@@ -154,9 +154,9 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
 
   .category-card:hover {
     box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.06),
-      0 12px 28px rgba(0, 0, 0, 0.08);
-    border-color: rgba(0, 0, 0, 0.08);
+      0 4px 12px color-mix(in srgb, var(--cat-accent, gray) 15%, transparent),
+      0 12px 28px color-mix(in srgb, var(--cat-accent, gray) 10%, transparent);
+    border-color: var(--cat-accent, rgba(0, 0, 0, 0.12));
     transform: translateY(-2px);
   }
 
