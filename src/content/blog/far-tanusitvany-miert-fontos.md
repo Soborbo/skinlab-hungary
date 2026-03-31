@@ -78,4 +78,4 @@ Ha már van géped (más forgalmazótól), külön is elvégezheted a képzést 
 
 A FAR gépkezelői tanúsítvány nem csak jogi kötelezettség, hanem **a professzionalizmus jele**. Ha kozmetikai gépet vásárolsz, győződj meg róla, hogy a forgalmazó biztosítja a képzést!
 
-A SkinLab-nál minden géphez FAR tanúsítványos képzést adunk. [Kérj ajánlatot](/kapcsolat) és kezdj el biztonságosan dolgozni!
+A SkinLab-nál minden géphez FAR tanúsítványos képzést adunk. [Kérj ajánlatot](/konzultacio) és kezdj el biztonságosan dolgozni!

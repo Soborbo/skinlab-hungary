@@ -1,0 +1,339 @@
+---
+import { CONTACT } from '../../lib/constants';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const contactLink = getLocalizedUrl(locale, '/konzultacio');
+
+// SEO-optimized hero images — desktop (1920x800) + mobile (750x400)
+const slides = [
+  {
+    titleKey: 'hero.title',
+    subtitleKey: 'hero.subtitle',
+    avif: '/hero/hero-diodalezer-szortelenito.avif',
+    webp: '/hero/hero-diodalezer-szortelenito.webp',
+    jpg: '/hero/hero-diodalezer-szortelenito.jpg',
+    mobileAvif: '/hero/hero-diodalezer-szortelenito-mobile.avif',
+    mobileWebp: '/hero/hero-diodalezer-szortelenito-mobile.webp',
+    mobileJpg: '/hero/hero-diodalezer-szortelenito-mobile.jpg',
+    imageAlt: 'hero.title',
+  },
+  {
+    titleKey: 'hero.slide2.title',
+    subtitleKey: 'hero.slide2.subtitle',
+    avif: '/hero/hero-4wave-diodalezer.avif',
+    webp: '/hero/hero-4wave-diodalezer.webp',
+    jpg: '/hero/hero-4wave-diodalezer.jpg',
+    mobileAvif: '/hero/hero-4wave-diodalezer-mobile.avif',
+    mobileWebp: '/hero/hero-4wave-diodalezer-mobile.webp',
+    mobileJpg: '/hero/hero-4wave-diodalezer-mobile.jpg',
+    imageAlt: 'hero.slide2.title',
+  },
+  {
+    titleKey: 'hero.slide3.title',
+    subtitleKey: 'hero.slide3.subtitle',
+    avif: '/hero/hero-hydrascan-hidrodermabrazios-gep.avif',
+    webp: '/hero/hero-hydrascan-hidrodermabrazios-gep.webp',
+    jpg: '/hero/hero-hydrascan-hidrodermabrazios-gep.jpg',
+    mobileAvif: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.avif',
+    mobileWebp: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.webp',
+    mobileJpg: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.jpg',
+    imageAlt: 'hero.slide3.title',
+  },
+];
+
+// Trust badges
+const trustBadges = [
+  { icon: 'shield-check', titleKey: 'trust.warranty', descKey: 'trust.warrantyDesc' },
+  { icon: 'truck', titleKey: 'trust.shipping', descKey: 'trust.shippingDesc' },
+  { icon: 'graduation-cap', titleKey: 'trust.training', descKey: 'trust.trainingDesc' },
+  { icon: 'wrench', titleKey: 'trust.service', descKey: 'trust.serviceDesc' },
+];
+
+const icons: Record<string, string> = {
+  'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+  'truck': `<path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+  'graduation-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
+  'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+};
+---
+
+<section class="relative overflow-hidden">
+  <!-- Carousel Container -->
+  <div class="hero-carousel relative" data-carousel>
+    <div class="relative hero-slides">
+      {slides.map((slide, index) => (
+        <div
+          class:list={[
+            'carousel-slide absolute inset-0 transition-opacity duration-700',
+            index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0',
+          ]}
+          data-slide={index}
+        >
+          {/* ── MOBILE layout: image top + text below ── */}
+          <div class="sm:hidden h-full flex flex-col">
+            {/* Image area - mobile optimized 750x400 */}
+            <div class="relative flex-1 min-h-0">
+              <picture>
+                <source type="image/avif" srcset={slide.mobileAvif} />
+                <source type="image/webp" srcset={slide.mobileWebp} />
+                <img
+                  src={slide.mobileJpg}
+                  alt={t(locale, slide.imageAlt)}
+                  class="absolute inset-0 w-full h-full object-cover object-center"
+                  width="750"
+                  height="400"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchpriority={index === 0 ? 'high' : undefined}
+                  decoding={index === 0 ? 'sync' : 'async'}
+                />
+              </picture>
+              {/* Carousel dots over image on mobile */}
+              <div class="absolute bottom-2 left-0 right-0 z-20 flex justify-center gap-1.5">
+                {slides.map((_, di) => (
+                  <button
+                    class:list={[
+                      'carousel-dot-mobile h-1.5 rounded-full transition-all duration-300 cursor-pointer',
+                      di === index ? 'bg-white/90 w-5' : 'bg-white/40 w-1.5',
+                    ]}
+                    data-dot-mobile={di}
+                    aria-label={`Slide ${di + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+            {/* Text area below image */}
+            <div class="bg-gray-900 px-4 py-3">
+              <h2 class="text-base font-bold text-white mb-1 leading-snug line-clamp-2">
+                {t(locale, slide.titleKey)}
+              </h2>
+              <p class="text-[11px] text-white/70 mb-2 line-clamp-2 leading-relaxed">
+                {t(locale, slide.subtitleKey)}
+              </p>
+              <a
+                href={contactLink}
+                class="inline-flex items-center px-4 py-1.5 bg-primary-600 text-white font-semibold rounded-lg text-xs"
+              >
+                {t(locale, 'hero.cta')}
+                <svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* ── DESKTOP layout: full-bleed image with text overlay ── */}
+          <div class="hidden sm:block h-full">
+            <picture>
+              <source type="image/avif" srcset={slide.avif} />
+              <source type="image/webp" srcset={slide.webp} />
+              <img
+                src={slide.jpg}
+                alt={t(locale, slide.imageAlt)}
+                class="absolute inset-0 w-full h-full object-cover object-center"
+                width="1920"
+                height="800"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchpriority={index === 0 ? 'high' : undefined}
+                decoding={index === 0 ? 'sync' : 'async'}
+              />
+            </picture>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+            <div class="relative z-10 h-full flex items-center">
+              <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+                <div class="max-w-xl">
+                  <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+                    {t(locale, slide.titleKey)}
+                  </h2>
+                  <p class="text-base lg:text-lg text-white/90 mb-6 max-w-lg drop-shadow">
+                    {t(locale, slide.subtitleKey)}
+                  </p>
+                  <div class="flex flex-row gap-3">
+                    <a
+                      href={contactLink}
+                      class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm"
+                    >
+                      {t(locale, 'hero.cta')}
+                      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a
+                      href={CONTACT.phoneTel}
+                      class="inline-flex items-center justify-center px-6 py-3 bg-white/15 text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/25 backdrop-blur-sm transition-all text-sm"
+                    >
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      {CONTACT.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Desktop Carousel Controls -->
+    <div class="hidden sm:block absolute bottom-16 left-0 right-0 z-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <div class="flex gap-2">
+            {slides.map((_, index) => (
+              <button
+                class:list={[
+                  'carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer',
+                  index === 0 ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60',
+                ]}
+                data-dot={index}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          <div class="flex gap-1 ml-3">
+            <button
+              class="carousel-prev p-1.5 rounded-lg bg-white/15 border border-white/30 text-white hover:bg-white/25 backdrop-blur-sm transition-all cursor-pointer"
+              aria-label="Previous slide"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              class="carousel-next p-1.5 rounded-lg bg-white/15 border border-white/30 text-white hover:bg-white/25 backdrop-blur-sm transition-all cursor-pointer"
+              aria-label="Next slide"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USP Badges - below carousel -->
+  <div class="bg-white border-t border-gray-100 py-2 sm:py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
+        {trustBadges.map((badge) => (
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="w-7 h-7 sm:w-10 sm:h-10 bg-primary-50 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[badge.icon]} />
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900 text-[11px] sm:text-sm leading-tight">{t(locale, badge.titleKey)}</div>
+              <div class="text-[10px] sm:text-xs text-gray-500 hidden sm:block line-clamp-1">{t(locale, badge.descKey)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile: header 56px + USP ~44px + sticky CTA ~70px */
+  /* Desktop: header 64px + USP ~65px */
+  .hero-slides {
+    height: calc(100vh - 56px - 44px - 70px);
+    height: calc(100dvh - 56px - 44px - 70px);
+    min-height: 260px;
+  }
+  @media (min-width: 640px) {
+    .hero-slides {
+      height: calc(100vh - 56px - 60px);
+      height: calc(100dvh - 56px - 60px);
+      min-height: 350px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-slides {
+      height: calc(100vh - 64px - 65px);
+      height: calc(100dvh - 64px - 65px);
+      max-height: 800px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var carousel = document.querySelector('[data-carousel]');
+    if (!carousel || carousel.dataset.init) return;
+    carousel.dataset.init = 'true';
+
+    var slides = carousel.querySelectorAll('[data-slide]');
+    var dots = carousel.querySelectorAll('[data-dot]');
+    var dotsMobile = carousel.querySelectorAll('[data-dot-mobile]');
+    var prevBtn = carousel.querySelector('.carousel-prev');
+    var nextBtn = carousel.querySelector('.carousel-next');
+
+    var current = 0;
+    var interval;
+    var INTERVAL_MS = 4000;
+    var isDesktop = window.matchMedia('(min-width: 640px)').matches;
+
+    function goTo(index) {
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = i === index ? '1' : '0';
+        slides[i].style.zIndex = i === index ? '10' : '0';
+      }
+      // Desktop dots
+      for (var j = 0; j < dots.length; j++) {
+        dots[j].style.background = j === index ? '#fff' : 'rgba(255,255,255,0.4)';
+        dots[j].style.width = j === index ? '2rem' : '0.625rem';
+      }
+      // Mobile dots (embedded in each slide, so update all)
+      for (var m = 0; m < dotsMobile.length; m++) {
+        var dotIndex = parseInt(dotsMobile[m].getAttribute('data-dot-mobile'));
+        dotsMobile[m].style.background = dotIndex === index ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)';
+        dotsMobile[m].style.width = dotIndex === index ? '1.25rem' : '0.375rem';
+      }
+      current = index;
+    }
+
+    function next() { goTo((current + 1) % slides.length); }
+    function prev() { goTo((current - 1 + slides.length) % slides.length); }
+    function startAutoplay() { interval = setInterval(next, INTERVAL_MS); }
+    function resetAutoplay() { clearInterval(interval); startAutoplay(); }
+
+    if (nextBtn) nextBtn.addEventListener('click', function() { next(); resetAutoplay(); });
+    if (prevBtn) prevBtn.addEventListener('click', function() { prev(); resetAutoplay(); });
+
+    for (var k = 0; k < dots.length; k++) {
+      (function(idx) { dots[idx].addEventListener('click', function() { goTo(idx); resetAutoplay(); }); })(k);
+    }
+    for (var d = 0; d < dotsMobile.length; d++) {
+      (function(el) {
+        el.addEventListener('click', function() {
+          goTo(parseInt(el.getAttribute('data-dot-mobile')));
+          resetAutoplay();
+        });
+      })(dotsMobile[d]);
+    }
+
+    // Touch swipe support for mobile
+    var startX = 0;
+    var startY = 0;
+    carousel.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0) next(); else prev();
+        resetAutoplay();
+      }
+    }, { passive: true });
+
+    carousel.addEventListener('mouseenter', function() { clearInterval(interval); });
+    carousel.addEventListener('mouseleave', startAutoplay);
+
+    startAutoplay();
+  })();
+</script>

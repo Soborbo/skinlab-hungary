@@ -1,0 +1,72 @@
+---
+import { CONTACT, FOUNDERS } from '../../lib/constants';
+const laszlo = FOUNDERS.find(f => f.name === 'Horváth László')!;
+---
+
+<div
+  id="desktop-contact-widget"
+  class="hidden lg:block fixed bottom-6 right-6 z-40 translate-x-[calc(100%+2rem)] transition-transform duration-500 ease-out"
+>
+  <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 w-[300px] relative">
+    <!-- Close button -->
+    <button
+      id="close-contact-widget"
+      class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors p-1"
+      aria-label="Bezárás"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="flex items-center gap-4">
+      <img
+        src={laszlo.image}
+        alt={laszlo.name}
+        class="w-16 h-16 rounded-full object-cover ring-2 ring-primary-100 flex-shrink-0"
+        loading="lazy"
+      />
+      <div>
+        <p class="font-semibold text-gray-900 text-sm">{laszlo.name}</p>
+        <p class="text-xs text-gray-500">{laszlo.role}</p>
+      </div>
+    </div>
+
+    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+      Kérdése van? Hívjon bizalommal, szívesen segítünk a megfelelő gép kiválasztásában!
+    </p>
+
+    <a
+      href={CONTACT.phoneTel}
+      class="mt-4 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-colors text-sm w-full"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+      </svg>
+      {CONTACT.phoneDisplay}
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const widget = document.getElementById('desktop-contact-widget');
+    const closeBtn = document.getElementById('close-contact-widget');
+    if (!widget) return;
+
+    const STORAGE_KEY = 'contact-widget-dismissed';
+    if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+    const timer = setTimeout(() => {
+      widget.classList.remove('translate-x-[calc(100%+2rem)]');
+      widget.classList.add('translate-x-0');
+    }, 8000);
+
+    closeBtn?.addEventListener('click', () => {
+      widget.classList.remove('translate-x-0');
+      widget.classList.add('translate-x-[calc(100%+2rem)]');
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      clearTimeout(timer);
+    });
+  });
+</script>

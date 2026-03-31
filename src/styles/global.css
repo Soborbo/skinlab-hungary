@@ -5,37 +5,45 @@
    ============================================ */
 
 @theme {
-  /* Primary - Medical kék */
-  --color-primary-50: #f0f7ff;
-  --color-primary-100: #e0effe;
-  --color-primary-200: #bae0fd;
-  --color-primary-300: #7cc8fb;
-  --color-primary-400: #36aaf5;
-  --color-primary-500: #0c8ee6;
-  --color-primary-600: #0070c4;
-  --color-primary-700: #015a9f;
-  --color-primary-800: #064d83;
-  --color-primary-900: #0b416d;
-  --color-primary-950: #072949;
+  /* Primary - Lila / Purple (Sirius téma) */
+  --color-primary-50: #f8f5fa;
+  --color-primary-100: #f0e8f4;
+  --color-primary-200: #e0d0e8;
+  --color-primary-300: #c8aed8;
+  --color-primary-400: #a882c0;
+  --color-primary-500: #8b5ca8;
+  --color-primary-600: #724890;
+  --color-primary-700: #5c3878;
+  --color-primary-800: #4a2d60;
+  --color-primary-900: #3d2450;
+  --color-primary-950: #271538;
 
-  /* Accent - Elegáns arany (CTA kiemelések) */
-  --color-accent: #b8860b;
-  --color-accent-light: #d4a84b;
-  --color-accent-dark: #8a6508;
+  /* Accent - Rózsaszín / Pink (másodlagos szín) */
+  --color-accent: #d070b0;
+  --color-accent-light: #e8a0cc;
+  --color-accent-dark: #a85090;
 
-  /* Success - zöld */
+  /* Success - zöld (nyugtázás) */
   --color-success-50: #ecfdf5;
   --color-success-100: #d1fae5;
   --color-success-200: #a7f3d0;
-  --color-success-500: #059669;
-  --color-success-600: #047857;
-  --color-success-700: #065f46;
+  --color-success-500: #2eaa5a;
+  --color-success-600: #249a4a;
+  --color-success-700: #1a7a3a;
 
-  /* Warning - narancs */
+  /* Warning - narancs (figyelmeztetés) */
   --color-warning-50: #fffbeb;
   --color-warning-100: #fef3c7;
-  --color-warning-500: #d97706;
-  --color-warning-600: #b45309;
+  --color-warning-500: #e8a020;
+  --color-warning-600: #c08818;
+
+  /* Info - korall/salmon (kiemelt információ) */
+  --color-info: #f07070;
+  --color-info-light: #f8a0a0;
+
+  /* Action - narancs-piros (akció szín) */
+  --color-action: #e86030;
+  --color-action-light: #f09060;
 
   /* Fonts */
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -213,23 +221,13 @@
 
 [data-mega-menu] a {
   position: relative;
+  border-left-width: 2px;
+  transition: border-left-width 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.15s ease;
 }
 
-[data-mega-menu] a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--color-primary-500);
-  border-radius: 0 2px 2px 0;
-  transform: scaleY(0);
-  transition: transform 0.15s ease-out;
-}
-
-[data-mega-menu] a:hover::before {
-  transform: scaleY(1);
+[data-mega-menu] a:hover {
+  border-left-width: 4px;
+  box-shadow: inset 4px 0 8px -4px var(--mega-item-color, transparent);
 }
 
 [data-accordion-content] {

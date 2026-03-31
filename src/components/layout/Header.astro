@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { CONTACT, NAV_ITEMS, MEGA_MENU } from '../../lib/constants';
+import { CONTACT, NAV_ITEMS, MEGA_MENU, CATEGORY_COLORS } from '../../lib/constants';
 import { Logo, FifthImage } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SearchOverlay from '../search/SearchOverlay.astro';
@@ -8,7 +8,7 @@ import { hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-const contactLink = getLocalizedUrl(locale, '/kapcsolat');
+const contactLink = getLocalizedUrl(locale, '/konzultacio');
 const skinlabLogo = '@assets/logo.png';
 
 // Get first product image per category slug for megamenu
@@ -143,11 +143,13 @@ for (const column of MEGA_MENU.columns) {
               {column.items.map((item) => {
                 const slug = item.href.replace(/^\//, '');
                 const itemImage = megaMenuImages[slug];
+                const catColors = (slug in CATEGORY_COLORS) ? CATEGORY_COLORS[slug as keyof typeof CATEGORY_COLORS] : null;
                 return (
                 <li>
                   <a
                     href={getLocalizedUrl(locale, item.href)}
-                    class="group flex items-start gap-3 p-3 -mx-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    class="group flex items-start gap-3 p-3 -mx-3 rounded-lg hover:bg-gray-50 transition-colors border-l-2"
+                    style={catColors ? `border-color: ${catColors.accent}; --mega-item-color: ${catColors.accent}` : 'border-color: transparent'}
                   >
                     {/* Category thumbnail */}
                     <div class="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 shrink-0">
@@ -167,7 +169,10 @@ for (const column of MEGA_MENU.columns) {
                     </div>
                     <div class="flex-1">
                       <div class="flex items-center gap-2">
-                        <span class="text-sm font-medium text-gray-900 group-hover:text-primary-600">
+                        <span
+                          class="text-sm font-medium transition-colors"
+                          style={catColors ? `color: ${catColors.accentDark}` : ''}
+                        >
                           {t(locale, item.labelKey)}
                         </span>
                         {item.badgeKey && (

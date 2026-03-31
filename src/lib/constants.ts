@@ -84,6 +84,60 @@ export const SOCIAL = {
   },
 };
 
+// Elegant feminine color palette for categories
+// Each category has a unique subtle accent used across the site
+export const CATEGORY_COLORS = {
+  diodalezerek: {
+    accent: '#b8a9c9',       // soft lavender
+    accentLight: '#ede8f3',   // lavender mist
+    accentDark: '#7c6a94',    // deep lavender
+    gradient: 'from-[#b8a9c9] to-[#9b8bb4]',
+    gradientHero: 'from-[#ede8f3] via-[#f5f1f9] to-white',
+  },
+  'nd-yag-lezerek': {
+    accent: '#c9a9b8',       // dusty rose
+    accentLight: '#f3e8ee',   // rose mist
+    accentDark: '#946a7c',    // deep rose
+    gradient: 'from-[#c9a9b8] to-[#b48fa1]',
+    gradientHero: 'from-[#f3e8ee] via-[#f9f1f5] to-white',
+  },
+  hydrafacial: {
+    accent: '#a9c9c4',       // sage mint
+    accentLight: '#e8f3f1',   // mint mist
+    accentDark: '#6a9490',    // deep sage
+    gradient: 'from-[#a9c9c4] to-[#8fb4ae]',
+    gradientHero: 'from-[#e8f3f1] via-[#f1f9f7] to-white',
+  },
+  coldplasma: {
+    accent: '#a9bcc9',       // powder blue
+    accentLight: '#e8eff3',   // ice mist
+    accentDark: '#6a8494',    // steel blue
+    gradient: 'from-[#a9bcc9] to-[#8fa5b4]',
+    gradientHero: 'from-[#e8eff3] via-[#f1f6f9] to-white',
+  },
+  sminktetovalas: {
+    accent: '#c9bba9',       // warm champagne
+    accentLight: '#f3efe8',   // champagne mist
+    accentDark: '#94836a',    // deep champagne
+    gradient: 'from-[#c9bba9] to-[#b4a48f]',
+    gradientHero: 'from-[#f3efe8] via-[#f9f6f1] to-white',
+  },
+  szalonberendezes: {
+    accent: '#c4b8a9',       // warm taupe
+    accentLight: '#f1ede8',   // taupe mist
+    accentDark: '#8f8474',    // deep taupe
+    gradient: 'from-[#c4b8a9] to-[#ae9f8f]',
+    gradientHero: 'from-[#f1ede8] via-[#f8f5f1] to-white',
+  },
+  kellekek: {
+    accent: '#b8c4a9',       // soft sage green
+    accentLight: '#edf1e8',   // sage mist
+    accentDark: '#7c8f6a',    // deep sage
+    gradient: 'from-[#b8c4a9] to-[#a1ae8f]',
+    gradientHero: 'from-[#edf1e8] via-[#f5f8f1] to-white',
+  },
+} as const;
+
 export const CATEGORIES = [
   {
     id: 'diodalezerek',
@@ -92,8 +146,10 @@ export const CATEGORIES = [
     slug: 'diodalezerek',
     description: 'Professzionális 4 hullámhosszas diódalézerek tartós szőrtelenítéshez.',
     icon: 'laser',
+    image: '/images/opt/products/dame-4-nagyteljesitmenyu-diodalezer-keszulek-1-480w.webp',
     featured: true,
     productCount: 9,
+    color: 'diodalezerek' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'nd-yag-lezerek',
@@ -102,8 +158,10 @@ export const CATEGORIES = [
     slug: 'nd-yag-lezerek',
     description: 'Tetoválás és pigmentfolt eltávolító lézerek.',
     icon: 'zap',
+    image: '/images/opt/products/pixel-q-kapcsolt-nd-yag-lezerkeszulek-1-480w.webp',
     featured: true,
     productCount: 2,
+    color: 'nd-yag-lezerek' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'hydrafacial',
@@ -112,8 +170,10 @@ export const CATEGORIES = [
     slug: 'hydrafacial',
     description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
     icon: 'droplet',
+    image: '/images/opt/products/hydracrown-expert-1-480w.webp',
     featured: true,
     productCount: 5,
+    color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'coldplasma',
@@ -122,8 +182,10 @@ export const CATEGORIES = [
     slug: 'coldplasma',
     description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
     icon: 'snowflake',
+    image: '/images/opt/products/the-frost-coldplasma-by-skinlab-1-480w.webp',
     featured: true,
     productCount: 2,
+    color: 'coldplasma' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'anti-aging',
@@ -132,6 +194,7 @@ export const CATEGORIES = [
     slug: 'anti-aging',
     description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
     icon: 'sparkles',
+    image: '/images/opt/products/nofilter-7d-hifu-1-480w.webp',
     featured: false,
     draft: true,
     productCount: 0,
@@ -143,8 +206,10 @@ export const CATEGORIES = [
     slug: 'sminktetovalas',
     description: 'Sminktetováló gépek és tűmodulok.',
     icon: 'pen',
+    image: '/images/opt/products/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal-1-480w.webp',
     featured: true,
     productCount: 3,
+    color: 'sminktetovalas' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'szalonberendezes',
@@ -153,8 +218,10 @@ export const CATEGORIES = [
     slug: 'szalonberendezes',
     description: 'Professzionális szalonbútorok, trolley-k és kiegészítők.',
     icon: 'armchair',
+    image: '/images/opt/products/vanityblack-premium-elektromos-kozmetikai-agy-2-800w.webp',
     featured: true,
     productCount: 6,
+    color: 'szalonberendezes' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'kellekek',
@@ -163,8 +230,10 @@ export const CATEGORIES = [
     slug: 'kellekek',
     description: 'Kezelőanyagok, tűmodulok és egyéb kiegészítők.',
     icon: 'package',
-    featured: false,
+    image: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-480w.webp',
+    featured: true,
     productCount: 7,
+    color: 'kellekek' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
 

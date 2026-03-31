@@ -322,7 +322,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 </head>
 <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #0070c4; margin: 0;">SkinLab Hungary</h1>
+    <h1 style="color: #724890; margin: 0;">SkinLab Hungary</h1>
     <p style="color: #666; margin: 5px 0 0;">laser&beauty equipment</p>
   </div>
 
@@ -340,8 +340,8 @@ function generateConfirmationEmailHtml(data: LeadData): string {
   </div>
 
   <p>Amennyiben sürgős kérdése van, hívjon minket bátran:</p>
-  <p style="font-size: 20px; font-weight: bold; color: #0070c4;">
-    <a href="tel:+36704136819" style="color: #0070c4; text-decoration: none;">+36 70 413 6819</a>
+  <p style="font-size: 20px; font-weight: bold; color: #724890;">
+    <a href="tel:+36704136819" style="color: #724890; text-decoration: none;">+36 70 413 6819</a>
   </p>
 
   <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
@@ -367,7 +367,7 @@ function generateNotificationEmailHtml(data: LeadData): string {
   <meta charset="utf-8">
 </head>
 <body style="font-family: Arial, sans-serif; padding: 20px;">
-  <h2 style="color: #0070c4;">Új érdeklődő!</h2>
+  <h2 style="color: #724890;">Új érdeklődő!</h2>
 
   <table style="border-collapse: collapse; width: 100%;">
     <tr>
@@ -413,7 +413,7 @@ function generateNotificationEmailHtml(data: LeadData): string {
   </table>
 
   <p style="margin-top: 20px;">
-    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: #0070c4; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
+    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: #724890; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
       Hívás indítása
     </a>
   </p>
@@ -481,11 +481,16 @@ export async function processConsultationSubmission(
     // 1. Send to Google Sheets
     await sendConsultationToGoogleSheets(leadData);
 
-    // 2. Send confirmation email
+    // 2. Send confirmation email to customer
     await sendConsultationConfirmationEmail(leadData);
 
     // 3. Send notification email to team
     await sendConsultationNotificationEmail(leadData);
+
+    // 4. Send lead to CRM (non-blocking — don't fail submission if CRM is down)
+    sendToCrm(leadData).catch((err) => {
+      console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
+    });
 
     return { success: true, leadId };
   } catch (error) {
@@ -631,11 +636,11 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
       <p style="color: #9ca3af; margin: 4px 0 0; font-size: 14px;">laser&beauty equipment</p>
     </div>
 
-    <h2 style="color: #1f2937; text-align: center; font-size: 20px;">Köszönjük, ${escapeHtml(data.name)}!</h2>
+    <h2 style="color: #1f2937; text-align: center; font-size: 20px;">Kedves ${escapeHtml(data.name)}!</h2>
 
     <p style="color: #4b5563; text-align: center; line-height: 1.6;">
-      Megkaptuk konzultáció kérését.<br>
-      <strong>Hamarosan felvesszük Önnel a kapcsolatot!</strong>
+      Köszönjük, hogy érdeklődött a SkinLab Hungary kínálata iránt!<br>
+      <strong>Amint lehetséges, visszahívjuk Önt a megadott telefonszámon.</strong>
     </p>
 
     <div style="background: #fdf2f8; padding: 20px; border-radius: 12px; margin: 24px 0;">
@@ -660,12 +665,28 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
       </table>
     </div>
 
-    <p style="color: #4b5563; text-align: center;">Sürgős kérdés esetén hívjon minket:</p>
-    <p style="text-align: center;">
-      <a href="tel:+36704136819" style="color: #db2777; font-size: 22px; font-weight: bold; text-decoration: none;">
-        +36 70 413 6819
-      </a>
-    </p>
+    <div style="background: #f0fdf4; padding: 16px 20px; border-radius: 12px; margin: 24px 0; border-left: 4px solid #22c55e;">
+      <p style="color: #166534; font-size: 14px; margin: 0; line-height: 1.5;">
+        <strong>Tudta?</strong> Az esztétikai lézertechnológia piaca évente átlagosan 15-20%-kal növekszik világszerte.
+        Egyre több szépségszalon ismeri fel, hogy a professzionális lézereszközök nemcsak hatékonyabbak,
+        hanem az ügyfelek is egyre tudatosabban keresik az ilyen kezeléseket. Ön is jó úton jár!
+      </p>
+    </div>
+
+    <div style="background: #fef3c7; padding: 20px; border-radius: 12px; margin: 24px 0; text-align: center;">
+      <p style="color: #92400e; font-size: 14px; margin: 0 0 12px; font-weight: 600;">
+        Ha gyorsabban szüksége van ránk:
+      </p>
+      <p style="margin: 0 0 8px;">
+        <a href="tel:+36704136819" style="color: #db2777; font-size: 20px; font-weight: bold; text-decoration: none;">
+          +36 70 413 6819
+        </a>
+      </p>
+      <p style="color: #78716c; font-size: 13px; margin: 0;">
+        SkinLab SHOWROOM: 2030 Érd, Budai út 28.<br>
+        Email: <a href="mailto:info@skinlabhungary.hu" style="color: #db2777;">info@skinlabhungary.hu</a>
+      </p>
+    </div>
 
     <hr style="border: none; border-top: 1px solid #f3e8ff; margin: 24px 0;">
 
@@ -682,6 +703,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 
 /**
  * Generate consultation notification email HTML for team
+ * Name, phone, interest are shown first for quick action
  */
 function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): string {
   const isHot = data.timeline === 'asap';
@@ -700,30 +722,43 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
     Új konzultáció kérés! ${priorityBadge}
   </h2>
 
+  <!-- Key info at the top for quick action -->
+  <div style="background: #fdf2f8; border: 2px solid #f9a8d4; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr>
+        <td style="padding: 8px 10px; font-weight: bold; color: #6b7280; width: 130px;">Név:</td>
+        <td style="padding: 8px 10px; font-weight: bold; font-size: 18px; color: #1f2937;">${escapeHtml(data.name)}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 10px; font-weight: bold; color: #6b7280;">Telefon:</td>
+        <td style="padding: 8px 10px;">
+          <a href="tel:${escapeHtml(data.phone)}" style="color: #db2777; font-weight: bold; font-size: 18px; text-decoration: none;">${escapeHtml(data.phone)}</a>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 10px; font-weight: bold; color: #6b7280;">Érdeklődés:</td>
+        <td style="padding: 8px 10px; font-weight: bold; font-size: 16px; color: #7c3aed;">${escapeHtml(data.product)}</td>
+      </tr>
+    </table>
+  </div>
+
+  <p style="margin-bottom: 16px;">
+    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: linear-gradient(135deg, #ec4899, #f43f5e); color: white; padding: 14px 28px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 16px;">
+      Hívás indítása
+    </a>
+  </p>
+
+  <!-- Full details -->
   <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
     <tr>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280; width: 130px;">Lead ID:</td>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${escapeHtml(data.leadId)}</td>
     </tr>
     <tr>
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Név:</td>
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; font-size: 16px;">${escapeHtml(data.name)}</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Telefon:</td>
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">
-        <a href="tel:${escapeHtml(data.phone)}" style="color: #db2777; font-weight: bold; font-size: 16px;">${escapeHtml(data.phone)}</a>
-      </td>
-    </tr>
-    <tr>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Email:</td>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">
         <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>
       </td>
-    </tr>
-    <tr style="background: #fdf2f8;">
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Termék:</td>
-      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold;">${escapeHtml(data.product)}</td>
     </tr>
     <tr style="background: ${isHot ? '#fef2f2' : '#fdf2f8'};">
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Vásárlás időzítése:</td>
@@ -738,6 +773,10 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
     <tr>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Tapasztalat:</td>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${escapeHtml(EXPERIENCE_LABELS[data.experience] || data.experience)}</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">GDPR hozzájárulás:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${data.gdprConsent ? 'Igen' : 'Nem'} (${data.gdprTimestamp})</td>
     </tr>
     <tr>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Forrás:</td>
@@ -756,13 +795,46 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
     </tr>
     ` : ''}
   </table>
-
-  <p style="margin-top: 24px;">
-    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: linear-gradient(135deg, #ec4899, #f43f5e); color: white; padding: 14px 28px; text-decoration: none; border-radius: 12px; font-weight: bold;">
-      Hívás indítása
-    </a>
-  </p>
 </body>
 </html>
   `.trim();
+}
+
+// ============================================
+// CRM WEBHOOK INTEGRATION
+// ============================================
+
+/**
+ * Send consultation lead data to CRM via webhook
+ * Uses the same schema as the CRM's /api/webhook/lead endpoint
+ */
+async function sendToCrm(data: ConsultationLeadData): Promise<void> {
+  const crmWebhookUrl = import.meta.env.CRM_WEBHOOK_URL;
+  const crmWebhookSecret = import.meta.env.CRM_WEBHOOK_SECRET;
+
+  if (!crmWebhookUrl || !crmWebhookSecret) {
+    console.warn('CRM_WEBHOOK_URL or CRM_WEBHOOK_SECRET not configured, skipping CRM');
+    return;
+  }
+
+  const response = await fetch(crmWebhookUrl, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${crmWebhookSecret}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      need_type: data.product,
+      utm_source: data.utmSource || 'skinlabhungary.hu',
+      marketing_consent: data.gdprConsent,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`CRM webhook returned ${response.status}: ${error}`);
+  }
 }

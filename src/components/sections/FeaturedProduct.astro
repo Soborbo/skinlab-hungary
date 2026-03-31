@@ -9,7 +9,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, formatPrice as i18nFormatPrice, t
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized contact link
-const contactLink = getLocalizedUrl(locale, '/kapcsolat');
+const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
 // Fetch the featured product (Prestige4WAVE)
 const allProducts = await getCollection('products', ({ data }) => !data.draft);

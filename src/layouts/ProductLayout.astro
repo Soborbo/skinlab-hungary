@@ -73,6 +73,7 @@ interface Props {
     description: string;
     shortDescription: string;
     price: number | null;
+    salePrice?: number | null;
     image: string;
     gallery: string[];
     youtubeVideos?: string[];
@@ -156,7 +157,7 @@ const productSchema = product.price ? {
     "@type": "Offer",
     "url": pageUrl,
     "priceCurrency": "HUF",
-    "price": String(product.price),
+    "price": String(product.salePrice || product.price),
     "availability": product.availability === 'in_stock'
       ? "https://schema.org/InStock"
       : product.availability === 'preorder'
@@ -228,6 +229,7 @@ const productSchema = product.price ? {
       shortDescription={displayShortDesc}
       description={displayDesc}
       price={product.price}
+      salePrice={product.salePrice}
       image={product.image}
       gallery={product.gallery}
       availability={product.availability}

@@ -4,12 +4,13 @@
  * /konzultacio-koszonjuk?lead=SL-XXXXX
  *
  * Shown after successful consultation wizard submission
- * Feminine, warm, reassuring design
+ * Features Horváth László personal photo, conversion tracking
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { CONTACT } from '@/lib/constants';
+import { CONTACT, LOCATIONS, FOUNDERS } from '@/lib/constants';
 
 const leadId = Astro.url.searchParams.get('lead') || '';
+const laszlo = FOUNDERS.find(f => f.name === 'Horváth László')!;
 ---
 
 <BaseLayout
@@ -19,23 +20,22 @@ const leadId = Astro.url.searchParams.get('lead') || '';
 >
   <section class="min-h-[80vh] flex items-center justify-center py-12 px-4">
     <div class="max-w-lg w-full text-center">
-      <!-- Success animation -->
-      <div class="mb-8 relative">
-        <div class="success-circle w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center">
-          <svg class="success-check w-12 h-12 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
+      <!-- Horváth László personal greeting -->
+      <div class="mb-6">
+        <div class="relative inline-block">
+          <img
+            src={laszlo.image}
+            alt={laszlo.name}
+            class="w-28 h-28 rounded-full object-cover border-4 border-pink-200 shadow-lg mx-auto"
+          />
+          <div class="absolute -bottom-1 -right-1 w-10 h-10 rounded-full bg-green-500 border-3 border-white flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
         </div>
-        <!-- Decorative sparkles -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 sparkle-1">
-          <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-        </div>
-        <div class="absolute top-4 right-1/4 sparkle-2">
-          <svg class="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
-        </div>
-        <div class="absolute bottom-0 left-1/4 sparkle-3">
-          <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-        </div>
+        <p class="mt-3 text-sm font-medium text-gray-900">{laszlo.name}</p>
+        <p class="text-xs text-gray-500">{laszlo.role}</p>
       </div>
 
       <!-- Heading -->
@@ -45,7 +45,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
 
       <p class="text-lg text-gray-600 mb-8">
         Megkaptuk konzultáció kérését.<br />
-        <strong class="text-gray-800">Hamarosan felvesszük Önnel a kapcsolatot!</strong>
+        <strong class="text-gray-800">Hamarosan személyesen felveszem Önnel a kapcsolatot!</strong>
       </p>
 
       <!-- Lead reference -->
@@ -67,7 +67,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
             </div>
             <div class="pt-1">
               <p class="font-medium text-gray-900">Átnézzük az igényeit</p>
-              <p class="text-sm text-gray-500">Kollégánk feldolgozza a megadott információkat</p>
+              <p class="text-sm text-gray-500">Személyesen átnézem a megadott információkat</p>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
             </div>
             <div class="pt-1">
               <p class="font-medium text-gray-900">Telefonos egyeztetés</p>
-              <p class="text-sm text-gray-500">1 munkanapon belül felhívjuk a megadott számon</p>
+              <p class="text-sm text-gray-500">1 munkanapon belül felhívom a megadott számon</p>
             </div>
           </div>
 
@@ -87,7 +87,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
             </div>
             <div class="pt-1">
               <p class="font-medium text-gray-900">Személyre szabott ajánlat</p>
-              <p class="text-sm text-gray-500">Az igényei alapján részletes tájékoztatást küldünk</p>
+              <p class="text-sm text-gray-500">Az igényei alapján részletes tájékoztatást küldök</p>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
       <!-- Urgent contact -->
       <div class="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-6 mb-8">
         <p class="text-gray-700 mb-3">
-          Sürgős kérdés esetén hívjon minket:
+          Ha sürgősen szüksége van ránk, hívjon bátran:
         </p>
         <a
           href={`tel:${CONTACT.phone}`}
@@ -109,6 +109,9 @@ const leadId = Astro.url.searchParams.get('lead') || '';
           </span>
           {CONTACT.phoneDisplay}
         </a>
+        <p class="mt-3 text-sm text-gray-500">
+          {LOCATIONS.showroom.fullAddress}
+        </p>
       </div>
 
       <!-- Navigation -->
@@ -147,13 +150,11 @@ const leadId = Astro.url.searchParams.get('lead') || '';
 </BaseLayout>
 
 <style>
-  /* Success animation */
-  .success-circle {
-    animation: scaleIn 0.5s ease-out;
-  }
+  @reference "../styles/global.css";
 
-  .success-check {
-    animation: checkDraw 0.6s ease-out 0.3s both;
+  /* Image entrance animation */
+  .consultation-thank-you img {
+    animation: scaleIn 0.5s ease-out;
   }
 
   @keyframes scaleIn {
@@ -166,44 +167,21 @@ const leadId = Astro.url.searchParams.get('lead') || '';
       opacity: 1;
     }
   }
-
-  @keyframes checkDraw {
-    from {
-      stroke-dasharray: 100;
-      stroke-dashoffset: 100;
-    }
-    to {
-      stroke-dasharray: 100;
-      stroke-dashoffset: 0;
-    }
-  }
-
-  /* Sparkle animations */
-  .sparkle-1 {
-    animation: float 2s ease-in-out infinite;
-  }
-
-  .sparkle-2 {
-    animation: float 2.5s ease-in-out infinite 0.5s;
-  }
-
-  .sparkle-3 {
-    animation: float 2s ease-in-out infinite 1s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translate(-50%, -8px) rotate(-5deg);
-    }
-    50% {
-      transform: translate(-50%, 0) rotate(5deg);
-    }
-  }
 </style>
 
 <!-- Conversion tracking -->
 <script define:vars={{ leadId }}>
-  // Track conversion in Google Analytics
+  // Google Analytics 4 — generate_lead event
+  if (typeof gtag === 'function' && leadId) {
+    gtag('event', 'generate_lead', {
+      event_category: 'Consultation',
+      value: 1.0,
+      currency: 'HUF',
+      transaction_id: leadId,
+    });
+  }
+
+  // Google Ads conversion
   if (typeof gtag === 'function' && leadId) {
     gtag('event', 'conversion', {
       send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL',

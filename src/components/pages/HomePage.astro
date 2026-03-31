@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Hero from '../sections/Hero.astro';
+import HeroCarousel from '../sections/HeroCarousel.astro';
 import Categories from '../sections/Categories.astro';
 import BrandMarquee from '../sections/BrandMarquee.astro';
 import Stats from '../sections/Stats.astro';
@@ -19,7 +19,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
   description={t(locale, 'home.description')}
 >
   <div id="main-content">
-    <Hero />
+    <HeroCarousel />
     <Categories />
     <BrandMarquee />
     <Stats />

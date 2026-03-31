@@ -72,4 +72,4 @@ A professzionális szalonoknak egyértelműen a **4 hullámhosszas diódalézert
 
 Ha komolyan gondolod a szőrtelenítési szolgáltatást, a **diódalézer a jobb befektetés**. Magasabb kezdeti költség, de gyorsabb megtérülés, elégedettebb ügyfelek és hosszú távú üzleti siker.
 
-Kérdésed van? [Kérj ingyenes konzultációt](/kapcsolat) és segítünk kiválasztani a számodra ideális készüléket!
+Kérdésed van? [Kérj ingyenes konzultációt](/konzultacio) és segítünk kiválasztani a számodra ideális készüléket!

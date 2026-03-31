@@ -33,7 +33,7 @@ const {
   showPhone = true,
 } = Astro.props;
 
-const contactUrl = getLocalizedUrl(locale, '/kapcsolat');
+const contactUrl = getLocalizedUrl(locale, '/konzultacio');
 
 // Resolve text: props first, then i18n defaults
 const displayHeadline = headline || t(locale, 'cta.defaultHeadline', { productName });

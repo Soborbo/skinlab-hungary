@@ -9,7 +9,21 @@
       "Bash(curl:*)",
       "Bash(npm run validate:content:*)",
       "Bash(git status:*)",
-      "Bash(find /d/skinlab/skinlab-hungary-master/src -type f \\\\\\(-name *frost* -o -name *product* \\\\\\) -not -path */node_modules/*)"
+      "Bash(find /d/skinlab/skinlab-hungary-master/src -type f \\\\\\(-name *frost* -o -name *product* \\\\\\) -not -path */node_modules/*)",
+      "mcp__github__search_code",
+      "mcp__github__get_file_contents",
+      "mcp__chrome-devtools__evaluate_script",
+      "Bash(UNAS_API_KEY=test123 node scripts/sync-unas-products.cjs)",
+      "Bash(gh secret:*)",
+      "Bash(identify \"d:/skinlab/skinlab-hungary-master/references/hero forgato/website/skinlab.jpg\")",
+      "Bash(node -e \":*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(find d:skinlabskinlab-hungary-master -type f \\\\\\(-iname *.jpg -o -iname *.png -o -iname *.webp \\\\\\))",
+      "Bash(find d:skinlabskinlab-hungary-master -path */dist -prune -o -type f \\\\\\(-iname diodalezerek.* -o -iname nd-yag* -o -iname hydrafacial.* -o -iname coldplasma.* \\\\\\) -print)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

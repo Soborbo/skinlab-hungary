@@ -34,6 +34,7 @@ interface Props {
   shortDescription?: string;
   description?: string;
   price: number | null;
+  salePrice?: number | null;
   image: string;
   gallery: string[];
   availability: 'in_stock' | 'preorder' | 'out_of_stock';
@@ -51,6 +52,7 @@ const {
   shortDescription,
   description,
   price,
+  salePrice,
   image,
   gallery,
   availability,
@@ -169,7 +171,14 @@ const icons: Record<string, string> = {
         <div class="mb-6">
           {price ? (
             <>
-              <div class="text-3xl font-bold text-gray-900">{displayPrice(price)}</div>
+              {salePrice ? (
+                <div class="flex items-baseline gap-3">
+                  <div class="text-3xl font-bold text-red-600">{displayPrice(salePrice)}</div>
+                  <div class="text-xl text-gray-400 line-through">{displayPrice(price)}</div>
+                </div>
+              ) : (
+                <div class="text-3xl font-bold text-gray-900">{displayPrice(price)}</div>
+              )}
               <div class="text-sm text-gray-500 mt-1">{t(locale, 'product.grossPrice')}</div>
             </>
           ) : (
@@ -193,7 +202,7 @@ const icons: Record<string, string> = {
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row gap-3">
           <a
-            href={getLocalizedUrl(locale, '/kapcsolat')}
+            href={getLocalizedUrl(locale, '/konzultacio')}
             class="flex-1 inline-flex items-center justify-center px-6 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors shadow-lg"
           >
             {t(locale, 'product.freeConsultation')}

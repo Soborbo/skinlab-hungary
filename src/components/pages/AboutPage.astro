@@ -7,7 +7,7 @@ import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized contact link
-const contactLink = locale === 'hu' ? '/kapcsolat' : `/${locale}/kapcsolat`;
+const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
 ---
 
 <BaseLayout

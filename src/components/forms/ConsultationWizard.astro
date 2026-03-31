@@ -31,8 +31,8 @@ const {
 
 const turnstileSiteKey = getTurnstileSiteKey();
 
-// Category options with images (exclude egyeb)
-const categoryOptions = CATEGORIES.filter(cat => cat.featured).map((cat) => ({
+// Category options with images (exclude egyeb and kellekek — not relevant for consultation)
+const categoryOptions = CATEGORIES.filter(cat => cat.featured && cat.id !== 'kellekek').map((cat) => ({
   value: cat.id,
   label: cat.nameShort,
   image: `/images/categories/${cat.id}.jpg`,
@@ -75,28 +75,28 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <div class:list={['consultation-wizard', className]} data-wizard>
-  <!-- Progress Bar Container -->
-  <div class="progress-container mb-8">
+  <!-- Progress Bar -->
+  <div class="progress-container mb-2">
     <div class="progress-scroll overflow-x-auto scrollbar-hide" data-progress-scroll>
       <div class="progress-track flex items-center justify-center min-w-max px-4" data-progress-track>
         {steps.map((step, index) => (
           <Fragment>
             <button
               type="button"
-              class="step-indicator flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl transition-all duration-300 cursor-pointer hover:bg-primary-50"
+              class="step-indicator flex flex-col items-center gap-1 px-2.5 py-1.5 rounded-xl transition-all duration-300 cursor-pointer hover:bg-primary-50"
               data-step-btn={step.id}
               disabled={step.id > 1}
             >
-              <div class="step-circle w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 border-2 border-gray-200 bg-white text-gray-400"
+              <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all duration-300 border-2 border-gray-200 bg-white text-gray-400"
                    data-step-circle={step.id}>
                 {step.id}
               </div>
-              <span class="step-label text-xs font-medium text-gray-400 transition-colors whitespace-nowrap" data-step-label={step.id}>
+              <span class="step-label text-[11px] font-medium text-gray-400 transition-colors whitespace-nowrap" data-step-label={step.id}>
                 {step.label}
               </span>
             </button>
             {index < steps.length - 1 && (
-              <div class="step-line w-8 h-0.5 bg-gray-200 transition-colors duration-300 mx-1" data-step-line={step.id}></div>
+              <div class="step-line w-6 h-0.5 bg-gray-200 transition-colors duration-300 mx-0.5" data-step-line={step.id}></div>
             )}
           </Fragment>
         ))}
@@ -127,12 +127,12 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
     <!-- Step 1: Product Selection with Images (Multi-select) -->
     <div class="step-content" data-step-content="1">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Melyik termék érdekli?</h2>
-        <p class="text-gray-500 mt-2">Válassza ki, melyik kategória érdekli leginkább</p>
+      <div class="text-center mb-3">
+        <h1 class="text-lg font-bold text-gray-900">Melyik termék érdekli?</h1>
+        <p class="text-gray-500 text-sm">Válassza ki a kategóriát — többet is jelölhet</p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
         {categoryOptions.map((opt) => (
           <label class="category-card group cursor-pointer">
             <input
@@ -142,7 +142,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               class="sr-only peer"
             />
             <div class="relative rounded-xl overflow-hidden border-2 border-gray-200 bg-white transition-all duration-200 peer-checked:border-primary-500 peer-checked:ring-2 peer-checked:ring-primary-200 hover:border-primary-300">
-              <div class="aspect-square bg-gray-100">
+              <div class="aspect-[2/1] bg-gray-100">
                 <img
                   src={opt.image}
                   alt={opt.label}
@@ -151,7 +151,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
                   onerror="this.style.display='none'"
                 />
               </div>
-              <div class="p-2 text-center">
+              <div class="py-1.5 px-1 text-center">
                 <span class="text-xs sm:text-sm font-medium text-gray-700 peer-checked:text-primary-700">{opt.label}</span>
               </div>
               <!-- Checkmark overlay -->
@@ -169,8 +169,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
     <!-- Step 2: Timeline (Auto-next) -->
     <div class="step-content hidden" data-step-content="2">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Mikor tervezi a vásárlást?</h2>
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Mikor tervezi a vásárlást?</h2>
       </div>
 
       <div class="grid grid-cols-2 gap-3">
@@ -195,8 +195,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
     <!-- Step 3: Business Type (Auto-next) -->
     <div class="step-content hidden" data-step-content="3">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Van már szalonja?</h2>
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Van már szalonja?</h2>
       </div>
 
       <div class="grid grid-cols-2 gap-3">
@@ -221,8 +221,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
     <!-- Step 4: Experience (Auto-next) -->
     <div class="step-content hidden" data-step-content="4">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Használt már hasonló gépet?</h2>
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Használt már hasonló gépet?</h2>
       </div>
 
       <div class="grid grid-cols-2 gap-3">
@@ -247,9 +247,9 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
     <!-- Step 5: Contact Details -->
     <div class="step-content hidden" data-step-content="5">
-      <div class="text-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">Hogyan érhetjük el?</h2>
-        <p class="text-gray-500 mt-2">Hamarosan felvesszük Önnel a kapcsolatot</p>
+      <div class="text-center mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Hogyan érhetjük el?</h2>
+        <p class="text-gray-500 text-sm mt-1">Hamarosan felvesszük Önnel a kapcsolatot</p>
       </div>
 
       <div class="space-y-4">
@@ -361,7 +361,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     </div>
 
     <!-- Navigation Buttons -->
-    <div class="mt-8">
+    <div class="mt-4">
       <div class="flex gap-3">
         <!-- Back Button (30%) -->
         <button
@@ -395,7 +395,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       </div>
 
       <!-- Social Proof -->
-      <div class="mt-6 flex items-center justify-center gap-6 text-sm text-gray-500">
+      <div class="mt-2 flex items-center justify-center gap-6 text-sm text-gray-500">
         <div class="flex items-center gap-2">
           <span><strong class="text-gray-700">150+</strong> elégedett ügyfél</span>
         </div>
