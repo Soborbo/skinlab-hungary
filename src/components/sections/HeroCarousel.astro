@@ -10,12 +10,12 @@ const slides = [
   {
     titleKey: 'hero.title',
     subtitleKey: 'hero.subtitle',
-    avif: '/hero/hero-diodalezer-szortelenito.avif',
-    webp: '/hero/hero-diodalezer-szortelenito.webp',
-    jpg: '/hero/hero-diodalezer-szortelenito.jpg',
-    mobileAvif: '/hero/hero-diodalezer-szortelenito-mobile.avif',
-    mobileWebp: '/hero/hero-diodalezer-szortelenito-mobile.webp',
-    mobileJpg: '/hero/hero-diodalezer-szortelenito-mobile.jpg',
+    avif: '/hero/hero-malyva1.avif',
+    webp: '/hero/hero-malyva1.webp',
+    jpg: '/hero/hero-malyva1.jpg',
+    mobileAvif: '/hero/hero-malyva1-mobile.avif',
+    mobileWebp: '/hero/hero-malyva1-mobile.webp',
+    mobileJpg: '/hero/hero-malyva1-mobile.jpg',
     imageAlt: 'hero.title',
   },
   {
@@ -103,11 +103,11 @@ const icons: Record<string, string> = {
               </div>
             </div>
             {/* Text area below image */}
-            <div class="bg-gray-900 px-4 py-3">
-              <h2 class="text-base font-bold text-white mb-1 leading-snug line-clamp-2">
+            <div class="bg-[#f9f4f1] px-4 py-3">
+              <h2 class="text-base font-bold text-[#9b6b6b] mb-1 leading-snug line-clamp-2 font-heading">
                 {t(locale, slide.titleKey)}
               </h2>
-              <p class="text-[11px] text-white/70 mb-2 line-clamp-2 leading-relaxed">
+              <p class="text-[11px] text-[#645a59] mb-2 line-clamp-2 leading-relaxed">
                 {t(locale, slide.subtitleKey)}
               </p>
               <a
@@ -138,14 +138,14 @@ const icons: Record<string, string> = {
                 decoding={index === 0 ? 'sync' : 'async'}
               />
             </picture>
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent"></div>
             <div class="relative z-10 h-full flex items-center">
               <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
                 <div class="max-w-xl">
-                  <h2 class="text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+                  <h2 class="text-3xl lg:text-5xl font-normal text-[#9b6b6b] mb-4 leading-tight font-heading">
                     {t(locale, slide.titleKey)}
                   </h2>
-                  <p class="text-base lg:text-lg text-white/90 mb-6 max-w-lg drop-shadow">
+                  <p class="text-base lg:text-lg text-[#645a59] mb-6 max-w-lg">
                     {t(locale, slide.subtitleKey)}
                   </p>
                   <div class="flex flex-row gap-3">
@@ -160,7 +160,7 @@ const icons: Record<string, string> = {
                     </a>
                     <a
                       href={CONTACT.phoneTel}
-                      class="inline-flex items-center justify-center px-6 py-3 bg-white/15 text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/25 backdrop-blur-sm transition-all text-sm"
+                      class="inline-flex items-center justify-center px-6 py-3 bg-[#9b6b6b]/15 text-[#9b6b6b] font-semibold rounded-xl border-2 border-[#9b6b6b]/30 hover:bg-[#9b6b6b]/25 backdrop-blur-sm transition-all text-sm"
                     >
                       <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -194,7 +194,7 @@ const icons: Record<string, string> = {
           </div>
           <div class="flex gap-1 ml-3">
             <button
-              class="carousel-prev p-1.5 rounded-lg bg-white/15 border border-white/30 text-white hover:bg-white/25 backdrop-blur-sm transition-all cursor-pointer"
+              class="carousel-prev p-1.5 rounded-lg bg-[#9b6b6b]/15 border border-[#9b6b6b]/30 text-[#9b6b6b] hover:bg-[#9b6b6b]/25 backdrop-blur-sm transition-all cursor-pointer"
               aria-label="Previous slide"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +202,7 @@ const icons: Record<string, string> = {
               </svg>
             </button>
             <button
-              class="carousel-next p-1.5 rounded-lg bg-white/15 border border-white/30 text-white hover:bg-white/25 backdrop-blur-sm transition-all cursor-pointer"
+              class="carousel-next p-1.5 rounded-lg bg-[#9b6b6b]/15 border border-[#9b6b6b]/30 text-[#9b6b6b] hover:bg-[#9b6b6b]/25 backdrop-blur-sm transition-all cursor-pointer"
               aria-label="Next slide"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

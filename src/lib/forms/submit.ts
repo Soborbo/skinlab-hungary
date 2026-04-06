@@ -270,9 +270,9 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'SkinLab Hungary <noreply@skinlabhungary.hu>',
+      from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
       to: [data.email],
-      subject: 'Köszönjük megkeresését - SkinLab Hungary',
+      subject: 'Köszönjük megkeresését - Skinlab Hungary',
       html: generateConfirmationEmailHtml(data),
     }),
   });
@@ -301,7 +301,7 @@ async function sendNotificationEmail(data: LeadData): Promise<void> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'SkinLab Forms <forms@skinlabhungary.hu>',
+      from: 'Skinlab Forms <forms@skinlabhungary.hu>',
       to: [notifyEmail],
       subject: `Új érdeklődő: ${data.name} - ${data.product}`,
       html: generateNotificationEmailHtml(data),
@@ -322,13 +322,13 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 </head>
 <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #724890; margin: 0;">SkinLab Hungary</h1>
+    <h1 style="color: #724890; margin: 0;">Skinlab Hungary</h1>
     <p style="color: #666; margin: 5px 0 0;">laser&beauty equipment</p>
   </div>
 
   <h2 style="color: #333;">Kedves ${escapeHtml(data.name)}!</h2>
 
-  <p>Köszönjük, hogy felkereste a SkinLab Hungary-t!</p>
+  <p>Köszönjük, hogy felkereste a Skinlab Hungary-t!</p>
 
   <p>Megkaptuk az érdeklődését és hamarosan felvesszük Önnel a kapcsolatot
   a megadott telefonszámon: <strong>${escapeHtml(data.phone)}</strong></p>
@@ -348,7 +348,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 
   <p style="color: #888; font-size: 12px;">
     Ez az email automatikusan lett küldve. Kérjük, ne válaszoljon rá.<br>
-    SkinLab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+    Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
     Hivatkozási szám: ${data.leadId}
   </p>
 </body>
@@ -573,9 +573,9 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'SkinLab Hungary <noreply@skinlabhungary.hu>',
+      from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
       to: [data.email],
-      subject: 'Köszönjük konzultáció kérését - SkinLab Hungary',
+      subject: 'Köszönjük konzultáció kérését - Skinlab Hungary',
       html: generateConsultationConfirmationEmailHtml(data),
     }),
   });
@@ -610,7 +610,7 @@ async function sendConsultationNotificationEmail(data: ConsultationLeadData): Pr
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'SkinLab Forms <forms@skinlabhungary.hu>',
+      from: 'Skinlab Forms <forms@skinlabhungary.hu>',
       to: [notifyEmail],
       subject,
       html: generateConsultationNotificationEmailHtml(data),
@@ -632,14 +632,14 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #fdf2f8;">
   <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
     <div style="text-align: center; margin-bottom: 24px;">
-      <h1 style="color: #db2777; margin: 0; font-size: 24px;">SkinLab Hungary</h1>
+      <h1 style="color: #db2777; margin: 0; font-size: 24px;">Skinlab Hungary</h1>
       <p style="color: #9ca3af; margin: 4px 0 0; font-size: 14px;">laser&beauty equipment</p>
     </div>
 
     <h2 style="color: #1f2937; text-align: center; font-size: 20px;">Kedves ${escapeHtml(data.name)}!</h2>
 
     <p style="color: #4b5563; text-align: center; line-height: 1.6;">
-      Köszönjük, hogy érdeklődött a SkinLab Hungary kínálata iránt!<br>
+      Köszönjük, hogy érdeklődött a Skinlab Hungary kínálata iránt!<br>
       <strong>Amint lehetséges, visszahívjuk Önt a megadott telefonszámon.</strong>
     </p>
 
@@ -683,7 +683,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
         </a>
       </p>
       <p style="color: #78716c; font-size: 13px; margin: 0;">
-        SkinLab SHOWROOM: 2030 Érd, Budai út 28.<br>
+        Skinlab SHOWROOM: 2030 Érd, Budai út 28.<br>
         Email: <a href="mailto:info@skinlabhungary.hu" style="color: #db2777;">info@skinlabhungary.hu</a>
       </p>
     </div>
@@ -692,7 +692,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 
     <p style="color: #9ca3af; font-size: 11px; text-align: center; line-height: 1.5;">
       Ez az email automatikusan lett küldve. Kérjük, ne válaszoljon rá.<br>
-      SkinLab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+      Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
       Hivatkozási szám: ${data.leadId}
     </p>
   </div>

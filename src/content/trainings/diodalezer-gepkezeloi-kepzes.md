@@ -19,7 +19,7 @@ topics:
   - "Ügyféltájékoztatás és beleegyező nyilatkozatok"
 requirements:
   - "18 éves kor betöltése"
-  - "Diódalézer készülék megvásárlása a SkinLab-tól"
+  - "Diódalézer készülék megvásárlása a Skinlab-tól"
 image: "/images/trainings/diodalezer-kepzes.jpg"
 featured: true
 ---
@@ -66,9 +66,9 @@ A képzéshez biztosítjuk:
 
 ## Helyszín
 
-A képzés a SkinLab showroomban zajlik, ahol minden szükséges eszköz rendelkezésre áll:
+A képzés a Skinlab showroomban zajlik, ahol minden szükséges eszköz rendelkezésre áll:
 
-**SkinLab SHOWROOM**
+**Skinlab SHOWROOM**
 2030 Érd, Budai út 28.
 
 ## Jelentkezés

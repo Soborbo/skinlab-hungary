@@ -151,7 +151,7 @@ const productSchema = product.price ? {
   "name": displayName,
   "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
-  "brand": { "@type": "Brand", "name": "SkinLab" },
+  "brand": { "@type": "Brand", "name": "Skinlab" },
   "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
   "offers": {
     "@type": "Offer",
@@ -163,7 +163,7 @@ const productSchema = product.price ? {
       : product.availability === 'preorder'
         ? "https://schema.org/PreOrder"
         : "https://schema.org/OutOfStock",
-    "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "SkinLab Hungary" },
+    "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "Skinlab Hungary" },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",

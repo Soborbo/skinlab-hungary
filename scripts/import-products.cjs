@@ -1,5 +1,5 @@
 /**
- * Excel to JSON Product Importer for SkinLab Hungary
+ * Excel to JSON Product Importer for Skinlab Hungary
  *
  * Usage: node scripts/import-products.js
  *

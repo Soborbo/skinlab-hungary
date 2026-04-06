@@ -18,7 +18,7 @@ topics:
   - "Gyakorlati kezelések végrehajtása"
 requirements:
   - "18 éves kor betöltése"
-  - "Hydrafacial vagy multifunkcionális gép megvásárlása a SkinLab-tól"
+  - "Hydrafacial vagy multifunkcionális gép megvásárlása a Skinlab-tól"
 image: "/images/trainings/hydrafacial-kepzes.jpg"
 featured: true
 ---
@@ -52,7 +52,7 @@ A Hydrafacial kezelési képzés célja, hogy a résztvevők magabiztosan tudjá
 
 ## Helyszín
 
-**SkinLab SHOWROOM**
+**Skinlab SHOWROOM**
 2030 Érd, Budai út 28.
 
 ## Jelentkezés

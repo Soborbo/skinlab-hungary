@@ -1,7 +1,7 @@
 ---
 title: "Diódalézer vagy IPL? Melyiket válasszam szalonba?"
 description: "Részletes összehasonlítás a diódalézer és IPL technológiák között. Melyik a jobb választás kozmetikai szalonba? Árak, hatékonyság, megtérülés."
-author: "SkinLab"
+author: "Skinlab"
 publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diódalézer", "IPL", "szőrtelenítés", "technológia"]
@@ -58,7 +58,7 @@ Ha naponta csak 4 kezelést végzel:
 - Havi bevétel: ~1.600.000 Ft
 - **A gép 1-2 hónap alatt megtérül!**
 
-## A SkinLab ajánlása
+## A Skinlab ajánlása
 
 A professzionális szalonoknak egyértelműen a **4 hullámhosszas diódalézert** javasoljuk. A Novalight és NyxQueen készülékeink:
 

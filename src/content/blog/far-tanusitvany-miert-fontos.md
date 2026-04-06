@@ -1,7 +1,7 @@
 ---
 title: "FAR tanúsítvány: Miért fontos és hogyan szerezheted meg?"
 description: "Minden, amit tudnod kell a FAR gépkezelői tanúsítványról. Miért kötelező? Hogyan szerezheted meg? Mennyibe kerül?"
-author: "SkinLab"
+author: "Skinlab"
 publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["FAR tanúsítvány", "képzés", "jogi háttér", "gépkezelői képzés"]
@@ -42,7 +42,7 @@ A FAR tanúsítvány:
 
 ### 1. Gépvásárláshoz járó képzés
 
-A SkinLab-nál minden gépvásárláshoz **ingyenes FAR tanúsítványos képzést** biztosítunk. A képzés értéke 80.000 Ft, de a gép árában benne van.
+A Skinlab-nál minden gépvásárláshoz **ingyenes FAR tanúsítványos képzést** biztosítunk. A képzés értéke 80.000 Ft, de a gép árában benne van.
 
 ### 2. Önálló képzés
 
@@ -66,7 +66,7 @@ Ha már van géped (más forgalmazótól), külön is elvégezheted a képzést 
 - Valós kezelések végrehajtása
 - Karbantartás
 
-## A SkinLab képzés előnyei
+## A Skinlab képzés előnyei
 
 - **FAR tanúsítvány** a képzés végén
 - **Tapasztalt oktatók** (orvosi háttérrel)
@@ -78,4 +78,4 @@ Ha már van géped (más forgalmazótól), külön is elvégezheted a képzést 
 
 A FAR gépkezelői tanúsítvány nem csak jogi kötelezettség, hanem **a professzionalizmus jele**. Ha kozmetikai gépet vásárolsz, győződj meg róla, hogy a forgalmazó biztosítja a képzést!
 
-A SkinLab-nál minden géphez FAR tanúsítványos képzést adunk. [Kérj ajánlatot](/konzultacio) és kezdj el biztonságosan dolgozni!
+A Skinlab-nál minden géphez FAR tanúsítványos képzést adunk. [Kérj ajánlatot](/konzultacio) és kezdj el biztonságosan dolgozni!

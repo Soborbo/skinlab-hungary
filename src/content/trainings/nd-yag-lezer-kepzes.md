@@ -19,7 +19,7 @@ topics:
   - "Gyakorlati kezelések"
 requirements:
   - "18 éves kor betöltése"
-  - "ND:YAG lézer készülék megvásárlása a SkinLab-tól"
+  - "ND:YAG lézer készülék megvásárlása a Skinlab-tól"
 image: "/images/trainings/ndyag-kepzes.jpg"
 featured: true
 ---
@@ -60,7 +60,7 @@ A képzés elvégzése után hivatalos FAR gépkezelői tanúsítványt kapsz, a
 
 ## Helyszín
 
-**SkinLab SHOWROOM**
+**Skinlab SHOWROOM**
 2030 Érd, Budai út 28.
 
 ## Jelentkezés

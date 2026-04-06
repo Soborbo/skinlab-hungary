@@ -72,7 +72,7 @@ const trainingSchema = z.object({
 const blogSchema = z.object({
   title: z.string(),
   description: z.string(),
-  author: z.string().default('SkinLab'),
+  author: z.string().default('Skinlab'),
   publishedAt: z.coerce.date(),
   updatedAt: z.coerce.date().optional(),
   image: z.string().optional(),

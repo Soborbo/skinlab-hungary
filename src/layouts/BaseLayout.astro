@@ -45,7 +45,7 @@ const htmlLang = getHtmlLang(currentLocale);
 // Using SITE.url as base for all languages (path-based routing)
 const localizedPath = getLocalizedUrl(currentLocale, currentPath);
 const canonicalURL = `${SITE.url}${localizedPath}`;
-const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | SkinLab Hungary`;
+const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | Skinlab Hungary`;
 
 // Generate hreflang links for all locales - absolute URLs for SEO
 const hreflangLinks = locales.map((locale) => ({
@@ -83,7 +83,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(image, SITE.url)} />
   <meta property="og:locale" content={localeConfig[currentLocale].hreflang.replace('-', '_')} />
-  <meta property="og:site_name" content="SkinLab Hungary" />
+  <meta property="og:site_name" content="Skinlab Hungary" />
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -98,7 +98,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
   <!-- Schema.org - Global schemas -->
   <LocalBusinessSchema

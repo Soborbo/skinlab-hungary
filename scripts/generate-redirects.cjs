@@ -137,7 +137,7 @@ const categoryRedirects = `
 `;
 
 // Write _redirects file for Cloudflare Pages
-const redirectsContent = `# SkinLab Hungary - 301 Redirects
+const redirectsContent = `# Skinlab Hungary - 301 Redirects
 # Generated: ${new Date().toISOString()}
 # Maps old ShopRenter URLs to new Astro category-based URLs
 

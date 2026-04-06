@@ -1,4 +1,4 @@
-# SkinLab Hungary - Weboldal
+# Skinlab Hungary - Weboldal
 
 Professzionális kozmetikai berendezések lead generation weboldala.
 
@@ -116,4 +116,4 @@ npm run build
 
 ## 📄 Licenc
 
-Proprietary - SkinLab Hungary / Soborbo Ltd.
+Proprietary - Skinlab Hungary / Soborbo Ltd.

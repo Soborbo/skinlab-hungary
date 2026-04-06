@@ -99,12 +99,6 @@ const displayPrice = (price: number | null) => {
                   </span>
                 )}
 
-                {/* Availability badge */}
-                {product.data.availability === 'in_stock' && (
-                  <span class="absolute top-3 right-3 bg-success-500 text-white text-xs font-medium px-2 py-1 rounded-full">
-                    {t(locale, 'product.inStock')}
-                  </span>
-                )}
               </div>
 
               <!-- Content -->

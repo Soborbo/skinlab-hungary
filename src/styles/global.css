@@ -5,23 +5,23 @@
    ============================================ */
 
 @theme {
-  /* Primary - Lila / Purple (Sirius téma) */
-  --color-primary-50: #f8f5fa;
-  --color-primary-100: #f0e8f4;
-  --color-primary-200: #e0d0e8;
-  --color-primary-300: #c8aed8;
-  --color-primary-400: #a882c0;
-  --color-primary-500: #8b5ca8;
-  --color-primary-600: #724890;
-  --color-primary-700: #5c3878;
-  --color-primary-800: #4a2d60;
-  --color-primary-900: #3d2450;
-  --color-primary-950: #271538;
+  /* Primary - Dusty Rose Brand Palette */
+  --color-primary-50: #f8f0ed;
+  --color-primary-100: #e8d5c8;
+  --color-primary-200: #d4b5bf;
+  --color-primary-300: #c9a5a5;
+  --color-primary-400: #b5616a;
+  --color-primary-500: #a8787e;
+  --color-primary-600: #b5616a;
+  --color-primary-700: #4e2a2a;
+  --color-primary-800: #3e2222;
+  --color-primary-900: #2e1a1a;
+  --color-primary-950: #1e1010;
 
-  /* Accent - Rózsaszín / Pink (másodlagos szín) */
-  --color-accent: #d070b0;
-  --color-accent-light: #e8a0cc;
-  --color-accent-dark: #a85090;
+  /* Accent - Dusty rose (másodlagos szín) */
+  --color-accent: #c9a5a5;
+  --color-accent-light: #e8d5c8;
+  --color-accent-dark: #b5616a;
 
   /* Success - zöld (nyugtázás) */
   --color-success-50: #ecfdf5;
@@ -47,7 +47,7 @@
 
   /* Fonts */
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-heading: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Playfair Display', 'Georgia', serif;
 
   /* Font sizes */
   --text-hero: 3rem;
@@ -90,9 +90,15 @@
     scroll-behavior: smooth;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    color: #9b6b6b;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f0ed;
+    color: #645a59;
   }
 
   :focus-visible {

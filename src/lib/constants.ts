@@ -5,7 +5,7 @@
 const siteUrl = import.meta.env.DEV ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
 
 export const SITE = {
-  name: 'SkinLab Hungary',
+  name: 'Skinlab Hungary',
   url: siteUrl,
   locale: 'hu-HU',
   language: 'hu',
@@ -52,7 +52,7 @@ export const LOCATIONS = {
     fullAddress: '2030 Érd, János utca 14.',
   },
   showroom: {
-    name: 'SkinLab SHOWROOM',
+    name: 'Skinlab SHOWROOM',
     streetAddress: 'Budai út 28.',
     postalCode: '2030',
     city: 'Érd',
@@ -316,12 +316,12 @@ export const NAV_ITEMS = [
 
 // SEO defaults
 export const SEO_DEFAULTS = {
-  titleTemplate: '%s | SkinLab Hungary',
-  defaultTitle: 'SkinLab Hungary - Professzionális kozmetikai berendezések',
+  titleTemplate: '%s | Skinlab Hungary',
+  defaultTitle: 'Skinlab Hungary - Professzionális kozmetikai berendezések',
   defaultDescription: COMPANY.description,
   openGraph: {
     type: 'website',
     locale: 'hu_HU',
-    siteName: 'SkinLab Hungary',
+    siteName: 'Skinlab Hungary',
   },
 };

@@ -276,7 +276,7 @@ async function generateVariants(srcPath, seoSlug, outSubfolder) {
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log('🖼  SkinLab Image Pre-Generator\n');
+  console.log('🖼  Skinlab Image Pre-Generator\n');
 
   // Clean output dir
   if (fs.existsSync(OUT_DIR)) {
