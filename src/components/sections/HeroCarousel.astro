@@ -10,35 +10,46 @@ const slides = [
   {
     titleKey: 'hero.title',
     subtitleKey: 'hero.subtitle',
-    avif: '/hero/hero-malyva1.avif',
-    webp: '/hero/hero-malyva1.webp',
-    jpg: '/hero/hero-malyva1.jpg',
-    mobileAvif: '/hero/hero-malyva1-mobile.avif',
-    mobileWebp: '/hero/hero-malyva1-mobile.webp',
-    mobileJpg: '/hero/hero-malyva1-mobile.jpg',
+    avif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.avif',
+    webp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.webp',
+    jpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.jpg',
+    mobileAvif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.avif',
+    mobileWebp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.webp',
+    mobileJpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.jpg',
     imageAlt: 'hero.title',
   },
   {
     titleKey: 'hero.slide2.title',
     subtitleKey: 'hero.slide2.subtitle',
-    avif: '/hero/hero-4wave-diodalezer.avif',
-    webp: '/hero/hero-4wave-diodalezer.webp',
-    jpg: '/hero/hero-4wave-diodalezer.jpg',
-    mobileAvif: '/hero/hero-4wave-diodalezer-mobile.avif',
-    mobileWebp: '/hero/hero-4wave-diodalezer-mobile.webp',
-    mobileJpg: '/hero/hero-4wave-diodalezer-mobile.jpg',
+    avif: '/hero/hero-crush-1600-diodalezer-szortelenito.avif',
+    webp: '/hero/hero-crush-1600-diodalezer-szortelenito.webp',
+    jpg: '/hero/hero-crush-1600-diodalezer-szortelenito.jpg',
+    mobileAvif: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.avif',
+    mobileWebp: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.webp',
+    mobileJpg: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.jpg',
     imageAlt: 'hero.slide2.title',
   },
   {
-    titleKey: 'hero.slide3.title',
-    subtitleKey: 'hero.slide3.subtitle',
-    avif: '/hero/hero-hydrascan-hidrodermabrazios-gep.avif',
-    webp: '/hero/hero-hydrascan-hidrodermabrazios-gep.webp',
-    jpg: '/hero/hero-hydrascan-hidrodermabrazios-gep.jpg',
-    mobileAvif: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.avif',
-    mobileWebp: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.webp',
-    mobileJpg: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.jpg',
-    imageAlt: 'hero.slide3.title',
+    titleKey: 'hero.slide4.title',
+    subtitleKey: 'hero.slide4.subtitle',
+    avif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.avif',
+    webp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.webp',
+    jpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.jpg',
+    mobileAvif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.avif',
+    mobileWebp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.webp',
+    mobileJpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.jpg',
+    imageAlt: 'hero.slide4.title',
+  },
+  {
+    titleKey: 'hero.slide5.title',
+    subtitleKey: 'hero.slide5.subtitle',
+    avif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.avif',
+    webp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.webp',
+    jpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.jpg',
+    mobileAvif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.avif',
+    mobileWebp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.webp',
+    mobileJpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.jpg',
+    imageAlt: 'hero.slide5.title',
   },
 ];
 
@@ -59,8 +70,49 @@ const icons: Record<string, string> = {
 ---
 
 <section class="relative overflow-hidden">
-  <!-- Carousel Container -->
-  <div class="hero-carousel relative" data-carousel>
+  {/* ── MOBILE: static hero with text overlay ── */}
+  {/* ── MOBILE: static hero with text overlay on bottom 60% ── */}
+  <div class="sm:hidden relative w-full" style="height: calc(100dvh - 56px);">
+    <picture>
+      <source type="image/avif" srcset={slides[0]?.mobileAvif} />
+      <source type="image/webp" srcset={slides[0]?.mobileWebp} />
+      <img
+        src={slides[0]?.mobileJpg}
+        alt={t(locale, 'hero.title')}
+        class="absolute inset-0 w-full h-full object-cover object-top"
+        width="750"
+        height="1334"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
+    </picture>
+    {/* Text overlay — only in bottom 60%, top 40% stays clear for product */}
+    <div class="absolute bottom-0 left-0 right-0 h-[50%] flex flex-col justify-end">
+      <div class="h-full flex flex-col justify-end px-4 pb-6" style="background: linear-gradient(to top, rgba(255,255,255,0.97) 40%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.4) 80%, transparent 100%);">
+        <h1 class="text-2xl font-normal text-[#9b6b6b] mb-2 leading-snug font-heading">
+          {t(locale, 'hero.title')}
+        </h1>
+        <p class="text-sm text-[#645a59] mb-4 leading-relaxed">
+          {t(locale, 'hero.subtitle')}
+        </p>
+        <a
+          href={contactLink}
+          id="mobile-hero-cta"
+          class="inline-flex items-center px-5 py-2.5 font-semibold rounded-xl text-sm opacity-0 translate-y-4 transition-all duration-700 border border-primary-200"
+          style="background: rgba(255,255,255,0.85); color: #9b6b6b; backdrop-filter: blur(8px);"
+        >
+          {t(locale, 'hero.cta')}
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* ── DESKTOP: carousel ── */}
+  <div class="hero-carousel relative hidden sm:block" data-carousel>
     <div class="relative hero-slides">
       {slides.map((slide, index) => (
         <div
@@ -70,71 +122,18 @@ const icons: Record<string, string> = {
           ]}
           data-slide={index}
         >
-          {/* ── MOBILE layout: image top + text below ── */}
-          <div class="sm:hidden h-full flex flex-col">
-            {/* Image area - mobile optimized 750x400 */}
-            <div class="relative flex-1 min-h-0">
-              <picture>
-                <source type="image/avif" srcset={slide.mobileAvif} />
-                <source type="image/webp" srcset={slide.mobileWebp} />
-                <img
-                  src={slide.mobileJpg}
-                  alt={t(locale, slide.imageAlt)}
-                  class="absolute inset-0 w-full h-full object-cover object-center"
-                  width="750"
-                  height="400"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchpriority={index === 0 ? 'auto' : undefined}
-                  decoding={index === 0 ? 'sync' : 'async'}
-                />
-              </picture>
-              {/* Carousel dots over image on mobile */}
-              <div class="absolute bottom-2 left-0 right-0 z-20 flex justify-center gap-1.5">
-                {slides.map((_, di) => (
-                  <button
-                    class:list={[
-                      'carousel-dot-mobile h-1.5 rounded-full transition-all duration-300 cursor-pointer',
-                      di === index ? 'bg-white/90 w-5' : 'bg-white/40 w-1.5',
-                    ]}
-                    data-dot-mobile={di}
-                    aria-label={`Slide ${di + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-            {/* Text area below image */}
-            <div class="bg-[#f9f4f1] px-4 py-3">
-              <h2 class="text-base font-bold text-[#9b6b6b] mb-1 leading-snug line-clamp-2 font-heading">
-                {t(locale, slide.titleKey)}
-              </h2>
-              <p class="text-[11px] text-[#645a59] mb-2 line-clamp-2 leading-relaxed">
-                {t(locale, slide.subtitleKey)}
-              </p>
-              <a
-                href={contactLink}
-                class="inline-flex items-center px-4 py-1.5 bg-primary-600 text-white font-semibold rounded-lg text-xs"
-              >
-                {t(locale, 'hero.cta')}
-                <svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* ── DESKTOP layout: full-bleed image with text overlay ── */}
-          <div class="hidden sm:block h-full">
+          <div class="h-full">
             <picture>
               <source type="image/avif" srcset={slide.avif} />
               <source type="image/webp" srcset={slide.webp} />
               <img
                 src={slide.jpg}
                 alt={t(locale, slide.imageAlt)}
-                class="absolute inset-0 w-full h-full object-cover object-center"
+                class="absolute inset-0 w-full h-full object-cover" style="object-position: 70% center;"
                 width="1920"
                 height="800"
                 loading={index === 0 ? 'eager' : 'lazy'}
-                fetchpriority={index === 0 ? 'high' : undefined}
+                fetchpriority={index === 0 ? 'auto' : undefined}
                 decoding={index === 0 ? 'sync' : 'async'}
               />
             </picture>
@@ -236,19 +235,11 @@ const icons: Record<string, string> = {
 </section>
 
 <style>
-  /* Mobile: header 56px + USP ~44px + sticky CTA ~70px */
-  /* Desktop: header 64px + USP ~65px */
+  /* Desktop only: header + 30px strip + USP */
   .hero-slides {
-    height: calc(100vh - 56px - 30px - 44px - 70px);
-    height: calc(100dvh - 56px - 30px - 44px - 70px);
-    min-height: 260px;
-  }
-  @media (min-width: 640px) {
-    .hero-slides {
-      height: calc(100vh - 56px - 30px - 60px);
-      height: calc(100dvh - 56px - 30px - 60px);
-      min-height: 350px;
-    }
+    height: calc(100vh - 56px - 30px - 60px);
+    height: calc(100dvh - 56px - 30px - 60px);
+    min-height: 350px;
   }
   @media (min-width: 1024px) {
     .hero-slides {
@@ -336,4 +327,13 @@ const icons: Record<string, string> = {
 
     startAutoplay();
   })();
+
+  // Mobile hero CTA - appear after 8 seconds
+  var mobileCta = document.getElementById('mobile-hero-cta');
+  if (mobileCta) {
+    setTimeout(function() {
+      mobileCta.style.opacity = '1';
+      mobileCta.style.transform = 'translateY(0)';
+    }, 8000);
+  }
 </script>

@@ -36,7 +36,7 @@ for (const column of MEGA_MENU.columns) {
 </a>
 
 <header class="sticky top-0 z-50 shadow-lg">
-  <div class="h-[30px]" style="background: linear-gradient(to right, #e9d5d6, #ecd8d7);"></div>
+  <div class="hidden md:block h-[30px]" style="background: linear-gradient(to right, #e9d5d6, #ecd8d7);"></div>
   <div class="bg-[#f9f4f1]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14 lg:h-16">
@@ -107,8 +107,7 @@ for (const column of MEGA_MENU.columns) {
           href={contactLink}
           class="inline-flex items-center px-4 lg:px-5 py-2 lg:py-2.5 bg-white text-primary-700 font-semibold text-sm rounded-lg hover:bg-primary-50 transition-colors shadow-sm"
         >
-          <span class="hidden sm:inline">{t(locale, 'header.freeConsultation')}</span>
-          <span class="sm:hidden">{t(locale, 'cta.button')}</span>
+          {t(locale, 'header.freeConsultation')}
         </a>
 
         <!-- Mobile menu button -->
@@ -220,111 +219,216 @@ for (const column of MEGA_MENU.columns) {
     </div>
   </div>
 
-  <!-- Mobile Navigation -->
-  <div class="hidden lg:hidden" data-mobile-menu>
-    <div class="px-4 pt-2 pb-4 bg-white border-t border-gray-100 max-h-[calc(100vh-4rem)] overflow-y-auto">
+  <!-- Mobile Navigation Overlay -->
+  <div
+    class="fixed inset-0 z-[100] pointer-events-none lg:hidden"
+    data-mobile-menu
+    aria-hidden="true"
+  >
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/0 transition-colors duration-500" data-mobile-backdrop></div>
 
-      <!-- Mega menu items for mobile -->
-      {MEGA_MENU.columns.map((column) => (
-        <div class="py-2" data-mobile-accordion>
+    <!-- Slide panel -->
+    <div
+      class="absolute top-0 right-0 h-full w-full max-w-sm bg-[#f9f4f1] shadow-2xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      data-mobile-panel
+    >
+      <div class="flex flex-col h-full overflow-y-auto">
+
+        <!-- Close button -->
+        <div class="flex items-center justify-between px-6 py-5">
+          <Logo
+            src={skinlabLogo}
+            alt="Skinlab"
+            width={90}
+            height={36}
+            class="h-7 w-auto opacity-60"
+          />
           <button
             type="button"
-            class="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
-            data-accordion-trigger
+            class="p-2 rounded-full text-[#645a59] hover:bg-black/5 transition-colors"
+            data-mobile-close
+            aria-label={t(locale, 'header.closeMenu')}
           >
-            <span>{t(locale, column.titleKey)}</span>
-            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200" data-accordion-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div class="hidden pl-4" data-accordion-content>
-            {column.items.map((item) => {
-              const slug = item.href.replace(/^\//, '');
-              const itemImage = megaMenuImages[slug];
-              return (
-              <a
-                href={getLocalizedUrl(locale, item.href)}
-                class="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg"
+        </div>
+
+        <!-- Decorative line -->
+        <div class="mx-6 h-px bg-gradient-to-r from-[#e9d5d6] via-[#d4a0a0] to-transparent"></div>
+
+        <!-- Menu items with staggered animation -->
+        <nav class="flex-1 px-6 py-6 space-y-1">
+          {MEGA_MENU.columns.map((column, colIdx) => (
+            <div class="mobile-menu-item" data-mobile-accordion style={`--item-index: ${colIdx}`}>
+              <button
+                type="button"
+                class="w-full flex items-center justify-between py-3.5 text-lg font-medium text-[#3d3533] tracking-tight"
+                data-accordion-trigger
               >
-                {/* Category thumbnail */}
-                <div class="w-9 h-9 rounded-md overflow-hidden bg-gray-100 shrink-0">
-                  {itemImage ? (
-                    <FifthImage
-                      src={itemImage}
-                      alt={t(locale, item.labelKey)}
-                      class="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div class="w-full h-full flex items-center justify-center">
-                      <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <span class="flex-1 flex items-center gap-2">
-                  {t(locale, item.labelKey)}
-                  {item.badgeKey && (
-                    <span class="inline-flex items-center px-1.5 py-0.5 text-xs font-medium bg-primary-100 text-primary-700 rounded">
-                      {t(locale, item.badgeKey)}
-                    </span>
-                  )}
+                <span>{t(locale, column.titleKey)}</span>
+                <span class="w-8 h-8 flex items-center justify-center rounded-full bg-black/5">
+                  <svg class="w-4 h-4 text-[#9b6b6b] transition-transform duration-300" data-accordion-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
                 </span>
-                <span class="text-xs text-gray-400">{item.count}</span>
-              </a>
-              );
-            })}
+              </button>
+              <div class="hidden overflow-hidden" data-accordion-content>
+                <div class="pb-3 space-y-0.5">
+                  {column.items.map((item) => {
+                    const slug = item.href.replace(/^\//, '');
+                    const itemImage = megaMenuImages[slug];
+                    return (
+                    <a
+                      href={getLocalizedUrl(locale, item.href)}
+                      class="flex items-center gap-3 px-3 py-2.5 text-sm text-[#645a59] hover:text-[#9b6b6b] rounded-xl hover:bg-white/60 transition-all duration-200"
+                    >
+                      <div class="w-9 h-9 rounded-lg overflow-hidden bg-white/80 shrink-0 shadow-sm">
+                        {itemImage ? (
+                          <FifthImage
+                            src={itemImage}
+                            alt={t(locale, item.labelKey)}
+                            class="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div class="w-full h-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <span class="flex-1 flex items-center gap-2">
+                        {t(locale, item.labelKey)}
+                        {item.badgeKey && (
+                          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold bg-[#e9d5d6] text-[#9b6b6b] rounded-full">
+                            {t(locale, item.badgeKey)}
+                          </span>
+                        )}
+                      </span>
+                      <span class="text-xs text-[#b8a8a6]">{item.count}</span>
+                    </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <!-- Separator -->
+          <div class="!my-4 h-px bg-gradient-to-r from-[#e9d5d6] via-transparent to-transparent"></div>
+
+          <!-- Other nav items -->
+          {NAV_ITEMS.filter(item => !item.hasMegaMenu).map((item, idx) => (
+            <a
+              href={getLocalizedUrl(locale, item.href)}
+              class="mobile-menu-item block py-3 text-lg font-medium text-[#3d3533] tracking-tight hover:text-[#9b6b6b] transition-colors"
+              style={`--item-index: ${MEGA_MENU.columns.length + idx}`}
+            >
+              {t(locale, item.labelKey)}
+            </a>
+          ))}
+        </nav>
+
+        <!-- Bottom section — extra touch -->
+        <div class="mt-auto px-6 pb-8 space-y-4">
+          <!-- CTA button -->
+          <a
+            href={contactLink}
+            class="mobile-menu-item flex items-center justify-center gap-2 w-full py-3.5 bg-[#9b6b6b] text-white font-semibold rounded-2xl hover:bg-[#8a5c5c] transition-colors shadow-lg shadow-[#9b6b6b]/20"
+            style={`--item-index: ${MEGA_MENU.columns.length + NAV_ITEMS.filter(i => !i.hasMegaMenu).length}`}
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            {t(locale, 'header.freeConsultation')}
+          </a>
+
+          <!-- Phone -->
+          <a
+            href={CONTACT.phoneTel}
+            class="mobile-menu-item flex items-center justify-center gap-2 w-full py-3 bg-white/60 text-[#3d3533] font-medium rounded-2xl hover:bg-white transition-colors"
+            style={`--item-index: ${MEGA_MENU.columns.length + NAV_ITEMS.filter(i => !i.hasMegaMenu).length + 1}`}
+          >
+            <svg class="w-5 h-5 text-[#9b6b6b]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {CONTACT.phoneDisplay}
+          </a>
+
+          <!-- Language + brand tagline -->
+          <div class="mobile-menu-item flex items-center justify-between pt-3" style={`--item-index: ${MEGA_MENU.columns.length + NAV_ITEMS.filter(i => !i.hasMegaMenu).length + 2}`}>
+            <LanguageSwitcher variant="compact" />
+            <span class="text-[11px] text-[#b8a8a6] tracking-widest uppercase">laser & beauty</span>
           </div>
         </div>
-      ))}
-
-      <!-- Other nav items -->
-      <div class="mt-2 pt-2 border-t border-gray-100 space-y-1">
-        {NAV_ITEMS.filter(item => !item.hasMegaMenu).map((item) => (
-          <a
-            href={getLocalizedUrl(locale, item.href)}
-            class="block px-4 py-3 text-base font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg"
-          >
-            {t(locale, item.labelKey)}
-          </a>
-        ))}
-      </div>
-
-      <!-- Phone -->
-      <div class="mt-4 pt-4 border-t border-gray-100">
-        <a
-          href={CONTACT.phoneTel}
-          class="flex items-center gap-3 px-4 py-3 text-base font-medium text-success-600 bg-success-50 rounded-lg"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          {CONTACT.phoneDisplay}
-        </a>
-      </div>
-
-      <!-- Language Switcher (mobile) -->
-      <div class="mt-4 pt-4 border-t border-gray-100">
-        <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">{t(locale, 'header.languageLabel')}</p>
-        <LanguageSwitcher variant="compact" class="px-4" />
       </div>
     </div>
   </div>
   </div>
 </header>
 
+<style>
+  /* Mobile menu staggered reveal animation */
+  .mobile-menu-item {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--item-index, 0) * 60ms + 150ms);
+  }
+
+  [data-mobile-menu].is-open .mobile-menu-item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
 <script>
-  // Mobile menu toggle
+  // Mobile menu — animated slide-in overlay
   const mobileToggle = document.querySelector('[data-mobile-menu-toggle]');
-  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]') as HTMLElement | null;
+  const mobilePanel = document.querySelector('[data-mobile-panel]') as HTMLElement | null;
+  const mobileBackdrop = document.querySelector('[data-mobile-backdrop]') as HTMLElement | null;
+  const mobileClose = document.querySelector('[data-mobile-close]');
   const menuIcon = document.querySelector('[data-menu-icon]');
   const closeIcon = document.querySelector('[data-close-icon]');
 
+  function openMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('pointer-events-none');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    mobileBackdrop?.classList.replace('bg-black/0', 'bg-black/40');
+    mobilePanel?.classList.replace('translate-x-full', 'translate-x-0');
+    mobileMenu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    menuIcon?.classList.add('hidden');
+    closeIcon?.classList.remove('hidden');
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileBackdrop?.classList.replace('bg-black/40', 'bg-black/0');
+    mobilePanel?.classList.replace('translate-x-0', 'translate-x-full');
+    mobileMenu.classList.remove('is-open');
+    document.body.style.overflow = '';
+    menuIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+    // Re-hide after transition
+    setTimeout(() => {
+      mobileMenu.classList.add('pointer-events-none');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }, 500);
+  }
+
   mobileToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
+    const isOpen = mobileMenu?.classList.contains('is-open');
+    isOpen ? closeMobileMenu() : openMobileMenu();
   });
+
+  mobileClose?.addEventListener('click', closeMobileMenu);
+  mobileBackdrop?.addEventListener('click', closeMobileMenu);
 
   // Mobile accordion
   document.querySelectorAll('[data-accordion-trigger]').forEach(trigger => {
@@ -378,9 +482,7 @@ for (const column of MEGA_MENU.columns) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       hideMegaMenu();
-      mobileMenu?.classList.add('hidden');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
+      closeMobileMenu();
     }
   });
 </script>

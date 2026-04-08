@@ -117,16 +117,22 @@ import { CONTACT } from '../../lib/constants';
       return;
     }
 
-    // Initial appearance after 8s
-    setTimeout(() => {
-      widget.style.transform = 'translateX(0)';
-
-      // Shimmer effect 2s after appearance
+    // Show 9s after first scroll
+    let scrollTriggered = false;
+    function onFirstScroll() {
+      if (scrollTriggered) return;
+      scrollTriggered = true;
+      window.removeEventListener('scroll', onFirstScroll);
       setTimeout(() => {
-        const shimmer = widget.querySelector('.shimmer-overlay');
-        if (shimmer) shimmer.classList.add('shimmer-active');
-      }, 2000);
-    }, 8000);
+        widget.style.transform = 'translateX(0)';
+        // Shimmer effect 2s after appearance
+        setTimeout(() => {
+          const shimmer = widget.querySelector('.shimmer-overlay');
+          if (shimmer) shimmer.classList.add('shimmer-active');
+        }, 2000);
+      }, 9000);
+    }
+    window.addEventListener('scroll', onFirstScroll, { passive: true });
 
     closeBtn?.addEventListener('click', () => {
       sessionStorage.setItem(STORAGE_KEY, '1');

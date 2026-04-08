@@ -5,7 +5,7 @@ const whatsappNumber = CONTACT.phone.replace('+', '');
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Szia! Érdeklődnék a kozmetikai gépekről.')}`;
 ---
 
-<div class="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t border-gray-200 shadow-lg z-40 safe-area-pb">
+<div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t border-gray-200 shadow-lg z-40 safe-area-pb translate-y-full transition-transform duration-500">
   <div class="grid grid-cols-2 gap-2 p-3">
     <a
       href={CONTACT.phoneTel}
@@ -33,3 +33,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
 </style>
+
+<script is:inline>
+  setTimeout(function() {
+    var el = document.getElementById('mobile-sticky-cta');
+    if (el) el.classList.remove('translate-y-full');
+  }, 8000);
+</script>
