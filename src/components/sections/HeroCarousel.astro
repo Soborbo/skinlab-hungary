@@ -10,35 +10,46 @@ const slides = [
   {
     titleKey: 'hero.title',
     subtitleKey: 'hero.subtitle',
-    avif: '/hero/hero-malyva1.avif',
-    webp: '/hero/hero-malyva1.webp',
-    jpg: '/hero/hero-malyva1.jpg',
-    mobileAvif: '/hero/hero-malyva1-mobile.avif',
-    mobileWebp: '/hero/hero-malyva1-mobile.webp',
-    mobileJpg: '/hero/hero-malyva1-mobile.jpg',
+    avif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.avif',
+    webp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.webp',
+    jpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.jpg',
+    mobileAvif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.avif',
+    mobileWebp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.webp',
+    mobileJpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.jpg',
     imageAlt: 'hero.title',
   },
   {
     titleKey: 'hero.slide2.title',
     subtitleKey: 'hero.slide2.subtitle',
-    avif: '/hero/hero-4wave-diodalezer.avif',
-    webp: '/hero/hero-4wave-diodalezer.webp',
-    jpg: '/hero/hero-4wave-diodalezer.jpg',
-    mobileAvif: '/hero/hero-4wave-diodalezer-mobile.avif',
-    mobileWebp: '/hero/hero-4wave-diodalezer-mobile.webp',
-    mobileJpg: '/hero/hero-4wave-diodalezer-mobile.jpg',
+    avif: '/hero/hero-crush-1600-diodalezer-szortelenito.avif',
+    webp: '/hero/hero-crush-1600-diodalezer-szortelenito.webp',
+    jpg: '/hero/hero-crush-1600-diodalezer-szortelenito.jpg',
+    mobileAvif: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.avif',
+    mobileWebp: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.webp',
+    mobileJpg: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.jpg',
     imageAlt: 'hero.slide2.title',
   },
   {
-    titleKey: 'hero.slide3.title',
-    subtitleKey: 'hero.slide3.subtitle',
-    avif: '/hero/hero-hydrascan-hidrodermabrazios-gep.avif',
-    webp: '/hero/hero-hydrascan-hidrodermabrazios-gep.webp',
-    jpg: '/hero/hero-hydrascan-hidrodermabrazios-gep.jpg',
-    mobileAvif: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.avif',
-    mobileWebp: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.webp',
-    mobileJpg: '/hero/hero-hydrascan-hidrodermabrazios-gep-mobile.jpg',
-    imageAlt: 'hero.slide3.title',
+    titleKey: 'hero.slide4.title',
+    subtitleKey: 'hero.slide4.subtitle',
+    avif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.avif',
+    webp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.webp',
+    jpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.jpg',
+    mobileAvif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.avif',
+    mobileWebp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.webp',
+    mobileJpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.jpg',
+    imageAlt: 'hero.slide4.title',
+  },
+  {
+    titleKey: 'hero.slide5.title',
+    subtitleKey: 'hero.slide5.subtitle',
+    avif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.avif',
+    webp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.webp',
+    jpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.jpg',
+    mobileAvif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.avif',
+    mobileWebp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.webp',
+    mobileJpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.jpg',
+    imageAlt: 'hero.slide5.title',
   },
 ];
 
@@ -80,7 +91,7 @@ const icons: Record<string, string> = {
                 <img
                   src={slide.mobileJpg}
                   alt={t(locale, slide.imageAlt)}
-                  class="absolute inset-0 w-full h-full object-cover object-center"
+                  class="absolute inset-0 w-full h-full object-cover object-[70%_center]"
                   width="750"
                   height="400"
                   loading={index === 0 ? 'eager' : 'lazy'}
@@ -130,7 +141,7 @@ const icons: Record<string, string> = {
               <img
                 src={slide.jpg}
                 alt={t(locale, slide.imageAlt)}
-                class="absolute inset-0 w-full h-full object-cover object-center"
+                class="absolute inset-0 w-full h-full object-cover object-[70%_center]"
                 width="1920"
                 height="800"
                 loading={index === 0 ? 'eager' : 'lazy'}
