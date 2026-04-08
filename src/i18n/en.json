@@ -226,13 +226,15 @@
     "team": "Our Team",
     "mission": "Our Mission",
     "storyTitle": "Our Story",
-    "storyParagraph1": "{companyName} was founded in 2024 with the goal of providing professional, reliable cosmetic equipment to salons at fair prices.",
-    "storyParagraph2": "Our founders have worked in the beauty industry for years and know exactly what challenges salon owners face: expensive machines, uncertain quality, lacking service support, and opaque importers.",
-    "storyParagraph3": "That's why we created Skinlab: to offer a reliable partner who not only sells equipment but provides comprehensive support for successful salon operations.",
+    "storyParagraph1": "It all started with a cosmetic treatment abroad. Simonetta was traveling when she noticed that Western salons were using an entirely different caliber of equipment — more precise, more advanced, more professional machines that Hungarian beauticians could only dream of at the time. On her way home, one thought kept spinning: why couldn't these machines be brought to Hungary too?",
+    "storyParagraph2": "That evening she told László about it, and he didn't just agree — he was instantly hooked. What excited him was the technical side: how do these lasers actually work, what's inside them, what makes them tick. When they ordered their first machine together, László took it apart immediately, studied every component, and understood it down to the last screw. That's how a truly powerful duo was born: Simonetta with beauty industry expertise and a medical mindset, László with hands-on engineering skills and real service experience.",
+    "storyParagraph3": "{companyName} grew out of that shared passion, and it quickly became clear there was a real demand for it. Finally, someone was bringing world-class standards to Hungary: professional equipment at fair prices, with in-house service and the kind of support where you're never left on your own after the purchase.",
     "foundersTitle": "Founders",
     "founder": {
-      "technical": "Technical Expert",
-      "treatment": "Treatment Expert"
+      "technical": "Technical Lead, Service",
+      "technicalBio": "I've been taking apart and tuning cars since I was a teenager, so the world of machines has always been second nature to me. That hands-on, engineering mindset defines my work at Skinlab too: I'm responsible for making sure every device reaches our clients in flawless technical condition. If any issue comes up, we handle it in-house, quickly and professionally, with a loaner device for the duration of the repair. Laser technology has become my specialty over the years, and I can confidently say there's no malfunction I haven't encountered before. That kind of experience gives our clients real peace of mind, because they know their equipment is in safe hands.",
+      "treatment": "Treatment Expert, Co-founder",
+      "treatmentBio": "I come from a medical family, and the beauty industry has fascinated me since I was very young. My medical background, however, taught me something essential: treatments must meet the same rigorous standards as medicine itself. It's not enough for something to work, it has to be safe. What matters most to me is that results are not only beautiful but also healthy, and that we never cross the boundaries of professional competence. We bring this philosophy into every consultation and product recommendation, because we only offer what we can stand behind with full confidence."
     },
     "whyUsTitle": "Why Choose Us?",
     "benefit1Title": "Fair Prices",
@@ -254,6 +256,8 @@
     "taxId": "Tax ID",
     "vatId": "EU VAT ID",
     "headquarters": "Headquarters",
+    "teamPhotoAlt": "The Skinlab Hungary team at an international cosmetic trade show",
+    "teamPhotoCaption": "Our team at the Monduniq international cosmetic trade show",
     "ctaTitle": "Ready to Partner With Us?",
     "ctaSubtitle": "Get in touch and let's discuss how we can help grow your salon."
   },

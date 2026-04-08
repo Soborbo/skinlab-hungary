@@ -94,18 +94,18 @@ for (const column of MEGA_MENU.columns) {
         <!-- Phone (desktop only) -->
         <a
           href={CONTACT.phoneTel}
-          class="hidden md:flex items-center gap-2 px-4 py-2 bg-black/5 text-[#645a59] font-semibold rounded-lg hover:bg-black/10 transition-colors"
+          class="hidden md:flex items-center gap-2 text-[#3d3533] hover:text-[#9b6b6b] transition-colors"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-4 h-4 text-[#9b6b6b]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          <span>{CONTACT.phoneDisplay}</span>
+          <span class="text-sm font-bold tracking-wide">{CONTACT.phoneDisplay}</span>
         </a>
 
         <!-- CTA Button -->
         <a
           href={contactLink}
-          class="inline-flex items-center px-4 lg:px-5 py-2 lg:py-2.5 bg-white text-primary-700 font-semibold text-sm rounded-lg hover:bg-primary-50 transition-colors shadow-sm"
+          class="inline-flex items-center px-5 lg:px-6 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md hover:shadow-lg"
         >
           {t(locale, 'header.freeConsultation')}
         </a>

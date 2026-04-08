@@ -28,8 +28,8 @@ export const COMPANY = {
 };
 
 export const FOUNDERS = [
-  { name: 'Horváth László', role: 'Technikai szakértő', image: '/images/misc/horvath-laszlo.jpg' },
-  { name: 'Gaszler Simonetta', role: 'Kezelési szakértő' },
+  { name: 'Horváth László', roleKey: 'technical', image: '/about/horvath-laszlo-skinlab-alapito' },
+  { name: 'Gaszler Simonetta', roleKey: 'treatment', image: '/about/gaszler-simonetta-skinlab-alapito' },
 ];
 
 export const CONTACT = {
