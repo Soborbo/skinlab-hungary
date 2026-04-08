@@ -29,6 +29,9 @@ for (const column of MEGA_MENU.columns) {
     }
   }
 }
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHomePage = pathname === '/' || pathname === '/hu';
 ---
 
 <a href="#main-content" class="skip-to-content">
@@ -36,7 +39,7 @@ for (const column of MEGA_MENU.columns) {
 </a>
 
 <header class="sticky top-0 z-50 shadow-lg">
-  <div class="hidden md:block h-[30px]" style="background: linear-gradient(to right, #e9d5d6, #ecd8d7);"></div>
+  {isHomePage && <div class="hidden md:block h-[30px]" style="background: linear-gradient(to right, #e9d5d6, #ecd8d7);"></div>}
   <div class="bg-[#f9f4f1]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14 lg:h-16">
