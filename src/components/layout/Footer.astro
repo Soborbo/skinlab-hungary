@@ -8,13 +8,13 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 ---
 
-<footer class="bg-gray-900 text-gray-300">
+<footer class="bg-gray-900 text-gray-300 pb-20 lg:pb-0">
   <!-- Main footer -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       
       <!-- Brand column -->
-      <div class="lg:col-span-1">
+      <div class="col-span-2 lg:col-span-1">
         <a href="/" class="inline-block mb-4">
           <Logo
             src={skinlabLogo}
@@ -130,7 +130,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
       </div>
       
       <!-- Contact column -->
-      <div>
+      <div class="col-span-2 lg:col-span-1">
         <h3 class="text-white font-semibold mb-4">{t(locale, 'contact.title')}</h3>
         <ul class="space-y-4">
           <li class="flex items-start gap-3">

@@ -1,8 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import { CONTACT } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
-import mobileHeroImg from '../../assets/images/hero-hydrascan-pro-kozmetikai-gep-mobil.jpg';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
@@ -74,16 +72,20 @@ const icons: Record<string, string> = {
 <section class="relative overflow-hidden">
   {/* ── MOBILE: image flows naturally, text below with matching background ── */}
   <div class="sm:hidden" style="background-color: #fbf8f8;">
-    <Image
-      src={mobileHeroImg}
-      alt={t(locale, 'hero.title')}
-      class="w-full h-auto"
-      widths={[375, 430, 640, 750]}
-      sizes="100vw"
-      loading="eager"
-      fetchpriority="high"
-      decoding="sync"
-    />
+    <picture>
+      <source type="image/avif" srcset="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.avif" />
+      <source type="image/webp" srcset="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.webp" />
+      <img
+        src="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.jpg"
+        alt={t(locale, 'hero.title')}
+        class="w-full h-auto"
+        width="750"
+        height="741"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
+    </picture>
     <div class="px-4 pb-6 text-center" style="margin-top: -15px;">
       <h1 class="text-2xl font-normal text-[#9b6b6b] mb-2 leading-snug font-heading">
         {t(locale, 'hero.title')}
@@ -93,13 +95,9 @@ const icons: Record<string, string> = {
       </p>
       <a
         href={contactLink}
-        class="inline-flex items-center justify-center px-5 py-2.5 font-semibold rounded-xl text-sm border border-primary-200"
-        style="background: rgba(255,255,255,0.85); color: #9b6b6b;"
+        class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl text-sm hover:bg-primary-700 transition-all shadow-lg"
       >
         {t(locale, 'hero.cta')}
-        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
       </a>
     </div>
   </div>
@@ -146,9 +144,6 @@ const icons: Record<string, string> = {
                       class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm"
                     >
                       {t(locale, 'hero.cta')}
-                      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
                     </a>
                     <a
                       href={CONTACT.phoneTel}
@@ -168,19 +163,19 @@ const icons: Record<string, string> = {
       ))}
     </div>
 
-    <!-- Desktop Carousel Controls -->
-    <div class="hidden sm:block absolute bottom-16 left-0 right-0 z-20">
+    {/* Carousel nav — outside slides so it's always clickable */}
+    <div class="absolute bottom-5 left-0 right-0 z-20">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex items-center gap-3">
           <div class="flex gap-2">
-            {slides.map((_, index) => (
+            {slides.map((_, i) => (
               <button
                 class:list={[
                   'carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer',
-                  index === 0 ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60',
+                  i === 0 ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60',
                 ]}
-                data-dot={index}
-                aria-label={`Slide ${index + 1}`}
+                data-dot={i}
+                aria-label={`Slide ${i + 1}`}
               />
             ))}
           </div>

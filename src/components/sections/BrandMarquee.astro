@@ -91,3 +91,36 @@ const brands = [
     }
   }
 </style>
+
+<script is:inline>
+  (function() {
+    var track = document.querySelector('.marquee-track');
+    if (!track) return;
+    var startX = 0, currentOffset = 0, dragging = false;
+
+    track.addEventListener('touchstart', function(e) {
+      dragging = true;
+      startX = e.touches[0].clientX;
+      track.style.animationPlayState = 'paused';
+      var transform = getComputedStyle(track).transform;
+      if (transform && transform !== 'none') {
+        var matrix = new DOMMatrix(transform);
+        currentOffset = matrix.m41;
+      }
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      var dx = e.touches[0].clientX - startX;
+      track.style.animation = 'none';
+      track.style.transform = 'translateX(' + (currentOffset + dx) + 'px)';
+    }, { passive: true });
+
+    track.addEventListener('touchend', function() {
+      if (!dragging) return;
+      dragging = false;
+      track.style.animation = '';
+      track.style.animationPlayState = '';
+    }, { passive: true });
+  })();
+</script>
