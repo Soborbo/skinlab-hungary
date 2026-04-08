@@ -1892,8 +1892,8 @@
     "basePath": "/images/opt/products/neoskin-smart-2"
   },
   "@assets/products/IMG_6388.webp": {
-    "seoSlug": "neo-laser-smart-2",
-    "alt": "Neo Laser Smart+ - 2. kép",
+    "seoSlug": "frame-nd-yag-lezerkeszulek-2",
+    "alt": "FRAME ND:YAG lézerkészülék - 2. kép",
     "width": 800,
     "height": 800,
     "widths": [
@@ -1903,7 +1903,7 @@
       640,
       800
     ],
-    "basePath": "/images/opt/products/neo-laser-smart-2"
+    "basePath": "/images/opt/products/frame-nd-yag-lezerkeszulek-2"
   },
   "@assets/products/IMG_6485.webp": {
     "seoSlug": "evosculpt-smart-2",
@@ -2088,8 +2088,8 @@
     "basePath": "/images/opt/products/lasequeen-mapetite-q-kapcsolt-nd-yag-lezer-limited-edition-6"
   },
   "@assets/products/jo.webp": {
-    "seoSlug": "neo-laser-smart-3",
-    "alt": "Neo Laser Smart+ - 3. kép",
+    "seoSlug": "frame-nd-yag-lezerkeszulek-3",
+    "alt": "FRAME ND:YAG lézerkészülék - 3. kép",
     "width": 800,
     "height": 800,
     "widths": [
@@ -2099,7 +2099,7 @@
       640,
       800
     ],
-    "basePath": "/images/opt/products/neo-laser-smart-3"
+    "basePath": "/images/opt/products/frame-nd-yag-lezerkeszulek-3"
   },
   "@assets/products/lasequeen1.webp": {
     "seoSlug": "lasequeen-nd-yag-lasque001black-3",
@@ -2542,8 +2542,8 @@
     "basePath": "/images/opt/products/moonlight-hydrofacial-keszulek-1"
   },
   "@assets/products/neolaser1.webp": {
-    "seoSlug": "neo-laser-smart-1",
-    "alt": "Neo Laser Smart+",
+    "seoSlug": "frame-nd-yag-lezerkeszulek-1",
+    "alt": "FRAME ND:YAG lézerkészülék",
     "width": 800,
     "height": 800,
     "widths": [
@@ -2553,11 +2553,11 @@
       640,
       800
     ],
-    "basePath": "/images/opt/products/neo-laser-smart-1"
+    "basePath": "/images/opt/products/frame-nd-yag-lezerkeszulek-1"
   },
   "@assets/products/neolaser2.webp": {
-    "seoSlug": "neo-laser-smart-4",
-    "alt": "Neo Laser Smart+ - 4. kép",
+    "seoSlug": "frame-nd-yag-lezerkeszulek-4",
+    "alt": "FRAME ND:YAG lézerkészülék - 4. kép",
     "width": 800,
     "height": 800,
     "widths": [
@@ -2567,7 +2567,7 @@
       640,
       800
     ],
-    "basePath": "/images/opt/products/neo-laser-smart-4"
+    "basePath": "/images/opt/products/frame-nd-yag-lezerkeszulek-4"
   },
   "@assets/products/neoskin1.webp": {
     "seoSlug": "neoskin-smart-1",
@@ -4257,19 +4257,85 @@
     ],
     "basePath": "/images/opt/site/hero-image"
   },
-  "@assets/logo.jpg": {
-    "seoSlug": "logo",
-    "alt": "Logo",
-    "width": 684,
-    "height": 663,
+  "@assets/kozmetikai-gepkezelo-kepzes-gyakorlat.jpg": {
+    "seoSlug": "kozmetikai-gepkezelo-kepzes-gyakorlat",
+    "alt": "Kozmetikai Gepkezelo Kepzes Gyakorlat",
+    "width": 2000,
+    "height": 1500,
     "widths": [
       160,
       320,
       480,
       640,
-      684
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2000
     ],
-    "basePath": "/images/opt/site/logo"
+    "basePath": "/images/opt/site/kozmetikai-gepkezelo-kepzes-gyakorlat"
+  },
+  "@assets/kozmetikai-kepzes-far-tanusitvany.jpg": {
+    "seoSlug": "kozmetikai-kepzes-far-tanusitvany",
+    "alt": "Kozmetikai Kepzes Far Tanusitvany",
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2000
+    ],
+    "basePath": "/images/opt/site/kozmetikai-kepzes-far-tanusitvany"
+  },
+  "@assets/kozmetikai-kepzes-szalonkornyezet.jpg": {
+    "seoSlug": "kozmetikai-kepzes-szalonkornyezet",
+    "alt": "Kozmetikai Kepzes Szalonkornyezet",
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2000
+    ],
+    "basePath": "/images/opt/site/kozmetikai-kepzes-szalonkornyezet"
+  },
+  "@assets/kozmetikai-kepzes-uzleti-jogi-modul.jpg": {
+    "seoSlug": "kozmetikai-kepzes-uzleti-jogi-modul",
+    "alt": "Kozmetikai Kepzes Uzleti Jogi Modul",
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2000
+    ],
+    "basePath": "/images/opt/site/kozmetikai-kepzes-uzleti-jogi-modul"
   },
   "@assets/logo.png": {
     "seoSlug": "logo",
@@ -4548,7 +4614,7 @@
       960,
       1080,
       1200,
-      1600
+      1367
     ],
     "basePath": "/images/opt/site/training-image"
   }

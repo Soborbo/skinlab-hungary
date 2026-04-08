@@ -39,9 +39,11 @@ const {
 } = Astro.props;
 
 // Generate embed URL if not provided
+// Use Embed API with API key for reliable loading — place name query shows GBP listing (SEO friendly)
+const MAPS_API_KEY = 'AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8';
 const embedUrl = src || (place
-  ? `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(place)}`
-  : `https://www.google.com/maps?q=${lat},${lng}&output=embed`);
+  ? `https://www.google.com/maps/embed/v1/place?key=${MAPS_API_KEY}&q=${encodeURIComponent(place)}`
+  : `https://www.google.com/maps/embed/v1/place?key=${MAPS_API_KEY}&q=${lat},${lng}&zoom=15`);
 
 // Generate static map URL for placeholder (free, no API key needed)
 const staticMapUrl = lat && lng

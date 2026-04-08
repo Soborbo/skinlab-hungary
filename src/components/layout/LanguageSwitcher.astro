@@ -3,20 +3,12 @@
  * LanguageSwitcher Component
  *
  * Displays a dropdown for switching between available languages.
- * Uses flags and native language names for better UX.
- *
- * PATH-BASED ROUTING (domain independent):
- * - Hungarian (hu) → /
- * - English (en) → /en
- * - Slovak (sk) → /sk
- * - etc.
+ * Uses country flag images (flagcdn.com) for cross-platform support.
  */
 import { locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
 
 interface Props {
-  /** Display style: 'dropdown' for compact, 'list' for expanded */
   variant?: 'dropdown' | 'list' | 'compact';
-  /** Additional CSS classes */
   class?: string;
 }
 
@@ -25,34 +17,39 @@ const { variant = 'dropdown', class: className = '' } = Astro.props;
 const currentLocale = getLocaleFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 const currentConfig = localeConfig[currentLocale];
+
+function flagSrc(countryCode: string) {
+  return `/flags/${countryCode}.webp`;
+}
 ---
 
 {variant === 'dropdown' && (
   <div class:list={['language-switcher relative', className]} data-language-switcher>
-    <!-- Current language button -->
     <button
       type="button"
-      class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 rounded-lg hover:bg-gray-100 transition-colors"
+      class="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 transition-colors overflow-hidden"
       aria-label="Nyelv váltása"
       aria-expanded="false"
       aria-haspopup="true"
       data-language-toggle
     >
-      <span class="text-base" aria-hidden="true">{currentConfig.flag}</span>
-      <span class="hidden sm:inline">{currentConfig.nativeName}</span>
-      <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-chevron>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
+      <img
+        src={flagSrc(currentConfig.flag)}
+        alt={currentConfig.nativeName}
+        width="24"
+        height="18"
+        class="rounded-[3px] object-cover"
+        loading="eager"
+      />
     </button>
 
-    <!-- Dropdown menu -->
     <div
-      class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+      class="absolute right-0 z-50 mt-2 min-w-[156px] origin-top-right rounded-xl bg-white shadow-lg ring-1 ring-black/10 focus:outline-none hidden"
       role="menu"
       aria-orientation="vertical"
       data-language-menu
     >
-      <div class="py-1">
+      <div class="py-2 grid grid-cols-3 gap-1 px-2">
         {locales.map((locale) => {
           const config = localeConfig[locale];
           const href = getLocalizedUrl(locale, currentPath);
@@ -62,21 +59,24 @@ const currentConfig = localeConfig[currentLocale];
             <a
               href={href}
               hreflang={config.hreflang}
+              title={config.nativeName}
               class:list={[
-                'flex items-center gap-3 px-4 py-2.5 text-sm transition-colors',
+                'inline-flex items-center justify-center w-10 h-10 rounded-lg transition-colors',
                 isActive
-                  ? 'bg-primary-50 text-primary-700 font-medium'
-                  : 'text-gray-700 hover:bg-gray-50',
+                  ? 'bg-primary-50 ring-2 ring-primary-400'
+                  : 'hover:bg-gray-50',
               ]}
               role="menuitem"
+              aria-label={config.nativeName}
             >
-              <span class="text-base" aria-hidden="true">{config.flag}</span>
-              <span>{config.nativeName}</span>
-              {isActive && (
-                <svg class="w-4 h-4 ml-auto text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-              )}
+              <img
+                src={flagSrc(config.flag)}
+                alt={config.nativeName}
+                width="24"
+                height="18"
+                class="rounded-[3px] object-cover"
+                loading="lazy"
+              />
             </a>
           );
         })}
@@ -105,7 +105,14 @@ const currentConfig = localeConfig[currentLocale];
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
               ]}
             >
-              <span aria-hidden="true">{config.flag}</span>
+              <img
+                src={flagSrc(config.flag)}
+                alt=""
+                width="20"
+                height="15"
+                class="rounded-[2px] object-cover"
+                loading="lazy"
+              />
               <span>{config.nativeName}</span>
             </a>
           </li>
@@ -116,7 +123,7 @@ const currentConfig = localeConfig[currentLocale];
 )}
 
 {variant === 'compact' && (
-  <div class:list={['language-switcher-compact flex items-center gap-1', className]}>
+  <div class:list={['language-switcher-compact flex items-center flex-wrap gap-1', className]}>
     {locales.map((locale) => {
       const config = localeConfig[locale];
       const href = getLocalizedUrl(locale, currentPath);
@@ -128,15 +135,22 @@ const currentConfig = localeConfig[currentLocale];
           hreflang={config.hreflang}
           title={config.nativeName}
           class:list={[
-            'inline-flex items-center justify-center w-8 h-8 text-lg rounded-lg transition-all',
+            'inline-flex items-center justify-center w-9 h-9 rounded-xl transition-all',
             isActive
-              ? 'bg-primary-100 ring-2 ring-primary-500'
-              : 'hover:bg-gray-100',
+              ? 'bg-white/80 ring-2 ring-[#9b6b6b]/40 shadow-sm'
+              : 'hover:bg-white/40',
           ]}
           aria-label={config.nativeName}
           aria-current={isActive ? 'true' : undefined}
         >
-          {config.flag}
+          <img
+            src={flagSrc(config.flag)}
+            alt={config.nativeName}
+            width="22"
+            height="16"
+            class="rounded-[3px] object-cover"
+            loading="lazy"
+          />
         </a>
       );
     })}
@@ -144,24 +158,20 @@ const currentConfig = localeConfig[currentLocale];
 )}
 
 <script>
-  // Dropdown toggle functionality
   document.querySelectorAll('[data-language-switcher]').forEach((switcher) => {
     const toggle = switcher.querySelector('[data-language-toggle]');
     const menu = switcher.querySelector('[data-language-menu]');
-    const chevron = switcher.querySelector('[data-chevron]');
 
     if (!toggle || !menu) return;
 
     const closeMenu = () => {
       menu.classList.add('hidden');
       toggle.setAttribute('aria-expanded', 'false');
-      chevron?.classList.remove('rotate-180');
     };
 
     const openMenu = () => {
       menu.classList.remove('hidden');
       toggle.setAttribute('aria-expanded', 'true');
-      chevron?.classList.add('rotate-180');
     };
 
     const toggleMenu = () => {
@@ -177,14 +187,12 @@ const currentConfig = localeConfig[currentLocale];
       toggleMenu();
     });
 
-    // Close on click outside
     document.addEventListener('click', (e) => {
       if (!switcher.contains(e.target as Node)) {
         closeMenu();
       }
     });
 
-    // Close on escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeMenu();

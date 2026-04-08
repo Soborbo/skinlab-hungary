@@ -131,11 +131,11 @@ const icons: Record<string, string> = {
             <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent"></div>
             <div class="relative z-10 h-full flex items-center">
               <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-                <div class="max-w-xl">
+                <div class="max-w-[636px]">
                   <h2 class="text-3xl lg:text-5xl font-normal text-[#9b6b6b] mb-4 leading-tight font-heading">
                     {t(locale, slide.titleKey)}
                   </h2>
-                  <p class="text-base lg:text-lg text-[#645a59] mb-6 max-w-lg">
+                  <p class="text-base lg:text-lg text-[#645a59] mb-6 max-w-[572px]">
                     {t(locale, slide.subtitleKey)}
                   </p>
                   <div class="flex flex-row gap-3">
@@ -172,7 +172,7 @@ const icons: Record<string, string> = {
               <button
                 class:list={[
                   'carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer',
-                  i === 0 ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60',
+                  i === 0 ? 'bg-[#9b6b6b] w-8' : 'bg-[#9b6b6b]/30 hover:bg-[#9b6b6b]/50',
                 ]}
                 data-dot={i}
                 aria-label={`Slide ${i + 1}`}
@@ -252,7 +252,8 @@ const icons: Record<string, string> = {
 
     var current = 0;
     var interval;
-    var INTERVAL_MS = 4000;
+    var INTERVAL_MS = 5000;
+    var paused = false;
     var isDesktop = window.matchMedia('(min-width: 640px)').matches;
 
     function goTo(index) {
@@ -262,7 +263,7 @@ const icons: Record<string, string> = {
       }
       // Desktop dots
       for (var j = 0; j < dots.length; j++) {
-        dots[j].style.background = j === index ? '#fff' : 'rgba(255,255,255,0.4)';
+        dots[j].style.background = j === index ? '#9b6b6b' : 'rgba(155,107,107,0.3)';
         dots[j].style.width = j === index ? '2rem' : '0.625rem';
       }
       // Mobile dots (embedded in each slide, so update all)
@@ -276,11 +277,20 @@ const icons: Record<string, string> = {
 
     function next() { goTo((current + 1) % slides.length); }
     function prev() { goTo((current - 1 + slides.length) % slides.length); }
-    function startAutoplay() { interval = setInterval(next, INTERVAL_MS); }
-    function resetAutoplay() { clearInterval(interval); startAutoplay(); }
+    function startAutoplay() { if (!paused) interval = setInterval(next, INTERVAL_MS); }
+    function stopAutoplay() { clearInterval(interval); }
+    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
 
-    if (nextBtn) nextBtn.addEventListener('click', function() { next(); resetAutoplay(); });
-    if (prevBtn) prevBtn.addEventListener('click', function() { prev(); resetAutoplay(); });
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() { next(); resetAutoplay(); });
+      nextBtn.addEventListener('mouseenter', function() { paused = true; stopAutoplay(); });
+      nextBtn.addEventListener('mouseleave', function() { paused = false; startAutoplay(); });
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() { prev(); resetAutoplay(); });
+      prevBtn.addEventListener('mouseenter', function() { paused = true; stopAutoplay(); });
+      prevBtn.addEventListener('mouseleave', function() { paused = false; startAutoplay(); });
+    }
 
     for (var k = 0; k < dots.length; k++) {
       (function(idx) { dots[idx].addEventListener('click', function() { goTo(idx); resetAutoplay(); }); })(k);
@@ -309,9 +319,6 @@ const icons: Record<string, string> = {
         resetAutoplay();
       }
     }, { passive: true });
-
-    carousel.addEventListener('mouseenter', function() { clearInterval(interval); });
-    carousel.addEventListener('mouseleave', startAutoplay);
 
     startAutoplay();
   })();

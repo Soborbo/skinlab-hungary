@@ -1,34 +1,13 @@
 ---
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
-// Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 const steps = [
-  {
-    number: '1',
-    titleKey: 'howItWorks.step1Title',
-    descKey: 'howItWorks.step1Desc',
-    color: 'bg-blue-100 text-blue-600',
-  },
-  {
-    number: '2',
-    titleKey: 'howItWorks.step2Title',
-    descKey: 'howItWorks.step2Desc',
-    color: 'bg-green-100 text-green-600',
-  },
-  {
-    number: '3',
-    titleKey: 'howItWorks.step3Title',
-    descKey: 'howItWorks.step3Desc',
-    color: 'bg-purple-100 text-purple-600',
-  },
-  {
-    number: '4',
-    titleKey: 'howItWorks.step4Title',
-    descKey: 'howItWorks.step4Desc',
-    color: 'bg-amber-100 text-amber-600',
-  },
+  { number: '1', titleKey: 'howItWorks.step1Title', descKey: 'howItWorks.step1Desc' },
+  { number: '2', titleKey: 'howItWorks.step2Title', descKey: 'howItWorks.step2Desc' },
+  { number: '3', titleKey: 'howItWorks.step3Title', descKey: 'howItWorks.step3Desc' },
+  { number: '4', titleKey: 'howItWorks.step4Title', descKey: 'howItWorks.step4Desc' },
 ];
 ---
 
@@ -43,38 +22,43 @@ const steps = [
       </p>
     </div>
 
-    {/* Mobile: horizontally scrollable cards */}
+    {/* Mobile: horizontally scrollable */}
     <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 lg:hidden scrollbar-hide">
-      {steps.map((step) => (
-        <div class="snap-start flex-shrink-0 w-[75vw] sm:w-[45vw] bg-gray-50 rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-          <div class={`w-14 h-14 ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl font-bold`}>
+      {steps.map((step, index) => (
+        <div class="snap-start flex-shrink-0 w-[75vw] sm:w-[45vw] bg-[#fbf8f6] rounded-2xl p-6 text-center border border-[#9b6b6b]/10">
+          <div class="how-step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-white" style={`opacity: ${0.55 + index * 0.15}`}>
             {step.number}
           </div>
           <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>
-          <p class="text-gray-600 text-sm">{t(locale, step.descKey)}</p>
+          <p class="text-[#645a59] text-sm leading-relaxed">{t(locale, step.descKey)}</p>
         </div>
       ))}
     </div>
 
-    {/* Desktop: 4 side by side */}
-    <div class="hidden lg:grid lg:grid-cols-4 gap-8">
-      {steps.map((step, index) => (
-        <div class="text-center relative bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
-          {index < steps.length - 1 && (
-            <div class="absolute top-10 left-1/2 w-full h-0.5 bg-gray-200 z-0" aria-hidden="true"></div>
-          )}
-          <div class={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold relative z-10`}>
-            {step.number}
+    {/* Desktop: 4 columns with connecting line */}
+    <div class="hidden lg:block relative">
+      {/* Connecting line */}
+      <div class="absolute top-7 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-gradient-to-r from-[#9b6b6b]/20 via-[#9b6b6b]/40 to-[#9b6b6b]/60" aria-hidden="true"></div>
+
+      <div class="grid grid-cols-4 gap-6 relative z-10">
+        {steps.map((step, index) => (
+          <div class="text-center group">
+            <div class="how-step-number w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-110" style={`opacity: ${0.55 + index * 0.15}`}>
+              {step.number}
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>
+            <p class="text-[#645a59] text-sm leading-relaxed">{t(locale, step.descKey)}</p>
           </div>
-          <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>
-          <p class="text-gray-600 text-sm">{t(locale, step.descKey)}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
+  .how-step-number {
+    background-color: #9b6b6b;
+  }
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

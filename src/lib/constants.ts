@@ -309,8 +309,8 @@ export const MEGA_MENU = {
 // Labels use i18n translation keys — resolve with t(locale, key) in components
 export const NAV_ITEMS = [
   { labelKey: 'nav.products', href: '/termekek', hasMegaMenu: true },
-  { labelKey: 'nav.trainings', href: '/kepzesek' },
   { labelKey: 'nav.about', href: '/rolunk' },
+  { labelKey: 'nav.trainings', href: '/kepzesek' },
   { labelKey: 'nav.contact', href: '/kapcsolat' },
 ];
 

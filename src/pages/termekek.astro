@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES, COMPANY } from '../lib/constants';
 import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../i18n/ui';
+import OptimizedPicture from '../components/images/OptimizedPicture.astro';
+import { hasImage, getImageAlt } from '@/lib/resolve-image';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const products = await getCollection('products', ({ data }) => !data.draft);
@@ -41,8 +43,21 @@ const productsByCategory = CATEGORIES.map(cat => ({
                 href={getLocalizedUrl(locale, `/${category.slug}/${product.data.slug}`)}
                 class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div class="aspect-square bg-gray-100 flex items-center justify-center">
-                  <span class="text-gray-400">Kép</span>
+                <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                  {hasImage(product.data.image) ? (
+                    <OptimizedPicture
+                      src={product.data.image}
+                      alt={getImageAlt(product.data.image, product.data.name)}
+                      widths={[320, 480, 640]}
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-full h-full flex items-center justify-center">
+                      <span class="text-gray-400">Kép</span>
+                    </div>
+                  )}
                 </div>
                 <div class="p-4">
                   <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 line-clamp-2">

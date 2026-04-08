@@ -92,11 +92,6 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
         <h3 class="text-white font-semibold mb-4">{t(locale, 'footer.company')}</h3>
         <ul class="space-y-3">
           <li>
-            <a href={getLocalizedUrl(locale, '/rolunk')} class="text-sm text-gray-400 hover:text-white transition-colors">
-              {t(locale, 'nav.about')}
-            </a>
-          </li>
-          <li>
             <a href={getLocalizedUrl(locale, '/kepzesek')} class="text-sm text-gray-400 hover:text-white transition-colors">
               {t(locale, 'nav.trainings')}
             </a>
@@ -175,31 +170,18 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
   <div class="border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-6">
-          <div class="text-sm text-gray-500">
-            {t(locale, 'footer.copyright', { year: String(new Date().getFullYear()) })}
-          </div>
-          <!-- Language Switcher -->
-          <LanguageSwitcher variant="compact" class="hidden md:flex" />
+        <div class="text-sm text-gray-500">
+          {t(locale, 'footer.copyright', { year: String(new Date().getFullYear()) })}
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-gray-500">
+        <LanguageSwitcher variant="compact" />
+        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-5 text-sm text-gray-500">
           <a href={getLocalizedUrl(locale, '/adatvedelem')} class="hover:text-gray-300 transition-colors">
             {t(locale, 'footer.privacy')}
           </a>
           <a href={getLocalizedUrl(locale, '/aszf')} class="hover:text-gray-300 transition-colors">
             {t(locale, 'footer.terms')}
           </a>
-          <a href={getLocalizedUrl(locale, '/garancia')} class="hover:text-gray-300 transition-colors">
-            {t(locale, 'warranty.title')}
-          </a>
-          <a href={getLocalizedUrl(locale, '/szallitas-fizetes')} class="hover:text-gray-300 transition-colors">
-            {t(locale, 'footer.shipping')}
-          </a>
         </div>
-      </div>
-      <!-- Mobile Language Switcher -->
-      <div class="mt-4 pt-4 border-t border-gray-800 md:hidden flex justify-center">
-        <LanguageSwitcher variant="compact" />
       </div>
     </div>
   </div>
