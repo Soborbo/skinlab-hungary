@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { CONTACT } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+import mobileHeroImg from '../../assets/images/hero-hydrascan-pro-kozmetikai-gep-mobil.jpg';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
@@ -70,43 +72,35 @@ const icons: Record<string, string> = {
 ---
 
 <section class="relative overflow-hidden">
-  {/* ── MOBILE: static hero — text overlay starts at 50% of IMAGE height ── */}
-  <div class="sm:hidden relative w-full overflow-hidden" style="height: calc(100dvh - 56px);">
-    <picture>
-      <source type="image/avif" srcset={slides[0]?.mobileAvif} />
-      <source type="image/webp" srcset={slides[0]?.mobileWebp} />
-      <img
-        src={slides[0]?.mobileJpg}
-        alt={t(locale, 'hero.title')}
-        class="absolute inset-0 w-full h-full object-cover object-top"
-        width="750"
-        height="1334"
-        loading="eager"
-        fetchpriority="high"
-        decoding="sync"
-      />
-    </picture>
-    {/* Text overlay — pinned to image's 50% mark, not viewport */}
-    <div class="absolute left-0 right-0 bottom-0" style="top: 50%;">
-      <div class="h-full flex flex-col justify-end px-4 pb-6" style="background: linear-gradient(to top, rgba(255,255,255,0.97) 30%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.4) 75%, transparent 100%);">
-        <h1 class="text-2xl font-normal text-[#9b6b6b] mb-2 leading-snug font-heading">
-          {t(locale, 'hero.title')}
-        </h1>
-        <p class="text-sm text-[#645a59] mb-4 leading-relaxed">
-          {t(locale, 'hero.subtitle')}
-        </p>
-        <a
-          href={contactLink}
-          id="mobile-hero-cta"
-          class="inline-flex items-center px-5 py-2.5 font-semibold rounded-xl text-sm opacity-0 translate-y-4 transition-all duration-700 border border-primary-200"
-          style="background: rgba(255,255,255,0.85); color: #9b6b6b; backdrop-filter: blur(8px);"
-        >
-          {t(locale, 'hero.cta')}
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
+  {/* ── MOBILE: image flows naturally, text below with matching background ── */}
+  <div class="sm:hidden" style="background-color: #fbf8f8;">
+    <Image
+      src={mobileHeroImg}
+      alt={t(locale, 'hero.title')}
+      class="w-full h-auto"
+      widths={[375, 430, 640, 750]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+    />
+    <div class="px-4 pb-6 text-center" style="margin-top: -15px;">
+      <h1 class="text-2xl font-normal text-[#9b6b6b] mb-2 leading-snug font-heading">
+        {t(locale, 'hero.title')}
+      </h1>
+      <p class="text-sm text-[#645a59] mb-4 leading-relaxed">
+        {t(locale, 'hero.subtitle')}
+      </p>
+      <a
+        href={contactLink}
+        class="inline-flex items-center justify-center px-5 py-2.5 font-semibold rounded-xl text-sm border border-primary-200"
+        style="background: rgba(255,255,255,0.85); color: #9b6b6b;"
+      >
+        {t(locale, 'hero.cta')}
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 
@@ -327,12 +321,4 @@ const icons: Record<string, string> = {
     startAutoplay();
   })();
 
-  // Mobile hero CTA - appear after 8 seconds
-  var mobileCta = document.getElementById('mobile-hero-cta');
-  if (mobileCta) {
-    setTimeout(function() {
-      mobileCta.style.opacity = '1';
-      mobileCta.style.transform = 'translateY(0)';
-    }, 8000);
-  }
 </script>
