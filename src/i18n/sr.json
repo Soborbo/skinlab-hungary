@@ -29,6 +29,14 @@
     "slide3": {
       "title": "Obuka i servis na jednom mestu",
       "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na sve naše proizvode"
+    },
+    "slide4": {
+      "title": "ND:YAG и карбон ласери",
+      "subtitle": "Премиум третмани лица са награђиваним уређајима и локалним сервисом"
+    },
+    "slide5": {
+      "title": "Стигао је наш нови Frame YAG ласер!",
+      "subtitle": "Ускоро у нашем вебшопу. Пријавите се за демо производа"
     }
   },
   "categories": {
@@ -76,6 +84,8 @@
     "monthlyFrom": "ili od ~{price}/mesecno sa finansiranjem",
     "sku": "Sifra proizvoda",
     "selectVariant": "Izaberite varijantu:",
+    "variantComparison": "Поређење варијанти",
+    "feature": "Карактеристика",
     "freeConsultation": "Besplatna konsultacija",
     "callNow": "Pozovite odmah",
     "description": "Detaljan opis",
@@ -125,6 +135,8 @@
     "messagePlaceholder": "Recite nam kako vam mozemo pomoci...",
     "product": "Koji proizvod vas zanima?",
     "productPlaceholder": "Izaberite...",
+    "subject": "Предмет",
+    "subjectPlaceholder": "Предмет поруке",
     "gdprConsent": "Prihvatam politiku privatnosti",
     "gdprConsentPrefix": "Procitao/la sam i prihvatam",
     "gdprConsentLink": "Politiku privatnosti",
@@ -215,7 +227,17 @@
     "phone": "Telefon",
     "email": "E-mail",
     "openingHours": "Radno vreme",
-    "getDirections": "Uputstva za dolazak"
+    "getDirections": "Uputstva za dolazak",
+    "formTitle": "Kontaktirajte nas",
+    "sendMessage": "Pošaljite poruku",
+    "companyDetails": "Podaci o kompaniji",
+    "registrationNumber": "Matični broj",
+    "taxId": "PIB",
+    "vatId": "EU PDV ID",
+    "howToReach": "Kako do nas",
+    "howToReachDesc": "Budai út 28., Érd — sa autoputa M7, izlaz Érd (čvorište Budaörs), zatim 5 minuta Budai útom. Besplatno parkiranje ispred zgrade.",
+    "openingHoursDetails": "Ponedeljak–Petak: uz prethodni dogovor",
+    "openingHoursNote": "Molimo dogovorite termin telefonom ili e-mailom!"
   },
   "about": {
     "title": "O nama",
@@ -230,7 +252,9 @@
     "foundersTitle": "Osnivaci",
     "founder": {
       "technical": "Tehnicki strucnjak",
-      "treatment": "Strucnjakinja za tretmane"
+      "technicalBio": "Од тинејџерских дана поправљао сам и туниирао аутомобиле – свет машина ми је одувек био близак. Тај практични, инжењерски приступ одређује и мој рад у Скинлабу: моја је одговорност да сваки уређај стигне до наших клијената у беспрекорном техничком стању. Ако се појави проблем, решавамо га интерно, брзо и професионално – уз заменски уређај за време поправке. Ласерска технологија је током година постала моја специјалност и слободно могу рећи да не постоји квар са којим се нисам сусрео. То искуство даје нашим клијентима прави мир јер знају да је њихов уређај у добрим рукама.",
+      "treatment": "Strucnjakinja za tretmane",
+      "treatmentBio": "Долазим из лекарске породице и индустрија лепоте ме привлачила од малих ногу. Медицинско окружење ме научило важну ствар: третмани морају почивати на једнако строгим стручним темељима као и медицина. Није довољно да нешто функционише – мора бити и безбедно. За мене је најважније да настају не само лепи, него и здрави резултати, те да никада не прелазимо границе стручне компетенције. Ту филозофију уносимо у сваку консултацију и препоруку производа јер нудимо само оно иза чега у потпуности стојимо."
     },
     "whyUsTitle": "Zasto izabrati nas?",
     "benefit1Title": "Postene cene",
@@ -252,6 +276,8 @@
     "taxId": "PIB",
     "vatId": "PDV ID",
     "headquarters": "Sediste",
+    "teamPhotoAlt": "Тим Skinlab Hungary на међународном козметичком сајму",
+    "teamPhotoCaption": "Наш тим на међународном козметичком сајму Monduniq",
     "ctaTitle": "Spremni za partnerstvo sa nama?",
     "ctaSubtitle": "Kontaktirajte nas i razgovarajmo o tome kako mozemo pomoci rastu vaseg salona."
   },

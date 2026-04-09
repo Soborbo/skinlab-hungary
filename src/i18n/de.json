@@ -29,6 +29,14 @@
     "slide3": {
       "title": "Schulung und Service an einem Ort",
       "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf alle unsere Produkte"
+    },
+    "slide4": {
+      "title": "ND:YAG- & Carbon-Laser",
+      "subtitle": "Premium-Gesichtsbehandlungen mit preisgekrönten Geräten und lokalem Service"
+    },
+    "slide5": {
+      "title": "Unser neuer Frame YAG Laser ist da!",
+      "subtitle": "Bald in unserem Webshop erhältlich. Jetzt zur Produktvorführung anmelden"
     }
   },
   "categories": {
@@ -76,6 +84,8 @@
     "monthlyFrom": "oder ab ~{price}/Monat mit Finanzierung",
     "sku": "Artikelnummer",
     "selectVariant": "Variante wahlen:",
+    "variantComparison": "Varianten vergleichen",
+    "feature": "Eigenschaft",
     "freeConsultation": "Kostenlose Beratung",
     "callNow": "Jetzt anrufen",
     "description": "Detaillierte Beschreibung",
@@ -125,6 +135,8 @@
     "messagePlaceholder": "Sagen Sie uns, wie wir Ihnen helfen konnen...",
     "product": "Welches Produkt interessiert Sie?",
     "productPlaceholder": "Auswahlen...",
+    "subject": "Betreff",
+    "subjectPlaceholder": "Betreff der Nachricht",
     "gdprConsent": "Ich akzeptiere die Datenschutzerklarung",
     "gdprConsentPrefix": "Ich habe die",
     "gdprConsentLink": "Datenschutzerklarung gelesen und akzeptiere sie",
@@ -215,7 +227,17 @@
     "phone": "Telefon",
     "email": "E-Mail",
     "openingHours": "Offnungszeiten",
-    "getDirections": "Route planen"
+    "getDirections": "Route planen",
+    "formTitle": "Kontaktaufnahme",
+    "sendMessage": "Nachricht senden",
+    "companyDetails": "Firmendaten",
+    "registrationNumber": "Handelsregisternr.",
+    "taxId": "Steuernummer",
+    "vatId": "EU-USt-IdNr.",
+    "howToReach": "Anfahrt",
+    "howToReachDesc": "Budai út 28., Érd — von der Autobahn M7 Ausfahrt Érd (Knoten Budaörs), dann 5 Minuten auf der Budai út. Kostenlose Parkplätze vor dem Gebäude.",
+    "openingHoursDetails": "Montag–Freitag: nach Vereinbarung",
+    "openingHoursNote": "Bitte vereinbaren Sie einen Termin per Telefon oder E-Mail!"
   },
   "about": {
     "title": "Uber uns",
@@ -230,7 +252,9 @@
     "foundersTitle": "Grunder",
     "founder": {
       "technical": "Technischer Experte",
-      "treatment": "Behandlungsexpertin"
+      "technicalBio": "Schon als Jugendlicher habe ich Autos repariert und getuned – die Welt der Maschinen war mir immer nah. Diese praktische, technische Denkweise bestimmt auch meine Arbeit bei Skinlab: Ich bin dafür verantwortlich, dass jedes Gerät in einwandfreiem technischen Zustand bei unseren Kunden ankommt. Wenn ein Problem auftritt, lösen wir es hausintern, schnell und professionell – mit einem Ersatzgerät für die Dauer der Reparatur. Die Lasertechnologie ist im Laufe der Jahre zu meiner Spezialität geworden, und ich kann mit Sicherheit sagen, dass es keinen Defekt gibt, dem ich noch nicht begegnet wäre. Diese Erfahrung gibt unseren Kunden echte Sicherheit, denn sie wissen, dass ihr Gerät in guten Händen ist.",
+      "treatment": "Behandlungsexpertin",
+      "treatmentBio": "Ich stamme aus einer Ärztefamilie und die Schönheitsbranche hat mich schon von klein auf angezogen. Der medizinische Hintergrund hat mir jedoch etwas Wichtiges beigebracht: Behandlungen müssen auf ebenso strengen fachlichen Grundlagen basieren wie die Medizin selbst. Es reicht nicht, wenn etwas funktioniert – es muss auch sicher sein. Für mich ist es am wichtigsten, dass nicht nur schöne, sondern auch gesunde Ergebnisse entstehen, und wir nie die Grenzen der fachlichen Kompetenz überschreiten. Diese Philosophie bringen wir in jede Beratung und Produktempfehlung ein, denn wir bieten nur an, wovon wir vollkommen überzeugt sind."
     },
     "whyUsTitle": "Warum uns wahlen?",
     "benefit1Title": "Faire Preise",
@@ -252,6 +276,8 @@
     "taxId": "Steuernummer",
     "vatId": "USt-IdNr.",
     "headquarters": "Hauptsitz",
+    "teamPhotoAlt": "Das Skinlab Hungary Team auf einer internationalen Kosmetikmesse",
+    "teamPhotoCaption": "Unser Team auf der internationalen Kosmetikmesse Monduniq",
     "ctaTitle": "Bereit fur eine Partnerschaft mit uns?",
     "ctaSubtitle": "Kontaktieren Sie uns und lassen Sie uns besprechen, wie wir Ihrem Salon zum Wachstum verhelfen konnen."
   },

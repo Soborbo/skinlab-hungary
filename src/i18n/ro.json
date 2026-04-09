@@ -29,6 +29,14 @@
     "slide3": {
       "title": "Training și service într-un singur loc",
       "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru toate produsele noastre"
+    },
+    "slide4": {
+      "title": "Lasere ND:YAG și carbon",
+      "subtitle": "Tratamente faciale premium cu dispozitive premiate și service local"
+    },
+    "slide5": {
+      "title": "Noul nostru laser Frame YAG a sosit!",
+      "subtitle": "În curând în magazinul nostru online. Înscrieți-vă la demonstrația de produs"
     }
   },
   "categories": {
@@ -76,6 +84,8 @@
     "monthlyFrom": "sau de la ~{price}/luna cu finantare",
     "sku": "Cod produs",
     "selectVariant": "Selectati varianta:",
+    "variantComparison": "Comparație variante",
+    "feature": "Caracteristică",
     "freeConsultation": "Consultatie gratuita",
     "callNow": "Sunati acum",
     "description": "Descriere detaliata",
@@ -125,6 +135,8 @@
     "messagePlaceholder": "Spuneti-ne cum va putem ajuta...",
     "product": "Ce produs va intereseaza?",
     "productPlaceholder": "Selectati...",
+    "subject": "Subiect",
+    "subjectPlaceholder": "Subiectul mesajului",
     "gdprConsent": "Accept politica de confidentialitate",
     "gdprConsentPrefix": "Am citit si accept",
     "gdprConsentLink": "Politica de confidentialitate",
@@ -215,7 +227,17 @@
     "phone": "Telefon",
     "email": "Email",
     "openingHours": "Program",
-    "getDirections": "Indicatii"
+    "getDirections": "Indicatii",
+    "formTitle": "Contactați-ne",
+    "sendMessage": "Trimiteți mesajul",
+    "companyDetails": "Date companie",
+    "registrationNumber": "Nr. înregistrare",
+    "taxId": "Cod fiscal",
+    "vatId": "Cod TVA UE",
+    "howToReach": "Cum ajungeți la noi",
+    "howToReachDesc": "Budai út 28., Érd — de pe autostrada M7, ieșirea Érd (nodul Budaörs), apoi 5 minute pe Budai út. Parcare gratuită în fața clădirii.",
+    "openingHoursDetails": "Luni–Vineri: cu programare",
+    "openingHoursNote": "Vă rugăm să programați o vizită telefonic sau prin email!"
   },
   "about": {
     "title": "Despre noi",
@@ -230,7 +252,9 @@
     "foundersTitle": "Fondatori",
     "founder": {
       "technical": "Expert tehnic",
-      "treatment": "Expert in tratamente"
+      "technicalBio": "Încă din adolescență am reparat și tunat mașini – lumea aparatelor mi-a fost întotdeauna apropiată. Această abordare practică, inginerească îmi definește și munca la Skinlab: responsabilitatea mea este ca fiecare aparat să ajungă la clienții noștri în stare tehnică impecabilă. Dacă apare o problemă, o rezolvăm intern, rapid și profesional – cu un aparat de schimb pe durata reparației. Tehnologia laser a devenit specialitatea mea de-a lungul anilor și pot spune cu certitudine că nu există defecțiune pe care să nu o fi întâlnit. Această experiență le oferă clienților noștri o liniște reală, pentru că știu că aparatul lor este pe mâini bune.",
+      "treatment": "Expert in tratamente",
+      "treatmentBio": "Provin dintr-o familie de medici și industria frumuseții m-a atras încă de la o vârstă fragedă. Mediul medical m-a învățat însă un lucru important: tratamentele trebuie să se bazeze pe fundamente profesionale la fel de riguroase ca medicina. Nu este suficient ca ceva să funcționeze – trebuie să fie și sigur. Pentru mine, cel mai important lucru este ca rezultatele să fie nu doar frumoase, ci și sănătoase, și să nu depășim niciodată limitele competenței profesionale. Această filozofie o aducem în fiecare consultație și recomandare de produs, deoarece oferim doar ceea ce susținem cu toată convingerea."
     },
     "whyUsTitle": "De ce sa ne alegeti?",
     "benefit1Title": "Preturi corecte",
@@ -252,6 +276,8 @@
     "taxId": "Cod fiscal",
     "vatId": "Cod TVA UE",
     "headquarters": "Sediul social",
+    "teamPhotoAlt": "Echipa Skinlab Hungary la un târg internațional de cosmetică",
+    "teamPhotoCaption": "Echipa noastră la târgul internațional de cosmetică Monduniq",
     "ctaTitle": "Pregatit sa devii partenerul nostru?",
     "ctaSubtitle": "Contacteaza-ne si hai sa discutam cum putem ajuta la cresterea salonului tau."
   },

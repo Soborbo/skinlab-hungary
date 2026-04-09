@@ -29,6 +29,14 @@
     "slide3": {
       "title": "Školenie a servis na jednom mieste",
       "subtitle": "Bezplatné školenie, nepretržitá technická podpora a 2-ročná záruka na všetky naše produkty"
+    },
+    "slide4": {
+      "title": "ND:YAG a karbónové lasery",
+      "subtitle": "Prémiové ošetrenia tváre s oceňovanými prístrojmi a miestnym servisom"
+    },
+    "slide5": {
+      "title": "Náš nový Frame YAG laser je tu!",
+      "subtitle": "Čoskoro v našom e-shope. Prihláste sa na ukážku produktu"
     }
   },
   "categories": {
@@ -76,6 +84,8 @@
     "monthlyFrom": "alebo od ~{price}/mesiac s financovaním",
     "sku": "Kód produktu",
     "selectVariant": "Vyberte variant:",
+    "variantComparison": "Porovnanie variantov",
+    "feature": "Vlastnosť",
     "freeConsultation": "Bezplatná konzultácia",
     "callNow": "Zavolajte teraz",
     "description": "Podrobný popis",
@@ -125,6 +135,8 @@
     "messagePlaceholder": "Povedzte nám, ako vám môžeme pomôcť...",
     "product": "Ktorý produkt vás zaujíma?",
     "productPlaceholder": "Vyberte...",
+    "subject": "Predmet",
+    "subjectPlaceholder": "Predmet správy",
     "gdprConsent": "Súhlasím so zásadami ochrany osobných údajov",
     "gdprConsentPrefix": "Prečítal/a som si a súhlasím so",
     "gdprConsentLink": "Zásadami ochrany osobných údajov",
@@ -191,7 +203,17 @@
     "phone": "Telefón",
     "email": "E-mail",
     "openingHours": "Otváracie hodiny",
-    "getDirections": "Navigovať"
+    "getDirections": "Navigovať",
+    "formTitle": "Kontaktujte nás",
+    "sendMessage": "Odoslať správu",
+    "companyDetails": "Firemné údaje",
+    "registrationNumber": "IČO",
+    "taxId": "DIČ",
+    "vatId": "IČ DPH",
+    "howToReach": "Ako sa k nám dostať",
+    "howToReachDesc": "Budai út 28., Érd — z diaľnice M7 výjazd Érd (križovatka Budaörs), potom 5 minút po Budai út. Bezplatné parkovanie pred budovou.",
+    "openingHoursDetails": "Pondelok–Piatok: po dohodnutí termínu",
+    "openingHoursNote": "Prosíme, dohodnite si termín telefonicky alebo e-mailom!"
   },
   "about": {
     "title": "O nás",
@@ -206,7 +228,9 @@
     "foundersTitle": "Zakladatelia",
     "founder": {
       "technical": "Technický expert",
-      "treatment": "Expert na ošetrenia"
+      "technicalBio": "Už od dospievania som opravoval a tuningoval autá – svet strojov mi bol vždy blízky. Tento praktický, technický prístup určuje aj moju prácu v Skinlabe: mám na starosti, aby každý prístroj dorazil k našim zákazníkom v bezchybnom technickom stave. Ak sa vyskytne problém, riešime ho interne, rýchlo a profesionálne – s náhradným prístrojom na dobu opravy. Laserová technológia sa v priebehu rokov stala mojou špecializáciou a môžem s istotou povedať, že neexistuje porucha, s ktorou by som sa doteraz nestretol. Táto skúsenosť dáva našim zákazníkom skutočný pokoj, pretože vedia, že ich prístroj je v dobrých rukách.",
+      "treatment": "Expert na ošetrenia",
+      "treatmentBio": "Pochádzam z lekárskej rodiny a kozmetický priemysel ma priťahoval odmalička. Lekárske prostredie ma však naučilo dôležitú vec: ošetrenia musia stáť na rovnako prísnych odborných základoch ako medicína. Nestačí, aby niečo fungovalo – musí to byť aj bezpečné. Pre mňa je najdôležitejšie, aby vznikali nielen krásne, ale aj zdravé výsledky, a aby sme nikdy neprekročili hranice odbornej kompetencie. Túto filozofiu vnášame do každej konzultácie aj odporúčania produktov, pretože ponúkame len to, za čím si plne stojíme."
     },
     "whyUsTitle": "Prečo si vybrať nás?",
     "benefit1Title": "Férové ceny",
@@ -228,6 +252,8 @@
     "taxId": "DIČ",
     "vatId": "IČ DPH",
     "headquarters": "Sídlo",
+    "teamPhotoAlt": "Tím Skinlab Hungary na medzinárodnom kozmetickom veľtrhu",
+    "teamPhotoCaption": "Náš tím na medzinárodnom kozmetickom veľtrhu Monduniq",
     "ctaTitle": "Pripravení spolupracovať s nami?",
     "ctaSubtitle": "Kontaktujte nás a porozprávajme sa o tom, ako môžeme pomôcť rozvoju vášho salónu."
   },

@@ -29,6 +29,14 @@
     "slide3": {
       "title": "Training and Service in One Place",
       "subtitle": "Free training, continuous technical support and 2-year warranty on all our products"
+    },
+    "slide4": {
+      "title": "ND:YAG & Carbon Lasers",
+      "subtitle": "Premium facial treatments with award-winning devices and local service"
+    },
+    "slide5": {
+      "title": "Our new Frame YAG laser has arrived!",
+      "subtitle": "Coming soon to our webshop. Sign up for a product demo now"
     }
   },
   "categories": {
@@ -122,11 +130,13 @@
     "email": "Email",
     "emailPlaceholder": "example@email.com",
     "phone": "Phone",
-    "phonePlaceholder": "+36 70 123 4567",
+    "phonePlaceholder": "+1 555 123 4567",
     "message": "Message",
     "messagePlaceholder": "Tell us how we can help...",
     "product": "Subject of inquiry",
     "productPlaceholder": "Select a category...",
+    "subject": "Subject",
+    "subjectPlaceholder": "Message subject",
     "gdprConsent": "I accept the privacy policy",
     "gdprConsentPrefix": "I have read and accept the",
     "gdprConsentLink": "Privacy Policy",
@@ -217,7 +227,17 @@
     "phone": "Phone",
     "email": "Email",
     "openingHours": "Opening Hours",
-    "getDirections": "Get Directions"
+    "getDirections": "Get Directions",
+    "formTitle": "Contact Us",
+    "sendMessage": "Send Message",
+    "companyDetails": "Company Details",
+    "registrationNumber": "Registration No.",
+    "taxId": "Tax ID",
+    "vatId": "EU VAT ID",
+    "howToReach": "How to Reach Us",
+    "howToReachDesc": "Budai út 28., Érd — from the M7 motorway, take the Érd exit (Budaörs junction), then 5 minutes on Budai út. Free parking in front of the building.",
+    "openingHoursDetails": "Monday–Friday: by appointment",
+    "openingHoursNote": "Please schedule an appointment by phone or email!"
   },
   "about": {
     "title": "About Us",
