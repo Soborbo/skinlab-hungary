@@ -366,6 +366,67 @@
       "year": "Jahre"
     }
   },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was Sie über Skinlab-Geräte, Schulungen, Garantie und Versand wissen müssen.",
+    "ctaTitle": "Antwort nicht gefunden?",
+    "ctaSubtitle": "Unser Team hilft Ihnen gern bei jeder spezifischen Frage. Rufen Sie uns an oder schreiben Sie eine Nachricht.",
+    "category": {
+      "orderShipping": "Bestellung und Versand",
+      "warrantyService": "Garantie und Service",
+      "training": "Schulungen und Kurse",
+      "products": "Produkte und Technologie",
+      "general": "Allgemein"
+    },
+    "orderShipping": {
+      "q1": "Wie lange dauert die Lieferung des bestellten Geräts?",
+      "a1": "Professionelle kosmetische und ästhetische Geräte werden auf Bestellung gefertigt, daher beträgt die typische Lieferzeit 15–25 Werktage. Bei individuellen Farben oder Konfigurationen kann sie sich sogar verdoppeln. Lagernde Zubehörteile und Verbrauchsmaterialien liefern wir innerhalb von 1–4 Werktagen.",
+      "q2": "Wie kommt das Gerät ins Land?",
+      "a2": "Jedes Gerät wird über den offiziellen DHL-Vertragskanal nach Ungarn gebracht — mit vollständiger Zollabfertigung, echter Dokumentation und durchgehender Sendungsverfolgung. Wir verwenden keine fragwürdigen DDP-Umgehungen — der Prozess ist legal, transparent und sicher.",
+      "q3": "Welche Zahlungsmethoden stehen zur Auswahl?",
+      "a3": "Bei Sonderanfertigungen wird bei Bestellung eine Anzahlung von 50 % fällig, die restlichen 50 % bei Ankunft vor der Übergabe. Bei rabattierten Produkten ist der volle Betrag im Voraus zu zahlen. Akzeptierte Zahlungsarten: SimplePay-Kartenzahlung, Banküberweisung; im Showroom Bargeld oder POS-Terminal.",
+      "q4": "Wo kann ich das Gerät abholen?",
+      "a4": "Die Abholung ist persönlich in unserem Showroom ({showroom}) möglich, wo wir Installation, Schulung und Dokumentation gemeinsam durchgehen — kostenlos, nach Terminvereinbarung. Ist eine persönliche Abholung nicht möglich, übernimmt unser Vertragskurier die Zustellung zu individuell kalkulierten Konditionen."
+    },
+    "warrantyService": {
+      "q1": "Welche Garantie gilt für die Geräte?",
+      "a1": "Neue kosmetische und medizinisch-ästhetische Geräte aus unserem Webshop erhalten 12–24 Monate Garantie (die genaue Dauer steht auf jeder Produktseite). Die Garantie deckt Herstellungsfehler sowie Defekte bei ordnungsgemäßer Nutzung. Wir folgen dem ungarischen Regierungsdekret 151/2003 (IX. 22.) und dem NGM-Dekret 19/2014 (IV. 29.).",
+      "q2": "Wie lange dauert eine Reparatur?",
+      "a2": "Kleinere Defekte sind in 3–7 Werktagen behoben, größere Teiletausche dauern 10–20 Werktage. Die genaue Zeit bestätigen wir nach der Prüfung. Reparaturen führen unsere geschulten hauseigenen Techniker mit Originalteilen aus.",
+      "q3": "Erhalte ich ein Ersatzgerät während der Reparatur?",
+      "a3": "Ja, auf Anfrage stellen wir ein Leihgerät zur Verfügung — innerhalb der Garantie kostenlos, sonst zu vergünstigten Konditionen — damit Ihr Betrieb während des Service weiterläuft.",
+      "q4": "Was soll ich tun, wenn das Gerät einen Fehler anzeigt oder nicht startet?",
+      "a4": "Zuerst ausschalten, vom Netz trennen, abkühlen lassen und neu starten. Bleibt der Fehler bestehen, erreichen Sie uns unter {phone} oder {email} — Ferndiagnose löst die meisten Probleme."
+    },
+    "training": {
+      "q1": "Bekomme ich nach der Schulung ein offizielles Zertifikat?",
+      "a1": "Ja. Alle unsere Schulungen sind im ungarischen Erwachsenenbildungs-Erfassungssystem (FAR) registriert und enden mit einem B-Nummer-Zertifikat. Das Zertifikat belegt Ihre fachliche Kompetenz und die Fähigkeit, die gelernten Technologien sicher und korrekt anzuwenden.",
+      "q2": "Muss ich ein Gerät bei Ihnen kaufen, um an der Schulung teilzunehmen?",
+      "a2": "Nein. Unsere Schulungen sind ohne Kaufverpflichtung zugänglich, und wir setzen die Teilnehmer für einen späteren Gerätekauf unter keinen Druck. Unser Ziel ist echtes, praxistaugliches Wissen — unabhängig davon, ob Sie Geräte bei uns oder anderswo kaufen.",
+      "q3": "Was umfassen die Schulungen?",
+      "a3": "Unsere Schulungen basieren auf medizinischem Hintergrund und klinisch erprobten Technologien. Wir vermitteln fundierte Theorie und Praxis: Parametereinstellungen, Behandlungsprotokolle, Risikofaktoren, rechtliche und Dokumentationsanforderungen sowie Marketing- und Geschäftsmodule.",
+      "q4": "Gehört Schulung zum gekauften Gerät?",
+      "a4": "Ja. Bei Übergabe oder zu einem gesondert vereinbarten Termin bieten wir Theorie-Schulung, Behandlungsprotokolle und ausführliche Bedienungs- und Wartungsanleitungen — damit Sie ab dem ersten Tag sicher arbeiten können."
+    },
+    "products": {
+      "q1": "Benötige ich eine behördliche Genehmigung für den Einsatz eines Diodenlasers?",
+      "a1": "Für kosmetische Anwendung ist keine behördliche Genehmigung erforderlich, fachliche Schulung und Zertifizierung werden jedoch dringend empfohlen. Jedes Gerät verfügt über Sicherheitsdokumentation und CE-Zertifizierung; die Schulung vermittelt Ihnen das nötige Wissen.",
+      "q2": "Für welche Hauttypen sind Diodenlaser geeignet?",
+      "a2": "Mehrwellenlängen-Diodenlaser (z. B. 755/808/1064 nm) sind auf den meisten Hauttypen ganzjährig sicher. Für bestimmte ND:YAG-Behandlungen gibt es saisonale Empfehlungen — diese werden immer individuell nach Fachprotokoll festgelegt.",
+      "q3": "Wie hoch ist die Lebensdauer eines Laserhandstücks?",
+      "a3": "Die meisten professionellen Diodenlaser-Handstücke halten 1–3 Millionen Schuss, ND:YAG-Handstücke 1,2–1,8 Millionen. Die Lebensdauer hängt von Energieeinstellungen und Kühlung ab. Handstücke sind ersetzbar — unser Service-Team installiert Original- oder kompatible Ersatzteile.",
+      "q4": "Wie sicher sind die von Ihnen verkauften Geräte?",
+      "a4": "Jedes Gerät verfügt über CE-Zertifizierung, echte Dokumentation und Sicherheitsprüfungen. Bei entsprechender Schulung und regelmäßiger Wartung (empfohlene Inspektion alle 6–12 Monate) ist der Betrieb sicher und langfristig zuverlässig."
+    },
+    "general": {
+      "q1": "Wer ist Skinlab Hungary?",
+      "a1": "Die Skinlab Beauty Equipment Kft. ist der offizielle Distributor professioneller kosmetischer und medizinisch-ästhetischer Geräte in Ungarn. Wir unterstützen unsere Partner mit echter Dokumentation, eigenem Service, 12–24 Monaten Garantie und FAR-registrierten Schulungen.",
+      "q2": "Wie kann ich Sie erreichen?",
+      "a2": "Sie erreichen uns telefonisch unter {phone} oder per E-Mail an {email}. Unser Kundenservice ist Montag bis Freitag von 10:00–18:00 Uhr und Samstag von 10:00–14:00 Uhr erreichbar. Nachrichten können Sie auch über das Formular auf unserer Website schicken.",
+      "q3": "Kann ich die Geräte persönlich besichtigen?",
+      "a3": "Selbstverständlich — der Showroom ({showroom}) kann nach Terminvereinbarung kostenfrei besucht werden. Dort testen Sie die Geräte live, erhalten von unseren Experten personalisierte Beratung und können sogar die Installation vor Ort besprechen."
+    }
+  },
   "breadcrumb": {
     "home": "Startseite"
   },

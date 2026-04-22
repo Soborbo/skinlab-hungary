@@ -366,6 +366,67 @@
       "year": "godina"
     }
   },
+  "faq": {
+    "title": "Česta pitanja",
+    "subtitle": "Sve što trebate znati o Skinlab uređajima, edukacijama, jamstvu i dostavi.",
+    "ctaTitle": "Niste pronašli odgovor?",
+    "ctaSubtitle": "Naš tim rado pomaže sa svakim pitanjem. Nazovite nas ili pošaljite poruku.",
+    "category": {
+      "orderShipping": "Narudžba i dostava",
+      "warrantyService": "Jamstvo i servis",
+      "training": "Edukacije i tečajevi",
+      "products": "Proizvodi i tehnologija",
+      "general": "Općenito"
+    },
+    "orderShipping": {
+      "q1": "Koliko traje dostava naručenog uređaja?",
+      "a1": "Profesionalni kozmetički i estetski uređaji izrađuju se po narudžbi, pa je uobičajeni rok isporuke 15–25 radnih dana. Kod vlastite boje ili konfiguracije rok se može i udvostručiti. Dodaci i potrošni materijal iz skladišta isporučuju se u roku od 1–4 radnih dana.",
+      "q2": "Kako uređaj dolazi u zemlju?",
+      "a2": "Svaki uređaj ulazi u Mađarsku putem službenog DHL kanala s potpunim carinjenjem, vjerodostojnom dokumentacijom i potpunim praćenjem. Ne koristimo nepouzdana DDP rješenja — proces je legalan, transparentan i siguran.",
+      "q3": "Koji su načini plaćanja?",
+      "a3": "Za uređaje po narudžbi pri narudžbi se plaća 50 % predujma, preostalih 50 % pri dolasku prije primopredaje. Kod akcijskih proizvoda potrebna je cjelokupna uplata unaprijed. Prihvaćeni načini: kartično plaćanje SimplePay, bankovni transfer, u showroomu gotovina ili POS terminal.",
+      "q4": "Gdje mogu preuzeti uređaj?",
+      "a4": "Preuzimanje je moguće osobno u našem showroomu ({showroom}), gdje prolazimo kroz instalaciju, obuku i dokumentaciju — besplatno, uz prethodnu najavu. Ako osobno preuzimanje nije moguće, naš ugovorni kurir organizira dostavu po individualnim uvjetima."
+    },
+    "warrantyService": {
+      "q1": "Koje jamstvo vrijedi za uređaje?",
+      "a1": "Na nove kozmetičke i medicinsko-estetske uređaje iz naše web trgovine dajemo 12–24 mjeseca jamstva (točno trajanje navedeno je na svakoj stranici proizvoda). Jamstvo pokriva tvorničke greške i kvarove tijekom ispravne upotrebe. Postupamo prema mađarskoj Uredbi Vlade 151/2003 (IX. 22.) i Uredbi NGM 19/2014 (IV. 29.).",
+      "q2": "Koliko traje popravak?",
+      "a2": "Manje kvarove rješavamo u 3–7 radnih dana, kod većih zamjena dijelova 10–20 radnih dana. Točno vrijeme potvrđujemo nakon pregleda. Popravke izvode naši interno obučeni tehničari s originalnim dijelovima.",
+      "q3": "Dobivam zamjenski uređaj tijekom popravka?",
+      "a3": "Da, na zahtjev osiguravamo zamjenski uređaj — u jamstvenom roku besplatno, izvan jamstva uz povoljne uvjete — kako bi vaš posao tekao nesmetano tijekom servisa.",
+      "q4": "Što učiniti ako uređaj javi grešku ili se ne uključuje?",
+      "a4": "Prvo ga isključite, iskopčajte iz struje, pustite da se ohladi i ponovno uključite. Ako kvar i dalje postoji, javite nam se na {phone} ili {email} — daljinska dijagnostika rješava većinu problema."
+    },
+    "training": {
+      "q1": "Dobivam li službeni certifikat nakon edukacije?",
+      "a1": "Da. Sve naše edukacije registrirane su u mađarskom sustavu obrazovanja odraslih (FAR) i završavaju certifikatom s B-brojem. Certifikat potvrđuje vaše stručne kompetencije i sposobnost sigurne i ispravne primjene naučenih tehnologija.",
+      "q2": "Moram li kupiti uređaj kod vas da bih sudjelovao u edukaciji?",
+      "a2": "Ne. Naše edukacije dostupne su bez obveze kupnje i ne vršimo pritisak na polaznike za kasniju kupnju uređaja. Naš je cilj prenijeti stvarno, u praksi primjenjivo znanje — bez obzira kupujete li uređaje kod nas ili kod drugog distributera.",
+      "q3": "Što sadrže edukacije?",
+      "a3": "Naše edukacije temelje se na zdravstvenoj pozadini i klinički potvrđenim tehnologijama. Prolazimo dubinsku teoriju i praksu: postavke parametara, protokole tretmana, rizične faktore, pravne i dokumentacijske zahtjeve, te marketinške i poslovne module.",
+      "q4": "Dolazi li edukacija uz kupljeni uređaj?",
+      "a4": "Da. Prilikom primopredaje ili u posebno dogovorenom terminu nudimo teorijsku edukaciju, protokole tretmana i detaljne upute za korištenje i održavanje — kako biste mogli samouvjereno započeti rad."
+    },
+    "products": {
+      "q1": "Trebam li službeno odobrenje za korištenje diodnog lasera?",
+      "a1": "Za kozmetičku upotrebu nije potrebno službeno odobrenje, ali stručna edukacija i certifikacija snažno se preporučuju radi sigurnog rada. Svaki uređaj dolazi sa sigurnosnom dokumentacijom i CE certifikatom, a naše edukacije pružaju sva potrebna znanja.",
+      "q2": "Za koje tipove kože su pogodni diodni laseri?",
+      "a2": "Višesvjetlovni diodni laseri (npr. 755/808/1064 nm) sigurni su za većinu tipova kože tijekom cijele godine. Za neke ND:YAG tretmane mogu postojati sezonske preporuke — određuju se individualno prema stručnom protokolu.",
+      "q3": "Kolika je životna doba laserske glave?",
+      "a3": "Većina profesionalnih diodnih laserskih glava traje 1–3 milijuna pulseva, ND:YAG glave 1,2–1,8 milijuna. Životni vijek ovisi o postavkama energije i hlađenja. Glave se mogu zamijeniti — naš servisni tim ugrađuje originalne ili kompatibilne zamjenske dijelove.",
+      "q4": "Koliko su sigurni uređaji koje prodajete?",
+      "a4": "Svaki uređaj ima CE certifikat, vjerodostojnu dokumentaciju i prošao je sigurnosne testove. Uz odgovarajuću edukaciju i redovito održavanje (preporučen pregled svakih 6–12 mjeseci) rad je siguran i dugoročno pouzdan."
+    },
+    "general": {
+      "q1": "Tko je Skinlab Hungary?",
+      "a1": "Skinlab Beauty Equipment Kft. je službeni distributer profesionalnih kozmetičkih i medicinsko-estetskih uređaja u Mađarskoj. Naše partnere podržavamo vjerodostojnom dokumentacijom, vlastitim servisom, jamstvom 12–24 mjeseca i edukacijama registriranim u FAR sustavu.",
+      "q2": "Kako vas mogu kontaktirati?",
+      "a2": "Nazovite nas na {phone} ili pošaljite e-mail na {email}. Korisnička podrška dostupna je od ponedjeljka do petka 10:00–18:00, subotom 10:00–14:00. Poruku nam možete poslati i putem obrasca na web stranici.",
+      "q3": "Mogu li uređaje vidjeti osobno?",
+      "a3": "Naravno — showroom ({showroom}) možete posjetiti besplatno uz najavu. Uređaje možete isprobati uživo, dobiti personalizirane savjete od naših stručnjaka i dogovoriti instalaciju na licu mjesta."
+    }
+  },
   "breadcrumb": {
     "home": "Pocetna"
   },

@@ -366,6 +366,67 @@
       "year": "years"
     }
   },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Skinlab equipment, training, warranty and shipping.",
+    "ctaTitle": "Didn't find your answer?",
+    "ctaSubtitle": "Our team is happy to help with any specific question. Reach us by phone or message.",
+    "category": {
+      "orderShipping": "Ordering and shipping",
+      "warrantyService": "Warranty and service",
+      "training": "Training and courses",
+      "products": "Products and technology",
+      "general": "General"
+    },
+    "orderShipping": {
+      "q1": "How long does it take for the ordered machine to arrive?",
+      "a1": "Professional cosmetic and aesthetic devices are made to order, so the typical delivery time is 15–25 working days. For custom colours or configurations this can even double. Accessories and supplies kept in stock ship within 1–4 working days.",
+      "q2": "How does the machine arrive in the country?",
+      "a2": "Every machine enters Hungary through DHL's official contracted channel with full customs clearance, authentic documentation and end-to-end tracking. We do not use dubious DDP workarounds — the process is legal, transparent and secure.",
+      "q3": "What payment methods can I choose from?",
+      "a3": "For custom-order machines, 50% of the total price is due as a deposit at the time of order, and the remaining 50% is payable on arrival, before handover. For discounted products the full amount is required upfront. Accepted methods: SimplePay card payment, bank transfer, and in our showroom cash or POS terminal payment.",
+      "q4": "Where can I pick up the machine?",
+      "a4": "Pickup can be arranged in person at our showroom ({showroom}), where we walk you through installation, training and documentation — free of charge, by prior appointment. If in-person pickup isn't possible, our contracted courier service handles delivery with individually quoted rates."
+    },
+    "warrantyService": {
+      "q1": "What warranty comes with the machines?",
+      "a1": "New cosmetic and medical aesthetic devices sold in our webshop come with a 12–24 month warranty (the exact duration is shown on each product page). The warranty covers manufacturing defects and failures during proper use. We follow Hungarian Government Decree 151/2003 (IX. 22.) and NGM Decree 19/2014 (IV. 29.).",
+      "q2": "How long does a repair take?",
+      "a2": "Turnaround for minor faults is 3–7 working days; for larger part replacements it's 10–20 working days. The precise time is confirmed after inspection. Repairs are carried out by our in-house trained technicians using original parts.",
+      "q3": "Do I get a replacement machine during repair?",
+      "a3": "Yes, on request we provide a loaner machine — free of charge under warranty, or at a reduced rate outside of warranty — so your business keeps running during service.",
+      "q4": "What should I do if the machine shows an error or doesn't turn on?",
+      "a4": "First, switch it off, disconnect power, let it cool and restart. If the fault persists, reach us at {phone} or {email} — remote diagnostics solve most issues."
+    },
+    "training": {
+      "q1": "Do I get an official certificate after the training?",
+      "a1": "Yes. All our training is registered in the Hungarian Adult Education Record System (FAR) and concludes with a B-number certificate. The certificate verifies your professional competence and your ability to apply the taught technologies safely and correctly.",
+      "q2": "Do I have to buy a machine from you to attend the training?",
+      "a2": "No. Our training is available without any purchase obligation, and we don't pressure attendees into a later equipment purchase. Our goal is real, practical knowledge — regardless of whether you buy equipment from us or another distributor.",
+      "q3": "What do the training sessions cover?",
+      "a3": "Our training is built on a healthcare background and clinically proven technology. We cover in-depth theory and practice: parameter settings, treatment protocols, risk factors, legal and documentation requirements, plus marketing and business modules.",
+      "q4": "Does training come with the purchased machine?",
+      "a4": "Yes. At handover or at a separately agreed time we provide theoretical training, treatment protocols, and detailed usage and maintenance guides — so you can start working with confidence from day one."
+    },
+    "products": {
+      "q1": "Do I need an official permit to use a diode laser?",
+      "a1": "For cosmetic use no government permit is required, but professional training and certification are strongly recommended for safe operation. Every machine we sell comes with safety documentation and CE certification, and our training equips you with all necessary knowledge.",
+      "q2": "Which skin types are diode lasers suitable for?",
+      "a2": "Multi-wavelength diode lasers (e.g. 755/808/1064 nm) are safe on most skin types year-round. For certain ND:YAG treatments there may be seasonal recommendations — these are always decided individually based on professional protocol.",
+      "q3": "What is the lifespan of a laser handpiece?",
+      "a3": "Most professional diode laser handpieces last 1–3 million shots, ND:YAG handpieces 1.2–1.8 million. Lifespan depends on energy settings and the cooling system. Handpieces are replaceable — our service team installs factory or compatible replacements.",
+      "q4": "How safe are the machines you sell?",
+      "a4": "Every machine has CE certification, authentic documentation and passed safety testing. With proper training and regular maintenance (6–12 month inspection recommended), operation is safe and reliable over the long term."
+    },
+    "general": {
+      "q1": "Who is Skinlab Hungary?",
+      "a1": "Skinlab Beauty Equipment Kft. is the official distributor of professional cosmetic and medical aesthetic equipment in Hungary. We support our partners with authentic documentation, in-house service, 12–24 month warranty and FAR-registered training.",
+      "q2": "How can I get in touch with you?",
+      "a2": "You can reach us by phone at {phone} or by email at {email}. Our customer service is available Monday to Friday 10:00–18:00 and Saturday 10:00–14:00. You can also send us a message through our website form.",
+      "q3": "Can I see the machines in person?",
+      "a3": "Of course — the showroom ({showroom}) is open free of charge by appointment. You can try the devices live, get personalized advice from our experts and even discuss installation on the spot."
+    }
+  },
   "breadcrumb": {
     "home": "Home"
   },

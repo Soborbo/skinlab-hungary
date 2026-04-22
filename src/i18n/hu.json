@@ -366,6 +366,67 @@
       "year": "év"
     }
   },
+  "faq": {
+    "title": "Gyakran ismételt kérdések",
+    "subtitle": "Minden, amit a Skinlab gépeiről, képzéseinkről, garanciáról és szállításról tudni érdemes.",
+    "ctaTitle": "Nem találtad a választ?",
+    "ctaSubtitle": "Munkatársaink örömmel segítenek minden egyéni kérdésben. Keress minket telefonon vagy üzenetben.",
+    "category": {
+      "orderShipping": "Rendelés és szállítás",
+      "warrantyService": "Garancia és szerviz",
+      "training": "Oktatások és képzések",
+      "products": "Termékek és technológia",
+      "general": "Általános"
+    },
+    "orderShipping": {
+      "q1": "Mennyi idő alatt érkezik meg a megrendelt gép?",
+      "a1": "A professzionális kozmetikai és esztétikai gépek rendelésre érkeznek, ezért a szállítási idő általában 15–25 munkanap. Egyedi szín vagy konfiguráció esetén ez akár meg is duplázódhat. A raktáron tartott kellékek és tartozékok 1–4 munkanap alatt szállíthatók.",
+      "q2": "Hogyan érkezik a gép az országba?",
+      "a2": "Minden gép a DHL hivatalos, szerződött partnere által, teljes körű vámkezeléssel, hiteles dokumentációval és nyomon követhető módon lép be Magyarországra. Nem dolgozunk kétes DDP megoldásokkal – a folyamat jogszerű, átlátható és biztonságos.",
+      "q3": "Milyen fizetési módok közül választhatok?",
+      "a3": "Egyedi rendelésű gépeknél a teljes vételár 50%-át előlegként kell megfizetni rendeléskor, a fennmaradó 50%-ot pedig a gép megérkezésekor, átadás előtt. Akciós termékeknél a teljes összeg előre fizetendő. Elfogadott módok: SimplePay bankkártyás fizetés, előre utalás, illetve a showroomban készpénzes vagy POS terminálos fizetés.",
+      "q4": "Hol vehetem át a gépet?",
+      "a4": "A gépek átvétele történhet személyesen a showroomunkban ({showroom}), ahol a beüzemelést, az oktatást és a dokumentációt is részletesen átbeszéljük – ez díjmentes, előzetes időpontegyeztetéssel. Amennyiben a személyes átvétel nem megoldható, saját szerződött futárszolgálatunk vállalja a kiszállítást egyedi árazás alapján."
+    },
+    "warrantyService": {
+      "q1": "Milyen garancia jár a gépekre?",
+      "a1": "A webáruházban forgalmazott új kozmetikai és orvosesztétikai készülékekre 12–24 hónap jótállást biztosítunk (a pontos időtartamot minden termék adatlapján feltüntetjük). A jótállás a gyártási hibákra és a rendeltetésszerű használat melletti meghibásodásokra terjed ki. A 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján járunk el.",
+      "q2": "Mennyi időt vesz igénybe egy javítás?",
+      "a2": "Kisebb hiba esetén a javítás átfutási ideje 3–7 munkanap, komolyabb alkatrészcsere esetén 10–20 munkanap. A pontos időt minden esetben a bevizsgálás után adjuk meg. A javításokat saját, képzett technikusainkból álló műhelyünk végzi, eredeti alkatrészekkel.",
+      "q3": "Kapok cseregépet a javítás idejére?",
+      "a3": "Igen, kérésre cseregépet biztosítunk, amely garanciális ügynél díjmentes, egyéb esetben pedig kedvezményes áron érhető el. Így a vállalkozásod folyamatos működése biztosított a szerviz ideje alatt is.",
+      "q4": "Mit tegyek, ha a gép hibát jelez vagy nem kapcsol be?",
+      "a4": "Első lépésként kapcsold ki a gépet, áramtalanítsd, hagyd lehűlni, majd indítsd újra. Ha a hiba továbbra is fennáll, keress minket a {phone} telefonszámon vagy a {email} címen – a távdiagnosztika sok esetben megoldja a problémát."
+    },
+    "training": {
+      "q1": "Hivatalos tanúsítványt kapok a képzés után?",
+      "a1": "Igen. Minden oktatásunk a Felnőttképzési Adatrögzítési Rendszerben (FAR) jegyzett, és B-számos tanúsítvánnyal zárul. A tanúsítvány igazolja szakmai kompetenciáidat és a tanult technológiák biztonságos, szakszerű alkalmazásának képességét.",
+      "q2": "Kötelező-e nálatok gépet vásárolnom a képzéshez?",
+      "a2": "Nem. Oktatásaink gépvásárlási kötelezettség nélkül elérhetők, és nem helyezünk rád nyomást a későbbi eszközbeszerzést illetően. A célunk valódi, gyakorlatban használható tudást átadni – függetlenül attól, hogy nálunk vagy más forgalmazónál vásárolsz eszközöket.",
+      "q3": "Mit tartalmaznak az oktatások?",
+      "a3": "Képzéseink egészségügyi háttérre épülnek és klinikailag igazolt technológiákra támaszkodnak. Mélyreható elméleti és gyakorlati tudást adunk át: paraméter-beállítások, kezelési protokollok, hibafaktorok, jogi keretek és dokumentációs követelmények, valamint marketing és üzleti modul is a képzés része.",
+      "q4": "Jár-e oktatás a vásárolt géphez?",
+      "a4": "Igen. A gépek átvételekor vagy külön egyeztetett időpontban elméleti oktatást, kezelési protokollokat, valamint részletes használati és karbantartási útmutatót biztosítunk – így magabiztosan, felkészülten kezdheted meg a munkát."
+    },
+    "products": {
+      "q1": "Kell-e hatósági engedély a diódalézer használatához?",
+      "a1": "Kozmetikai felhasználáshoz nem kell hatósági engedély, azonban a biztonságos kezeléshez szakmai képzés és tanúsítvány erősen ajánlott. Minden gépünkhöz biztonsági dokumentáció és CE minősítés jár, a képzéseinken pedig minden szükséges tudást átadunk.",
+      "q2": "Milyen bőrtípusokon használhatók a diódalézerek?",
+      "a2": "A több hullámhosszal rendelkező diódalézerek (pl. 755/808/1064 nm) a legtöbb bőrtípuson biztonságosan használhatók, egész évben. ND:YAG gépeknél bizonyos kezelésekhez szezonális ajánlás lehet érvényben – ezt minden esetben egyénre szabva, szakmai protokoll alapján határozzuk meg.",
+      "q3": "Mennyi a lézerfej élettartama?",
+      "a3": "A legtöbb professzionális diódalézer kezelőfej élettartama 1–3 millió lövés, ND:YAG lézereknél pedig 1,2–1,8 millió lövés. Az élettartam függ az energia-beállításoktól és a használt hűtéstől. A fejek cserélhetők – gyári vagy kompatibilis cserefejet szerviz csapatunk telepít.",
+      "q4": "Mennyire biztonságosak a forgalmazott gépek?",
+      "a4": "Minden gépünk rendelkezik CE minősítéssel, hiteles dokumentációval és biztonsági tesztekkel. Megfelelő szakmai képzés és rendszeres karbantartás (ajánlott 6–12 havonta átvizsgálás) mellett a használat biztonságos és hosszú távon is megbízható."
+    },
+    "general": {
+      "q1": "Ki a Skinlab Hungary?",
+      "a1": "A Skinlab Beauty Equipment Kft. professzionális kozmetikai és orvosesztétikai gépek hivatalos forgalmazója Magyarországon. Hiteles dokumentációval, saját szervizháttérrel, 12–24 hónap garanciával és FAR-jegyzett oktatásokkal támogatjuk partnereink szakmai fejlődését.",
+      "q2": "Hogyan vehetem fel veletek a kapcsolatot?",
+      "a2": "Telefonon a {phone} számon, e-mailben a {email} címen érsz el bennünket. Ügyfélszolgálatunk hétfőtől péntekig 10:00–18:00, szombaton 10:00–14:00 között elérhető. Weboldalunkon keresztül is üzenhetsz az üzenetküldő űrlapon.",
+      "q3": "Megnézhetem a gépeket személyesen?",
+      "a3": "Természetesen – a showroom ({showroom}) előzetes időpontfoglalással díjmentesen látogatható. Ott élőben kipróbálhatod a készülékeket, szakértőinktől személyre szabott tanácsot kapsz, és akár a beüzemelést is megbeszélhetjük."
+    }
+  },
   "breadcrumb": {
     "home": "Főoldal"
   },

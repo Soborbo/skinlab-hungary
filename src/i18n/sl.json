@@ -366,6 +366,67 @@
       "year": "let"
     }
   },
+  "faq": {
+    "title": "Pogosto zastavljena vprašanja",
+    "subtitle": "Vse, kar morate vedeti o Skinlab napravah, izobraževanjih, garanciji in dostavi.",
+    "ctaTitle": "Niste našli odgovora?",
+    "ctaSubtitle": "Naša ekipa z veseljem pomaga pri kakršnem koli vprašanju. Pokličite nas ali pošljite sporočilo.",
+    "category": {
+      "orderShipping": "Naročilo in dostava",
+      "warrantyService": "Garancija in servis",
+      "training": "Izobraževanja in tečaji",
+      "products": "Izdelki in tehnologija",
+      "general": "Splošno"
+    },
+    "orderShipping": {
+      "q1": "Koliko časa traja dostava naročene naprave?",
+      "a1": "Profesionalne kozmetične in estetske naprave se izdelujejo po naročilu, zato je običajen rok dostave 15–25 delovnih dni. Pri prilagojeni barvi ali konfiguraciji se lahko podvoji. Dodatki in potrošni material iz skladišča dostavimo v 1–4 delovnih dneh.",
+      "q2": "Kako naprava prispe v državo?",
+      "a2": "Vsaka naprava vstopi na Madžarsko preko uradnega pogodbenega kanala DHL s popolno carinsko obdelavo, verodostojno dokumentacijo in celovitim sledenjem. Ne uporabljamo dvomljivih DDP rešitev — postopek je zakonit, pregleden in varen.",
+      "q3": "Kateri so načini plačila?",
+      "a3": "Za naprave po naročilu se ob naročilu plača 50 % predplačila, preostalih 50 % ob dostavi pred predajo. Pri akcijskih izdelkih je potrebno plačilo celotnega zneska vnaprej. Sprejeti načini: kartično plačilo SimplePay, bančno nakazilo, v showroomu gotovina ali POS terminal.",
+      "q4": "Kje lahko prevzamem napravo?",
+      "a4": "Prevzem je mogoč osebno v našem showroomu ({showroom}), kjer skupaj pregledamo namestitev, usposabljanje in dokumentacijo — brezplačno, po predhodnem dogovoru. Če oseben prevzem ni mogoč, naš pogodbeni kurir organizira dostavo po individualnih pogojih."
+    },
+    "warrantyService": {
+      "q1": "Kakšna garancija velja za naprave?",
+      "a1": "Za nove kozmetične in medicinsko-estetske naprave iz naše spletne trgovine velja 12–24 mesecev garancije (natančna doba je navedena na strani vsakega izdelka). Garancija pokriva tovarniške napake in okvare pri pravilni uporabi. Ravnamo se po madžarski Vladni uredbi 151/2003 (IX. 22.) in Uredbi NGM 19/2014 (IV. 29.).",
+      "q2": "Kako dolgo traja popravilo?",
+      "a2": "Manjše napake odpravimo v 3–7 delovnih dneh, pri večji zamenjavi delov 10–20 delovnih dni. Natančen čas potrdimo po pregledu. Popravila izvedejo naši interno usposobljeni tehniki z originalnimi deli.",
+      "q3": "Ali dobim nadomestno napravo med popravilom?",
+      "a3": "Da, na zahtevo zagotovimo nadomestno napravo — v garancijskem roku brezplačno, izven garancije po ugodnih pogojih — da vaše poslovanje med servisom poteka neprekinjeno.",
+      "q4": "Kaj naj storim, če naprava javi napako ali se ne vklopi?",
+      "a4": "Najprej jo izklopite, izključite iz omrežja, pustite ohladiti in ponovno vklopite. Če napaka ostaja, nas pokličite na {phone} ali nam pišite na {email} — oddaljena diagnostika reši večino težav."
+    },
+    "training": {
+      "q1": "Ali po izobraževanju prejmem uradno potrdilo?",
+      "a1": "Da. Vsa naša izobraževanja so registrirana v madžarskem sistemu izobraževanja odraslih (FAR) in se zaključijo s potrdilom s B-številko. Potrdilo potrjuje vaše strokovne kompetence in sposobnost varne in pravilne uporabe naučenih tehnologij.",
+      "q2": "Ali moram pri vas kupiti napravo, da se udeležim izobraževanja?",
+      "a2": "Ne. Naša izobraževanja so na voljo brez obveznosti nakupa in na udeležence ne izvajamo pritiska za kasnejši nakup opreme. Naš cilj je posredovati resnično, praktično uporabno znanje — ne glede na to, ali opremo kupite pri nas ali pri drugem distributerju.",
+      "q3": "Kaj obsegajo izobraževanja?",
+      "a3": "Naša izobraževanja temeljijo na zdravstvenem ozadju in klinično preverjenih tehnologijah. Pokrivamo poglobljeno teorijo in prakso: nastavitve parametrov, protokole obravnav, dejavnike tveganja, pravne in dokumentacijske zahteve ter marketinške in poslovne module.",
+      "q4": "Ali je izobraževanje vključeno v kupljeno napravo?",
+      "a4": "Da. Ob prevzemu ali v posebej dogovorjenem roku zagotovimo teoretično izobraževanje, protokole obravnav in podroben priročnik za uporabo in vzdrževanje — da lahko samozavestno začnete z delom."
+    },
+    "products": {
+      "q1": "Ali potrebujem uradno dovoljenje za uporabo diodnega laserja?",
+      "a1": "Za kozmetično uporabo uradno dovoljenje ni potrebno, vendar sta strokovno izobraževanje in certifikacija močno priporočena za varno uporabo. Vsaka naprava je opremljena z varnostno dokumentacijo in CE certifikatom, izobraževanja pa vam posredujejo vsa potrebna znanja.",
+      "q2": "Za katere tipe kože so primerni diodni laserji?",
+      "a2": "Večvalovni diodni laserji (npr. 755/808/1064 nm) so varni za večino tipov kože skozi vse leto. Pri nekaterih ND:YAG obravnavah se lahko pojavijo sezonska priporočila — določijo se individualno po strokovnem protokolu.",
+      "q3": "Kakšna je življenjska doba laserske glave?",
+      "a3": "Večina profesionalnih diodnih laserskih glav vzdrži 1–3 milijonov strelov, ND:YAG glave 1,2–1,8 milijona. Življenjska doba je odvisna od nastavitev energije in hlajenja. Glave je mogoče zamenjati — naša servisna ekipa vgradi originalne ali združljive nadomestne dele.",
+      "q4": "Kako varne so naprave, ki jih prodajate?",
+      "a4": "Vsaka naprava ima CE certifikat, verodostojno dokumentacijo in opravljene varnostne teste. S primernim izobraževanjem in rednim vzdrževanjem (priporočen pregled vsakih 6–12 mesecev) je delovanje varno in dolgoročno zanesljivo."
+    },
+    "general": {
+      "q1": "Kdo je Skinlab Hungary?",
+      "a1": "Skinlab Beauty Equipment Kft. je uradni distributer profesionalnih kozmetičnih in medicinsko-estetskih naprav na Madžarskem. Naše partnerje podpiramo z verodostojno dokumentacijo, lastnim servisom, garancijo 12–24 mesecev in izobraževanji, registriranimi v sistemu FAR.",
+      "q2": "Kako lahko stopim v stik z vami?",
+      "a2": "Pokličite nas na {phone} ali pišite na {email}. Podpora strankam je na voljo od ponedeljka do petka 10:00–18:00 in v soboto 10:00–14:00. Sporočilo nam lahko pošljete tudi preko obrazca na spletni strani.",
+      "q3": "Ali lahko naprave vidim osebno?",
+      "a3": "Seveda — showroom ({showroom}) lahko obiščete brezplačno po dogovoru. Naprave lahko v živo preizkusite, od naših strokovnjakov pridobite prilagojene nasvete in se dogovorite tudi o namestitvi."
+    }
+  },
   "breadcrumb": {
     "home": "Domov"
   },

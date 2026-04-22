@@ -342,6 +342,67 @@
       "year": "rokov"
     }
   },
+  "faq": {
+    "title": "Často kladené otázky",
+    "subtitle": "Všetko, čo potrebujete vedieť o zariadeniach, školeniach, záruke a doručení Skinlab.",
+    "ctaTitle": "Nenašli ste odpoveď?",
+    "ctaSubtitle": "Náš tím vám rád pomôže s akoukoľvek konkrétnou otázkou. Napíšte nám alebo zavolajte.",
+    "category": {
+      "orderShipping": "Objednávka a doručenie",
+      "warrantyService": "Záruka a servis",
+      "training": "Školenia a kurzy",
+      "products": "Produkty a technológie",
+      "general": "Všeobecné"
+    },
+    "orderShipping": {
+      "q1": "Ako dlho trvá doručenie objednaného zariadenia?",
+      "a1": "Profesionálne kozmetické a estetické zariadenia sa vyrábajú na zákazku, preto typická dodacia lehota je 15–25 pracovných dní. V prípade vlastnej farby alebo konfigurácie sa môže až zdvojnásobiť. Príslušenstvo a spotrebný materiál zo skladu doručíme do 1–4 pracovných dní.",
+      "q2": "Ako sa zariadenie dostane do krajiny?",
+      "a2": "Všetky zariadenia prichádzajú prostredníctvom oficiálneho zmluvného kanála DHL s kompletným colným odbavením, hodnovernou dokumentáciou a úplným sledovaním. Nepoužívame nespoľahlivé DDP riešenia — proces je legálny, transparentný a bezpečný.",
+      "q3": "Aké spôsoby platby si môžem zvoliť?",
+      "a3": "Pri zariadeniach na objednávku sa pri objednávke platí 50 % zálohy, zvyšných 50 % pri dodaní pred odovzdaním. Pri akciových produktoch je potrebná plná platba vopred. Akceptované formy: platba kartou SimplePay, bankový prevod, v showroome hotovosť alebo platobný terminál.",
+      "q4": "Kde si môžem zariadenie prevziať?",
+      "a4": "Prevzatie je možné osobne v našom showroome ({showroom}), kde vás podrobne prevedieme inštaláciou, školením a dokumentáciou — bezplatne, po predchádzajúcom dohodnutí termínu. Ak osobné prevzatie nie je možné, naša zmluvná kuriérska služba zabezpečí doručenie za individuálnu cenu."
+    },
+    "warrantyService": {
+      "q1": "Aká záruka sa vzťahuje na zariadenia?",
+      "a1": "Na nové kozmetické a medicínsko-estetické zariadenia v našom e-shope poskytujeme záruku 12–24 mesiacov (presnú dĺžku uvádzame na karte každého produktu). Záruka sa vzťahuje na výrobné chyby a poruchy pri bežnom používaní. Postupujeme podľa maďarského vládneho nariadenia 151/2003 (IX. 22.) a nariadenia NGM 19/2014 (IV. 29.).",
+      "q2": "Ako dlho trvá oprava?",
+      "a2": "Drobné poruchy opravíme za 3–7 pracovných dní, pri väčších výmenách dielov 10–20 pracovných dní. Presný čas určíme po diagnostike. Opravy vykonávajú naši interní školení technici s originálnymi dielmi.",
+      "q3": "Dostanem náhradné zariadenie počas opravy?",
+      "a3": "Áno, na vyžiadanie poskytujeme náhradné zariadenie — v rámci záruky bezplatne, mimo záruky za zvýhodnenú cenu — aby vaše podnikanie počas servisu bežalo ďalej.",
+      "q4": "Čo mám robiť, ak zariadenie hlási chybu alebo sa nezapne?",
+      "a4": "Najprv ho vypnite, odpojte od napájania, nechajte vychladnúť a znovu zapnite. Ak chyba pretrváva, kontaktujte nás na {phone} alebo {email} — diaľková diagnostika rieši väčšinu problémov."
+    },
+    "training": {
+      "q1": "Dostanem po školení oficiálny certifikát?",
+      "a1": "Áno. Všetky naše školenia sú registrované v maďarskom systéme FAR (Felnőttképzési Adatrögzítési Rendszer) a končia certifikátom s B-číslom. Certifikát potvrdzuje vaše odborné kompetencie a schopnosť bezpečne a správne používať naučené technológie.",
+      "q2": "Musím u vás kúpiť zariadenie, aby som sa mohol zúčastniť školenia?",
+      "a2": "Nie. Naše školenia sú dostupné bez povinnosti kúpy a netlačíme na účastníkov, aby si neskôr kúpili zariadenie. Naším cieľom je odovzdať skutočné, prakticky využiteľné znalosti — nezáleží na tom, či si kúpite u nás alebo u iného dodávateľa.",
+      "q3": "Čo všetko zahŕňa školenie?",
+      "a3": "Naše školenia stoja na zdravotníckom základe a klinicky overených technológiách. Preberáme podrobnú teóriu aj prax: nastavenie parametrov, ošetrovacie protokoly, rizikové faktory, právne a dokumentačné požiadavky, a tiež marketingové a obchodné moduly.",
+      "q4": "Je ku kúpenému zariadeniu zahrnuté školenie?",
+      "a4": "Áno. Pri prevzatí alebo v osobitne dohodnutom termíne poskytujeme teoretické školenie, ošetrovacie protokoly a podrobný návod na používanie a údržbu — aby ste mohli s istotou začať pracovať."
+    },
+    "products": {
+      "q1": "Potrebujem úradné povolenie na používanie diódového lasera?",
+      "a1": "Na kozmetické použitie sa úradné povolenie nevyžaduje, avšak odborné školenie a certifikácia sú silno odporúčané pre bezpečné používanie. Každé naše zariadenie má bezpečnostnú dokumentáciu a CE certifikáciu, školenie vás vyzbrojí všetkými potrebnými znalosťami.",
+      "q2": "Pre aké typy pleti sú diódové lasery vhodné?",
+      "a2": "Viacvlnové diódové lasery (napr. 755/808/1064 nm) sú bezpečné na väčšine typov pleti počas celého roka. Pri niektorých ošetreniach ND:YAG môžu existovať sezónne odporúčania — určujeme ich individuálne podľa odborných protokolov.",
+      "q3": "Aká je životnosť laserovej hlavice?",
+      "a3": "Väčšina profesionálnych diódových laserových hlavíc vydrží 1–3 milióny výstrelov, hlavice ND:YAG 1,2–1,8 milióna. Životnosť závisí od nastavení energie a chladenia. Hlavice sú vymeniteľné — náš servisný tím inštaluje originálne alebo kompatibilné náhrady.",
+      "q4": "Aké bezpečné sú zariadenia, ktoré predávate?",
+      "a4": "Každé zariadenie má CE certifikáciu, hodnovernú dokumentáciu a prešlo bezpečnostným testovaním. Pri správnom školení a pravidelnej údržbe (odporúčaná kontrola každých 6–12 mesiacov) je používanie bezpečné a dlhodobo spoľahlivé."
+    },
+    "general": {
+      "q1": "Kto je Skinlab Hungary?",
+      "a1": "Skinlab Beauty Equipment Kft. je oficiálny distribútor profesionálnych kozmetických a medicínsko-estetických zariadení v Maďarsku. Partnerov podporujeme hodnovernou dokumentáciou, vlastným servisom, zárukou 12–24 mesiacov a školeniami registrovanými v systéme FAR.",
+      "q2": "Ako sa s vami môžem spojiť?",
+      "a2": "Zavolajte nám na {phone} alebo nám napíšte na {email}. Naša zákaznícka linka je dostupná od pondelka do piatka od 10:00 do 18:00 a v sobotu od 10:00 do 14:00. Odkaz môžete poslať aj cez formulár na našej stránke.",
+      "q3": "Môžem si zariadenia pozrieť osobne?",
+      "a3": "Samozrejme — showroom ({showroom}) je otvorený bezplatne po dohovorení termínu. Môžete si zariadenia vyskúšať naživo, získať personalizované rady od našich expertov a prebrať aj inštaláciu na mieste."
+    }
+  },
   "breadcrumb": {
     "home": "Domov"
   },

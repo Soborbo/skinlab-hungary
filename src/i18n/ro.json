@@ -366,6 +366,67 @@
       "year": "ani"
     }
   },
+  "faq": {
+    "title": "Întrebări frecvente",
+    "subtitle": "Tot ce trebuie să știi despre echipamentele Skinlab, cursuri, garanție și livrare.",
+    "ctaTitle": "Nu ai găsit răspunsul?",
+    "ctaSubtitle": "Echipa noastră este bucuroasă să te ajute cu orice întrebare specifică. Ne poți contacta prin telefon sau mesaj.",
+    "category": {
+      "orderShipping": "Comandă și livrare",
+      "warrantyService": "Garanție și service",
+      "training": "Cursuri și formare",
+      "products": "Produse și tehnologie",
+      "general": "Generale"
+    },
+    "orderShipping": {
+      "q1": "Cât durează livrarea aparatului comandat?",
+      "a1": "Echipamentele cosmetice și estetice profesionale se fabrică la comandă, așadar termenul de livrare obișnuit este de 15–25 zile lucrătoare. Pentru culori sau configurații personalizate, acesta se poate chiar dubla. Accesoriile și consumabilele din stoc se livrează în 1–4 zile lucrătoare.",
+      "q2": "Cum ajunge aparatul în țară?",
+      "a2": "Fiecare aparat intră în Ungaria prin partenerul oficial contractat DHL, cu vămuire completă, documentație autentică și urmărire end-to-end. Nu folosim soluții DDP dubioase — procesul este legal, transparent și sigur.",
+      "q3": "Ce metode de plată pot alege?",
+      "a3": "La echipamentele făcute la comandă, 50% din preț se achită ca avans la comandă, iar restul de 50% la sosire, înainte de predare. La produsele promoționale, se plătește integral în avans. Metode acceptate: plată cu cardul SimplePay, transfer bancar, iar în showroom numerar sau terminal POS.",
+      "q4": "De unde pot ridica aparatul?",
+      "a4": "Ridicarea se poate face personal la showroom-ul nostru ({showroom}), unde trecem împreună prin instalare, instruire și documentație — gratuit, cu programare prealabilă. Dacă ridicarea în persoană nu este posibilă, curierul nostru contractat gestionează livrarea cu tarife individualizate."
+    },
+    "warrantyService": {
+      "q1": "Ce garanție oferiți pentru aparate?",
+      "a1": "Echipamentele cosmetice și medical-estetice noi vândute în magazinul nostru beneficiază de 12–24 luni de garanție (durata exactă este afișată pe fișa fiecărui produs). Garanția acoperă defectele de fabricație și defectele apărute în timpul utilizării corespunzătoare. Respectăm Decretul Guvernului Maghiar 151/2003 (IX. 22.) și Decretul NGM 19/2014 (IV. 29.).",
+      "q2": "Cât durează o reparație?",
+      "a2": "Timpul de rezolvare pentru defecte minore este 3–7 zile lucrătoare, iar pentru schimbarea unor piese mai mari, 10–20 zile lucrătoare. Timpul exact este confirmat după inspecție. Reparațiile sunt efectuate de tehnicienii noștri interni instruiți, cu piese originale.",
+      "q3": "Primesc aparat de schimb pe perioada reparației?",
+      "a3": "Da, la cerere punem la dispoziție un aparat de schimb — gratuit în perioada de garanție sau la tarif redus în afara garanției — astfel încât activitatea să continue fără întreruperi.",
+      "q4": "Ce fac dacă aparatul afișează o eroare sau nu pornește?",
+      "a4": "Mai întâi oprește-l, scoate-l din priză, lasă-l să se răcească și repornește. Dacă problema persistă, contactează-ne la {phone} sau {email} — diagnosticarea la distanță rezolvă majoritatea situațiilor."
+    },
+    "training": {
+      "q1": "Primesc un certificat oficial după instruire?",
+      "a1": "Da. Toate cursurile noastre sunt înregistrate în Sistemul Maghiar de Evidență a Formării Adulților (FAR) și se încheie cu un certificat cu număr B. Certificatul atestă competențele tale profesionale și capacitatea de a aplica tehnologiile învățate în siguranță și corect.",
+      "q2": "Trebuie să cumpăr un aparat de la voi pentru a participa la curs?",
+      "a2": "Nu. Cursurile noastre sunt disponibile fără obligația de cumpărare și nu punem presiune pe participanți pentru achiziția ulterioară de echipamente. Scopul nostru este să transmitem cunoștințe reale, aplicabile — indiferent dacă iei echipamente de la noi sau de la alt distribuitor.",
+      "q3": "Ce conțin cursurile?",
+      "a3": "Cursurile noastre se bazează pe un fundament medical și tehnologii dovedite clinic. Parcurgem teorie și practică aprofundată: setări de parametri, protocoale de tratament, factori de risc, cerințe legale și de documentare, precum și module de marketing și afaceri.",
+      "q4": "Cursul este inclus în aparatul cumpărat?",
+      "a4": "Da. La predare sau la un termen stabilit separat oferim instruire teoretică, protocoale de tratament și ghiduri detaliate de utilizare și întreținere — astfel încât să poți începe cu încredere încă din prima zi."
+    },
+    "products": {
+      "q1": "Am nevoie de autorizație oficială pentru a folosi laser diodă?",
+      "a1": "Pentru utilizare cosmetică nu este necesară autorizație oficială, însă instruirea profesională și certificarea sunt recomandate cu tărie pentru operare în siguranță. Fiecare aparat vine cu documentație de siguranță și certificare CE, iar cursurile noastre îți oferă toate cunoștințele necesare.",
+      "q2": "Pentru ce tipuri de piele sunt potrivite laserele diodă?",
+      "a2": "Laserele diodă multi-lungime de undă (ex. 755/808/1064 nm) sunt sigure pe majoritatea tipurilor de piele, tot anul. Pentru anumite tratamente ND:YAG pot exista recomandări sezoniere — acestea se stabilesc individual, conform protocolului profesional.",
+      "q3": "Care este durata de viață a capului laser?",
+      "a3": "Majoritatea capetelor de laser diodă profesionale rezistă 1–3 milioane de pulsuri, iar capetele ND:YAG 1,2–1,8 milioane. Durata depinde de setările de energie și de răcirea folosită. Capetele sunt înlocuibile — echipa noastră de service instalează piese originale sau compatibile.",
+      "q4": "Cât de sigure sunt aparatele pe care le vindeți?",
+      "a4": "Fiecare aparat are certificare CE, documentație autentică și teste de siguranță. Cu instruirea potrivită și întreținere periodică (inspecție recomandată la fiecare 6–12 luni), utilizarea este sigură și fiabilă pe termen lung."
+    },
+    "general": {
+      "q1": "Cine este Skinlab Hungary?",
+      "a1": "Skinlab Beauty Equipment Kft. este distribuitorul oficial al echipamentelor cosmetice și medical-estetice profesionale în Ungaria. Ne sprijinim partenerii cu documentație autentică, service propriu, garanție de 12–24 luni și cursuri înregistrate FAR.",
+      "q2": "Cum vă pot contacta?",
+      "a2": "Ne poți suna la {phone} sau trimite un e-mail la {email}. Echipa noastră de asistență este disponibilă luni–vineri, 10:00–18:00, și sâmbătă 10:00–14:00. Ne poți scrie și prin formularul de pe site.",
+      "q3": "Pot vedea aparatele personal?",
+      "a3": "Desigur — showroom-ul ({showroom}) poate fi vizitat gratuit, cu programare. Poți testa aparatele live, primi recomandări personalizate de la experții noștri și chiar discuta detaliile de instalare."
+    }
+  },
   "breadcrumb": {
     "home": "Acasa"
   },
