@@ -10,6 +10,8 @@ import Testimonials from '../sections/Testimonials.astro';
 import HowItWorks from '../sections/HowItWorks.astro';
 import FinalCTA from '../sections/FinalCTA.astro';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { config } from '../../config/siteConfig';
+import { homepageSchema } from '../../config/schema';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 ---
@@ -17,6 +19,8 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 <BaseLayout
   title={t(locale, 'home.title')}
   description={t(locale, 'home.description')}
+  preloadImage="/hero/hero-hydrascan-pro-hidrodermabrazios-gep.avif"
+  schema={homepageSchema(config)}
 >
   <div id="main-content">
     <HeroCarousel />

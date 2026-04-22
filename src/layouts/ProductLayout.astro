@@ -207,6 +207,14 @@ const productSchema = product.price ? {
   image={ogImage}
   schema={productSchema}
 >
+  <!-- E-commerce: view_item data for tracking -->
+  <div id="track-view-item"
+    data-item-id={product.sku}
+    data-item-name={displayName}
+    data-item-category={product.categorySlug}
+    data-item-price={String(product.salePrice || product.price || 0)}
+    style="display:none"
+  ></div>
   <!-- Schema.org Structured Data -->
   <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
   {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
@@ -399,4 +407,23 @@ const productSchema = product.price ? {
     />
 
   </div>
+
+  <script>
+    import { trackViewItem } from '@/lib/tracking';
+
+    function fireViewItem() {
+      const el = document.getElementById('track-view-item');
+      if (!el) return;
+      trackViewItem({
+        item_id: el.dataset.itemId || '',
+        item_name: el.dataset.itemName || '',
+        item_category: el.dataset.itemCategory || '',
+        price: parseFloat(el.dataset.itemPrice || '0'),
+        currency: 'HUF',
+      });
+    }
+
+    document.addEventListener('astro:page-load', fireViewItem);
+    if (document.readyState !== 'loading') fireViewItem();
+  </script>
 </BaseLayout>

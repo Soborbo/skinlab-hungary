@@ -1,0 +1,23 @@
+# Cloudflare Pages cache headers
+
+# Hashed assets (JS, CSS built by Astro) — immutable
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted fonts — immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pre-processed images
+/images/*
+  Cache-Control: public, max-age=2592000
+/hero/*
+  Cache-Control: public, max-age=2592000
+
+# HTML pages — always revalidate
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()

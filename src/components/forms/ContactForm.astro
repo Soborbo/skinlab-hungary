@@ -93,10 +93,11 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-name`}
         required
         autocomplete="name"
+        aria-describedby={`${formId}-name-error`}
         placeholder={t(locale, 'form.namePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="name"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="name" id={`${formId}-name-error`}></p>
     </div>
 
     <!-- Email -->
@@ -110,10 +111,11 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-email`}
         required
         autocomplete="email"
+        aria-describedby={`${formId}-email-error`}
         placeholder={t(locale, 'form.emailPlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="email"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="email" id={`${formId}-email-error`}></p>
     </div>
 
     <!-- Phone -->
@@ -127,10 +129,11 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-phone`}
         required
         autocomplete="tel"
+        aria-describedby={`${formId}-phone-error`}
         placeholder={t(locale, 'form.phonePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="phone"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="phone" id={`${formId}-phone-error`}></p>
     </div>
 
     <!-- Product selection -->
@@ -143,6 +146,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           name="product"
           id={`${formId}-product`}
           required
+          aria-describedby={`${formId}-product-error`}
           class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 appearance-none cursor-pointer"
         >
           <option value="" disabled selected={!product}>{t(locale, 'form.productPlaceholder')}</option>
@@ -158,7 +162,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           </svg>
         </div>
       </div>
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="product"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="product" id={`${formId}-product-error`}></p>
     </div>
 
     <!-- Message (optional) -->
@@ -171,10 +175,11 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         id={`${formId}-message`}
         rows={compact ? 3 : 4}
         maxlength="2000"
+        aria-describedby={`${formId}-message-error`}
         placeholder={t(locale, 'form.messagePlaceholder')}
         class="block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-y"
       ></textarea>
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="message"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="message" id={`${formId}-message-error`}></p>
     </div>
 
     <!-- Turnstile CAPTCHA -->
@@ -210,7 +215,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           <span class="text-red-500">*</span>
         </span>
       </label>
-      <p class="mt-1 text-sm text-red-600 hidden" data-error="gdprConsent"></p>
+      <p class="mt-1 text-sm text-red-600 hidden" data-error="gdprConsent" id={`${formId}-gdpr-error`}></p>
     </div>
 
     <!-- Submit button -->

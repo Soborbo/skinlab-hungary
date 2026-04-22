@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
-import { CONTACT } from '../../lib/constants';
+import { SITE, CONTACT } from '../../lib/constants';
+import { config } from '../../config/siteConfig';
+import { articleSchema } from '../../config/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -31,29 +33,16 @@ const formatDate = (date: Date) => {
   });
 };
 
-// BlogPosting schema
-const blogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: post.data.title,
+// BlogPosting schema — entity graph aligned
+const pageUrl = `${SITE.url}/blog/${post.id}`;
+const blogSchema = articleSchema(config, pageUrl, {
+  title: post.data.title,
   description: post.data.description,
-  author: {
-    '@type': 'Organization',
-    name: post.data.author || 'Skinlab',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Skinlab Beauty Equipment Kft.',
-    url: 'https://skinlabhungary.hu',
-  },
+  image: post.data.image,
   datePublished: post.data.publishedAt.toISOString(),
   dateModified: (post.data.updatedAt || post.data.publishedAt).toISOString(),
-  image: post.data.image,
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://skinlabhungary.hu/blog/${post.id}`,
-  },
-};
+  author: post.data.author,
+});
 ---
 
 <BaseLayout

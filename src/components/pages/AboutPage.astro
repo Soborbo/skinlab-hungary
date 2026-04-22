@@ -1,18 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { COMPANY, FOUNDERS, CONTACT, LOCATIONS, STATS } from '../../lib/constants';
-import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { SITE, COMPANY, FOUNDERS, CONTACT, LOCATIONS, STATS } from '../../lib/constants';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+import { config } from '../../config/siteConfig';
+import { aboutPageSchema } from '../../config/schema';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized contact link
 const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
+
+// Page URL for schema
+const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 ---
 
 <BaseLayout
   title={t(locale, 'about.title')}
   description={t(locale, 'about.subtitle')}
+  schema={aboutPageSchema(config, pageUrl)}
 >
   <div id="main-content">
 

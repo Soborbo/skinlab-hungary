@@ -3,6 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import { SITE, CONTACT, CATEGORY_COLORS } from '../lib/constants';
 import OptimizedPicture from '../components/images/OptimizedPicture.astro';
 import { hasImage, getImageAlt, getOgImagePath } from '@/lib/resolve-image';
+import { config } from '../config/siteConfig';
+import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb } from '../config/schema';
 
 interface ComparisonProduct {
   name: string;
@@ -84,14 +86,17 @@ const benefitIcons: Record<string, string> = {
   'trophy': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />`,
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Főoldal", "item": SITE.url },
-    { "@type": "ListItem", "position": 2, "name": category.nameShort }
-  ]
-};
+// Schema: CollectionPage + Breadcrumb entity graph
+const pageUrl = `${SITE.url}/${category.slug}`;
+const productUrls = products.map((p) => `${SITE.url}/${category.slug}/${p.data.slug || p.id}`);
+const categorySchema = collectionPageSchema(config, pageUrl, category.name, productUrls);
+// Push breadcrumb into the @graph
+categorySchema['@graph'].push(
+  buildBreadcrumb(pageUrl, [
+    { name: 'Főoldal', url: SITE.url },
+    { name: category.nameShort },
+  ])
+);
 
 // Resolve category color from the centralized palette
 const catColor = (category.color && category.color in CATEGORY_COLORS)
@@ -109,7 +114,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
   title={category.name}
   description={category.description}
   image={ogImage}
-  schema={breadcrumbSchema}
+  schema={categorySchema}
 >
   <div id="main-content">
 
@@ -482,4 +487,51 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
     </section>
 
   </div>
+
+  <!-- E-commerce: view_item_list data -->
+  {products.length > 0 && (
+    <script
+      is:inline
+      define:vars={{
+        trackListId: category.slug,
+        trackListName: category.nameShort,
+        trackItems: products.map((p: any, i: number) => ({
+          item_id: p.data.sku || p.id,
+          item_name: p.data.name,
+          item_category: category.slug,
+          price: p.data.salePrice || p.data.price || 0,
+          index: i,
+        })),
+      }}
+    >
+      window.__trackCategoryData = { listId: trackListId, listName: trackListName, items: trackItems };
+    </script>
+  )}
+
+  <script>
+    import { trackViewItemList, trackSelectItem } from '@/lib/tracking';
+
+    function fireCategoryTracking() {
+      const data = (window as any).__trackCategoryData;
+      if (!data) return;
+
+      trackViewItemList(data.listId, data.listName, data.items);
+
+      // Track product card clicks
+      document.querySelectorAll<HTMLAnchorElement>('[data-tracked-form] a, .grid a[href*="/"]').forEach((link, i) => {
+        if (link.dataset.trackBound) return;
+        link.dataset.trackBound = '1';
+        const item = data.items[i];
+        if (!item) return;
+        link.addEventListener('click', () => {
+          trackSelectItem(data.listId, data.listName, item);
+        });
+      });
+
+      delete (window as any).__trackCategoryData;
+    }
+
+    document.addEventListener('astro:page-load', fireCategoryTracking);
+    if (document.readyState !== 'loading') fireCategoryTracking();
+  </script>
 </BaseLayout>
