@@ -8,6 +8,7 @@ const siteUrl = isDev ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
 
 export default defineConfig({
   site: siteUrl,
+  trailingSlash: 'never',
   integrations: [
     sitemap({
       i18n: {

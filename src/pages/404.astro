@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/i18n/ui';
+import { CATEGORIES } from '@/lib/constants';
+
+const locale = 'hu';
+const featuredCategories = CATEGORIES.filter((c) => c.featured && !(c as { draft?: boolean }).draft).slice(0, 6);
+---
+
+<BaseLayout
+  title={t(locale, 'errors.404')}
+  description={t(locale, 'errors.404desc')}
+  noIndex={true}
+>
+  <section class="min-h-[60vh] flex items-center py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold text-primary-600 tracking-wider uppercase mb-4">404</p>
+      <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {t(locale, 'errors.404')}
+      </h1>
+      <p class="text-lg text-gray-600 mb-8">
+        {t(locale, 'errors.404desc')}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
+        >
+          {t(locale, 'errors.backHome')}
+        </a>
+        <a
+          href="/termekek"
+          class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold border border-primary-200 rounded-xl hover:bg-primary-50 transition-colors"
+        >
+          {t(locale, 'nav.allProducts')}
+        </a>
+        <a
+          href="/konzultacio"
+          class="inline-flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-xl hover:bg-gray-200 transition-colors"
+        >
+          {t(locale, 'cta.button')}
+        </a>
+      </div>
+
+      <div class="text-left bg-gray-50 rounded-xl p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Népszerű kategóriák</h2>
+        <ul class="grid sm:grid-cols-2 gap-2">
+          {featuredCategories.map((cat) => (
+            <li>
+              <a
+                href={`/${cat.slug}`}
+                class="flex items-center gap-2 p-3 bg-white rounded-lg hover:bg-primary-50 transition-colors text-gray-700 hover:text-primary-700"
+              >
+                <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span class="text-sm font-medium">{cat.nameShort}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

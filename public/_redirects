@@ -102,3 +102,49 @@
 
 # -- _UNMAPPED --
 /dragonhawk-m-80                                            /sminktetovalas                              301  # product removed, fallback to category
+
+# ============ MISSING LEGACY URLs (from Google Search Console) ============
+
+# -- Static pages (ID-suffixed variants) --
+/gyakran-ismetelt-kerdesek-36                               /gyik                                        301
+/adatvedelem-45                                             /adatvedelem                                 301
+
+# -- Old OpenCart categories (no longer exist / merged) --
+/diodalezer                                                 /diodalezerek                                301
+/dioda-lezerek-239                                          /diodalezerek                                301
+/blue-laser-271                                             /diodalezerek                                301
+/carbon-lezer-gepek-251                                     /nd-yag-lezerek                              301
+/picosekundumos-lezer-gepek-268                             /nd-yag-lezerek                              301
+/tetovalogepek-266                                          /sminktetovalas                              301
+/mast-tumodulok                                             /sminktetovalas                              301
+/radiofrekvencias-gepek-257                                 /anti-aging                                  301
+/anti_aging_keszulekek                                      /anti-aging                                  301
+/ai-boranalizis-gepek                                       /hydrafacial                                 301
+/mezoterapia-248                                            /kellekek                                    301
+/kezeles-es-utoapolas-263                                   /kellekek                                    301
+/hydrofacial-oldatok-es-kozmetikai-kezeloanyagok-290        /hydrafacial                                 301
+
+# -- Unrelated old categories (no new target) --
+/babaapolas-209                                             /                                            301
+/babakocsi-221                                              /                                            301
+
+# -- Discontinued / renamed products (redirect to parent category) --
+/hydrapulse-quantum-hydrofacial-10in1                       /hydrafacial                                 301
+/skinlab-oxygenx-kezelogep-695                              /hydrafacial                                 301
+/hydraliquid-lifting-bioretinollal-887                      /hydrafacial                                 301
+/dahlia-noir-premium-dioda-lezer-4-hullamhosszal-770        /diodalezerek                                301
+/nyxqueen-premium-diodalezer-keszulek-848                   /diodalezerek                                301
+/peony-4-hullamhossz-diodalezer                             /diodalezerek                                301
+/nightyvibe-diodalezer                                      /diodalezerek                                301
+/yag-lasequeen                                              /nd-yag-lezerek                              301
+/nyxqueen_peony                                             /diodalezerek                                301
+/lasequeen-mapetite-q-kapcsolt-ndyag-lezer-limited-edition-800 /nd-yag-lezerek                           301
+/dermatechplus_noneedle_mesotherapy                         /kellekek                                    301
+/nofilter-7d-hifu-854                                       /anti-aging                                  301
+/foldpro-snake-edition                                      /sminktetovalas                              301
+/mast-oceanheart-tumodul-025mm-3rl                          /sminktetovalas                              301
+
+# -- Typo and trailing-dash variants --
+/nxyqueenrosegold                                           /diodalezerek                                301
+/hydrascan-                                                 /hydrafacial/hydrascan-pro                   301
+/carbon-peeling-fust-                                       /kellekek/carbon-peeling-fust-elszivo-keszulek-815 301
