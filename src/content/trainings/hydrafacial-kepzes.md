@@ -4,7 +4,7 @@ description: "Hidrodermabrázió és multifunkcionális kozmetikai kezelőgépek
 shortDescription: "Hydrafacial és multifunkcionális gép képzés"
 price: 0
 priceFormatted: "A gép árában"
-duration: "1 nap (6 óra)"
+duration: "1 nap"
 maxParticipants: 4
 certificate: "Gépkezelői tanúsítvány"
 topics:

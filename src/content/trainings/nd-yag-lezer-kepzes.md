@@ -4,7 +4,7 @@ description: "Hivatalos FAR tanúsítvánnyal záruló gépkezelői képzés tet
 shortDescription: "FAR tanúsítvánnyal záruló ND:YAG lézer képzés"
 price: 0
 priceFormatted: "A gép árában"
-duration: "1 nap (8 óra)"
+duration: "1 nap"
 maxParticipants: 4
 certificate: "FAR gépkezelői tanúsítvány"
 topics:

@@ -245,8 +245,8 @@ export const TRUST_BADGES = [
   },
   {
     icon: 'truck',
-    title: '2 hét szállítás',
-    description: 'Gyors, DHL Express kiszállítás',
+    title: '15-20 munkanap',
+    description: 'Megbízható, hiteles vámkezelésű szállítás',
   },
   {
     icon: 'graduation-cap',
@@ -263,7 +263,7 @@ export const TRUST_BADGES = [
 export const STATS = [
   { value: '150+', label: 'Eladott készülék' },
   { value: '2 év', label: 'Garancia' },
-  { value: '2 hét', label: 'Szállítási idő' },
+  { value: '15-20 nap', label: 'Szállítási idő' },
   { value: '100%', label: 'Legális behozatal' },
 ];
 
