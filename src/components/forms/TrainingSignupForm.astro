@@ -335,6 +335,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             window.location.href = `/koszonjuk?lead=${result.leadId}`;
           }, 1500);
         } else {
+          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] training:', result);
           // Show field errors
           if (result.errors) {
             Object.entries(result.errors).forEach(([field, messages]) => {
@@ -355,13 +356,15 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           // Show general error
           errorMessage?.classList.remove('hidden');
           if (errorText) {
-            errorText.textContent = result.error || 'Ellenőrizd az adatokat.';
+            const code = result.code ? '[' + result.code + '] ' : '';
+            errorText.textContent = code + (result.error || 'Ellenőrizd az adatokat.');
           }
         }
       } catch (error) {
+        console.error('[NET-OFFLINE-001] training network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
-          errorText.textContent = 'Hálózati hiba, kérjük próbáld újra.';
+          errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba, kérjük próbáld újra.';
         }
       } finally {
         submitButton.disabled = false;

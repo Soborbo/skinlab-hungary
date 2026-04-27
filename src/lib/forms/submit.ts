@@ -25,6 +25,8 @@ interface SubmissionResult {
   success: boolean;
   leadId?: string;
   error?: string;
+  /** Optional error code from src/lib/errors/codes.ts for descriptive reporting */
+  code?: string;
 }
 
 interface LeadData {
@@ -97,11 +99,28 @@ export async function processFormSubmission(
     return { success: true, leadId };
   } catch (error) {
     console.error('Form submission failed:', error);
+    const message = error instanceof Error ? error.message : 'Submission failed';
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Submission failed'
+      error: message,
+      code: classifyPipelineError(message),
     };
   }
+}
+
+/**
+ * Map a thrown pipeline error to the most descriptive code we can infer
+ * from its message. Falls back to FORM-SUBMIT-001 for unknown failures.
+ */
+function classifyPipelineError(message: string): string {
+  const m = message.toLowerCase();
+  if (m.includes('google sheets') || m.includes('spreadsheet')) return 'SHEETS-WRITE-001';
+  if (m.includes('google access token')) return 'SHEETS-AUTH-002';
+  if (m.includes('confirmation email')) return 'RESEND-NET-001';
+  if (m.includes('resend')) return 'RESEND-NET-001';
+  if (m.includes('service account')) return 'CFG-ENV-003';
+  if (m.includes('crm webhook')) return 'SHEETS-NET-001';
+  return 'FORM-SUBMIT-001';
 }
 
 /**
@@ -495,9 +514,11 @@ export async function processConsultationSubmission(
     return { success: true, leadId };
   } catch (error) {
     console.error('Consultation form submission failed:', error);
+    const message = error instanceof Error ? error.message : 'Submission failed';
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Submission failed',
+      error: message,
+      code: classifyPipelineError(message),
     };
   }
 }

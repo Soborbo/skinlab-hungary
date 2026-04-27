@@ -18,6 +18,7 @@
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
 import { normalizeEmail, normalizePhone } from '@/lib/tracking/persistence';
+import { errorResponse } from '@/lib/errors/respond';
 
 export const prerender = false;
 
@@ -170,31 +171,79 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   const ip = clientAddress || 'unknown';
   const runtime = (locals as Record<string, unknown>).runtime as { env: Record<string, string> } | undefined;
   const env = runtime?.env ?? {} as Record<string, string>;
-  const json = (data: unknown, status = 200) =>
-    new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
-  if (isRateLimited(ip)) return json({ error: 'Too many requests' }, 429);
+  if (isRateLimited(ip)) {
+    return errorResponse('HTTP-429-001', {
+      userMessage: 'Túl sok tracking kérés rövid időn belül — 60 másodperc után próbálja újra.',
+      context: { endpoint: '/api/track', ip },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   const cl = parseInt(request.headers.get('Content-Length') || '0', 10);
-  if (cl > MAX_BODY) return json({ error: 'Payload too large' }, 413);
+  if (cl > MAX_BODY) {
+    return errorResponse('HTTP-413-001', {
+      userMessage: `A tracking payload túl nagy (>${Math.round(MAX_BODY / 1024)} KB).`,
+      context: { endpoint: '/api/track', bodySize: cl },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   let text: string;
-  try { text = await request.text(); } catch { return json({ error: 'Read error' }, 400); }
-  if (text.length > MAX_BODY) return json({ error: 'Payload too large' }, 413);
+  try { text = await request.text(); } catch {
+    return errorResponse('SRV-PARSE-003', {
+      userMessage: 'A tracking kérés törzse nem olvasható (encoding hiba).',
+      context: { endpoint: '/api/track' },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
+  if (text.length > MAX_BODY) {
+    return errorResponse('HTTP-413-001', {
+      userMessage: `A tracking payload túl nagy (>${Math.round(MAX_BODY / 1024)} KB).`,
+      context: { endpoint: '/api/track', bodySize: text.length },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   let raw: unknown;
-  try { raw = JSON.parse(text); } catch { return json({ error: 'Invalid JSON' }, 400); }
+  try { raw = JSON.parse(text); } catch {
+    return errorResponse('SRV-PARSE-001', {
+      userMessage: 'A tracking kérés JSON formátuma érvénytelen.',
+      context: { endpoint: '/api/track', contentType: request.headers.get('Content-Type') || 'unknown' },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   const parsed = BeaconSchema.safeParse(raw);
-  if (!parsed.success) return json({ error: 'Invalid payload', details: parsed.error.flatten().fieldErrors }, 400);
+  if (!parsed.success) {
+    return errorResponse('FORM-ZOD-002', {
+      userMessage: 'A tracking payload nem felel meg a sémának — nézze meg a details mezőt.',
+      details: parsed.error.flatten().fieldErrors,
+      context: { endpoint: '/api/track' },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   const payload = parsed.data;
 
-  if (!isOriginAllowed(request, env)) return json({ error: 'Forbidden' }, 403);
+  if (!isOriginAllowed(request, env)) {
+    return errorResponse('SRV-CORS-002', {
+      userMessage: 'Tiltott forrás (origin nem szerepel az allowlistán).',
+      context: {
+        endpoint: '/api/track',
+        origin: request.headers.get('Origin') || 'unknown',
+      },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
 
   const token = env.TRACK_TOKEN;
   if (token && request.headers.get('x-track-token') !== token) {
-    return json({ error: 'Unauthorized' }, 401);
+    return errorResponse('HTTP-401-002', {
+      userMessage: 'A tracking végpont tokenje hiányzik vagy érvénytelen.',
+      context: { endpoint: '/api/track', keyPrefix: 'x-track-token' },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
   }
 
   const metaOk = await sendMeta(payload, ip, env);
@@ -206,8 +255,15 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
       signal: AbortSignal.timeout(5_000) }).catch(() => {});
   }
 
-  return json({ ok: true, meta_sent: metaOk, event_id: payload.eventId });
+  return new Response(
+    JSON.stringify({ ok: true, meta_sent: metaOk, event_id: payload.eventId }),
+    { status: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } }
+  );
 };
 
 export const GET: APIRoute = () =>
-  new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: { 'Content-Type': 'application/json' } });
+  errorResponse('FORM-METHOD-001', {
+    userMessage: 'Ez a végpont csak POST kéréseket fogad (tracking beacon).',
+    context: { endpoint: '/api/track', method: 'GET' },
+    extraHeaders: { Allow: 'POST' },
+  });

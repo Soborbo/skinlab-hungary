@@ -8,6 +8,7 @@ import type { APIRoute } from 'astro';
 import { validateContactForm } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { processFormSubmission } from '@/lib/forms/submit';
+import { errorResponse } from '@/lib/errors/respond';
 
 export const prerender = false;
 
@@ -16,19 +17,11 @@ export const prerender = false;
  * Required to prevent build warnings about missing GET handler
  */
 export const GET: APIRoute = async () => {
-  return new Response(
-    JSON.stringify({
-      success: false,
-      error: 'Method not allowed. Use POST to submit contact form.',
-    }),
-    {
-      status: 405,
-      headers: {
-        'Content-Type': 'application/json',
-        'Allow': 'POST',
-      },
-    }
-  );
+  return errorResponse('FORM-METHOD-001', {
+    userMessage: 'Ez a végpont csak POST kéréseket fogad (kapcsolati űrlap beküldés).',
+    context: { endpoint: '/api/contact', method: 'GET' },
+    extraHeaders: { Allow: 'POST' },
+  });
 };
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
@@ -51,17 +44,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const validation = validateContactForm(data);
 
     if (!validation.success) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          errors: validation.errors,
-          error: 'Kérjük, ellenőrizze a megadott adatokat.',
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return errorResponse('FORM-ZOD-002', {
+        userMessage: 'Kérjük, ellenőrizze a megadott adatokat — néhány mező hibás vagy hiányzik.',
+        errors: validation.errors,
+        context: { formId: 'contact' },
+      });
     }
 
     // Verify Turnstile CAPTCHA
@@ -69,33 +56,23 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const turnstileResult = await verifyTurnstile(turnstileToken, clientAddress);
 
     if (!turnstileResult.success) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
-          error: 'Kérjük, végezze el újra a CAPTCHA ellenőrzést.',
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return errorResponse('TURN-VERIFY-001', {
+        userMessage: 'CAPTCHA ellenőrzés sikertelen — kérjük, végezze el újra.',
+        errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
+        context: { formId: 'contact' },
+      });
     }
 
     // Process form submission
     const result = await processFormSubmission(validation.data!, clientAddress);
 
     if (!result.success) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: result.error || 'Hiba történt a küldés során.',
-        }),
-        {
-          status: 500,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
+        userMessage: result.error
+          ? `Nem sikerült elküldeni az űrlapot: ${result.error}`
+          : 'Nem sikerült elküldeni az űrlapot. Kérjük, próbálja újra később.',
+        context: { formId: 'contact', errorMessage: result.error ?? 'unknown' },
+      });
     }
 
     // Success response
@@ -111,17 +88,12 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       }
     );
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.error('Contact form error:', error);
 
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: 'Váratlan hiba történt. Kérjük, próbálja újra később.',
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    return errorResponse('FORM-SUBMIT-001', {
+      userMessage: `Váratlan hiba történt a kapcsolati űrlap feldolgozása közben: ${message}`,
+      context: { formId: 'contact', errorMessage: message },
+    });
   }
 };

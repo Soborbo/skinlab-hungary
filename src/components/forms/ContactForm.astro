@@ -386,6 +386,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
             window.location.href = `${thankYouLink}?lead=${result.leadId}`;
           }, 1500);
         } else {
+          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
           // Show field errors
           if (result.errors) {
             Object.entries(result.errors).forEach(([field, messages]) => {
@@ -407,15 +408,17 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           errorMessage?.classList.remove('hidden');
           if (errorText) {
             const validationError = errorMessage?.getAttribute('data-validation-error') || 'Please check the entered data.';
-            errorText.textContent = result.error || validationError;
+            const code = result.code ? '[' + result.code + '] ' : '';
+            errorText.textContent = code + (result.error || validationError);
           }
         }
       } catch (error) {
         // Network error
+        console.error('[NET-OFFLINE-001] contact network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
           const networkError = errorMessage?.getAttribute('data-network-error') || 'A network error occurred. Please try again.';
-          errorText.textContent = networkError;
+          errorText.textContent = '[NET-OFFLINE-001] ' + networkError;
         }
       } finally {
         // Reset button

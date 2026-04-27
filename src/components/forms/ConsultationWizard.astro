@@ -790,15 +790,18 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           // Redirect to thank you page
           window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
         } else {
+          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] consultation:', result);
           errorMessage?.classList.remove('hidden');
           if (errorText) {
-            errorText.textContent = result.error || 'Kérjük, próbálja újra.';
+            const code = result.code ? '[' + result.code + '] ' : '';
+            errorText.textContent = code + (result.error || 'Kérjük, próbálja újra.');
           }
         }
       } catch (error) {
+        console.error('[NET-OFFLINE-001] consultation network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
-          errorText.textContent = 'Hálózati hiba. Kérjük, próbálja újra.';
+          errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérjük, próbálja újra.';
         }
       } finally {
         submitBtn.disabled = false;

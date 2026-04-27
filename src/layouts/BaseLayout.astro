@@ -134,6 +134,36 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
   
+  <!-- Global JS error logger — every uncaught error logs with a code prefix -->
+  <script is:inline>
+    (function () {
+      function pickCode(err) {
+        if (!err) return 'JS-UNHANDLED-001';
+        var name = (err && err.name) || '';
+        if (name === 'TypeError') return 'JS-TYPE-001';
+        if (name === 'ReferenceError') return 'JS-REF-001';
+        if (name === 'RangeError') return 'JS-RANGE-001';
+        if (name === 'SyntaxError') return 'JS-SYNTAX-001';
+        return 'JS-UNHANDLED-001';
+      }
+      window.addEventListener('error', function (event) {
+        var code = pickCode(event.error);
+        console.error('[' + code + ']', {
+          message: event.message,
+          source: event.filename,
+          line: event.lineno,
+          col: event.colno,
+          error: event.error,
+        });
+      });
+      window.addEventListener('unhandledrejection', function (event) {
+        var reason = event.reason;
+        var code = (reason && reason.name) ? pickCode(reason) : 'JS-PROMISE-001';
+        console.error('[' + code + '] unhandled promise rejection:', reason);
+      });
+    })();
+  </script>
+
   <!-- Tracking: GTM + Consent Mode v2 -->
   <Tracking gtmId="GTM-NW7DKC2D" />
 
