@@ -2,6 +2,7 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
+import beasties from 'astro-beasties';
 
 const isDev = process.argv.includes('dev');
 const siteUrl = isDev ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
@@ -26,6 +27,7 @@ export default defineConfig({
         },
       },
     }),
+    beasties(),
   ],
   adapter: cloudflare({
     imageService: 'passthrough',

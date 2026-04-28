@@ -22,9 +22,14 @@
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
+    "astro-beasties": "^0.0.2",
+    "beasties": "^0.4.2",
     "fast-xml-parser": "^5.5.9",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "xlsx": "^0.18.5"
+  },
+  "overrides": {
+    "vite": "^7.3.2"
   }
 }
