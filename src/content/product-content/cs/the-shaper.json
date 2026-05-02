@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Multifunkční prémiový systém pro ošetření těla a obličeje se 4 technologiemi: vakuová masáž, RF, infračervený laser a 40 kHz ultrazvuková kavitácia.",
+  "description": "THE SHAPER není 'módní přístroj', ale synergie léta klinicky ověřených technologií v jediném zařízení. RF pro produkci kolagenu, kavitácia pro rozklad tuku, vakuum + váleček pro pojivovou tkáň, infračervený laser pro buněčnou stimulaci – kompletní tvarovací systém pro ošetření obličeje a těla.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + kavitácia + IR + vakuum",
+  "metaDescription": "THE SHAPER – Prémiový systém pro ošetření těla a obličeje se 4 ověřenými technologiemi: vakuová RF, 40 kHz kavitácia, 940 nm IR laser a válečková masáž.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Technologie",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Kavitácia",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "IR laser",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "Hloubka RF",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 technologie, jeden přístroj, kompletní tvarování",
+    "paragraphs": [
+      "Jeho síla netkví v jedné konkrétní technologii, ale v kombinaci: RF zpevňuje, kavitácia rozkládá tuk, vakuum + váleček zlepšují prokrvení a stav pojivové tkáně, infračervené záření zesiluje všechny účinky. Tato synergie přináší rychlejší, výraznější změny a vyšší spokojenost klientů.",
+      "Jedinou platformou lze ošetřit celé tělo i obličej. Moderní ovládání dotykovým displejem, 4 různé aplikátory a klinicky ověřené biologické mechanismy účinku – ne víc strojů, ale jeden dobře promyšlený systém."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Máš otázky k přístroji THE SHAPER? Rádi pomůžeme!",
+      "buttonLabel": "Požádat o konzultaci",
+      "phoneLabel": "Zavolej nám"
+    },
+    "afterFeatures": {
+      "headline": "Chceš vidět THE SHAPER naživo?",
+      "subtitle": "Přijď do našeho showroomu v Érdu a vyzkoušej si ho osobně!",
+      "buttonLabel": "Rezervovat termín"
+    },
+    "final": {
+      "headline": "Zaujal tě THE SHAPER ContourSystem?",
+      "subtitle": "Vyžádej si bezplatnou konzultaci a pomůžeme ti rozhodnout, jak zapadá do ziskové strategie tvého salonu.",
+      "buttonLabel": "Požádat o konzultaci"
+    }
+  },
+  "featureRows": {
+    "headline": "Proč zvolit THE SHAPER?",
+    "subtitle": "Synergie 4 klinicky ověřených technologií v jediném systému.",
+    "features": [
+      {
+        "title": "Vakuové RF ošetření – hluboké zpevnění",
+        "description": "Radiofrekvenční energie generuje teplo v dermis (do hloubky 5-15 mm), což okamžitě stahuje kolagenová vlákna (okamžité zpevnění) a stimuluje fibroblasty k produkci nového kolagenu. Vakuová a válečková mechanika nadzvedává tkáň, takže RF působí hlouběji a zároveň se zvyšuje krevní a lymfatický oběh.",
+        "highlight": "Klinicky ověřeno: denaturace kolagenu + neokolagenéza.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "40K ultrazvuková kavitácia – fyzikální rozklad tuku",
+        "description": "Ultrazvuk o frekvenci 40 kHz vytváří v tukové tkáni mikrobubliny, jejichž zhroucení mechanicky poškozuje membránu tukových buněk. Uvolněný tuk je odveden lymfatickým systémem a tělo ho přirozenou cestou rozloží.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Co to znamená v praxi:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Úbytek centimetrů již po několika ošetřeních</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cílené lokální tukové polštářky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Zlepšení tělesných kontur</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fyzikální (netepelný) rozklad tuku</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "940 nm infračervený laser – buněčný booster",
+        "description": "Infračervené světlo o vlnové délce 940 nm proniká hluboko do tkání, zvyšuje teplotu, zlepšuje zásobení kyslíkem a mikrocirkulaci. Prostřednictvím fotobiomodulace stimuluje metabolismus buněk a tvorbu kolagenu a zároveň zesiluje účinek ostatních technologií. Jde o 'boosterovou' technologii – nejsilnější není sama o sobě, ale v synergii.",
+        "highlight": "Silný booster, který zlepšuje výsledky ostatních technologií.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Mechanická válečková masáž – princip endomasáže",
+        "description": "Vychází z principů LPG / endermologie: speciální válečky mechanicky mobilizují pojivovou tkáň, uvolňují slepené vláknité struktury a stimulují lymfatický systém. To je klíčové, protože celulitida není jen tuk, ale i problém pojivové tkáně. V kombinaci s RF je účinek výrazně silnější.",
+        "highlight": "Princip LPG endermologie – klinická metoda osvědčená desetiletími.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Celé tělo + obličej, pro každou věkovou kategorii",
+        "description": "Personalizovaná ošetření nabízejí řešení pro různé věkové skupiny.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 let: prevence, kvalita pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 let: ochablost pleti, celulitida</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ let: zpevnění, kontura</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>I obličej, krk a dekolt</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Komplexní, prakticky zaměřené školení",
+    "badge": "Kompletní profesionální balíček",
+    "intro": "K přístroji THE SHAPER předáme veškeré potřebné znalosti pro bezpečné a účinné ošetření. Materiály jsme uspořádali do strukturovaného a přehledného systému, abys mohl/a od prvního dne poskytovat služby na vysoké úrovni.",
+    "items": [
+      "Detailní odborné studijní materiály",
+      "Kompletní učebnice specialisty na tvarování postavy",
+      "Brožura životního stylu k předání klientům",
+      "Kopírovatelné edukační materiály pro klienty",
+      "Vzory souhlasu klienta",
+      "Ošetřovací protokoly pro každou partii těla"
+    ],
+    "closingParagraphs": [
+      "Praktické školení na živém modelu je rovněž k dispozici (+79.990 Ft) – v reálných ošetřovacích situacích si pod odborným vedením osvojíš správné techniky a protokoly.",
+      "Základní vzdělávací balíček je při nákupu přístroje zdarma."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "školení na živém modelu (volitelné)",
+    "freeText": "Základní školení ZDARMA k zakoupení přístroje!",
+    "duration": "Základní balíček: samostudium | Živé školení: 1 den",
+    "ctaText": "Zajímá mě školení"
+  },
+  "expertQuote": {
+    "quote": "Síla přístroje THE SHAPER nespočívá v jediné technologii, ale v kombinaci 4 osvědčených postupů. RF + kavitácia + vakuum + infračervené záření – každá je klinicky ověřená i samostatně, společně přinášejí mnohem silnější a rychlejší výsledky.",
+    "author": "Horváth László",
+    "role": "Technický expert"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Vakuová RF",
+      "description": "1 MHz / 4-8 MHz, působí v hloubce 5-15 mm."
+    },
+    {
+      "icon": "wave",
+      "name": "40 kHz kavitácia",
+      "description": "Až 60 W ultrazvuk, fyzikální rozklad tuku."
+    },
+    {
+      "icon": "sun",
+      "name": "940 nm IR laser",
+      "description": "Fotobiomodulace, buněčný booster."
+    },
+    {
+      "icon": "wind",
+      "name": "Vakuum + váleček",
+      "description": "10-60 kPa, kontinuální a pulzní režim."
+    },
+    {
+      "icon": "layers",
+      "name": "4 aplikátory",
+      "description": "Hlavice na tělo + obličej v jednom systému."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Ovládání dotykovým displejem, intuitivní obsluha."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Proč je lepší než jednotechnologické přístroje na trhu?",
+      "answer": "4 technologie v jednom přístroji: není potřeba více samostatných zařízení. Díky kombinaci vakuum + RF jde ošetření do větší hloubky (5-15 mm), nepůsobí jen povrchově. Mechanické válečkové ošetření je vynikající proti celulitidě. Synergie infračerveného záření a RF přináší rychlejší a viditelnější výsledky. Jedinou platformou lze ošetřit celé tělo + obličej."
+    },
+    {
+      "question": "Kolik sezení tvoří kúru?",
+      "answer": "Klienti obvykle pociťují zlepšení kvality pleti již po několika sezeních, zatímco na konci kompletní kúry (obvykle 6-10 sezení) se mohou tělesné kontury harmonizovat. Přesný protokol závisí na cílové oblasti a stavu klienta – součástí vzdělávacího balíčku je podrobný protokol pro každou partii těla."
+    },
+    {
+      "question": "Na kterých částech těla je použitelný?",
+      "answer": "Obličej a krk (čelo, oční okolí, tváře, podbradek, čelist, dekolt) – cílem je zpevnění a redukce vrásek. Tělo (břicho, pas, boky, hýždě, vnitřní + vnější stehna, paže, záda, bederní oblast) – cílem je tvarování, redukce celulitidy a zpevnění pleti."
+    },
+    {
+      "question": "Jak funguje princip endomasáže (LPG)?",
+      "answer": "Speciální válečkový a vakuový mechanismus pracuje s pokožkou a tkáněmi pod ní. Uvolňuje slepenou pojivovou tkáň, zlepšuje zásobení kyslíkem a živinami a podporuje odvádění odpadních látek. Postup byl původně vyvinut pro lékařské a rehabilitační účely (např. ošetření jizev, zlepšení prokrvení) a později pronikl do kosmetického průmyslu."
+    },
+    {
+      "question": "Jaké výsledky může klient očekávat?",
+      "answer": "Pevnější, hutnější pleť, redukce vrásek, viditelné zlepšení celulitidy, lepší tonus pleti a prokrvení. Úbytek centimetrů v ošetřované oblasti. Výsledky se mohou individuálně lišit a ovlivňuje je životní styl, stav pojivové tkáně a dodržení ošetřovacího protokolu."
+    },
+    {
+      "question": "Co je v ceně?",
+      "answer": "Kompletní vzdělávací balíček (studijní materiály, učebnice specialisty na tvarování postavy, životní styl, edukační materiály pro klienty, souhlasy klienta, ošetřovací protokoly), 2letá záruka, návod k použití v češtině. Školení na živém modelu volitelně +79.990 Ft. Přesná cena při konzultaci."
+    }
+  ],
+  "whatsIncluded": [
+    "Přístroj THE SHAPER ContourSystem",
+    "4 různé aplikátory (hlavice na tělo + obličej)",
+    "Kompletní vzdělávací balíček (studijní materiály + učebnice tvarování postavy)",
+    "Edukační materiály pro klienty a vzory souhlasu",
+    "Brožura životního stylu pro klienty",
+    "Ošetřovací protokoly pro každou partii těla",
+    "Návod k použití v češtině",
+    "2letá kompletní záruka",
+    "Náhradní přístroj po dobu opravy"
+  ]
+}

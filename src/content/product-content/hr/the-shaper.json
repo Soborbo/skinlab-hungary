@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Multifunkcionalni premium sustav za tretmane tijela i lica s 4 tehnologije: vakuumska masaža, RF, infracrveni laser i 40 kHz ultrazvučna kavitacija.",
+  "description": "THE SHAPER nije 'pomodni uređaj', već sinergija godinama klinički provjerenih tehnologija u jednom uređaju. RF za stvaranje kolagena, kavitacija za razgradnju masti, vakuum + valjak za vezivno tkivo, infracrveni laser za stimulaciju na staničnoj razini – kompletan sustav za oblikovanje lica i tijela.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + kavitacija + IR + vakuum",
+  "metaDescription": "THE SHAPER – Premium sustav za tretmane tijela i lica s 4 provjerene tehnologije: vakuumski RF, 40 kHz kavitacija, 940 nm IR laser i masaža valjcima.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Tehnologije",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Kavitacija",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "IR laser",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "Dubina RF",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 tehnologije, jedan uređaj, potpuno oblikovanje",
+    "paragraphs": [
+      "Njegova snaga ne leži u jednoj tehnologiji, već u kombinaciji: RF zateže, kavitacija razgrađuje masti, vakuum + valjak poboljšavaju cirkulaciju i vezivno tkivo, infracrveno zračenje pojačava sve učinke. Ova sinergija donosi brže i vidljivije promjene te veće zadovoljstvo klijentica.",
+      "Jedinstvenom platformom može se tretirati cijelo tijelo i lice. Moderno upravljanje preko ekrana osjetljivog na dodir, 4 različita aplikatora i klinički dokazani biološki mehanizmi djelovanja – ne više uređaja, već jedan dobro osmišljeni sustav."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Imaš pitanja o uređaju THE SHAPER? Rado ćemo pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovi nas"
+    },
+    "afterFeatures": {
+      "headline": "Želiš vidjeti THE SHAPER uživo?",
+      "subtitle": "Dođi u naš showroom u Érdu i isprobaj ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima te THE SHAPER ContourSystem?",
+      "subtitle": "Zatraži besplatnu konzultaciju i pomoći ćemo ti odlučiti kako se uklapa u strategiju zarade tvog salona.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto odabrati THE SHAPER?",
+    "subtitle": "Sinergija 4 klinički provjerene tehnologije u jednom sustavu.",
+    "features": [
+      {
+        "title": "Vakuumski RF tretman – duboko zatezanje",
+        "description": "Radiofrekvencijska energija stvara toplinu u dermisu (do dubine 5-15 mm), koja odmah skuplja kolagena vlakna (trenutno zatezanje) i potiče fibroblaste na proizvodnju novog kolagena. Vakuumska i valjkasta mehanika podiže tkivo, pa RF djeluje dublje, dok se istovremeno pojačava krvna i limfna cirkulacija.",
+        "highlight": "Klinički dokazano: denaturacija kolagena + neokolagenoza.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "40K ultrazvučna kavitacija – fizička razgradnja masti",
+        "description": "Ultrazvuk od 40 kHz stvara mikromjehuriće u masnom tkivu čije urušavanje mehanički oštećuje membranu masnih stanica. Oslobođena mast odlazi kroz limfni sustav i organizam je razgrađuje prirodnim putem.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Što to znači u praksi:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Smanjenje centimetara već nakon nekoliko tretmana</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ciljano djelovanje na lokalne masne jastučiće</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Poboljšanje konture tijela</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fizička (ne toplinska) razgradnja masti</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "940 nm infracrveni laser – stanični booster",
+        "description": "Infracrveno svjetlo valne duljine 940 nm prodire duboko u tkiva, povećava temperaturu, poboljšava opskrbu kisikom i mikrocirkulaciju. Putem fotobiomodulacije stimulira metabolizam stanica i stvaranje kolagena, dok istovremeno pojačava učinak ostalih tehnologija. To je 'booster' tehnologija – najjača nije sama za sebe, već u sinergiji.",
+        "highlight": "Snažan booster koji poboljšava rezultate ostalih tehnologija.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Mehanička masaža valjcima – princip endomasaže",
+        "description": "Temelji se na principima LPG-a / endermologije: posebni valjci mehanički mobiliziraju vezivno tkivo, opuštaju slijepljene vlaknaste strukture i stimuliraju limfni sustav. To je ključno jer celulit nije samo mast, već i problem vezivnog tkiva. U kombinaciji s RF-om učinak je puno snažniji.",
+        "highlight": "Princip LPG endermologije – klinička metoda dokazana desetljećima.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Cijelo tijelo + lice, za svaku dobnu skupinu",
+        "description": "Personalizirani tretmani nude rješenja za različite dobne skupine.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 godina: prevencija, kvaliteta kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 godina: opuštenost kože, celulit</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ godina: zatezanje, kontura</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>I lice, vrat te dekolte</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Sveobuhvatna, praktično usmjerena edukacija",
+    "badge": "Kompletan stručni paket",
+    "intro": "Uz uređaj THE SHAPER prenosimo sve potrebno znanje za sigurno i učinkovito provođenje tretmana. Materijale smo organizirali u strukturiran i pregledan sustav, kako bi mogla pružiti uslugu visoke razine od prvog dana.",
+    "items": [
+      "Detaljan stručni nastavni materijal",
+      "Kompletan udžbenik za specijalista oblikovanja tijela",
+      "Brošura s preporukama za životni stil za klijentice",
+      "Edukacijski materijali za klijentice koje se mogu umnožavati",
+      "Predlošci pristanka klijenta",
+      "Protokoli tretmana za sve dijelove tijela"
+    ],
+    "closingParagraphs": [
+      "Praktična edukacija na živom modelu također je dostupna (+79.990 Ft) – u stvarnim situacijama tretmana, uz stručno vodstvo, savladat ćeš pravilne tehnike i protokole.",
+      "Osnovni edukacijski paket besplatno je uključen uz kupnju uređaja."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "edukacija na živom modelu (opcionalno)",
+    "freeText": "Osnovna edukacija BESPLATNA uz kupnju uređaja!",
+    "duration": "Osnovni paket: samostalno učenje | Edukacija uživo: 1 dan",
+    "ctaText": "Zanima me edukacija"
+  },
+  "expertQuote": {
+    "quote": "Snaga uređaja THE SHAPER nije u jednoj tehnologiji, već u kombinaciji 4 provjerena postupka. RF + kavitacija + vakuum + infracrveno – svaka je klinički dokazana zasebno, a zajedno daju puno snažnije i brže rezultate.",
+    "author": "Horváth László",
+    "role": "Tehnički stručnjak"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Vakuumski RF",
+      "description": "1 MHz / 4-8 MHz, djeluje na dubini 5-15 mm."
+    },
+    {
+      "icon": "wave",
+      "name": "40 kHz kavitacija",
+      "description": "Do 60 W ultrazvuka, fizička razgradnja masti."
+    },
+    {
+      "icon": "sun",
+      "name": "940 nm IR laser",
+      "description": "Fotobiomodulacija, stanični booster."
+    },
+    {
+      "icon": "wind",
+      "name": "Vakuum + valjak",
+      "description": "10-60 kPa, kontinuirani i pulsirajući način rada."
+    },
+    {
+      "icon": "layers",
+      "name": "4 aplikatora",
+      "description": "Glave za tijelo + lice u jednom sustavu."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Upravljanje preko ekrana osjetljivog na dodir, intuitivno rukovanje."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Zašto je bolji od jednotehnoloških uređaja na tržištu?",
+      "answer": "4 tehnologije u jednom uređaju: nije potrebno više zasebnih uređaja. Zahvaljujući kombinaciji vakuum + RF tretman ide dublje (5-15 mm), a ne djeluje samo površinski. Mehanički tretman valjcima izvanredan je protiv celulita. Sinergija infracrvenog i RF-a daje brže i vidljivije rezultate. Jedinstvenom platformom mogu se tretirati cijelo tijelo + lice."
+    },
+    {
+      "question": "Koliko tretmana čini jednu kuru?",
+      "answer": "Klijentice obično primjećuju poboljšanje kvalitete kože već nakon nekoliko tretmana, dok se na kraju cijele kure (obično 6-10 tretmana) konture tijela mogu uskladiti. Točan protokol ovisi o ciljanom području i stanju klijentice – u edukacijskom paketu nalazi se detaljan protokol za svaki dio tijela."
+    },
+    {
+      "question": "Na kojim dijelovima tijela se može koristiti?",
+      "answer": "Lice i vrat (čelo, područje oko očiju, obrazi, podbradak, linija vilice, dekolte) – cilj su zatezanje i smanjenje bora. Tijelo (trbuh, struk, bokovi, stražnjica, unutarnji i vanjski dio bedara, nadlaktice, leđa, slabinski dio) – cilj su oblikovanje, smanjenje celulita i zatezanje kože."
+    },
+    {
+      "question": "Kako funkcionira princip endomasaže (LPG)?",
+      "answer": "Posebni mehanizam s valjcima i vakuumom obrađuje kožu i tkiva ispod nje. Opušta zalijepljeno vezivno tkivo, poboljšava opskrbu kisikom i hranjivim tvarima te potpomaže odvođenje toksina. Postupak je izvorno razvijen za medicinske i rehabilitacijske svrhe (npr. liječenje ožiljaka, poboljšanje cirkulacije), a kasnije je ušao u kozmetičku industriju."
+    },
+    {
+      "question": "Kakve rezultate klijentica može očekivati?",
+      "answer": "Čvršću, gušću kožu, smanjenje bora, vidljivo poboljšanje celulita, bolji ton kože i cirkulaciju. Smanjenje centimetara na tretiranom području. Rezultati su individualni, a na njih utječu životni stil, stanje vezivnog tkiva i pridržavanje protokola tretmana."
+    },
+    {
+      "question": "Što je uključeno u cijenu?",
+      "answer": "Kompletan edukacijski paket (nastavni materijali, udžbenik za specijalista oblikovanja tijela, savjeti za životni stil, edukacijski materijali za klijentice, suglasnosti, protokoli tretmana), 2 godine jamstva, upute za uporabu na hrvatskom. Edukacija na živom modelu opcionalno +79.990 Ft. Točna cijena tijekom konzultacije."
+    }
+  ],
+  "whatsIncluded": [
+    "Uređaj THE SHAPER ContourSystem",
+    "4 različita aplikatora (glave za tijelo + lice)",
+    "Kompletan edukacijski paket (nastavni materijali + udžbenik za oblikovanje tijela)",
+    "Edukacijski materijali za klijentice i predlošci pristanka",
+    "Brošura s preporukama za životni stil za klijentice",
+    "Protokoli tretmana za sve dijelove tijela",
+    "Upute za uporabu na hrvatskom",
+    "2 godine potpunog jamstva",
+    "Zamjenski uređaj za vrijeme popravka"
+  ]
+}

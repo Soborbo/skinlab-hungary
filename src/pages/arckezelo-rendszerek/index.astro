@@ -1,0 +1,13 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+import { getCategoryTranslation } from '../../data/category-translations';
+
+const category = getCategoryTranslation('hu', 'arckezelo-rendszerek');
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'arckezelo-rendszerek' && !data.draft;
+});
+---
+
+<CategoryLayout category={category} products={products} />

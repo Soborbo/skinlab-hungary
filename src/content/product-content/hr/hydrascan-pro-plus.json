@@ -1,208 +1,129 @@
 {
-  "name": "HYDRASCAN PRO+",
-  "shortDescription": "8+1 funkcijski hydrofacial s AI analizom kože. Dijagnostika u stvarnom vremenu, digitalni tretmanski dnevnik, dokumentacija prije i poslije. Unaprijeđena verzija PRO modela.",
-  "description": "HYDRASCAN PRO+ je unaprijeđena verzija popularnog HYDRASCAN PRO modela – nije samo multifunkcionalni hydrofacial uređaj, nego i inteligentni sustav za dijagnostiku i tretman kože u jednom.\n\nPosebnost uređaja je u tome što kombinira tradicionalne tehnologije za tretman lica s umjetnom inteligencijom, čime tretmani postaju ne samo učinkovitiji, već i personaliziraniji.\n\nUgrađeni sustav za AI analizu kože pruža dijagnostiku u stvarnom vremenu: veličina pora, dubina bora, pigmentacija, hidratiziranost, proizvodnja sebuma, elastičnost, upalna područja i UV oštećenja – sve to automatski analizira i daje preporuke za tretman.",
-  "metaTitle": "HydraSCAN PRO+ | 8+1 funkcijski hydrofacial uređaj s AI analizom kože",
-  "metaDescription": "HYDRASCAN PRO+ – unaprijeđeni hydrofacial uređaj: AI dijagnostika kože u stvarnom vremenu, 8+1 tretmanskih funkcija, digitalni tretmanski dnevnik. 2 godine jamstva.",
+  "name": "HydraScan PRO+ 2026",
+  "shortDescription": "Ultramoderan multifunkcionalni uređaj usredotočen na hidrodermabraziju s 8+1 tretmanskih nastavaka, AI analizom kože, 4K mikrokamerom i digitalnim kartonom klijenta.",
+  "description": "HydraScan PRO+ 2026 inovativan je multifunkcionalni kozmetički sustav usredotočen na hidrodermabraziju koji kombinira tretmane dubinskog čišćenja s inteligentnom analizom kože. Uređaj učinkovito čisti kožu, podržava obnovu kože i naprednom tehnologijom daje precizan prikaz trenutnog stanja kože.\n\nPosebnost sustava je analiza kože temeljena na umjetnoj inteligenciji koja automatski procjenjuje rezultate i odmah preporučuje tretmane, kozmetičke proizvode i personaliziranu kućnu njegu kože. Uređaj tako nije samo dijagnostički alat, već i aktivna podrška prodaji u salonu.\n\nS velikim zaslonom osjetljivim na dodir, inteligentnim sustavom temeljenim na Androidu i više tretmanskih nastavaka – idealan izbor za moderne kozmetičke salone u kojima su tehnologija, personalizirana njega kože i učinkovita prodaja usluga jednako važni.",
+  "metaTitle": "HydraScan PRO+ 2026 | Hidrofacial uređaj 8+1 s ugrađenom AI analizom kože",
+  "metaDescription": "HydraScan PRO+ 2026 – napredni hidrofacial uređaj: AI dijagnostika kože u stvarnom vremenu s 4K mikrokamerom, 8+1 tretmanskih funkcija, digitalni dnevnik. 2 godine jamstva.",
   "stats": [
-    {
-      "value": "8+1",
-      "label": "Tretmanskih funkcija",
-      "icon": "layers"
-    },
-    {
-      "value": "AI",
-      "label": "Dijagnostika kože",
-      "icon": "zap"
-    },
-    {
-      "value": "2",
-      "unit": "god.",
-      "label": "Jamstvo",
-      "icon": "shield"
-    },
-    {
-      "value": "~30",
-      "unit": "min",
-      "label": "Trajanje tretmana",
-      "icon": "clock"
-    }
+    { "value": "8+1", "label": "Tretmanske funkcije", "icon": "layers" },
+    { "value": "AI", "label": "Dijagnostika kože", "icon": "zap" },
+    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
+    { "value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield" }
   ],
-  "roi": {
-    "defaultTreatmentPrice": 25000
-  },
+  "roi": { "defaultTreatmentPrice": 30000 },
   "videoDescription": {
-    "headline": "HYDRASCAN PRO+ nije samo uređaj – već inteligentni sustav za dijagnostiku kože",
+    "headline": "HydraScan PRO+ 2026 – ne samo uređaj, već inteligentan sustav za dijagnostiku i prodaju",
     "paragraphs": [
-      "Posebnost uređaja je u tome što kombinira tradicionalne tehnologije za tretman lica s umjetnom inteligencijom, čime tretmani postaju ne samo učinkovitiji, već i personaliziraniji.",
-      "Ugrađeni sustav za AI analizu kože pruža dijagnostiku u stvarnom vremenu: veličina pora, dubina bora, pigmentacija, hidratiziranost, proizvodnja sebuma, elastičnost, upalna područja i UV oštećenja – sve to automatski analizira i daje preporuke za tretman.",
-      "O stanju klijenta mogu se napraviti fotografije i grafikoni prije i poslije, sustav vodi tretmanski dnevnik, pa se svaka promjena može dokumentirati."
+      "HydraScan PRO+ 2026 kombinira tradicionalne tehnologije tretmana lica (hidrodermabrazija, kisikovo čišćenje, RF, ultrazvuk, hladno-topli čekić, LED) s AI analizom kože, čineći tretmane učinkovitijima i personaliziranijima.",
+      "4K mikrokamera daje detaljnu sliku kože, a AI sustav automatski preporučuje tretmane, kozmetičke proizvode i kućnu njegu – aktivna prodajna podrška za salon.",
+      "Digitalni karton klijenta automatski bilježi rezultate analize, izrađuje fotografije prije i poslije, tako da se stanje kože svake klijentice može vidljivo i mjerljivo pratiti."
     ]
   },
   "cta": {
-    "afterVideo": {
-      "text": "Imate pitanja o uređaju? Rado ćemo vam pomoći!",
-      "buttonLabel": "Zatraži konzultaciju",
-      "phoneLabel": "Nazovite nas"
-    },
-    "afterFeatures": {
-      "headline": "Želite vidjeti HYDRASCAN PRO+ uživo?",
-      "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!",
-      "buttonLabel": "Rezerviraj termin"
-    },
-    "final": {
-      "headline": "Zanima vas HYDRASCAN PRO+?",
-      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
-      "buttonLabel": "Zatraži konzultaciju"
-    }
+    "afterVideo": { "text": "Imate pitanja o HydraScan PRO+? Rado ćemo pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas" },
+    "afterFeatures": { "headline": "Želite vidjeti HydraScan PRO+ uživo?", "subtitle": "Dođite u naš showroom u Érdu i isprobajte AI analizu na vlastitoj koži!", "buttonLabel": "Rezerviraj termin" },
+    "final": { "headline": "Zanima vas HydraScan PRO+ 2026?", "subtitle": "Zatražite besplatnu konzultaciju – pomoći ćemo vam odlučiti je li to najbolji izbor za vaš salon.", "buttonLabel": "Zatraži konzultaciju" }
   },
   "featureRows": {
-    "headline": "Zašto kozmetičari biraju HydraSCAN PRO+?",
-    "subtitle": "Uređaj koji ne samo da radi, već i razmišlja",
+    "headline": "Zašto kozmetičarke biraju HydraScan PRO+?",
+    "subtitle": "Uređaj koji ne samo radi, nego i razmišlja – i prodaje",
     "features": [
       {
-        "title": "8 tretmanskih funkcija u jednom kompaktnom uređaju",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidrodermabrazija</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidroabrazija</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-pod tretmanska glava</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hladno/topli čekić</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI mikrokamera za analizu kože</div>\n</div>",
-        "image": "@assets/products/HydraSCANPro3.webp"
+        "title": "8 tretmanskih nastavaka + AI – sve u jednom kompaktnom uređaju",
+        "description": "HydraScan PRO+ objedinjuje 8 različitih tretmanskih tehnologija i AI modul za analizu kože u jednom uređaju.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidrodermabrazija (Bubble Cleaning)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-pod kapsule s aktivnim sastojcima</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UZ piling (Skin Scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray (voda + kisik)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hladno-topli čekić</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bipolarni RF lifting</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UZ unos aktivnih tvari (Sound Wave)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED maska za svjetlosnu terapiju</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4K AI mikrokamera za analizu kože</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-applicators.png"
       },
       {
-        "title": "Analiza kože snagom umjetne inteligencije",
-        "description": "Ugrađeni sustav za AI analizu kože HYDRASCAN PRO+ pruža dijagnostiku u stvarnom vremenu, pomoću koje se tretmani mogu provoditi ciljano i precizno.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI sustav analizira:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>veličinu pora</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>dubinu bora</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentaciju i mrlje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>razinu hidratiziranosti kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>proizvodnju sebuma</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elastičnost i tonus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>aknozna ili upalna područja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>tragove UV oštećenja</div>\n</div>",
-        "image": "@assets/products/HydraSCANPRO2.webp"
+        "title": "AI analiza kože u stvarnom vremenu",
+        "description": "4K mikrokamera za analizu kože pruža detaljne slike površine i mikrostrukture kože. Inteligentni softver automatski procjenjuje rezultate i preporučuje tretmane i proizvode.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI sustav ispituje:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>veličina pora, mitiseri</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>dubina bora</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentacija i mrlje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>razina hidratacije</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>proizvodnja sebuma</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elastičnost, tonus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>akne i upaljena područja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>tragovi UV oštećenja</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-interface.png"
       },
       {
-        "title": "Personalizirani tretmanski protokoli",
-        "description": "Na temelju rezultata uređaj automatski predlaže smjerove tretmana. O stanju klijenta mogu se napraviti fotografije i grafikoni prije i poslije, a sustav vodi tretmanski dnevnik tako da se svaka promjena može dokumentirati. Klijent ne prima šablonski tretman, već jedinstveno rješenje prilagođeno njegovoj koži.",
-        "image": "@assets/products/hydrascan-pro-1.webp"
+        "title": "OxyPod kapsule – personalizirani, ciljani tretman",
+        "description": "OxyPodovi su posebne kapsule s aktivnim sastojcima koje se otapaju tijekom tretmana i isporučuju ciljane sastojke njege u kožu tijekom čišćenja. Različite kapsule dostupne su za različite probleme: aknozna koža, pigmentne mrlje, izblijedjela koža, dehidrirana koža, raširene pore. S hijaluronskom kiselinom, vitaminima i drugim aktivnim tvarima tretman se uvijek može prilagoditi stanju kože klijentice – stvarajući dodatni izvor prihoda od tretmana s kapsulama.",
+        "highlight": "Jedan uređaj, više ciljanih rješenja za različite probleme kože.",
+        "image": "@assets/products/hydrascan-pro-plus-3.png"
       },
       {
-        "title": "Uvjerljiva komunikacija s klijentima putem podataka i slika",
-        "description": "Zahvaljujući AI sustavu klijentu je transparentno zašto prima određeni tretman – to gradi povjerenje. Napredak se može dokumentirati grafikonima, slikama i podacima, pa vidljivi rezultati govore sami za sebe.",
-        "image": "@assets/products/hydrascan-pro-2.webp"
+        "title": "Digitalni karton klijenta i dokumentacija prije i poslije",
+        "description": "HydraScan PRO+ uključuje sustav digitalnog kartona klijenta koji automatski bilježi rezultate analize kože. Svaka analiza se pohranjuje, tako da se stanje kože može pratiti od tretmana do tretmana i uspoređivati fotografijama i grafikonima.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Digitalni karton za svakog gosta</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Dokumentiranje promjena stanja kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Usporedba prije i poslije</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Profesionalno, personalizirano savjetovanje</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-2.png"
       },
       {
-        "title": "Digitalni tretmanski dnevnik i dokumentacija prije i poslije",
-        "description": "Sustav automatski izrađuje fotografije prije i poslije, grafikone i vodi online kartoteku za svakog klijenta. Tretmanski protokoli se spremaju, pa povijest tretmana koja se može pregledati potiče klijenta na povratak.",
-        "image": "@assets/products/hydrascan-pro-3.webp"
+        "title": "Platforma koja generira prihod – ne samo tretmani, već prodajna podrška",
+        "description": "AI analiza kože HydraScan PRO+ ne samo da dijagnosticira, već automatski preporučuje tretmane dostupne u salonu, profesionalne proizvode i rutinu kućne njege. To povećava prodaju serija tretmana, stopu povratka klijenata i prodaju kozmetičkih proizvoda. Cijena kompleksnog tretmana lica iznosi 25.000–50.000 Ft: s 3 klijenta dnevno može se mjesečno generirati 1,5–3 milijuna Ft.",
+        "highlight": "Jedan uređaj – više izvora prihoda (tretmani + proizvodi + serije).",
+        "image": "@assets/products/hydrascan-pro-plus-showroom-1.jpg"
       }
     ]
   },
   "training": {
-    "headline": "Obuka za rukovanje uređajem – u okviru službenog obrazovanja odraslih",
-    "badge": "Sa službenom potvrdom",
-    "intro": "Za uređaj HYDRASCAN PRO+ dostupna je profesionalna obuka za rukovanje uređajem koju pružamo u okviru službeno prijavljenog obrazovanja odraslih.",
+    "headline": "Edukacija o rukovanju uređajem – u okviru službenog programa obrazovanja odraslih",
+    "badge": "Sa službenim certifikatom",
+    "intro": "Za HydraScan PRO+ pružamo sveobuhvatnu obuku o rukovanju koja je uključena u cijenu uređaja. S ovom obukom moći ćete sigurno i samostalno započeti raditi, bez neodgovorenih pitanja.",
     "items": [
-      "Princip rada HYDRASCAN PRO+, tehnologije i tretmanske glave",
-      "Tumačenje i praktična primjena inteligentnog sustava za analizu kože",
-      "Tretmanski protokoli za različite tipove kože i probleme",
-      "Komunikacija s klijentima i vođenje tretmanskog dnevnika",
+      "Princip rada i tretmanski nastavci HydraScan PRO+",
+      "Tumačenje i praktična upotreba AI analize kože",
+      "Korištenje OxyPod kapsula za različite probleme kože",
+      "Tretmanski protokoli za različite tipove kože",
+      "Komunikacija s klijentima, vođenje digitalnog kartona",
       "Izrada dokumentacije prije i poslije",
-      "Praktični tretmani na modelima"
+      "Higijensko čišćenje, održavanje, kontraindikacije"
     ],
     "closingParagraphs": [
-      "Naravno, možete dovesti model na obuku kako biste u stvarnom okruženju svladali tehnike tretmana.",
-      "Nakon završetka obuke izdajemo službenu potvrdu koja potvrđuje kompetenciju za stručno rukovanje uređajem HYDRASCAN PRO+."
+      "Zahvaljujući našem cjelovitom edukativnom materijalu, knjižicama protokola i obrazovnim materijalima, ne morate brinuti ni kasnije – sve važne informacije su vam na raspolaganju.",
+      "Ako želite praktičnu obuku s živim modelom, nudimo je za doplatu od 69.990 Ft. Cijena obuke uključuje korištenje aktivnih sastojaka, a vaš model rado dočekujemo uz baristik kavu i osvježenje."
     ],
-    "price": "69.990 Ft",
-    "priceNote": "vrijednosti obuka",
+    "price": "Uključeno",
+    "priceNote": "osnovna obuka",
     "freeText": "BESPLATNO uz kupnju uređaja!",
     "duration": "Jednodnevna intenzivna obuka",
     "ctaText": "Zanima me obuka"
   },
   "expertQuote": {
-    "quote": "HydraFacial je jedna od investicija s najboljim povratom ulaganja u salonu. Klijenti odmah vide rezultat i redovito se vraćaju – to je zajamčeni prihod.",
-    "author": "Horvat László",
+    "quote": "HydraScan PRO+ je zahvaljujući kombinaciji hidrofaciala i AI analize kože jedna od investicija s najboljim povratom u salonu. Klijenti vlastitim očima vide stanje svoje kože i promjene – to gradi povjerenje, povratke i prodaju proizvoda.",
+    "author": "Horváth László",
     "role": "Tehnički stručnjak"
   },
   "functionCards": [
-    {
-      "icon": "droplet",
-      "name": "Hidrodermabrazija",
-      "description": "Dubinsko čišćenje vakuumom, čišćenje pora, uklanjanje odumrlih stanica"
-    },
-    {
-      "icon": "sound",
-      "name": "Ultrazvučna infuzija",
-      "description": "Unošenje aktivnih tvari u duboke slojeve pomoću seruma"
-    },
-    {
-      "icon": "bubbles",
-      "name": "O₂ Bubble + H₂O₂",
-      "description": "Kisična hidratacija i antioksidativni tretman"
-    },
-    {
-      "icon": "bolt",
-      "name": "Bipolarni RF lifting",
-      "description": "Učvršćivanje lica, stimulacija kolagena radiofrekvencijom"
-    },
-    {
-      "icon": "snowflake",
-      "name": "Hladno-topli čekić",
-      "description": "Smirivanje kože, stezanje pora, stimulacija cirkulacije"
-    },
-    {
-      "icon": "spray",
-      "name": "Spray gun",
-      "description": "Toniziranje i hidratacija sprejom za završetak tretmana"
-    },
-    {
-      "icon": "brain",
-      "name": "AI analiza kože",
-      "description": "Analiza umjetnom inteligencijom u stvarnom vremenu s 9+ parametara"
-    },
-    {
-      "icon": "chart",
-      "name": "Digitalna konzultacija",
-      "description": "Fotografije prije i poslije, grafikoni, preporuke za tretman"
-    },
-    {
-      "icon": "clipboard",
-      "name": "Tretmanski dnevnik",
-      "description": "Online kartoteka klijenata, spremanje tretmanskih protokola i praćenje"
-    }
+    { "icon": "droplet", "name": "Hidrodermabrazija", "description": "Vakuumsko dubinsko čišćenje, čišćenje pora, uklanjanje odumrlih stanica" },
+    { "icon": "bubbles", "name": "OxyPod kapsule", "description": "Ciljani unos sastojaka tijekom mikromjehurićastog čišćenja" },
+    { "icon": "sound", "name": "UZ piling", "description": "Skin Scrubber – bezbolan piling, čišćenje pora" },
+    { "icon": "spray", "name": "Oxy-spray", "description": "Raspršivanje vode i kisika – trenutna hidratacija" },
+    { "icon": "snowflake", "name": "Hladno-topli čekić", "description": "Smirivanje kože, stezanje pora, poticanje cirkulacije" },
+    { "icon": "bolt", "name": "Bipolarni RF", "description": "Učvršćivanje kože, stimulacija kolagena radiofrekvencijom" },
+    { "icon": "sound", "name": "UZ unos sastojaka", "description": "Sound Wave 40-50 – duboka apsorpcija aktivnih tvari" },
+    { "icon": "sun", "name": "LED maska", "description": "Crveno, plavo, zeleno, žuto svjetlo – regeneracija, protuupalno" },
+    { "icon": "brain", "name": "AI analiza kože", "description": "4K mikrokamera, 9+ parametara, automatske preporuke tretmana" }
   ],
   "faq": [
-    {
-      "question": "Što točno analizira AI sustav za analizu kože?",
-      "answer": "Ugrađeni sustav umjetne inteligencije HydraSCAN PRO+ u stvarnom vremenu analizira: veličinu pora, dubinu bora, pigmentaciju i mrlje, razinu hidratiziranosti kože, proizvodnju sebuma, elastičnost i tonus, aknozna ili upalna područja te tragove UV oštećenja. Na temelju rezultata automatski predlaže smjerove tretmana."
-    },
-    {
-      "question": "Koje su prednosti AI dijagnostike u odnosu na tradicionalnu analizu kože?",
-      "answer": "AI je objektivan, ponovljiv i znatno detaljniji od vizualnog pregleda. Mapira ona svojstva kože koja se golim okom ne mogu uočiti. Osim toga vodi digitalni tretmanski dnevnik, izrađuje fotografije prije i poslije, pa se učinak tretmana može mjerljivo dokumentirati."
-    },
-    {
-      "question": "Koja je razlika između PRO i PRO+ verzije?",
-      "answer": "HYDRASCAN PRO+ je unaprijeđena verzija PRO modela, s proširenim funkcijama i naprednijom tehnologijom."
-    },
-    {
-      "question": "Kakva obuka ide uz uređaj HydraSCAN PRO+?",
-      "answer": "Uz uređaj je dostupna obuka za rukovanje po cijeni od 69.990 Ft, u okviru službenog obrazovanja odraslih. Obuka pokriva korištenje svih funkcija, tumačenje AI sustava, tretmanske protokole i praktične tretmane. Na kraju izdajemo službenu potvrdu."
-    },
-    {
-      "question": "Za koliko se vremena HydraSCAN PRO+ isplati?",
-      "answer": "Prosječno za 2-4 mjeseca, računajući s 3-5 klijenata dnevno. Cijena jednog hydrofacial tretmana kreće se od 15.000 do 30.000 Ft, a premium tretman dopunjen AI analizom kože može se nuditi i za 35.000-50.000 Ft. Koristite naš ROI kalkulator na stranici za točan izračun!"
-    },
-    {
-      "question": "Za koje tipove kože je tretman prikladan?",
-      "answer": "HydraSCAN PRO+ je prikladan za sve tipove kože, uključujući osjetljivu kožu. AI analiza precizno procjenjuje stanje kože i na temelju rezultata predlaže personalizirani tretmanski protokol."
-    },
-    {
-      "question": "Postoji li mogućnost pregleda uređaja prije kupnje?",
-      "answer": "Da! U našem izložbenom prostoru (Érd, Budai út 28.) možete osobno pogledati i isprobati HydraSCAN PRO+ uz prethodni dogovor termina."
-    }
+    { "question": "Mogu li i stolni hidrofacial sustavi biti učinkoviti?", "answer": "Da, apsolutno. Učinkovitost ne određuje veličina, već tehnologija i mogućnosti podešavanja. HydraScan PRO+ 2026 ima profesionalan vakuumski sustav i više tretmanskih funkcija, omogućujući punovrijedne salonske tretmane." },
+    { "question": "Je li vakuum/usisna snaga uređaja dovoljna?", "answer": "Da. Vakuumski raspon (−6 kPa do −86 kPa) može se podesiti u širokom rasponu: nježno za osjetljivu kožu, učinkovito dubinsko čišćenje za problematičnu kožu. S ispravnim postavkama nije „prejak\" niti preslab – ključ je pravilna upotreba koju detaljno učimo na obuci." },
+    { "question": "Kakvo održavanje uređaj zahtijeva?", "answer": "Dnevno održavanje je jednostavno: ispiranje cijevnog sustava čistom vodom nakon upotrebe, pražnjenje i čišćenje spremnika, dezinfekcija tretmanskih nastavaka. To osigurava higijenski rad i dug vijek trajanja." },
+    { "question": "Koliko često je potreban servis?", "answer": "Pri normalnoj upotrebi nema česte obavezne potrebe za servisom. Preporučuje se godišnji periodični pregled, pri intenzivnoj (svakodnevnoj) upotrebi brzi servisni posjet svakih 6 mjeseci. Pravilno čišćenje znatno smanjuje potrebu za servisom." },
+    { "question": "Na što treba posebno paziti tijekom upotrebe?", "answer": "Koristite samo tekućine preporučene za uređaj, izbjegavajte kisele, masne ili granulirane tvari, koristite dezinficijens bez alkohola i ne ostavljajte sustav sa tekućinom nakon upotrebe. Time se izbjegavaju kvarovi." },
+    { "question": "Mogu li ga koristiti kao kozmetičarka početnica?", "answer": "Da. Rukovanje uređajem je logično, a obuka vas korak po korak vodi kroz upotrebu, što je idealno i za početnike. Osnovne tretmane sigurno možete provoditi odmah nakon obuke; rutina se razvija u nekoliko tjedana." },
+    { "question": "Koliko brzo se uređaj isplati?", "answer": "Brz povrat investicije postiže se već s 2-3 klijenta dnevno. Cijena kompleksnog tretmana lica je 25.000–50.000 Ft, pa se s 3 klijenta dnevno može mjesečno generirati 1,5–3 milijuna Ft. Hidro tretmani su vrlo traženi i dobro se cijene." },
+    { "question": "Može li se kombinirati s drugim tretmanima?", "answer": "Da, izričito se preporučuje. HydraScan PRO+ savršen je osnovni tretman prije ili poslije carbon pilinga, ili prije/poslije drugih uređaja. Analiza se može koristiti prije svakog drugog tretmana, ali i samostalno može biti punovrijedna usluga." },
+    { "question": "Koliko prostora uređaj zauzima?", "answer": "Kompaktan stolni dizajn, tako da se udobno smjesti i u manjoj sobi za tretmane. Dostupna je i posebno izrađena HydraScan PRO+ kolica, cijena: 79.990 Ft." }
   ],
   "whatsIncluded": [
-    "HydraSCAN PRO+ uređaj",
-    "Hidrodermabrazijska tretmanska glava",
-    "Ultrazvučna infuzijska tretmanska glava",
-    "O₂ bubble + H₂O₂ tretmanska glava",
-    "Bipolarna RF lifting tretmanska glava",
-    "Hladno-topli čekić tretmanska glava",
-    "Spray gun tretmanska glava",
+    "HydraScan PRO+ 2026 uređaj",
+    "Bubble Cleaning (hidrodermabrazijski) tretmanski nastavak",
+    "Oxygen Bubble (OxyPod) tretmanski nastavak",
+    "Skin Scrubber (UZ piling) tretmanski nastavak",
+    "Water Oxygen Atomization (oxy-spray) tretmanski nastavak",
+    "Cold & Hot (hladno-topli čekić) tretmanski nastavak",
+    "Sound Wave UZ unos aktivnih tvari nastavak",
+    "Bipolarni RF tretmanski nastavak",
+    "LED maska za svjetlosnu terapiju",
+    "4K mikrokamera za analizu kože",
     "AI modul za analizu kože (ugrađen)",
-    "Početni paket seruma",
-    "Korisnički priručnik (na hrvatskom jeziku)",
-    "2 godine potpunog jamstva",
+    "Sustav digitalnog kartona klijenta",
+    "Početni paket OxyPod / hydra seruma",
+    "Korisnički priručnik",
+    "Edukacija o rukovanju uređajem",
+    "2 godine cjelovitog jamstva",
     "Zamjenski uređaj za vrijeme popravka"
   ]
 }

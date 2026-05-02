@@ -1,89 +1,115 @@
 {
   "slug": "hydrascan-pro-plus",
-  "draft": true,
-  "sku": "hydscan002",
-  "name": "HYDRASCAN PRO+",
+  "draft": false,
+  "sku": "HYDSCAN002",
+  "name": "HydraScan PRO+ 2026",
   "categorySlug": "hydrafacial",
-  "shortDescription": "8+1 funkciós hydrofacial AI bőranalízissel. Valós idejű diagnózis, digitális kezelési napló, előtte-utána dokumentáció. A PRO továbbfejlesztett változata.",
-  "description": "A HYDRASCAN PRO+ a népszerű HYDRASCAN PRO továbbfejlesztett változata – nem csupán egy multifunkciós hydrofacial készülék, hanem egy intelligens bőrdiagnosztikai és kezelőrendszer is egyben.\n\nA készülék különlegessége, hogy a hagyományos arckezelési technológiákat mesterséges intelligenciával kombinálja, ezáltal a kezelések nemcsak hatékonyabbak, hanem személyre szabottabbak is.\n\nA beépített AI-alapú bőranalízis rendszer valós idejű diagnózist biztosít: pórusméret, ráncok mélysége, pigmentáció, hidratáltság, faggyútermelés, rugalmasság, gyulladt területek és UV-sérülések – mindezt automatikusan elemzi és kezelési javaslatot ad.\n\nA vendég állapotáról előtte–utána képek és grafikonok készíthetők, a rendszer kezelési naplót vezet, így minden változás dokumentálható.",
-  "metaTitle": "HydraSCAN PRO+ | AI bőranalízissel egybeépített 8+1 funkciós hydrofacial gép",
-  "metaDescription": "HYDRASCAN PRO+ – a továbbfejlesztett hydrofacial készülék: valós idejű AI bőrdiagnózis, 8+1 kezelési funkció, digitális kezelési napló. 2 év garancia.",
-  "price": 0,
-  "image": "@assets/products/HydraSCANPro3.webp",
+  "shortDescription": "Ultramodern hydrodermabrázió-központú multikészülék 8+1 kezelőfejjel, mesterséges intelligencia bőranalízissel, 4K mikrokamerával és digitális vendégkartonnal.",
+  "description": "A HydraScan PRO+ 2026 egy innovatív, hydrodermabrázió-központú multifunkciós kozmetikai rendszer, amely a mélytisztító kezeléseket intelligens bőranalízissel ötvözi. A készülék hatékonyan tisztítja a bőrt, támogatja a bőrmegújulást, miközben fejlett technológiájával pontos képet ad a bőr aktuális állapotáról.\n\nA rendszer különlegessége a mesterséges intelligencia alapú bőranalízis, amely automatikusan kiértékeli az eredményeket, és azonnal javaslatot tesz a kezelésekre, kozmetikai termékekre és személyre szabott otthoni bőrápolási rutinra. Ezáltal a készülék nemcsak diagnosztikai eszköz, hanem aktív értékesítési támogatást is biztosít a szalon számára.\n\nNagyméretű érintőkijelzővel, intelligens Android alapú rendszerrel és többféle kezelőfejjel működik – ideális választás olyan modern kozmetikai szalonok számára, ahol a technológia, a személyre szabott bőrápolás és a hatékony szolgáltatásértékesítés egyaránt fontos.",
+  "metaTitle": "HydraScan PRO+ 2026 | AI bőranalízissel egybeépített 8+1 funkciós hydrofacial gép",
+  "metaDescription": "HydraScan PRO+ 2026 – továbbfejlesztett hydrofacial készülék: valós idejű AI bőrdiagnózis 4K mikrokamerával, 8+1 kezelési funkció, digitális kezelési napló. 2 év garancia.",
+  "price": 850887,
+  "image": "@assets/products/hydrascan-pro-plus-1.png",
   "youtubeVideos": [],
   "availability": "in_stock",
   "hasVariants": false,
   "variants": [],
-  "featured": false,
+  "featured": true,
   "images": [
-    "@assets/products/HydraSCANPro3.webp",
-    "@assets/products/HydraSCANPRO2.webp",
-    "@assets/products/hydrascan-pro-1.webp",
-    "@assets/products/hydrascan-pro-2.webp",
-    "@assets/products/hydrascan-pro-3.webp",
-    "@assets/products/IMG_6527.webp"
+    "@assets/products/hydrascan-pro-plus-1.png",
+    "@assets/products/hydrascan-pro-plus-2.png",
+    "@assets/products/hydrascan-pro-plus-3.png",
+    "@assets/products/hydrascan-pro-plus-4.png",
+    "@assets/products/hydrascan-pro-plus-5.png",
+    "@assets/products/hydrascan-pro-plus-interface.png",
+    "@assets/products/hydrascan-pro-plus-applicators.png",
+    "@assets/products/hydrascan-pro-plus-showroom-1.jpg",
+    "@assets/products/hydrascan-pro-plus-showroom-2.jpg",
+    "@assets/products/hydrascan-pro-plus-showroom-3.jpg",
+    "@assets/products/hydrascan-pro-plus-showroom-4.jpg",
+    "@assets/products/hydrascan-pro-plus-showroom-5.jpg",
+    "@assets/products/hydrascan-pro-plus-showroom-6.jpg"
   ],
   "stats": [
     { "value": "8+1", "label": "Kezelési funkció", "icon": "layers" },
     { "value": "AI", "label": "Bőrdiagnózis", "icon": "zap" },
-    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" },
-    { "value": "~30", "unit": "perc", "label": "Kezelési idő", "icon": "clock" }
+    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
+    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" }
   ],
   "specs": {
-    "Funkciók száma": "8+1 (hidrodermabrázió, ultrahang, O₂ bubble, RF lifting, hideg-meleg kalapács, spray gun, AI bőranalízis, digitális konzultáció + kezelési napló)",
-    "AI bőranalízis": "Valós idejű, 9+ paraméter (pórusméret, ráncok, pigmentáció, hidratáltság, faggyútermelés, rugalmasság, tónus, gyulladás, UV-sérülés)",
-    "Kezelési napló": "Digitális vendégkarton, előtte-utána összehasonlítás, kezelési protokollok mentése",
-    "RF technológia": "Bipoláris rádiófrekvencia, arcfeszesítés és kollagénstimuláció",
-    "Ultrahang": "Hatóanyagbeviteli módusz, mély rétegekbe juttatja a szérumokat",
-    "Hidrodermabrázió": "Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása",
-    "Oxygen bubble": "O₂ + H₂O₂ hidratáló és antioxidáns kezelés",
-    "Hideg-meleg kalapács": "Bőrnyugtatás, pórusösszehúzás, keringésserkentés",
-    "Spray gun": "Kezelést lezáró tonizáló spray",
-    "Kijelző": "HD érintőképernyő",
-    "Tápellátás": "220V / 50Hz",
-    "Garancia": "2 év teljes körű garancia"
+    "Modell": "HydraScan PRO+ 2026",
+    "Rendszer": "Android intelligens kezelőrendszer",
+    "Kijelző": "10.1\" érintőképernyő (800 × 1280)",
+    "Bemeneti feszültség": "100–120V / 220–240V",
+    "Frekvencia": "50 / 60 Hz",
+    "Teljesítmény": "150 W",
+    "RF frekvencia": "0.5 – 1 MHz",
+    "Ultrahang frekvencia": "1 MHz",
+    "Vákuum tartomány": "−6 kPa – −86 kPa",
+    "Pont vibráció frekvencia": "28 – 30 kHz",
+    "Hideg-meleg tartomány": "−6 °C – 36 °C",
+    "Tiszta víz tartály": "kb. 2,3 kg",
+    "Szennyvíz tartály": "kb. 3,2 kg",
+    "Bőranalízis kamera": "4K nagyfelbontású, három spektrumú",
+    "Detektálási idő": "kb. 2 perc",
+    "Kezelőfejek": "Bubble Cleaning (hydrodermabrázió), Oxygen Bubble (oxypod), Skin Scrubber (UH peeling), Water Oxygen Atomization (oxy-spray), Cold & Hot (hideg-meleg kalapács), Sound Wave 40-50 (UH hatóanyagbevitel), Bipolar RF, LED maszk",
+    "Garancia": "2 év teljes körű garancia",
+    "Érkezési idő": "2-6 hét"
   },
   "faq": [
     {
-      "question": "Pontosan mit elemez az AI bőranalízis rendszer?",
-      "answer": "A HydraSCAN PRO+ beépített mesterséges intelligencia rendszere valós időben vizsgálja a következőket: pórusméretet, ráncok mélységét, pigmentációt és foltokat, a bőr hidratáltsági szintjét, faggyútermelést, rugalmasságot és tónust, aknés vagy gyulladt területeket, valamint UV-sérülések nyomait. Az eredmények alapján automatikusan javaslatot tesz a kezelési irányokra."
+      "question": "Az asztali méretű hydrofacial rendszerek is lehetnek hatékonyak?",
+      "answer": "Igen, abszolút. A hatékonyságot nem a méret, hanem a technológia és a beállítási lehetőségek határozzák meg. A HydraScan PRO+ 2026 professzionális vákuumrendszerrel és több kezelési funkcióval rendelkezik, így teljes értékű szalonkezelések végezhetők vele."
     },
     {
-      "question": "Milyen előnye van az AI diagnózisnak a hagyományos bőrelemzéssel szemben?",
-      "answer": "Az AI objektív, reprodukálható és sokkal részletesebb, mint a szabad szemes vizsgálat. Feltérképezi a bőr azon tulajdonságait, amelyeket szabad szemmel nem lehetne észlelni. Emellett digitális kezelési naplót vezet, előtte-utána képeket készít, így a kezelések hatása mérhetően dokumentálható."
+      "question": "Megfelelő a készülék vákuum/szívóereje?",
+      "answer": "Igen. A készülék vákuumtartománya (−6 kPa – −86 kPa) széles skálán állítható: érzékeny bőrnél kíméletes, problémás bőrnél hatékony mélytisztítást biztosít. A megfelelő beállítás mellett nem „túl szív\", de nem is gyenge – a kulcs a helyes használat, amit az oktatáson részletesen megtanítunk."
     },
     {
-      "question": "Mi a különbség a PRO és a PRO+ között?",
-      "answer": "A HYDRASCAN PRO+ a PRO továbbfejlesztett változata, bővített funkciókkal és fejlettebb technológiával."
+      "question": "Milyen karbantartást igényel a készülék?",
+      "answer": "A napi karbantartás egyszerű: csőrendszer átöblítése tiszta vízzel használat után, tartályok ürítése és tisztítása, kezelőfejek fertőtlenítése. Ez biztosítja a higiénikus működést és a hosszú élettartamot."
     },
     {
-      "question": "Milyen képzés jár a HydraSCAN PRO+ géphez?",
-      "answer": "A készülékhez elérhető egy hivatalos felnőttképzés keretein belül tartott gépkezelői oktatás. A képzés kiterjed az összes funkció használatára, az AI rendszer értelmezésére, kezelési protokollokra, és gyakorlati kezelésekre. A végén hivatalos tanúsítványt állítunk ki."
+      "question": "Milyen gyakran szükséges szervizelni?",
+      "answer": "Rendeltetésszerű használat mellett nincs gyakori kötelező szervizigény. Ajánlott évente időszakos ellenőrzés, intenzív (napi) használat esetén 6 havonta egy gyors ellenőrző vizit. A megfelelő tisztítás jelentősen csökkenti a szervizigényt."
     },
     {
-      "question": "Mennyi idő alatt térül meg a HydraSCAN PRO+?",
-      "answer": "Átlagosan 2-4 hónap alatt, napi 3-5 vendéggel számolva. Egy hydrofacial kezelés ára 15.000-30.000 Ft között mozog, az AI bőranalízissel kiegészített prémium kezelés akár 35.000-50.000 Ft-ért is kínálható. Használja a ROI kalkulátorunkat az oldalon a pontos számításhoz!"
+      "question": "Mire kell különösen figyelni a használat során?",
+      "answer": "Csak a készülékhez ajánlott folyadékokat használd, kerüld a savas, olajos vagy darabos anyagokat, alkoholmentes fertőtlenítőt használj, és ne hagyd a rendszert folyadékkal állni használat után. Ezek betartásával elkerülhetők a meghibásodások."
     },
     {
-      "question": "Milyen bőrtípusokra alkalmas a kezelés?",
-      "answer": "A HydraSCAN PRO+ minden bőrtípusra alkalmas, beleértve az érzékeny bőrt is. Az AI elemzés pontosan felméri a bőr állapotát és az eredmények alapján személyre szabott kezelési protokollt javasol, így mindig a vendég bőrének megfelelő intenzitással dolgozhat."
+      "question": "Kezdő kozmetikusként is használható?",
+      "answer": "Igen. A készülék kezelése logikus, az oktatás pedig lépésről lépésre vezet végig a használaton, így kezdők számára is ideális. Az alapkezelések már az oktatás után biztonsággal végezhetők, néhány hét alatt kialakul a rutin."
     },
     {
-      "question": "Van lehetőség a gép megtekintésére vásárlás előtt?",
-      "answer": "Igen! Showroomunkban (Érd, Budai út 28.) személyesen is megtekintheti és kipróbálhatja a HydraSCAN PRO+-t előzetes időpontfoglalással. Akár a saját bőrén is kipróbálhatja az AI analízist!"
+      "question": "Milyen gyorsan térül meg a készülék ára?",
+      "answer": "Már napi 2-3 vendéggel is gyors megtérülés érhető el. Egy komplex arckezelés ára 25.000 – 50.000 Ft között mozog, így napi 3 vendéggel havi 1,5 – 3 millió Ft bevétel termelhető. A hydro kezelések magas keresletűek, és jól árazhatók."
+    },
+    {
+      "question": "Lehet kombinálni más kezelésekkel?",
+      "answer": "Igen, kifejezetten ajánlott. A HydraScan PRO+ tökéletes alapkezelés carbon peeling előtt vagy után, illetve egyéb készülékek használata előtt vagy után. Az analízis minden egyéb kezelés előtt használható, de akár önmagában is teljes értékű szolgáltatás lehet."
+    },
+    {
+      "question": "Mennyi helyet foglal?",
+      "answer": "Kompakt, asztali kialakítású, így kisebb kezelőhelyiségben is kényelmesen elfér. Elérhető hozzá egy kifejezetten a készülékhez készült HydraScan PRO+ eszközkocsi is, melynek ára 79.990 Ft."
     }
   ],
   "whatsIncluded": [
-    "HydraSCAN PRO+ készülék",
-    "Hidrodermabráziós kezelőfej",
-    "Ultrahangos infúziós kezelőfej",
-    "O₂ bubble + H₂O₂ kezelőfej",
-    "Bipoláris RF lifting kezelőfej",
-    "Hideg-meleg kalapács kezelőfej",
-    "Spray gun kezelőfej",
+    "HydraScan PRO+ 2026 készülék",
+    "Bubble Cleaning (hydrodermabráziós) kezelőfej",
+    "Oxygen Bubble (OxyPod) kezelőfej",
+    "Skin Scrubber (UH peeling) kezelőfej",
+    "Water Oxygen Atomization (oxy-spray) kezelőfej",
+    "Cold & Hot (hideg-meleg kalapács) kezelőfej",
+    "Sound Wave UH hatóanyagbevitel kezelőfej",
+    "Bipoláris RF kezelőfej",
+    "LED fényterápiás maszk",
+    "4K bőranalízis mikrokamera",
     "AI bőranalízis modul (beépített)",
-    "Induló szérum csomag",
+    "Digitális vendégkarton rendszer",
+    "Induló OxyPod / hydra szérum csomag",
     "Használati útmutató (magyar nyelvű)",
+    "Gépkezelői oktatás (FAR tanúsítvány)",
     "2 év teljes körű garancia",
     "Cseregép javítás idejére"
   ]

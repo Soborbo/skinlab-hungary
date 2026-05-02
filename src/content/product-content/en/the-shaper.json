@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Multifunctional, premium body and facial treatment system with 4 technologies: vacuum massage, RF, infrared laser and 40 kHz ultrasonic cavitation.",
+  "description": "THE SHAPER is not a 'fad device', but the synergy of clinically proven technologies in a single unit. RF for collagen production, cavitation for fat reduction, vacuum + roller for connective tissue, infrared laser for cellular stimulation – a complete contouring system for face and body treatments.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + cavitation + IR + vacuum",
+  "metaDescription": "THE SHAPER – Premium body and facial treatment system with 4 proven technologies: vacuum RF, 40 kHz cavitation, 940 nm IR laser and roller massage.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Technologies",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Cavitation",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "IR laser",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "RF depth",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 technologies, one device, complete body contouring",
+    "paragraphs": [
+      "Its strength lies not in a single technology, but in the combination: RF tightens, cavitation breaks down fat, vacuum + roller improves circulation and connective tissue, infrared boosts every effect. This synergy delivers faster, more visible changes and higher client satisfaction.",
+      "A single platform can treat the entire body and face. Modern touchscreen control, 4 different applicators, and clinically proven biological mechanisms – not multiple devices, but one well-thought-out system."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Have questions about THE SHAPER? We are happy to help!",
+      "buttonLabel": "Request a consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Would you like to see THE SHAPER live?",
+      "subtitle": "Visit our showroom in Érd and try it out in person!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in THE SHAPER ContourSystem?",
+      "subtitle": "Request a free consultation, and we will help you decide how it fits into your salon's profit strategy.",
+      "buttonLabel": "Request a consultation"
+    }
+  },
+  "featureRows": {
+    "headline": "Why choose THE SHAPER?",
+    "subtitle": "The synergy of 4 clinically proven technologies in a single system.",
+    "features": [
+      {
+        "title": "Vacuum RF treatment – deep firming",
+        "description": "Radiofrequency energy generates heat in the dermis (down to 5-15 mm depth), which immediately contracts collagen fibres (instant tightening) and stimulates fibroblasts to produce new collagen. The vacuum and roller mechanism lifts the tissue, allowing the RF to act deeper while increasing blood and lymphatic circulation.",
+        "highlight": "Clinically proven: collagen denaturation + neocollagenesis.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "40K ultrasonic cavitation – physical fat reduction",
+        "description": "The 40 kHz ultrasound creates microbubbles in the fatty tissue, the collapse of which mechanically damages the membrane of fat cells. The released fat is removed via the lymphatic system and naturally broken down by the body.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">What this means in practice:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Inch loss after just a few treatments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Targeted localised fat pads</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Improved body contours</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Physical (non-thermal) fat reduction</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "940 nm infrared laser – cellular booster",
+        "description": "The 940 nm infrared light penetrates deeply into tissues, raises the temperature, and improves oxygen supply and microcirculation. Through photobiomodulation, it stimulates cellular metabolism and collagen production while amplifying the effect of the other technologies. This is a 'booster' technology – strongest not on its own, but in synergy.",
+        "highlight": "A powerful booster that enhances the results of every other technology.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Roller mechanical massage – endomassage principle",
+        "description": "Built on the principles of LPG / endermology: the special rollers mechanically mobilise connective tissue, loosen adhered fibrous structures, and stimulate the lymphatic system. This is critical because cellulite is not just fat, but also a connective tissue problem. Combined with RF, the effect is far stronger.",
+        "highlight": "The principle of LPG endermology – a clinical method proven over decades.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Full body + face, for every age group",
+        "description": "Personalised treatments offer solutions for various age groups.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 years: prevention, skin quality</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 years: skin laxity, cellulite</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ years: firming, contouring</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Face, neck and décolleté too</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Comprehensive, practice-focused training",
+    "badge": "Complete professional package",
+    "intro": "With THE SHAPER device, we provide all the knowledge needed for safe and effective treatments. The materials are organised into a structured, easy-to-follow system, so you can deliver high-quality service from day one.",
+    "items": [
+      "Detailed professional training material",
+      "Complete body contouring specialist textbook",
+      "Lifestyle advice booklet for clients",
+      "Reproducible client education materials",
+      "Consent form templates",
+      "Treatment protocols for every body area"
+    ],
+    "closingParagraphs": [
+      "Live model practical training is also available (+79.990 Ft) – in real treatment situations, with professional guidance, you can master the correct treatment techniques and protocols.",
+      "The basic training package is included free with the device purchase."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "live model training (optional)",
+    "freeText": "Basic training is FREE with the device purchase!",
+    "duration": "Basic package: self-study | Live training: 1 day",
+    "ctaText": "I'm interested in the training"
+  },
+  "expertQuote": {
+    "quote": "THE SHAPER's strength lies not in a single technology, but in the combination of 4 proven procedures. RF + cavitation + vacuum + infrared – each is clinically proven on its own, and together they deliver much stronger, faster results.",
+    "author": "Horváth László",
+    "role": "Technical Expert"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Vacuum RF",
+      "description": "1 MHz / 4-8 MHz, effective at 5-15 mm depth."
+    },
+    {
+      "icon": "wave",
+      "name": "40 kHz cavitation",
+      "description": "Up to 60 W ultrasound, physical fat reduction."
+    },
+    {
+      "icon": "sun",
+      "name": "940 nm IR laser",
+      "description": "Photobiomodulation, cellular booster."
+    },
+    {
+      "icon": "wind",
+      "name": "Vacuum + roller",
+      "description": "10-60 kPa, continuous and pulsating modes."
+    },
+    {
+      "icon": "layers",
+      "name": "4 applicators",
+      "description": "Body + face handpieces in one system."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Touchscreen control, intuitive operation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Why is it better than single-technology devices on the market?",
+      "answer": "4 technologies in one device: no need for multiple separate units. Thanks to the vacuum + RF combination, the treatment goes deeper (5-15 mm), not just on the surface. The mechanical roller treatment is outstanding against cellulite. The infrared + RF synergy delivers faster, more visible results. A single platform can treat the entire body + face."
+    },
+    {
+      "question": "How many sessions make a course?",
+      "answer": "Clients usually notice an improvement in skin quality after just a few sessions, while by the end of the full course (typically 6-10 sessions) body contours can become more harmonious. The exact protocol depends on the target area and the client's condition – the training package includes a detailed protocol for every body area."
+    },
+    {
+      "question": "Which body areas can be treated?",
+      "answer": "Face and neck (forehead, eye area, cheeks, double chin, jawline, décolleté) – the goal is firming and wrinkle reduction. Body (abdomen, waist, hips, buttocks, inner+outer thighs, upper arms, back, lumbar region) – the goal is contouring, cellulite reduction and skin tightening."
+    },
+    {
+      "question": "How does the endomassage (LPG) principle work?",
+      "answer": "The special roller and vacuum mechanism works through the skin and the underlying tissues. It loosens adhered connective tissue, improves oxygen and nutrient supply, and supports the removal of waste products. The procedure was originally developed for medical and rehabilitation purposes (e.g. scar treatment, improving circulation), and was later adopted by the cosmetic industry."
+    },
+    {
+      "question": "What results can the client expect?",
+      "answer": "Firmer, denser skin, reduced wrinkles, visible improvement in cellulite, better skin tone and circulation. Inch loss in the treated area. Results may vary by individual and are influenced by lifestyle, the condition of the connective tissue, and adherence to the treatment protocol."
+    },
+    {
+      "question": "What is included in the price?",
+      "answer": "The complete training package (materials, body contouring specialist textbook, lifestyle advice, client education materials, consent forms, treatment protocols), 2-year warranty, English user manual. Live model training is optional at +79.990 Ft. Exact price during consultation."
+    }
+  ],
+  "whatsIncluded": [
+    "THE SHAPER ContourSystem device",
+    "4 different applicators (body + face handpieces)",
+    "Complete training package (materials + body contouring textbook)",
+    "Client education materials and consent form templates",
+    "Lifestyle advice booklet for clients",
+    "Treatment protocols for every body area",
+    "English user manual",
+    "2-year full warranty",
+    "Replacement device during repair"
+  ]
+}

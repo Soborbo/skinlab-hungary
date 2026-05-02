@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Multifunktionales Premium-Körper- und Gesichtsbehandlungssystem mit 4 Technologien: Vakuummassage, RF, Infrarotlaser und 40 kHz Ultraschallkavitation.",
+  "description": "THE SHAPER ist kein 'Modegerät', sondern die Synergie klinisch bewährter Technologien in einem einzigen Gerät. RF für die Kollagenproduktion, Kavitation für den Fettabbau, Vakuum + Rollen für das Bindegewebe, Infrarotlaser für die zelluläre Stimulation – ein komplettes Konturierungssystem für Gesicht und Körper.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + Kavitation + IR + Vakuum",
+  "metaDescription": "THE SHAPER – Premium-Körper- und Gesichtsbehandlungssystem mit 4 bewährten Technologien: Vakuum-RF, 40 kHz Kavitation, 940 nm IR-Laser und Rollenmassage.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Technologien",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Kavitation",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "IR-Laser",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "RF-Tiefe",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 Technologien, ein Gerät, komplette Konturierung",
+    "paragraphs": [
+      "Seine Stärke liegt nicht in einer einzigen Technologie, sondern in der Kombination: RF strafft, Kavitation baut Fett ab, Vakuum + Rolle verbessern Durchblutung und Bindegewebe, Infrarot verstärkt jeden Effekt. Diese Synergie führt zu schnelleren, sichtbareren Ergebnissen und höherer Kundenzufriedenheit.",
+      "Mit einer einzigen Plattform können der gesamte Körper und das Gesicht behandelt werden. Moderne Touchscreen-Steuerung, 4 verschiedene Applikatoren und klinisch nachgewiesene biologische Wirkmechanismen – nicht mehrere Geräte, sondern ein durchdachtes System."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Hast du Fragen zu THE SHAPER? Wir helfen gerne!",
+      "buttonLabel": "Beratung anfragen",
+      "phoneLabel": "Ruf uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchtest du THE SHAPER live sehen?",
+      "subtitle": "Komm in unseren Showroom in Érd und probiere es persönlich aus!",
+      "buttonLabel": "Termin buchen"
+    },
+    "final": {
+      "headline": "Interessiert an THE SHAPER ContourSystem?",
+      "subtitle": "Fordere eine kostenlose Beratung an, und wir helfen dir zu entscheiden, wie es in die Profitstrategie deines Salons passt.",
+      "buttonLabel": "Beratung anfragen"
+    }
+  },
+  "featureRows": {
+    "headline": "Warum THE SHAPER wählen?",
+    "subtitle": "Die Synergie von 4 klinisch bewährten Technologien in einem einzigen System.",
+    "features": [
+      {
+        "title": "Vakuum-RF-Behandlung – tiefe Straffung",
+        "description": "Die Radiofrequenz-Energie erzeugt Wärme in der Dermis (bis zu 5-15 mm Tiefe), die die Kollagenfasern sofort zusammenzieht (sofortige Straffung) und die Fibroblasten zur Produktion von neuem Kollagen anregt. Die Vakuum- und Rollenmechanik hebt das Gewebe an, sodass die RF tiefer wirkt und gleichzeitig die Blut- und Lymphzirkulation gefördert wird.",
+        "highlight": "Klinisch bewiesen: Kollagendenaturierung + Neokollagenese.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "40K Ultraschallkavitation – physikalischer Fettabbau",
+        "description": "Der 40 kHz Ultraschall erzeugt Mikroblasen im Fettgewebe, deren Kollabieren die Membran der Fettzellen mechanisch beschädigt. Das freigesetzte Fett wird über das Lymphsystem abtransportiert und vom Körper auf natürliche Weise abgebaut.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Was das in der Praxis bedeutet:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Zentimeterverlust nach wenigen Behandlungen</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Lokale Fettpolster gezielt</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Verbesserte Körperkontur</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Physikalischer (nicht thermischer) Fettabbau</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "940 nm Infrarotlaser – zellulärer Booster",
+        "description": "Das 940 nm Infrarotlicht dringt tief in die Gewebe ein, erhöht die Temperatur, verbessert die Sauerstoffversorgung und die Mikrozirkulation. Durch Photobiomodulation stimuliert es den Zellstoffwechsel und die Kollagenproduktion und verstärkt gleichzeitig die Wirkung der anderen Technologien. Dies ist die 'Booster'-Technologie – am stärksten nicht allein, sondern in Synergie.",
+        "highlight": "Ein starker Booster, der die Ergebnisse aller anderen Technologien verbessert.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Mechanische Rollenmassage – Endomassage-Prinzip",
+        "description": "Basiert auf den Prinzipien von LPG / Endermologie: Die speziellen Rollen mobilisieren das Bindegewebe mechanisch, lockern verklebte fibröse Strukturen und stimulieren das Lymphsystem. Das ist entscheidend, denn Cellulite ist nicht nur Fett, sondern auch ein Bindegewebsproblem. In Kombination mit RF ist die Wirkung deutlich stärker.",
+        "highlight": "Das Prinzip der LPG-Endermologie – eine seit Jahrzehnten bewährte klinische Methode.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Ganzer Körper + Gesicht, für jede Altersgruppe",
+        "description": "Die personalisierten Behandlungen bieten Lösungen für verschiedene Altersgruppen.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 Jahre: Vorbeugung, Hautqualität</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 Jahre: Hauterschlaffung, Cellulite</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ Jahre: Straffung, Konturierung</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Auch Gesicht, Hals und Dekolleté</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Umfassende, praxisorientierte Schulung",
+    "badge": "Komplettes Fachpaket",
+    "intro": "Zum Gerät THE SHAPER vermitteln wir alles notwendige Wissen für sichere und effektive Behandlungen. Die Materialien sind in einem strukturierten, nachvollziehbaren System zusammengestellt, damit du vom ersten Tag an einen Service auf hohem Niveau bieten kannst.",
+    "items": [
+      "Detailliertes, fachliches Lehrmaterial",
+      "Komplettes Lehrbuch zum Body-Contouring-Spezialisten",
+      "Lifestyle-Beratungsheft zur Weitergabe an Kunden",
+      "Vervielfältigbare Kundenedukationsmaterialien",
+      "Muster für Einverständniserklärungen",
+      "Behandlungsprotokolle für jede Körperpartie"
+    ],
+    "closingParagraphs": [
+      "Praktische Schulung am lebenden Modell ist ebenfalls verfügbar (+79.990 Ft) – in realen Behandlungssituationen kannst du mit fachlicher Anleitung die richtigen Behandlungstechniken und Protokolle erlernen.",
+      "Das Basis-Schulungspaket ist beim Gerätekauf kostenlos enthalten."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "Schulung am lebenden Modell (optional)",
+    "freeText": "Basisschulung KOSTENLOS beim Gerätekauf!",
+    "duration": "Basispaket: Selbststudium | Live-Schulung: 1 Tag",
+    "ctaText": "Ich interessiere mich für die Schulung"
+  },
+  "expertQuote": {
+    "quote": "Die Stärke von THE SHAPER liegt nicht in einer einzigen Technologie, sondern in der Kombination der 4 bewährten Verfahren. RF + Kavitation + Vakuum + Infrarot – jedes ist klinisch für sich bewiesen, zusammen liefern sie deutlich stärkere und schnellere Ergebnisse.",
+    "author": "Horváth László",
+    "role": "Technischer Experte"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Vakuum-RF",
+      "description": "1 MHz / 4-8 MHz, wirkt in 5-15 mm Tiefe."
+    },
+    {
+      "icon": "wave",
+      "name": "40 kHz Kavitation",
+      "description": "Bis zu 60 W Ultraschall, physikalischer Fettabbau."
+    },
+    {
+      "icon": "sun",
+      "name": "940 nm IR-Laser",
+      "description": "Photobiomodulation, zellulärer Booster."
+    },
+    {
+      "icon": "wind",
+      "name": "Vakuum + Rolle",
+      "description": "10-60 kPa, kontinuierliche und pulsierende Modi."
+    },
+    {
+      "icon": "layers",
+      "name": "4 Applikatoren",
+      "description": "Körper- + Gesichtsbehandlungsköpfe in einem System."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Touchscreen-Steuerung, intuitive Bedienung."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Warum ist es besser als die Eintechnologiegeräte auf dem Markt?",
+      "answer": "4 Technologien in einem Gerät: keine separaten Einzelgeräte mehr nötig. Dank der Kombination aus Vakuum + RF wirkt die Behandlung tiefer (5-15 mm), nicht nur an der Oberfläche. Die mechanische Rollenbehandlung ist gegen Cellulite hervorragend. Die Infrarot-RF-Synergie liefert schnellere und sichtbarere Ergebnisse. Mit einer einzigen Plattform können ganzer Körper + Gesicht behandelt werden."
+    },
+    {
+      "question": "Wie viele Sitzungen umfasst eine Kur?",
+      "answer": "Kunden bemerken meist schon nach wenigen Sitzungen eine Verbesserung der Hautqualität, während am Ende der vollständigen Kur (in der Regel 6-10 Sitzungen) die Körperkonturen harmonischer werden können. Das genaue Protokoll hängt vom Zielbereich und vom Zustand des Kunden ab – das Schulungspaket enthält ein detailliertes Protokoll für jede Körperpartie."
+    },
+    {
+      "question": "Auf welchen Körperpartien ist es einsetzbar?",
+      "answer": "Gesicht und Hals (Stirn, Augenpartie, Wangen, Doppelkinn, Kieferlinie, Dekolleté) – Ziel sind Straffung und Faltenreduzierung. Körper (Bauch, Taille, Hüften, Po, Innen- und Außenschenkel, Oberarme, Rücken, Lendenbereich) – Ziel sind Konturierung, Cellulite-Reduktion und Hautstraffung."
+    },
+    {
+      "question": "Wie funktioniert das Endomassage- (LPG) Prinzip?",
+      "answer": "Der spezielle Rollen- und Vakuummechanismus bearbeitet die Haut und die darunterliegenden Gewebe. Er lockert verklebtes Bindegewebe, verbessert die Sauerstoff- und Nährstoffversorgung und unterstützt den Abtransport von Schlackenstoffen. Das Verfahren wurde ursprünglich für medizinische und rehabilitative Zwecke entwickelt (z. B. Narbenbehandlung, Verbesserung der Durchblutung) und später in die Kosmetikindustrie übernommen."
+    },
+    {
+      "question": "Mit welchen Ergebnissen kann der Kunde rechnen?",
+      "answer": "Straffere, festere Haut, Faltenreduzierung, sichtbare Verbesserung der Cellulite, besserer Hautton und bessere Durchblutung. Zentimeterverlust im behandelten Bereich. Die Ergebnisse können individuell unterschiedlich sein und werden vom Lebensstil, dem Zustand des Bindegewebes und der Einhaltung des Behandlungsprotokolls beeinflusst."
+    },
+    {
+      "question": "Was ist im Preis enthalten?",
+      "answer": "Das komplette Schulungspaket (Lehrmaterial, Body-Contouring-Lehrbuch, Lifestyle-Beratung, Kundenedukationsmaterialien, Einverständniserklärungen, Behandlungsprotokolle), 2 Jahre Garantie, deutsches Bedienungshandbuch. Schulung am lebenden Modell optional +79.990 Ft. Genauer Preis im Beratungsgespräch."
+    }
+  ],
+  "whatsIncluded": [
+    "THE SHAPER ContourSystem Gerät",
+    "4 verschiedene Applikatoren (Körper- + Gesichtsbehandlungsköpfe)",
+    "Komplettes Schulungspaket (Lehrmaterial + Body-Contouring-Lehrbuch)",
+    "Kundenedukationsmaterialien und Muster für Einverständniserklärungen",
+    "Lifestyle-Beratungsheft für Kunden",
+    "Behandlungsprotokolle für jede Körperpartie",
+    "Deutsches Bedienungshandbuch",
+    "2 Jahre umfassende Garantie",
+    "Ersatzgerät während der Reparatur"
+  ]
+}

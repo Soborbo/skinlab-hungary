@@ -1,78 +1,129 @@
 {
-  "name": "HYDRASCAN PRO+",
-  "shortDescription": "8+1 function hydrofacial with AI skin analysis. Real-time diagnostics, digital treatment diary, before-and-after documentation. The enhanced version of the PRO.",
-  "description": "The HYDRASCAN PRO+ is the enhanced version of the popular HYDRASCAN PRO – not just a multifunctional hydrofacial device, but an intelligent skin diagnostic and treatment system as well.\n\nThe device's specialty is combining traditional facial treatment technologies with artificial intelligence, making treatments not only more effective but also more personalized.\n\nThe built-in AI skin analysis system provides real-time diagnostics: pore size, wrinkle depth, pigmentation, hydration, sebum production, elasticity, inflamed areas, and UV damage – all automatically analyzed with treatment recommendations.",
-  "metaTitle": "HydraSCAN PRO+ | AI Skin Analysis Integrated 8+1 Function Hydrofacial",
-  "metaDescription": "HYDRASCAN PRO+ – the enhanced hydrofacial device: real-time AI skin diagnostics, 8+1 treatment functions, digital treatment diary. 2-year warranty.",
+  "name": "HydraScan PRO+ 2026",
+  "shortDescription": "Ultra-modern hydrodermabrasion-focused multi-device with 8+1 treatment heads, AI skin analysis, 4K micro-camera and digital client card.",
+  "description": "The HydraScan PRO+ 2026 is an innovative, hydrodermabrasion-focused multifunctional cosmetic system that combines deep cleansing treatments with intelligent skin analysis. The device effectively cleanses the skin, supports skin renewal, and uses advanced technology to provide a precise picture of the skin's current condition.\n\nThe system's specialty is its AI-based skin analysis, which automatically evaluates the results and instantly recommends treatments, cosmetic products, and a personalized at-home skincare routine. The device is therefore not only a diagnostic tool but also active sales support for the salon.\n\nWith a large touchscreen, intelligent Android-based system and multiple treatment heads – the ideal choice for modern beauty salons where technology, personalized skincare and efficient service sales are equally important.",
+  "metaTitle": "HydraScan PRO+ 2026 | 8+1 Function Hydrofacial with Built-in AI Skin Analysis",
+  "metaDescription": "HydraScan PRO+ 2026 – advanced hydrofacial device: real-time AI skin diagnostics with 4K micro-camera, 8+1 treatment functions, digital treatment diary. 2-year warranty.",
   "stats": [
     { "value": "8+1", "label": "Treatment functions", "icon": "layers" },
     { "value": "AI", "label": "Skin diagnosis", "icon": "zap" },
-    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" },
-    { "value": "~30", "unit": "min", "label": "Treatment time", "icon": "clock" }
+    { "value": "4K", "label": "Micro-camera", "icon": "eye" },
+    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": { "defaultTreatmentPrice": 30000 },
   "videoDescription": {
-    "headline": "The HYDRASCAN PRO+ is not just a device – it's an intelligent skin diagnostic system",
+    "headline": "HydraScan PRO+ 2026 – not just a device, but an intelligent skin diagnostic and sales system",
     "paragraphs": [
-      "The device's specialty is combining traditional facial treatment technologies with artificial intelligence, making treatments not only more effective but also more personalized.",
-      "The built-in AI skin analysis system provides real-time diagnostics: pore size, wrinkle depth, pigmentation, hydration, sebum production, elasticity, inflamed areas, and UV damage – all automatically analyzed with treatment recommendations.",
-      "Before-and-after photos and charts can be created of the client's condition, and the system maintains a treatment diary so every change is documented."
+      "The HydraScan PRO+ 2026 combines traditional facial treatment technologies (hydrodermabrasion, oxygen cleansing, RF, ultrasound, hot-cold hammer, LED) with AI-based skin analysis, making treatments not only more effective but also more personalized.",
+      "The 4K micro-camera provides a detailed image of the skin and the AI system automatically recommends treatments, cosmetic products and at-home skincare – active sales support for the salon.",
+      "The digital client card automatically records analysis results, takes before-and-after photos, so every client's skin condition can be visibly and measurably tracked."
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the HYDRASCAN PRO+ in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the HYDRASCAN PRO+?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": { "text": "Have questions about the HydraScan PRO+? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
+    "afterFeatures": { "headline": "Want to see the HydraScan PRO+ in person?", "subtitle": "Visit our showroom in Érd and try the AI analysis on your own skin!", "buttonLabel": "Book an appointment" },
+    "final": { "headline": "Interested in the HydraScan PRO+ 2026?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for your salon.", "buttonLabel": "Request consultation" }
   },
   "featureRows": {
-    "headline": "Why do estheticians choose the HydraSCAN PRO+?",
-    "subtitle": "A device that not only works but also thinks",
+    "headline": "Why do estheticians choose the HydraScan PRO+?",
+    "subtitle": "A device that not only works, but also thinks – and sells",
     "features": [
       {
-        "title": "8 treatment functions in a single compact device",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrasion</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydroabrasion</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasound</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-pod treatment head</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hot/cold hammer</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI skin analysis micro-camera</div>\n</div>",
-        "image": "@assets/products/HydraSCANPro3.webp"
+        "title": "8 treatment heads + AI – everything in a single compact device",
+        "description": "The HydraScan PRO+ combines 8 different treatment technologies and an AI-based skin analysis module in a single device.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrasion (Bubble Cleaning)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-pod active ingredient capsules</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasonic peeling (Skin Scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray (water + oxygen)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hot-cold hammer</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bipolar RF lifting</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrasonic infusion (Sound Wave)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED light therapy mask</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4K AI skin analysis micro-camera</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-applicators.png"
       },
       {
-        "title": "Skin analysis powered by artificial intelligence",
-        "description": "The HYDRASCAN PRO+'s built-in AI skin analysis system provides real-time diagnostics for targeted and precise treatments.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">The AI system examines:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pore size</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>wrinkle depth</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentation and spots</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>skin hydration level</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>sebum production</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elasticity, tone</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>acne or inflamed areas</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UV damage traces</div>\n</div>",
-        "image": "@assets/products/HydraSCANPRO2.webp"
+        "title": "Real-time AI skin analysis",
+        "description": "The 4K skin analysis micro-camera provides detailed images of the skin's surface and microstructure. The intelligent software automatically evaluates the results and recommends treatments and products.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">The AI system examines:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pore size, blackheads</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>wrinkle depth</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentation and spots</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>hydration level</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>sebum production</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elasticity, tone</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>acne and inflamed areas</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>traces of UV damage</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-interface.png"
       },
-      { "title": "Personalized treatment protocols", "description": "Based on the results, the device automatically recommends treatment directions. Before-and-after photos and charts can be created of the client's condition, and the system maintains a treatment diary so every change is documented. The client receives a treatment tailored to their skin, not a template treatment.", "image": "@assets/products/hydrascan-pro-1.webp" },
-      { "title": "Convincing client communication with data and images", "description": "Thanks to the AI system, it's transparent to the client why they're receiving a specific treatment – this builds trust. The progress curve can be documented with charts, images, and data, so the visible results speak for themselves.", "image": "@assets/products/hydrascan-pro-2.webp" },
-      { "title": "Digital treatment diary and before-and-after documentation", "description": "The system automatically creates before-and-after photos, charts, and maintains an online client card for every client. Treatment protocols are saved, so the reviewable treatment history encourages the client to return.", "image": "@assets/products/hydrascan-pro-3.webp" }
+      {
+        "title": "OxyPod capsules – personalized, targeted treatment",
+        "description": "OxyPods are special active-ingredient capsules that dissolve during treatment and deliver targeted skincare ingredients into the skin while cleansing. Different capsules are available for different concerns: acne-prone skin, pigmentation spots, dull skin, dehydrated skin, enlarged pores. With hyaluronic acid, vitamins and other actives, the treatment can always be tailored to the client's skin condition – creating an additional revenue stream from capsule treatments.",
+        "highlight": "One device, multiple targeted solutions for different skin concerns.",
+        "image": "@assets/products/hydrascan-pro-plus-3.png"
+      },
+      {
+        "title": "Digital client card and before-and-after documentation",
+        "description": "The HydraScan PRO+ includes a digital client card system that automatically records skin analysis results. Every analysis is stored, so the skin's condition can be tracked from treatment to treatment and compared with photos and charts.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Digital client card for every guest</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Documenting skin changes over time</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Before-and-after comparison</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Professional, personalized advice</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-2.png"
+      },
+      {
+        "title": "Revenue-generating platform – not just treatments, but sales support",
+        "description": "The HydraScan PRO+ AI skin analysis not only diagnoses but also automatically recommends in-salon treatments, professional products and at-home skincare routines. This boosts treatment series sales, client return rates and cosmetic product sales. A complex facial treatment is priced between 25,000–50,000 Ft: with 3 clients per day, monthly revenue can reach 1.5–3 million Ft.",
+        "highlight": "One device – multiple revenue streams (treatments + products + series).",
+        "image": "@assets/products/hydrascan-pro-plus-showroom-1.jpg"
+      }
     ]
   },
   "training": {
-    "headline": "Operator training – official adult education program",
+    "headline": "Operator training – within an officially registered adult education program",
     "badge": "With official certificate",
-    "intro": "A professional operator training course is available for the HYDRASCAN PRO+ device, provided within the framework of officially registered adult education.",
-    "items": ["HYDRASCAN PRO+ operating principles, technologies, and treatment heads", "Intelligent skin analysis system interpretation and practical application", "Treatment protocols for different skin types and concerns", "Client communication and treatment diary management", "Before-and-after documentation creation", "Practical treatments on models"],
-    "closingParagraphs": ["You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.", "Upon completion of the training, we issue an official certificate confirming your competence in the professional operation of the HYDRASCAN PRO+ device."],
-    "price": "69.990 Ft", "priceNote": "value training", "freeText": "FREE with device purchase!", "duration": "One-day intensive training", "ctaText": "Interested in the training"
+    "intro": "Comprehensive operator training is provided for the HydraScan PRO+ device, included in the price of the device. With this training you'll be able to start working confidently and independently, with no unanswered questions.",
+    "items": [
+      "HydraScan PRO+ operating principles and treatment heads",
+      "Interpretation and practical use of the AI skin analysis system",
+      "OxyPod active capsule use for different skin concerns",
+      "Treatment protocols for different skin types",
+      "Client communication and digital client card management",
+      "Creating before-and-after documentation",
+      "Hygienic cleaning, maintenance, contraindications"
+    ],
+    "closingParagraphs": [
+      "Thanks to our complete educational materials, protocol booklets and training resources, you don't have to worry later either – all important information is at your disposal.",
+      "If you'd like hands-on training with a live model, we offer this for an additional 69,990 Ft. The training price naturally includes the use of active ingredients, and we welcome your model with a barista-quality coffee and refreshments."
+    ],
+    "price": "Included",
+    "priceNote": "basic training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in training"
   },
-  "expertQuote": { "quote": "HydraFacial is one of the best ROI investments for a salon. Clients immediately see results and regularly return – that means guaranteed revenue.", "author": "Horváth László", "role": "Technical expert" },
+  "expertQuote": {
+    "quote": "The HydraScan PRO+ is one of the best ROI investments for a salon thanks to its combination of hydrofacial and AI skin analysis. Clients see their skin condition and changes with their own eyes – this builds trust, return visits and product sales.",
+    "author": "Horváth László",
+    "role": "Technical expert"
+  },
   "functionCards": [
     { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Vacuum deep cleansing, pore clearing, dead skin cell removal" },
-    { "icon": "sound", "name": "Ultrasonic infusion", "description": "Active ingredient delivery into deep layers with serums" },
-    { "icon": "bubbles", "name": "O₂ Bubble + H₂O₂", "description": "Oxygen hydration and antioxidant treatment" },
-    { "icon": "bolt", "name": "Bipolar RF lifting", "description": "Facial firming, collagen stimulation with radio frequency" },
-    { "icon": "snowflake", "name": "Hot-cold hammer", "description": "Skin soothing, pore tightening, circulation stimulation" },
-    { "icon": "spray", "name": "Spray gun", "description": "Treatment-finishing toning and hydrating spray" },
-    { "icon": "brain", "name": "AI skin analysis", "description": "Real-time, 9+ parameter artificial intelligence analysis" },
-    { "icon": "chart", "name": "Digital consultation", "description": "Before-and-after images, charts, treatment recommendations" },
-    { "icon": "clipboard", "name": "Treatment diary", "description": "Online client card, treatment protocol storage and tracking" }
+    { "icon": "bubbles", "name": "OxyPod capsules", "description": "Targeted ingredient delivery during micro-bubble cleansing" },
+    { "icon": "sound", "name": "Ultrasonic peeling", "description": "Skin Scrubber – painless peeling, pore cleansing" },
+    { "icon": "spray", "name": "Oxy-spray", "description": "Water and oxygen atomization – instant hydration" },
+    { "icon": "snowflake", "name": "Hot-cold hammer", "description": "Skin soothing, pore tightening, circulation boost" },
+    { "icon": "bolt", "name": "Bipolar RF", "description": "Skin firming, collagen stimulation with radio frequency" },
+    { "icon": "sound", "name": "Ultrasonic infusion", "description": "Sound Wave 40-50 – deep active ingredient absorption" },
+    { "icon": "sun", "name": "LED mask", "description": "Red, blue, green, yellow light therapy – regeneration, anti-inflammatory" },
+    { "icon": "brain", "name": "AI skin analysis", "description": "4K micro-camera, 9+ parameters, automatic treatment recommendations" }
   ],
   "faq": [
-    { "question": "What exactly does the AI skin analysis system analyze?", "answer": "The HydraSCAN PRO+ built-in AI system examines in real-time: pore size, wrinkle depth, pigmentation and spots, skin hydration level, sebum production, elasticity and tone, acne or inflamed areas, and UV damage traces. Based on results, it automatically recommends treatment directions." },
-    { "question": "What advantage does AI diagnosis have over traditional skin analysis?", "answer": "AI is objective, reproducible, and much more detailed than visual examination. It maps skin properties that cannot be detected with the naked eye. It also maintains a digital treatment diary, creates before-and-after images, so treatment effects are measurably documented." },
-    { "question": "What's the difference between the PRO and the PRO+?", "answer": "The HYDRASCAN PRO+ is the enhanced version of the PRO, with expanded functions and more advanced technology." },
-    { "question": "What training comes with the HydraSCAN PRO+?", "answer": "A 69,990 Ft official adult education operator training course is available. The training covers all functions, AI system interpretation, treatment protocols, and practical treatments. We issue an official certificate." },
-    { "question": "How quickly does the HydraSCAN PRO+ pay for itself?", "answer": "On average within 2-4 months, with 3-5 clients per day. A hydrofacial treatment is priced between 15,000-30,000 Ft, while AI-enhanced premium treatments can be offered at 35,000-50,000 Ft. Use our on-page ROI calculator for exact figures!" },
-    { "question": "What skin types is the treatment suitable for?", "answer": "The HydraSCAN PRO+ is suitable for all skin types, including sensitive skin. The AI analysis precisely assesses the skin's condition and recommends a personalized treatment protocol based on the results." },
-    { "question": "Can I view the device before purchasing?", "answer": "Yes! You can view and try the HydraSCAN PRO+ in person at our showroom (Érd, Budai út 28.) by appointment." }
+    { "question": "Can desktop hydrofacial systems be effective too?", "answer": "Yes, absolutely. Effectiveness is determined not by size but by technology and adjustment options. The HydraScan PRO+ 2026 has a professional vacuum system and multiple treatment functions, allowing full-value salon treatments." },
+    { "question": "Is the device's vacuum/suction power adequate?", "answer": "Yes. The vacuum range (−6 kPa to −86 kPa) is adjustable across a wide scale: gentle for sensitive skin, effective deep cleansing for problem skin. With proper settings it's neither 'too strong' nor too weak – the key is correct use, which is taught in detail during the training." },
+    { "question": "What maintenance does the device require?", "answer": "Daily maintenance is simple: rinse the tubing system with clean water after use, empty and clean the tanks, disinfect the treatment heads. This ensures hygienic operation and long lifespan." },
+    { "question": "How often is service required?", "answer": "With normal use there's no frequent mandatory service requirement. We recommend annual periodic checks; with intensive (daily) use, a quick service visit every 6 months. Proper cleaning significantly reduces service needs." },
+    { "question": "What should I be especially careful about during use?", "answer": "Use only liquids recommended for the device, avoid acidic, oily or particulate substances, use alcohol-free disinfectant, and don't leave the system standing with liquid after use. Following these prevents malfunctions." },
+    { "question": "Can a beginner esthetician use it?", "answer": "Yes. Operating the device is logical, and the training walks you through usage step by step, making it ideal for beginners. Basic treatments can be performed safely right after training; routine develops within a few weeks." },
+    { "question": "How quickly does the device pay for itself?", "answer": "Quick ROI is achievable with as few as 2-3 clients per day. A complex facial is priced between 25,000–50,000 Ft, so with 3 clients per day you can generate 1.5–3 million Ft monthly. Hydro treatments are in high demand and price well." },
+    { "question": "Can it be combined with other treatments?", "answer": "Yes, highly recommended. The HydraScan PRO+ is the perfect base treatment before or after carbon peeling, or before/after other devices. The skin analysis can be used before any other treatment, or as a complete service on its own." },
+    { "question": "How much space does the device take?", "answer": "Compact desktop design, so it fits comfortably in smaller treatment rooms. A dedicated HydraScan PRO+ trolley is also available for 79,990 Ft." }
   ],
   "whatsIncluded": [
-    "HydraSCAN PRO+ device", "Hydrodermabrasion treatment head", "Ultrasonic infusion treatment head", "O₂ bubble + H₂O₂ treatment head", "Bipolar RF lifting treatment head", "Hot-cold hammer treatment head", "Spray gun treatment head", "AI skin analysis module (built-in)", "Starter serum package", "User manual (Hungarian)", "2-year comprehensive warranty", "Replacement device during repairs"
+    "HydraScan PRO+ 2026 device",
+    "Bubble Cleaning (hydrodermabrasion) treatment head",
+    "Oxygen Bubble (OxyPod) treatment head",
+    "Skin Scrubber (ultrasonic peeling) treatment head",
+    "Water Oxygen Atomization (oxy-spray) treatment head",
+    "Cold & Hot (hot-cold hammer) treatment head",
+    "Sound Wave ultrasonic infusion treatment head",
+    "Bipolar RF treatment head",
+    "LED light therapy mask",
+    "4K skin analysis micro-camera",
+    "AI skin analysis module (built-in)",
+    "Digital client card system",
+    "Starter OxyPod / hydra serum package",
+    "User manual",
+    "Operator training",
+    "2-year comprehensive warranty",
+    "Replacement device during repairs"
   ]
 }

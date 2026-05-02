@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Sistem premium multifuncțional de tratamente pentru corp și față cu 4 tehnologii: masaj cu vacuum, RF, laser infraroșu și cavitație ultrasonică de 40 kHz.",
+  "description": "THE SHAPER nu este un 'aparat la modă', ci sinergia unor tehnologii dovedite clinic de ani de zile, într-un singur dispozitiv. RF pentru producția de colagen, cavitație pentru reducerea grăsimii, vacuum + role pentru țesutul conjunctiv, laser infraroșu pentru stimularea celulară – un sistem complet de remodelare pentru tratamente faciale și corporale.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + cavitație + IR + vacuum",
+  "metaDescription": "THE SHAPER – Sistem premium de tratamente pentru corp și față cu 4 tehnologii dovedite: RF cu vacuum, cavitație 40 kHz, laser IR 940 nm și masaj cu role.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Tehnologii",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Cavitație",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "Laser IR",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "Adâncime RF",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 tehnologii, un singur aparat, remodelare completă",
+    "paragraphs": [
+      "Forța sa nu stă într-o singură tehnologie, ci în combinație: RF tonifică, cavitația descompune grăsimea, vacuumul + rolele îmbunătățesc circulația și țesutul conjunctiv, infraroșul amplifică toate efectele. Această sinergie aduce schimbări mai rapide, mai vizibile și o satisfacție mai mare a clienților.",
+      "Cu o singură platformă pot fi tratate întregul corp și fața. Comandă modernă pe ecran tactil, 4 aplicatoare diferite și mecanisme biologice de acțiune dovedite clinic – nu mai multe aparate, ci un sistem bine gândit."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Ai întrebări despre THE SHAPER? Te ajutăm cu plăcere!",
+      "buttonLabel": "Solicită o consultanță",
+      "phoneLabel": "Sună-ne"
+    },
+    "afterFeatures": {
+      "headline": "Vrei să vezi THE SHAPER pe viu?",
+      "subtitle": "Vino în showroom-ul nostru din Érd și încearcă-l personal!",
+      "buttonLabel": "Programează-te"
+    },
+    "final": {
+      "headline": "Te interesează THE SHAPER ContourSystem?",
+      "subtitle": "Solicită o consultanță gratuită și te ajutăm să decizi cum se potrivește în strategia de profit a salonului tău.",
+      "buttonLabel": "Solicită o consultanță"
+    }
+  },
+  "featureRows": {
+    "headline": "De ce să alegi THE SHAPER?",
+    "subtitle": "Sinergia a 4 tehnologii dovedite clinic într-un singur sistem.",
+    "features": [
+      {
+        "title": "Tratament RF cu vacuum – tonifiere profundă",
+        "description": "Energia de radiofrecvență generează căldură în derm (până la 5-15 mm adâncime), care contractă imediat fibrele de colagen (tonifiere instantanee) și stimulează fibroblastele să producă colagen nou. Mecanica vacuumului și rolelor ridică țesutul, astfel încât RF-ul acționează mai în profunzime, iar circulația sangvină și limfatică crește.",
+        "highlight": "Dovedit clinic: denaturarea colagenului + neocolagenoză.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "Cavitație ultrasonică 40K – descompunere fizică a grăsimii",
+        "description": "Ultrasunetele de 40 kHz creează microbule în țesutul adipos, a căror prăbușire deteriorează mecanic membrana celulelor adipoase. Grăsimea eliberată este eliminată prin sistemul limfatic și descompusă natural de organism.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Ce înseamnă în practică:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reducerea centimetrilor după doar câteva tratamente</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pernuțe locale de grăsime tratate țintit</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Îmbunătățirea conturului corpului</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Descompunere a grăsimii fizică (non-termică)</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "Laser infraroșu 940 nm – booster celular",
+        "description": "Lumina infraroșie de 940 nm pătrunde adânc în țesuturi, crește temperatura, îmbunătățește alimentarea cu oxigen și microcirculația. Prin fotobiomodulație stimulează metabolismul celular și producția de colagen, amplificând în același timp efectul celorlalte tehnologii. Aceasta este tehnologia 'booster' – cea mai puternică nu singură, ci în sinergie.",
+        "highlight": "Un booster puternic care îmbunătățește rezultatele tuturor celorlalte tehnologii.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Masaj mecanic cu role – principiul endomasajului",
+        "description": "Se bazează pe principiile LPG / endermologie: rolele speciale mobilizează mecanic țesutul conjunctiv, slăbesc structurile fibroase aderate și stimulează sistemul limfatic. Acest lucru este esențial, deoarece celulita nu este doar grăsime, ci și o problemă a țesutului conjunctiv. Combinat cu RF, efectul este mult mai puternic.",
+        "highlight": "Principiul endermologiei LPG – metodă clinică dovedită de zeci de ani.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Corp întreg + față, pentru orice grupă de vârstă",
+        "description": "Tratamentele personalizate oferă soluții pentru diferite grupe de vârstă.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 de ani: prevenție, calitatea pielii</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 de ani: laxitate cutanată, celulită</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ de ani: tonifiere, contur</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Și pentru față, gât și decolteu</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Instruire completă, axată pe practică",
+    "badge": "Pachet profesional complet",
+    "intro": "Pentru aparatul THE SHAPER îți transmitem toate cunoștințele necesare pentru tratamente sigure și eficiente. Materialele sunt organizate într-un sistem structurat și ușor de urmărit, ca să poți oferi servicii de înaltă calitate din prima zi.",
+    "items": [
+      "Material de curs profesional detaliat",
+      "Manual complet de specialist în remodelare corporală",
+      "Broșură de consiliere privind stilul de viață, pentru clienți",
+      "Materiale de educare a clienților, multiplicabile",
+      "Modele de declarații de consimțământ",
+      "Protocoale de tratament pentru fiecare zonă a corpului"
+    ],
+    "closingParagraphs": [
+      "Instruirea practică pe model viu este, de asemenea, disponibilă (+79.990 Ft) – în situații reale de tratament, cu îndrumare profesională, vei învăța tehnicile și protocoalele corecte.",
+      "Pachetul de instruire de bază este inclus gratuit la achiziționarea aparatului."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "instruire pe model viu (opțional)",
+    "freeText": "Instruire de bază GRATUITĂ la achiziționarea aparatului!",
+    "duration": "Pachet de bază: studiu individual | Instruire live: 1 zi",
+    "ctaText": "Mă interesează instruirea"
+  },
+  "expertQuote": {
+    "quote": "Forța aparatului THE SHAPER nu stă într-o singură tehnologie, ci în combinația celor 4 proceduri dovedite. RF + cavitație + vacuum + infraroșu – fiecare este dovedită clinic și separat, iar împreună oferă rezultate mult mai puternice și mai rapide.",
+    "author": "Horváth László",
+    "role": "Expert tehnic"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "RF cu vacuum",
+      "description": "1 MHz / 4-8 MHz, acționează la 5-15 mm adâncime."
+    },
+    {
+      "icon": "wave",
+      "name": "Cavitație 40 kHz",
+      "description": "Până la 60 W ultrasunete, descompunere fizică a grăsimii."
+    },
+    {
+      "icon": "sun",
+      "name": "Laser IR 940 nm",
+      "description": "Fotobiomodulație, booster celular."
+    },
+    {
+      "icon": "wind",
+      "name": "Vacuum + role",
+      "description": "10-60 kPa, moduri continuu și pulsatoriu."
+    },
+    {
+      "icon": "layers",
+      "name": "4 aplicatoare",
+      "description": "Capete pentru corp + față într-un singur sistem."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Comandă pe ecran tactil, operare intuitivă."
+    }
+  ],
+  "faq": [
+    {
+      "question": "De ce este mai bun decât aparatele cu o singură tehnologie de pe piață?",
+      "answer": "4 tehnologii într-un singur aparat: nu ai nevoie de mai multe dispozitive separate. Datorită combinației vacuum + RF, tratamentul ajunge mai în profunzime (5-15 mm), nu doar la suprafață. Tratamentul mecanic cu role este excelent împotriva celulitei. Sinergia infraroșu + RF aduce rezultate mai rapide și mai vizibile. Cu o singură platformă pot fi tratate întregul corp + fața."
+    },
+    {
+      "question": "Câte ședințe formează o cură?",
+      "answer": "Clienții observă, de obicei, o îmbunătățire a calității pielii încă după câteva ședințe, iar la finalul curei complete (de regulă 6-10 ședințe) conturul corpului poate deveni mai armonios. Protocolul exact depinde de zona țintă și de starea clientului – pachetul de instruire conține un protocol detaliat pentru fiecare zonă a corpului."
+    },
+    {
+      "question": "Pe ce zone ale corpului poate fi folosit?",
+      "answer": "Față și gât (frunte, conturul ochilor, obraji, bărbie dublă, linia maxilarului, decolteu) – obiectivul este tonifierea și reducerea ridurilor. Corp (abdomen, talie, șolduri, fese, coapse interior + exterior, brațe, spate, zona lombară) – obiectivul este remodelarea, reducerea celulitei și tonifierea pielii."
+    },
+    {
+      "question": "Cum funcționează principiul endomasajului (LPG)?",
+      "answer": "Mecanismul special cu role și vacuum lucrează pielea și țesuturile aflate dedesubt. Slăbește țesutul conjunctiv aderat, îmbunătățește alimentarea cu oxigen și nutrienți și sprijină eliminarea toxinelor. Procedura a fost dezvoltată inițial pentru scopuri medicale și de reabilitare (de exemplu, tratarea cicatricilor, îmbunătățirea circulației) și a fost preluată ulterior în industria cosmetică."
+    },
+    {
+      "question": "La ce rezultate se poate aștepta clientul?",
+      "answer": "Piele mai fermă, mai densă, reducerea ridurilor, ameliorare vizibilă a celulitei, ton mai bun al pielii și circulație îmbunătățită. Reducere de centimetri în zona tratată. Rezultatele pot diferi de la persoană la persoană și sunt influențate de stilul de viață, starea țesutului conjunctiv și respectarea protocolului de tratament."
+    },
+    {
+      "question": "Ce este inclus în preț?",
+      "answer": "Pachetul complet de instruire (material de curs, manual de specialist în remodelare corporală, consiliere privind stilul de viață, materiale de educare a clienților, declarații de consimțământ, protocoale de tratament), 2 ani de garanție, manual de utilizare în limba română. Instruirea pe model viu opțional +79.990 Ft. Prețul exact se stabilește la consultanță."
+    }
+  ],
+  "whatsIncluded": [
+    "Aparatul THE SHAPER ContourSystem",
+    "4 aplicatoare diferite (capete pentru corp + față)",
+    "Pachet complet de instruire (material de curs + manual de remodelare corporală)",
+    "Materiale de educare a clienților și modele de declarații de consimțământ",
+    "Broșură de consiliere privind stilul de viață, pentru clienți",
+    "Protocoale de tratament pentru fiecare zonă a corpului",
+    "Manual de utilizare în limba română",
+    "2 ani de garanție completă",
+    "Aparat de schimb pe durata reparației"
+  ]
+}

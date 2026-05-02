@@ -1,0 +1,189 @@
+{
+  "name": "THE SHAPER ContourSystem",
+  "shortDescription": "Multifunkciós, prémium kategóriás test- és arckezelő rendszer 4 technológiával: vákuumos masszázs, RF, infravörös lézer és 40 kHz ultrahangos kavitáció.",
+  "description": "A THE SHAPER nem egy „divatgép”, hanem évek óta klinikailag bevált technológiák szinergiája egyetlen készülékben. RF a kollagéntermelésért, kavitáció a zsírbontásért, vákuum + görgő a kötőszövetért, infravörös lézer a sejtszintű stimulációért – komplett alakformáló rendszer arc és test kezelésére.",
+  "metaTitle": "THE SHAPER ContourSystem | RF + kavitáció + IR + vákuum",
+  "metaDescription": "THE SHAPER – Prémium test- és arckezelő rendszer 4 bevált technológiával: vákuumos RF, 40 kHz kavitáció, 940 nm IR lézer és görgős masszázs.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Technológia",
+      "icon": "layers"
+    },
+    {
+      "value": "40",
+      "unit": "kHz",
+      "label": "Kavitáció",
+      "icon": "wave"
+    },
+    {
+      "value": "940",
+      "unit": "nm",
+      "label": "IR lézer",
+      "icon": "sun"
+    },
+    {
+      "value": "5-15",
+      "unit": "mm",
+      "label": "RF mélység",
+      "icon": "target"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
+  "videoDescription": {
+    "headline": "THE SHAPER – 4 technológia, egy készülék, komplett alakformálás",
+    "paragraphs": [
+      "Nem egy bizonyos technológiában van az ereje, hanem a kombinációban: RF feszesít, kavitáció zsírt bont, vákuum + görgő keringést és kötőszövetet javít, infravörös erősíti az összes hatást. Ez a szinergia eredményezi a gyorsabb, látványosabb változást és a magasabb vendégelégedettséget.",
+      "Egyetlen platformmal teljes test és arc kezelhető. Modern érintőképernyős vezérlés, 4 különböző applikátor, és klinikailag igazolt biológiai hatásmechanizmusok – nem több gép, hanem egy jól átgondolt rendszer."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a THE SHAPER-rel kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
+    "afterFeatures": {
+      "headline": "Szeretnéd élőben látni a THE SHAPER-t?",
+      "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
+      "buttonLabel": "Időpont foglalás"
+    },
+    "final": {
+      "headline": "Érdekel a THE SHAPER ContourSystem?",
+      "subtitle": "Kérj ingyenes konzultációt, és segítünk eldönteni, hogyan illik a szalonod profitstratégiájába.",
+      "buttonLabel": "Konzultáció kérése"
+    }
+  },
+  "featureRows": {
+    "headline": "Miért válaszd a THE SHAPER-t?",
+    "subtitle": "4 klinikailag bevált technológia szinergiája egyetlen rendszerben.",
+    "features": [
+      {
+        "title": "Vákuumos RF kezelés – mély feszesítés",
+        "description": "A rádiófrekvenciás energia hőt generál a dermiszben (5-15 mm mélységig), ami azonnal összehúzza a kollagénrostokat (azonnali feszesítés), és serkenti a fibroblasztokat új kollagén termelésére. A vákuum és görgős mechanika megemeli a szövetet, így a RF mélyebbre hat, közben fokozódik a vér- és nyirokkeringés.",
+        "highlight": "Klinikai szinten igazolt: kollagén denaturáció + neokollagenezis.",
+        "image": "@assets/products/the-shaper-1.png"
+      },
+      {
+        "title": "40K Ultrahangos kavitáció – fizikai zsírbontás",
+        "description": "A 40 kHz-es ultrahang mikrobuborékokat hoz létre a zsírszövetben, amik összeomlása mechanikusan károsítja a zsírsejtek membránját. A felszabaduló zsír a nyirokrendszeren keresztül távozik, a szervezet természetes úton lebontja.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Mit jelent a gyakorlatban:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Centik csökkenése néhány kezelés után</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Lokális zsírpárnák célzottan</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Testkontúr javulás</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fizikai (nem hő) alapú zsírbontás</div>\n</div>",
+        "image": "@assets/products/the-shaper-2.png"
+      },
+      {
+        "title": "940 nm infravörös lézer – sejtszintű booster",
+        "description": "A 940 nm-es infravörös fény mélyen behatol a szövetekbe, növeli a hőmérsékletet, javítja az oxigénellátást és a mikrokeringést. Fotobiomoduláció révén stimulálja a sejtek anyagcseréjét és a kollagéntermelést, miközben felerősíti a többi technológia hatását. Ez a „booster” technológia – nem önállóan, hanem szinergiában a legerősebb.",
+        "highlight": "Erős booster, ami a többi technológia eredményét is javítja.",
+        "image": "@assets/products/the-shaper-interface.png"
+      },
+      {
+        "title": "Görgős mechanikai masszázs – endomasszázs elv",
+        "description": "Az LPG / endermológia alapelveire épül: a speciális görgők mechanikusan mobilizálják a kötőszövetet, fellazítják a letapadt rostos struktúrákat, és stimulálják a nyirokrendszert. Ez kulcsfontosságú, mert a cellulit nem csak zsír, hanem kötőszöveti probléma is. RF-fel kombinálva sokkal erősebb hatás.",
+        "highlight": "Az LPG endermológia elve – évtizedek óta bevált klinikai módszer.",
+        "image": "@assets/products/the-shaper-3.png"
+      },
+      {
+        "title": "Teljes test + arc, minden korosztálynak",
+        "description": "A személyre szabható kezelések különböző korosztályoknak adnak megoldást.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>20-30 év: megelőzés, bőrminőség</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-45 év: bőrlazaság, narancsbőr</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>45+ év: feszesítés, kontúr</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Arc, nyak, dekoltázs is</div>\n</div>",
+        "image": "@assets/products/the-shaper-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Teljeskörű, gyakorlatközpontú oktatás",
+    "badge": "Komplett szakmai csomag",
+    "intro": "A THE SHAPER készülékhez minden szükséges tudást átadunk a biztonságos és hatékony kezelések végzéséhez. Az anyagokat strukturált, követhető rendszerben állítottuk össze, hogy magas színvonalú szolgáltatást tudj nyújtani az első naptól.",
+    "items": [
+      "Részletes, szakmai tananyag",
+      "Teljes alakformáló specialista tankönyv",
+      "Vendégeknek átadható életmód-tanácsadási füzet",
+      "Sokszorosítható vendégedukációs anyagok",
+      "Beleegyező nyilatkozat minták",
+      "Kezelési protokollok minden testtájra"
+    ],
+    "closingParagraphs": [
+      "Élő modelles gyakorlati képzés is elérhető (+79.990 Ft) – valós kezelési helyzetekben, szakmai iránymutatással sajátíthatod el a helyes kezelési technikákat és protokollokat.",
+      "Az alap oktatási csomag díjmentes a gépvásárlás mellé."
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "élő modelles képzés (opcionális)",
+    "freeText": "Alap oktatás INGYENES a gépvásárlás mellé!",
+    "duration": "Alapcsomag: önálló elsajátítás | Élő képzés: 1 nap",
+    "ctaText": "Érdekel a képzés"
+  },
+  "expertQuote": {
+    "quote": "A THE SHAPER ereje nem egyetlen technológiában van, hanem a 4 bevált eljárás kombinációjában. RF + kavitáció + vákuum + infravörös – mindegyik klinikailag igazolt önmagában is, együtt pedig sokkal erősebb, gyorsabb eredményeket adnak.",
+    "author": "Horváth László",
+    "role": "Technikai szakértő"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Vákuumos RF",
+      "description": "1 MHz / 4-8 MHz, 5-15 mm mélységben hat."
+    },
+    {
+      "icon": "wave",
+      "name": "40 kHz kavitáció",
+      "description": "Akár 60 W ultrahang, fizikai zsírbontás."
+    },
+    {
+      "icon": "sun",
+      "name": "940 nm IR lézer",
+      "description": "Fotobiomoduláció, sejtszintű booster."
+    },
+    {
+      "icon": "wind",
+      "name": "Vákuum + görgő",
+      "description": "10-60 kPa, folyamatos és pulzáló módok."
+    },
+    {
+      "icon": "layers",
+      "name": "4 applikátor",
+      "description": "Test + arc kezelőfejek egy rendszerben."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Érintőképernyős vezérlés, intuitív kezelés."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Miért jobb mint a piacon lévő egytechnológiás gépek?",
+      "answer": "4 technológia egy gépben: nem kell több eszköz külön. A vákuum + RF kombináció miatt a kezelés mélyebb (5-15 mm), nem csak felületi. A mechanikai görgős kezelés cellulit ellen kiemelkedő. Az infra + RF szinergia gyorsabb és látványosabb eredményt ad. Egyetlen platformmal teljes test + arc kezelhető."
+    },
+    {
+      "question": "Hány alkalom egy kúra?",
+      "answer": "A vendégek általában már néhány alkalom után tapasztalják a bőrminőség javulását, míg a teljes kúra végére (általában 6-10 alkalom) a testkontúrok harmonikusabbá válhatnak. A pontos protokoll a célterületi és vendég állapotától függ – az oktatási csomagban részletes protokoll szerepel minden testtájra."
+    },
+    {
+      "question": "Milyen testrészeken használható?",
+      "answer": "Arc és nyak (homlok, szemkörnyék, orcák, toka, állív, dekoltázs) – cél a feszesítés és ránccsökkentés. Test (has, derék, csípő, fenék, comb belső+külső, felkar, hát, deréktáj) – cél az alakformálás, cellulit csökkentés és bőrfeszesítés."
+    },
+    {
+      "question": "Hogyan működik az endomasszázs (LPG) elv?",
+      "answer": "A speciális görgős és vákuumos mechanizmus dolgozza át a bőrt és az alatta lévő szöveteket. Fellazítja a letapadt kötőszövetet, javítja az oxigén- és tápanyagellátást, támogatja a salakanyagok elszállítását. Az eljárás eredetileg orvosi és rehabilitációs célokra fejlesztett (pl. hegek kezelése, keringés javítása), később került be a kozmetikai iparba."
+    },
+    {
+      "question": "Milyen eredményekre számíthat a vendég?",
+      "answer": "Feszesebb, tömörebb bőr, ráncok csökkenése, cellulit látványos javulása, jobb bőrtónus és keringés. Centik csökkenése a kezelt területen. Az eredmények egyénenként eltérőek lehetnek, befolyásolja az életmód, a kötőszövet állapota és a kezelési protokoll betartása."
+    },
+    {
+      "question": "Mi van benne az árban?",
+      "answer": "A teljes oktatási csomag (tananyag, alakformáló specialista tankönyv, életmód-tanácsadás, vendégedukációs anyagok, beleegyező nyilatkozatok, kezelési protokollok), 2 év garancia, magyar használati útmutató. Élő modelles képzés opcionálisan +79.990 Ft. Pontos ár konzultáció során."
+    }
+  ],
+  "whatsIncluded": [
+    "THE SHAPER ContourSystem készülék",
+    "4 különböző applikátor (test + arc kezelőfejek)",
+    "Komplett oktatási csomag (tananyag + alakformáló tankönyv)",
+    "Vendégedukációs anyagok és beleegyező nyilatkozat minták",
+    "Életmód-tanácsadási füzet vendégeknek",
+    "Kezelési protokollok minden testtájra",
+    "Magyar nyelvű használati útmutató",
+    "2 év teljes körű garancia",
+    "Cseregép javítás idejére"
+  ]
+}

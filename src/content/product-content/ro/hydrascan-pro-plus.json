@@ -1,207 +1,128 @@
 {
-  "name": "HYDRASCAN PRO+",
-  "shortDescription": "Aparat hydrofacial cu 8+1 funcții cu analiză AI a pielii. Diagnostic în timp real, jurnal digital de tratament, documentație înainte-după. Versiunea îmbunătățită a PRO.",
-  "description": "HYDRASCAN PRO+ este versiunea îmbunătățită a popularului HYDRASCAN PRO – nu este doar un aparat hydrofacial multifuncțional, ci și un sistem inteligent de diagnostic și tratament al pielii.\n\nParticularitatea aparatului este că combină tehnologiile tradiționale de tratament facial cu inteligența artificială, astfel încât tratamentele sunt nu doar mai eficiente, ci și mai personalizate.\n\nSistemul încorporat de analiză AI a pielii asigură diagnostic în timp real: dimensiunea porilor, adâncimea ridurilor, pigmentația, hidratarea, producția de sebum, elasticitatea, zonele inflamate și deteriorările UV – toate acestea sunt analizate automat, cu recomandări de tratament.",
-  "metaTitle": "HydraSCAN PRO+ | Aparat hydrofacial 8+1 funcții cu analiză AI a pielii",
-  "metaDescription": "HYDRASCAN PRO+ – aparatul hydrofacial îmbunătățit: diagnostic AI al pielii în timp real, 8+1 funcții de tratament, jurnal digital de tratament. Garanție 2 ani.",
+  "name": "HydraScan PRO+ 2026",
+  "shortDescription": "Aparat multifuncțional ultramodern axat pe hidrodermabraziune cu 8+1 capete de tratament, analiză AI a pielii, microcameră 4K și fișă digitală a clientului.",
+  "description": "HydraScan PRO+ 2026 este un sistem cosmetic multifuncțional inovator axat pe hidrodermabraziune, care combină tratamentele de curățare profundă cu analiza inteligentă a pielii. Aparatul curăță eficient pielea, susține regenerarea acesteia și, datorită tehnologiei avansate, oferă o imagine precisă asupra stării actuale a pielii.\n\nParticularitatea sistemului este analiza pielii bazată pe inteligență artificială, care evaluează automat rezultatele și recomandă imediat tratamentele, produsele cosmetice și o rutină personalizată de îngrijire la domiciliu. Astfel, aparatul nu este doar un instrument de diagnostic, ci și un suport activ pentru vânzări în salon.\n\nCu un ecran tactil mare, sistem inteligent bazat pe Android și mai multe capete de tratament – alegerea ideală pentru saloanele moderne unde tehnologia, îngrijirea personalizată și vânzarea eficientă a serviciilor sunt la fel de importante.",
+  "metaTitle": "HydraScan PRO+ 2026 | Aparat hidrofacial 8+1 funcții cu analiză AI integrată",
+  "metaDescription": "HydraScan PRO+ 2026 – aparat hidrofacial avansat: diagnostic AI al pielii în timp real cu microcameră 4K, 8+1 funcții de tratament, jurnal digital. Garanție 2 ani.",
   "stats": [
-    {
-      "value": "8+1",
-      "label": "Funcții de tratament",
-      "icon": "layers"
-    },
-    {
-      "value": "AI",
-      "label": "Diagnostic al pielii",
-      "icon": "zap"
-    },
-    {
-      "value": "2",
-      "unit": "ani",
-      "label": "Garanție",
-      "icon": "shield"
-    },
-    {
-      "value": "~30",
-      "unit": "min",
-      "label": "Timp de tratament",
-      "icon": "clock"
-    }
+    { "value": "8+1", "label": "Funcții de tratament", "icon": "layers" },
+    { "value": "AI", "label": "Diagnostic piele", "icon": "zap" },
+    { "value": "4K", "label": "Microcameră", "icon": "eye" },
+    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
   ],
-  "roi": {
-    "defaultTreatmentPrice": 25000
-  },
+  "roi": { "defaultTreatmentPrice": 30000 },
   "videoDescription": {
-    "headline": "HYDRASCAN PRO+ nu este doar un aparat – ci un sistem inteligent de diagnostic al pielii",
+    "headline": "HydraScan PRO+ 2026 – nu doar un aparat, ci un sistem inteligent de diagnostic și vânzări",
     "paragraphs": [
-      "Particularitatea aparatului este că combină tehnologiile tradiționale de tratament facial cu inteligența artificială, astfel încât tratamentele sunt nu doar mai eficiente, ci și mai personalizate.",
-      "Sistemul încorporat de analiză AI a pielii asigură diagnostic în timp real: dimensiunea porilor, adâncimea ridurilor, pigmentația, hidratarea, producția de sebum, elasticitatea, zonele inflamate și deteriorările UV – toate acestea sunt analizate automat, cu recomandări de tratament.",
-      "Se pot realiza fotografii și grafice înainte-după ale stării clientului, sistemul ține un jurnal de tratament, astfel încât fiecare schimbare poate fi documentată."
+      "HydraScan PRO+ 2026 combină tehnologiile tradiționale de tratament facial (hidrodermabraziune, curățare cu oxigen, RF, ultrasunete, ciocan rece-cald, LED) cu analiza AI a pielii, făcând tratamentele atât mai eficiente, cât și mai personalizate.",
+      "Microcamera 4K oferă o imagine detaliată a pielii, iar sistemul AI recomandă automat tratamente, produse cosmetice și îngrijire la domiciliu – suport activ de vânzări pentru salon.",
+      "Fișa digitală a clientului înregistrează automat rezultatele analizelor, realizează fotografii înainte-după, astfel încât starea pielii fiecărui client poate fi urmărită vizibil și măsurabil."
     ]
   },
   "cta": {
-    "afterVideo": {
-      "text": "Aveți întrebări despre aparat? Vă ajutăm cu plăcere!",
-      "buttonLabel": "Solicitați o consultație",
-      "phoneLabel": "Sunați-ne"
-    },
-    "afterFeatures": {
-      "headline": "Doriți să vedeți HYDRASCAN PRO+ în persoană?",
-      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
-      "buttonLabel": "Programare"
-    },
-    "final": {
-      "headline": "Vă interesează HYDRASCAN PRO+?",
-      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
-      "buttonLabel": "Solicitați o consultație"
-    }
+    "afterVideo": { "text": "Aveți întrebări despre HydraScan PRO+? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați consultanță", "phoneLabel": "Sunați-ne" },
+    "afterFeatures": { "headline": "Doriți să vedeți HydraScan PRO+ în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și încercați analiza AI pe propria piele!", "buttonLabel": "Programare" },
+    "final": { "headline": "Vă interesează HydraScan PRO+ 2026?", "subtitle": "Solicitați o consultanță gratuită și vă ajutăm să decideți dacă este alegerea potrivită pentru salonul dvs.", "buttonLabel": "Solicitați consultanță" }
   },
   "featureRows": {
-    "headline": "De ce aleg cosmeticienii HydraSCAN PRO+?",
-    "subtitle": "Un aparat care nu doar lucrează, ci și gândește",
+    "headline": "De ce aleg cosmeticienele HydraScan PRO+?",
+    "subtitle": "Un aparat care nu doar lucrează, ci și gândește – și vinde",
     "features": [
       {
-        "title": "8 funcții de tratament într-un singur aparat compact",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidrodermabraziune</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidroabraziune</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cap de tratament Oxy-pod</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ciocan rece/cald</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Microcameră de analiză AI a pielii</div>\n</div>",
-        "image": "@assets/products/HydraSCANPro3.webp"
+        "title": "8 capete de tratament + AI – totul într-un aparat compact",
+        "description": "HydraScan PRO+ combină 8 tehnologii diferite de tratament și un modul AI de analiză a pielii într-un singur aparat.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hidrodermabraziune (Bubble Cleaning)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Capsule active Oxy-pod</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Peeling US (Skin Scrubber)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray (apă + oxigen)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ciocan rece-cald</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF lifting bipolar</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Infuzie US (Sound Wave)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mască LED de fototerapie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Microcameră AI 4K analiză piele</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-applicators.png"
       },
       {
-        "title": "Analiza pielii cu puterea inteligenței artificiale",
-        "description": "Sistemul încorporat de analiză AI a pielii al HYDRASCAN PRO+ asigură diagnostic în timp real, cu ajutorul căruia tratamentele pot fi efectuate țintit și precis.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Sistemul AI analizează:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>dimensiunea porilor</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>adâncimea ridurilor</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentația și petele</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>nivelul de hidratare a pielii</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>producția de sebum</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elasticitatea, tonusul</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>zone acneice sau inflamate</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>urmele deteriorărilor UV</div>\n</div>",
-        "image": "@assets/products/HydraSCANPRO2.webp"
+        "title": "Analiză AI a pielii în timp real",
+        "description": "Microcamera 4K oferă imagini detaliate ale suprafeței și microstructurii pielii. Software-ul inteligent evaluează automat rezultatele și recomandă tratamente și produse.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Sistemul AI examinează:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>dimensiunea porilor, puncte negre</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>adâncimea ridurilor</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentația și petele</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>nivelul de hidratare</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>producția de sebum</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>elasticitatea, tonusul</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>zonele cu acnee și inflamații</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>urmele deteriorărilor UV</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-interface.png"
       },
       {
-        "title": "Protocoale de tratament personalizate",
-        "description": "Pe baza rezultatelor, aparatul face automat recomandări privind direcțiile de tratament. Se pot realiza fotografii și grafice înainte-după ale stării clientului, iar sistemul ține un jurnal de tratament, astfel încât fiecare schimbare poate fi documentată. Clientul nu primește un tratament standard, ci o soluție unică, adaptată pielii sale.",
-        "image": "@assets/products/hydrascan-pro-1.webp"
+        "title": "Capsule OxyPod – tratament personalizat și țintit",
+        "description": "OxyPod-urile sunt capsule speciale cu ingrediente active care se dizolvă în timpul tratamentului și livrează în piele componente țintite de îngrijire în timpul curățării. Sunt disponibile capsule diferite pentru probleme diferite: piele acneică, pete pigmentare, ten obosit, piele deshidratată, pori dilatați. Cu acid hialuronic, vitamine și alte ingrediente active, tratamentul poate fi mereu adaptat stării pielii clientei – generând o sursă suplimentară de venit din tratamentele cu capsule.",
+        "highlight": "Un singur aparat, mai multe soluții țintite pentru diferite probleme ale pielii.",
+        "image": "@assets/products/hydrascan-pro-plus-3.png"
       },
       {
-        "title": "Comunicare convingătoare cu clienții, bazată pe date și imagini",
-        "description": "Datorită sistemului AI, clientul înțelege clar de ce primește tratamentul respectiv – aceasta construiește încredere. Evoluția poate fi documentată cu grafice, imagini și date, astfel încât rezultatele vizibile vorbesc de la sine.",
-        "image": "@assets/products/hydrascan-pro-2.webp"
+        "title": "Fișă digitală a clientului și documentație înainte-după",
+        "description": "HydraScan PRO+ include un sistem de fișă digitală a clientului care înregistrează automat rezultatele analizelor pielii. Fiecare analiză este stocată, astfel încât starea pielii poate fi urmărită de la un tratament la altul și comparată cu fotografii și grafice.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fișă digitală pentru fiecare client</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Documentarea modificărilor stării pielii</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Comparație înainte-după</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Consiliere profesională personalizată</div>\n</div>",
+        "image": "@assets/products/hydrascan-pro-plus-2.png"
       },
       {
-        "title": "Jurnal digital de tratament și documentație înainte-după",
-        "description": "Sistemul realizează automat fotografii înainte-după, grafice și ține o fișă online pentru fiecare client. Protocoalele de tratament sunt salvate, astfel încât istoricul tratamentelor poate fi revizuit, încurajând revenirea clientului.",
-        "image": "@assets/products/hydrascan-pro-3.webp"
+        "title": "Platformă generatoare de venituri – nu doar tratamente, ci suport pentru vânzări",
+        "description": "Analiza AI a pielii HydraScan PRO+ nu doar diagnostichează, ci recomandă automat tratamente disponibile în salon, produse profesionale și rutine de îngrijire la domiciliu. Acest lucru crește vânzările seriilor de tratamente, rata de revenire a clienților și vânzările de cosmetice. Prețul unui tratament facial complex este de 25.000–50.000 Ft: cu 3 clienți pe zi se pot genera lunar 1,5–3 milioane Ft.",
+        "highlight": "Un aparat – mai multe surse de venit (tratamente + produse + serii).",
+        "image": "@assets/products/hydrascan-pro-plus-showroom-1.jpg"
       }
     ]
   },
   "training": {
-    "headline": "Curs de operare – în cadrul unui program oficial de formare pentru adulți",
+    "headline": "Instruire pentru operarea aparatului – în cadrul programului oficial de educație a adulților",
     "badge": "Cu certificat oficial",
-    "intro": "Pentru aparatul HYDRASCAN PRO+ este disponibil un curs profesional de operare, pe care îl oferim în cadrul unui program oficial de formare pentru adulți.",
+    "intro": "Pentru HydraScan PRO+ oferim o instruire completă pentru operare, inclusă în prețul aparatului. Cu această instruire veți putea începe să lucrați cu încredere și independent, fără întrebări fără răspuns.",
     "items": [
-      "Principiul de funcționare al HYDRASCAN PRO+, tehnologiile și capetele de tratament",
-      "Interpretarea și aplicarea practică a sistemului inteligent de analiză a pielii",
-      "Protocoale de tratament pentru diferite tipuri de piele și probleme",
-      "Comunicare cu clienții și ținerea jurnalului de tratament",
+      "Principiul de funcționare și capetele de tratament HydraScan PRO+",
+      "Interpretarea și utilizarea practică a analizei AI a pielii",
+      "Utilizarea capsulelor OxyPod pentru diferite probleme ale pielii",
+      "Protocoale de tratament pentru diferite tipuri de piele",
+      "Comunicarea cu clienții, gestionarea fișei digitale",
       "Realizarea documentației înainte-după",
-      "Tratamente practice pe modele"
+      "Curățare igienică, întreținere, contraindicații"
     ],
     "closingParagraphs": [
-      "Bineînțeles, puteți aduce un model la curs, astfel încât să învățați tehnicile de tratament într-un mediu real.",
-      "După finalizarea cursului, eliberăm un certificat oficial care atestă competența necesară pentru operarea profesională a aparatului HYDRASCAN PRO+."
+      "Datorită materialelor noastre educaționale complete, broșurilor de protocol și materialelor de instruire, nu trebuie să vă faceți griji nici ulterior – toate informațiile importante vă stau la dispoziție.",
+      "Dacă doriți o instruire practică cu un model viu, o oferim pentru un supliment de 69.990 Ft. Prețul include utilizarea ingredientelor active și așteptăm cu plăcere modelul dvs. cu cafea de calitate barista și gustări."
     ],
-    "price": "69.990 Ft",
-    "priceNote": "curs în valoare de",
+    "price": "Inclus",
+    "priceNote": "instruire de bază",
     "freeText": "GRATUIT la achiziționarea aparatului!",
-    "duration": "Curs intensiv de o zi",
-    "ctaText": "Mă interesează cursul"
+    "duration": "Instruire intensivă de o zi",
+    "ctaText": "Mă interesează instruirea"
   },
   "expertQuote": {
-    "quote": "HydraFacial este una dintre cele mai bune investiții cu randament ridicat într-un salon. Clienții văd imediat rezultatul și revin regulat – aceasta înseamnă venituri garantate.",
+    "quote": "HydraScan PRO+ este, datorită combinației dintre hidrofacial și analiza AI a pielii, una dintre investițiile cu cea mai bună rentabilitate dintr-un salon. Clienții văd cu propriii ochi starea pielii și schimbările – acest lucru construiește încredere, reveniri și vânzări de produse.",
     "author": "Horváth László",
     "role": "Expert tehnic"
   },
   "functionCards": [
-    {
-      "icon": "droplet",
-      "name": "Hidrodermabraziune",
-      "description": "Curățare profundă cu vacuum, curățarea porilor, îndepărtarea celulelor moarte"
-    },
-    {
-      "icon": "sound",
-      "name": "Infuzie cu ultrasunete",
-      "description": "Infuzie de ingrediente active în straturile profunde cu ajutorul serumurilor"
-    },
-    {
-      "icon": "bubbles",
-      "name": "O₂ Bubble + H₂O₂",
-      "description": "Hidratare cu oxigen și tratament antioxidant"
-    },
-    {
-      "icon": "bolt",
-      "name": "RF lifting bipolar",
-      "description": "Tonifiere facială, stimularea colagenului cu radiofrecvență"
-    },
-    {
-      "icon": "snowflake",
-      "name": "Ciocan rece-cald",
-      "description": "Calmarea pielii, strângerea porilor, stimularea circulației"
-    },
-    {
-      "icon": "spray",
-      "name": "Spray gun",
-      "description": "Spray tonifiant și hidratant de finalizare a tratamentului"
-    },
-    {
-      "icon": "brain",
-      "name": "Analiză AI a pielii",
-      "description": "Analiză în timp real cu inteligență artificială, 9+ parametri"
-    },
-    {
-      "icon": "chart",
-      "name": "Consultație digitală",
-      "description": "Fotografii înainte-după, grafice, recomandări de tratament"
-    },
-    {
-      "icon": "clipboard",
-      "name": "Jurnal de tratament",
-      "description": "Fișă online a clientului, salvarea protocoalelor de tratament și monitorizare"
-    }
+    { "icon": "droplet", "name": "Hidrodermabraziune", "description": "Curățare profundă cu vid, curățarea porilor, eliminarea celulelor moarte" },
+    { "icon": "bubbles", "name": "Capsule OxyPod", "description": "Livrare țintită de ingrediente în timpul curățării cu microbule" },
+    { "icon": "sound", "name": "Peeling US", "description": "Skin Scrubber – peeling fără durere, curățarea porilor" },
+    { "icon": "spray", "name": "Oxy-spray", "description": "Pulverizare apă și oxigen – hidratare instantanee" },
+    { "icon": "snowflake", "name": "Ciocan rece-cald", "description": "Calmarea pielii, strângerea porilor, stimularea circulației" },
+    { "icon": "bolt", "name": "RF bipolar", "description": "Fermitate, stimulare colagen prin radiofrecvență" },
+    { "icon": "sound", "name": "Infuzie US", "description": "Sound Wave 40-50 – absorbție profundă a substanțelor active" },
+    { "icon": "sun", "name": "Mască LED", "description": "Lumină roșie, albastră, verde, galbenă – regenerare, anti-inflamator" },
+    { "icon": "brain", "name": "Analiză AI a pielii", "description": "Microcameră 4K, 9+ parametri, recomandări automate de tratament" }
   ],
   "faq": [
-    {
-      "question": "Ce analizează exact sistemul de analiză AI a pielii?",
-      "answer": "Sistemul de inteligență artificială încorporat al HydraSCAN PRO+ analizează în timp real: dimensiunea porilor, adâncimea ridurilor, pigmentația și petele, nivelul de hidratare a pielii, producția de sebum, elasticitatea și tonusul, zonele acneice sau inflamate, precum și urmele deteriorărilor UV. Pe baza rezultatelor, face automat recomandări privind direcțiile de tratament."
-    },
-    {
-      "question": "Ce avantaj are diagnosticul AI față de analiza tradițională a pielii?",
-      "answer": "AI-ul este obiectiv, reproductibil și mult mai detaliat decât examinarea cu ochiul liber. Cartografiază proprietățile pielii care nu pot fi detectate cu ochiul liber. În plus, ține un jurnal digital de tratament, realizează fotografii înainte-după, astfel încât efectul tratamentelor poate fi documentat măsurabil."
-    },
-    {
-      "question": "Care este diferența dintre PRO și PRO+?",
-      "answer": "HYDRASCAN PRO+ este versiunea îmbunătățită a PRO, cu funcții extinse și tehnologie mai avansată."
-    },
-    {
-      "question": "Ce formare este inclusă cu aparatul HydraSCAN PRO+?",
-      "answer": "Cu aparatul este disponibil un curs de operare în valoare de 69.990 Ft, în cadrul unui program oficial de formare pentru adulți. Cursul acoperă utilizarea tuturor funcțiilor, interpretarea sistemului AI, protocoalele de tratament și tratamentele practice. La final, eliberăm certificat oficial."
-    },
-    {
-      "question": "În cât timp se amortizează HydraSCAN PRO+?",
-      "answer": "În medie în 2-4 luni, calculând cu 3-5 clienți pe zi. Prețul unui tratament hydrofacial este între 15.000-30.000 Ft, iar tratamentul premium completat cu analiză AI a pielii poate fi oferit chiar la 35.000-50.000 Ft. Utilizați calculatorul nostru ROI de pe pagină pentru un calcul exact!"
-    },
-    {
-      "question": "Pentru ce tipuri de piele este potrivit tratamentul?",
-      "answer": "HydraSCAN PRO+ este potrivit pentru toate tipurile de piele, inclusiv pielea sensibilă. Analiza AI evaluează precis starea pielii și sugerează un protocol de tratament personalizat pe baza rezultatelor."
-    },
-    {
-      "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?",
-      "answer": "Da! În showroom-ul nostru (Érd, Budai út 28.) puteți vedea și testa personal HydraSCAN PRO+ cu programare prealabilă."
-    }
+    { "question": "Pot fi eficiente și sistemele hidrofaciale de birou?", "answer": "Da, absolut. Eficiența nu este determinată de dimensiune, ci de tehnologie și posibilitățile de reglare. HydraScan PRO+ 2026 are un sistem de vid profesional și mai multe funcții de tratament, permițând tratamente complete de salon." },
+    { "question": "Este puterea de vid/aspirare a aparatului adecvată?", "answer": "Da. Domeniul de vid al aparatului (−6 kPa până la −86 kPa) poate fi reglat pe o scară largă: blând pentru pielea sensibilă, curățare profundă eficientă pentru pielea problematică. Cu setări corecte nu este „prea puternic\" și nici prea slab – cheia este utilizarea corectă, predată detaliat la instruire." },
+    { "question": "Ce întreținere necesită aparatul?", "answer": "Întreținerea zilnică este simplă: clătirea sistemului de tuburi cu apă curată după utilizare, golirea și curățarea rezervoarelor, dezinfectarea capetelor de tratament. Asigură funcționarea igienică și o durată lungă de viață." },
+    { "question": "Cât de des este necesar service-ul?", "answer": "În utilizarea normală nu există nevoi frecvente obligatorii de service. Recomandăm verificare periodică anuală, iar în utilizare intensivă (zilnică) o vizită rapidă de service la fiecare 6 luni. Curățarea corectă reduce semnificativ nevoia de service." },
+    { "question": "La ce trebuie să fim deosebit de atenți în timpul utilizării?", "answer": "Folosiți doar lichidele recomandate pentru aparat, evitați substanțele acide, uleioase sau granulate, folosiți dezinfectant fără alcool și nu lăsați sistemul cu lichid după utilizare. Astfel evitați defecțiunile." },
+    { "question": "Poate fi folosit ca cosmetician începător?", "answer": "Da. Operarea aparatului este logică, iar instruirea vă ghidează pas cu pas prin utilizare, fiind ideal și pentru începători. Tratamentele de bază pot fi efectuate în siguranță imediat după instruire; rutina se dezvoltă în câteva săptămâni." },
+    { "question": "Cât de repede se amortizează aparatul?", "answer": "Amortizarea rapidă este posibilă chiar și cu 2-3 clienți pe zi. Prețul unui tratament facial complex este de 25.000–50.000 Ft, deci cu 3 clienți pe zi se pot genera lunar 1,5–3 milioane Ft. Tratamentele hidro sunt foarte căutate și au prețuri bune." },
+    { "question": "Se poate combina cu alte tratamente?", "answer": "Da, este recomandat în mod expres. HydraScan PRO+ este tratamentul de bază perfect înainte sau după carbon peeling, sau înainte/după alte aparate. Analiza poate fi folosită înainte de orice alt tratament, dar și de sine stătătoare ca serviciu complet." },
+    { "question": "Cât spațiu ocupă aparatul?", "answer": "Design compact, de birou, astfel încât încape confortabil chiar și într-o sală de tratament mai mică. Este disponibil și un cărucior HydraScan PRO+ realizat special pentru aparat, preț: 79.990 Ft." }
   ],
   "whatsIncluded": [
-    "Aparat HydraSCAN PRO+",
-    "Cap de tratament hidrodermabraziune",
-    "Cap de tratament infuzie cu ultrasunete",
-    "Cap de tratament O₂ bubble + H₂O₂",
-    "Cap de tratament RF lifting bipolar",
-    "Cap de tratament ciocan rece-cald",
-    "Cap de tratament spray gun",
-    "Modul analiză AI a pielii (încorporat)",
-    "Pachet de serumuri de start",
+    "Aparat HydraScan PRO+ 2026",
+    "Cap de tratament Bubble Cleaning (hidrodermabraziune)",
+    "Cap de tratament Oxygen Bubble (OxyPod)",
+    "Cap de tratament Skin Scrubber (peeling US)",
+    "Cap de tratament Water Oxygen Atomization (oxy-spray)",
+    "Cap de tratament Cold & Hot (ciocan rece-cald)",
+    "Cap de infuzie US Sound Wave",
+    "Cap de tratament RF bipolar",
+    "Mască LED de fototerapie",
+    "Microcameră 4K pentru analiza pielii",
+    "Modul de analiză AI a pielii (integrat)",
+    "Sistem de fișă digitală a clientului",
+    "Pachet de pornire seruri OxyPod / hydra",
     "Manual de utilizare",
+    "Instruire pentru operarea aparatului",
     "Garanție completă 2 ani",
     "Aparat de schimb pe perioada reparației"
   ]

@@ -1,0 +1,186 @@
+{
+  "name": "FREEZE ME SLIM Cryolipolysis",
+  "shortDescription": "Uređaj za kriolipolizu nove generacije (zamrzavanje masti) s 4 aplikatora, integriranom analizom tijela i pametnim praćenjem klijentica. Dugotrajno oblikovanje tijela bez operacije.",
+  "description": "FREEZE ME SLIM je uređaj za kriolipolizu nove generacije koji najsuvremenijom tehnologijom razgradnje masti pomaže ciljanom smanjenju tvrdokornih naslaga masnog tkiva – bez operacije, boli i razdoblja oporavka. Radi na principu kontroliranog hlađenja masnih stanica: stanice kristaliziraju, a tijelo ih zatim prirodnim putem razgrađuje i izlučuje.",
+  "metaTitle": "FREEZE ME SLIM Cryolipolysis | 4 aplikatora, analiza tijela, oblikovanje",
+  "metaDescription": "FREEZE ME SLIM – Kriolipoliza nove generacije s 4 aplikatora, hlađenjem do -10 °C, vakuumskim sustavom i integriranom analizom tijela. Oblikovanje tijela bez kirurškog zahvata.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Aplikatori",
+      "icon": "layers"
+    },
+    {
+      "value": "-10°C",
+      "label": "Hlađenje",
+      "icon": "snowflake"
+    },
+    {
+      "value": "25%",
+      "label": "Smanjenje masnih stanica",
+      "icon": "trend-down"
+    },
+    {
+      "value": "15.6\"",
+      "label": "Zaslon na dodir",
+      "icon": "monitor"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
+  "videoDescription": {
+    "headline": "FREEZE ME SLIM – Miljenik klijentica, profitni motor vašeg salona",
+    "paragraphs": [
+      "FREEZE ME SLIM nije samo uređaj – to je stabilan i predvidljiv izvor prihoda koji brzo može postati jedan od najtraženijih tretmana u vašem salonu. Vidljivi, mjerljivi rezultati bez operacije, boli i razdoblja oporavka.",
+      "Kure od 3-6 tretmana koje se prodaju u paketu, praćenje klijentica uz pomoć analize tijela i premium pozicioniranje cijena mogu donijeti značajan rast prihoda. Više nema nedoumica „što uređaj zapravo radi\" – brojke govore same za sebe."
+    ]
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Imate pitanja o FREEZE ME SLIM-u? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite uživo vidjeti FREEZE ME SLIM?",
+      "subtitle": "Posjetite naš showroom u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima vas FREEZE ME SLIM Cryolipolysis?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti kako se uklapa u profitnu strategiju vašeg salona.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
+  },
+  "featureRows": {
+    "headline": "Zašto odabrati FREEZE ME SLIM?",
+    "subtitle": "4 aplikatora, kontrolirano hlađenje od -10 °C, inteligentni vakuum i integrirana analiza tijela – profesionalno oblikovanje za svako područje tijela.",
+    "features": [
+      {
+        "title": "4 aplikatora – više područja istovremeno",
+        "description": "FREEZE ME SLIM raspolaže s 4 aplikatora različitih veličina koji se mogu koristiti i istovremeno. To omogućuje paralelni tretman više područja tijela, čime se drastično skraćuje vrijeme tretmana i povećava dnevni broj klijentica.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Veličine aplikatora i područja:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Veliki aplikator: trbuh, bedra</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Srednji aplikator: trbuh, bedra, stražnjica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mali aplikator: ruke, manja područja</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Moguća istovremena upotreba</div>\n</div>",
+        "image": "@assets/products/freeze-me-slim-handles.png"
+      },
+      {
+        "title": "Kontrolirano hlađenje -10 °C + vakuumski sustav",
+        "description": "Za ciljanu razgradnju masti uređaj hladi do -10 °C, dok inteligentni vakuumski sustav regulira podtlak između 10-83 kPa. Kombinacija grijanja i hlađenja brine se za udobnost: tretirana područja postižu temperaturu potrebnu za kristalizaciju masnih stanica, a istodobno je očuvan komfor klijentice.",
+        "highlight": "Kontrolirano hlađenje i precizan vakuum za dugotrajan rezultat.",
+        "image": "@assets/products/freeze-me-slim-2.png"
+      },
+      {
+        "title": "Svestrana primjena – za svako tvrdokorno područje",
+        "description": "FREEZE ME SLIM je jedan od najsvestranijih sustava za oblikovanje tijela.\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Trbuh i struk (slanine)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oblikovanje bedara i stražnjice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Nadlaktice (zona „mašućih ruku\")</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Leđa, bočne naslage masti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Smanjenje celulita</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Učvršćivanje kože</div>\n</div>",
+        "image": "@assets/products/freeze-me-slim-1.png"
+      },
+      {
+        "title": "Integrirana analiza tijela – mjerljivi rezultati",
+        "description": "FREEZE ME SLIM paket sadrži i profesionalni analizator tjelesnog sastava koji s uređajem komunicira preko Bluetooth veze. Izmjereni se podaci automatski prenose u sustav za vođenje klijentica, pa se pri svakom posjetu može napraviti precizna usporedba.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Mjereni parametri:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Postotak tjelesne masti, mišićna masa</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>BMI, tjelesna težina, hidratacija</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Razina visceralne masti, metabolizam</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tjelesna dob, indeks zdravlja</div>\n</div>",
+        "highlight": "Raspon mjerenja 5-150 kg, primjenjivost za dob 7-99 godina.",
+        "image": "@assets/products/freeze-me-slim-3.png"
+      },
+      {
+        "title": "Za sva godišnja doba – primjenjivo cijele godine",
+        "description": "Kriolipoliza nije sezonski tretman, pa salonu donosi kontinuiran prihod tijekom cijele godine. Klijentice razliku vide i u odjeći, što je posebno važno u zimskim mjesecima, a sve više raste broj ponovnih dolazaka. Preporučena kura je 3 tretmana u mjesečnim razmacima, a rezultati se postupno pojavljuju kroz prirodne procese organizma.",
+        "highlight": "I do 25% smanjenja masnih stanica nakon jednog tretmana (tehnološko načelo).",
+        "image": "@assets/products/freeze-me-slim-design-1.png"
+      }
+    ]
+  },
+  "training": {
+    "headline": "Cjelovita edukacija i poslovna podrška – uključeno u kupnju",
+    "badge": "Kompletan sustav",
+    "intro": "FREEZE ME SLIM nije samo uređaj nego cjelovit sustav s kojim od prvog dana možete pružati profesionalnu uslugu. Besplatni osnovni paket pruža sva potrebna znanja i alate za uspješan početak.",
+    "items": [
+      "Detaljan, strukturiran nastavni materijal",
+      "Kompletna dokumentacija klijentica i kartoni klijentica",
+      "Protokoli tretmana korak po korak",
+      "Edukativni materijali za klijentice",
+      "Materijal za savjetovanje o životnom stilu, sastavljen od strane uspješnog osobnog trenera",
+      "Vodič za prehranu pripremljen od strane nutricionista"
+    ],
+    "closingParagraphs": [
+      "Dostupna je i praktično orijentirana edukacija s živim modelom (89.990 Ft) – stvarni tretmani, siguran početak prije prvih klijentica, trenutni odgovori na svako pitanje. Cijena uključuje troškove materijala i potpunu praktičnu obuku.",
+      "Ne ostavljamo vas same: naučit ćemo vas kako od toga napraviti profit."
+    ],
+    "price": "89.990 Ft",
+    "priceNote": "edukacija s živim modelom (opcionalno)",
+    "freeText": "Kompletni edukacijski paket BESPLATNO uz kupnju uređaja!",
+    "duration": "Osnovni paket: samostalno učenje | Edukacija uživo: 1 dan",
+    "ctaText": "Zanima me edukacija"
+  },
+  "expertQuote": {
+    "quote": "Snaga FREEZE ME SLIM-a leži ne samo u paralelnom radu 4 aplikatora, već i u integriranoj analizi tijela. Klijentica promjenu ne samo osjeća – vidi je, razumije i vjeruje u nju. Upravo to drastično povećava razinu povjerenja u tretman i postotak završenih kura.",
+    "author": "Gaszler Simonetta",
+    "role": "Suosnivačica Skinlaba"
+  },
+  "functionCards": [
+    {
+      "icon": "layers",
+      "name": "4 aplikatora",
+      "description": "Istovremena upotreba, 3 veličine – za svako područje tijela."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hlađenje -10 °C",
+      "description": "Kontrolirana kristalizacija masnih stanica."
+    },
+    {
+      "icon": "wind",
+      "name": "Vakuumski sustav",
+      "description": "10-83 kPa inteligentno upravljanje podtlakom."
+    },
+    {
+      "icon": "monitor",
+      "name": "15.6\" Android",
+      "description": "Upravljanje na dodir, sustav vođenja klijentica."
+    },
+    {
+      "icon": "activity",
+      "name": "Analiza tijela",
+      "description": "Bluetooth bioimpedancijsko mjerenje, 8 parametara."
+    },
+    {
+      "icon": "trend-down",
+      "name": "Dugotrajan rezultat",
+      "description": "Razgrađene masne stanice se ne vraćaju."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Kako funkcionira kriolipoliza?",
+      "answer": "FREEZE ME SLIM radi na principu kontroliranog hlađenja masnih stanica (do -10 °C). Stanice kristaliziraju, a tijelo ih zatim prirodnim putem postupno razgrađuje i izlučuje. Rezultat nije trenutan, pojavljuje se tijekom tjedana – kao prirodna, postupna preobrazba."
+    },
+    {
+      "question": "Od koliko tretmana se sastoji jedna kura?",
+      "answer": "Preporučena kura je 3 tretmana u mjesečnim razmacima. Posebnost tretmana je da rezultati nisu trenutni, već se postupno pojavljuju kroz prirodne procese organizma. Nakon jednog tretmana može se postići i do 25% smanjenja masnih stanica u tretiranom području."
+    },
+    {
+      "question": "Što sadrži sustav analize tijela?",
+      "answer": "U paketu je profesionalna Bluetooth bioimpedancijska vaga koja mjeri 8 parametara: % tjelesne masti, mišićnu masu, BMI, tjelesnu težinu, hidrataciju, razinu visceralne masti, metabolizam (BMR), tjelesnu dob i indeks zdravlja. Podaci vrijede za tjelesnu težinu od 5-150 kg i dob od 7-99 godina."
+    },
+    {
+      "question": "Koliko aplikatora mogu koristiti istovremeno?",
+      "answer": "Sva 4 aplikatora možete koristiti istovremeno. Time se omogućuje paralelni tretman više područja tijela, vrijeme tretmana se drastično smanjuje, a dnevni broj klijentica raste."
+    },
+    {
+      "question": "Kada tretman NIJE preporučen?",
+      "answer": "Tretman NIJE preporučen tijekom trudnoće, kod alergije na hladnoću i kod određenih bolesti. Prije svakog tretmana obvezna je procjena zdravstvenog stanja klijentice. U tome vam pomaže kompletna dokumentacija klijentica i protokoli tretmana."
+    },
+    {
+      "question": "Što je uključeno u cijenu?",
+      "answer": "Cijena od 2.299.990 Ft uključuje cjelovit edukacijski paket (nastavni materijal, kartone klijentica, protokole tretmana, edukativne materijale, vodič za životni stil i prehranu), 2 godine jamstva i sustav analize tijela. Praktična edukacija s živim modelom dodatna je opcija uz nadoplatu od 89.990 Ft."
+    }
+  ],
+  "whatsIncluded": [
+    "FREEZE ME SLIM uređaj za kriolipolizu",
+    "4 aplikatora (mali, srednji, veliki)",
+    "Bluetooth analizator tjelesnog sastava (vaga)",
+    "Strukturirani nastavni materijal, protokoli tretmana",
+    "Kartoni klijentica, paket dokumentacije",
+    "Vodič za životni stil i prehranu (osobni trener + nutricionist)",
+    "Upute za uporabu na hrvatskom jeziku",
+    "2 godine sveobuhvatnog jamstva",
+    "Zamjenski uređaj za vrijeme popravka"
+  ]
+}

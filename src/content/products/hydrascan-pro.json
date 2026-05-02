@@ -3,21 +3,23 @@
   "sku": "hydscan001",
   "name": "HYDRASCAN PRO",
   "categorySlug": "hydrafacial",
-  "shortDescription": "8+1 funkciós hydrofacial AI bőranalízissel. Valós idejű diagnózis, digitális kezelési napló, előtte-utána dokumentáció.",
-  "description": "A HYDRASCAN PRO nem csupán egy multifunkciós hydrofacial készülék, hanem egy intelligens bőrdiagnosztikai és kezelőrendszer is egyben.\n\nA készülék különlegessége, hogy a hagyományos arckezelési technológiákat mesterséges intelligenciával kombinálja, ezáltal a kezelések nemcsak hatékonyabbak, hanem személyre szabottabbak is.\n\nA beépített AI-alapú bőranalízis rendszer valós idejű diagnózist biztosít: pórusméret, ráncok mélysége, pigmentáció, hidratáltság, faggyútermelés, rugalmasság, gyulladt területek és UV-sérülések – mindezt automatikusan elemzi és kezelési javaslatot ad.\n\nA vendég állapotáról előtte–utána képek és grafikonok készíthetők, a rendszer kezelési naplót vezet, így minden változás dokumentálható.",
+  "shortDescription": "Többfunkciós hydrofacial rendszer AI bőranalízissel: mélytisztítás, hidratálás, feszesítés és hatóanyagbevitel egyetlen kezelési protokollon belül.",
+  "description": "A HydraScan PRO egy professzionális kozmetikai rendszer, amely egyesíti a modern bőrkezelések legfontosabb technológiáit egyetlen készülékben: mélytisztítás, hidratálás, feszesítés és hatóanyagbevitel – mindez egy kezelési protokollon belül, kompromisszumok nélkül.\n\nA készülék célja nem csupán az azonnali látványos eredmény, hanem a bőr állapotának tudatos, hosszú távú javítása. A kezelőfej-rendszer (ultrahang, bipoláris RF, hidroabrázió, hidrodermabrázió, OxyGenX/oxypod, hideg-meleg vasaló, oxy-spray jet peel és AI bőranalízis mikrokamera) lehetővé teszi, hogy minden vendég egyedi, személyre szabott kezelést kapjon.\n\nA beépített AI-alapú bőranalízis rendszer fénytechnológiák segítségével részletes képet ad a bőr állapotáról: elemzi a pórusokat, a hidratáltságot, a pigmentációt és a bőr rugalmasságát – így a kezelések valós adatok és személyre szabott diagnózis alapján épülnek fel.\n\nA vendég állapotáról előtte-utána képek és grafikonok készíthetők, a rendszer kezelési naplót vezet, így minden változás dokumentálható és átláthatóan bemutatható a vendégnek.",
   "metaTitle": "HydraSCAN Pro | AI bőranalízissel egybeépített 8+1 funkciós hydrofacial gép",
   "metaDescription": "Mesterséges intelligenciával támogatott hydrofacial készülék: valós idejű bőrdiagnózis, 8+1 kezelési funkció, digitális kezelési napló. 599.990 Ft, 2 év garancia.",
   "price": 599990,
-  "image": "@assets/products/HydraSCANPro3.webp",
+  "image": "@assets/products/hydrascan-pro-1.png",
   "youtubeVideos": [],
   "availability": "in_stock",
   "hasVariants": false,
   "variants": [],
   "featured": true,
   "images": [
-    "@assets/products/HydraSCANPro3.webp",
-    "@assets/products/HydraSCANPRO2.webp",
-    "@assets/products/IMG_6527.webp"
+    "@assets/products/hydrascan-pro-1.png",
+    "@assets/products/hydrascan-pro-banner.png",
+    "@assets/products/hydrascan-pro-before-after-1.png",
+    "@assets/products/hydrascan-pro-before-after-2.png",
+    "@assets/products/hydrascan-pro-before-after-3.png"
   ],
   "stats": [
     { "value": "8+1", "label": "Kezelési funkció", "icon": "layers" },
@@ -26,18 +28,21 @@
     { "value": "~30", "unit": "perc", "label": "Kezelési idő", "icon": "clock" }
   ],
   "specs": {
-    "Funkciók száma": "8+1 (hidrodermabrázió, ultrahang, O₂ bubble, RF lifting, hideg-meleg kalapács, spray gun, AI bőranalízis, digitális konzultáció + kezelési napló)",
-    "AI bőranalízis": "Valós idejű, 9+ paraméter (pórusméret, ráncok, pigmentáció, hidratáltság, faggyútermelés, rugalmasság, tónus, gyulladás, UV-sérülés)",
+    "Kezelőfejek": "Ultrahang, bipoláris RF, hidroabrázió, hidrodermabrázió, OxyGenX/oxypod, hideg-meleg vasaló, oxy-spray (jet peel), AI bőranalízis mikrokamera",
+    "AI bőranalízis": "Valós idejű, fénytechnológiákkal támogatott elemzés (pórusok, hidratáltság, pigmentáció, rugalmasság és további paraméterek)",
     "Kezelési napló": "Digitális vendégkarton, előtte-utána összehasonlítás, kezelési protokollok mentése",
     "RF technológia": "Bipoláris rádiófrekvencia, arcfeszesítés és kollagénstimuláció",
     "Ultrahang": "Hatóanyagbeviteli módusz, mély rétegekbe juttatja a szérumokat",
     "Hidrodermabrázió": "Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása",
-    "Oxygen bubble": "O₂ + H₂O₂ hidratáló és antioxidáns kezelés",
-    "Hideg-meleg kalapács": "Bőrnyugtatás, pórusösszehúzás, keringésserkentés",
-    "Spray gun": "Kezelést lezáró tonizáló spray",
-    "Kijelző": "HD érintőképernyő",
-    "Tápellátás": "220V / 50Hz",
-    "Garancia": "2 év teljes körű garancia"
+    "OxyGenX / oxy-spray": "Intenzív hidratálás és frissítő hatás, jet peel hatóanyagbevitel",
+    "Hideg-meleg vasaló": "Bőrnyugtatás, pórusösszehúzás, keringésserkentés",
+    "Kijelző": "10,1 hüvelykes érintőképernyő",
+    "Csomag mérete": "46 × 40 × 41 cm",
+    "Bruttó súly": "18 kg",
+    "Szín": "Fehér – letisztult, professzionális design",
+    "Kezelési terület": "Arc",
+    "Nyelvek": "Magyar, angol, német, lengyel, spanyol, olasz, kínai, japán",
+    "Garancia": "2 év"
   },
   "faq": [
     {

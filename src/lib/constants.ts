@@ -136,6 +136,34 @@ export const CATEGORY_COLORS = {
     gradient: 'from-[#b8c4a9] to-[#a1ae8f]',
     gradientHero: 'from-[#edf1e8] via-[#f5f8f1] to-white',
   },
+  'anti-aging': {
+    accent: '#d4b8c9',       // soft pearl pink
+    accentLight: '#f5edf1',   // pearl mist
+    accentDark: '#9c7a8d',    // deep pearl
+    gradient: 'from-[#d4b8c9] to-[#bea4b4]',
+    gradientHero: 'from-[#f5edf1] via-[#faf3f7] to-white',
+  },
+  'arckezelo-rendszerek': {
+    accent: '#a9b8c9',       // smart slate blue
+    accentLight: '#e8edf3',   // slate mist
+    accentDark: '#6a7a94',    // deep slate
+    gradient: 'from-[#a9b8c9] to-[#8fa1b4]',
+    gradientHero: 'from-[#e8edf3] via-[#f1f5f9] to-white',
+  },
+  mezoterapia: {
+    accent: '#c4a9c9',       // soft orchid lavender
+    accentLight: '#f0e8f3',   // orchid mist
+    accentDark: '#8f6a94',    // deep orchid
+    gradient: 'from-[#c4a9c9] to-[#ae8fb4]',
+    gradientHero: 'from-[#f0e8f3] via-[#f7f1f9] to-white',
+  },
+  testkezeles: {
+    accent: '#a9c4c9',       // frost ice mint
+    accentLight: '#e8f0f3',   // ice mist
+    accentDark: '#6a8f94',    // deep ice
+    gradient: 'from-[#a9c4c9] to-[#8faeb4]',
+    gradientHero: 'from-[#e8f0f3] via-[#f1f7f9] to-white',
+  },
 } as const;
 
 export const CATEGORIES = [
@@ -192,12 +220,48 @@ export const CATEGORIES = [
     name: 'Anti-aging készülékek',
     nameShort: 'Anti-aging',
     slug: 'anti-aging',
-    description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
+    description: 'RF, HIFU, mikrotűs RF és bőranalízis technológiák.',
     icon: 'sparkles',
     image: '/images/opt/products/nofilter-7d-hifu-1-480w.webp',
-    featured: false,
-    draft: true,
-    productCount: 0,
+    featured: true,
+    productCount: 2,
+    color: 'anti-aging' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'arckezelo-rendszerek',
+    name: 'Okos arckezelő rendszerek',
+    nameShort: 'Arckezelő rendszerek',
+    slug: 'arckezelo-rendszerek',
+    description: 'Komplex, intelligens arckezelő platformok bőranalízissel és pod technológiával.',
+    icon: 'cpu',
+    image: '/images/opt/products/elitepod-1-480w.webp',
+    featured: true,
+    productCount: 1,
+    color: 'arckezelo-rendszerek' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'mezoterapia',
+    name: 'Mezoterápiás eszközök',
+    nameShort: 'Mezoterápia',
+    slug: 'mezoterapia',
+    description: 'Tű nélküli és klasszikus mezoterápiás hatóanyagbeviteli rendszerek.',
+    icon: 'syringe',
+    image: '/images/opt/products/dermatechplus-noneedle-mesotherapy-1-480w.webp',
+    featured: true,
+    productCount: 1,
+    color: 'mezoterapia' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'testkezeles',
+    name: 'Test- és alakformáló gépek',
+    nameShort: 'Testkezelés',
+    slug: 'testkezeles',
+    description: 'Cryolipolysis, contour shaping és egyéb test- és alakformáló kezelőgépek.',
+    icon: 'snowflake',
+    image: '/images/opt/products/freeze-me-slim-1-480w.webp',
+    featured: true,
+    productCount: 2,
+    color: 'testkezeles' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'sminktetovalas',
@@ -212,27 +276,15 @@ export const CATEGORIES = [
     color: 'sminktetovalas' as keyof typeof CATEGORY_COLORS,
   },
   {
-    id: 'szalonberendezes',
-    name: 'Szalonberendezés',
-    nameShort: 'Szalonberendezés',
-    slug: 'szalonberendezes',
-    description: 'Professzionális szalonbútorok, trolley-k és kiegészítők.',
-    icon: 'armchair',
-    image: '/images/opt/products/vanityblack-premium-elektromos-kozmetikai-agy-2-800w.webp',
-    featured: true,
-    productCount: 6,
-    color: 'szalonberendezes' as keyof typeof CATEGORY_COLORS,
-  },
-  {
     id: 'kellekek',
     name: 'Kellékek és kiegészítők',
     nameShort: 'Kellékek',
     slug: 'kellekek',
-    description: 'Kezelőanyagok, tűmodulok és egyéb kiegészítők.',
+    description: 'Kezelőanyagok, füstelszívók és egyéb kiegészítők.',
     icon: 'package',
-    image: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-480w.webp',
+    image: '/images/opt/products/carbon-peeling-fust-elszivo-keszulek-1-480w.webp',
     featured: true,
-    productCount: 7,
+    productCount: 1,
     color: 'kellekek' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
@@ -274,28 +326,31 @@ export const MEGA_MENU = {
     {
       titleKey: 'megaMenu.lasers',
       items: [
-        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 9, descriptionKey: 'megaMenu.diodeDesc' },
+        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 5, descriptionKey: 'megaMenu.diodeDesc' },
         { labelKey: 'categories.nd-yag-lezerek', href: '/nd-yag-lezerek', count: 2, descriptionKey: 'megaMenu.ndyagDesc' },
       ],
     },
     {
       titleKey: 'megaMenu.treatments',
       items: [
-        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 5, descriptionKey: 'megaMenu.hydrafacialDesc' },
-        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 2, descriptionKey: 'megaMenu.coldplasmaDesc' },
+        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
+        { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
+        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 1, descriptionKey: 'megaMenu.coldplasmaDesc' },
+      ],
+    },
+    {
+      titleKey: 'megaMenu.skinCare',
+      items: [
+        { labelKey: 'categories.anti-aging', href: '/anti-aging', count: 2, descriptionKey: 'megaMenu.antiAgingDesc' },
+        { labelKey: 'categories.testkezeles', href: '/testkezeles', count: 2, descriptionKey: 'megaMenu.bodyShapingDesc' },
+        { labelKey: 'categories.mezoterapia', href: '/mezoterapia', count: 1, descriptionKey: 'megaMenu.mesoDesc' },
       ],
     },
     {
       titleKey: 'megaMenu.pmu',
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
-        { labelKey: 'categories.kellekek', href: '/kellekek', count: 7, descriptionKey: 'megaMenu.accessoriesDesc' },
-      ],
-    },
-    {
-      titleKey: 'megaMenu.salon',
-      items: [
-        { labelKey: 'categories.szalonberendezes', href: '/szalonberendezes', count: 6, descriptionKey: 'megaMenu.furnitureDesc' },
+        { labelKey: 'categories.kellekek', href: '/kellekek', count: 1, descriptionKey: 'megaMenu.accessoriesDesc' },
       ],
     },
   ],
