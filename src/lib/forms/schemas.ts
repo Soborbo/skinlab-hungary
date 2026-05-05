@@ -17,8 +17,11 @@ export const contactSchema = z.object({
   email: z.string().email('Érvényes email cím szükséges'),
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
 
-  // Product interest
-  product: z.string().min(1, 'Válassz kategóriát'),
+  // Product interest (optional — only used by consultation flow, not generic contact)
+  product: z.string().optional().default(''),
+
+  // Optional subject line (generic contact form)
+  subject: z.string().max(200).optional(),
 
   // Optional message
   message: z.string().max(2000).optional(),

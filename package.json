@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/patch-wrangler-config.cjs",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy": "wrangler deploy --config dist/server/wrangler.json --keep-vars",
+    "deploy:dry": "wrangler deploy --config dist/server/wrangler.json --keep-vars --dry-run",
     "generate:images": "node scripts/generate-optimized-images.cjs",
     "validate:content": "npx tsx scripts/validate-content.ts",
     "sync:unas": "node scripts/sync-unas-products.cjs"

@@ -11,28 +11,28 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 // Localized contact link
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
-// Fetch the featured product (Prestige4WAVE)
+// Fetch the featured product (HELIOS — flagship 1600W diódalézer)
 const allProducts = await getCollection('products', ({ data }) => !data.draft);
-const featuredProduct = allProducts.find(p => p.data.slug === 'prestige4wave_diodalezer');
+const featuredProduct = allProducts.find(p => p.data.slug === 'helios');
 
 const productImagePath = featuredProduct?.data.image || '';
 const hasProductImage = productImagePath && hasImage(productImagePath);
 
 const product = {
-  name: featuredProduct?.data.name || 'Prestige4WAVE Diódalézer',
+  name: featuredProduct?.data.name || 'HELIOS 1600W diódalézer',
   tagline: t(locale, 'featuredProduct.tagline'),
   badge: t(locale, 'featuredProduct.badge'),
   price: featuredProduct?.data.price ? i18nFormatPrice(featuredProduct.data.price, locale) : t(locale, 'product.priceOnRequest'),
   monthlyPrice: t(locale, 'featuredProduct.monthlyPrice'),
   specs: [
     { value: '4', labelKey: 'featuredProduct.wavelength' },
-    { value: '1200W', labelKey: 'featuredProduct.power' },
-    { value: '-5°C', labelKey: 'featuredProduct.cooling' },
+    { value: '1600W', labelKey: 'featuredProduct.power' },
+    { value: '-16°C', labelKey: 'featuredProduct.cooling' },
     { value: t(locale, 'featuredProduct.warrantyValue'), labelKey: 'featuredProduct.warranty' },
   ],
   link: featuredProduct
     ? getLocalizedUrl(locale, `/${featuredProduct.data.categorySlug}/${featuredProduct.data.slug}`)
-    : getLocalizedUrl(locale, '/diodalezerek/prestige4wave_diodalezer'),
+    : getLocalizedUrl(locale, '/diodalezerek/helios'),
 };
 ---
 
@@ -57,7 +57,7 @@ const product = {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
-            <p class="text-white/60 font-medium">Prestige4WAVE {t(locale, 'featuredProduct.productPlaceholder')}</p>
+            <p class="text-white/60 font-medium">HELIOS {t(locale, 'featuredProduct.productPlaceholder')}</p>
           </div>
         )}
       </div>

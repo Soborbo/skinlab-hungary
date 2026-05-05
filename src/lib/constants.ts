@@ -314,10 +314,10 @@ export const TRUST_BADGES = [
 ];
 
 export const STATS = [
-  { value: '150+', label: 'Eladott készülék' },
-  { value: '2 év', label: 'Garancia' },
-  { value: '15-20 nap', label: 'Szállítási idő' },
-  { value: '100%', label: 'Legális behozatal' },
+  { key: 'soldUnits', value: '150+', label: 'Eladott készülék' },
+  { key: 'warranty', value: '2 év', label: 'Garancia' },
+  { key: 'deliveryTime', value: '15-20 nap', label: 'Szállítási idő' },
+  { key: 'legalImport', value: '100%', label: 'Legális behozatal' },
 ];
 
 // Mega Menu Navigation Structure
