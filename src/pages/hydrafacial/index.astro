@@ -54,58 +54,64 @@ const faq = [
   },
 ];
 
-// ============================================================
-// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
-// ============================================================
 const comparison = {
-  features: ['Ár', 'Funkciók száma', 'AI diagnosztika', 'Szérum adagoló', 'Kijelző', 'Ajánlott'],
+  features: ['Ár', 'Funkciók száma', 'AI bőranalízis', 'Kijelző', 'Ajánlott'],
   products: [
     {
-      name: 'HydraBasic 6in1',       // 🔴 DUMMY
+      name: 'HydraMax',
       tag: 'Belépő szint',
       tagColor: 'purple',
-      link: '/hydrafacial/hydrabasic-6in1',  // 🔴 DUMMY LINK
+      link: '/hydrafacial/hydramax-professzionalis-hydrofacial-keszulek-833',
       specs: {
-        'Ár': '890.000 Ft',          // 🔴 DUMMY
-        'Funkciók száma': '6',        // 🔴 DUMMY
-        'AI diagnosztika': '✗',
-        'Szérum adagoló': '✗',
-        'Kijelző': '7"',              // 🔴 DUMMY
-        'Ajánlott': 'Kisszalonok',
+        'Ár': '399 990 Ft',
+        'Funkciók száma': '8',
+        'AI bőranalízis': '✗',
+        'Kijelző': 'Érintőképernyő',
+        'Ajánlott': 'Kezdő hidrofaciális kabin',
       },
     },
     {
-      name: 'HydraCrown 12in1',      // 🔴 DUMMY
-      tag: 'Bestseller',
-      tagColor: 'red',
-      highlighted: true,
-      link: '/hydrafacial/hydracrown-12in1',  // 🔴 DUMMY LINK
-      specs: {
-        'Ár': '1.8M Ft',             // 🔴 DUMMY
-        'Funkciók száma': '12',       // 🔴 DUMMY
-        'AI diagnosztika': '✓',
-        'Szérum adagoló': '✓',
-        'Kijelző': '15" érintő',      // 🔴 DUMMY
-        'Ajánlott': 'Profik, klinikák',
-      },
-    },
-    {
-      name: 'AquaPeel Pro',          // 🔴 DUMMY
-      tag: 'Új modell',
+      name: 'HydraScan PRO',
+      tag: 'AI bőranalízis',
       tagColor: 'blue',
-      link: '/hydrafacial/aquapeel-pro',  // 🔴 DUMMY LINK
+      link: '/hydrafacial/hydrascan-pro',
       specs: {
-        'Ár': '1.4M Ft',             // 🔴 DUMMY
-        'Funkciók száma': '9',        // 🔴 DUMMY
-        'AI diagnosztika': '✓',
-        'Szérum adagoló': '✗',
-        'Kijelző': '10"',             // 🔴 DUMMY
+        'Ár': '599 990 Ft',
+        'Funkciók száma': '8+1',
+        'AI bőranalízis': '✓',
+        'Kijelző': '10,1" érintő',
         'Ajánlott': 'Közepes szalonok',
+      },
+    },
+    {
+      name: 'HydraScan PRO+ 2026',
+      tag: 'Új generáció',
+      tagColor: 'orange',
+      highlighted: true,
+      link: '/hydrafacial/hydrascan-pro-plus',
+      specs: {
+        'Ár': '850 887 Ft',
+        'Funkciók száma': '8+1',
+        'AI bőranalízis': '✓ 4K három-spektrumú',
+        'Kijelző': '10,1" érintő',
+        'Ajánlott': 'Profi szalon, klinika',
+      },
+    },
+    {
+      name: 'HydraCrown Expert',
+      tag: 'Prémium 10in1',
+      tagColor: 'red',
+      link: '/hydrafacial/hydracrownexpert',
+      specs: {
+        'Ár': '1 299 990 Ft',
+        'Funkciók száma': '10',
+        'AI bőranalízis': '✓',
+        'Kijelző': 'Android nagy érintő',
+        'Ajánlott': 'Klinikák, prémium szalonok',
       },
     },
   ],
 };
-// ============================================================
 ---
 
 <CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

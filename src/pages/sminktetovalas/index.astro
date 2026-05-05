@@ -54,58 +54,54 @@ const faq = [
   },
 ];
 
-// ============================================================
-// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
-// ============================================================
 const comparison = {
-  features: ['Ár', 'Típus', 'Motor', 'Löket hossz', 'Akkumulátor', 'Ajánlott'],
+  features: ['Ár', 'Típus', 'Lökethossz', 'Üzemidő', 'Súly', 'Ajánlott'],
   products: [
     {
-      name: 'MAST Archer',           // 🔴 DUMMY
-      tag: 'Belépő szint',
+      name: 'MAST Nano 2.0',
+      tag: 'Ultrakönnyű',
       tagColor: 'purple',
-      link: '/sminktetovalas/mast-archer',  // 🔴 DUMMY LINK
+      link: '/sminktetovalas/mast-nano-2',
       specs: {
-        'Ár': '89.000 Ft',           // 🔴 DUMMY
-        'Típus': 'Vezetékes',         // 🔴 DUMMY
-        'Motor': 'Coreless',          // 🔴 DUMMY
-        'Löket hossz': '3.5mm',       // 🔴 DUMMY
-        'Akkumulátor': '-',
-        'Ajánlott': 'Kezdőknek',
+        'Ár': '59 990 Ft',
+        'Típus': 'Vezeték nélküli, coreless',
+        'Lökethossz': 'Fix',
+        'Üzemidő': 'Akkus',
+        'Súly': '66 g',
+        'Ajánlott': 'Szemhéj, precíz munka',
       },
     },
     {
-      name: 'MAST Tour Pro',         // 🔴 DUMMY
-      tag: 'Bestseller',
-      tagColor: 'red',
+      name: 'MAST P60',
+      tag: 'Állítható lökethossz',
+      tagColor: 'orange',
       highlighted: true,
-      link: '/sminktetovalas/mast-tour-pro',  // 🔴 DUMMY LINK
+      link: '/sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal',
       specs: {
-        'Ár': '159.000 Ft',          // 🔴 DUMMY
-        'Típus': 'Vezeték nélküli',   // 🔴 DUMMY
-        'Motor': 'Brushless',         // 🔴 DUMMY
-        'Löket hossz': '2.5-4mm',     // 🔴 DUMMY
-        'Akkumulátor': '8 óra',       // 🔴 DUMMY
-        'Ajánlott': 'Profik választása',
+        'Ár': '79 990 Ft',
+        'Típus': 'Vezeték nélküli',
+        'Lökethossz': '5 fokozat (2,2–3,2 mm)',
+        'Üzemidő': '3+ óra',
+        'Súly': '121 g',
+        'Ajánlott': 'Mindennapi PMU munka',
       },
     },
     {
-      name: 'MAST Lancer',           // 🔴 DUMMY
-      tag: 'Prémium',
+      name: 'MAST P60 3in1',
+      tag: 'Komplett szett',
       tagColor: 'blue',
-      link: '/sminktetovalas/mast-lancer',  // 🔴 DUMMY LINK
+      link: '/sminktetovalas/mast-p60-sminktetovalo-gep',
       specs: {
-        'Ár': '129.000 Ft',          // 🔴 DUMMY
-        'Típus': 'Vezeték nélküli',   // 🔴 DUMMY
-        'Motor': 'Brushless',         // 🔴 DUMMY
-        'Löket hossz': '3.0mm',       // 🔴 DUMMY
-        'Akkumulátor': '6 óra',       // 🔴 DUMMY
-        'Ajánlott': 'Haladóknak',
+        'Ár': '119 990 Ft',
+        'Típus': 'Vezeték nélküli + RCA',
+        'Lökethossz': '5 fokozat (2,2–3,2 mm)',
+        'Üzemidő': '3+ óra + pót akku',
+        'Súly': '121 g',
+        'Ajánlott': 'Profi PMU stúdió, hosszú munkanap',
       },
     },
   ],
 };
-// ============================================================
 ---
 
 <CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

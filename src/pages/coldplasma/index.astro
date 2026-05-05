@@ -55,8 +55,36 @@ const faq = [
 ];
 
 const comparison = {
-  features: ['Ár', 'Technológia', 'Funkciók száma', 'Fájdalom', 'Regeneráció', 'Ajánlott'],
-  products: [],
+  features: ['Ár', 'Technológia', 'Funkciók száma', 'Felhasználás', 'Ajánlott'],
+  products: [
+    {
+      name: 'AURA',
+      tag: 'Hidegplazma belépő',
+      tagColor: 'blue',
+      link: '/coldplasma/hidegplazma',
+      specs: {
+        'Ár': '799 990 Ft',
+        'Technológia': 'Cold Atmospheric Plasma (CAP)',
+        'Funkciók száma': 'Plazma kezelés',
+        'Felhasználás': 'Akne, hatóanyag-bevitel, regeneráció',
+        'Ajánlott': 'Kozmetikák, akne-fókuszú kabinok',
+      },
+    },
+    {
+      name: 'THE FROST',
+      tag: 'Prémium 9in1',
+      tagColor: 'orange',
+      highlighted: true,
+      link: '/coldplasma/thefrostcoldplasma',
+      specs: {
+        'Ár': '1 499 990 Ft',
+        'Technológia': 'Hidegplazma + multifunkciós arckezelő',
+        'Funkciók száma': '9 az 1-ben',
+        'Felhasználás': 'Komplex arckezelés, anti-aging, akne',
+        'Ajánlott': 'Profi szalonok, prémium kabinok',
+      },
+    },
+  ],
 };
 ---
 

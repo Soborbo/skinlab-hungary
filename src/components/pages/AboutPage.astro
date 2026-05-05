@@ -16,8 +16,8 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 ---
 
 <BaseLayout
-  title={t(locale, 'about.title')}
-  description={t(locale, 'about.subtitle')}
+  title={t(locale, 'about.title', { companyName: COMPANY.brand })}
+  description={t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
   schema={aboutPageSchema(config, pageUrl)}
 >
   <div id="main-content">
@@ -27,10 +27,10 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
           <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            {t(locale, 'about.title')}
+            {t(locale, 'about.title', { companyName: COMPANY.brand })}
           </h1>
           <p class="text-lg text-gray-600">
-            {t(locale, 'about.subtitle')}
+            {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
           </p>
         </div>
       </div>
@@ -39,19 +39,29 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
     <!-- Story + Team Photo -->
     <section class="py-12 lg:py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
+        <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           <div class="lg:col-span-3">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">{t(locale, 'about.storyTitle')}</h2>
             <div class="prose prose-lg text-gray-600">
-              <p>
-                {t(locale, 'about.storyParagraph1', { companyName: COMPANY.name })}
-              </p>
-              <p>
-                {t(locale, 'about.storyParagraph2')}
-              </p>
-              <p>
-                {t(locale, 'about.storyParagraph3')}
-              </p>
+              <h2 class="text-2xl font-bold text-gray-900 mt-0 mb-3">{t(locale, 'about.storySection1Title')}</h2>
+              <p>{t(locale, 'about.storySection1')}</p>
+
+              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection2Title')}</h2>
+              <p>{t(locale, 'about.storySection2a')}</p>
+              <p>{t(locale, 'about.storySection2b', { companyName: COMPANY.brand })}</p>
+
+              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection3Title')}</h2>
+              <p>{t(locale, 'about.storySection3')}</p>
+
+              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection4Title', { companyName: COMPANY.brand })}</h2>
+              <p>{t(locale, 'about.storySection4a', { companyName: COMPANY.brand })}</p>
+              <p>{t(locale, 'about.storySection4b', { companyName: COMPANY.brand })}</p>
+
+              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection5Title')}</h2>
+              <p>{t(locale, 'about.storySection5a')}</p>
+              <p>{t(locale, 'about.storySection5b')}</p>
+              <p>{t(locale, 'about.storySection5c')}</p>
+              <p>{t(locale, 'about.storySection5d')}</p>
+              <p>{t(locale, 'about.storyClosing')}</p>
             </div>
           </div>
           <div class="lg:col-span-2">

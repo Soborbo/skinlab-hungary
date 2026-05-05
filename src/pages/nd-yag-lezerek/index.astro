@@ -54,58 +54,38 @@ const faq = [
   },
 ];
 
-// ============================================================
-// 🔴 DUMMY ADATOK - CSERÉLD KI VALÓS TERMÉKADATOKRA!
-// ============================================================
 const comparison = {
-  features: ['Ár', 'Hullámhosszak', 'Teljesítmény', 'Pico mód', 'Hűtés', 'Ajánlott'],
+  features: ['Ár', 'Hullámhosszak', 'Kijelző', 'Kezelőfej-hűtés', 'Ajánlott'],
   products: [
     {
-      name: 'Q-Switch Basic',        // 🔴 DUMMY
-      tag: 'Belépő szint',
-      tagColor: 'purple',
-      link: '/nd-yag-lezerek/qswitch-basic',  // 🔴 DUMMY LINK
-      specs: {
-        'Ár': '1.5M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '1064nm',    // 🔴 DUMMY
-        'Teljesítmény': '800mJ',      // 🔴 DUMMY
-        'Pico mód': '✗',
-        'Hűtés': 'Levegő',            // 🔴 DUMMY
-        'Ajánlott': 'Carbon peeling',
-      },
-    },
-    {
-      name: 'PicoStar Pro',          // 🔴 DUMMY
-      tag: 'Bestseller',
-      tagColor: 'red',
-      highlighted: true,
-      link: '/nd-yag-lezerek/picostar-pro',  // 🔴 DUMMY LINK
-      specs: {
-        'Ár': '3.5M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '1064 + 532nm',  // 🔴 DUMMY
-        'Teljesítmény': '2000mJ',     // 🔴 DUMMY
-        'Pico mód': '✓',
-        'Hűtés': 'Cryo -10°C',        // 🔴 DUMMY
-        'Ajánlott': 'Tetoválás + carbon',
-      },
-    },
-    {
-      name: 'ND:YAG Tattoo Eraser',  // 🔴 DUMMY
-      tag: 'Specialista',
+      name: 'PIXEL',
+      tag: '2025 lengyel díjnyertes',
       tagColor: 'blue',
-      link: '/nd-yag-lezerek/tattoo-eraser',  // 🔴 DUMMY LINK
+      link: '/nd-yag-lezerek/pixelcarbonlezer',
       specs: {
-        'Ár': '2.8M Ft',             // 🔴 DUMMY
-        'Hullámhosszak': '1064 + 532 + 755nm',  // 🔴 DUMMY
-        'Teljesítmény': '1500mJ',     // 🔴 DUMMY
-        'Pico mód': '✗',
-        'Hűtés': 'Kontakt hűtés',     // 🔴 DUMMY
-        'Ajánlott': 'Színes tetoválások',
+        'Ár': '999 990 Ft',
+        'Hullámhosszak': '3 (1064 + 532 + ~585/650nm)',
+        'Kijelző': '4,3" érintő',
+        'Kezelőfej-hűtés': 'Kontakt hűtés',
+        'Ajánlott': 'Kompakt belépő, piros pigment is',
+      },
+    },
+    {
+      name: 'FRAME',
+      tag: 'Android okos',
+      tagColor: 'orange',
+      highlighted: true,
+      link: '/nd-yag-lezerek/frame',
+      specs: {
+        'Ár': '1 549 990 Ft',
+        'Hullámhosszak': '4',
+        'Kijelző': '13,3" Android érintő',
+        'Kezelőfej-hűtés': 'Beépített kezelőfej-hűtés',
+        'Ajánlott': 'Tetoválás + pigmentfolt + carbon',
       },
     },
   ],
 };
-// ============================================================
 ---
 
 <CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />

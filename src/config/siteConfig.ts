@@ -37,6 +37,7 @@ const SiteConfigSchema = z.object({
   // Identity
   name: z.string(),
   legalName: z.string(),
+  brand: z.string(),
   description: z.string(),
   url: z.string().url(),
   locale: z.string(),
@@ -110,6 +111,7 @@ const siteUrl = SITE.url;
 export const config: SiteConfig = SiteConfigSchema.parse({
   name: COMPANY.name,
   legalName: COMPANY.legalName,
+  brand: COMPANY.brand,
   description: COMPANY.description,
   url: siteUrl,
   locale: SITE.locale,
