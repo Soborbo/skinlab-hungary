@@ -467,6 +467,28 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         website: '',
         turnstileToken: window.__orderTurnstileToken || '',
         sourceUrl: window.location.href,
+        // Attribution stack — URL params → persisted tracking → document.referrer
+        ...(() => {
+          const urlParams = new URLSearchParams(window.location.search);
+          let stored: Record<string, string | undefined> = {};
+          try {
+            const raw = localStorage.getItem('sb_tracking');
+            if (raw) stored = JSON.parse(raw);
+          } catch {
+            /* private mode / quota — ignore */
+          }
+          const pick = (key: string) => urlParams.get(key) || stored[key] || '';
+          return {
+            utmSource: pick('utm_source'),
+            utmMedium: pick('utm_medium'),
+            utmCampaign: pick('utm_campaign'),
+            utmTerm: pick('utm_term'),
+            utmContent: pick('utm_content'),
+            gclid: pick('gclid'),
+            fbclid: pick('fbclid'),
+            referrer: pick('referrer') || document.referrer || '',
+          };
+        })(),
       };
 
       try {

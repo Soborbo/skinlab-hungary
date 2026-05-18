@@ -104,8 +104,11 @@ export async function appendOrderRow(env: OrderEnv, row: (string | number)[]): P
 
   const accessToken = await getGoogleAccessToken(env);
 
+  // Range A:AA covers the original 18 order columns + 9 attribution columns
+  // (UTM source/medium/campaign/term/content, gclid, fbclid, referrer,
+  // user-agent). Update the "Rendelések" sheet header row to match.
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent('Rendelések')}!A:R:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent('Rendelések')}!A:AA:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {

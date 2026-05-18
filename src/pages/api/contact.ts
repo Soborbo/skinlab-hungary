@@ -63,8 +63,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       });
     }
 
-    // Process form submission
-    const result = await processFormSubmission(validation.data!, clientAddress);
+    // Process form submission — capture User-Agent for the Sheets row too
+    const userAgent = request.headers.get('user-agent') ?? undefined;
+    const result = await processFormSubmission(validation.data!, clientAddress, userAgent);
 
     if (!result.success) {
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {

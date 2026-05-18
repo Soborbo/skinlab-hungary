@@ -40,6 +40,17 @@ export interface OrderEmailInput {
   subtotal: number;
   hasPriceOnRequest: boolean;
   sourceUrl: string;
+  // Attribution / tracking — captured at checkout time from URL params,
+  // persisted tracking storage, and request headers (user-agent)
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  gclid?: string;
+  fbclid?: string;
+  referrer?: string;
+  userAgent?: string;
 }
 
 function escapeHtml(str: string): string {
@@ -275,8 +286,16 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
       }
 
       ${
-        input.sourceUrl
-          ? `<p style="margin:0;font-size:12px;color:#bbb;">Forrás: ${escapeHtml(input.sourceUrl)}</p>`
+        input.sourceUrl || input.utmSource || input.gclid || input.fbclid || input.referrer
+          ? `<p style="margin:0 0 6px;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;font-weight:bold;">Attribúció</p>
+             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;font-size:12px;color:#666;font-family:Arial,sans-serif;">
+               ${input.sourceUrl ? `<tr><td style="padding:3px 0;width:130px;color:#999;">Forrás URL:</td><td style="padding:3px 0;word-break:break-all;">${escapeHtml(input.sourceUrl)}</td></tr>` : ''}
+               ${input.referrer ? `<tr><td style="padding:3px 0;color:#999;">Referrer:</td><td style="padding:3px 0;word-break:break-all;">${escapeHtml(input.referrer)}</td></tr>` : ''}
+               ${input.utmSource || input.utmMedium || input.utmCampaign ? `<tr><td style="padding:3px 0;color:#999;">UTM:</td><td style="padding:3px 0;">${escapeHtml(input.utmSource || '-')} / ${escapeHtml(input.utmMedium || '-')} / ${escapeHtml(input.utmCampaign || '-')}</td></tr>` : ''}
+               ${input.utmTerm || input.utmContent ? `<tr><td style="padding:3px 0;color:#999;">UTM term/content:</td><td style="padding:3px 0;">${escapeHtml(input.utmTerm || '-')} / ${escapeHtml(input.utmContent || '-')}</td></tr>` : ''}
+               ${input.gclid ? `<tr><td style="padding:3px 0;color:#999;">gclid:</td><td style="padding:3px 0;font-family:'Courier New',monospace;font-size:11px;">${escapeHtml(input.gclid)}</td></tr>` : ''}
+               ${input.fbclid ? `<tr><td style="padding:3px 0;color:#999;">fbclid:</td><td style="padding:3px 0;font-family:'Courier New',monospace;font-size:11px;">${escapeHtml(input.fbclid)}</td></tr>` : ''}
+             </table>`
           : ''
       }
     </div>

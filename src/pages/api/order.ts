@@ -178,6 +178,16 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       subtotal,
       hasPriceOnRequest,
       sourceUrl: data.sourceUrl || '',
+      // Attribution stack — captured by the checkout form
+      utmSource: data.utmSource || '',
+      utmMedium: data.utmMedium || '',
+      utmCampaign: data.utmCampaign || '',
+      utmTerm: data.utmTerm || '',
+      utmContent: data.utmContent || '',
+      gclid: data.gclid || '',
+      fbclid: data.fbclid || '',
+      referrer: data.referrer || '',
+      userAgent: request.headers.get('user-agent') ?? undefined,
     };
 
     const result = await processOrder(orderInput, env);

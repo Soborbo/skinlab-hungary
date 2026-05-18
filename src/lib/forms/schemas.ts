@@ -44,11 +44,16 @@ export const contactSchema = z.object({
   // Turnstile CAPTCHA token
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
-  // Tracking metadata
+  // Tracking metadata — captured client-side (URL params + persisted tracking)
   sourceUrl: z.string().url(),
-  utmSource: z.string().optional(),
-  utmMedium: z.string().optional(),
-  utmCampaign: z.string().optional(),
+  utmSource: z.string().max(200).optional().default(''),
+  utmMedium: z.string().max(200).optional().default(''),
+  utmCampaign: z.string().max(200).optional().default(''),
+  utmTerm: z.string().max(200).optional().default(''),
+  utmContent: z.string().max(200).optional().default(''),
+  gclid: z.string().max(300).optional().default(''),
+  fbclid: z.string().max(300).optional().default(''),
+  referrer: z.string().max(500).optional().default(''),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
@@ -111,11 +116,16 @@ export const consultationSchema = z.object({
   // Turnstile CAPTCHA token
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
-  // Tracking metadata
+  // Tracking metadata — same as contact form, captured client-side
   sourceUrl: z.string().url(),
-  utmSource: z.string().optional(),
-  utmMedium: z.string().optional(),
-  utmCampaign: z.string().optional(),
+  utmSource: z.string().max(200).optional().default(''),
+  utmMedium: z.string().max(200).optional().default(''),
+  utmCampaign: z.string().max(200).optional().default(''),
+  utmTerm: z.string().max(200).optional().default(''),
+  utmContent: z.string().max(200).optional().default(''),
+  gclid: z.string().max(300).optional().default(''),
+  fbclid: z.string().max(300).optional().default(''),
+  referrer: z.string().max(500).optional().default(''),
 });
 
 export type ConsultationFormData = z.infer<typeof consultationSchema>;

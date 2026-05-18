@@ -2,10 +2,14 @@
  * Form submission handling
  * Based on astro-forms skill
  *
- * Uses Google Sheets API for lead storage
+ * Uses Google Sheets API for lead storage. Reads runtime env via
+ * `readEnv` so secrets set as Cloudflare Worker runtime vars are
+ * picked up correctly (Astro v6 inlines `import.meta.env.X` at build
+ * time, which silently broke every integration before this refactor).
  */
 import type { ContactFormData, ConsultationFormData } from './schemas';
 import { generateLeadId, anonymizeIp } from './schemas';
+import { readEnv } from '@/lib/env';
 
 /**
  * Escape HTML special characters to prevent XSS in email templates
@@ -41,9 +45,17 @@ interface LeadData {
   ipHash: string;
   gdprConsent: boolean;
   gdprTimestamp: string;
+  // Attribution / tracking — captured at submit time from URL params,
+  // persisted tracking storage, and document.referrer
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  gclid?: string;
+  fbclid?: string;
+  referrer?: string;
+  userAgent?: string;
 }
 
 interface ConsultationLeadData extends LeadData {
@@ -64,7 +76,8 @@ let cachedToken: GoogleAuthToken | null = null;
  */
 export async function processFormSubmission(
   data: ContactFormData,
-  ip: string
+  ip: string,
+  userAgent?: string,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -84,6 +97,12 @@ export async function processFormSubmission(
     utmSource: data.utmSource,
     utmMedium: data.utmMedium,
     utmCampaign: data.utmCampaign,
+    utmTerm: data.utmTerm,
+    utmContent: data.utmContent,
+    gclid: data.gclid,
+    fbclid: data.fbclid,
+    referrer: data.referrer,
+    userAgent,
   };
 
   try {
@@ -132,8 +151,8 @@ async function getGoogleAccessToken(): Promise<string> {
     return cachedToken.access_token;
   }
 
-  const clientEmail = import.meta.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-  const privateKey = import.meta.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY?.replace(/\\n/g, '\n');
+  const clientEmail = readEnv('GOOGLE_SERVICE_ACCOUNT_EMAIL');
+  const privateKey = readEnv('GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY')?.replace(/\\n/g, '\n');
 
   if (!clientEmail || !privateKey) {
     throw new Error('Google service account credentials not configured');
@@ -223,7 +242,7 @@ async function getGoogleAccessToken(): Promise<string> {
  * Send lead data to Google Sheets via API
  */
 async function sendToGoogleSheets(data: LeadData): Promise<void> {
-  const spreadsheetId = import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
@@ -233,6 +252,11 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data (order must match sheet columns)
+  // Columns A–T (20). Update the sheet header row to match:
+  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
+  // G Üzenet | H Forrás URL | I IP hash | J GDPR | K GDPR time |
+  // L UTM source | M UTM medium | N UTM campaign | O UTM term |
+  // P UTM content | Q gclid | R fbclid | S Referrer | T User-Agent
   const rowData = [
     data.leadId,
     data.timestamp,
@@ -248,11 +272,17 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
     data.utmSource || '',
     data.utmMedium || '',
     data.utmCampaign || '',
+    data.utmTerm || '',
+    data.utmContent || '',
+    data.gclid || '',
+    data.fbclid || '',
+    data.referrer || '',
+    data.userAgent || '',
   ];
 
   // Append to sheet (sheet name: "Kapcsolat")
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:N:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:T:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -275,7 +305,7 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
  * Send confirmation email to customer
  */
 async function sendConfirmationEmail(data: LeadData): Promise<void> {
-  const resendApiKey = import.meta.env.RESEND_API_KEY;
+  const resendApiKey = readEnv('RESEND_API_KEY');
 
   if (!resendApiKey) {
     console.warn('RESEND_API_KEY not configured, skipping confirmation email');
@@ -306,8 +336,8 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
  * Send notification email to team
  */
 async function sendNotificationEmail(data: LeadData): Promise<void> {
-  const resendApiKey = import.meta.env.RESEND_API_KEY;
-  const notifyEmail = import.meta.env.NOTIFY_EMAIL || 'info@skinlabhungary.hu';
+  const resendApiKey = readEnv('RESEND_API_KEY');
+  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'info@skinlabhungary.hu';
 
   if (!resendApiKey) {
     return;
@@ -423,10 +453,34 @@ function generateNotificationEmailHtml(data: LeadData): string {
       <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Időpont:</strong></td>
       <td style="padding: 8px; border-bottom: 1px solid #eee;">${new Date(data.timestamp).toLocaleString('hu-HU')}</td>
     </tr>
-    ${data.utmSource ? `
+    ${data.referrer ? `
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Referrer:</strong></td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee; word-break: break-all; font-size: 12px;">${escapeHtml(data.referrer)}</td>
+    </tr>
+    ` : ''}
+    ${data.utmSource || data.utmMedium || data.utmCampaign ? `
     <tr>
       <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>UTM:</strong></td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.utmSource)} / ${data.utmMedium ? escapeHtml(data.utmMedium) : '-'} / ${data.utmCampaign ? escapeHtml(data.utmCampaign) : '-'}</td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.utmSource || '-')} / ${escapeHtml(data.utmMedium || '-')} / ${escapeHtml(data.utmCampaign || '-')}</td>
+    </tr>
+    ` : ''}
+    ${data.utmTerm || data.utmContent ? `
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>UTM term/content:</strong></td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.utmTerm || '-')} / ${escapeHtml(data.utmContent || '-')}</td>
+    </tr>
+    ` : ''}
+    ${data.gclid ? `
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>gclid:</strong></td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee; font-family: 'Courier New', monospace; font-size: 11px; word-break: break-all;">${escapeHtml(data.gclid)}</td>
+    </tr>
+    ` : ''}
+    ${data.fbclid ? `
+    <tr>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>fbclid:</strong></td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee; font-family: 'Courier New', monospace; font-size: 11px; word-break: break-all;">${escapeHtml(data.fbclid)}</td>
     </tr>
     ` : ''}
   </table>
@@ -472,7 +526,8 @@ const EXPERIENCE_LABELS: Record<string, string> = {
  */
 export async function processConsultationSubmission(
   data: ConsultationFormData,
-  ip: string
+  ip: string,
+  userAgent?: string,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -494,6 +549,12 @@ export async function processConsultationSubmission(
     utmSource: data.utmSource,
     utmMedium: data.utmMedium,
     utmCampaign: data.utmCampaign,
+    utmTerm: data.utmTerm,
+    utmContent: data.utmContent,
+    gclid: data.gclid,
+    fbclid: data.fbclid,
+    referrer: data.referrer,
+    userAgent,
   };
 
   try {
@@ -527,7 +588,7 @@ export async function processConsultationSubmission(
  * Send consultation lead data to Google Sheets
  */
 async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<void> {
-  const spreadsheetId = import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
@@ -537,6 +598,12 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data for Konzultáció sheet
+  // Columns A–V (22). Update the sheet header row to match:
+  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
+  // G Időzítés | H Vállalkozás | I Tapasztalat | J Forrás URL |
+  // K IP hash | L GDPR | M GDPR time | N UTM source | O UTM medium |
+  // P UTM campaign | Q UTM term | R UTM content | S gclid | T fbclid |
+  // U Referrer | V User-Agent
   const rowData = [
     data.leadId,
     data.timestamp,
@@ -554,10 +621,16 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
     data.utmSource || '',
     data.utmMedium || '',
     data.utmCampaign || '',
+    data.utmTerm || '',
+    data.utmContent || '',
+    data.gclid || '',
+    data.fbclid || '',
+    data.referrer || '',
+    data.userAgent || '',
   ];
 
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:P:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:V:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -580,7 +653,7 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
  * Send consultation confirmation email to customer
  */
 async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Promise<void> {
-  const resendApiKey = import.meta.env.RESEND_API_KEY;
+  const resendApiKey = readEnv('RESEND_API_KEY');
 
   if (!resendApiKey) {
     console.warn('RESEND_API_KEY not configured, skipping confirmation email');
@@ -611,8 +684,8 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
  * Send consultation notification email to team
  */
 async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<void> {
-  const resendApiKey = import.meta.env.RESEND_API_KEY;
-  const notifyEmail = import.meta.env.NOTIFY_EMAIL || 'info@skinlabhungary.hu';
+  const resendApiKey = readEnv('RESEND_API_KEY');
+  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'info@skinlabhungary.hu';
 
   if (!resendApiKey) {
     return;
@@ -807,12 +880,36 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Időpont:</td>
       <td style="padding: 10px; border-bottom: 1px solid #f3e8ff;">${new Date(data.timestamp).toLocaleString('hu-HU')}</td>
     </tr>
-    ${data.utmSource ? `
+    ${data.referrer ? `
     <tr>
-      <td style="padding: 10px; font-weight: bold; color: #6b7280;">UTM:</td>
-      <td style="padding: 10px; font-size: 12px; color: #6b7280;">
-        ${escapeHtml(data.utmSource)} / ${data.utmMedium ? escapeHtml(data.utmMedium) : '-'} / ${data.utmCampaign ? escapeHtml(data.utmCampaign) : '-'}
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">Referrer:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-size: 12px; word-break: break-all;">${escapeHtml(data.referrer)}</td>
+    </tr>
+    ` : ''}
+    ${data.utmSource || data.utmMedium || data.utmCampaign ? `
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">UTM:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-size: 12px;">
+        ${escapeHtml(data.utmSource || '-')} / ${escapeHtml(data.utmMedium || '-')} / ${escapeHtml(data.utmCampaign || '-')}
       </td>
+    </tr>
+    ` : ''}
+    ${data.utmTerm || data.utmContent ? `
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">UTM term/content:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-size: 12px;">${escapeHtml(data.utmTerm || '-')} / ${escapeHtml(data.utmContent || '-')}</td>
+    </tr>
+    ` : ''}
+    ${data.gclid ? `
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-weight: bold; color: #6b7280;">gclid:</td>
+      <td style="padding: 10px; border-bottom: 1px solid #f3e8ff; font-family: 'Courier New', monospace; font-size: 11px; word-break: break-all;">${escapeHtml(data.gclid)}</td>
+    </tr>
+    ` : ''}
+    ${data.fbclid ? `
+    <tr>
+      <td style="padding: 10px; font-weight: bold; color: #6b7280;">fbclid:</td>
+      <td style="padding: 10px; font-family: 'Courier New', monospace; font-size: 11px; word-break: break-all;">${escapeHtml(data.fbclid)}</td>
     </tr>
     ` : ''}
   </table>
@@ -830,8 +927,8 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
  * Uses the same schema as the CRM's /api/webhook/lead endpoint
  */
 async function sendToCrm(data: ConsultationLeadData): Promise<void> {
-  const crmWebhookUrl = import.meta.env.CRM_WEBHOOK_URL;
-  const crmWebhookSecret = import.meta.env.CRM_WEBHOOK_SECRET;
+  const crmWebhookUrl = readEnv('CRM_WEBHOOK_URL');
+  const crmWebhookSecret = readEnv('CRM_WEBHOOK_SECRET');
 
   if (!crmWebhookUrl || !crmWebhookSecret) {
     console.warn('CRM_WEBHOOK_URL or CRM_WEBHOOK_SECRET not configured, skipping CRM');

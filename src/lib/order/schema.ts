@@ -62,8 +62,17 @@ export const orderSchema = z.object({
   // Turnstile (opcionális — csak ha be van állítva a site key)
   turnstileToken: z.string().optional().default(''),
 
-  // Követés
+  // Követés / attribúció — a checkout client-side feltölti URL paramokból
+  // és localStorage-ben tárolt persistent trackingből (lib/tracking/persistence).
   sourceUrl: z.string().optional().default(''),
+  utmSource: z.string().max(200).optional().default(''),
+  utmMedium: z.string().max(200).optional().default(''),
+  utmCampaign: z.string().max(200).optional().default(''),
+  utmTerm: z.string().max(200).optional().default(''),
+  utmContent: z.string().max(200).optional().default(''),
+  gclid: z.string().max(300).optional().default(''),
+  fbclid: z.string().max(300).optional().default(''),
+  referrer: z.string().max(500).optional().default(''),
 });
 
 export type OrderData = z.infer<typeof orderSchema>;

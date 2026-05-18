@@ -133,7 +133,18 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
     input.subtotal > 0 ? String(input.subtotal) : '', // O: Részösszeg (Ft)
     input.hasPriceOnRequest ? 'Igen' : '', // P: Ár egyeztetés alatt
     input.notes || '', // Q: Megjegyzés
-    input.sourceUrl || '', // R: Forrás
+    input.sourceUrl || '', // R: Forrás URL
+    // Attribution / tracking (S–Z, AA): update the "Rendelések" sheet header
+    // to label these columns when extending the spreadsheet.
+    input.utmSource || '', // S: UTM source
+    input.utmMedium || '', // T: UTM medium
+    input.utmCampaign || '', // U: UTM campaign
+    input.utmTerm || '', // V: UTM term
+    input.utmContent || '', // W: UTM content
+    input.gclid || '', // X: Google Click ID
+    input.fbclid || '', // Y: Facebook Click ID
+    input.referrer || '', // Z: Referrer
+    input.userAgent || '', // AA: User-Agent
   ];
 
   const sheetsPromise = appendOrderRow(env, sheetRow)

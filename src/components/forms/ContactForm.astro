@@ -61,13 +61,19 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
   novalidate
   data-contact-form
 >
-  <!-- Hidden fields for tracking -->
+  <!-- Hidden fields for tracking — populated client-side from URL params,
+       persisted tracking storage (sb_tracking localStorage), and document.referrer -->
   <input type="hidden" name="sourceUrl" value={sourceUrl} />
   <input type="hidden" name="formStartTime" data-form-start />
   <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
-  <input type="hidden" name="utmSource" data-utm="utm_source" />
-  <input type="hidden" name="utmMedium" data-utm="utm_medium" />
-  <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
+  <input type="hidden" name="utmSource" data-track="utm_source" />
+  <input type="hidden" name="utmMedium" data-track="utm_medium" />
+  <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
+  <input type="hidden" name="utmTerm" data-track="utm_term" />
+  <input type="hidden" name="utmContent" data-track="utm_content" />
+  <input type="hidden" name="gclid" data-track="gclid" />
+  <input type="hidden" name="fbclid" data-track="fbclid" />
+  <input type="hidden" name="referrer" data-track="referrer" />
 
   <!-- Honeypot - hidden from users, bots will fill it -->
   <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
@@ -300,13 +306,30 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
       startTimeInput.value = Date.now().toString();
     }
 
-    // Capture UTM parameters from URL
+    // Populate tracking hidden inputs.
+    //
+    // Resolution order per field:
+    //   1. URL param on the current page (?utm_source=…&gclid=… etc.)
+    //   2. Persisted tracking in localStorage `sb_tracking` (lib/tracking/persistence)
+    //      — survives across pages so the click ID isn't lost when the user
+    //      browses around before filling the form.
+    //   3. `referrer` falls back to `document.referrer` if not in storage.
     const urlParams = new URLSearchParams(window.location.search);
-    formEl.querySelectorAll('[data-utm]').forEach((input) => {
-      const utmParam = input.getAttribute('data-utm');
-      if (utmParam) {
-        (input as HTMLInputElement).value = urlParams.get(utmParam) || '';
+    let storedTracking: Record<string, string | undefined> = {};
+    try {
+      const raw = localStorage.getItem('sb_tracking');
+      if (raw) storedTracking = JSON.parse(raw);
+    } catch {
+      /* private mode / quota — ignore */
+    }
+    formEl.querySelectorAll('[data-track]').forEach((input) => {
+      const key = input.getAttribute('data-track');
+      if (!key) return;
+      let value = urlParams.get(key) || storedTracking[key] || '';
+      if (!value && key === 'referrer') {
+        value = document.referrer || '';
       }
+      (input as HTMLInputElement).value = value;
     });
 
     // GDPR timestamp on checkbox change
