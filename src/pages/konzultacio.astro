@@ -18,7 +18,7 @@ const product = Astro.url.searchParams.get('product') || '';
   title="Ingyenes konzultáció kérése"
   description="Kérjen ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás."
 >
-  <section class="bg-gradient-to-b from-primary-50/50 to-white py-3 md:py-4">
+  <section class="bg-gradient-to-b from-primary-50/50 to-white py-3 md:py-4 min-h-screen flex flex-col justify-center">
     <div class="container mx-auto px-4">
       <!-- Wizard -->
       <ConsultationWizard product={product} />
