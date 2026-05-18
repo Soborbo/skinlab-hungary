@@ -109,12 +109,15 @@ function isOriginAllowed(req: Request, env: Record<string, string>): boolean {
   const origin = req.headers.get('Origin') || '';
   const referer = req.headers.get('Referer') || '';
   const raw = env.ALLOWED_ORIGINS;
+  // Fail-closed: if no allowlist configured, reject in prod and dev alike.
+  // Configure ALLOWED_ORIGINS=https://skinlabhungary.hu,http://localhost:4321 to enable.
   if (!raw) {
-    console.warn('[Track] ALLOWED_ORIGINS not set — allowing all origins.');
-    return true;
+    console.error('[Track] ALLOWED_ORIGINS not set — rejecting request (fail-closed).');
+    return false;
   }
-  const allowed = raw.split(',').map(s => s.trim().toLowerCase());
+  const allowed = raw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
   const check = (origin || referer).toLowerCase();
+  if (!check) return false;
   return allowed.some(a => check.startsWith(a));
 }
 
@@ -153,12 +156,23 @@ async function sendMeta(p: BeaconPayload, ip: string, env: Record<string, string
   if (Object.keys(cd).length) ev.custom_data = cd;
 
   try {
+    // Token moved to request body (Meta CAPI supports either query OR body field).
+    // Body-based avoids leaking the access_token via URL into CF logs / response error text.
     const r = await fetch(
-      `https://graph.facebook.com/v24.0/${pid}/events?access_token=${tok}`,
-      { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: [ev] }), signal: AbortSignal.timeout(5_000) },
+      `https://graph.facebook.com/v24.0/${pid}/events`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: [ev], access_token: tok }),
+        signal: AbortSignal.timeout(5_000),
+      },
     );
-    if (!r.ok) { console.error('[Track] Meta CAPI:', r.status, await r.text()); return false; }
+    if (!r.ok) {
+      // Read the response, but redact any echoed token before logging.
+      const errBody = (await r.text()).replace(tok, '[REDACTED]');
+      console.error('[Track] Meta CAPI:', r.status, errBody);
+      return false;
+    }
     return true;
   } catch (e) { console.error('[Track] Meta CAPI failed:', e); return false; }
 }
@@ -169,9 +183,25 @@ const MAX_BODY = 32 * 1024;
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   const ip = clientAddress || 'unknown';
-  const runtime = (locals as Record<string, unknown>).runtime as { env: Record<string, string> } | undefined;
+  const runtime = (locals as Record<string, unknown>).runtime as {
+    env: Record<string, string>;
+    ctx?: { waitUntil: (p: Promise<unknown>) => void };
+  } | undefined;
   const env = runtime?.env ?? {} as Record<string, string>;
+  const ctx = runtime?.ctx;
 
+  // Fast-fail on shared token (if configured) BEFORE doing any expensive work.
+  const token = env.TRACK_TOKEN;
+  if (token && request.headers.get('x-track-token') !== token) {
+    return errorResponse('HTTP-401-002', {
+      userMessage: 'A tracking végpont tokenje hiányzik vagy érvénytelen.',
+      context: { endpoint: '/api/track', keyPrefix: 'x-track-token' },
+      extraHeaders: { 'Cache-Control': 'no-store' },
+    });
+  }
+
+  // NOTE: this is an in-memory rate limit which does NOT survive across Workers
+  // isolates. It's best-effort only. For production move to KV/Durable Object.
   if (isRateLimited(ip)) {
     return errorResponse('HTTP-429-001', {
       userMessage: 'Túl sok tracking kérés rövid időn belül — 60 másodperc után próbálja újra.',
@@ -237,22 +267,19 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     });
   }
 
-  const token = env.TRACK_TOKEN;
-  if (token && request.headers.get('x-track-token') !== token) {
-    return errorResponse('HTTP-401-002', {
-      userMessage: 'A tracking végpont tokenje hiányzik vagy érvénytelen.',
-      context: { endpoint: '/api/track', keyPrefix: 'x-track-token' },
-      extraHeaders: { 'Cache-Control': 'no-store' },
-    });
-  }
-
   const metaOk = await sendMeta(payload, ip, env);
 
   const sheets = env.TRACKING_SHEETS_WEBHOOK;
   if (sheets) {
-    fetch(sheets, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    // Use waitUntil to ensure the request completes even after the response is sent.
+    // Without it, CF may terminate the worker before the fetch finishes.
+    const sheetsPromise = fetch(sheets, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...payload, receivedAt: new Date().toISOString() }),
-      signal: AbortSignal.timeout(5_000) }).catch(() => {});
+      signal: AbortSignal.timeout(5_000),
+    }).catch((e) => { console.error('[Track] Sheets webhook failed:', e); });
+    if (ctx?.waitUntil) ctx.waitUntil(sheetsPromise);
   }
 
   return new Response(

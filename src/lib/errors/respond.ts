@@ -29,11 +29,27 @@ export interface ErrorResponseOptions {
 
 const DEFAULT_MESSAGE = 'Ismeretlen hiba történt.';
 
+// Code-prefix → HTTP status mapping for semantic correctness.
+// Falls back to severity-based defaults if no prefix match.
+const PREFIX_STATUS: Array<[RegExp, number]> = [
+  [/^SRV-CORS-/, 403],          // Forbidden origin
+  [/^FORM-METHOD-/, 405],       // Method Not Allowed
+  [/^ORDER-EMPTY-/, 422],       // Unprocessable entity
+  [/^FORM-ZOD-/, 422],          // Validation failed
+  [/^ORDER-ZOD-/, 422],
+  [/^FORM-TURNSTILE-/, 403],    // CAPTCHA rejected
+  [/^FORM-HONEYPOT-/, 400],
+  [/^FORM-SPAMTIME-/, 400],
+];
+
 function statusFromCode(code: string, severity: Severity): number {
-  const match = code.match(/^HTTP-(\d{3})/);
-  if (match) {
-    const n = Number.parseInt(match[1], 10);
+  const httpMatch = code.match(/^HTTP-(\d{3})/);
+  if (httpMatch) {
+    const n = Number.parseInt(httpMatch[1], 10);
     if (n >= 100 && n <= 599) return n;
+  }
+  for (const [pattern, status] of PREFIX_STATUS) {
+    if (pattern.test(code)) return status;
   }
   if (severity === 'CRITICAL' || severity === 'ERROR') return 500;
   if (severity === 'WARN') return 400;

@@ -68,10 +68,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const result = await processFormSubmission(validation.data!, clientAddress, userAgent);
 
     if (!result.success) {
+      // Internal error stays server-side only.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: result.error
-          ? `Nem sikerült elküldeni az űrlapot: ${result.error}`
-          : 'Nem sikerült elküldeni az űrlapot. Kérjük, próbálja újra később.',
+        userMessage: 'Nem sikerült elküldeni az űrlapot. Kérjük, próbálja újra később.',
         context: { formId: 'contact', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -93,7 +92,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     console.error('Contact form error:', error);
 
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: `Váratlan hiba történt a kapcsolati űrlap feldolgozása közben: ${message}`,
+      userMessage: 'Váratlan hiba történt a kapcsolati űrlap feldolgozása közben. Kérjük, próbálja újra később.',
       context: { formId: 'contact', errorMessage: message },
     });
   }

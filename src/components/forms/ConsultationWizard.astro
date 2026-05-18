@@ -508,6 +508,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 </style>
 
 <script>
+  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+
   declare global {
     interface Window {
       onTurnstileSuccess: (token: string) => void;
@@ -812,16 +814,18 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         const result = await response.json();
 
         if (result.success) {
-          // Track conversion
-          if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {
-              event_category: 'Consultation',
-              event_label: formData.get('product'),
-              lead_id: result.leadId,
-            });
-          }
+          // Unified conversion tracking (dataLayer + /api/track beacon)
+          trackLeadSubmit({
+            email: (formData.get('email') as string) || '',
+            phone: (formData.get('phone') as string) || '',
+            firstName: firstName || undefined,
+            lastName: lastName || undefined,
+            contentName: (formData.get('product') as string) || 'konzultacio',
+            currency: 'HUF',
+          });
 
-          // Redirect to thank you page
+          // Wait briefly for the beacon to flush, then redirect
+          await waitForTracking(600);
           window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
         } else {
           console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] consultation:', result);

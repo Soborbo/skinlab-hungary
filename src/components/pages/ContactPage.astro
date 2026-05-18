@@ -344,6 +344,8 @@ const sourceUrl = Astro.url.href;
 </BaseLayout>
 
 <script>
+  import { trackContactSubmit } from '@/lib/tracking';
+
   declare global {
     interface Window {
       onContactTurnstileSuccess: (token: string) => void;
@@ -412,6 +414,11 @@ const sourceUrl = Astro.url.href;
         const result = await response.json();
 
         if (result.success) {
+          trackContactSubmit({
+            email: (formData.get('email') as string) || '',
+            phone: (formData.get('phone') as string) || '',
+          });
+
           form.reset();
           successMessage?.classList.remove('hidden');
           // Reset Turnstile so the user can submit again

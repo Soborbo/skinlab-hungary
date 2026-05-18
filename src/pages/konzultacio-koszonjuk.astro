@@ -4,8 +4,9 @@
  * /konzultacio-koszonjuk?lead=SLO-XXXXX
  *
  * Single-screen split layout: founder photo on the left, personal thank-you
- * + next-steps + urgent phone on the right. Measured as a conversion via
- * GTM `consultation_thank_you` event.
+ * + next-steps + urgent phone on the right. The conversion is fired at
+ * form-submit time via the tracking-kit (`lead_submit` dataLayer event +
+ * /api/track beacon) — see src/lib/tracking.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { CONTACT, FOUNDERS } from '@/lib/constants';
@@ -103,15 +104,4 @@ const laszlo = FOUNDERS.find((f) => f.name === 'Horváth László')!;
     </div>
   </section>
 
-  <!-- Conversion tracking — GTM event on page load -->
-  <script is:inline define:vars={{ leadId }}>
-    if (typeof window !== 'undefined') {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'consultation_thank_you',
-        form_id: 'consultation-wizard',
-        lead_id: leadId || undefined,
-      });
-    }
-  </script>
 </BaseLayout>

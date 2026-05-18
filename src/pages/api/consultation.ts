@@ -67,10 +67,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const result = await processConsultationSubmission(validation.data!, clientAddress, userAgent);
 
     if (!result.success) {
+      // Keep internal error details server-side only — userMessage is generic
+      // so we don't leak stack/host/IP info into the browser response.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: result.error
-          ? `Nem sikerült elküldeni a konzultációs kérést: ${result.error}`
-          : 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbálja újra később.',
+        userMessage: 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbálja újra később.',
         context: { formId: 'consultation', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -91,8 +91,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const message = error instanceof Error ? error.message : String(error);
     console.error('Consultation form error:', error);
 
+    // Internal error details stay in the log context — do not echo into userMessage.
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: `Váratlan hiba történt a konzultációs űrlap feldolgozása közben: ${message}`,
+      userMessage: 'Váratlan hiba történt a konzultációs űrlap feldolgozása közben. Kérjük, próbálja újra később.',
       context: { formId: 'consultation', errorMessage: message },
     });
   }

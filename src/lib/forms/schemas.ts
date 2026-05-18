@@ -5,8 +5,8 @@
 import { z } from 'zod';
 
 // International phone regex - accepts various formats from HU, SK, RO, DE, AT, CZ, HR, SR, SL, etc.
-// Supports: +XX XXXXXXXXX, +XXX XXXXXXXXX, 00XX XXXXXXXXX, and local formats
-const phoneRegex = /^(\+|00)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]?[0-9]{2,6}$/;
+// Supports: +XX XXXXXXXXX, +XXX XXXXXXXXX, 00XX XXXXXXXXX, local "06 …" HU format, and similar.
+const phoneRegex = /^(\+|00|0)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]?[0-9]{2,6}$/;
 
 /**
  * Contact/Consultation form schema
@@ -27,16 +27,15 @@ export const contactSchema = z.object({
   message: z.string().max(2000).optional(),
 
   // GDPR - REQUIRED
-  gdprConsent: z.literal(true, {
-    errorMap: () => ({ message: 'Az adatvédelmi hozzájárulás kötelező' })
-  }),
+  gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
   gdprTimestamp: z.string().datetime(),
 
   // Spam protection - honeypot
   honeypot: z.string().max(0, 'Spam detected').optional().default(''),
 
-  // Spam protection - time check (must take >3 seconds to fill)
-  formStartTime: z.coerce.number().refine(
+  // Spam protection - time check (must be a real timestamp AND >3s ago).
+  // .int().min(1) rejects the bot-friendly "missing/empty/0" coerced default.
+  formStartTime: z.coerce.number().int().min(1, 'A form túl gyorsan lett kitöltve').refine(
     (start) => Date.now() - start > 3000,
     'A form túl gyorsan lett kitöltve'
   ),
@@ -63,9 +62,7 @@ export type ContactFormData = z.infer<typeof contactSchema>;
  */
 export const newsletterSchema = z.object({
   email: z.string().email('Érvényes email cím szükséges'),
-  gdprConsent: z.literal(true, {
-    errorMap: () => ({ message: 'Az adatvédelmi hozzájárulás kötelező' })
-  }),
+  gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
   gdprTimestamp: z.string().datetime(),
   honeypot: z.string().max(0).optional().default(''),
   sourceUrl: z.string().url(),
@@ -80,19 +77,19 @@ export const consultationSchema = z.object({
   // Step 1: Product selection
   product: z.string().min(1, 'Válasszon kategóriát'),
 
-  // Step 2: Timeline
+  // Step 2: Timeline — Zod v4 syntax: `{ message }` (no `required_error`)
   timeline: z.enum(['asap', '1-3-month', '3-6-month', 'just-looking'], {
-    required_error: 'Válasszon időzítést',
+    message: 'Válasszon időzítést',
   }),
 
   // Step 3: Business type
   businessType: z.enum(['running-salon', 'opening-soon', 'home-service', 'no-business'], {
-    required_error: 'Válasszon vállalkozás típust',
+    message: 'Válasszon vállalkozás típust',
   }),
 
   // Step 4: Experience level
   experience: z.enum(['regular', 'tried', 'trained', 'beginner'], {
-    required_error: 'Válasszon tapasztalati szintet',
+    message: 'Válasszon tapasztalati szintet',
   }),
 
   // Step 5: Contact details
@@ -101,14 +98,12 @@ export const consultationSchema = z.object({
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
 
   // GDPR - REQUIRED
-  gdprConsent: z.literal(true, {
-    errorMap: () => ({ message: 'Az adatvédelmi hozzájárulás kötelező' }),
-  }),
+  gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
   gdprTimestamp: z.string().datetime(),
 
   // Spam protection
   honeypot: z.string().max(0, 'Spam detected').optional().default(''),
-  formStartTime: z.coerce.number().refine(
+  formStartTime: z.coerce.number().int().min(1, 'A form túl gyorsan lett kitöltve').refine(
     (start) => Date.now() - start > 3000,
     'A form túl gyorsan lett kitöltve'
   ),
@@ -181,7 +176,7 @@ export function validateContactForm(data: unknown): {
  */
 export function generateLeadId(): string {
   const timestamp = Date.now().toString(36);
-  const random = Math.random().toString(36).slice(2, 8);
+  const random = crypto.randomUUID().replace(/-/g, '').slice(0, 6);
   return `SL-${timestamp}-${random}`.toUpperCase();
 }
 

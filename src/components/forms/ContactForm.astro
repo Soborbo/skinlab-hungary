@@ -278,6 +278,8 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
+  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+
   // Turnstile callbacks (global)
   declare global {
     interface Window {
@@ -394,6 +396,16 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         if (result.success) {
           // Show success
           successMessage?.classList.remove('hidden');
+
+          // Unified conversion tracking (dataLayer + /api/track beacon)
+          trackLeadSubmit({
+            email: (formData.get('email') as string) || '',
+            phone: (formData.get('phone') as string) || '',
+            firstName: (formData.get('name') as string) || undefined,
+            contentName: (formData.get('product') as string) || undefined,
+            currency: 'HUF',
+          });
+
           formEl.reset();
 
           // Reset start time for new submission
@@ -401,20 +413,10 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
             startTimeInput.value = Date.now().toString();
           }
 
-          // Track conversion (if GA4 available)
-          if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {
-              event_category: 'Contact',
-              event_label: formData.get('product'),
-              lead_id: result.leadId,
-            });
-          }
-
-          // Redirect to thank-you page after short delay
+          // Wait briefly for the beacon to flush, then redirect to thank-you
           const thankYouLink = successMessage?.getAttribute('data-thank-you-link') || '/koszonjuk';
-          setTimeout(() => {
-            window.location.href = `${thankYouLink}?lead=${result.leadId}`;
-          }, 1500);
+          await waitForTracking(600);
+          window.location.href = `${thankYouLink}?lead=${result.leadId}`;
         } else {
           console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
           // Show field errors

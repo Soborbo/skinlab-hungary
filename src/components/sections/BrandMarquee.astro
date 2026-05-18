@@ -11,13 +11,12 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Brand logos with their display settings (using manifest string paths)
 const brands = [
-  { name: 'Skinlab', logo: '@assets/brands/skinlab-logo.jpg', width: 80 },
   { name: 'MAST', logo: '@assets/brands/mast-logo.png', width: 120 },
   { name: 'Dragonhawk', logo: '@assets/brands/dragonhawk-logo.png', width: 140 },
   { name: 'WJX', logo: '@assets/brands/wjx-logo.png', width: 100 },
   { name: "M'onduniq", logo: '@assets/brands/monduniq-logo.png', width: 140 },
   { name: 'Biotatum', logo: '@assets/brands/biotatum-logo.png', width: 90 },
-  { name: 'Biopen', logo: '@assets/brands/drpen-logo.jpg', width: 130 },
+  { name: 'Biopen', logo: '@assets/brands/biopen-logo.png', width: 130 },
   { name: 'Farmona', logo: '@assets/brands/farmona-logo.png', width: 90 },
   { name: 'Brovi', logo: '@assets/brands/brovi-logo.png', width: 120 },
 ];
@@ -42,10 +41,12 @@ const brands = [
     <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
     <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
 
-    <!-- Marquee track - duplicate content 4x for seamless infinite loop -->
-    <div class="marquee-track flex">
-      {[...Array(4)].map((_, setIndex) => (
-        <div class:list={["marquee-content flex items-center gap-12 lg:gap-16 px-6", setIndex > 0 && "aria-hidden"]} aria-hidden={setIndex > 0 ? "true" : undefined}>
+    <!-- Marquee track - duplicate content 2x for seamless infinite loop.
+         Padding-LR on .marquee-content (px-6 / lg:px-8) matches the in-content
+         gap (gap-12 / lg:gap-16) so the seam between sets is invisible. -->
+    <div class="marquee-track flex w-max">
+      {[...Array(2)].map((_, setIndex) => (
+        <div class="marquee-content flex items-center gap-12 lg:gap-16 px-6 lg:px-8" aria-hidden={setIndex > 0 ? "true" : undefined}>
           {brands.map((brand) => (
             <div class="flex-shrink-0 flex items-center justify-center h-16 px-6 bg-white rounded-xl shadow-sm border border-gray-100">
               <Logo

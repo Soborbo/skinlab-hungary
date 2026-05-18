@@ -289,6 +289,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
 <script>
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
+  import { trackPurchase, waitForTracking, type EcommerceItem } from '@/lib/tracking';
 
   // Turnstile globális callbackek
   declare global {
@@ -500,6 +501,24 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         const result = await res.json().catch(() => ({}));
 
         if (res.ok && result.success && result.orderId) {
+          // Fire GA4 purchase before clearing the cart so items/value are intact.
+          // value = the priced subtotal (HUF). "Ár egyeztetés alatt" tételeket
+          // qty=1, price=0-val visszük, hogy szerepeljenek a tételek listájában.
+          const ecomItems: EcommerceItem[] = summary.items.map((i, idx) => ({
+            item_id: i.sku || i.slug,
+            item_name: i.name,
+            item_category: i.categorySlug || undefined,
+            item_variant: i.variantName || undefined,
+            price: typeof i.price === 'number' ? i.price : 0,
+            quantity: i.qty,
+            currency: 'HUF',
+            index: idx,
+          }));
+          trackPurchase(result.orderId, ecomItems, summary.subtotal, 'HUF');
+
+          // Wait briefly for the GTM/beacon pipeline to flush before the redirect
+          await waitForTracking(600);
+
           clearCart();
           window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}`;
           return;

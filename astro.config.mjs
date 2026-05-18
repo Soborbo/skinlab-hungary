@@ -11,6 +11,10 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [
     sitemap({
+      // Exclude noindex utility/conversion routes so Google doesn't see
+      // duplicate-content / thank-you / cart pages in the sitemap.
+      filter: (page) =>
+        !/\/(koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
       i18n: {
         defaultLocale: 'hu',
         locales: {

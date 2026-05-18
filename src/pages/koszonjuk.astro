@@ -3,9 +3,9 @@
  * Contact form thank-you page (Hungarian)
  * /koszonjuk?lead=SL-XXXXX
  *
- * Reached after a successful /api/contact submission. The page is measured
- * as a conversion via GTM (`contact_form_thank_you` event) and Google Ads
- * (`conversion` event) — see the bottom script.
+ * Reached after a successful /api/contact submission. The conversion is fired
+ * at form-submit time via the tracking-kit (`lead_submit` / `contact_submit`
+ * dataLayer events + /api/track beacon) — see src/lib/tracking.
  *
  * Layout: founder photos (László + Simonetta) → personal thank-you → opening
  * hours → urgent phone CTA. Single-screen friendly.
@@ -132,15 +132,4 @@ const simonetta = FOUNDERS.find((f) => f.name === 'Gaszler Simonetta')!;
     </div>
   </section>
 
-  <!-- Conversion tracking — fires once on page load -->
-  <script is:inline define:vars={{ leadId }}>
-    if (typeof window !== 'undefined') {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'contact_form_thank_you',
-        form_id: 'contact-form',
-        lead_id: leadId || undefined,
-      });
-    }
-  </script>
 </BaseLayout>

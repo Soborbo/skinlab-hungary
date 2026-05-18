@@ -7,8 +7,9 @@
  */
 import { z } from 'zod';
 
-// Nemzetközi telefonszám — HU, SK, RO, DE, AT, CZ, HR, RS, SI formátumok
-const phoneRegex = /^(\+|00)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]?[0-9]{2,6}$/;
+// Nemzetközi telefonszám — HU (06...), SK, RO, DE, AT, CZ, HR, RS, SI formátumok.
+// A vezető 0 opcionális, hogy a HU "06 70 …" lokális forma is átmenjen.
+const phoneRegex = /^(\+|00|0)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]?[0-9]{2,6}$/;
 
 const SUPPORTED_LOCALES = ['hu', 'en', 'sk', 'ro', 'de', 'cs', 'hr', 'sr', 'sl'] as const;
 
@@ -95,6 +96,6 @@ export function validateOrder(data: unknown): {
 /** Egyedi rendelésszám: SLO-<base36 idő>-<random> */
 export function generateOrderId(): string {
   const timestamp = Date.now().toString(36);
-  const random = Math.random().toString(36).slice(2, 6);
+  const random = crypto.randomUUID().replace(/-/g, '').slice(0, 4);
   return `SLO-${timestamp}-${random}`.toUpperCase();
 }

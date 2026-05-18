@@ -24,8 +24,9 @@ import type { OrderEmailInput } from '@/lib/order/email';
  * (ha van `taxNumber` az orderben) felkerül.
  */
 export function buildPartnerPayload(order: OrderEmailInput, fullDisplayName: string): BillingoPartnerCreate {
+  const companyTrimmed = order.company.trim();
   const payload: BillingoPartnerCreate = {
-    name: order.company.trim() !== '' ? order.company : fullDisplayName,
+    name: companyTrimmed !== '' ? companyTrimmed : fullDisplayName,
     emails: [order.email],
     address: {
       country_code: deriveCountryCode(order.country),
