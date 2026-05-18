@@ -1,8 +1,9 @@
 ---
-import CategoryLayout from '../../../layouts/CategoryLayout.astro';
-import { getCollection } from 'astro:content';
-import { locales, defaultLocale } from '../../../i18n/ui';
-import { getCategoryTranslation } from '../../../data/category-translations';
+/**
+ * A "szalonberendezes" már nem önálló kategória — átirányítás a
+ * termékek oldalra (a magyar /szalonberendezes ugyanígy redirectel).
+ */
+import { locales, defaultLocale, getLocalizedUrl, type Locale } from '../../../i18n/ui';
 
 export function getStaticPaths() {
   return locales
@@ -10,12 +11,6 @@ export function getStaticPaths() {
     .map((locale) => ({ params: { locale } }));
 }
 
-const { locale } = Astro.params;
-const category = getCategoryTranslation(locale!, 'szalonberendezes');
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'szalonberendezes' && !data.draft;
-});
+const { locale } = Astro.params as { locale: Locale };
+return Astro.redirect(getLocalizedUrl(locale, '/termekek'), 301);
 ---
-
-<CategoryLayout category={category} products={products} />
