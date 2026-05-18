@@ -23,7 +23,10 @@ export const GET: APIRoute = async () => {
   });
 };
 
-export const POST: APIRoute = async ({ request, clientAddress }) => {
+export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
+  const runtime = (locals as unknown as { runtime?: { ctx?: { waitUntil: (p: Promise<unknown>) => void } } }).runtime;
+  const waitUntil = runtime?.ctx?.waitUntil?.bind(runtime.ctx);
+
   try {
     // Parse form data
     const formData = await request.formData();
@@ -64,7 +67,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     // Process form submission — capture User-Agent for the Sheets row too
     const userAgent = request.headers.get('user-agent') ?? undefined;
-    const result = await processConsultationSubmission(validation.data!, clientAddress, userAgent);
+    const result = await processConsultationSubmission(validation.data!, clientAddress, userAgent, waitUntil);
 
     if (!result.success) {
       // Keep internal error details server-side only — userMessage is generic

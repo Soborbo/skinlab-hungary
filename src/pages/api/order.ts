@@ -13,9 +13,11 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { validateOrder, generateOrderId } from '@/lib/order/schema';
 import { processOrder } from '@/lib/order/submit';
-import { resolveOrderEnv, getEnvValue } from '@/lib/order/env';
+import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
+import { verifyTurnstile } from '@/lib/forms/turnstile';
+import { readEnv } from '@/lib/env';
 import type { Locale } from '@/i18n/ui';
 
 export const prerender = false;
@@ -28,26 +30,6 @@ export const GET: APIRoute = async () => {
     extraHeaders: { Allow: 'POST' },
   });
 };
-
-/** Turnstile ellenőrzés — explicit env-vel (Cloudflare runtime kompatibilis) */
-async function verifyTurnstile(
-  secret: string,
-  token: string,
-  ip: string,
-): Promise<boolean> {
-  try {
-    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret, response: token, remoteip: ip }),
-    });
-    const result = (await res.json()) as { success?: boolean };
-    return result.success === true;
-  } catch (err) {
-    console.error('[order] Turnstile verification failed:', err);
-    return false;
-  }
-}
 
 export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
   try {
@@ -82,8 +64,9 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 4. Validáció
-    const validation = validateOrder(body);
+    // 4. Validáció (a normalizált `raw`-ot validáljuk, hogy a fenti
+    //    honeypot/timing őrök ne látszólag más adatot tisztítsanak)
+    const validation = validateOrder(raw);
     if (!validation.success || !validation.data) {
       return errorResponse('ORDER-ZOD-001', {
         userMessage: 'Kérjük, ellenőrizze a megadott adatokat — néhány mező hibás vagy hiányzik.',
@@ -103,15 +86,16 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     // 5. Env feloldás (Cloudflare runtime → import.meta.env fallback)
     const env = resolveOrderEnv(locals);
 
-    // 6. Turnstile (csak ha be van állítva a secret)
-    const turnstileSecret = getEnvValue(env, 'TURNSTILE_SECRET_KEY');
+    // 6. Turnstile — a központi `verifyTurnstile` ellenőrzi a secret meglétét
+    //    (dev-ben átengedi, prod-ban szigorúan kötelezi).
+    const turnstileSecret = readEnv('TURNSTILE_SECRET_KEY');
     if (turnstileSecret) {
-      const ok = await verifyTurnstile(turnstileSecret, data.turnstileToken, clientAddress || '');
-      if (!ok) {
+      const result = await verifyTurnstile(data.turnstileToken, clientAddress || '');
+      if (!result.success) {
         return errorResponse('ORDER-TURN-001', {
           userMessage: 'A biztonsági ellenőrzés sikertelen — kérjük, próbálja újra.',
           errors: { turnstile: ['A biztonsági ellenőrzés sikertelen.'] },
-          context: { formId: 'order' },
+          context: { formId: 'order', turnstileError: result.error ?? 'unknown' },
         });
       }
     }
@@ -192,9 +176,10 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
 
     const result = await processOrder(orderInput, env);
     if (!result.success) {
+      // Belső hibarészletet csak logba, generikus üzenetet a kliensnek.
       return errorResponse(result.code || 'ORDER-PERSIST-001', {
-        userMessage: result.error || 'A megrendelést nem sikerült rögzíteni. Kérjük, próbálja újra.',
-        context: { orderId },
+        userMessage: 'A megrendelést nem sikerült rögzíteni. Kérjük, próbálja újra, vagy hívjon minket.',
+        context: { orderId, errorMessage: result.error ?? 'unknown' },
       });
     }
 

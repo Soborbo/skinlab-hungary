@@ -183,10 +183,12 @@ const MAX_BODY = 32 * 1024;
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   const ip = clientAddress || 'unknown';
-  const runtime = (locals as Record<string, unknown>).runtime as {
-    env: Record<string, string>;
-    ctx?: { waitUntil: (p: Promise<unknown>) => void };
-  } | undefined;
+  const runtime = (locals as unknown as {
+    runtime?: {
+      env: Record<string, string>;
+      ctx?: { waitUntil: (p: Promise<unknown>) => void };
+    };
+  }).runtime;
   const env = runtime?.env ?? {} as Record<string, string>;
   const ctx = runtime?.ctx;
 

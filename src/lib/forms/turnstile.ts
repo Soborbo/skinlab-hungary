@@ -1,29 +1,11 @@
 /**
  * Cloudflare Turnstile verification.
  *
- * Astro v6 breaking change: `import.meta.env` values are now ALWAYS inlined
- * at build time and no longer read from the Cloudflare runtime env on SSR
- * pages. The new official pattern is `import { env } from 'cloudflare:workers'`
- * — see https://docs.astro.build/en/guides/upgrade-to/v6/#importmetaenv-inlining
- * and https://docs.astro.build/en/guides/integrations-guide/cloudflare/
- *
- * To stay compatible with both runtime (production) and build-time (dev,
- * prerender, tests) contexts, we read from the Workers env first and fall
- * back to `import.meta.env` if nothing was wired through the adapter.
+ * Env reading is delegated to the central `readEnv()` (see lib/env.ts) so we
+ * have a single source of truth for the Cloudflare-runtime + import.meta.env
+ * fallback chain.
  */
-import { env as cloudflareEnv } from 'cloudflare:workers';
-
-type WorkerEnv = Record<string, string | undefined>;
-
-/** Safe accessor — at build time `cloudflareEnv` may be an empty placeholder. */
-function readEnv(name: string): string | undefined {
-  const fromRuntime = (cloudflareEnv as unknown as WorkerEnv | undefined)?.[name];
-  if (fromRuntime && fromRuntime.length > 0) {
-    return fromRuntime;
-  }
-  const fromInlined = (import.meta.env as unknown as WorkerEnv)[name];
-  return fromInlined && fromInlined.length > 0 ? fromInlined : undefined;
-}
+import { readEnv } from '@/lib/env';
 
 interface TurnstileResult {
   success: boolean;

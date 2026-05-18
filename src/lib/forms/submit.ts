@@ -528,6 +528,7 @@ export async function processConsultationSubmission(
   data: ConsultationFormData,
   ip: string,
   userAgent?: string,
+  waitUntil?: (p: Promise<unknown>) => void,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -567,10 +568,18 @@ export async function processConsultationSubmission(
     // 3. Send notification email to team
     await sendConsultationNotificationEmail(leadData);
 
-    // 4. Send lead to CRM (non-blocking — don't fail submission if CRM is down)
-    sendToCrm(leadData).catch((err) => {
+    // 4. Send lead to CRM (non-blocking — don't fail submission if CRM is down).
+    // On Cloudflare Workers fire-and-forget fetches can be terminated before
+    // the response resolves. If the caller passes ctx.waitUntil, register
+    // the promise; otherwise fall back to await so the work isn't dropped.
+    const crmPromise = sendToCrm(leadData).catch((err) => {
       console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
     });
+    if (waitUntil) {
+      waitUntil(crmPromise);
+    } else {
+      await crmPromise;
+    }
 
     return { success: true, leadId };
   } catch (error) {
