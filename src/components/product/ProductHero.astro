@@ -80,8 +80,14 @@ const availabilityInfo: Record<string, { label: string; color: string; icon: str
 };
 const availStatus = availabilityInfo[availability];
 
-// All images for gallery
+// All images for gallery (dedup: drop main image if it's already in gallery)
 const allImages = [image, ...gallery].filter(Boolean);
+const seen = new Set<string>();
+const dedupedImages = allImages.filter((img) => {
+  if (seen.has(img)) return false;
+  seen.add(img);
+  return true;
+});
 
 // Trust badges with i18n keys
 const trustBadges = [
@@ -106,7 +112,7 @@ const icons: Record<string, string> = {
 
       <!-- Media Gallery -->
       <ProductGallery
-        images={allImages}
+        images={dedupedImages}
         productName={name}
         badges={{
           featured: featured,

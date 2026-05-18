@@ -123,7 +123,7 @@ export const CATEGORY_COLORS = {
     gradient: 'from-[#c9bba9] to-[#b4a48f]',
     gradientHero: 'from-[#f3efe8] via-[#f9f6f1] to-white',
   },
-  szalonberendezes: {
+  kezeloanyagok: {
     accent: '#c4b8a9',       // warm taupe
     accentLight: '#f1ede8',   // taupe mist
     accentDark: '#8f8474',    // deep taupe
@@ -199,7 +199,7 @@ export const CATEGORIES = [
     slug: 'hydrafacial',
     description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
     icon: 'droplet',
-    image: '/images/opt/products/hydracrown-expert-1-480w.webp',
+    image: '/images/opt/products/hydrascanpro2-480w.webp',
     featured: true,
     productCount: 5,
     color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
@@ -247,7 +247,7 @@ export const CATEGORIES = [
     slug: 'mezoterapia',
     description: 'Tű nélküli és klasszikus mezoterápiás hatóanyagbeviteli rendszerek.',
     icon: 'syringe',
-    image: '/images/opt/products/dermatechplus-480w.webp',
+    image: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-5-480w.webp',
     featured: true,
     productCount: 1,
     color: 'mezoterapia' as keyof typeof CATEGORY_COLORS,
@@ -281,12 +281,24 @@ export const CATEGORIES = [
     name: 'Kellékek és kiegészítők',
     nameShort: 'Kellékek',
     slug: 'kellekek',
-    description: 'Tűmodulok, hydrofacial oldatok, OxyGenX podok és füstelszívó.',
+    description: 'Tűmodulok és füstelszívó.',
     icon: 'package',
     image: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-480w.webp',
     featured: true,
     productCount: 5,
     color: 'kellekek' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'kezeloanyagok',
+    name: 'Kezelőanyagok',
+    nameShort: 'Kezelőanyagok',
+    slug: 'kezeloanyagok',
+    description: 'Hydrofacial oldatok, OxyGenX podok és hatóanyagok kozmetikai kezelésekhez.',
+    icon: 'droplet',
+    image: '/images/opt/products/hydraliquid-oldatok-1-480w.webp',
+    featured: true,
+    productCount: 13,
+    color: 'kezeloanyagok' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
 
@@ -317,7 +329,7 @@ export const STATS = [
   { key: 'soldUnits', value: '150+', label: 'Eladott készülék' },
   { key: 'warranty', value: '2 év', label: 'Garancia' },
   { key: 'deliveryTime', value: '15-20 nap', label: 'Szállítási idő' },
-  { key: 'legalImport', value: '100%', label: 'Legális behozatal' },
+  { key: 'hungarianService', value: '100%', label: 'Magyar szerviz' },
 ];
 
 // Mega Menu Navigation Structure
@@ -352,6 +364,7 @@ export const MEGA_MENU = {
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 5, descriptionKey: 'megaMenu.accessoriesDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 13, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],

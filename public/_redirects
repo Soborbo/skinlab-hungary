@@ -20,7 +20,8 @@
 /hydra-facial-245                                           /hydrafacial                                 301
 /ndyag-lezerek                                              /nd-yag-lezerek                              301
 /sminktetovalo-gepek                                        /sminktetovalas                              301
-/szalon-berendezesek                                        /szalonberendezes                            301
+/szalon-berendezesek                                        /termekek                                    301
+/szalonberendezes                                           /termekek                                    301
 /professzionalishidegplazma                                 /coldplasma                                  301
 /professzionalis_diodalezer_keszulekek                      /diodalezerek                                301
 
@@ -28,7 +29,8 @@
 /hydra-facial-245/*                                         /hydrafacial                                 301
 /ndyag-lezerek/*                                            /nd-yag-lezerek                              301
 /sminktetovalo-gepek/*                                      /sminktetovalas                              301
-/szalon-berendezesek/*                                      /szalonberendezes                            301
+/szalon-berendezesek/*                                      /termekek                                    301
+/szalonberendezes/*                                         /termekek                                    301
 
 # ============ PRODUCTS ============
 
@@ -51,21 +53,30 @@
 /yag-neolasersmart                                          /nd-yag-lezerek/yag-neolasersmart            301
 
 # -- hydrafacial --
-/hydracrownexpert                                           /hydrafacial/hydracrownexpert                301
-/hydraliquid_borvilagosito                                  /hydrafacial/hydraliquid_borvilagosito       301
-/hydraliquid_feltolto                                       /hydrafacial/hydraliquid_feltolto            301
-/hydraliquid_hegyikristallyal                               /hydrafacial/hydraliquid_hegyikristallyal    301
-/hydraliquid_hidratalo                                      /hydrafacial/hydraliquid_hidratalo           301
-/hydraliquid_lifting                                        /hydrafacial/hydraliquid_lifting             301
-/hydramax-professzionalis-hydrofacial-keszulek-833          /hydrafacial/hydramax-professzionalis-hydrofacial-keszulek-833 301
-/hydrascan-pro                                              /hydrafacial/hydrascan-pro                   301
+# -- HydraScan család: Pro és Pro+ külön termékek, Pro+ duplikátum-feloldás --
 /hydrascanpro                                               /hydrafacial/hydrascanpro                    301
-/oxygenx-pod-szett-detox-pod                                /hydrafacial/oxygenx-pod-szett-detox-pod     301
-/oxygenx-pod-szett-hydrate-pod                              /hydrafacial/oxygenx-pod-szett-hydrate-pod   301
-/oxygenx-pod-szett-illuminate-pod-740                       /hydrafacial/oxygenx-pod-szett-illuminate-pod-740 301
-/oxygenx-pod-szett-retouch-pod                              /hydrafacial/oxygenx-pod-szett-retouch-pod   301
-/oxygenx-pod-szett-retouch-pod-725                          /hydrafacial/oxygenx-pod-szett-retouch-pod-725 301
-/oxygenx-pod-szett-revive-pod-743                           /hydrafacial/oxygenx-pod-szett-revive-pod-743 301
+/hydrascan-pro                                              /hydrafacial/hydrascan-pro                   301
+/hydrascan-pro-plus                                         /hydrafacial/hydrascanpro                    301
+/hydrafacial/hydrascan-pro-plus                             /hydrafacial/hydrascanpro                    301
+
+# -- Megszűnt Hidra termékek → kategória --
+/hydracrownexpert                                           /hydrafacial                                 301
+/hydrafacial/hydracrownexpert                               /hydrafacial                                 301
+/hydramax-professzionalis-hydrofacial-keszulek-833          /hydrafacial                                 301
+/hydrafacial/hydramax-professzionalis-hydrofacial-keszulek-833 /hydrafacial                              301
+
+# -- hydraliquid_* + oxygenx-pod-szett-* termékek mostantól /kezeloanyagok/ --
+/hydraliquid_borvilagosito                                  /kezeloanyagok/hydraliquid_borvilagosito     301
+/hydraliquid_feltolto                                       /kezeloanyagok/hydraliquid_feltolto          301
+/hydraliquid_hegyikristallyal                               /kezeloanyagok/hydraliquid_hegyikristallyal  301
+/hydraliquid_hidratalo                                      /kezeloanyagok/hydraliquid_hidratalo         301
+/hydraliquid_lifting                                        /kezeloanyagok/hydraliquid_lifting           301
+/oxygenx-pod-szett-detox-pod                                /kezeloanyagok/oxygenx-pod-szett-detox-pod   301
+/oxygenx-pod-szett-hydrate-pod                              /kezeloanyagok/oxygenx-pod-szett-hydrate-pod 301
+/oxygenx-pod-szett-illuminate-pod-740                       /kezeloanyagok/oxygenx-pod-szett-illuminate-pod-740 301
+/oxygenx-pod-szett-retouch-pod                              /kezeloanyagok/oxygenx-pod-szett-retouch-pod 301
+/oxygenx-pod-szett-retouch-pod-725                          /kezeloanyagok/oxygenx-pod-szett-retouch-pod-725 301
+/oxygenx-pod-szett-revive-pod-743                           /kezeloanyagok/oxygenx-pod-szett-revive-pod-743 301
 
 # -- coldplasma --
 /thefrostcoldplasma                                         /coldplasma/thefrostcoldplasma               301
@@ -85,19 +96,21 @@
 /wjx-tumodul-025-3rl-794                                    /sminktetovalas/wjx-tumodul-025-3rl-794      301
 /wjx-tumodul-030-1rl-797                                    /sminktetovalas/wjx-tumodul-030-1rl-797      301
 
-# -- szalonberendezes --
-/albaroyal-827                                              /szalonberendezes/albaroyal-827              301
-/arctictrolley-842                                          /szalonberendezes/arctictrolley-842          301
-/frostlinetrolley-845                                       /szalonberendezes/frostlinetrolley-845       301
-/onyxgold-kezeloszek-824                                    /szalonberendezes/onyxgold-kezeloszek-824    301
-/snowlinetrolley-839                                        /szalonberendezes/snowlinetrolley-839        301
-/vanityblack-premium-elektromos-kozmetikai-agy-830          /szalonberendezes/vanityblack-premium-elektromos-kozmetikai-agy-830 301
+# -- szalonberendezes (category removed → fallback to /termekek) --
+/albaroyal-827                                              /termekek                                    301
+/arctictrolley-842                                          /termekek                                    301
+/frostlinetrolley-845                                       /termekek                                    301
+/onyxgold-kezeloszek-824                                    /termekek                                    301
+/snowlinetrolley-839                                        /termekek                                    301
+/vanityblack-premium-elektromos-kozmetikai-agy-830          /termekek                                    301
 
 # -- kellekek --
 /carbon-peeling-fust-elszivo-keszulek-815                   /kellekek/carbon-peeling-fust-elszivo-keszulek-815 301
-/hydraliquid_peeling                                        /kellekek/hydraliquid_peeling                301
+/hydraliquid_peeling                                        /kezeloanyagok/hydraliquid_peeling           301
+/kellekek/hydraliquid_peeling                               /kezeloanyagok/hydraliquid_peeling           301
 /mast-oceanheart-tumodul-030mm-1rl                          /kellekek/mast-oceanheart-tumodul-030mm-1rl  301
-/oxygenx-pod-szett-glam-pod                                 /kellekek/oxygenx-pod-szett-glam-pod         301
+/oxygenx-pod-szett-glam-pod                                 /kezeloanyagok/oxygenx-pod-szett-glam-pod    301
+/kellekek/oxygenx-pod-szett-glam-pod                        /kezeloanyagok/oxygenx-pod-szett-glam-pod    301
 /wjxtumodul                                                 /kellekek/wjxtumodul                         301
 
 # -- _UNMAPPED --

@@ -1,0 +1,43 @@
+---
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const category = {
+  name: 'Kezelőanyagok és hatóanyagok',
+  nameShort: 'Kezelőanyagok',
+  slug: 'kezeloanyagok',
+  description: 'Hydrofacial oldatok, OxyGenX podok és hatóanyagok kozmetikai kezelésekhez.',
+  heroDescription: 'Professzionális hydrofacial liquidek, OxyGenX podok és hatóanyagok minden kezeléshez. Hivatalos forgalmazó, eredeti termékek, gyors szállítás.',
+  badge: 'Új kategória',
+  color: 'kezeloanyagok',
+};
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'kezeloanyagok' && !data.draft;
+});
+
+const benefits = [
+  {
+    icon: 'check-circle',
+    title: 'Eredeti, hivatalos termékek',
+    description: 'Közvetlen forgalmazás a gyártóktól. Garantált minőség, eredetiség igazolás minden tételhez.',
+  },
+  {
+    icon: 'package',
+    title: 'Csomagajánlatok',
+    description: 'A kezeléseihez illő szettek és mennyiségi kedvezmények, hogy mindig készleten legyen az alapanyag.',
+  },
+  {
+    icon: 'truck',
+    title: 'Gyors szállítás',
+    description: 'Magyarországi raktárból, 1-3 munkanapos kiszállítás. Sürgős esetekben átvétel az érdi showroomban.',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Minden kezeléstípushoz',
+    description: 'Hidratáló, lifting, peeling, feltöltő, élénkítő — a teljes hydrofacial protokoll mind készleten.',
+  },
+];
+---
+
+<CategoryLayout category={category} products={products} benefits={benefits} />

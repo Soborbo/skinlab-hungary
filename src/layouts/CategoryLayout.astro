@@ -246,14 +246,14 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   class="flex flex-col flex-1"
                 >
                   <!-- Image -->
-                  <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                  <div class="aspect-square bg-white relative overflow-hidden">
                     {hasImage(product.data.image) ? (
                       <OptimizedPicture
                         src={product.data.image}
                         alt={getImageAlt(product.data.image, product.data.name)}
                         widths={[320, 480, 640]}
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                         loading={index < 6 ? 'eager' : 'lazy'}
                       />
                     ) : (
