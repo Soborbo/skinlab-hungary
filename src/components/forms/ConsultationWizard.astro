@@ -468,9 +468,10 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     display: flex;
   }
 
-  /* Image area: fixed 2:1 frame, fully visible product photo */
+  /* Image area: 5:2 frame keeps Step 1 fitting within typical laptop viewport
+     (≈650-700px), while staying tall enough for the product photo to read */
   .category-card-image {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 5 / 2;
     width: 100%;
     overflow: hidden;
   }

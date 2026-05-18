@@ -17,15 +17,16 @@ const product = Astro.url.searchParams.get('product') || '';
 <BaseLayout
   title="Ingyenes konzultáció kérése"
   description="Kérjen ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás."
+  hideDesktopWidget={true}
 >
   <section class="bg-gradient-to-b from-primary-50/50 to-white py-3 md:py-4 min-h-screen flex flex-col justify-center">
     <div class="container mx-auto px-4">
       <!-- Wizard -->
       <ConsultationWizard product={product} />
 
-      <!-- Alternative contact -->
-      <div class="mt-8 text-center">
-        <p class="text-gray-500 text-sm">Inkább telefonon? <a
+      <!-- Alternative contact (tight to keep Step 1 on one screen) -->
+      <div class="mt-3 text-center">
+        <p class="text-gray-500 text-xs">Inkább telefonon? <a
           href={`tel:${CONTACT.phone}`}
           class="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
         >{CONTACT.phoneDisplay}</a></p>
