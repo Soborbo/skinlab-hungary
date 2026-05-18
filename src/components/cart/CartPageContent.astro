@@ -122,8 +122,8 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
         ? `<p class="text-sm text-gray-400">${escapeHtml(item.variantName)}</p>`
         : '';
       const img = item.image
-        ? `<img src="${escapeHtml(item.image)}" alt="" width="96" height="96" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl border border-gray-100 bg-gray-50 shrink-0" />`
-        : `<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-gray-100 shrink-0"></div>`;
+        ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" width="96" height="96" loading="lazy" decoding="async" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl border border-gray-100 bg-gray-50 shrink-0" />`
+        : `<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-gray-100 shrink-0" aria-hidden="true"></div>`;
       return `
         <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 flex gap-4" data-cart-row="${item.id}">
           ${img}

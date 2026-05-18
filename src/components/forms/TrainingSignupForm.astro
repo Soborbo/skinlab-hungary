@@ -97,6 +97,15 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <input type="hidden" name="formStartTime" data-form-start />
             <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
             <input type="hidden" name="product" value="kepzesek" />
+            <!-- Attribution — populated client-side from URL params + persisted tracking. -->
+            <input type="hidden" name="utmSource" data-track="utm_source" />
+            <input type="hidden" name="utmMedium" data-track="utm_medium" />
+            <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
+            <input type="hidden" name="utmTerm" data-track="utm_term" />
+            <input type="hidden" name="utmContent" data-track="utm_content" />
+            <input type="hidden" name="gclid" data-track="gclid" />
+            <input type="hidden" name="fbclid" data-track="fbclid" />
+            <input type="hidden" name="referrer" data-track="referrer" />
 
             <!-- Honeypot -->
             <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
@@ -260,6 +269,26 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
     if (startTimeInput) {
       startTimeInput.value = Date.now().toString();
     }
+
+    // Populate tracking hidden inputs from URL params + persisted tracking storage.
+    // Mirrors the ContactForm logic so the Sheets row contains attribution.
+    const urlParams = new URLSearchParams(window.location.search);
+    let storedTracking: Record<string, string | undefined> = {};
+    try {
+      const raw = localStorage.getItem('sb_tracking');
+      if (raw) storedTracking = JSON.parse(raw);
+    } catch {
+      /* private mode / quota — ignore */
+    }
+    formEl.querySelectorAll('[data-track]').forEach((input) => {
+      const key = input.getAttribute('data-track');
+      if (!key) return;
+      let value = urlParams.get(key) || storedTracking[key] || '';
+      if (!value && key === 'referrer') {
+        value = document.referrer || '';
+      }
+      (input as HTMLInputElement).value = value;
+    });
 
     // GDPR timestamp on checkbox change
     const gdprCheckbox = formEl.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;

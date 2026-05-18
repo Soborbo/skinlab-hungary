@@ -161,12 +161,34 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
   //      gombbal együtt; a proforma maga a fizetési link
   const proformaPromise = generateProforma(input, env);
 
-  const [adminOk, customerOk, sheetsOk, proformaResult] = await Promise.all([
+  // Promise.allSettled so a single channel throwing doesn't take down the
+  // whole pipeline silently. Each `sendResendEmail` already catches internally,
+  // but generateProforma can throw synchronously — defensive guard.
+  const results = await Promise.allSettled([
     adminPromise,
     customerPromise,
     sheetsPromise,
     proformaPromise,
   ]);
+
+  const adminOk = results[0].status === 'fulfilled' && results[0].value === true;
+  const customerOk = results[1].status === 'fulfilled' && results[1].value === true;
+  const sheetsOk = results[2].status === 'fulfilled' && results[2].value === true;
+  const proformaResult: BillingoProformaResult = results[3].status === 'fulfilled'
+    ? results[3].value
+    : {
+        success: false,
+        skipped: false,
+        code: 'BILLINGO-EXCEPTION',
+        errorMessage: String((results[3] as PromiseRejectedResult).reason),
+      };
+
+  for (let i = 0; i < results.length; i += 1) {
+    const r = results[i];
+    if (r.status === 'rejected') {
+      console.error('[order] channel rejected:', ['admin', 'customer', 'sheets', 'billingo'][i], r.reason);
+    }
+  }
 
   if (!customerOk) {
     console.warn('[order] Customer confirmation email failed for', input.orderId);

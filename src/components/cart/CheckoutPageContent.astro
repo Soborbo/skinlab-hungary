@@ -422,7 +422,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         hasError = true;
       }
       const emailInput = form!.querySelector<HTMLInputElement>('[name="email"]');
-      if (emailInput && emailInput.value.trim() && !emailInput.value.includes('@')) {
+      // Conservative regex: localpart@domain.tld — catches the "a@" / missing
+      // TLD / spaces typos that the bare `.includes('@')` check let through.
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailInput && emailInput.value.trim() && !emailRegex.test(emailInput.value.trim())) {
         showFieldError('email', i18n.validationError || '');
         hasError = true;
       }
