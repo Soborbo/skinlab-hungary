@@ -347,6 +347,13 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
       spinner?.classList.remove('hidden');
 
       try {
+        // Restamp GDPR timestamp at submit time — `change` may not fire after
+        // bfcache restore or password-manager autofill, leaving the hidden
+        // field empty and triggering FORM-ZOD-002 server-side.
+        if (gdprCheckbox?.checked && gdprTimestamp && !gdprTimestamp.value) {
+          gdprTimestamp.value = new Date().toISOString();
+        }
+
         const formData = new FormData(formEl);
 
         // Add turnstile token
