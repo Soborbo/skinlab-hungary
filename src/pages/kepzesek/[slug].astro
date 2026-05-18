@@ -20,6 +20,7 @@ const { Content } = await render(training);
 <BaseLayout
   title={training.data.name}
   description={training.data.description}
+  availableLocales={['hu']}
 >
   <CourseSchema
     name={training.data.name}
@@ -30,7 +31,7 @@ const { Content } = await render(training);
     certificate={training.data.certificate}
     category={training.data.category || 'Kozmetikai gépkezelői képzés'}
   />
-  <div id="main-content">
+  <div>
 
     <!-- Breadcrumb -->
     <nav class="bg-gray-50 py-3 border-b border-gray-200">

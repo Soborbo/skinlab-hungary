@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { t } from '@/i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl } from '@/i18n/ui';
 import { CATEGORIES } from '@/lib/constants';
 
-const locale = 'hu';
+// Astro renders 404.astro at runtime on Cloudflare Workers for unmatched
+// requests, so Astro.url reflects the actual locale prefix (e.g. /en/foo).
+const locale = getLocaleFromUrl(Astro.url);
 const featuredCategories = CATEGORIES.filter((c) => c.featured && !(c as { draft?: boolean }).draft).slice(0, 6);
 ---
 
@@ -24,19 +26,19 @@ const featuredCategories = CATEGORIES.filter((c) => c.featured && !(c as { draft
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
         <a
-          href="/"
+          href={getLocalizedUrl(locale, '/')}
           class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
         >
           {t(locale, 'errors.backHome')}
         </a>
         <a
-          href="/termekek"
+          href={getLocalizedUrl(locale, '/termekek')}
           class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold border border-primary-200 rounded-xl hover:bg-primary-50 transition-colors"
         >
           {t(locale, 'nav.allProducts')}
         </a>
         <a
-          href="/konzultacio"
+          href={getLocalizedUrl(locale, '/konzultacio')}
           class="inline-flex items-center justify-center px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-xl hover:bg-gray-200 transition-colors"
         >
           {t(locale, 'cta.button')}
@@ -44,12 +46,12 @@ const featuredCategories = CATEGORIES.filter((c) => c.featured && !(c as { draft
       </div>
 
       <div class="text-left bg-gray-50 rounded-xl p-6">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Népszerű kategóriák</h2>
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">{t(locale, 'categories.title')}</h2>
         <ul class="grid sm:grid-cols-2 gap-2">
           {featuredCategories.map((cat) => (
             <li>
               <a
-                href={`/${cat.slug}`}
+                href={getLocalizedUrl(locale, `/${cat.slug}`)}
                 class="flex items-center gap-2 p-3 bg-white rounded-lg hover:bg-primary-50 transition-colors text-gray-700 hover:text-primary-700"
               >
                 <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

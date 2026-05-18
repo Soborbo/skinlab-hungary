@@ -88,8 +88,11 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
                     <img
                       src={categoryImage}
                       alt={categoryName}
+                      width="400"
+                      height="300"
                       class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <FifthImage

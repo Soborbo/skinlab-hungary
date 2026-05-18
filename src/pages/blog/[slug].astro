@@ -50,8 +50,9 @@ const blogSchema = articleSchema(config, pageUrl, {
   description={post.data.description}
   image={post.data.image}
   schema={blogSchema}
+  availableLocales={['hu']}
 >
-  <div id="main-content">
+  <div>
 
     <!-- Breadcrumb -->
     <nav class="bg-gray-50 py-3 border-b border-gray-200">
@@ -118,7 +119,12 @@ const blogSchema = articleSchema(config, pageUrl, {
             <img
               src={post.data.image}
               alt={post.data.title}
+              width="1280"
+              height="720"
               class="w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         )}
@@ -185,8 +191,11 @@ const blogSchema = articleSchema(config, pageUrl, {
                     <img
                       src={relatedPost.data.image}
                       alt={relatedPost.data.title}
+                      width="640"
+                      height="360"
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">

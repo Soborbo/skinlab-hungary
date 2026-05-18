@@ -190,12 +190,13 @@ const resolvedFunctionCards = content.functionCards || [];
   title={content.metaTitle || product.metaTitle || displayName}
   description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
   schema={productSchema}
+  availableLocales={['hu']}
 >
   <!-- Schema.org -->
   <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
   {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
 
-  <div id="main-content">
+  <div>
 
     <!-- BREADCRUMB -->
     <nav class="bg-gray-100 border-b" aria-label="Breadcrumb">

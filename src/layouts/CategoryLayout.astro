@@ -120,7 +120,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
   image={ogImage}
   schema={categorySchema}
 >
-  <div id="main-content">
+  <div>
 
     <!-- Breadcrumb -->
     <nav class="bg-white border-b" aria-label="Breadcrumb">
@@ -196,7 +196,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         <!-- Filter bar (placeholder) -->
         <div class="bg-white rounded-xl p-4 mb-8 shadow-sm border border-gray-100 flex flex-wrap items-center gap-4">
           <span class="text-gray-500 text-sm">Rendezés:</span>
-          <select class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:border-primary-500 focus:outline-none">
+          <select class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500">
             <option>Kiemelt</option>
             <option>Ár: Alacsony → Magas</option>
             <option>Ár: Magas → Alacsony</option>

@@ -2,12 +2,18 @@
 /**
  * <Tracking /> — Place in Layout <head>.
  * Injects CookieYes, Consent Mode v2, GTM, and auto-init.
+ *
+ * deferMs: how many milliseconds to wait before fetching gtm.js. The first
+ * user interaction (scroll/click/keydown/touch) also triggers the load even
+ * before the timeout fires, so engaged users don't lose tracking and idle
+ * users save the upfront network/CPU cost.
  */
 interface Props {
   gtmId: string;
   cookieYesId?: string;
+  deferMs?: number;
 }
-const { gtmId, cookieYesId } = Astro.props;
+const { gtmId, cookieYesId, deferMs = 0 } = Astro.props;
 ---
 
 {cookieYesId && (
@@ -26,12 +32,31 @@ const { gtmId, cookieYesId } = Astro.props;
   });
 </script>
 
-<script is:inline define:vars={{ gtmId }}>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer',gtmId);
+<script is:inline define:vars={{ gtmId, deferMs }}>
+  (function(w,d,s,l,i,defer){
+    var loaded = false;
+    function loadGtm() {
+      if (loaded) return; loaded = true;
+      w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    }
+    if (!defer || defer <= 0) {
+      loadGtm();
+      return;
+    }
+    var events = ['scroll','click','keydown','touchstart','mousemove'];
+    function onInteract() {
+      events.forEach(function(e){ w.removeEventListener(e, onInteract, { passive: true, capture: true }); });
+      loadGtm();
+    }
+    events.forEach(function(e){ w.addEventListener(e, onInteract, { passive: true, capture: true }); });
+    setTimeout(loadGtm, defer);
+  })(window,document,'script','dataLayer',gtmId,deferMs);
 </script>
 
 <script>
