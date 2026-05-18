@@ -142,7 +142,7 @@ export function loadProductContent(
     for (const field of CASCADE_FIELDS) {
       // Only fill from category if product doesn't have this field
       if (resolved[field as keyof ProductContent] === undefined && categoryData[field] !== undefined) {
-        (resolved as Record<string, unknown>)[field] = categoryData[field];
+        (resolved as unknown as Record<string, unknown>)[field] = categoryData[field];
       }
     }
   }

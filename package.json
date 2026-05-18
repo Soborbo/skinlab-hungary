@@ -7,6 +7,7 @@
     "build": "astro build && node scripts/patch-wrangler-config.cjs",
     "preview": "astro preview",
     "astro": "astro",
+    "typecheck": "astro check",
     "deploy": "wrangler deploy --config dist/server/wrangler.json --keep-vars",
     "deploy:dry": "wrangler deploy --config dist/server/wrangler.json --keep-vars --dry-run",
     "generate:images": "node scripts/generate-optimized-images.cjs",
@@ -23,7 +24,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.0.0",
     "fast-xml-parser": "^5.5.9",
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",

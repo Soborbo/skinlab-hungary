@@ -9,9 +9,17 @@ const XLSX = require('xlsx');
 const path = require('path');
 const fs = require('fs');
 
-const EXCEL_PATH = 'd:/dev/Skinlab/skinlab-xlsx-export-2026-01-03_10_33_31.xlsx';
+const EXCEL_PATH = process.argv[2]
+  || process.env.SKINLAB_PRICES_XLSX
+  || 'd:/dev/Skinlab/skinlab-xlsx-export-2026-01-03_10_33_31.xlsx';
 const PRODUCTS_DIR = path.join(__dirname, '../src/content/products');
 const IMAGES_DIR = path.join(__dirname, '../public/images/products');
+
+if (!fs.existsSync(EXCEL_PATH)) {
+  console.error(`[add-product-images] XLSX not found: ${EXCEL_PATH}`);
+  console.error('Pass path as CLI arg or set SKINLAB_PRICES_XLSX.');
+  process.exit(1);
+}
 
 // Read Excel
 const wb = XLSX.readFile(EXCEL_PATH);

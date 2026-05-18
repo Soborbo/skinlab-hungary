@@ -2,7 +2,15 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-const workbook = XLSX.readFile('d:/dev/Skinlab/skinlab-xlsx-export-2026-01-03_10_33_31.xlsx');
+const xlsxPath = process.argv[2]
+  || process.env.SKINLAB_PRICES_XLSX
+  || 'd:/dev/Skinlab/skinlab-xlsx-export-2026-01-03_10_33_31.xlsx';
+if (!fs.existsSync(xlsxPath)) {
+  console.error(`[update-variants-status] XLSX not found: ${xlsxPath}`);
+  console.error('Pass the path as a CLI arg or set SKINLAB_PRICES_XLSX.');
+  process.exit(1);
+}
+const workbook = XLSX.readFile(xlsxPath);
 const sheet = workbook.Sheets[workbook.SheetNames[0]];
 const data = XLSX.utils.sheet_to_json(sheet);
 

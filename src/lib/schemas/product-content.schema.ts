@@ -126,7 +126,8 @@ export const productContentSchema = z.object({
   training: productContentTrainingSchema.optional(),
   testimonials: z.array(productContentTestimonialSchema).optional(),
   expertQuote: productContentExpertQuoteSchema.optional(),
-  specs: z.record(z.string()).optional(),
+  // Zod v4: z.record requires explicit key + value schemas
+  specs: z.record(z.string(), z.string()).optional(),
   functionCards: z.array(productContentFunctionCardSchema).optional(),
   faq: z.array(productContentFAQItemSchema).optional(),
   buyerChecklist: productContentBuyerChecklistSchema.optional(),
