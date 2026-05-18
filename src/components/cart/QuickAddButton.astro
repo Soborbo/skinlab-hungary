@@ -1,0 +1,104 @@
+---
+/**
+ * QuickAddButton — kompakt "Kosárba" gomb a terméklistákhoz
+ * (kategória oldalak, összes termék oldal).
+ *
+ * 1 db-ot tesz a kosárba a megjelenített termékből. Variánsos terméknél
+ * a termékoldalon lehet pontos variánst választani; itt az alap termék
+ * (alapár) kerül a kosárba. Több példány is lehet egy oldalon — a
+ * kliens script eseménydelegálással kezeli az összeset.
+ */
+import { t, type Locale } from '@/i18n/ui';
+import { resolveCartImage } from '@/lib/cart/image';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  sku: string;
+  name: string;
+  categorySlug: string;
+  image: string;
+  price: number | null;
+  class?: string;
+}
+
+const {
+  locale,
+  slug,
+  sku,
+  name,
+  categorySlug,
+  image,
+  price,
+  class: className = '',
+} = Astro.props;
+
+const cartImage = resolveCartImage(image);
+---
+
+<button
+  type="button"
+  class:list={[
+    'inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors disabled:opacity-60',
+    className,
+  ]}
+  data-quick-add-btn
+  data-slug={slug}
+  data-sku={sku}
+  data-name={name}
+  data-category={categorySlug}
+  data-image={cartImage}
+  data-price={price === null ? '' : String(price)}
+  data-label-default={t(locale, 'cart.addToCart')}
+  data-label-added={t(locale, 'cart.added')}
+>
+  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+  </svg>
+  <span data-quick-add-label>{t(locale, 'cart.addToCart')}</span>
+</button>
+
+<script>
+  import { addToCart } from '@/lib/cart/store';
+
+  function initQuickAdd() {
+    // Eseménydelegálás — egy listener kezeli az oldal összes gombját
+    if ((window as any).__quickAddBound) return;
+    (window as any).__quickAddBound = true;
+
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-quick-add-btn]');
+      if (!btn) return;
+
+      // Ne navigáljon a kártya linkje
+      e.preventDefault();
+      e.stopPropagation();
+
+      const priceAttr = btn.dataset.price;
+      addToCart({
+        slug: btn.dataset.slug || '',
+        sku: btn.dataset.sku || '',
+        categorySlug: btn.dataset.category || '',
+        name: btn.dataset.name || '',
+        image: btn.dataset.image || '',
+        price: priceAttr ? Number(priceAttr) : null,
+        qty: 1,
+      });
+
+      const label = btn.querySelector<HTMLElement>('[data-quick-add-label]');
+      if (label) {
+        const added = btn.dataset.labelAdded || '';
+        const def = btn.dataset.labelDefault || '';
+        label.textContent = added;
+        btn.disabled = true;
+        setTimeout(() => {
+          label.textContent = def;
+          btn.disabled = false;
+        }, 1600);
+      }
+    });
+  }
+
+  initQuickAdd();
+  document.addEventListener('astro:page-load', initQuickAdd);
+</script>

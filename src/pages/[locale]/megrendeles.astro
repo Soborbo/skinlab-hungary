@@ -1,0 +1,24 @@
+---
+/**
+ * Megrendelés oldal (nem alapértelmezett nyelvek) — /[locale]/megrendeles
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CheckoutPageContent from '@/components/cart/CheckoutPageContent.astro';
+import { t, locales, defaultLocale, type Locale } from '@/i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params as { locale: Locale };
+---
+
+<BaseLayout
+  title={t(locale, 'checkout.title')}
+  description={t(locale, 'checkout.noPaymentNote')}
+  noIndex={true}
+>
+  <CheckoutPageContent locale={locale} />
+</BaseLayout>

@@ -396,8 +396,13 @@ export const IMG_CODES: Record<string, ErrorCodeDef> = {
 // ============================================================
 
 export const PROJECT_CODES: Record<string, ErrorCodeDef> = {
-  // Példa Painless Removals:
-  // 'MOVE-DIST-001': { severity: 'ERROR', retryable: true, userImpact: 'degraded', message: 'Distance API failed', requiredContext: ['from', 'to'] },
+  // Webshop — kosár / megrendelés flow (/api/order)
+  'ORDER-SUBMIT-001':  { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Order handler top-level exception', requiredContext: ['errorMessage'] },
+  'ORDER-ZOD-001':     { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: 'Order validation — hibás vagy hiányzó mező', requiredContext: ['formId'] },
+  'ORDER-EMPTY-001':   { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: 'Order beküldés üres kosárral', requiredContext: ['formId'] },
+  'ORDER-SPAM-001':    { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Order beküldés spam-szűrőn fennakadt (honeypot / time-check)', requiredContext: ['formId'] },
+  'ORDER-TURN-001':    { severity: 'WARN',     retryable: true,  userImpact: 'blocked',  message: 'Order Turnstile ellenőrzés sikertelen', requiredContext: ['formId'] },
+  'ORDER-PERSIST-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'degraded', message: 'Order nem rögzült — admin e-mail ÉS Sheets is sikertelen', requiredContext: ['orderId'] },
 };
 
 // ============================================================

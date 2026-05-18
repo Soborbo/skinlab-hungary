@@ -1,32 +1,37 @@
 ---
 /**
- * InstallmentBadge - Compact installment payment info for product pages
- * Links to the full payment info page
+ * InstallmentBadge - Compact installment payment info for product pages.
+ * Rules live in @/lib/installment.ts (price tiers + bundle override).
  */
+import { getInstallmentInfo } from '@/lib/installment';
+
 interface Props {
-  /** Product price for calculation */
+  /** Product price in HUF */
   price?: number;
-  /** Show compact or expanded version */
+  /** Whether this is a bundle (all months available above min) */
+  isBundle?: boolean;
+  /** Compact (chip) vs expanded (card) layout */
   compact?: boolean;
-  /** Custom class */
   class?: string;
 }
 
-const { price = 0, compact = false, class: className = '' } = Astro.props;
+const { price = 0, isBundle = false, compact = false, class: className = '' } = Astro.props;
 
-// Calculate if installment is available (min 1,000,000 Ft)
-const installmentAvailable = price >= 1000000;
-const extendedInstallment = price >= 5000000;
+const info = getInstallmentInfo(price, isBundle);
 
-// Calculate monthly payment (50% over 6 months)
-const monthlyPayment = installmentAvailable ? Math.round((price * 0.5) / 6) : 0;
-const formattedMonthly = monthlyPayment > 0 ? new Intl.NumberFormat('hu-HU').format(monthlyPayment) : '';
+const fmt = new Intl.NumberFormat('hu-HU');
+const formatHuf = (n: number) => fmt.format(n);
+
+const monthLabels: Record<3 | 6 | 12, string> = {
+  3: '3 havi',
+  6: '6 havi',
+  12: '12 havi',
+};
 ---
 
-{installmentAvailable && (
+{info.available && (
   <div class:list={['installment-badge', className]}>
     {compact ? (
-      <!-- Compact version - just a badge -->
       <a
         href="/szallitas-fizetes#reszletfizetes"
         class="inline-flex items-center gap-2 px-3 py-1.5 bg-success-50 text-success-700 rounded-lg text-sm font-medium hover:bg-success-100 transition-colors"
@@ -37,7 +42,6 @@ const formattedMonthly = monthlyPayment > 0 ? new Intl.NumberFormat('hu-HU').for
         <span>Kamatmentes részletfizetés</span>
       </a>
     ) : (
-      <!-- Expanded version - card with details -->
       <div class="bg-gradient-to-br from-primary-50 to-indigo-50 rounded-xl p-4 border border-primary-100">
         <div class="flex items-start gap-3 mb-3">
           <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center shrink-0">
@@ -47,25 +51,25 @@ const formattedMonthly = monthlyPayment > 0 ? new Intl.NumberFormat('hu-HU').for
           </div>
           <div>
             <h4 class="font-semibold text-gray-900">Kamatmentes részletfizetés</h4>
-            <p class="text-sm text-gray-600">50% előleg + 50% átvételkor</p>
+            <p class="text-sm text-gray-600">50% előleg + havi részletek</p>
           </div>
         </div>
 
         <div class="space-y-2 mb-3">
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-600">3 vagy 6 havi részlet:</span>
-            <span class="font-semibold text-gray-900">0% kamat</span>
+          <div class="flex items-center justify-between text-sm bg-white rounded-lg px-3 py-2">
+            <span class="text-gray-600">Előleg (50%):</span>
+            <span class="font-semibold text-gray-900">{formatHuf(info.downPayment)} Ft</span>
           </div>
-          {monthlyPayment > 0 && (
+          {info.months.map((m) => (
             <div class="flex items-center justify-between text-sm bg-white rounded-lg px-3 py-2">
-              <span class="text-gray-600">Havi részlet (6 hó):</span>
-              <span class="font-bold text-primary-600">~{formattedMonthly} Ft/hó</span>
+              <span class="text-gray-600">{monthLabels[m]} részlet:</span>
+              <span class="font-bold text-primary-600">~{formatHuf(info.monthly[m])} Ft/hó</span>
             </div>
-          )}
-          {extendedInstallment && (
-            <div class="flex items-center gap-2 text-sm">
+          ))}
+          {info.months.includes(12) && (
+            <div class="flex items-center gap-2 text-sm pt-1">
               <span class="px-2 py-0.5 bg-primary-600 text-white text-xs font-bold rounded">12 hó</span>
-              <span class="text-gray-600">részletfizetés is elérhető!</span>
+              <span class="text-gray-600">{isBundle ? 'csomag esetén elérhető' : '3 M Ft felett elérhető'}</span>
             </div>
           )}
         </div>

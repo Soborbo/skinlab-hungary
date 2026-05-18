@@ -4,6 +4,7 @@ import { CONTACT, NAV_ITEMS, MEGA_MENU, CATEGORY_COLORS } from '../../lib/consta
 import { Logo, FifthImage } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SearchOverlay from '../search/SearchOverlay.astro';
+import CartIcon from '../cart/CartIcon.astro';
 import { hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
@@ -93,6 +94,9 @@ const isHomePage = pathname === '/' || pathname === '/hu';
 
         <!-- Search -->
         <SearchOverlay />
+
+        <!-- Cart -->
+        <CartIcon locale={locale} />
 
         <!-- Phone (desktop only) -->
         <a

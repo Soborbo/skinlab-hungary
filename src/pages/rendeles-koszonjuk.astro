@@ -1,0 +1,18 @@
+---
+/**
+ * Megrendelés visszaigazoló oldal (magyar / alapértelmezett) — /rendeles-koszonjuk
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import OrderSuccessContent from '@/components/cart/OrderSuccessContent.astro';
+import { t } from '@/i18n/ui';
+
+const locale = 'hu' as const;
+---
+
+<BaseLayout
+  title={t(locale, 'checkout.success.title')}
+  description={t(locale, 'checkout.success.metaDescription')}
+  noIndex={true}
+>
+  <OrderSuccessContent locale={locale} />
+</BaseLayout>

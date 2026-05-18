@@ -20,7 +20,13 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
       "Bash(find d:skinlabskinlab-hungary-master -type f \\\\\\(-iname *.jpg -o -iname *.png -o -iname *.webp \\\\\\))",
-      "Bash(find d:skinlabskinlab-hungary-master -path */dist -prune -o -type f \\\\\\(-iname diodalezerek.* -o -iname nd-yag* -o -iname hydrafacial.* -o -iname coldplasma.* \\\\\\) -print)"
+      "Bash(find d:skinlabskinlab-hungary-master -path */dist -prune -o -type f \\\\\\(-iname diodalezerek.* -o -iname nd-yag* -o -iname hydrafacial.* -o -iname coldplasma.* \\\\\\) -print)",
+      "Bash(Get-ChildItem -Path \"d:\\\\skinlab\\\\skinlab-hungary-master\" -Recurse -Directory -Depth 2)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Remove-Item \"src/assets/brands/brovi-logo.svg\")",
+      "Bash(tasklist)",
+      "Bash(findstr node *)",
+      "Bash(npm run *)"
     ],
     "additionalDirectories": [
       "\\tmp"

@@ -1,0 +1,24 @@
+---
+/**
+ * Megrendelés visszaigazoló oldal (nem alapértelmezett nyelvek) — /[locale]/rendeles-koszonjuk
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import OrderSuccessContent from '@/components/cart/OrderSuccessContent.astro';
+import { t, locales, defaultLocale, type Locale } from '@/i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params as { locale: Locale };
+---
+
+<BaseLayout
+  title={t(locale, 'checkout.success.title')}
+  description={t(locale, 'checkout.success.metaDescription')}
+  noIndex={true}
+>
+  <OrderSuccessContent locale={locale} />
+</BaseLayout>

@@ -1,0 +1,199 @@
+---
+/**
+ * AddToCartButton — termékoldali "Kosárba" gomb mennyiség-választóval.
+ *
+ * Variánsos termékeknél a ProductHero variáns-gombjaihoz igazodik:
+ * figyeli a `variant-change` eseményt, és a kiválasztott variáns
+ * SKU-ját / árát teszi a kosárba. Ár nélküli ("priceOnRequest")
+ * terméknél is működik — ekkor "ár egyeztetés alatt" tételként kerül be.
+ */
+import { t, type Locale } from '@/i18n/ui';
+import { resolveCartImage } from '@/lib/cart/image';
+
+interface Variant {
+  sku: string;
+  name: string;
+  value: string;
+  price: number | null;
+}
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  sku: string;
+  name: string;
+  categorySlug: string;
+  image: string;
+  price: number | null;
+  hasVariants?: boolean;
+  variants?: Variant[];
+}
+
+const {
+  locale,
+  slug,
+  sku,
+  name,
+  categorySlug,
+  image,
+  price,
+  hasVariants = false,
+  variants = [],
+} = Astro.props;
+
+const cartImage = resolveCartImage(image);
+
+// Variáns lookup a kliens scripthez: value → { sku, name, price }
+const variantMap =
+  hasVariants && variants.length > 0
+    ? variants.map((v) => ({
+        value: v.value,
+        sku: v.sku,
+        name: v.name,
+        price: typeof v.price === 'number' ? v.price : price,
+      }))
+    : [];
+---
+
+<div
+  class="flex flex-col sm:flex-row gap-3"
+  data-add-to-cart
+  data-slug={slug}
+  data-sku={sku}
+  data-name={name}
+  data-category={categorySlug}
+  data-image={cartImage}
+  data-price={price === null ? '' : String(price)}
+>
+  <!-- Mennyiség -->
+  <div class="inline-flex items-center border-2 border-gray-200 rounded-xl overflow-hidden shrink-0">
+    <button
+      type="button"
+      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b] hover:bg-gray-50 transition-colors text-xl font-bold"
+      data-qty-minus
+      aria-label="−"
+    >−</button>
+    <input
+      type="number"
+      class="w-12 h-12 text-center text-base font-bold text-gray-900 border-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      value="1"
+      min="1"
+      max="99"
+      step="1"
+      data-qty-input
+      aria-label={t(locale, 'cart.quantity')}
+    />
+    <button
+      type="button"
+      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b] hover:bg-gray-50 transition-colors text-xl font-bold"
+      data-qty-plus
+      aria-label="+"
+    >+</button>
+  </div>
+
+  <!-- Kosárba gomb -->
+  <button
+    type="button"
+    class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-lg disabled:opacity-60"
+    data-add-to-cart-btn
+    data-label-default={t(locale, 'cart.addToCart')}
+    data-label-added={t(locale, 'cart.added')}
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-cart-btn-icon>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+    </svg>
+    <span data-cart-btn-label>{t(locale, 'cart.addToCart')}</span>
+  </button>
+</div>
+
+{variantMap.length > 0 && (
+  <script
+    type="application/json"
+    data-add-to-cart-variants
+    set:html={JSON.stringify(variantMap)}
+  ></script>
+)}
+
+<script>
+  import { addToCart } from '@/lib/cart/store';
+
+  function initAddToCart() {
+    const root = document.querySelector<HTMLElement>('[data-add-to-cart]');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+
+    const qtyInput = root.querySelector<HTMLInputElement>('[data-qty-input]');
+    const minusBtn = root.querySelector<HTMLButtonElement>('[data-qty-minus]');
+    const plusBtn = root.querySelector<HTMLButtonElement>('[data-qty-plus]');
+    const addBtn = root.querySelector<HTMLButtonElement>('[data-add-to-cart-btn]');
+    const btnLabel = root.querySelector<HTMLElement>('[data-cart-btn-label]');
+
+    // Variáns adatok (ha vannak)
+    const variantsEl = document.querySelector('[data-add-to-cart-variants]');
+    type V = { value: string; sku: string; name: string; price: number | null };
+    const variants: V[] = variantsEl ? JSON.parse(variantsEl.textContent || '[]') : [];
+    let currentVariant: V | null = variants.length > 0 ? variants[0] : null;
+
+    // ProductHero variáns-gomb választás követése
+    if (variants.length > 0) {
+      document.addEventListener('variant-change', (e) => {
+        const value = (e as CustomEvent).detail?.value;
+        const found = variants.find((v) => v.value === value);
+        if (found) currentVariant = found;
+      });
+    }
+
+    function clampQty(): number {
+      let q = parseInt(qtyInput?.value || '1', 10);
+      if (isNaN(q) || q < 1) q = 1;
+      if (q > 99) q = 99;
+      if (qtyInput) qtyInput.value = String(q);
+      return q;
+    }
+
+    minusBtn?.addEventListener('click', () => {
+      const q = clampQty();
+      if (qtyInput && q > 1) qtyInput.value = String(q - 1);
+    });
+    plusBtn?.addEventListener('click', () => {
+      const q = clampQty();
+      if (qtyInput && q < 99) qtyInput.value = String(q + 1);
+    });
+    qtyInput?.addEventListener('change', clampQty);
+
+    addBtn?.addEventListener('click', () => {
+      const qty = clampQty();
+      const basePrice = root.dataset.price ? Number(root.dataset.price) : null;
+
+      const sku = currentVariant ? currentVariant.sku : root.dataset.sku || '';
+      const price = currentVariant ? currentVariant.price : basePrice;
+      const variantName = currentVariant ? currentVariant.name : undefined;
+
+      addToCart({
+        slug: root.dataset.slug || '',
+        sku,
+        categorySlug: root.dataset.category || '',
+        name: root.dataset.name || '',
+        variantName,
+        image: root.dataset.image || '',
+        price: typeof price === 'number' ? price : null,
+        qty,
+      });
+
+      // Rövid visszajelzés a gombon
+      if (btnLabel && addBtn) {
+        const added = addBtn.dataset.labelAdded || '';
+        const def = addBtn.dataset.labelDefault || '';
+        btnLabel.textContent = added;
+        addBtn.disabled = true;
+        setTimeout(() => {
+          btnLabel.textContent = def;
+          addBtn.disabled = false;
+        }, 1600);
+      }
+    });
+  }
+
+  initAddToCart();
+  document.addEventListener('astro:page-load', initAddToCart);
+</script>

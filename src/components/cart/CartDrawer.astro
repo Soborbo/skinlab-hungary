@@ -1,0 +1,263 @@
+---
+/**
+ * CartDrawer — becsúszó mini-kosár fiók (jobb oldalról).
+ *
+ * Egyszer renderelődik (a BaseLayout-ban). A fejléc kosár ikonja
+ * `cart:open` eseménnyel nyitja; `cart:added` eseményre is kinyílik
+ * (amikor a vásárló terméket tesz a kosárba). A tartalmat a kliens
+ * script tölti a `localStorage` alapú kosár store-ból.
+ */
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '@/i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const cartUrl = getLocalizedUrl(locale, '/kosar');
+const checkoutUrl = getLocalizedUrl(locale, '/megrendeles');
+const productsUrl = getLocalizedUrl(locale, '/termekek');
+---
+
+<div
+  class="fixed inset-0 z-[110] pointer-events-none"
+  data-cart-drawer
+  aria-hidden="true"
+>
+  <!-- Backdrop -->
+  <div
+    class="absolute inset-0 bg-black/0 transition-colors duration-300"
+    data-cart-backdrop
+  ></div>
+
+  <!-- Panel -->
+  <div
+    class="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
+    data-cart-panel
+    role="dialog"
+    aria-modal="true"
+    aria-label={t(locale, 'cart.drawerTitle')}
+  >
+    <!-- Header -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+      <h2 class="text-lg font-bold text-[#9b6b6b] flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+        {t(locale, 'cart.drawerTitle')}
+      </h2>
+      <button
+        type="button"
+        class="p-2 -mr-2 rounded-full text-gray-500 hover:bg-gray-100 transition-colors"
+        data-cart-close
+        aria-label={t(locale, 'cart.close')}
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Empty state -->
+    <div class="flex-1 flex flex-col items-center justify-center text-center px-6 py-12" style="display:none" data-cart-drawer-empty>
+      <div class="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+      </div>
+      <p class="text-gray-600 mb-6">{t(locale, 'cart.drawerEmpty')}</p>
+      <a
+        href={productsUrl}
+        class="inline-flex items-center px-5 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors"
+        data-cart-close-link
+      >
+        {t(locale, 'cart.browseProducts')}
+      </a>
+    </div>
+
+    <!-- Items list -->
+    <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4" style="display:none" data-cart-drawer-items></div>
+
+    <!-- Footer -->
+    <div class="border-t border-gray-100 px-5 py-4" style="display:none" data-cart-drawer-footer>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-sm text-gray-600">{t(locale, 'cart.subtotal')}</span>
+        <span class="text-lg font-bold text-gray-900" data-cart-drawer-subtotal>0</span>
+      </div>
+      <p class="text-xs text-gray-400 mb-4">{t(locale, 'cart.priceNote')}</p>
+      <a
+        href={checkoutUrl}
+        class="block w-full text-center px-6 py-3 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md"
+        data-cart-close-link
+      >
+        {t(locale, 'cart.checkout')}
+      </a>
+      <a
+        href={cartUrl}
+        class="block w-full text-center px-6 py-2.5 mt-2 text-[#9b6b6b] font-medium text-sm hover:underline"
+        data-cart-close-link
+      >
+        {t(locale, 'cart.viewCart')}
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- i18n strings + locale for the client script -->
+<script
+  type="application/json"
+  data-cart-drawer-i18n
+  set:html={JSON.stringify({
+    locale,
+    remove: t(locale, 'cart.remove'),
+    priceOnRequest: t(locale, 'cart.priceOnRequest'),
+    qty: t(locale, 'cart.quantity'),
+  })}
+></script>
+
+<script>
+  import {
+    getCartSummary,
+    removeFromCart,
+    updateQty,
+    formatPrice,
+    CART_EVENTS,
+    type CartItem,
+  } from '@/lib/cart/store';
+
+  function initCartDrawer() {
+    const drawer = document.querySelector<HTMLElement>('[data-cart-drawer]');
+    if (!drawer || drawer.dataset.bound) return;
+    drawer.dataset.bound = '1';
+
+    const backdrop = drawer.querySelector<HTMLElement>('[data-cart-backdrop]');
+    const panel = drawer.querySelector<HTMLElement>('[data-cart-panel]');
+    const itemsEl = drawer.querySelector<HTMLElement>('[data-cart-drawer-items]');
+    const emptyEl = drawer.querySelector<HTMLElement>('[data-cart-drawer-empty]');
+    const footerEl = drawer.querySelector<HTMLElement>('[data-cart-drawer-footer]');
+    const subtotalEl = drawer.querySelector<HTMLElement>('[data-cart-drawer-subtotal]');
+    const closeBtn = drawer.querySelector<HTMLButtonElement>('[data-cart-close]');
+
+    const i18nEl = document.querySelector('[data-cart-drawer-i18n]');
+    const i18n = i18nEl ? JSON.parse(i18nEl.textContent || '{}') : {};
+    const locale: string = i18n.locale || 'hu';
+
+    function open() {
+      drawer!.classList.remove('pointer-events-none');
+      drawer!.setAttribute('aria-hidden', 'false');
+      backdrop?.classList.replace('bg-black/0', 'bg-black/40');
+      panel?.classList.replace('translate-x-full', 'translate-x-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      backdrop?.classList.replace('bg-black/40', 'bg-black/0');
+      panel?.classList.replace('translate-x-0', 'translate-x-full');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        drawer!.classList.add('pointer-events-none');
+        drawer!.setAttribute('aria-hidden', 'true');
+      }, 300);
+    }
+
+    function itemRow(item: CartItem): string {
+      const priceText =
+        typeof item.price === 'number'
+          ? formatPrice(item.price * item.qty, locale)
+          : i18n.priceOnRequest || '';
+      const variant = item.variantName
+        ? `<span class="text-xs text-gray-400">${escapeHtml(item.variantName)}</span>`
+        : '';
+      const img = item.image
+        ? `<img src="${escapeHtml(item.image)}" alt="" width="56" height="56" loading="lazy" class="w-14 h-14 object-cover rounded-lg border border-gray-100 bg-gray-50 shrink-0" />`
+        : `<div class="w-14 h-14 rounded-lg bg-gray-100 shrink-0"></div>`;
+      return `
+        <div class="flex gap-3" data-drawer-item="${item.id}">
+          ${img}
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-gray-900 leading-tight">${escapeHtml(item.name)}</p>
+            ${variant}
+            <div class="flex items-center justify-between mt-2">
+              <div class="inline-flex items-center border border-gray-200 rounded-lg">
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b]" data-drawer-minus="${item.id}" aria-label="−">−</button>
+                <span class="w-8 text-center text-sm font-semibold text-gray-900" data-drawer-qty="${item.id}">${item.qty}</span>
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b]" data-drawer-plus="${item.id}" aria-label="+">+</button>
+              </div>
+              <span class="text-sm font-bold text-gray-900 whitespace-nowrap">${priceText}</span>
+            </div>
+          </div>
+          <button type="button" class="p-1 -mt-1 -mr-1 self-start text-gray-300 hover:text-red-500 transition-colors" data-drawer-remove="${item.id}" aria-label="${escapeHtml(i18n.remove || '')}">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>`;
+    }
+
+    function escapeHtml(str: string): string {
+      return str.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] || c));
+    }
+
+    function render() {
+      const summary = getCartSummary();
+      if (summary.items.length === 0) {
+        if (emptyEl) emptyEl.style.display = '';
+        if (itemsEl) itemsEl.style.display = 'none';
+        if (footerEl) footerEl.style.display = 'none';
+        return;
+      }
+      if (emptyEl) emptyEl.style.display = 'none';
+      if (itemsEl) itemsEl.style.display = '';
+      if (footerEl) footerEl.style.display = '';
+      if (itemsEl) itemsEl.innerHTML = summary.items.map(itemRow).join('');
+      if (subtotalEl) {
+        subtotalEl.textContent =
+          summary.subtotal > 0
+            ? formatPrice(summary.subtotal, locale) +
+              (summary.hasPriceOnRequest ? ' +' : '')
+            : i18n.priceOnRequest || '';
+      }
+    }
+
+    // Event delegation a tételek gombjaira
+    itemsEl?.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const minus = target.closest<HTMLElement>('[data-drawer-minus]');
+      const plus = target.closest<HTMLElement>('[data-drawer-plus]');
+      const remove = target.closest<HTMLElement>('[data-drawer-remove]');
+      if (minus) {
+        const id = minus.dataset.drawerMinus!;
+        const item = getCartSummary().items.find((i) => i.id === id);
+        if (item && item.qty > 1) updateQty(id, item.qty - 1);
+        return;
+      }
+      if (plus) {
+        const id = plus.dataset.drawerPlus!;
+        const item = getCartSummary().items.find((i) => i.id === id);
+        if (item) updateQty(id, item.qty + 1);
+        return;
+      }
+      if (remove) {
+        removeFromCart(remove.dataset.drawerRemove!);
+      }
+    });
+
+    closeBtn?.addEventListener('click', close);
+    backdrop?.addEventListener('click', close);
+    drawer.querySelectorAll('[data-cart-close-link]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') close();
+    });
+
+    window.addEventListener(CART_EVENTS.updated, render);
+    window.addEventListener(CART_EVENTS.open, () => {
+      render();
+      open();
+    });
+    window.addEventListener(CART_EVENTS.added, () => {
+      render();
+      open();
+    });
+
+    render();
+  }
+
+  initCartDrawer();
+  document.addEventListener('astro:page-load', initCartDrawer);
+</script>

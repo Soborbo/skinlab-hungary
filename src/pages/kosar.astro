@@ -1,0 +1,18 @@
+---
+/**
+ * Kosár oldal (magyar / alapértelmezett nyelv) — /kosar
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CartPageContent from '@/components/cart/CartPageContent.astro';
+import { t } from '@/i18n/ui';
+
+const locale = 'hu' as const;
+---
+
+<BaseLayout
+  title={t(locale, 'cart.title')}
+  description={t(locale, 'cart.priceNote')}
+  noIndex={true}
+>
+  <CartPageContent locale={locale} />
+</BaseLayout>

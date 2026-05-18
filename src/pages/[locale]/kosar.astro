@@ -1,0 +1,24 @@
+---
+/**
+ * Kosár oldal (nem alapértelmezett nyelvek) — /[locale]/kosar
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CartPageContent from '@/components/cart/CartPageContent.astro';
+import { t, locales, defaultLocale, type Locale } from '@/i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params as { locale: Locale };
+---
+
+<BaseLayout
+  title={t(locale, 'cart.title')}
+  description={t(locale, 'cart.priceNote')}
+  noIndex={true}
+>
+  <CartPageContent locale={locale} />
+</BaseLayout>

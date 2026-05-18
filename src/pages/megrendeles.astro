@@ -1,0 +1,18 @@
+---
+/**
+ * Megrendelés oldal (magyar / alapértelmezett nyelv) — /megrendeles
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CheckoutPageContent from '@/components/cart/CheckoutPageContent.astro';
+import { t } from '@/i18n/ui';
+
+const locale = 'hu' as const;
+---
+
+<BaseLayout
+  title={t(locale, 'checkout.title')}
+  description={t(locale, 'checkout.noPaymentNote')}
+  noIndex={true}
+>
+  <CheckoutPageContent locale={locale} />
+</BaseLayout>

@@ -1,0 +1,517 @@
+---
+/**
+ * CheckoutPageContent — a /megrendeles oldal tartalma.
+ *
+ * Nincs kártyás fizetés: a vásárló beküldi az adatait, a megrendelést
+ * rögzítjük, majd visszahívjuk és e-mailben elküldjük a fizetési linket
+ * (a trapézlemezes.hu logikáját követve). A tételek a localStorage-alapú
+ * kosár store-ból jönnek, a beküldés a `/api/order` végpontra megy.
+ */
+import { t, getLocalizedUrl, type Locale } from '@/i18n/ui';
+import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const cartUrl = getLocalizedUrl(locale, '/kosar');
+const productsUrl = getLocalizedUrl(locale, '/termekek');
+const successUrl = getLocalizedUrl(locale, '/rendeles-koszonjuk');
+const privacyUrl = getLocalizedUrl(locale, '/adatvedelem');
+const turnstileSiteKey = getTurnstileSiteKey();
+
+const inputClass =
+  'block w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500';
+const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
+---
+
+<section class="bg-gray-50 min-h-[60vh] py-10 lg:py-14">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8">{t(locale, 'checkout.title')}</h1>
+
+    <!-- Üres állapot -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm py-16 px-6 text-center" style="display:none" data-checkout-empty>
+      <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gray-100 flex items-center justify-center">
+        <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-semibold text-gray-900 mb-2">{t(locale, 'checkout.empty')}</h2>
+      <p class="text-gray-600 mb-8">{t(locale, 'checkout.emptyDesc')}</p>
+      <a
+        href={productsUrl}
+        class="inline-flex items-center px-6 py-3 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md"
+      >
+        {t(locale, 'cart.browseProducts')}
+      </a>
+    </div>
+
+    <!-- Megrendelés tartalom -->
+    <div class="grid lg:grid-cols-3 gap-8 items-start" style="display:none" data-checkout-content>
+
+      <!-- Bal: űrlap -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- "Most nem kell fizetnie" sáv -->
+        <div class="bg-success-50 border border-success-200 rounded-2xl p-4 sm:p-5">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-success-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p class="font-semibold text-success-700">{t(locale, 'checkout.trustNoPayment')}</p>
+              <p class="text-sm text-success-700/80 mt-0.5">{t(locale, 'checkout.noPaymentNote')}</p>
+            </div>
+          </div>
+          <!-- Hogyan tovább -->
+          <div class="mt-4 pt-4 border-t border-success-200 grid sm:grid-cols-3 gap-4">
+            {[1, 2, 3].map((n) => (
+              <div class="flex gap-3">
+                <span class="w-7 h-7 rounded-full bg-success-600 text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
+                <div>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight">{t(locale, `checkout.step${n}Title`)}</p>
+                  <p class="text-xs text-gray-600 mt-0.5">{t(locale, `checkout.step${n}Desc`)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <form id="order-form" novalidate class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-7 space-y-5">
+          <h2 class="text-lg font-bold text-gray-900">{t(locale, 'checkout.yourDetails')}</h2>
+
+          <!-- Honeypot -->
+          <div class="absolute -left-[9999px] h-0 overflow-hidden" aria-hidden="true">
+            <label for="order-website">Website</label>
+            <input type="text" name="website" id="order-website" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="formStartTime" data-form-start />
+
+          <!-- Név -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class={labelClass} for="order-lastName">{t(locale, 'checkout.lastName')} <span class="text-red-500">*</span></label>
+              <input type="text" id="order-lastName" name="lastName" required autocomplete="family-name" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="lastName"></p>
+            </div>
+            <div>
+              <label class={labelClass} for="order-firstName">{t(locale, 'checkout.firstName')} <span class="text-red-500">*</span></label>
+              <input type="text" id="order-firstName" name="firstName" required autocomplete="given-name" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="firstName"></p>
+            </div>
+          </div>
+
+          <!-- Email + telefon -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class={labelClass} for="order-email">{t(locale, 'checkout.email')} <span class="text-red-500">*</span></label>
+              <input type="email" id="order-email" name="email" required autocomplete="email" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="email"></p>
+            </div>
+            <div>
+              <label class={labelClass} for="order-phone">{t(locale, 'checkout.phone')} <span class="text-red-500">*</span></label>
+              <input type="tel" id="order-phone" name="phone" required autocomplete="tel" inputmode="tel" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="phone"></p>
+            </div>
+          </div>
+
+          <!-- Céges adatok (lenyitható) -->
+          <details class="group border border-gray-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center gap-2 px-4 py-3 cursor-pointer text-sm font-semibold text-[#9b6b6b] bg-gray-50 select-none list-none">
+              <svg class="w-4 h-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
+              {t(locale, 'checkout.companyToggle')}
+            </summary>
+            <div class="p-4 grid sm:grid-cols-2 gap-4 bg-gray-50/50">
+              <div>
+                <label class={labelClass} for="order-company">{t(locale, 'checkout.company')}</label>
+                <input type="text" id="order-company" name="company" autocomplete="organization" class={inputClass} />
+              </div>
+              <div>
+                <label class={labelClass} for="order-taxNumber">{t(locale, 'checkout.taxNumber')}</label>
+                <input type="text" id="order-taxNumber" name="taxNumber" class={inputClass} />
+              </div>
+            </div>
+          </details>
+
+          <!-- Cím -->
+          <div>
+            <label class={labelClass} for="order-country">{t(locale, 'checkout.country')} <span class="text-red-500">*</span></label>
+            <input type="text" id="order-country" name="country" required autocomplete="country-name" class={inputClass} />
+            <p class="mt-1 text-sm text-red-600 hidden" data-error="country"></p>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class={labelClass} for="order-postcode">{t(locale, 'checkout.postcode')} <span class="text-red-500">*</span></label>
+              <input type="text" id="order-postcode" name="postcode" required autocomplete="postal-code" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="postcode"></p>
+            </div>
+            <div class="sm:col-span-2">
+              <label class={labelClass} for="order-city">{t(locale, 'checkout.city')} <span class="text-red-500">*</span></label>
+              <input type="text" id="order-city" name="city" required autocomplete="address-level2" class={inputClass} />
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="city"></p>
+            </div>
+          </div>
+          <div>
+            <label class={labelClass} for="order-street">{t(locale, 'checkout.street')} <span class="text-red-500">*</span></label>
+            <input type="text" id="order-street" name="street" required autocomplete="street-address" class={inputClass} />
+            <p class="mt-1 text-sm text-red-600 hidden" data-error="street"></p>
+          </div>
+
+          <!-- Megjegyzés -->
+          <div>
+            <label class={labelClass} for="order-notes">
+              {t(locale, 'checkout.notes')} <span class="text-gray-400 font-normal">({t(locale, 'checkout.optional')})</span>
+            </label>
+            <textarea id="order-notes" name="notes" rows="3" maxlength="2000" placeholder={t(locale, 'checkout.notesPlaceholder')} class={`${inputClass} resize-y`}></textarea>
+          </div>
+
+          <!-- Turnstile -->
+          {turnstileSiteKey && (
+            <div>
+              <div
+                class="cf-turnstile"
+                data-sitekey={turnstileSiteKey}
+                data-callback="onOrderTurnstileSuccess"
+                data-error-callback="onOrderTurnstileError"
+                data-theme="light"
+              ></div>
+              <p class="mt-1 text-sm text-red-600 hidden" data-error="turnstile"></p>
+            </div>
+          )}
+
+          <!-- GDPR -->
+          <div>
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <input type="checkbox" name="gdpr" required class="mt-1 h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer" />
+              <span class="text-sm text-gray-600 group-hover:text-gray-900">
+                {t(locale, 'checkout.gdprPrefix')}{' '}
+                <a href={privacyUrl} target="_blank" class="text-primary-600 hover:underline">{t(locale, 'checkout.gdprLink')}</a>.
+                <span class="text-red-500"> *</span>
+              </span>
+            </label>
+            <p class="mt-1 text-sm text-red-600 hidden" data-error="gdpr"></p>
+          </div>
+
+          <!-- Submit -->
+          <div>
+            <button
+              type="submit"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#9b6b6b] text-white font-bold text-base rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+              data-submit-btn
+            >
+              <span data-submit-label>{t(locale, 'checkout.submit')}</span>
+              <svg class="hidden w-5 h-5 animate-spin" data-submit-spinner viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+            </button>
+            <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 mt-3 text-xs text-gray-500">
+              <span class="inline-flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                {t(locale, 'checkout.trustNoPayment')}
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                {t(locale, 'checkout.trustWarranty')}
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                {t(locale, 'checkout.trustCallback')}
+              </span>
+            </div>
+            <!-- Általános hibaüzenet -->
+            <div class="hidden mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700" data-form-error></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Jobb: rendelés összesítő -->
+      <aside class="lg:sticky lg:top-24 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-gray-900">{t(locale, 'checkout.orderSummary')}</h2>
+          <a href={cartUrl} class="text-sm text-[#9b6b6b] hover:underline font-medium">{t(locale, 'checkout.edit')}</a>
+        </div>
+        <div class="space-y-3 mb-4" data-summary-items></div>
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between">
+          <span class="text-base font-bold text-gray-900">{t(locale, 'cart.total')}</span>
+          <span class="text-xl font-bold text-gray-900" data-summary-total>0</span>
+        </div>
+        <p class="text-xs text-gray-400 mt-2">{t(locale, 'cart.priceNote')}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Azonnali állapot: form vs. üres kosár (blokkoló, a DOM után) -->
+<script is:inline>
+  (function () {
+    try {
+      var raw = localStorage.getItem('skinlab_cart');
+      var items = raw ? JSON.parse(raw) : [];
+      var hasItems = Array.isArray(items) && items.length > 0;
+      var content = document.querySelector('[data-checkout-content]');
+      var empty = document.querySelector('[data-checkout-empty]');
+      if (hasItems) {
+        if (content) content.style.display = 'grid';
+      } else {
+        if (empty) empty.style.display = '';
+      }
+    } catch (e) {
+      var empty2 = document.querySelector('[data-checkout-empty]');
+      if (empty2) empty2.style.display = '';
+    }
+  })();
+</script>
+
+{turnstileSiteKey && (
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+)}
+
+<script
+  type="application/json"
+  data-checkout-i18n
+  set:html={JSON.stringify({
+    locale,
+    successUrl,
+    priceOnRequest: t(locale, 'cart.priceOnRequest'),
+    quantity: t(locale, 'checkout.email.qty'),
+    submitLabel: t(locale, 'checkout.submit'),
+    submittingLabel: t(locale, 'checkout.submitting'),
+    requiredError: t(locale, 'checkout.requiredError'),
+    validationError: t(locale, 'checkout.validationError'),
+    networkError: t(locale, 'checkout.networkError'),
+    hasTurnstile: !!turnstileSiteKey,
+  })}
+></script>
+
+<script>
+  import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
+
+  // Turnstile globális callbackek
+  declare global {
+    interface Window {
+      onOrderTurnstileSuccess: (token: string) => void;
+      onOrderTurnstileError: () => void;
+      __orderTurnstileToken: string;
+    }
+  }
+  window.__orderTurnstileToken = '';
+  window.onOrderTurnstileSuccess = (token: string) => { window.__orderTurnstileToken = token; };
+  window.onOrderTurnstileError = () => { window.__orderTurnstileToken = ''; };
+
+  function initCheckout() {
+    const form = document.getElementById('order-form') as HTMLFormElement | null;
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = '1';
+
+    const contentEl = document.querySelector<HTMLElement>('[data-checkout-content]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-checkout-empty]');
+    const summaryItems = document.querySelector<HTMLElement>('[data-summary-items]');
+    const summaryTotal = document.querySelector<HTMLElement>('[data-summary-total]');
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit-btn]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+    const submitSpinner = form.querySelector<SVGElement>('[data-submit-spinner]');
+    const formError = form.querySelector<HTMLElement>('[data-form-error]');
+    const startTimeInput = form.querySelector<HTMLInputElement>('[data-form-start]');
+
+    const i18nEl = document.querySelector('[data-checkout-i18n]');
+    const i18n = i18nEl ? JSON.parse(i18nEl.textContent || '{}') : {};
+    const locale: string = i18n.locale || 'hu';
+
+    if (startTimeInput) startTimeInput.value = String(Date.now());
+
+    function escapeHtml(str: string): string {
+      return str.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] || c));
+    }
+
+    function renderSummary() {
+      const summary = getCartSummary();
+      // Üres kosár → üres állapot
+      if (summary.items.length === 0) {
+        if (contentEl) contentEl.style.display = 'none';
+        if (emptyEl) emptyEl.style.display = '';
+        return;
+      }
+      if (contentEl) contentEl.style.display = 'grid';
+      if (emptyEl) emptyEl.style.display = 'none';
+      if (summaryItems) {
+        summaryItems.innerHTML = summary.items
+          .map((item) => {
+            const hasPrice = typeof item.price === 'number';
+            const line = hasPrice
+              ? formatPrice((item.price as number) * item.qty, locale)
+              : (i18n.priceOnRequest || '');
+            const variant = item.variantName
+              ? `<span class="text-gray-400"> · ${escapeHtml(item.variantName)}</span>`
+              : '';
+            return `
+              <div class="flex justify-between gap-3 text-sm">
+                <span class="text-gray-700 min-w-0">
+                  <span class="font-medium">${escapeHtml(item.name)}</span>${variant}
+                  <span class="text-gray-400"> × ${item.qty}</span>
+                </span>
+                <span class="font-semibold text-gray-900 whitespace-nowrap">${line}</span>
+              </div>`;
+          })
+          .join('');
+      }
+      if (summaryTotal) {
+        summaryTotal.textContent =
+          summary.subtotal > 0
+            ? formatPrice(summary.subtotal, locale) + (summary.hasPriceOnRequest ? ' +' : '')
+            : (i18n.priceOnRequest || '');
+      }
+    }
+
+    function clearErrors() {
+      form!.querySelectorAll('[data-error]').forEach((el) => {
+        el.classList.add('hidden');
+        el.textContent = '';
+      });
+      form!.querySelectorAll('input, textarea').forEach((el) => el.classList.remove('border-red-400'));
+      formError?.classList.add('hidden');
+    }
+
+    function showFieldError(field: string, message: string) {
+      const el = form!.querySelector<HTMLElement>(`[data-error="${field}"]`);
+      const input = form!.querySelector<HTMLElement>(`[name="${field}"]`);
+      if (el) {
+        el.textContent = message;
+        el.classList.remove('hidden');
+      }
+      if (input) input.classList.add('border-red-400');
+    }
+
+    function setLoading(loading: boolean) {
+      if (submitBtn) submitBtn.disabled = loading;
+      if (submitLabel) submitLabel.textContent = loading ? (i18n.submittingLabel || '') : (i18n.submitLabel || '');
+      submitSpinner?.classList.toggle('hidden', !loading);
+    }
+
+    form!.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      // Honeypot
+      const honeypot = (form!.querySelector('[name="website"]') as HTMLInputElement)?.value;
+      if (honeypot) return;
+
+      const summary = getCartSummary();
+      if (summary.items.length === 0) {
+        renderSummary();
+        return;
+      }
+
+      // Kötelező mezők kliensoldali ellenőrzése
+      const required = ['lastName', 'firstName', 'email', 'phone', 'country', 'postcode', 'city', 'street'];
+      let hasError = false;
+      for (const f of required) {
+        const input = form!.querySelector<HTMLInputElement>(`[name="${f}"]`);
+        if (!input || !input.value.trim()) {
+          showFieldError(f, i18n.requiredError || '');
+          hasError = true;
+        }
+      }
+      const gdpr = form!.querySelector<HTMLInputElement>('[name="gdpr"]');
+      if (!gdpr || !gdpr.checked) {
+        showFieldError('gdpr', i18n.requiredError || '');
+        hasError = true;
+      }
+      const emailInput = form!.querySelector<HTMLInputElement>('[name="email"]');
+      if (emailInput && emailInput.value.trim() && !emailInput.value.includes('@')) {
+        showFieldError('email', i18n.validationError || '');
+        hasError = true;
+      }
+      if (i18n.hasTurnstile && !window.__orderTurnstileToken) {
+        showFieldError('turnstile', i18n.validationError || '');
+        hasError = true;
+      }
+      if (hasError) {
+        form!.querySelector('.border-red-400')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      setLoading(true);
+
+      const get = (n: string) => (form!.querySelector<HTMLInputElement>(`[name="${n}"]`)?.value || '').trim();
+
+      const payload = {
+        locale,
+        lastName: get('lastName'),
+        firstName: get('firstName'),
+        email: get('email'),
+        phone: get('phone'),
+        company: get('company'),
+        taxNumber: get('taxNumber'),
+        country: get('country'),
+        postcode: get('postcode'),
+        city: get('city'),
+        street: get('street'),
+        notes: (form!.querySelector<HTMLTextAreaElement>('[name="notes"]')?.value || '').trim(),
+        gdpr: true,
+        items: summary.items.map((i) => ({
+          slug: i.slug,
+          sku: i.sku,
+          categorySlug: i.categorySlug,
+          name: i.name,
+          variantName: i.variantName || '',
+          price: i.price,
+          qty: i.qty,
+        })),
+        subtotal: summary.subtotal,
+        hasPriceOnRequest: summary.hasPriceOnRequest,
+        formStartTime: Number(startTimeInput?.value || Date.now()),
+        website: '',
+        turnstileToken: window.__orderTurnstileToken || '',
+        sourceUrl: window.location.href,
+      };
+
+      try {
+        const res = await fetch('/api/order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await res.json().catch(() => ({}));
+
+        if (res.ok && result.success && result.orderId) {
+          clearCart();
+          window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}`;
+          return;
+        }
+
+        // Mezőszintű hibák
+        if (result.errors && typeof result.errors === 'object') {
+          for (const [field, messages] of Object.entries(result.errors as Record<string, string[]>)) {
+            const msg = Array.isArray(messages) ? messages[0] : String(messages);
+            showFieldError(field, msg);
+          }
+        }
+        if (formError) {
+          const code = result.code ? `[${result.code}] ` : '';
+          formError.textContent = code + (result.error || i18n.validationError || '');
+          formError.classList.remove('hidden');
+        }
+        setLoading(false);
+        // Turnstile reset
+        if (window.__orderTurnstileToken) window.__orderTurnstileToken = '';
+        if ((window as any).turnstile) (window as any).turnstile.reset();
+      } catch (err) {
+        if (formError) {
+          formError.textContent = i18n.networkError || 'Network error';
+          formError.classList.remove('hidden');
+        }
+        setLoading(false);
+      }
+    });
+
+    window.addEventListener(CART_EVENTS.updated, renderSummary);
+    renderSummary();
+  }
+
+  initCheckout();
+  document.addEventListener('astro:page-load', initCheckout);
+</script>

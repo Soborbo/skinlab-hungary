@@ -1,0 +1,59 @@
+---
+/**
+ * CartIcon — fejléc kosár ikon + darabszám badge.
+ *
+ * Kattintásra megnyitja a mini-kosár fiókot (CartDrawer) a `cart:open`
+ * eseményen keresztül. A badge a `cart:updated` eseményre frissül.
+ */
+import { t, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<button
+  type="button"
+  class="relative inline-flex items-center justify-center p-2 rounded-lg text-[#645a59] hover:text-[#9b6b6b] hover:bg-black/5 transition-colors"
+  aria-label={t(locale, 'cart.title')}
+  data-cart-icon
+>
+  <svg class="w-5 h-5 lg:w-[22px] lg:h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+  </svg>
+  <span
+    class="hidden absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-[#b5616a] text-white text-[10px] font-bold leading-none"
+    data-cart-badge
+  >0</span>
+</button>
+
+<script>
+  import { getItemCount, openCartDrawer, CART_EVENTS } from '@/lib/cart/store';
+
+  function initCartIcon() {
+    const icons = document.querySelectorAll<HTMLButtonElement>('[data-cart-icon]');
+    if (icons.length === 0) return;
+
+    function updateBadges() {
+      const count = getItemCount();
+      document.querySelectorAll<HTMLElement>('[data-cart-badge]').forEach((badge) => {
+        badge.textContent = String(count);
+        badge.classList.toggle('hidden', count === 0);
+      });
+    }
+
+    icons.forEach((icon) => {
+      if (icon.dataset.bound) return;
+      icon.dataset.bound = '1';
+      icon.addEventListener('click', () => openCartDrawer());
+    });
+
+    window.addEventListener(CART_EVENTS.updated, updateBadges);
+    updateBadges();
+  }
+
+  initCartIcon();
+  document.addEventListener('astro:page-load', initCartIcon);
+</script>

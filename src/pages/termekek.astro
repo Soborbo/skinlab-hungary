@@ -5,6 +5,7 @@ import { CATEGORIES, COMPANY } from '../lib/constants';
 import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../i18n/ui';
 import OptimizedPicture from '../components/images/OptimizedPicture.astro';
 import { hasImage, getImageAlt } from '@/lib/resolve-image';
+import QuickAddButton from '../components/cart/QuickAddButton.astro';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const products = await getCollection('products', ({ data }) => !data.draft);
@@ -39,37 +40,51 @@ const productsByCategory = CATEGORIES.map(cat => ({
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {category.products.slice(0, 4).map((product) => (
-              <a
-                href={getLocalizedUrl(locale, `/${category.slug}/${product.data.slug}`)}
-                class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                  {hasImage(product.data.image) ? (
-                    <OptimizedPicture
-                      src={product.data.image}
-                      alt={getImageAlt(product.data.image, product.data.name)}
-                      widths={[320, 480, 640]}
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div class="w-full h-full flex items-center justify-center">
-                      <span class="text-gray-400">Kép</span>
-                    </div>
-                  )}
+              <div class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <a
+                  href={getLocalizedUrl(locale, `/${category.slug}/${product.data.slug}`)}
+                  class="flex flex-col flex-1"
+                >
+                  <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                    {hasImage(product.data.image) ? (
+                      <OptimizedPicture
+                        src={product.data.image}
+                        alt={getImageAlt(product.data.image, product.data.name)}
+                        widths={[320, 480, 640]}
+                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <span class="text-gray-400">Kép</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="p-4 flex flex-col flex-1">
+                    <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 line-clamp-2">
+                      {product.data.name}
+                    </h3>
+                    {product.data.price && (
+                      <p class="mt-2 text-lg font-bold text-gray-900">
+                        {new Intl.NumberFormat('hu-HU').format(product.data.price)} Ft
+                      </p>
+                    )}
+                  </div>
+                </a>
+                <div class="px-4 pb-4">
+                  <QuickAddButton
+                    locale={locale}
+                    slug={product.data.slug}
+                    sku={product.data.sku}
+                    name={product.data.name}
+                    categorySlug={category.slug}
+                    image={product.data.image}
+                    price={product.data.price}
+                    class="w-full"
+                  />
                 </div>
-                <div class="p-4">
-                  <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 line-clamp-2">
-                    {product.data.name}
-                  </h3>
-                  {product.data.price && (
-                    <p class="mt-2 text-lg font-bold text-gray-900">
-                      {new Intl.NumberFormat('hu-HU').format(product.data.price)} Ft
-                    </p>
-                  )}
-                </div>
-              </a>
+              </div>
             ))}
           </div>
         </section>

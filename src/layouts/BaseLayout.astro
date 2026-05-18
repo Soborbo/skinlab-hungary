@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import TopCtaBar from '../components/layout/TopCtaBar.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
+import CartDrawer from '../components/cart/CartDrawer.astro';
 // WhatsAppButton removed — will be added to bottom CTA later
 import { LCPTracker } from '../components/images';
 import Tracking from '../components/tracking/Tracking.astro';
@@ -182,6 +183,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <Footer />
   <MobileStickyCta />
   {!hideDesktopWidget && <DesktopContactWidget />}
+  <CartDrawer />
 <LCPTracker />
 <slot name="body-end" />
 </body>
