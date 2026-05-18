@@ -17,10 +17,33 @@ import type {
   BillingoSendPayload,
 } from './types';
 import { BillingoApiError, executeBillingoRequest, type BillingoConfig } from './client';
+import { isEuCountry, resolveCountryCode } from './partners';
+import type { BillingoVat } from './types';
 
 const PROFORMA_DUE_DAYS = 8;
-const DEFAULT_VAT = '27%' as const;
 const DEFAULT_UNIT = 'db';
+
+/**
+ * Order-szintű ÁFA kulcs eldöntése a számlázási ország + adószám alapján.
+ *
+ *   HU                            → '27%'   (belföldi)
+ *   EU-tag + van adószám (B2B)    → 'EU'    (reverse charge / fordított adózás)
+ *   EU-tag B2C                    → '27%'   (HU OSS-szabály — a 10k EUR küszöb alatt
+ *                                            HU ÁFA; nagyobb forgalomnál külön rendezni!)
+ *   EU-n kívüli (CH, GB, NO …)    → 'EUK'   (Európán/EU-n kívüli export)
+ *   Ismeretlen ország             → '27%'   (konzervatív; jobb HU ÁFA-t fizetni, mint
+ *                                            csendben rosszul számlázni)
+ */
+export function resolveVatCode(country: string, taxNumber: string | undefined): BillingoVat {
+  const cc = resolveCountryCode(country);
+  if (!cc) return '27%';
+  if (cc === 'HU') return '27%';
+  const hasTaxNumber = !!(taxNumber && taxNumber.trim() !== '');
+  if (isEuCountry(cc)) {
+    return hasTaxNumber ? 'EU' : '27%';
+  }
+  return 'EUK';
+}
 const SHIPPING_FEE_ITEM_NAME = {
   hu: 'Szállítási díj',
   en: 'Shipping fee',
@@ -54,7 +77,7 @@ function addDaysIso(base: Date, days: number): string {
  * Dob, ha bármelyik tétel egységára null (ár egyeztetés alatt) — a hívó
  * (generateProforma) ezt a `hasPriceOnRequest` flaggel előzetesen kiszűri.
  */
-function mapItem(orderItem: OrderEmailItem, orderId: string): BillingoDocumentItem {
+function mapItem(orderItem: OrderEmailItem, orderId: string, vat: BillingoVat): BillingoDocumentItem {
   if (orderItem.unitPrice === null) {
     throw new BillingoApiError({
       code: 'BILLINGO-MAP-001',
@@ -70,7 +93,7 @@ function mapItem(orderItem: OrderEmailItem, orderId: string): BillingoDocumentIt
     unit_price_type: 'gross',
     quantity: orderItem.qty,
     unit: DEFAULT_UNIT,
-    vat: DEFAULT_VAT,
+    vat,
     item_comment: orderItem.sku || undefined,
   };
 }
@@ -90,6 +113,7 @@ export function buildProformaPayload(opts: {
 }): BillingoDocumentCreate {
   const { order, partnerId, config, language } = opts;
   const today = new Date();
+  const vat = resolveVatCode(order.country, order.taxNumber);
   return {
     partner_id: partnerId,
     block_id: config.blockId,
@@ -102,7 +126,7 @@ export function buildProformaPayload(opts: {
     currency: 'HUF',
     electronic: false,
     paid: false,
-    items: order.items.map((it) => mapItem(it, order.orderId)),
+    items: order.items.map((it) => mapItem(it, order.orderId, vat)),
     comment: `Rendelésszám: ${order.orderId}${order.notes ? ` — ${order.notes}` : ''}`,
   };
 }

@@ -11,7 +11,9 @@ import { getEnvValue } from '@/lib/order/env';
 
 const DEFAULT_API_URL = 'https://api.billingo.hu/v3';
 const REQUEST_TIMEOUT_MS = 15_000;
-const RETRY_DELAYS_MS = [1_000, 3_000, 9_000];
+// Retry backoff. Sum kept ~6s so worst-case wall clock stays well within the
+// Cloudflare Workers 30s limit (was [1000, 3000, 9000] = 13s sleep alone).
+const RETRY_DELAYS_MS = [500, 1_500, 4_000];
 
 export interface BillingoConfig {
   apiKey: string;

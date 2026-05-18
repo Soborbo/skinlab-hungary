@@ -44,49 +44,106 @@ export function buildPartnerPayload(order: OrderEmailInput, fullDisplayName: str
   return payload;
 }
 
+/** EU member states (ISO-3166-1 alpha-2). */
+const EU_COUNTRIES = new Set<string>([
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR',
+  'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL',
+  'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE',
+]);
+
 /**
  * ISO-3166-1 alpha-2 kód az ország mezőből.
  *
- * A megrendelési form jelenleg szabad szöveges országot fogad (pl. "Magyarország",
- * "Hungary", "HU"). A leggyakoribb középeurópai elnevezéseket fedjük le; ami
- * nincs benne, default `HU`. A Billingo elfogadja az `HU` alapértelmezést.
+ * A megrendelési form szabad szöveges országot fogad (pl. "Magyarország",
+ * "Hungary", "HU"). A leggyakoribb európai elnevezéseket fedjük le. Ami nincs
+ * benne, `null`-t adunk vissza — a hívó vagy default HU-t használ (Billingo
+ * partner létrehozáshoz), vagy a VAT logika `UNKNOWN`-ként kezeli.
  */
-function deriveCountryCode(country: string): string {
+export function deriveCountryCode(country: string): string {
+  const looked = lookupCountryCode(country);
+  // Billingo partner létrehozáshoz kötelező az országkód; HU az úzlet székhelye.
+  return looked ?? 'HU';
+}
+
+/** Ugyanaz mint `deriveCountryCode`, de ismeretlennél `null`. VAT döntéshez. */
+export function resolveCountryCode(country: string): string | null {
+  return lookupCountryCode(country);
+}
+
+export function isEuCountry(countryCode: string | null | undefined): boolean {
+  return !!countryCode && EU_COUNTRIES.has(countryCode.toUpperCase());
+}
+
+function lookupCountryCode(country: string): string | null {
   const trimmed = country.trim();
-  if (trimmed.length === 2) {
+  if (trimmed.length === 2 && /^[A-Za-z]{2}$/.test(trimmed)) {
     return trimmed.toUpperCase();
   }
   const lower = trimmed.toLowerCase();
   const lookup: Record<string, string> = {
-    'magyarország': 'HU',
-    'magyar': 'HU',
-    hungary: 'HU',
-    szlovákia: 'SK',
-    slovakia: 'SK',
-    'slovenská republika': 'SK',
-    románia: 'RO',
-    romania: 'RO',
-    'românia': 'RO',
-    németország: 'DE',
-    germany: 'DE',
-    deutschland: 'DE',
-    ausztria: 'AT',
-    austria: 'AT',
-    'österreich': 'AT',
-    csehország: 'CZ',
-    czechia: 'CZ',
-    'česká republika': 'CZ',
-    horvátország: 'HR',
-    croatia: 'HR',
-    hrvatska: 'HR',
-    szerbia: 'RS',
-    serbia: 'RS',
-    srbija: 'RS',
-    szlovénia: 'SI',
-    slovenia: 'SI',
-    slovenija: 'SI',
+    // HU
+    'magyarország': 'HU', magyar: 'HU', hungary: 'HU',
+    // SK
+    szlovákia: 'SK', slovakia: 'SK', 'slovenská republika': 'SK', slovensko: 'SK',
+    // RO
+    románia: 'RO', romania: 'RO', 'românia': 'RO',
+    // DE
+    németország: 'DE', germany: 'DE', deutschland: 'DE',
+    // AT
+    ausztria: 'AT', austria: 'AT', 'österreich': 'AT',
+    // CZ
+    csehország: 'CZ', czechia: 'CZ', 'česká republika': 'CZ', 'czech republic': 'CZ', cesko: 'CZ',
+    // HR
+    horvátország: 'HR', croatia: 'HR', hrvatska: 'HR',
+    // RS (non-EU!)
+    szerbia: 'RS', serbia: 'RS', srbija: 'RS',
+    // SI
+    szlovénia: 'SI', slovenia: 'SI', slovenija: 'SI',
+    // PL
+    lengyelország: 'PL', poland: 'PL', polska: 'PL',
+    // NL
+    hollandia: 'NL', netherlands: 'NL', nederland: 'NL', 'the netherlands': 'NL', holland: 'NL',
+    // BE
+    belgium: 'BE', belgique: 'BE', belgië: 'BE',
+    // FR
+    franciaország: 'FR', france: 'FR',
+    // IT
+    olaszország: 'IT', italy: 'IT', italia: 'IT',
+    // ES
+    spanyolország: 'ES', spain: 'ES', 'españa': 'ES', espana: 'ES',
+    // PT
+    portugália: 'PT', portugal: 'PT',
+    // SE
+    svédország: 'SE', sweden: 'SE', sverige: 'SE',
+    // DK
+    dánia: 'DK', denmark: 'DK', danmark: 'DK',
+    // FI
+    finnország: 'FI', finland: 'FI', suomi: 'FI',
+    // IE
+    írország: 'IE', ireland: 'IE', éire: 'IE', eire: 'IE',
+    // BG
+    bulgária: 'BG', bulgaria: 'BG',
+    // GR
+    görögország: 'GR', greece: 'GR', hellas: 'GR',
+    // LT
+    litvánia: 'LT', lithuania: 'LT', lietuva: 'LT',
+    // LV
+    lettország: 'LV', latvia: 'LV', latvija: 'LV',
+    // EE
+    észtország: 'EE', estonia: 'EE', eesti: 'EE',
+    // LU
+    luxemburg: 'LU', luxembourg: 'LU',
+    // MT
+    málta: 'MT', malta: 'MT',
+    // CY
+    ciprus: 'CY', cyprus: 'CY',
+    // Non-EU near
+    svájc: 'CH', switzerland: 'CH', schweiz: 'CH', suisse: 'CH',
+    'egyesült királyság': 'GB', 'united kingdom': 'GB', 'great britain': 'GB', uk: 'GB',
+    'norvégia': 'NO', norway: 'NO', norge: 'NO',
+    ukrajna: 'UA', ukraine: 'UA',
   };
-  return lookup[lower] ?? 'HU';
+  return lookup[lower] ?? null;
 }
 
 /**
