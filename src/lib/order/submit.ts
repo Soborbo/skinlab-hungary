@@ -13,6 +13,7 @@ import type { OrderEnv } from './env';
 import { getEnvValue } from './env';
 import { buildCustomerEmail, buildAdminEmail, type OrderEmailInput } from './email';
 import { appendOrderRow } from './sheets';
+import { generateProforma, type BillingoProformaResult } from '@/lib/billingo';
 import { CONTACT } from '@/lib/constants';
 import { localeConfig } from '@/i18n/ui';
 
@@ -20,6 +21,8 @@ export interface OrderResult {
   success: boolean;
   error?: string;
   code?: string;
+  /** Billingo díjbekérő eredménye — null, ha nem futott le (skip vagy hiba). */
+  proforma?: BillingoProformaResult;
 }
 
 interface ResendEmailOptions {
@@ -140,25 +143,45 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
       return false;
     });
 
-  const [adminOk, customerOk, sheetsOk] = await Promise.all([
+  // 4. Billingo díjbekérő (4. tartós csatorna)
+  //    - Skip: ár egyeztetés alatt vagy 0 Ft-os rendelés esetén
+  //    - Hiba esetén: logolt + folytatás, nem akadályozza a sikeres rendelést
+  //    - Siker esetén: Billingo közvetlenül emailezi a vevőnek a SimplePay
+  //      gombbal együtt; a proforma maga a fizetési link
+  const proformaPromise = generateProforma(input, env);
+
+  const [adminOk, customerOk, sheetsOk, proformaResult] = await Promise.all([
     adminPromise,
     customerPromise,
     sheetsPromise,
+    proformaPromise,
   ]);
 
   if (!customerOk) {
     console.warn('[order] Customer confirmation email failed for', input.orderId);
   }
 
-  // A rendelés akkor sikeres, ha legalább egy tartós csatorna működött
-  if (adminOk || sheetsOk) {
-    return { success: true };
+  if (proformaResult.success) {
+    console.info(
+      '[order] billingo proforma generated:',
+      input.orderId,
+      '→',
+      proformaResult.proformaNumber,
+      `(email: ${proformaResult.emailSent ? 'sent' : 'failed'})`,
+    );
   }
 
-  console.error('[order] CRITICAL: admin email AND sheets both failed for', input.orderId);
+  // Siker, ha legalább egy tartós csatorna működött — Billingo most már az is
+  const billingoOk = proformaResult.success;
+  if (adminOk || sheetsOk || billingoOk) {
+    return { success: true, proforma: proformaResult };
+  }
+
+  console.error('[order] CRITICAL: admin email, sheets AND billingo all failed for', input.orderId);
   return {
     success: false,
     error: 'A megrendelést nem sikerült rögzíteni. Kérjük, próbálja újra, vagy hívjon minket.',
     code: 'ORDER-PERSIST-001',
+    proforma: proformaResult,
   };
 }

@@ -188,11 +188,19 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 9. Siker
-    return new Response(JSON.stringify({ success: true, orderId }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    // 9. Siker — proforma státusz visszaadva, hogy a success page jelezhesse
+    //    a vevőnek, várjon-e külön fizetési e-mailre
+    const proformaStatus = result.proforma?.success
+      ? { sent: true as const, number: result.proforma.proformaNumber }
+      : { sent: false as const };
+
+    return new Response(
+      JSON.stringify({ success: true, orderId, proforma: proformaStatus }),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error('[SRV-FUNC-001] /api/order top-level exception:', message, err);

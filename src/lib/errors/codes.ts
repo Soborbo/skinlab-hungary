@@ -403,6 +403,25 @@ export const PROJECT_CODES: Record<string, ErrorCodeDef> = {
   'ORDER-SPAM-001':    { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Order beküldés spam-szűrőn fennakadt (honeypot / time-check)', requiredContext: ['formId'] },
   'ORDER-TURN-001':    { severity: 'WARN',     retryable: true,  userImpact: 'blocked',  message: 'Order Turnstile ellenőrzés sikertelen', requiredContext: ['formId'] },
   'ORDER-PERSIST-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'degraded', message: 'Order nem rögzült — admin e-mail ÉS Sheets is sikertelen', requiredContext: ['orderId'] },
+
+  // Billingo díjbekérő flow (src/lib/billingo)
+  'BILLINGO-CFG-001':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_API_KEY hiányzik — díjbekérő nem generálódik', requiredContext: ['varName'] },
+  'BILLINGO-CFG-002':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_BLOCK_ID hiányzik', requiredContext: ['varName'] },
+  'BILLINGO-CFG-003':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_BANK_ACCOUNT_ID hiányzik', requiredContext: ['varName'] },
+  'BILLINGO-SKIP-001':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva — ár egyeztetés alatt tétel van a rendelésben', requiredContext: ['orderId'] },
+  'BILLINGO-SKIP-002':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva — nulla összegű rendelés', requiredContext: ['orderId'] },
+  'BILLINGO-AUTH-001':     { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'Billingo API kulcs elutasítva (401/403)', requiredContext: ['statusCode'] },
+  'BILLINGO-RATE-001':     { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Billingo API rate limit (429)', requiredContext: ['statusCode', 'retryAfter'] },
+  'BILLINGO-NET-001':      { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Billingo API nem elérhető (network)', requiredContext: ['errorMessage'] },
+  'BILLINGO-NET-002':      { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Billingo API timeout', requiredContext: ['durationMs'] },
+  'BILLINGO-SRV-001':      { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Billingo 5xx szerver hiba', requiredContext: ['statusCode'] },
+  'BILLINGO-PARTNER-001':  { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Partner upsert hibás payload (4xx)', requiredContext: ['statusCode', 'errorBody'] },
+  'BILLINGO-PARTNER-002':  { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Partner upsert exception', requiredContext: ['orderId', 'errorMessage'] },
+  'BILLINGO-DOC-001':      { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Díjbekérő create hibás payload (4xx)', requiredContext: ['statusCode', 'errorBody'] },
+  'BILLINGO-DOC-002':      { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Díjbekérő create exception', requiredContext: ['orderId', 'errorMessage'] },
+  'BILLINGO-EMAIL-001':    { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Díjbekérő e-mail küldés sikertelen — proforma létrejött', requiredContext: ['proformaId'] },
+  'BILLINGO-LOCALE-001':   { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Locale nem támogatott Billingo-ban — fallback nyelv', requiredContext: ['requested', 'fallback'] },
+  'BILLINGO-MAP-001':      { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Tétel egységár hiányzik a proforma generálásnál', requiredContext: ['orderId', 'sku'] },
 };
 
 // ============================================================
