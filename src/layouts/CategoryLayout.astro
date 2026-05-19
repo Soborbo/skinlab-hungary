@@ -19,6 +19,27 @@ interface ComparisonProduct {
   specs: Record<string, string>;
 }
 
+interface ChoiceWhen {
+  title: string;
+  description: string;
+}
+
+interface Choice {
+  name: string;
+  subtitle: string;
+  tagline?: string;
+  image: string;
+  imageAlt?: string;
+  intro: string;
+  pillars?: string[];
+  whenTitle?: string;
+  when?: ChoiceWhen[];
+  notes?: string[];
+  closing?: string;
+  link: string;
+  ctaLabel?: string;
+}
+
 interface Props {
   category: {
     name: string;
@@ -36,9 +57,28 @@ interface Props {
     features: string[];
     products: ComparisonProduct[];
   };
+  choices?: Choice[];
+  choicesHeading?: string;
+  choicesSubheading?: string;
+  choicesIntro?: string;
+  choicesClosing?: string;
 }
 
-const { category, products = [], faq = [], benefits = [], comparison } = Astro.props;
+const {
+  category,
+  products = [],
+  faq = [],
+  benefits = [],
+  comparison,
+  choices = [],
+  choicesHeading,
+  choicesSubheading,
+  choicesIntro,
+  choicesClosing,
+} = Astro.props;
+
+const hasChoices = choices.length > 0;
+const showChoicesSection = hasChoices || (comparison && comparison.products.length > 0);
 
 // SVG icon paths for benefit icons (replaces emojis)
 const benefitIcons: Record<string, string> = {
@@ -314,15 +354,120 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       </div>
     </section>
 
-    <!-- Comparison Table (optional) -->
-    {comparison && comparison.products.length > 0 && (
+    <!-- "Melyiket válaszd?" — rich choices + comparison table (optional) -->
+    {showChoicesSection && (
       <section class="bg-white py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-10">
-            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">Melyiket válaszd?</h2>
-            <p class="text-gray-600">Hasonlítsd össze a modelleket egy pillantással</p>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{choicesHeading || 'Melyiket válaszd?'}</h2>
+            <p class="text-gray-600">{choicesSubheading || 'Hasonlítsd össze a modelleket egy pillantással'}</p>
+            {choicesIntro && (
+              <p class="text-gray-700 max-w-3xl mx-auto mt-6 text-base lg:text-lg leading-relaxed">{choicesIntro}</p>
+            )}
           </div>
 
+          {hasChoices && (
+            <div class="space-y-16 lg:space-y-24 mb-16 lg:mb-20">
+              {choices.map((choice, idx) => (
+                <article class={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${idx % 2 === 1 ? 'lg:[&>.choice-image]:order-2' : ''}`}>
+                  <div class="choice-image">
+                    <div class="relative aspect-square rounded-3xl overflow-hidden flex items-center justify-center p-6 lg:p-10" style={`background: linear-gradient(135deg, ${catColor.accentLight} 0%, white 70%)`}>
+                      <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-30" style={`background-color: ${accentColor}`} aria-hidden="true"></div>
+                      <OptimizedPicture
+                        src={choice.image}
+                        alt={choice.imageAlt || `${choice.name} diódalézer`}
+                        widths={[480, 640, 800]}
+                        sizes="(min-width: 1024px) 40vw, 90vw"
+                        class="relative z-10 w-full h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="choice-content">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                      <span style={`color: ${accentDark}`}>{choice.name}</span>
+                      <span class="text-gray-500 font-semibold text-2xl lg:text-3xl"> — {choice.subtitle}</span>
+                    </h3>
+                    {choice.tagline && (
+                      <p class="italic text-lg text-gray-600 mb-5 border-l-2 pl-4" style={`border-color: ${accentColor}`}>„{choice.tagline}"</p>
+                    )}
+                    <p class="text-gray-700 leading-relaxed mb-5">{choice.intro}</p>
+
+                    {choice.pillars && choice.pillars.length > 0 && (
+                      <ul class="space-y-2 mb-6">
+                        {choice.pillars.map((pillar) => (
+                          <li class="flex items-start gap-2 text-gray-700">
+                            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>{pillar}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {choice.when && choice.when.length > 0 && (
+                      <div class="mb-6">
+                        {choice.whenTitle && (
+                          <h4 class="text-lg font-bold text-gray-900 mb-3">{choice.whenTitle}</h4>
+                        )}
+                        <ol class="space-y-3">
+                          {choice.when.map((item, i) => (
+                            <li class="flex gap-3">
+                              <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white" style={`background-color: ${accentDark}`}>{i + 1}</span>
+                              <div>
+                                <div class="font-semibold text-gray-900">{item.title}</div>
+                                <div class="text-gray-600 text-sm leading-relaxed">{item.description}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+
+                    {choice.notes && choice.notes.length > 0 && (
+                      <div class="space-y-3 mb-6 text-gray-700 leading-relaxed">
+                        {choice.notes.map((note) => (
+                          <p>{note}</p>
+                        ))}
+                      </div>
+                    )}
+
+                    {choice.closing && (
+                      <p class="text-gray-900 font-semibold italic mb-6">{choice.closing}</p>
+                    )}
+
+                    <a
+                      href={choice.link}
+                      class="inline-flex items-center gap-2 font-semibold px-5 py-3 rounded-xl text-white shadow-sm hover:shadow-md transition-all"
+                      style={`background-color: ${accentDark}`}
+                    >
+                      {choice.ctaLabel || `${choice.name} részletei`}
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+
+          {choicesClosing && (
+            <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+              <p class="text-lg text-gray-700 leading-relaxed">{choicesClosing}</p>
+            </div>
+          )}
+        </div>
+
+        {comparison && comparison.products.length > 0 && (
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {hasChoices && (
+            <div class="text-center mb-8">
+              <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2">Műszaki összehasonlítás</h3>
+              <p class="text-gray-600">Egy pillantás alatt a fő paraméterek</p>
+            </div>
+          )}
           <div class="overflow-x-auto">
             <table class="w-full min-w-[700px]">
               <thead>
@@ -401,6 +546,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             </a>
           </div>
         </div>
+        )}
       </section>
     )}
 

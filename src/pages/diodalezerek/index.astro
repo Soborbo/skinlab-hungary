@@ -63,7 +63,7 @@ const comparison = {
   products: [
     {
       name: 'ATHENA',
-      tag: 'Okos szoftver',
+      tag: 'Kontroll & precizitás',
       tagColor: 'purple',
       link: '/diodalezerek/athena',
       specs: {
@@ -72,7 +72,7 @@ const comparison = {
         'Teljesítmény': '1000W',
         'Spotméret': 'Fix zafír kontakt',
         'Hűtés': 'TEC + víz + levegő',
-        'Ajánlott': 'Költséghatékony belépő pro',
+        'Ajánlott': 'Stabil belépő pro, kiegészítő szolgáltatás',
       },
     },
     {
@@ -87,7 +87,7 @@ const comparison = {
         'Teljesítmény': '1200W',
         'Spotméret': '5 állítható méret',
         'Hűtés': 'TEC + víz + levegő',
-        'Ajánlott': 'Növekvő szalonok, tempó + kontroll',
+        'Ajánlott': 'Tempó + kontroll, rugalmas szalonmunka',
       },
     },
     {
@@ -106,6 +106,130 @@ const comparison = {
     },
   ],
 };
+
+const choicesIntro = 'Nem három gép. Három különböző szemlélet. Mindhárom ugyanarra készült: valódi, reális és észlelhető eredményt adni — válaszd azt az erőt, ami hozzád illik.';
+
+const choicesClosing = 'Mi a közös bennük? Mindhárom valódi, nyomon követhető teljesítmény — nem üres marketing. Nem egy gépet választasz, hanem egy szemléletet.';
+
+const choices = [
+  {
+    name: 'ATHENA',
+    subtitle: 'a kontroll és precizitás',
+    tagline: 'A tudásból születő erő.',
+    image: '@assets/products/athena-1.png',
+    imageAlt: 'ATHENA 1000W diódalézer',
+    intro: 'Athena nem a nyers erő istennője volt, hanem a stratégia, a pontosság és a tudatos működés jelképe. Az ATHENA diódalézer ezt képviseli — és bölcsességére is számíthatsz: okos szoftvere automatikusan segít megállapítani, melyik bőr- és szőrtípus milyen beállításon kezelhető. Athena ott van melletted, és segít.',
+    pillars: [
+      'stabil működés',
+      'kiszámítható eredmények',
+      'minden helyzetben kontroll',
+    ],
+    whenTitle: 'Mikor válaszd az ATHENA-t?',
+    when: [
+      {
+        title: 'Ha fontos a költséghatékonyság',
+        description: 'Egy olyan gépet keresel, ami nem túlzás, hanem okosan felépített befektetés.',
+      },
+      {
+        title: 'Ha más szolgáltatás mellé építenéd be',
+        description: 'Kozmetikusként, bőrápolási kezelések mellett egy stabil, megbízható kiegészítő szolgáltatást szeretnél.',
+      },
+      {
+        title: 'Ha biztonsági játékos vagy',
+        description: 'Nem kísérletezni akarsz, hanem egy kiszámíthatóan működő rendszert, ami hozza, amit kell.',
+      },
+    ],
+    notes: [
+      'Akkor is jó választás, ha erre építenéd a vállalkozásod? Igen. Az 1000W kimeneti teljesítmény bőven elegendő a professzionális szintű munkavégzéshez és látványos eredményekhez.',
+      'Az átlag diódalézerek többsége 600W körül működik — a 1000W gyorsabb munkavégzést, nagyobb hatékonyságot, stabilabb működést és kényelmesebb kezeléseket jelent.',
+    ],
+    closing: 'ATHENA. A nőies erő és precizitás harmóniája.',
+    link: '/diodalezerek/athena',
+    ctaLabel: 'ATHENA részletei',
+  },
+  {
+    name: 'OLYMPIA',
+    subtitle: 'a győztes teljesítmény',
+    tagline: 'Ahol a teljesítmény győz.',
+    image: '@assets/products/olympia-1.png',
+    imageAlt: 'OLYMPIA 1200W diódalézer',
+    intro: 'Olympia az a hely volt, ahol csak a legjobbak számítottak — nem az, ki honnan jött, hanem hogy mit tud valójában. Nem voltak kifogások, csak eredmények. A 1200W kimeneti teljesítmény már nem átlag: ez az a szint, ahol a kezelések felgyorsulnak, és az eredmények kiszámíthatóvá válnak. Az 5 állítható spotméret pedig valódi kuriózum — precíz munka kisebb területeken, gyors haladás nagy felületeken.',
+    pillars: [
+      'gyorsabb kezelések',
+      'hatékonyabb munkavégzés',
+      'rugalmas alkalmazkodás minden vendéghez',
+    ],
+    whenTitle: 'Mikor válaszd az OLYMPIA-t?',
+    when: [
+      {
+        title: 'Ha erős gépet keresel reális áron',
+        description: 'A 1200W már az a szint, ahol nem kell „okoskodni" a kezeléseknél — egyszerűen működik, gyorsan és hatékonyan.',
+      },
+      {
+        title: 'Ha tempót akarsz, de kontrollal',
+        description: 'Nem csak haladni szeretnél, hanem jól dolgozni. Az 5 spotméret precizitás + sebesség egyben — és az okos kezelőrendszer melletted áll.',
+      },
+      {
+        title: 'Ha fejlődni akarsz, de tudatosan',
+        description: 'Nem a legdrágább gépet keresed, hanem azt, ami valóban megtérül, miközben minőségi és megbízható társ a kezelések terén.',
+      },
+      {
+        title: 'Ha fontos a rugalmasság',
+        description: 'Különböző vendégek, különböző területek — az OLYMPIA minden helyzethez alkalmazkodik.',
+      },
+    ],
+    notes: [
+      'Az OLYMPIA nagyon erős, mégis elérhető — okos rendszerrel, kiváló európai ár-érték aránnyal.',
+    ],
+    closing: '„Μολὼν λαβέ" — Gyere és vedd el! /Leonidász/',
+    link: '/diodalezerek/olympia',
+    ctaLabel: 'OLYMPIA részletei',
+  },
+  {
+    name: 'HELIOS',
+    subtitle: 'a fény valódi ereje',
+    tagline: 'Erő, fény és könyörtelen pontosság.',
+    image: '@assets/products/helios-1.png',
+    imageAlt: 'HELIOS 1600W diódalézer',
+    intro: 'Helios a görög mitológiában a Nap istene. Ő az, aki minden nap fényt hoz, mindent lát, és semmi nem marad rejtve előle. Egy 1600W-os kimeneti teljesítménynél nincs szükség magyarázkodásra — ahogy Helios sem kérdezte soha, elég fényt hoz-e a világba. Minden hajnalban elindult aranyszekerén, csendesen, mégis megállíthatatlanul.',
+    pillars: [
+      'mélyebbre hat a szőrtüszőben',
+      'hatékonyabb energialeadás',
+      'rövidebb kezelési idők',
+    ],
+    whenTitle: 'Kinek való igazán?',
+    when: [
+      {
+        title: 'Ha már nem kezdő szinten gondolkodsz',
+        description: 'Olyan rendszert akarsz, ami nem lassít, hanem visz előre — és nem kell hozzá alkalmazkodnod.',
+      },
+      {
+        title: 'Ha tempót és bevételt akarsz növelni',
+        description: 'A nagyobb teljesítmény gyorsabb látványos eredményt ad, gyakran kevesebb ismétléssel — a vendég hamarabb elégedett.',
+      },
+      {
+        title: 'Ha mást is csinálsz mellette',
+        description: 'Arckezelések, testkezelések, komplex kozmetika? A nagy teljesítmény és az állítható spotok miatt rövidebb a kezelési idő, így könnyen beilleszthető a napodba.',
+      },
+      {
+        title: 'Ha a felső kategóriát keresed',
+        description: '600–800W = belépő/átlag, 1000–1200W = erős, 1600W = felső kategória. A HELIOS prémium klinikai szintű rendszer.',
+      },
+    ],
+    closing: 'A HELIOS azoknak való, akik nem kapaszkodnak a határokba, hanem átlépik őket.',
+    link: '/diodalezerek/helios',
+    ctaLabel: 'HELIOS részletei',
+  },
+];
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  faq={faq}
+  comparison={comparison}
+  choices={choices}
+  choicesIntro={choicesIntro}
+  choicesClosing={choicesClosing}
+/>
