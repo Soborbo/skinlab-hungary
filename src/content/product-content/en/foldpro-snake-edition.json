@@ -5,10 +5,28 @@
   "metaTitle": "Dragonhawk Fold Pro Snake Edition – Wireless professional tattoo machine",
   "metaDescription": "The Dragonhawk Fold Pro wireless tattoo machine with 3000 mAh battery, adjustable stroke length, ideal for both lining and shading.",
   "stats": [
-    { "value": "3000", "unit": "mAh", "label": "Battery", "icon": "zap" },
-    { "value": "2.4–4.2", "unit": "mm", "label": "Adjustable stroke", "icon": "award" },
-    { "value": "Pro", "label": "Quality", "icon": "shield" },
-    { "value": "Snake", "label": "Limited edition design", "icon": "layers" }
+    {
+      "value": "3000",
+      "unit": "mAh",
+      "label": "Battery",
+      "icon": "zap"
+    },
+    {
+      "value": "2.4–4.2",
+      "unit": "mm",
+      "label": "Adjustable stroke",
+      "icon": "award"
+    },
+    {
+      "value": "Pro",
+      "label": "Quality",
+      "icon": "shield"
+    },
+    {
+      "value": "Snake",
+      "label": "Limited edition design",
+      "icon": "layers"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +106,8 @@
   "expertQuote": {
     "quote": "The Fold Pro is one of Dragonhawk's most powerful tattoo machines. The 2.4–4.2 mm stroke length range and 3000 mAh battery combination is an excellent choice for professionals.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Battery": "3000 mAh",

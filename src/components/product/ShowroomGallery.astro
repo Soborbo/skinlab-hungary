@@ -1,0 +1,393 @@
+---
+/**
+ * ShowroomGallery - Masonry képgaléria a showroom CTA-hoz, natív arányokkal.
+ *
+ * - Forrás: src/assets/showroom/{slug}/*.jpg (pre-optimalizálva avif/webp/jpg-re)
+ * - Desktop: CSS multi-column masonry — minden tile a kép natív arányában
+ * - Mobil: vízszintes scroll-snap karusszel peek-kel, natív arány
+ * - Hover: scale + 3D tilt + magnifier overlay
+ * - Reveal: stagger fade-up IntersectionObserver-rel (reduced-motion barát)
+ * - Lightbox: vanilla JS, keyboard / swipe / tap nav, counter
+ */
+import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
+import manifest from '@/lib/image-manifest.json';
+
+interface Props {
+  /** Product slug — determines which subfolder of @assets/showroom/ is loaded. */
+  slug: string;
+  /** Optional caption shown above the grid. */
+  eyebrow?: string;
+}
+
+const { slug, eyebrow } = Astro.props;
+
+const manifestData = manifest as Record<string, { seoSlug: string; alt: string; basePath: string; width: number; height: number; widths: number[] }>;
+
+const SHOWROOM_PREFIX = `@assets/showroom/${slug}/`;
+const SHOWROOM_KEYS = Object.keys(manifestData)
+  .filter(k => k.startsWith(SHOWROOM_PREFIX))
+  .sort();
+
+// Per-index reveal delay + tilt. Span/layout no longer needed — the
+// masonry preserves each image's native aspect ratio.
+const TILT_PRESETS: Array<[number, number]> = [
+  [2, -3], [-2, 2], [3, -2], [-3, 3],
+  [2, 3], [-2, -3], [3, 2], [-2, 2],
+  [2, -2], [-3, -2], [2, 3], [-2, 3],
+];
+
+const tiles = SHOWROOM_KEYS.map((key, i) => {
+  const entry = manifestData[key];
+  return {
+    key,
+    entry,
+    aspectRatio: `${entry.width} / ${entry.height}`,
+    tilt: TILT_PRESETS[i % TILT_PRESETS.length],
+    delay: i * 60,
+    index: i,
+  };
+});
+---
+
+{tiles.length > 0 && (
+  <section
+    class="showroom-gallery mt-8"
+    aria-label="Showroom képek"
+    data-gallery-count={tiles.length}
+  >
+    {eyebrow && (
+      <p class="text-center text-xs font-semibold tracking-widest uppercase text-primary-700/70 mb-4">
+        {eyebrow}
+      </p>
+    )}
+
+    <div
+      class="showroom-grid relative gap-2 sm:gap-3
+             flex md:block
+             md:columns-2 lg:columns-3 xl:columns-4
+             snap-x snap-mandatory overflow-x-auto md:overflow-visible
+             -mx-4 sm:mx-0 px-4 sm:px-0 pb-2 md:pb-0"
+    >
+      {tiles.map(({ key, entry, aspectRatio, tilt, delay, index }) => (
+        <button
+          type="button"
+          class="showroom-tile group relative overflow-hidden rounded-xl bg-gray-200 outline-none
+                 shrink-0 snap-center w-[80%] md:w-full
+                 md:block md:break-inside-avoid md:mb-2 lg:mb-3
+                 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+          data-index={index}
+          data-fullsrc={`${entry.basePath}-${entry.widths[entry.widths.length - 1]}w.jpg`}
+          data-alt={entry.alt}
+          style={`--tilt-x:${tilt[0]}deg; --tilt-y:${tilt[1]}deg; --reveal-delay:${delay}ms; aspect-ratio:${aspectRatio};`}
+          aria-label={`${entry.alt} – nagyítás`}
+        >
+          <OptimizedPicture
+            src={key}
+            alt={entry.alt}
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 80vw"
+            class="showroom-tile__img absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+
+          <!-- Soft gradient veil -->
+          <span
+            class="pointer-events-none absolute inset-0
+                   bg-gradient-to-t from-black/40 via-black/0 to-black/0
+                   opacity-60 group-hover:opacity-30 transition-opacity duration-500"
+            aria-hidden="true"
+          ></span>
+
+          <!-- Magnifier badge -->
+          <span
+            class="pointer-events-none absolute top-3 right-3 inline-flex items-center gap-1.5
+                   px-2.5 py-1.5 rounded-full bg-white/90 backdrop-blur text-gray-900
+                   text-xs font-semibold shadow-md
+                   translate-y-2 opacity-0
+                   group-hover:translate-y-0 group-hover:opacity-100
+                   transition-all duration-300 ease-out"
+            aria-hidden="true"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <path stroke-linecap="round" d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+            </svg>
+            Nagyíts
+          </span>
+
+          <!-- Glow corner accent -->
+          <span
+            class="pointer-events-none absolute -top-12 -left-12 w-32 h-32 rounded-full
+                   bg-primary-400/30 blur-2xl
+                   opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            aria-hidden="true"
+          ></span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Mobile hint -->
+    <p class="md:hidden mt-3 text-center text-xs text-gray-500">
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7M3 12h18" />
+        </svg>
+        Húzd oldalra a több képért
+      </span>
+    </p>
+
+    <!-- Lightbox -->
+    <div
+      class="showroom-lightbox fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Showroom kép nagyítva"
+    >
+      <button
+        type="button"
+        class="showroom-lightbox__close absolute top-4 right-4 z-10 inline-flex items-center justify-center
+               w-11 h-11 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Bezárás"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        class="showroom-lightbox__prev absolute left-2 sm:left-6 z-10 inline-flex items-center justify-center
+               w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Előző"
+      >
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        class="showroom-lightbox__next absolute right-2 sm:right-6 z-10 inline-flex items-center justify-center
+               w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        aria-label="Következő"
+      >
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <figure class="showroom-lightbox__stage relative max-w-[92vw] max-h-[88vh] w-full h-full flex items-center justify-center">
+        <img
+          class="showroom-lightbox__img max-w-full max-h-[82vh] rounded-lg shadow-2xl object-contain
+                 transition-[opacity,transform] duration-300"
+          alt=""
+        />
+        <figcaption class="showroom-lightbox__counter absolute -bottom-8 left-1/2 -translate-x-1/2
+                          text-white/80 text-sm tabular-nums tracking-wider"></figcaption>
+      </figure>
+    </div>
+  </section>
+)}
+
+<style>
+  /* Reveal animation */
+  .showroom-tile {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    transition: opacity 700ms ease-out, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+    perspective: 800px;
+  }
+  .showroom-tile.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Hover/focus: lift + 3D tilt + brightness */
+  .showroom-tile__img {
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), filter 400ms ease-out;
+    transform-origin: center;
+    will-change: transform, filter;
+  }
+  .showroom-tile:hover .showroom-tile__img,
+  .showroom-tile:focus-visible .showroom-tile__img {
+    transform: scale(1.08) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    filter: saturate(1.1) brightness(1.04);
+  }
+
+  /* Subtle continuous "breathing" on the first tile as an invitation */
+  .showroom-tile:nth-child(1) .showroom-tile__img {
+    animation: showroom-breathe 9s ease-in-out infinite;
+  }
+  @keyframes showroom-breathe {
+    0%, 100% { transform: scale(1.0); }
+    50%      { transform: scale(1.04); }
+  }
+  .showroom-tile:nth-child(1):hover .showroom-tile__img {
+    animation: none;
+  }
+
+  /* Mobile horizontal carousel: hide scrollbar */
+  @media (max-width: 767px) {
+    .showroom-grid {
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .showroom-grid::-webkit-scrollbar { display: none; }
+  }
+
+  /* Lightbox visibility */
+  .showroom-lightbox.is-open {
+    display: flex;
+    animation: showroom-fade 200ms ease-out;
+  }
+  @keyframes showroom-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .showroom-lightbox__img.is-loading {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .showroom-tile,
+    .showroom-tile__img {
+      transition: none !important;
+      animation: none !important;
+    }
+    .showroom-tile { opacity: 1; transform: none; }
+    .showroom-tile:hover .showroom-tile__img,
+    .showroom-tile:focus-visible .showroom-tile__img {
+      transform: scale(1.02);
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const galleries = document.querySelectorAll<HTMLElement>('.showroom-gallery');
+    if (!galleries.length) return;
+
+    galleries.forEach(gallery => {
+      const tiles = Array.from(gallery.querySelectorAll<HTMLButtonElement>('.showroom-tile'));
+      const lightbox = gallery.querySelector<HTMLElement>('.showroom-lightbox');
+      const lbImg = lightbox?.querySelector<HTMLImageElement>('.showroom-lightbox__img');
+      const lbCounter = lightbox?.querySelector<HTMLElement>('.showroom-lightbox__counter');
+      const btnPrev = lightbox?.querySelector<HTMLButtonElement>('.showroom-lightbox__prev');
+      const btnNext = lightbox?.querySelector<HTMLButtonElement>('.showroom-lightbox__next');
+      const btnClose = lightbox?.querySelector<HTMLButtonElement>('.showroom-lightbox__close');
+
+      // ── Reveal on scroll ─────────────────────────────────────────────
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          entries => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }
+        );
+        tiles.forEach(t => io.observe(t));
+      } else {
+        tiles.forEach(t => t.classList.add('is-visible'));
+      }
+
+      // ── Pointer-driven tilt (desktop fine pointers only) ─────────────
+      const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (fine) {
+        tiles.forEach(tile => {
+          const img = tile.querySelector<HTMLElement>('.showroom-tile__img');
+          if (!img) return;
+          tile.addEventListener('pointermove', (ev: PointerEvent) => {
+            const r = tile.getBoundingClientRect();
+            const px = (ev.clientX - r.left) / r.width - 0.5;   // -0.5..0.5
+            const py = (ev.clientY - r.top) / r.height - 0.5;
+            const ry = px * 8;   // deg
+            const rx = -py * 8;
+            img.style.transform = `scale(1.08) rotateX(${rx}deg) rotateY(${ry}deg)`;
+          });
+          tile.addEventListener('pointerleave', () => {
+            img.style.transform = '';
+          });
+        });
+      }
+
+      // ── Lightbox ────────────────────────────────────────────────────
+      if (!lightbox || !lbImg || !btnPrev || !btnNext || !btnClose) return;
+
+      const items = tiles.map(t => ({
+        src: t.getAttribute('data-fullsrc') || '',
+        alt: t.getAttribute('data-alt') || '',
+      }));
+      let current = 0;
+      let lastFocus: HTMLElement | null = null;
+
+      const openLightbox = (index: number) => {
+        lastFocus = document.activeElement as HTMLElement;
+        current = index;
+        showCurrent();
+        lightbox.classList.add('is-open');
+        document.documentElement.style.overflow = 'hidden';
+        btnNext.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        document.documentElement.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') {
+          lastFocus.focus();
+        }
+      };
+
+      const showCurrent = () => {
+        const item = items[current];
+        if (!item) return;
+        lbImg.classList.add('is-loading');
+        lbImg.src = item.src;
+        lbImg.alt = item.alt;
+        if (lbCounter) lbCounter.textContent = `${current + 1} / ${items.length}`;
+        // Strip loading state once image is ready
+        if (lbImg.complete) {
+          requestAnimationFrame(() => lbImg.classList.remove('is-loading'));
+        } else {
+          lbImg.onload = () => lbImg.classList.remove('is-loading');
+        }
+      };
+
+      const next = () => { current = (current + 1) % items.length; showCurrent(); };
+      const prev = () => { current = (current - 1 + items.length) % items.length; showCurrent(); };
+
+      tiles.forEach((t, i) => t.addEventListener('click', () => openLightbox(i)));
+      btnClose.addEventListener('click', closeLightbox);
+      btnNext.addEventListener('click', next);
+      btnPrev.addEventListener('click', prev);
+      lightbox.addEventListener('click', (ev) => {
+        if (ev.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (ev: KeyboardEvent) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (ev.key === 'Escape') closeLightbox();
+        else if (ev.key === 'ArrowRight') next();
+        else if (ev.key === 'ArrowLeft') prev();
+      });
+
+      // Touch swipe
+      let touchStartX = 0;
+      let touchEndX = 0;
+      lightbox.addEventListener('touchstart', (ev: TouchEvent) => {
+        touchStartX = ev.changedTouches[0].screenX;
+      }, { passive: true });
+      lightbox.addEventListener('touchend', (ev: TouchEvent) => {
+        touchEndX = ev.changedTouches[0].screenX;
+        const dx = touchEndX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+        if (dx < 0) next(); else prev();
+      }, { passive: true });
+    });
+  })();
+</script>

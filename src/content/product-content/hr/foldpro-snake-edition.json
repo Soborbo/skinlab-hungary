@@ -5,10 +5,28 @@
   "metaTitle": "Dragonhawk Fold Pro Snake Edition – Bežični profesionalni stroj za tetoviranje",
   "metaDescription": "Dragonhawk Fold Pro bežični stroj za tetoviranje s baterijom od 3000 mAh, podesivom duljinom hoda, idealan za konture i sjenčanje.",
   "stats": [
-    { "value": "3000", "unit": "mAh", "label": "Baterija", "icon": "zap" },
-    { "value": "2,4–4,2", "unit": "mm", "label": "Podesivi hod", "icon": "award" },
-    { "value": "Pro", "label": "Kvaliteta", "icon": "shield" },
-    { "value": "Snake", "label": "Limitirani dizajn", "icon": "layers" }
+    {
+      "value": "3000",
+      "unit": "mAh",
+      "label": "Baterija",
+      "icon": "zap"
+    },
+    {
+      "value": "2,4–4,2",
+      "unit": "mm",
+      "label": "Podesivi hod",
+      "icon": "award"
+    },
+    {
+      "value": "Pro",
+      "label": "Kvaliteta",
+      "icon": "shield"
+    },
+    {
+      "value": "Snake",
+      "label": "Limitirani dizajn",
+      "icon": "layers"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +106,8 @@
   "expertQuote": {
     "quote": "Fold Pro je jedan od najsnažnijih Dragonhawk strojeva za tetoviranje. Kombinacija raspona duljine hoda od 2,4–4,2 mm i baterije od 3000 mAh izvrstan je izbor za profesionalce.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Akkumulátor": "3000 mAh",

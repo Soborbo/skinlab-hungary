@@ -5,12 +5,32 @@
   "metaTitle": "NeoLaser Smart+ – Android ND:YAG Laser for Tattoo and Pigment Treatment",
   "metaDescription": "The NeoLaser Smart+ smart YAG laser with Android system, 13.3\" touchscreen, built-in cooling. Tattoo and pigment removal, carbon peeling, skin rejuvenation.",
   "stats": [
-    { "value": "4", "label": "Wavelengths", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. energy", "icon": "zap" },
-    { "value": "13.3\"", "label": "Touchscreen", "icon": "layers" },
-    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+    {
+      "value": "4",
+      "label": "Wavelengths",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Max. energy",
+      "icon": "zap"
+    },
+    {
+      "value": "13.3\"",
+      "label": "Touchscreen",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "yr",
+      "label": "Warranty",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "Neo Laser Smart+ – The smart laser that thinks for you",
     "paragraphs": [
@@ -98,15 +118,40 @@
   "expertQuote": {
     "quote": "The Neo Laser Smart+ is the pinnacle of intelligent laser technology: Android control, 4 wavelengths and built-in handpiece cooling. This device was made for the salons of the future.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Tattoo removal", "description": "Effective removal of all tattoo colours at 1064 nm and 532 nm wavelengths" },
-    { "icon": "sun", "name": "Pigment spot treatment", "description": "Treatment of freckles, sun spots, age spots at 755 nm wavelength" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Deep skin cleansing, pore tightening with the 1320 nm handpiece" },
-    { "icon": "droplet", "name": "Skin rejuvenation", "description": "Skin rejuvenation, collagen stimulation and skin tone evening" },
-    { "icon": "eye", "name": "Permanent makeup removal", "description": "Precise correction and removal of eyebrow and lip permanent makeup" },
-    { "icon": "snowflake", "name": "Built-in cooling", "description": "Unique handpiece cooling for pain-free treatments" }
+    {
+      "icon": "zap",
+      "name": "Tattoo removal",
+      "description": "Effective removal of all tattoo colours at 1064 nm and 532 nm wavelengths"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigment spot treatment",
+      "description": "Treatment of freckles, sun spots, age spots at 755 nm wavelength"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Deep skin cleansing, pore tightening with the 1320 nm handpiece"
+    },
+    {
+      "icon": "droplet",
+      "name": "Skin rejuvenation",
+      "description": "Skin rejuvenation, collagen stimulation and skin tone evening"
+    },
+    {
+      "icon": "eye",
+      "name": "Permanent makeup removal",
+      "description": "Precise correction and removal of eyebrow and lip permanent makeup"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Built-in cooling",
+      "description": "Unique handpiece cooling for pain-free treatments"
+    }
   ],
   "faq": [
     {

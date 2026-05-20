@@ -5,10 +5,30 @@
   "metaTitle": "MAST Nano 2 permanent makeup machine – Lightweight, quiet, and precise",
   "metaDescription": "66 g compact permanent makeup machine for professional and beginner use. Minimal vibration, precise eyelid work, powerful and reliable performance.",
   "stats": [
-    { "value": "66", "unit": "g", "label": "Ultra-light", "icon": "layers" },
-    { "value": "2.7", "unit": "mm", "label": "Stroke length", "icon": "zap" },
-    { "value": "10000", "unit": "RPM", "label": "Motor speed", "icon": "award" },
-    { "value": "18.8", "unit": "mm", "label": "Diameter", "icon": "clock" }
+    {
+      "value": "66",
+      "unit": "g",
+      "label": "Ultra-light",
+      "icon": "layers"
+    },
+    {
+      "value": "2.7",
+      "unit": "mm",
+      "label": "Stroke length",
+      "icon": "zap"
+    },
+    {
+      "value": "10000",
+      "unit": "RPM",
+      "label": "Motor speed",
+      "icon": "award"
+    },
+    {
+      "value": "18.8",
+      "unit": "mm",
+      "label": "Diameter",
+      "icon": "clock"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +108,8 @@
   "expertQuote": {
     "quote": "The Mast Nano 2 is the master of eyelid work. The combination of 66-gram weight and minimal vibration is unique in this price category.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Weight": "66 g",

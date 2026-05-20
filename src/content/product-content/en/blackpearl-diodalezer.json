@@ -5,12 +5,32 @@
   "metaTitle": "BLACK PEARL Diode Laser | 500W, 4 wavelengths, portable",
   "metaDescription": "Black Pearl compact diode laser with 4 wavelengths (755, 808, 940, 1064 nm). 500W, 12 kg, -5°C cooling. Ideal for mobile services. 2-year warranty.",
   "stats": [
-    { "value": "500", "unit": "W", "label": "Power", "icon": "zap" },
-    { "value": "4", "label": "Wavelengths", "icon": "wave" },
-    { "value": "12", "unit": "kg", "label": "Device weight", "icon": "layers" },
-    { "value": "-5°C", "label": "Cooling", "icon": "heart" }
+    {
+      "value": "500",
+      "unit": "W",
+      "label": "Power",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Wavelengths",
+      "icon": "wave"
+    },
+    {
+      "value": "12",
+      "unit": "kg",
+      "label": "Device weight",
+      "icon": "layers"
+    },
+    {
+      "value": "-5°C",
+      "label": "Cooling",
+      "icon": "heart"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "BLACK PEARL – Compact power, maximum efficiency",
     "paragraphs": [
@@ -113,15 +133,40 @@
   "expertQuote": {
     "quote": "The Black Pearl is an ideal entry-level professional diode laser. The 4 wavelengths, compact size, and skin rejuvenation function offer excellent value for money – especially for mobile beauticians and new salons.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "500W power", "description": "Effective treatments in a compact size." },
-    { "icon": "sun", "name": "4 wavelengths", "description": "755, 808, 940, 1064 nm – for all skin types." },
-    { "icon": "snowflake", "name": "-5°C cooling", "description": "Quad cooling system for painless treatments." },
-    { "icon": "sparkles", "name": "Skin rejuvenation", "description": "Tightening, pore reduction, tone improvement." },
-    { "icon": "brain", "name": "Intelligent modes", "description": "HR Preset and Professional operating modes." },
-    { "icon": "layers", "name": "12 kg, compact", "description": "Lightweight, portable design." }
+    {
+      "icon": "zap",
+      "name": "500W power",
+      "description": "Effective treatments in a compact size."
+    },
+    {
+      "icon": "sun",
+      "name": "4 wavelengths",
+      "description": "755, 808, 940, 1064 nm – for all skin types."
+    },
+    {
+      "icon": "snowflake",
+      "name": "-5°C cooling",
+      "description": "Quad cooling system for painless treatments."
+    },
+    {
+      "icon": "sparkles",
+      "name": "Skin rejuvenation",
+      "description": "Tightening, pore reduction, tone improvement."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligent modes",
+      "description": "HR Preset and Professional operating modes."
+    },
+    {
+      "icon": "layers",
+      "name": "12 kg, compact",
+      "description": "Lightweight, portable design."
+    }
   ],
   "faq": [
     {

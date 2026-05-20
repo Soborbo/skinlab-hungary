@@ -14,7 +14,7 @@
  * - Per-variant image sets (when variantImageSets is provided)
  */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
-import { normalizeImagePath, getImageEntry, hasImage } from '@/lib/resolve-image';
+import { getImageEntry, hasImage } from '@/lib/resolve-image';
 
 interface VariantImageSet {
   value: string;
@@ -108,18 +108,11 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
             </button>
 
             {/* Badges */}
-            {(badges?.featured || badges?.variantCount) && setIndex === 0 && (
+            {badges?.variantCount && badges.variantCount > 1 && setIndex === 0 && (
               <div class="absolute top-4 left-4 flex flex-col gap-2 pointer-events-none">
-                {badges.featured && (
-                  <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    BESTSELLER
-                  </span>
-                )}
-                {badges.variantCount && badges.variantCount > 1 && (
-                  <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    {badges.variantCount} variáció
-                  </span>
-                )}
+                <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  {badges.variantCount} variáció
+                </span>
               </div>
             )}
 
@@ -339,18 +332,11 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
         )}
 
         {/* Badges */}
-        {(badges?.featured || badges?.variantCount) && (
+        {badges?.variantCount && badges.variantCount > 1 && (
           <div class="absolute top-4 left-4 flex flex-col gap-2 pointer-events-none">
-            {badges.featured && (
-              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                BESTSELLER
-              </span>
-            )}
-            {badges.variantCount && badges.variantCount > 1 && (
-              <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                {badges.variantCount} variáció
-              </span>
-            )}
+            <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+              {badges.variantCount} variáció
+            </span>
           </div>
         )}
 

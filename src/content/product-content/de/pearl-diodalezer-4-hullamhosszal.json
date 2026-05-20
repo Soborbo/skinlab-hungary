@@ -5,12 +5,32 @@
   "metaTitle": "PEARL Diodenlaser | 500W, 4 Wellenlängen, tragbar",
   "metaDescription": "Pearl kompakter Diodenlaser mit 4 Wellenlängen (755, 808, 940, 1064 nm). 500W, 12 kg, -5°C Kühlung, Hautverjüngungsmodus. Ideal für Einsteiger. 2 Jahre Garantie.",
   "stats": [
-    { "value": "500", "unit": "W", "label": "Leistung", "icon": "zap" },
-    { "value": "4", "label": "Wellenlängen", "icon": "wave" },
-    { "value": "12", "unit": "kg", "label": "Gerätegewicht", "icon": "layers" },
-    { "value": "-5°C", "label": "Kühlung", "icon": "heart" }
+    {
+      "value": "500",
+      "unit": "W",
+      "label": "Leistung",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "12",
+      "unit": "kg",
+      "label": "Gerätegewicht",
+      "icon": "layers"
+    },
+    {
+      "value": "-5°C",
+      "label": "Kühlung",
+      "icon": "heart"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "PEARL – Kompakter Diodenlaser mit professionellen Ergebnissen",
     "paragraphs": [
@@ -19,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Haben Sie Fragen zum Pearl? Wir helfen Ihnen gerne!", "buttonLabel": "Beratung anfordern", "phoneLabel": "Rufen Sie uns an" },
-    "afterFeatures": { "headline": "Möchten Sie den Pearl persönlich sehen?", "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie ihn persönlich!", "buttonLabel": "Termin buchen" },
-    "final": { "headline": "Interessiert am PEARL Diodenlaser?", "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.", "buttonLabel": "Beratung anfordern" }
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum Pearl? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie den Pearl persönlich sehen?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie ihn persönlich!",
+      "buttonLabel": "Termin buchen"
+    },
+    "final": {
+      "headline": "Interessiert am PEARL Diodenlaser?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+      "buttonLabel": "Beratung anfordern"
+    }
   },
   "featureRows": {
     "headline": "Warum den Pearl wählen?",
@@ -79,26 +111,88 @@
     "ctaText": "Ich interessiere mich für die Schulung"
   },
   "testimonials": [
-    { "name": "Molnár Vivien", "date": "2025. 09. 12.", "text": "Mein erster Diodenlaser und <mark>ich bin sehr zufrieden mit dem Pearl</mark>. Der HR Preset Modus hilft sehr, da er die Parameter automatisch einstellt. Leicht, klein, und meine Kundinnen lieben die Ergebnisse.", "rating": 5 },
-    { "name": "Lakatos Fruzsina", "date": "2025. 08. 03.", "text": "Als mobile Kosmetikerin suchte ich ein leicht transportierbares Gerät. <mark>Der Pearl mit 12 Kilo ist perfekt</mark>, und die 4 Wellenlängen funktionieren überall. Der Hautverjüngungsmodus ist auch ein großer Favorit bei meinen Kundinnen.", "rating": 5 },
-    { "name": "Beauty Point Szombathely", "date": "2025. 07. 18.", "text": "Ausgezeichnetes Preis-Leistungs-Verhältnis! <mark>Der Pearl bietet die gleichen 4 Wellenlängen wie teurere Geräte</mark>, und die Kühlung ist auch perfekt. Ideal als Zweitgerät für den Salon.", "rating": 5 }
+    {
+      "name": "Molnár Vivien",
+      "date": "2025. 09. 12.",
+      "text": "Mein erster Diodenlaser und <mark>ich bin sehr zufrieden mit dem Pearl</mark>. Der HR Preset Modus hilft sehr, da er die Parameter automatisch einstellt. Leicht, klein, und meine Kundinnen lieben die Ergebnisse.",
+      "rating": 5
+    },
+    {
+      "name": "Lakatos Fruzsina",
+      "date": "2025. 08. 03.",
+      "text": "Als mobile Kosmetikerin suchte ich ein leicht transportierbares Gerät. <mark>Der Pearl mit 12 Kilo ist perfekt</mark>, und die 4 Wellenlängen funktionieren überall. Der Hautverjüngungsmodus ist auch ein großer Favorit bei meinen Kundinnen.",
+      "rating": 5
+    },
+    {
+      "name": "Beauty Point Szombathely",
+      "date": "2025. 07. 18.",
+      "text": "Ausgezeichnetes Preis-Leistungs-Verhältnis! <mark>Der Pearl bietet die gleichen 4 Wellenlängen wie teurere Geräte</mark>, und die Kühlung ist auch perfekt. Ideal als Zweitgerät für den Salon.",
+      "rating": 5
+    }
   ],
-  "expertQuote": { "quote": "Der Pearl ist die ideale Wahl für alle, die professionelle Diodenlaser-Haarentfernung zu einem günstigen Preis anbieten möchten. Die 4 Wellenlängen, kompakte Größe und Hautverjüngungsfunktion machen ihn zu einem hervorragenden Einsteigergerät.", "author": "Horváth László", "role": "Technischer Experte" },
+  "expertQuote": {
+    "quote": "Der Pearl ist die ideale Wahl für alle, die professionelle Diodenlaser-Haarentfernung zu einem günstigen Preis anbieten möchten. Die 4 Wellenlängen, kompakte Größe und Hautverjüngungsfunktion machen ihn zu einem hervorragenden Einsteigergerät.",
+    "author": "Horváth László",
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
+  },
   "functionCards": [
-    { "icon": "zap", "name": "500W Leistung", "description": "Effektive Behandlungen in kompakter Größe." },
-    { "icon": "sun", "name": "4 Wellenlängen", "description": "755, 808, 940, 1064 nm – für alle Hauttypen." },
-    { "icon": "snowflake", "name": "-5°C Kühlung", "description": "Vierfach-Kühlsystem für komfortable Behandlungen." },
-    { "icon": "sparkles", "name": "Hautverjüngung", "description": "Straffung, Porenverkleinerung, Tonusverbesserung." },
-    { "icon": "brain", "name": "Intelligente Modi", "description": "HR Preset und Professional Betriebsmodi." },
-    { "icon": "layers", "name": "12 kg, tragbar", "description": "Leichtes, kompaktes Design." }
+    {
+      "icon": "zap",
+      "name": "500W Leistung",
+      "description": "Effektive Behandlungen in kompakter Größe."
+    },
+    {
+      "icon": "sun",
+      "name": "4 Wellenlängen",
+      "description": "755, 808, 940, 1064 nm – für alle Hauttypen."
+    },
+    {
+      "icon": "snowflake",
+      "name": "-5°C Kühlung",
+      "description": "Vierfach-Kühlsystem für komfortable Behandlungen."
+    },
+    {
+      "icon": "sparkles",
+      "name": "Hautverjüngung",
+      "description": "Straffung, Porenverkleinerung, Tonusverbesserung."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligente Modi",
+      "description": "HR Preset und Professional Betriebsmodi."
+    },
+    {
+      "icon": "layers",
+      "name": "12 kg, tragbar",
+      "description": "Leichtes, kompaktes Design."
+    }
   ],
   "faq": [
-    { "question": "Was ist der Unterschied zwischen Pearl und Black Pearl?", "answer": "Pearl und Black Pearl haben identische technische Daten (500W, 4 Wellenlängen, 12 kg, -5°C Kühlung). Der Unterschied liegt im Aussehen – der Pearl ist weiß, der Black Pearl in schwarzer Ausführung." },
-    { "question": "Ist er für Anfängerinnen geeignet?", "answer": "Ja! Der HR Preset Modus stellt die Parameter automatisch basierend auf Hauttyp, Haarfarbe und Dichte ein, sodass auch Anfängerinnen sicher arbeiten können." },
-    { "question": "Welche Behandlungsmodi sind verfügbar?", "answer": "Drei Modi: HR Preset (automatisch, für Anfänger), HR Professional (frei einstellbare Fluenz 0–60 J/cm², Frequenz 1–10 Hz) und Hautverjüngungsmodus (Straffung, Porenverkleinerung)." },
-    { "question": "Wie schnell amortisiert er sich?", "answer": "Durchschnittlich in 2-3 Monaten bei 4-6 Kunden pro Tag. Nutzen Sie unseren ROI-Rechner auf der Seite für genaue Berechnungen!" },
-    { "question": "Welche Garantie erhalte ich?", "answer": "2 Jahre Vollgarantie. Wir verfügen über einen eigenen Servicehintergrund und stellen während Reparaturen ein Ersatzgerät bereit." },
-    { "question": "Ist er für mobile Dienste geeignet?", "answer": "Ja! Der Pearl wiegt nur 12 kg, ist leicht transportierbar und funktioniert mit 220V/50Hz oder 110V/60Hz." }
+    {
+      "question": "Was ist der Unterschied zwischen Pearl und Black Pearl?",
+      "answer": "Pearl und Black Pearl haben identische technische Daten (500W, 4 Wellenlängen, 12 kg, -5°C Kühlung). Der Unterschied liegt im Aussehen – der Pearl ist weiß, der Black Pearl in schwarzer Ausführung."
+    },
+    {
+      "question": "Ist er für Anfängerinnen geeignet?",
+      "answer": "Ja! Der HR Preset Modus stellt die Parameter automatisch basierend auf Hauttyp, Haarfarbe und Dichte ein, sodass auch Anfängerinnen sicher arbeiten können."
+    },
+    {
+      "question": "Welche Behandlungsmodi sind verfügbar?",
+      "answer": "Drei Modi: HR Preset (automatisch, für Anfänger), HR Professional (frei einstellbare Fluenz 0–60 J/cm², Frequenz 1–10 Hz) und Hautverjüngungsmodus (Straffung, Porenverkleinerung)."
+    },
+    {
+      "question": "Wie schnell amortisiert er sich?",
+      "answer": "Durchschnittlich in 2-3 Monaten bei 4-6 Kunden pro Tag. Nutzen Sie unseren ROI-Rechner auf der Seite für genaue Berechnungen!"
+    },
+    {
+      "question": "Welche Garantie erhalte ich?",
+      "answer": "2 Jahre Vollgarantie. Wir verfügen über einen eigenen Servicehintergrund und stellen während Reparaturen ein Ersatzgerät bereit."
+    },
+    {
+      "question": "Ist er für mobile Dienste geeignet?",
+      "answer": "Ja! Der Pearl wiegt nur 12 kg, ist leicht transportierbar und funktioniert mit 220V/50Hz oder 110V/60Hz."
+    }
   ],
   "whatsIncluded": [
     "PEARL Diodenlaser-Gerät",

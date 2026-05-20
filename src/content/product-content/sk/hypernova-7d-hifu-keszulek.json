@@ -5,12 +5,32 @@
   "metaTitle": "HYPERNOVA 7D HIFU prístroj | Ultrazvuk + RF + EMS | Skinlab Hungary",
   "metaDescription": "HYPERNOVA 7D HIFU: fokusovaný ultrazvuk, rádiová frekvencia a EMS v jednom. Neinvazívny lifting tváre, rozklad tukov, formovanie tela. CE certifikácia, 12 mesiacov záruka.",
   "stats": [
-    { "value": "3", "label": "Technológie v jednom", "icon": "layers" },
-    { "value": "7D", "label": "HIFU technológia", "icon": "zap" },
-    { "value": "650", "unit": "W", "label": "Výkon", "icon": "bolt" },
-    { "value": "12", "unit": "mesiacov", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Technológie v jednom",
+      "icon": "layers"
+    },
+    {
+      "value": "7D",
+      "label": "HIFU technológia",
+      "icon": "zap"
+    },
+    {
+      "value": "650",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "bolt"
+    },
+    {
+      "value": "12",
+      "unit": "mesiacov",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HYPERNOVA – nová generácia neinvazívneho formovania tela a omladenia pokožky",
     "paragraphs": [
@@ -119,7 +139,8 @@
   "expertQuote": {
     "quote": "7D HIFU technológia je jednou z najúčinnejších neinvazívnych metód v oblasti liftingu tváre a formovania tela. HYPERNOVA kombinuje fokusovaný ultrazvuk s RF a EMS, čím ponúka taký komplexný ošetrovací potenciál, aký bol predtým dostupný len s viacerými prístrojmi.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

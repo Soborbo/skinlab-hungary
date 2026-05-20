@@ -11,6 +11,8 @@
 import type { Locale } from '@/i18n';
 import { t, getLocalizedUrl } from '@/i18n';
 import { CONTACT } from '@/lib/constants';
+import ShowroomGallery from '@/components/product/ShowroomGallery.astro';
+import imageManifest from '@/lib/image-manifest.json';
 
 interface Props {
   locale: Locale;
@@ -21,6 +23,9 @@ interface Props {
   buttonLabel?: string;
   phoneLabel?: string;
   showPhone?: boolean;
+  /** Product slug — if set on an "accent" variant, the showroom gallery is
+   *  rendered when @assets/showroom/{slug}/ has photos in the manifest. */
+  productSlug?: string;
 }
 
 const {
@@ -31,7 +36,14 @@ const {
   subtitle,
   buttonLabel,
   showPhone = true,
+  productSlug,
 } = Astro.props;
+
+// Show gallery only when the product has its own showroom photos.
+const hasShowroomPhotos = productSlug
+  ? Object.keys(imageManifest as Record<string, unknown>)
+      .some(k => k.startsWith(`@assets/showroom/${productSlug}/`))
+  : false;
 
 const contactUrl = getLocalizedUrl(locale, '/konzultacio');
 
@@ -82,6 +94,12 @@ const displayPhone = t(locale, 'cta.defaultPhone');
         )}
       </div>
     </div>
+
+    {hasShowroomPhotos && productSlug && (
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ShowroomGallery slug={productSlug} eyebrow="Pillanatképek az érdi showroomból" />
+      </div>
+    )}
   </div>
 )}
 

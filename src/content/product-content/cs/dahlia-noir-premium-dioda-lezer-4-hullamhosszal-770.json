@@ -5,12 +5,32 @@
   "metaTitle": "DAHLIA NOIR Diodový laser | COHERENT čipy, 50M výstřelů, 4 vlnové délky",
   "metaDescription": "DAHLIA NOIR prémiový diodový laser s USA COHERENT čipy. 4 vlnové délky, 50M výstřelů, 120 J/cm², 13,3\" displej. Luxusní vzhled, profesionální výsledky.",
   "stats": [
-    { "value": "50M", "label": "Životnost výstřelů", "icon": "clock" },
-    { "value": "4", "label": "Vlnové délky", "icon": "wave" },
-    { "value": "120", "unit": "J/cm²", "label": "Max. energie", "icon": "zap" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "50M",
+      "label": "Životnost výstřelů",
+      "icon": "clock"
+    },
+    {
+      "value": "4",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "120",
+      "unit": "J/cm²",
+      "label": "Max. energie",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "DAHLIA NOIR – Kde se setkává inovace, efektivita a elegance",
     "paragraphs": [
@@ -108,15 +128,40 @@
   "expertQuote": {
     "quote": "DAHLIA NOIR s USA COHERENT čipy a životností 50 milionů výstřelů je vynikající investice. Luxusní provedení a maximální energie 120 J/cm² z něj činí ideální volbu pro prémiové salony.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "clock", "name": "50M výstřelů", "description": "S americkými COHERENT čipy, dlouhá životnost." },
-    { "icon": "sun", "name": "4 vlnové délky", "description": "755, 808, 940, 1064 nm – pro všechny typy pleti." },
-    { "icon": "zap", "name": "120 J/cm²", "description": "Vynikající hustota energie pro efektivní ošetření." },
-    { "icon": "snowflake", "name": "5vrstvé chlazení", "description": "Polovodič + voda + vzduch + safír + TEC." },
-    { "icon": "eye", "name": "13.3\" displej", "description": "Velký dotykový displej pro pohodlné ovládání." },
-    { "icon": "sparkles", "name": "Luxusní provedení", "description": "Prémiový vzhled pro každý salon." }
+    {
+      "icon": "clock",
+      "name": "50M výstřelů",
+      "description": "S americkými COHERENT čipy, dlouhá životnost."
+    },
+    {
+      "icon": "sun",
+      "name": "4 vlnové délky",
+      "description": "755, 808, 940, 1064 nm – pro všechny typy pleti."
+    },
+    {
+      "icon": "zap",
+      "name": "120 J/cm²",
+      "description": "Vynikající hustota energie pro efektivní ošetření."
+    },
+    {
+      "icon": "snowflake",
+      "name": "5vrstvé chlazení",
+      "description": "Polovodič + voda + vzduch + safír + TEC."
+    },
+    {
+      "icon": "eye",
+      "name": "13.3\" displej",
+      "description": "Velký dotykový displej pro pohodlné ovládání."
+    },
+    {
+      "icon": "sparkles",
+      "name": "Luxusní provedení",
+      "description": "Prémiový vzhled pro každý salon."
+    }
   ],
   "faq": [
     {

@@ -41,7 +41,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
 
 <header class="sticky top-0 z-50 shadow-lg">
   {isHomePage && <div class="hidden md:block h-[30px]" style="background: linear-gradient(to right, #e9d5d6, #ecd8d7);"></div>}
-  <div class="bg-[#f9f4f1]">
+  <div class="bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14 lg:h-16">
 
@@ -112,7 +112,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
         <!-- CTA Button -->
         <a
           href={contactLink}
-          class="inline-flex items-center px-5 lg:px-6 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md hover:shadow-lg"
+          class="inline-flex items-center px-5 lg:px-6 py-2.5 bg-cta text-white font-semibold text-sm rounded-xl hover:bg-cta-hover transition-colors shadow-md hover:shadow-lg"
         >
           {t(locale, 'header.freeConsultation')}
         </a>
@@ -340,7 +340,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
           <!-- CTA button -->
           <a
             href={contactLink}
-            class="mobile-menu-item flex items-center justify-center gap-2 w-full py-3.5 bg-[#9b6b6b] text-white font-semibold rounded-2xl hover:bg-[#8a5c5c] transition-colors shadow-lg shadow-[#9b6b6b]/20"
+            class="mobile-menu-item flex items-center justify-center gap-2 w-full py-3.5 bg-cta text-white font-semibold rounded-2xl hover:bg-cta-hover transition-colors shadow-lg shadow-cta/20"
             style="--item-index: 5"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -5,12 +5,32 @@
   "metaTitle": "EvoSculpt Smart 4 HIEMT | Modelování postavy se 4 hlavicemi | Skinlab Hungary",
   "metaDescription": "EvoSculpt Smart 4: modelování postavy HIFEM se 4 hlavicemi. Ošetření 2 klientek současně, 8500W, 20 000 kontrakcí/30 min. Dvojnásobná kapacita, dvojnásobný příjem.",
   "stats": [
-    { "value": "4", "label": "Ošetřovací hlavice", "icon": "zap" },
-    { "value": "2", "label": "Klientky současně", "icon": "zap" },
-    { "value": "30", "unit": "min", "label": "Doba ošetření", "icon": "clock" },
-    { "value": "8500", "unit": "W", "label": "Výkon", "icon": "wave" }
+    {
+      "value": "4",
+      "label": "Ošetřovací hlavice",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "label": "Klientky současně",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Doba ošetření",
+      "icon": "clock"
+    },
+    {
+      "value": "8500",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "wave"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "Dvojnásobná kapacita, dvojnásobný příjem – proč zvolit verzi se 4 hlavicemi?",
     "paragraphs": [
@@ -109,7 +129,8 @@
   "expertQuote": {
     "quote": "Konfigurace se 4 hlavicemi není pouhé rozšíření kapacity – je to obchodní strategie. Možnost paralelního ošetření znamená vyšší cenu ošetření, kratší dobu kúry a spokojenější klientelu.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

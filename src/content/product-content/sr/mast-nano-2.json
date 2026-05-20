@@ -5,10 +5,30 @@
   "metaTitle": "MAST Nano 2 PMU uređaj – Lak, tih i precizan",
   "metaDescription": "66g kompaktan PMU uređaj za profesionalnu i početničku upotrebu. Minimalne vibracije, precizan rad na očnim linijama, snažne i pouzdane performanse.",
   "stats": [
-    { "value": "66", "unit": "g", "label": "Ultralak", "icon": "layers" },
-    { "value": "2,7", "unit": "mm", "label": "Dužina hoda", "icon": "zap" },
-    { "value": "10000", "unit": "RPM", "label": "Brzina motora", "icon": "award" },
-    { "value": "18,8", "unit": "mm", "label": "Prečnik", "icon": "clock" }
+    {
+      "value": "66",
+      "unit": "g",
+      "label": "Ultralak",
+      "icon": "layers"
+    },
+    {
+      "value": "2,7",
+      "unit": "mm",
+      "label": "Dužina hoda",
+      "icon": "zap"
+    },
+    {
+      "value": "10000",
+      "unit": "RPM",
+      "label": "Brzina motora",
+      "icon": "award"
+    },
+    {
+      "value": "18,8",
+      "unit": "mm",
+      "label": "Prečnik",
+      "icon": "clock"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +108,8 @@
   "expertQuote": {
     "quote": "Mast Nano 2 je majstor rada na očnim linijama. Kombinacija 66-gramske težine i minimalnih vibracija jedinstvena je u ovoj cenovnoj kategoriji.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Težina": "66 g",

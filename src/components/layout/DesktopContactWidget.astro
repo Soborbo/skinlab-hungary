@@ -93,21 +93,20 @@ import { CONTACT } from '../../lib/constants';
 
     const STORAGE_KEY = 'contact-widget-dismissed';
 
-    function showCard() {
+    const showCard = () => {
       card.style.display = '';
       reopenBtn.classList.add('hidden');
       widget.style.transform = 'translateX(0)';
-    }
+    };
 
-    function collapseToAvatar() {
-      // Slide out, then swap to avatar
+    const collapseToAvatar = () => {
       widget.style.transform = 'translateX(calc(100% + 2rem))';
       setTimeout(() => {
         card.style.display = 'none';
         reopenBtn.classList.remove('hidden');
         widget.style.transform = 'translateX(0)';
       }, 500);
-    }
+    };
 
     // If previously dismissed, show avatar directly
     if (sessionStorage.getItem(STORAGE_KEY)) {
@@ -119,19 +118,18 @@ import { CONTACT } from '../../lib/constants';
 
     // Show 9s after first scroll
     let scrollTriggered = false;
-    function onFirstScroll() {
+    const onFirstScroll = () => {
       if (scrollTriggered) return;
       scrollTriggered = true;
       window.removeEventListener('scroll', onFirstScroll);
       setTimeout(() => {
         widget.style.transform = 'translateX(0)';
-        // Shimmer effect 2s after appearance
         setTimeout(() => {
           const shimmer = widget.querySelector('.shimmer-overlay');
           if (shimmer) shimmer.classList.add('shimmer-active');
         }, 2000);
       }, 9000);
-    }
+    };
     window.addEventListener('scroll', onFirstScroll, { passive: true });
 
     closeBtn?.addEventListener('click', () => {

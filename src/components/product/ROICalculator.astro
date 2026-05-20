@@ -17,7 +17,7 @@ interface Props {
   defaultTreatmentPrice?: number;
 }
 
-const { locale, productPrice, productName = '', defaultTreatmentPrice = 15000 } = Astro.props;
+const { locale, productPrice, defaultTreatmentPrice = 15000 } = Astro.props;
 
 const hasPrice = productPrice && productPrice > 0;
 

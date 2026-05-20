@@ -36,30 +36,6 @@ function getCategoryFilePath(locale: string, categorySlug: string): string {
 }
 
 /**
- * Fields that are arrays and should use REPLACE semantics (not merge)
- */
-const ARRAY_FIELDS: (keyof ProductContent)[] = [
-  'testimonials',
-  'faq',
-  'functionCards',
-  'whatsIncluded',
-  'stats',
-];
-
-/**
- * Fields that are objects and should use REPLACE semantics
- */
-const OBJECT_FIELDS: (keyof ProductContent)[] = [
-  'featureRows',
-  'training',
-  'expertQuote',
-  'videoDescription',
-  'cta',
-  'roi',
-  'specs',
-];
-
-/**
  * All cascade-able fields (arrays + objects from category defaults)
  */
 const CASCADE_FIELDS: (keyof CategoryContent)[] = [

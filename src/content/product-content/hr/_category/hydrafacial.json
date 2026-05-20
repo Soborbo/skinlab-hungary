@@ -1,9 +1,27 @@
 {
   "stats": [
-    { "value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield" },
-    { "value": "6+", "label": "Funkcija u jednom", "icon": "layers" },
-    { "value": "30", "unit": "min", "label": "Vrijeme tretmana", "icon": "clock" },
-    { "value": "100%", "label": "Bezbolno", "icon": "heart" }
+    {
+      "value": "2",
+      "unit": "god.",
+      "label": "Jamstvo",
+      "icon": "shield"
+    },
+    {
+      "value": "6+",
+      "label": "Funkcija u jednom",
+      "icon": "layers"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Vrijeme tretmana",
+      "icon": "clock"
+    },
+    {
+      "value": "100%",
+      "label": "Bezbolno",
+      "icon": "heart"
+    }
   ],
   "testimonials": [
     {
@@ -31,7 +49,8 @@
   "expertQuote": {
     "quote": "HydraFacial je jedna od najisplativijih investicija u salonu. Klijenti odmah vide rezultate i redovito se vraćaju - to znači zajamčeni prihod.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "featureRows": {
     "headline": "Zašto odabrati multifunkcionalni hydrofacial uređaj?",
@@ -70,12 +89,36 @@
     "ctaText": "Zanima me obuka"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabrazija", "description": "Dubinsko čišćenje i piling vakuumom" },
-    { "icon": "sound", "name": "Ultrazvuk", "description": "Unos aktivnih tvari u dublje slojeve" },
-    { "icon": "bubbles", "name": "Kisikov tretman", "description": "O₂ hidratacija i revitalizacija" },
-    { "icon": "bolt", "name": "RF lifting", "description": "Zatezanje kože radiofrekvencijom" },
-    { "icon": "snowflake", "name": "Krioterapija", "description": "Hladno-topli tretman za stezanje pora" },
-    { "icon": "spray", "name": "Spray gun", "description": "Toniziranje za završetak tretmana" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabrazija",
+      "description": "Dubinsko čišćenje i piling vakuumom"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuk",
+      "description": "Unos aktivnih tvari u dublje slojeve"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Kisikov tretman",
+      "description": "O₂ hidratacija i revitalizacija"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF lifting",
+      "description": "Zatezanje kože radiofrekvencijom"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Krioterapija",
+      "description": "Hladno-topli tretman za stezanje pora"
+    },
+    {
+      "icon": "spray",
+      "name": "Spray gun",
+      "description": "Toniziranje za završetak tretmana"
+    }
   ],
   "faq": [
     {

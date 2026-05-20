@@ -16,7 +16,7 @@ interface Props {
   image?: string;
 }
 
-const { locale, quote, author, role, image } = Astro.props;
+const { quote, author, role, image } = Astro.props;
 
 // Get initials for avatar
 const getInitials = (name: string) => {

@@ -8,5 +8,6 @@
       "@layouts/*": ["src/layouts/*"],
       "@lib/*": ["src/lib/*"]
     }
-  }
+  },
+  "exclude": ["dist", "references", "ujsite", "gtm", "node_modules"]
 }

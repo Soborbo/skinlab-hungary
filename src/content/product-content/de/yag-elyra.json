@@ -5,12 +5,33 @@
   "metaTitle": "ELYRA Nanosekundenlaser – Pigment, Tattoo, Carbon Peeling",
   "metaDescription": "Der ELYRA ND:YAG Laser ist ein kompaktes, 30 kg tragbares Gerät zur Entfernung von Pigmentflecken und Tattoos sowie für Carbon Peeling. 100–2000 mJ Energie, 2 Jahre Garantie.",
   "stats": [
-    { "value": "3", "label": "Wellenlängen", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. Energie", "icon": "zap" },
-    { "value": "30", "unit": "kg", "label": "Nettogewicht", "icon": "layers" },
-    { "value": "2", "unit": "J.", "label": "Garantie", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Max. Energie",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "kg",
+      "label": "Nettogewicht",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "J.",
+      "label": "Garantie",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "ELYRA – Tragbarer Profi-Laser ohne Kompromisse",
     "paragraphs": [
@@ -97,14 +118,35 @@
   "expertQuote": {
     "quote": "Der ELYRA ist die ideale Wahl für mobile Kosmetiker und Heimdienstleister: kompakte Größe, hohe Leistung und mehrstufiges Sicherheitssystem. Die Nanosekundentechnologie ermöglicht präzise, schonende Behandlungen.",
     "author": "Horváth László",
-    "role": "Technischer Experte"
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Tattooentfernung", "description": "Entfernung schwarzer und farbiger Tattoos bei 1064 nm und 532 nm Wellenlängen" },
-    { "icon": "sun", "name": "Pigmentfleckenbehandlung", "description": "Aufhellen von Sommersprossen, Melasma, Sonnenflecken, Altersflecken und Hyperpigmentierung" },
-    { "icon": "sparkles", "name": "Carbon Peeling", "description": "Porenverfeinerung, Hauttexturverbesserung und Tiefenreinigung bei 1320 nm Wellenlänge" },
-    { "icon": "droplet", "name": "Hautaufhellung", "description": "Hautton-Angleichung und Aufhellung bei ungleichmäßiger Pigmentierung" },
-    { "icon": "eye", "name": "Permanent-Make-up-Entfernung", "description": "Korrektur und Entfernung von Augenbrauen- und Lippen-Permanent-Make-up" }
+    {
+      "icon": "zap",
+      "name": "Tattooentfernung",
+      "description": "Entfernung schwarzer und farbiger Tattoos bei 1064 nm und 532 nm Wellenlängen"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigmentfleckenbehandlung",
+      "description": "Aufhellen von Sommersprossen, Melasma, Sonnenflecken, Altersflecken und Hyperpigmentierung"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon Peeling",
+      "description": "Porenverfeinerung, Hauttexturverbesserung und Tiefenreinigung bei 1320 nm Wellenlänge"
+    },
+    {
+      "icon": "droplet",
+      "name": "Hautaufhellung",
+      "description": "Hautton-Angleichung und Aufhellung bei ungleichmäßiger Pigmentierung"
+    },
+    {
+      "icon": "eye",
+      "name": "Permanent-Make-up-Entfernung",
+      "description": "Korrektur und Entfernung von Augenbrauen- und Lippen-Permanent-Make-up"
+    }
   ],
   "faq": [
     {

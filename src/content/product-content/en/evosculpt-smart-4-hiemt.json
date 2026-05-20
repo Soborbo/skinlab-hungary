@@ -5,12 +5,32 @@
   "metaTitle": "EvoSculpt Smart 4 HIEMT | 4-Applicator Body Sculpting | Skinlab Hungary",
   "metaDescription": "EvoSculpt Smart 4: 4-applicator HIFEM body sculpting. Treat 2 clients simultaneously, 8500W, 20,000 muscle contractions/30 min. Double capacity, double revenue.",
   "stats": [
-    { "value": "4", "label": "Applicators", "icon": "zap" },
-    { "value": "2", "label": "Clients at once", "icon": "zap" },
-    { "value": "30", "unit": "min", "label": "Treatment time", "icon": "clock" },
-    { "value": "8500", "unit": "W", "label": "Power output", "icon": "wave" }
+    {
+      "value": "4",
+      "label": "Applicators",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "label": "Clients at once",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Treatment time",
+      "icon": "clock"
+    },
+    {
+      "value": "8500",
+      "unit": "W",
+      "label": "Power output",
+      "icon": "wave"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "Double capacity, double revenue – why choose the 4-applicator version?",
     "paragraphs": [
@@ -20,9 +40,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the EvoSculpt Smart 4? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the EvoSculpt Smart 4 in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the EvoSculpt Smart 4 body sculpting device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the EvoSculpt Smart 4? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the EvoSculpt Smart 4 in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the EvoSculpt Smart 4 body sculpting device?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why do professionals choose the EvoSculpt Smart 4?",
@@ -97,16 +129,38 @@
   "expertQuote": {
     "quote": "The 4-applicator configuration is not just a capacity expansion – it's a business strategy. The parallel treatment capability results in higher treatment prices, shorter course durations, and a more satisfied client base.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "What's the difference between the EvoSculpt Smart and the Smart 4?", "answer": "The main difference is the number of applicators: the EvoSculpt Smart 4 has four applicators, while the base model has one. With 4 applicators, you can treat 2 clients simultaneously or treat 2 body areas on a single client in parallel. The HIFEM technology and power output (8500W) are identical." },
-    { "question": "How does HIFEM technology work?", "answer": "HIFEM (High-Intensity Focused Electromagnetic) technology delivers focused electromagnetic impulses into deep muscle tissue, up to 8 cm depth. In 30 minutes, up to 20,000 muscle contractions are generated per applicator, simultaneously activating muscle building and fat cell breakdown." },
-    { "question": "Can I really treat 2 clients at once?", "answer": "Yes! The 4 applicators can be controlled independently, so you can treat 2 clients simultaneously with personalized intensity. This doubles your capacity and revenue potential." },
-    { "question": "Who should not receive the treatment?", "answer": "The treatment is not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants." },
-    { "question": "When are results visible?", "answer": "Visible results can be achieved after just 4 treatments. For optimal results, a course of 6–8 sessions is recommended, once per week. With 4 applicators, clients can complete the course faster because we treat multiple areas simultaneously." },
-    { "question": "Is the treatment painful?", "answer": "No, the treatment is completely painless. The client feels intense muscle contractions similar to the sensation after a strong workout, but it's not uncomfortable. No anesthesia is needed, and there's no recovery time after treatment." },
-    { "question": "How quickly does the device pay for itself?", "answer": "Thanks to the 4 applicators, you can work with double capacity. You can perform 10–16 treatments per day at 25,000–40,000 Ft per treatment. The device typically pays for itself within 2–3 months. Use our on-page ROI calculator!" }
+    {
+      "question": "What's the difference between the EvoSculpt Smart and the Smart 4?",
+      "answer": "The main difference is the number of applicators: the EvoSculpt Smart 4 has four applicators, while the base model has one. With 4 applicators, you can treat 2 clients simultaneously or treat 2 body areas on a single client in parallel. The HIFEM technology and power output (8500W) are identical."
+    },
+    {
+      "question": "How does HIFEM technology work?",
+      "answer": "HIFEM (High-Intensity Focused Electromagnetic) technology delivers focused electromagnetic impulses into deep muscle tissue, up to 8 cm depth. In 30 minutes, up to 20,000 muscle contractions are generated per applicator, simultaneously activating muscle building and fat cell breakdown."
+    },
+    {
+      "question": "Can I really treat 2 clients at once?",
+      "answer": "Yes! The 4 applicators can be controlled independently, so you can treat 2 clients simultaneously with personalized intensity. This doubles your capacity and revenue potential."
+    },
+    {
+      "question": "Who should not receive the treatment?",
+      "answer": "The treatment is not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants."
+    },
+    {
+      "question": "When are results visible?",
+      "answer": "Visible results can be achieved after just 4 treatments. For optimal results, a course of 6–8 sessions is recommended, once per week. With 4 applicators, clients can complete the course faster because we treat multiple areas simultaneously."
+    },
+    {
+      "question": "Is the treatment painful?",
+      "answer": "No, the treatment is completely painless. The client feels intense muscle contractions similar to the sensation after a strong workout, but it's not uncomfortable. No anesthesia is needed, and there's no recovery time after treatment."
+    },
+    {
+      "question": "How quickly does the device pay for itself?",
+      "answer": "Thanks to the 4 applicators, you can work with double capacity. You can perform 10–16 treatments per day at 25,000–40,000 Ft per treatment. The device typically pays for itself within 2–3 months. Use our on-page ROI calculator!"
+    }
   ],
   "whatsIncluded": [
     "EvoSculpt Smart 4 HIEMT device",

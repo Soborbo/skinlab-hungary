@@ -5,12 +5,31 @@
   "metaTitle": "HydraScan PRO+ 2026 | Aparat hidrofacial 8+1 funcții cu analiză AI integrată",
   "metaDescription": "HydraScan PRO+ 2026 – aparat hidrofacial avansat: diagnostic AI al pielii în timp real cu microcameră 4K, 8+1 funcții de tratament, jurnal digital. Garanție 2 ani.",
   "stats": [
-    { "value": "8+1", "label": "Funcții de tratament", "icon": "layers" },
-    { "value": "AI", "label": "Diagnostic piele", "icon": "zap" },
-    { "value": "4K", "label": "Microcameră", "icon": "eye" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Funcții de tratament",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Diagnostic piele",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Microcameră",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HydraScan PRO+ 2026 – nu doar un aparat, ci un sistem inteligent de diagnostic și vânzări",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre HydraScan PRO+? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați consultanță", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să vedeți HydraScan PRO+ în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și încercați analiza AI pe propria piele!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează HydraScan PRO+ 2026?", "subtitle": "Solicitați o consultanță gratuită și vă ajutăm să decideți dacă este alegerea potrivită pentru salonul dvs.", "buttonLabel": "Solicitați consultanță" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre HydraScan PRO+? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați consultanță",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți HydraScan PRO+ în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și încercați analiza AI pe propria piele!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează HydraScan PRO+ 2026?",
+      "subtitle": "Solicitați o consultanță gratuită și vă ajutăm să decideți dacă este alegerea potrivită pentru salonul dvs.",
+      "buttonLabel": "Solicitați consultanță"
+    }
   },
   "featureRows": {
     "headline": "De ce aleg cosmeticienele HydraScan PRO+?",
@@ -83,29 +114,93 @@
   "expertQuote": {
     "quote": "HydraScan PRO+ este, datorită combinației dintre hidrofacial și analiza AI a pielii, una dintre investițiile cu cea mai bună rentabilitate dintr-un salon. Clienții văd cu propriii ochi starea pielii și schimbările – acest lucru construiește încredere, reveniri și vânzări de produse.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabraziune", "description": "Curățare profundă cu vid, curățarea porilor, eliminarea celulelor moarte" },
-    { "icon": "bubbles", "name": "Capsule OxyPod", "description": "Livrare țintită de ingrediente în timpul curățării cu microbule" },
-    { "icon": "sound", "name": "Peeling US", "description": "Skin Scrubber – peeling fără durere, curățarea porilor" },
-    { "icon": "spray", "name": "Oxy-spray", "description": "Pulverizare apă și oxigen – hidratare instantanee" },
-    { "icon": "snowflake", "name": "Ciocan rece-cald", "description": "Calmarea pielii, strângerea porilor, stimularea circulației" },
-    { "icon": "bolt", "name": "RF bipolar", "description": "Fermitate, stimulare colagen prin radiofrecvență" },
-    { "icon": "sound", "name": "Infuzie US", "description": "Sound Wave 40-50 – absorbție profundă a substanțelor active" },
-    { "icon": "sun", "name": "Mască LED", "description": "Lumină roșie, albastră, verde, galbenă – regenerare, anti-inflamator" },
-    { "icon": "brain", "name": "Analiză AI a pielii", "description": "Microcameră 4K, 9+ parametri, recomandări automate de tratament" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabraziune",
+      "description": "Curățare profundă cu vid, curățarea porilor, eliminarea celulelor moarte"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Capsule OxyPod",
+      "description": "Livrare țintită de ingrediente în timpul curățării cu microbule"
+    },
+    {
+      "icon": "sound",
+      "name": "Peeling US",
+      "description": "Skin Scrubber – peeling fără durere, curățarea porilor"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Pulverizare apă și oxigen – hidratare instantanee"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ciocan rece-cald",
+      "description": "Calmarea pielii, strângerea porilor, stimularea circulației"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF bipolar",
+      "description": "Fermitate, stimulare colagen prin radiofrecvență"
+    },
+    {
+      "icon": "sound",
+      "name": "Infuzie US",
+      "description": "Sound Wave 40-50 – absorbție profundă a substanțelor active"
+    },
+    {
+      "icon": "sun",
+      "name": "Mască LED",
+      "description": "Lumină roșie, albastră, verde, galbenă – regenerare, anti-inflamator"
+    },
+    {
+      "icon": "brain",
+      "name": "Analiză AI a pielii",
+      "description": "Microcameră 4K, 9+ parametri, recomandări automate de tratament"
+    }
   ],
   "faq": [
-    { "question": "Pot fi eficiente și sistemele hidrofaciale de birou?", "answer": "Da, absolut. Eficiența nu este determinată de dimensiune, ci de tehnologie și posibilitățile de reglare. HydraScan PRO+ 2026 are un sistem de vid profesional și mai multe funcții de tratament, permițând tratamente complete de salon." },
-    { "question": "Este puterea de vid/aspirare a aparatului adecvată?", "answer": "Da. Domeniul de vid al aparatului (−6 kPa până la −86 kPa) poate fi reglat pe o scară largă: blând pentru pielea sensibilă, curățare profundă eficientă pentru pielea problematică. Cu setări corecte nu este „prea puternic\" și nici prea slab – cheia este utilizarea corectă, predată detaliat la instruire." },
-    { "question": "Ce întreținere necesită aparatul?", "answer": "Întreținerea zilnică este simplă: clătirea sistemului de tuburi cu apă curată după utilizare, golirea și curățarea rezervoarelor, dezinfectarea capetelor de tratament. Asigură funcționarea igienică și o durată lungă de viață." },
-    { "question": "Cât de des este necesar service-ul?", "answer": "În utilizarea normală nu există nevoi frecvente obligatorii de service. Recomandăm verificare periodică anuală, iar în utilizare intensivă (zilnică) o vizită rapidă de service la fiecare 6 luni. Curățarea corectă reduce semnificativ nevoia de service." },
-    { "question": "La ce trebuie să fim deosebit de atenți în timpul utilizării?", "answer": "Folosiți doar lichidele recomandate pentru aparat, evitați substanțele acide, uleioase sau granulate, folosiți dezinfectant fără alcool și nu lăsați sistemul cu lichid după utilizare. Astfel evitați defecțiunile." },
-    { "question": "Poate fi folosit ca cosmetician începător?", "answer": "Da. Operarea aparatului este logică, iar instruirea vă ghidează pas cu pas prin utilizare, fiind ideal și pentru începători. Tratamentele de bază pot fi efectuate în siguranță imediat după instruire; rutina se dezvoltă în câteva săptămâni." },
-    { "question": "Cât de repede se amortizează aparatul?", "answer": "Amortizarea rapidă este posibilă chiar și cu 2-3 clienți pe zi. Prețul unui tratament facial complex este de 25.000–50.000 Ft, deci cu 3 clienți pe zi se pot genera lunar 1,5–3 milioane Ft. Tratamentele hidro sunt foarte căutate și au prețuri bune." },
-    { "question": "Se poate combina cu alte tratamente?", "answer": "Da, este recomandat în mod expres. HydraScan PRO+ este tratamentul de bază perfect înainte sau după carbon peeling, sau înainte/după alte aparate. Analiza poate fi folosită înainte de orice alt tratament, dar și de sine stătătoare ca serviciu complet." },
-    { "question": "Cât spațiu ocupă aparatul?", "answer": "Design compact, de birou, astfel încât încape confortabil chiar și într-o sală de tratament mai mică. Este disponibil și un cărucior HydraScan PRO+ realizat special pentru aparat, preț: 79.990 Ft." }
+    {
+      "question": "Pot fi eficiente și sistemele hidrofaciale de birou?",
+      "answer": "Da, absolut. Eficiența nu este determinată de dimensiune, ci de tehnologie și posibilitățile de reglare. HydraScan PRO+ 2026 are un sistem de vid profesional și mai multe funcții de tratament, permițând tratamente complete de salon."
+    },
+    {
+      "question": "Este puterea de vid/aspirare a aparatului adecvată?",
+      "answer": "Da. Domeniul de vid al aparatului (−6 kPa până la −86 kPa) poate fi reglat pe o scară largă: blând pentru pielea sensibilă, curățare profundă eficientă pentru pielea problematică. Cu setări corecte nu este „prea puternic\" și nici prea slab – cheia este utilizarea corectă, predată detaliat la instruire."
+    },
+    {
+      "question": "Ce întreținere necesită aparatul?",
+      "answer": "Întreținerea zilnică este simplă: clătirea sistemului de tuburi cu apă curată după utilizare, golirea și curățarea rezervoarelor, dezinfectarea capetelor de tratament. Asigură funcționarea igienică și o durată lungă de viață."
+    },
+    {
+      "question": "Cât de des este necesar service-ul?",
+      "answer": "În utilizarea normală nu există nevoi frecvente obligatorii de service. Recomandăm verificare periodică anuală, iar în utilizare intensivă (zilnică) o vizită rapidă de service la fiecare 6 luni. Curățarea corectă reduce semnificativ nevoia de service."
+    },
+    {
+      "question": "La ce trebuie să fim deosebit de atenți în timpul utilizării?",
+      "answer": "Folosiți doar lichidele recomandate pentru aparat, evitați substanțele acide, uleioase sau granulate, folosiți dezinfectant fără alcool și nu lăsați sistemul cu lichid după utilizare. Astfel evitați defecțiunile."
+    },
+    {
+      "question": "Poate fi folosit ca cosmetician începător?",
+      "answer": "Da. Operarea aparatului este logică, iar instruirea vă ghidează pas cu pas prin utilizare, fiind ideal și pentru începători. Tratamentele de bază pot fi efectuate în siguranță imediat după instruire; rutina se dezvoltă în câteva săptămâni."
+    },
+    {
+      "question": "Cât de repede se amortizează aparatul?",
+      "answer": "Amortizarea rapidă este posibilă chiar și cu 2-3 clienți pe zi. Prețul unui tratament facial complex este de 25.000–50.000 Ft, deci cu 3 clienți pe zi se pot genera lunar 1,5–3 milioane Ft. Tratamentele hidro sunt foarte căutate și au prețuri bune."
+    },
+    {
+      "question": "Se poate combina cu alte tratamente?",
+      "answer": "Da, este recomandat în mod expres. HydraScan PRO+ este tratamentul de bază perfect înainte sau după carbon peeling, sau înainte/după alte aparate. Analiza poate fi folosită înainte de orice alt tratament, dar și de sine stătătoare ca serviciu complet."
+    },
+    {
+      "question": "Cât spațiu ocupă aparatul?",
+      "answer": "Design compact, de birou, astfel încât încape confortabil chiar și într-o sală de tratament mai mică. Este disponibil și un cărucior HydraScan PRO+ realizat special pentru aparat, preț: 79.990 Ft."
+    }
   ],
   "whatsIncluded": [
     "Aparat HydraScan PRO+ 2026",

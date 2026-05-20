@@ -24,15 +24,14 @@ interface Props {
 }
 
 const {
-  product = '',
   sourceUrl = Astro.url.href,
   class: className = '',
 } = Astro.props;
 
 const turnstileSiteKey = getTurnstileSiteKey();
 
-// Category options with images (exclude egyeb and kellekek — not relevant for consultation)
-const categoryOptions = CATEGORIES.filter(cat => cat.featured && cat.id !== 'kellekek').map((cat) => ({
+// Category options with images (exclude kellekek and kezeloanyagok — not gépek, not relevant for consultation)
+const categoryOptions = CATEGORIES.filter(cat => cat.featured && cat.id !== 'kellekek' && cat.id !== 'kezeloanyagok').map((cat) => ({
   value: cat.id,
   label: cat.nameShort,
   image: cat.image,
@@ -380,7 +379,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         <!-- Next/Submit Button (70% or 100%) -->
         <button
           type="button"
-          class="next-btn flex-1 py-3.5 px-6 rounded-xl bg-primary-600 text-white font-semibold shadow-lg shadow-primary-200 transition-all hover:bg-primary-700 hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          class="next-btn flex-1 py-3.5 px-6 rounded-xl bg-cta text-white font-semibold shadow-lg shadow-cta/30 transition-all hover:bg-cta-hover hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           data-next-btn
         >
           Következő
@@ -388,7 +387,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
         <button
           type="submit"
-          class="submit-btn hidden flex-1 py-3.5 px-6 rounded-xl bg-primary-600 text-white font-semibold shadow-lg shadow-primary-200 transition-all hover:bg-primary-700 hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          class="submit-btn hidden flex-1 py-3.5 px-6 rounded-xl bg-cta text-white font-semibold shadow-lg shadow-cta/30 transition-all hover:bg-cta-hover hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           data-submit-btn
         >
           <span data-button-text>Ingyenes konzultáció kérése</span>
@@ -403,10 +402,6 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       <div class="mt-2 flex items-center justify-center gap-6 text-sm text-gray-500">
         <div class="flex items-center gap-2">
           <span><strong class="text-gray-700">150+</strong> elégedett ügyfél</span>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <span class="text-yellow-400">★★★★★</span>
-          <span>5.0</span>
         </div>
       </div>
     </div>

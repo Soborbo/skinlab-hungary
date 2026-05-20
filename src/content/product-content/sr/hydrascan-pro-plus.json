@@ -5,12 +5,31 @@
   "metaTitle": "HydraScan PRO+ 2026 | Hidrofacial uređaj 8+1 sa ugrađenom AI analizom kože",
   "metaDescription": "HydraScan PRO+ 2026 – napredni hidrofacial uređaj: AI dijagnostika kože u realnom vremenu sa 4K mikrokamerom, 8+1 tretmanskih funkcija, digitalni dnevnik. 2 godine garancije.",
   "stats": [
-    { "value": "8+1", "label": "Tretmanske funkcije", "icon": "layers" },
-    { "value": "AI", "label": "Dijagnostika kože", "icon": "zap" },
-    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
-    { "value": "2", "unit": "god.", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Tretmanske funkcije",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Dijagnostika kože",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Mikrokamera",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "god.",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HydraScan PRO+ 2026 – ne samo uređaj, već inteligentan sistem za dijagnostiku i prodaju",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Imate pitanja o HydraScan PRO+? Rado ćemo pomoći!", "buttonLabel": "Zatraži konsultaciju", "phoneLabel": "Pozovite nas" },
-    "afterFeatures": { "headline": "Želite da vidite HydraScan PRO+ uživo?", "subtitle": "Dođite u naš showroom u Érdu i isprobajte AI analizu na sopstvenoj koži!", "buttonLabel": "Zakažite termin" },
-    "final": { "headline": "Zanima vas HydraScan PRO+ 2026?", "subtitle": "Zatražite besplatnu konsultaciju – pomoći ćemo vam da odlučite da li je to najbolji izbor za vaš salon.", "buttonLabel": "Zatraži konsultaciju" }
+    "afterVideo": {
+      "text": "Imate pitanja o HydraScan PRO+? Rado ćemo pomoći!",
+      "buttonLabel": "Zatraži konsultaciju",
+      "phoneLabel": "Pozovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite da vidite HydraScan PRO+ uživo?",
+      "subtitle": "Dođite u naš showroom u Érdu i isprobajte AI analizu na sopstvenoj koži!",
+      "buttonLabel": "Zakažite termin"
+    },
+    "final": {
+      "headline": "Zanima vas HydraScan PRO+ 2026?",
+      "subtitle": "Zatražite besplatnu konsultaciju – pomoći ćemo vam da odlučite da li je to najbolji izbor za vaš salon.",
+      "buttonLabel": "Zatraži konsultaciju"
+    }
   },
   "featureRows": {
     "headline": "Zašto kozmetičarke biraju HydraScan PRO+?",
@@ -83,29 +114,93 @@
   "expertQuote": {
     "quote": "HydraScan PRO+ je zahvaljujući kombinaciji hidrofaciala i AI analize kože jedna od investicija sa najboljim povratom u salonu. Klijenti sopstvenim očima vide stanje svoje kože i promene – to gradi poverenje, povratke i prodaju proizvoda.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabrazija", "description": "Vakuumsko dubinsko čišćenje, čišćenje pora, uklanjanje odumrlih ćelija" },
-    { "icon": "bubbles", "name": "OxyPod kapsule", "description": "Ciljano dovođenje sastojaka tokom mikromehurastog čišćenja" },
-    { "icon": "sound", "name": "UZ piling", "description": "Skin Scrubber – bezbolan piling, čišćenje pora" },
-    { "icon": "spray", "name": "Oxy-spray", "description": "Raspršivanje vode i kiseonika – trenutna hidratacija" },
-    { "icon": "snowflake", "name": "Hladno-topli čekić", "description": "Smirivanje kože, stezanje pora, podsticanje cirkulacije" },
-    { "icon": "bolt", "name": "Bipolarni RF", "description": "Učvršćivanje kože, stimulacija kolagena radiofrekvencijom" },
-    { "icon": "sound", "name": "UZ unos sastojaka", "description": "Sound Wave 40-50 – duboka apsorpcija aktivnih supstanci" },
-    { "icon": "sun", "name": "LED maska", "description": "Crvena, plava, zelena, žuta svetlost – regeneracija, antiinflamatorno" },
-    { "icon": "brain", "name": "AI analiza kože", "description": "4K mikrokamera, 9+ parametara, automatske preporuke tretmana" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabrazija",
+      "description": "Vakuumsko dubinsko čišćenje, čišćenje pora, uklanjanje odumrlih ćelija"
+    },
+    {
+      "icon": "bubbles",
+      "name": "OxyPod kapsule",
+      "description": "Ciljano dovođenje sastojaka tokom mikromehurastog čišćenja"
+    },
+    {
+      "icon": "sound",
+      "name": "UZ piling",
+      "description": "Skin Scrubber – bezbolan piling, čišćenje pora"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Raspršivanje vode i kiseonika – trenutna hidratacija"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hladno-topli čekić",
+      "description": "Smirivanje kože, stezanje pora, podsticanje cirkulacije"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipolarni RF",
+      "description": "Učvršćivanje kože, stimulacija kolagena radiofrekvencijom"
+    },
+    {
+      "icon": "sound",
+      "name": "UZ unos sastojaka",
+      "description": "Sound Wave 40-50 – duboka apsorpcija aktivnih supstanci"
+    },
+    {
+      "icon": "sun",
+      "name": "LED maska",
+      "description": "Crvena, plava, zelena, žuta svetlost – regeneracija, antiinflamatorno"
+    },
+    {
+      "icon": "brain",
+      "name": "AI analiza kože",
+      "description": "4K mikrokamera, 9+ parametara, automatske preporuke tretmana"
+    }
   ],
   "faq": [
-    { "question": "Mogu li i stoni hidrofacial sistemi biti efikasni?", "answer": "Da, apsolutno. Efikasnost ne određuje veličina, već tehnologija i mogućnosti podešavanja. HydraScan PRO+ 2026 ima profesionalan vakuumski sistem i više tretmanskih funkcija, omogućujući punovredne salonske tretmane." },
-    { "question": "Da li je vakuum/usisna snaga uređaja dovoljna?", "answer": "Da. Vakuumski opseg (−6 kPa do −86 kPa) može se podešavati u širokom rasponu: blago za osetljivu kožu, efikasno dubinsko čišćenje za problematičnu kožu. Sa pravilnim podešavanjima nije „prejak\" niti preslab – ključ je pravilna upotreba koju detaljno učimo na obuci." },
-    { "question": "Kakvo održavanje uređaj zahteva?", "answer": "Dnevno održavanje je jednostavno: ispiranje cevnog sistema čistom vodom nakon upotrebe, pražnjenje i čišćenje rezervoara, dezinfekcija tretmanskih nastavaka. To obezbeđuje higijenski rad i dug vek trajanja." },
-    { "question": "Koliko često je potreban servis?", "answer": "Pri normalnoj upotrebi nema čestog obaveznog servisnog zahteva. Preporučuje se godišnja periodična provera, pri intenzivnoj (svakodnevnoj) upotrebi brza servisna poseta svakih 6 meseci. Pravilno čišćenje znatno smanjuje potrebu za servisom." },
-    { "question": "Na šta treba posebno obratiti pažnju tokom upotrebe?", "answer": "Koristite samo tečnosti preporučene za uređaj, izbegavajte kisele, masne ili granulirane supstance, koristite dezinfekciono sredstvo bez alkohola i ne ostavljajte sistem sa tečnošću nakon upotrebe. Time se izbegavaju kvarovi." },
-    { "question": "Mogu li ga koristiti kao kozmetičarka početnica?", "answer": "Da. Rukovanje uređajem je logično, a obuka vas korak po korak vodi kroz upotrebu, što je idealno i za početnice. Osnovni tretmani se sigurno mogu izvoditi odmah nakon obuke; rutina se razvija u nekoliko nedelja." },
-    { "question": "Koliko brzo se uređaj isplati?", "answer": "Brz povraćaj investicije postiže se već sa 2-3 klijenta dnevno. Cena kompleksnog tretmana lica je 25.000–50.000 Ft, pa se sa 3 klijenta dnevno može mesečno generisati 1,5–3 miliona Ft. Hidro tretmani su veoma traženi i dobro se cene." },
-    { "question": "Može li se kombinovati sa drugim tretmanima?", "answer": "Da, izričito se preporučuje. HydraScan PRO+ je savršen osnovni tretman pre ili posle carbon pilinga, ili pre/posle drugih uređaja. Analiza se može koristiti pre svakog drugog tretmana, ali i samostalno može biti punovredna usluga." },
-    { "question": "Koliko prostora uređaj zauzima?", "answer": "Kompaktan stoni dizajn, tako da se udobno smešta i u manjoj sobi za tretmane. Dostupna su i posebno izrađena kolica HydraScan PRO+, cena: 79.990 Ft." }
+    {
+      "question": "Mogu li i stoni hidrofacial sistemi biti efikasni?",
+      "answer": "Da, apsolutno. Efikasnost ne određuje veličina, već tehnologija i mogućnosti podešavanja. HydraScan PRO+ 2026 ima profesionalan vakuumski sistem i više tretmanskih funkcija, omogućujući punovredne salonske tretmane."
+    },
+    {
+      "question": "Da li je vakuum/usisna snaga uređaja dovoljna?",
+      "answer": "Da. Vakuumski opseg (−6 kPa do −86 kPa) može se podešavati u širokom rasponu: blago za osetljivu kožu, efikasno dubinsko čišćenje za problematičnu kožu. Sa pravilnim podešavanjima nije „prejak\" niti preslab – ključ je pravilna upotreba koju detaljno učimo na obuci."
+    },
+    {
+      "question": "Kakvo održavanje uređaj zahteva?",
+      "answer": "Dnevno održavanje je jednostavno: ispiranje cevnog sistema čistom vodom nakon upotrebe, pražnjenje i čišćenje rezervoara, dezinfekcija tretmanskih nastavaka. To obezbeđuje higijenski rad i dug vek trajanja."
+    },
+    {
+      "question": "Koliko često je potreban servis?",
+      "answer": "Pri normalnoj upotrebi nema čestog obaveznog servisnog zahteva. Preporučuje se godišnja periodična provera, pri intenzivnoj (svakodnevnoj) upotrebi brza servisna poseta svakih 6 meseci. Pravilno čišćenje znatno smanjuje potrebu za servisom."
+    },
+    {
+      "question": "Na šta treba posebno obratiti pažnju tokom upotrebe?",
+      "answer": "Koristite samo tečnosti preporučene za uređaj, izbegavajte kisele, masne ili granulirane supstance, koristite dezinfekciono sredstvo bez alkohola i ne ostavljajte sistem sa tečnošću nakon upotrebe. Time se izbegavaju kvarovi."
+    },
+    {
+      "question": "Mogu li ga koristiti kao kozmetičarka početnica?",
+      "answer": "Da. Rukovanje uređajem je logično, a obuka vas korak po korak vodi kroz upotrebu, što je idealno i za početnice. Osnovni tretmani se sigurno mogu izvoditi odmah nakon obuke; rutina se razvija u nekoliko nedelja."
+    },
+    {
+      "question": "Koliko brzo se uređaj isplati?",
+      "answer": "Brz povraćaj investicije postiže se već sa 2-3 klijenta dnevno. Cena kompleksnog tretmana lica je 25.000–50.000 Ft, pa se sa 3 klijenta dnevno može mesečno generisati 1,5–3 miliona Ft. Hidro tretmani su veoma traženi i dobro se cene."
+    },
+    {
+      "question": "Može li se kombinovati sa drugim tretmanima?",
+      "answer": "Da, izričito se preporučuje. HydraScan PRO+ je savršen osnovni tretman pre ili posle carbon pilinga, ili pre/posle drugih uređaja. Analiza se može koristiti pre svakog drugog tretmana, ali i samostalno može biti punovredna usluga."
+    },
+    {
+      "question": "Koliko prostora uređaj zauzima?",
+      "answer": "Kompaktan stoni dizajn, tako da se udobno smešta i u manjoj sobi za tretmane. Dostupna su i posebno izrađena kolica HydraScan PRO+, cena: 79.990 Ft."
+    }
   ],
   "whatsIncluded": [
     "HydraScan PRO+ 2026 uređaj",

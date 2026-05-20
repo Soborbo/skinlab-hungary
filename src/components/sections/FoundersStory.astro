@@ -1,0 +1,88 @@
+---
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const aboutLink = getLocalizedUrl(locale, '/rolunk');
+
+const founders = [
+  {
+    image: '/about/gaszler-simonetta-skinlab-alapito',
+    nameKey: 'foundersHome.simonettaName',
+    roleKey: 'foundersHome.simonettaRole',
+    specKey: 'foundersHome.simonettaSpec',
+  },
+  {
+    image: '/about/horvath-laszlo-skinlab-alapito',
+    nameKey: 'foundersHome.laszloName',
+    roleKey: 'foundersHome.laszloRole',
+    specKey: 'foundersHome.laszloSpec',
+  },
+];
+---
+
+<section class="py-16 lg:py-20 bg-gradient-to-b from-white to-primary-50/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Story -->
+      <div>
+        <div class="inline-flex items-center gap-2 bg-cta-light text-cta-hover px-3 py-1 rounded-full text-sm font-medium mb-4">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-3-6.65" />
+          </svg>
+          {t(locale, 'foundersHome.badge')}
+        </div>
+
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+          {t(locale, 'foundersHome.title')}
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed mb-5">
+          {t(locale, 'foundersHome.intro')}
+        </p>
+
+        <blockquote class="border-l-4 border-cta pl-4 text-gray-700 italic leading-relaxed mb-8">
+          „{t(locale, 'foundersHome.quote')}”
+        </blockquote>
+
+        <a
+          href={aboutLink}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-md"
+        >
+          {t(locale, 'foundersHome.cta')}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Founder portraits -->
+      <div class="grid grid-cols-2 gap-5 sm:gap-6">
+        {founders.map((founder) => (
+          <figure class="bg-white rounded-2xl overflow-hidden shadow-sm border border-primary-100/60">
+            <div class="aspect-[4/5] overflow-hidden">
+              <picture>
+                <source type="image/avif" srcset={`${founder.image}.avif`} />
+                <source type="image/webp" srcset={`${founder.image}.webp`} />
+                <img
+                  src={`${founder.image}.jpg`}
+                  alt={t(locale, founder.nameKey)}
+                  class="w-full h-full object-cover"
+                  width="400"
+                  height="500"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+            <figcaption class="p-4 text-center">
+              <div class="font-semibold text-gray-900">{t(locale, founder.nameKey)}</div>
+              <div class="text-sm font-medium text-primary-600">{t(locale, founder.roleKey)}</div>
+              <div class="text-xs text-gray-500">{t(locale, founder.specKey)}</div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

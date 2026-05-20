@@ -1,9 +1,27 @@
 {
   "stats": [
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" },
-    { "value": "6+", "label": "Funkcí v jednom", "icon": "layers" },
-    { "value": "30", "unit": "min", "label": "Doba ošetření", "icon": "clock" },
-    { "value": "100%", "label": "Bezbolestné", "icon": "heart" }
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "6+",
+      "label": "Funkcí v jednom",
+      "icon": "layers"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Doba ošetření",
+      "icon": "clock"
+    },
+    {
+      "value": "100%",
+      "label": "Bezbolestné",
+      "icon": "heart"
+    }
   ],
   "testimonials": [
     {
@@ -31,7 +49,8 @@
   "expertQuote": {
     "quote": "HydraFacial je jednou z nejlepších investic s návratností v salonu. Klientky okamžitě vidí výsledky a pravidelně se vracejí – to znamená garantovaný příjem.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "featureRows": {
     "headline": "Proč zvolit multifunkční hydrofacial přístroj?",
@@ -70,12 +89,36 @@
     "ctaText": "Mám zájem o školení"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hydrodermabraze", "description": "Hloubkové čištění a peeling vakuem" },
-    { "icon": "sound", "name": "Ultrazvuk", "description": "Vpravení účinných látek do hlubších vrstev" },
-    { "icon": "bubbles", "name": "Kyslíkové ošetření", "description": "O₂ hydratace a revitalizace" },
-    { "icon": "bolt", "name": "RF lifting", "description": "Zpevnění pleti radiofrekvenční technologií" },
-    { "icon": "snowflake", "name": "Krioterapie", "description": "Ošetření chladem a teplem pro stažení pórů" },
-    { "icon": "spray", "name": "Spray gun", "description": "Závěrečná tonizace ošetření" }
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabraze",
+      "description": "Hloubkové čištění a peeling vakuem"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuk",
+      "description": "Vpravení účinných látek do hlubších vrstev"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Kyslíkové ošetření",
+      "description": "O₂ hydratace a revitalizace"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF lifting",
+      "description": "Zpevnění pleti radiofrekvenční technologií"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Krioterapie",
+      "description": "Ošetření chladem a teplem pro stažení pórů"
+    },
+    {
+      "icon": "spray",
+      "name": "Spray gun",
+      "description": "Závěrečná tonizace ošetření"
+    }
   ],
   "faq": [
     {

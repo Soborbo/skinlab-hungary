@@ -46,7 +46,8 @@
     "afterFeatures": {
       "headline": "Szeretnéd élőben látni az ATHENA-t?",
       "subtitle": "Gyere el showroomunkba Érdre, és próbáld ki személyesen!",
-      "buttonLabel": "Időpont foglalás"
+      "buttonLabel": "Időpont foglalás",
+      "showroomDriveFolderId": "1HVYoNvH5tJBN8ZPWqTuXNETFw0UU9QfF"
     },
     "final": {
       "headline": "Érdekel az ATHENA 1000W diódalézer?",
@@ -61,24 +62,24 @@
       {
         "title": "Stabil 1000W teljesítmény – professzionális szint",
         "description": "Az 1000W kimeneti teljesítmény bőven elegendő ahhoz, hogy professzionális szinten dolgozz és látványos eredményeket érj el. Az átlag diódalézerek többsége 600W körül működik — a 1000W már egy szinttel feljebb van, gyorsabb és hatékonyabb munkavégzést jelent.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Mit jelent ez:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Gyorsabb munkavégzés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Nagyobb hatékonyság</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilabb működés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kényelmesebb kezelések</div>\n</div>",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-2.png"
       },
       {
         "title": "4 hullámhossz – minden bőrtípusra",
         "description": "A négy különböző hullámhossz (755 / 808 / 940 / 1064 nm) kombinációja egyetlen készülékkel biztosít széles körű kezelési rugalmasságot — minden szőrtípuson és minden bőrtónuson hatékony.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-3.png"
       },
       {
         "title": "Okos szoftver – a bölcsesség istennője",
         "description": "Nem neked kell megállapítanod, hogy melyik bőr- és szőrtípus milyen kezelési beállításon kezelhető. Az ATHENA okos szoftvere automatikusan felismeri és optimalizálja a paramétereket. Olyan, mintha egy istennő fogná a kezed munka közben.",
         "highlight": "A tudás a hatalom — különösen ha az automatikus.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-4.png"
       },
       {
         "title": "Költséghatékony, okos befektetés",
         "description": "Az ATHENA olyan gép, ami nem túlzás, hanem okosan felépített befektetés. Tökéletes választás, ha más szolgáltatás mellé építed be (kozmetikusként, bőrápolás kiegészítőjeként), vagy ha biztonsági játékos vagy és kiszámíthatóan működő rendszert szeretnél.",
         "highlight": "Stratégia, nem kockázat.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-5.png"
       }
     ]
   },
@@ -107,7 +108,8 @@
   "expertQuote": {
     "quote": "Az ATHENA tökéletes belépő szintű professzionális gép. Az 1000W stabil teljesítmény, az okos szoftver és a kiszámítható működés ideális választás kozmetikusoknak, akik komoly kezeléseket szeretnének nyújtani anélkül, hogy a felső kategóriás árszintbe ugranának.",
     "author": "Horváth László",
-    "role": "Technikai szakértő"
+    "role": "Technikai szakértő",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
     {

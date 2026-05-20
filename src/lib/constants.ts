@@ -38,7 +38,7 @@ export const CONTACT = {
   phoneFormatted: '+36 1 300 9280',
   phoneDisplay: '+36 1 300 9280',
   phoneTel: 'tel:+3613009280',
-  email: 'info@skinlabhungary.hu',
+  email: 'hello@skinlabhungary.hu',
   emailLegacy: 'skinlabhungary@gmail.com',
 };
 
@@ -334,7 +334,23 @@ export const STATS = [
 
 // Mega Menu Navigation Structure
 // All labels use i18n translation keys — resolve with t(locale, key) in components
-export const MEGA_MENU = {
+export interface MegaMenuItem {
+  labelKey: string;
+  href: string;
+  count: number;
+  descriptionKey: string;
+  badgeKey?: string;
+}
+
+export interface MegaMenuColumn {
+  titleKey: string;
+  items: MegaMenuItem[];
+}
+
+export const MEGA_MENU: {
+  columns: MegaMenuColumn[];
+  cta: { labelKey: string; href: string };
+} = {
   columns: [
     {
       titleKey: 'megaMenu.lasers',

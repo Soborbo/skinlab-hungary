@@ -5,12 +5,31 @@
   "metaTitle": "HydraScan PRO+ 2026 | 8+1 Function Hydrofacial with Built-in AI Skin Analysis",
   "metaDescription": "HydraScan PRO+ 2026 – advanced hydrofacial device: real-time AI skin diagnostics with 4K micro-camera, 8+1 treatment functions, digital treatment diary. 2-year warranty.",
   "stats": [
-    { "value": "8+1", "label": "Treatment functions", "icon": "layers" },
-    { "value": "AI", "label": "Skin diagnosis", "icon": "zap" },
-    { "value": "4K", "label": "Micro-camera", "icon": "eye" },
-    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Treatment functions",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Skin diagnosis",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Micro-camera",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "yr",
+      "label": "Warranty",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HydraScan PRO+ 2026 – not just a device, but an intelligent skin diagnostic and sales system",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the HydraScan PRO+? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the HydraScan PRO+ in person?", "subtitle": "Visit our showroom in Érd and try the AI analysis on your own skin!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the HydraScan PRO+ 2026?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for your salon.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the HydraScan PRO+? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the HydraScan PRO+ in person?",
+      "subtitle": "Visit our showroom in Érd and try the AI analysis on your own skin!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the HydraScan PRO+ 2026?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for your salon.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why do estheticians choose the HydraScan PRO+?",
@@ -83,29 +114,93 @@
   "expertQuote": {
     "quote": "The HydraScan PRO+ is one of the best ROI investments for a salon thanks to its combination of hydrofacial and AI skin analysis. Clients see their skin condition and changes with their own eyes – this builds trust, return visits and product sales.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Vacuum deep cleansing, pore clearing, dead skin cell removal" },
-    { "icon": "bubbles", "name": "OxyPod capsules", "description": "Targeted ingredient delivery during micro-bubble cleansing" },
-    { "icon": "sound", "name": "Ultrasonic peeling", "description": "Skin Scrubber – painless peeling, pore cleansing" },
-    { "icon": "spray", "name": "Oxy-spray", "description": "Water and oxygen atomization – instant hydration" },
-    { "icon": "snowflake", "name": "Hot-cold hammer", "description": "Skin soothing, pore tightening, circulation boost" },
-    { "icon": "bolt", "name": "Bipolar RF", "description": "Skin firming, collagen stimulation with radio frequency" },
-    { "icon": "sound", "name": "Ultrasonic infusion", "description": "Sound Wave 40-50 – deep active ingredient absorption" },
-    { "icon": "sun", "name": "LED mask", "description": "Red, blue, green, yellow light therapy – regeneration, anti-inflammatory" },
-    { "icon": "brain", "name": "AI skin analysis", "description": "4K micro-camera, 9+ parameters, automatic treatment recommendations" }
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrasion",
+      "description": "Vacuum deep cleansing, pore clearing, dead skin cell removal"
+    },
+    {
+      "icon": "bubbles",
+      "name": "OxyPod capsules",
+      "description": "Targeted ingredient delivery during micro-bubble cleansing"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrasonic peeling",
+      "description": "Skin Scrubber – painless peeling, pore cleansing"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Water and oxygen atomization – instant hydration"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hot-cold hammer",
+      "description": "Skin soothing, pore tightening, circulation boost"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipolar RF",
+      "description": "Skin firming, collagen stimulation with radio frequency"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrasonic infusion",
+      "description": "Sound Wave 40-50 – deep active ingredient absorption"
+    },
+    {
+      "icon": "sun",
+      "name": "LED mask",
+      "description": "Red, blue, green, yellow light therapy – regeneration, anti-inflammatory"
+    },
+    {
+      "icon": "brain",
+      "name": "AI skin analysis",
+      "description": "4K micro-camera, 9+ parameters, automatic treatment recommendations"
+    }
   ],
   "faq": [
-    { "question": "Can desktop hydrofacial systems be effective too?", "answer": "Yes, absolutely. Effectiveness is determined not by size but by technology and adjustment options. The HydraScan PRO+ 2026 has a professional vacuum system and multiple treatment functions, allowing full-value salon treatments." },
-    { "question": "Is the device's vacuum/suction power adequate?", "answer": "Yes. The vacuum range (−6 kPa to −86 kPa) is adjustable across a wide scale: gentle for sensitive skin, effective deep cleansing for problem skin. With proper settings it's neither 'too strong' nor too weak – the key is correct use, which is taught in detail during the training." },
-    { "question": "What maintenance does the device require?", "answer": "Daily maintenance is simple: rinse the tubing system with clean water after use, empty and clean the tanks, disinfect the treatment heads. This ensures hygienic operation and long lifespan." },
-    { "question": "How often is service required?", "answer": "With normal use there's no frequent mandatory service requirement. We recommend annual periodic checks; with intensive (daily) use, a quick service visit every 6 months. Proper cleaning significantly reduces service needs." },
-    { "question": "What should I be especially careful about during use?", "answer": "Use only liquids recommended for the device, avoid acidic, oily or particulate substances, use alcohol-free disinfectant, and don't leave the system standing with liquid after use. Following these prevents malfunctions." },
-    { "question": "Can a beginner esthetician use it?", "answer": "Yes. Operating the device is logical, and the training walks you through usage step by step, making it ideal for beginners. Basic treatments can be performed safely right after training; routine develops within a few weeks." },
-    { "question": "How quickly does the device pay for itself?", "answer": "Quick ROI is achievable with as few as 2-3 clients per day. A complex facial is priced between 25,000–50,000 Ft, so with 3 clients per day you can generate 1.5–3 million Ft monthly. Hydro treatments are in high demand and price well." },
-    { "question": "Can it be combined with other treatments?", "answer": "Yes, highly recommended. The HydraScan PRO+ is the perfect base treatment before or after carbon peeling, or before/after other devices. The skin analysis can be used before any other treatment, or as a complete service on its own." },
-    { "question": "How much space does the device take?", "answer": "Compact desktop design, so it fits comfortably in smaller treatment rooms. A dedicated HydraScan PRO+ trolley is also available for 79,990 Ft." }
+    {
+      "question": "Can desktop hydrofacial systems be effective too?",
+      "answer": "Yes, absolutely. Effectiveness is determined not by size but by technology and adjustment options. The HydraScan PRO+ 2026 has a professional vacuum system and multiple treatment functions, allowing full-value salon treatments."
+    },
+    {
+      "question": "Is the device's vacuum/suction power adequate?",
+      "answer": "Yes. The vacuum range (−6 kPa to −86 kPa) is adjustable across a wide scale: gentle for sensitive skin, effective deep cleansing for problem skin. With proper settings it's neither 'too strong' nor too weak – the key is correct use, which is taught in detail during the training."
+    },
+    {
+      "question": "What maintenance does the device require?",
+      "answer": "Daily maintenance is simple: rinse the tubing system with clean water after use, empty and clean the tanks, disinfect the treatment heads. This ensures hygienic operation and long lifespan."
+    },
+    {
+      "question": "How often is service required?",
+      "answer": "With normal use there's no frequent mandatory service requirement. We recommend annual periodic checks; with intensive (daily) use, a quick service visit every 6 months. Proper cleaning significantly reduces service needs."
+    },
+    {
+      "question": "What should I be especially careful about during use?",
+      "answer": "Use only liquids recommended for the device, avoid acidic, oily or particulate substances, use alcohol-free disinfectant, and don't leave the system standing with liquid after use. Following these prevents malfunctions."
+    },
+    {
+      "question": "Can a beginner esthetician use it?",
+      "answer": "Yes. Operating the device is logical, and the training walks you through usage step by step, making it ideal for beginners. Basic treatments can be performed safely right after training; routine develops within a few weeks."
+    },
+    {
+      "question": "How quickly does the device pay for itself?",
+      "answer": "Quick ROI is achievable with as few as 2-3 clients per day. A complex facial is priced between 25,000–50,000 Ft, so with 3 clients per day you can generate 1.5–3 million Ft monthly. Hydro treatments are in high demand and price well."
+    },
+    {
+      "question": "Can it be combined with other treatments?",
+      "answer": "Yes, highly recommended. The HydraScan PRO+ is the perfect base treatment before or after carbon peeling, or before/after other devices. The skin analysis can be used before any other treatment, or as a complete service on its own."
+    },
+    {
+      "question": "How much space does the device take?",
+      "answer": "Compact desktop design, so it fits comfortably in smaller treatment rooms. A dedicated HydraScan PRO+ trolley is also available for 79,990 Ft."
+    }
   ],
   "whatsIncluded": [
     "HydraScan PRO+ 2026 device",

@@ -5,12 +5,33 @@
   "metaTitle": "ELYRA nanosekundový laser – Pigment, tetování, carbon peeling",
   "metaDescription": "ELYRA ND:YAG laser je kompaktní, 30 kg přenosný přístroj pro odstranění pigmentových skvrn a tetování a carbon peeling. 100–2000 mJ energie, 2 roky záruka.",
   "stats": [
-    { "value": "3", "label": "Vlnové délky", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. energie", "icon": "zap" },
-    { "value": "30", "unit": "kg", "label": "Čistá hmotnost", "icon": "layers" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Max. energie",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "kg",
+      "label": "Čistá hmotnost",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "ELYRA – Přenosný profesionální laser bez kompromisů",
     "paragraphs": [
@@ -97,14 +118,35 @@
   "expertQuote": {
     "quote": "ELYRA je ideální volba pro mobilní kosmetičky a domácí poskytovatele služeb: kompaktní rozměry, vysoký výkon a víceúrovňový bezpečnostní systém. Nanosekundová technologie umožňuje přesná, šetrná ošetření.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranění tetování", "description": "Odstranění černých a barevných tetování na vlnových délkách 1064 nm a 532 nm" },
-    { "icon": "sun", "name": "Léčba pigmentových skvrn", "description": "Zesvětlení pih, melasmy, slunečních skvrn, stařeckých skvrn a hyperpigmentace" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Zúžení pórů, zlepšení textury pleti a hloubkové čištění na vlnové délce 1320 nm" },
-    { "icon": "droplet", "name": "Zesvětlení pleti", "description": "Sjednocení tónu pleti a zesvětlení při nerovnoměrné pigmentaci" },
-    { "icon": "eye", "name": "Odstranění permanentního make-upu", "description": "Korekce a odstranění permanentního make-upu obočí a rtů" }
+    {
+      "icon": "zap",
+      "name": "Odstranění tetování",
+      "description": "Odstranění černých a barevných tetování na vlnových délkách 1064 nm a 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Léčba pigmentových skvrn",
+      "description": "Zesvětlení pih, melasmy, slunečních skvrn, stařeckých skvrn a hyperpigmentace"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Zúžení pórů, zlepšení textury pleti a hloubkové čištění na vlnové délce 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Zesvětlení pleti",
+      "description": "Sjednocení tónu pleti a zesvětlení při nerovnoměrné pigmentaci"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranění permanentního make-upu",
+      "description": "Korekce a odstranění permanentního make-upu obočí a rtů"
+    }
   ],
   "faq": [
     {

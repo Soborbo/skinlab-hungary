@@ -5,12 +5,31 @@
   "metaTitle": "LaseQueen MaPetite Limited Edition – Q-switched ND:YAG laser",
   "metaDescription": "LaseQueen MaPetite limitovaná edice ND:YAG laseru se 6 hlavicemi: tetování, pigment, carbon peeling, ošetření jizev, plísně nehtů. Školení s certifikátem a 2 roky záruky.",
   "stats": [
-    { "value": "6", "label": "Ošetřovacích hlavic", "icon": "layers" },
-    { "value": "F5", "label": "Laserový krystal", "icon": "award" },
-    { "value": "Limited", "label": "Edice", "icon": "award" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Ošetřovacích hlavic",
+      "icon": "layers"
+    },
+    {
+      "value": "F5",
+      "label": "Laserový krystal",
+      "icon": "award"
+    },
+    {
+      "value": "Limited",
+      "label": "Edice",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "LaseQueen MaPetite – Limitovaná edice, plné možnosti",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Máte dotazy k laseru LaseQueen MaPetite? Rádi vám pomůžeme!", "buttonLabel": "Žádost o konzultaci", "phoneLabel": "Zavolejte nám" },
-    "afterFeatures": { "headline": "Chcete vidět LaseQueen MaPetite naživo?", "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ho osobně!", "buttonLabel": "Rezervace termínu" },
-    "final": { "headline": "Zajímá vás LaseQueen MaPetite Limited Edition?", "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to pro vás ta nejlepší volba.", "buttonLabel": "Žádost o konzultaci" }
+    "afterVideo": {
+      "text": "Máte dotazy k laseru LaseQueen MaPetite? Rádi vám pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidět LaseQueen MaPetite naživo?",
+      "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ho osobně!",
+      "buttonLabel": "Rezervace termínu"
+    },
+    "final": {
+      "headline": "Zajímá vás LaseQueen MaPetite Limited Edition?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to pro vás ta nejlepší volba.",
+      "buttonLabel": "Žádost o konzultaci"
+    }
   },
   "featureRows": {
     "headline": "Proč zvolit LaseQueen MaPetite?",
@@ -78,22 +109,62 @@
   "expertQuote": {
     "quote": "LaseQueen MaPetite je setkáním kouzla limitované edice a profesionální technologie. Stejný 6hlavicový systém, stejná spolehlivost – v omezeném množství.",
     "author": "Horváth László",
-    "role": "Technický expert"
+    "role": "Technický expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranění tetování", "description": "Odstranění tetování všech barev na vlnových délkách 1064 nm a 532 nm" },
-    { "icon": "eye", "name": "Odstranění permanentního make-upu", "description": "Korekce permanentního make-upu obočí a rtů hlavicemi No Scar" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hloubkové čištění, stažení pórů hlavicemi 1320 nm a 755 nm" },
-    { "icon": "droplet", "name": "Ošetření pigmentových skvrn", "description": "Zesvětlení slunečních skvrn, pih a stařeckých skvrn" },
-    { "icon": "bolt", "name": "Ošetření jizev", "description": "Zesvětlení akné jizev a poúrazových jizev" },
-    { "icon": "sun", "name": "Ošetření plísně nehtů", "description": "Laserové ošetření plísně nehtů" }
+    {
+      "icon": "zap",
+      "name": "Odstranění tetování",
+      "description": "Odstranění tetování všech barev na vlnových délkách 1064 nm a 532 nm"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranění permanentního make-upu",
+      "description": "Korekce permanentního make-upu obočí a rtů hlavicemi No Scar"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hloubkové čištění, stažení pórů hlavicemi 1320 nm a 755 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Ošetření pigmentových skvrn",
+      "description": "Zesvětlení slunečních skvrn, pih a stařeckých skvrn"
+    },
+    {
+      "icon": "bolt",
+      "name": "Ošetření jizev",
+      "description": "Zesvětlení akné jizev a poúrazových jizev"
+    },
+    {
+      "icon": "sun",
+      "name": "Ošetření plísně nehtů",
+      "description": "Laserové ošetření plísně nehtů"
+    }
   ],
   "faq": [
-    { "question": "V čem se MaPetite liší od běžného LaseQueen?", "answer": "MaPetite je limitovaná edice LaseQueen s exkluzivním vzhledem. Technologicky je identická: stejné 6 hlavice, F5 laserový krystal, hybridní chladicí systém a možnosti ošetření. Rozdíl je výhradně v estetickém provedení limitované edice." },
-    { "question": "Na jaká ošetření je LaseQueen MaPetite vhodná?", "answer": "Odstranění tetování na těle i permanentního make-upu, carbon peeling, ošetření pigmentových skvrn, ošetření jizev a plísně nehtů. 6 hlavic poskytuje komplexnější funkce než běžné 3hlavicové přístroje." },
-    { "question": "Za jak dlouho se zaplatí?", "answer": "Díky příznivé cenové kategorii a všestrannému využití se průměrně zaplatí za 1-2 měsíce při 3-5 klientech denně. Využijte naši ROI kalkulačku pro přesný výpočet!" },
-    { "question": "Jaké školení k přístroji patří?", "answer": "Oficiální školení obsluhy registrované v systému FAR je při zakoupení přístroje ZDARMA (v hodnotě 79 990 Ft). Školení pokrývá vše od používání 6 hlavic po speciální ošetření." },
-    { "question": "Je možné si přístroj prohlédnout před zakoupením?", "answer": "Ano! V našem showroomu (Érd, Budai út 28.) si můžete LaseQueen MaPetite osobně prohlédnout a vyzkoušet po předchozí rezervaci termínu." }
+    {
+      "question": "V čem se MaPetite liší od běžného LaseQueen?",
+      "answer": "MaPetite je limitovaná edice LaseQueen s exkluzivním vzhledem. Technologicky je identická: stejné 6 hlavice, F5 laserový krystal, hybridní chladicí systém a možnosti ošetření. Rozdíl je výhradně v estetickém provedení limitované edice."
+    },
+    {
+      "question": "Na jaká ošetření je LaseQueen MaPetite vhodná?",
+      "answer": "Odstranění tetování na těle i permanentního make-upu, carbon peeling, ošetření pigmentových skvrn, ošetření jizev a plísně nehtů. 6 hlavic poskytuje komplexnější funkce než běžné 3hlavicové přístroje."
+    },
+    {
+      "question": "Za jak dlouho se zaplatí?",
+      "answer": "Díky příznivé cenové kategorii a všestrannému využití se průměrně zaplatí za 1-2 měsíce při 3-5 klientech denně. Využijte naši ROI kalkulačku pro přesný výpočet!"
+    },
+    {
+      "question": "Jaké školení k přístroji patří?",
+      "answer": "Oficiální školení obsluhy registrované v systému FAR je při zakoupení přístroje ZDARMA (v hodnotě 79 990 Ft). Školení pokrývá vše od používání 6 hlavic po speciální ošetření."
+    },
+    {
+      "question": "Je možné si přístroj prohlédnout před zakoupením?",
+      "answer": "Ano! V našem showroomu (Érd, Budai út 28.) si můžete LaseQueen MaPetite osobně prohlédnout a vyzkoušet po předchozí rezervaci termínu."
+    }
   ],
   "whatsIncluded": [
     "LaseQueen MaPetite Q-switched Nd:YAG laser (Limitovaná edice)",

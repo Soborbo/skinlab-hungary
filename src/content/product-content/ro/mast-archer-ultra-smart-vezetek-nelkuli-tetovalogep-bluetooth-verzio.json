@@ -5,15 +5,46 @@
   "metaTitle": "MAST Archer Ultra Smart – Aparat de tatuat wireless pentru profesioniști",
   "metaDescription": "Aparat de tatuat inteligent premium cu conexiune Bluetooth, motor cu cursă mare și autonomie lungă. Ideal pentru artiști tatuatori profesioniști.",
   "stats": [
-    { "value": "4,5", "unit": "mm", "label": "Cursă extra mare", "icon": "zap" },
-    { "value": "6,5+", "unit": "ore", "label": "Autonomie", "icon": "clock" },
-    { "value": "2300", "unit": "mAh", "label": "Baterie", "icon": "award" },
-    { "value": "BT", "label": "Control Bluetooth", "icon": "layers" }
+    {
+      "value": "4,5",
+      "unit": "mm",
+      "label": "Cursă extra mare",
+      "icon": "zap"
+    },
+    {
+      "value": "6,5+",
+      "unit": "ore",
+      "label": "Autonomie",
+      "icon": "clock"
+    },
+    {
+      "value": "2300",
+      "unit": "mAh",
+      "label": "Baterie",
+      "icon": "award"
+    },
+    {
+      "value": "BT",
+      "label": "Control Bluetooth",
+      "icon": "layers"
+    }
   ],
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre Archer Ultra Smart? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați o consultație", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să testați Archer Ultra Smart?", "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează MAST Archer Ultra Smart?", "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.", "buttonLabel": "Solicitați o consultație" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre Archer Ultra Smart? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să testați Archer Ultra Smart?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează MAST Archer Ultra Smart?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
   },
   "featureRows": {
     "headline": "De ce Archer Ultra Smart este din categoria de top?",
@@ -81,7 +112,8 @@
   "expertQuote": {
     "quote": "Archer Ultra Smart este produsul de top al Dragonhawk. Combinația dintre cursa de 4,5 mm, motorul MCore și controlul inteligent Bluetooth este de neegalat pe piață în această categorie de preț.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Greutate aparat": "217 g",
@@ -100,12 +132,30 @@
     "Interfață de încărcare": "Type-C"
   },
   "faq": [
-    { "question": "La ce este util Bluetooth-ul și aplicația Dragonhawk?", "answer": "Conexiunea Bluetooth permite controlul și monitorizarea aparatului de pe dispozitive mobile. Prin aplicația Dragonhawk puteți urmări în timp real starea bateriei, setările de tensiune și alți parametri pe telefon sau tabletă." },
-    { "question": "Ce include setul în afară de aparat?", "answer": "Setul include aparatul de tatuat, sursa de alimentare wireless inteligentă (3300 mAh), stația de încărcare integrată din aluminiu (cu port USB), cablu Type-C și manual de utilizare." },
-    { "question": "De ce este mai bună cursa de 4,5 mm?", "answer": "Cursa mai mare introduce mai mult pigment în piele cu fiecare mișcare a acului, ceea ce rezultă o saturație mai mare a culorilor. Aceasta înseamnă mai puține retușuri, lucru mai rapid și un rezultat final mai bun – în special la colorarea compactă și umbrire." },
-    { "question": "Cât de rapidă este încărcarea?", "answer": "Doar 10 minute de încărcare asigură 1 oră de utilizare. Încărcarea completă durează aproximativ 1 oră și 20 de minute și oferă peste 6,5 ore de autonomie. Stația de încărcare încarcă simultan aparatul și sursa de alimentare." },
-    { "question": "Poate fi utilizat pentru micropigmentare?", "answer": "Archer Ultra Smart este în principal un aparat de top pentru tatuaje corporale. Datorită cursei de 4,5 mm și greutății de 217 g, nu este alegerea cea mai optimă pentru micropigmentare – pentru aceasta, MAST P60 sau Nano 2 sunt mai potrivite." },
-    { "question": "Ce garanție are aparatul?", "answer": "Archer Ultra Smart vine cu garanție de 1 an. Pe perioada reparației, oferim aparat de schimb pentru ca munca dumneavoastră să nu fie întreruptă." }
+    {
+      "question": "La ce este util Bluetooth-ul și aplicația Dragonhawk?",
+      "answer": "Conexiunea Bluetooth permite controlul și monitorizarea aparatului de pe dispozitive mobile. Prin aplicația Dragonhawk puteți urmări în timp real starea bateriei, setările de tensiune și alți parametri pe telefon sau tabletă."
+    },
+    {
+      "question": "Ce include setul în afară de aparat?",
+      "answer": "Setul include aparatul de tatuat, sursa de alimentare wireless inteligentă (3300 mAh), stația de încărcare integrată din aluminiu (cu port USB), cablu Type-C și manual de utilizare."
+    },
+    {
+      "question": "De ce este mai bună cursa de 4,5 mm?",
+      "answer": "Cursa mai mare introduce mai mult pigment în piele cu fiecare mișcare a acului, ceea ce rezultă o saturație mai mare a culorilor. Aceasta înseamnă mai puține retușuri, lucru mai rapid și un rezultat final mai bun – în special la colorarea compactă și umbrire."
+    },
+    {
+      "question": "Cât de rapidă este încărcarea?",
+      "answer": "Doar 10 minute de încărcare asigură 1 oră de utilizare. Încărcarea completă durează aproximativ 1 oră și 20 de minute și oferă peste 6,5 ore de autonomie. Stația de încărcare încarcă simultan aparatul și sursa de alimentare."
+    },
+    {
+      "question": "Poate fi utilizat pentru micropigmentare?",
+      "answer": "Archer Ultra Smart este în principal un aparat de top pentru tatuaje corporale. Datorită cursei de 4,5 mm și greutății de 217 g, nu este alegerea cea mai optimă pentru micropigmentare – pentru aceasta, MAST P60 sau Nano 2 sunt mai potrivite."
+    },
+    {
+      "question": "Ce garanție are aparatul?",
+      "answer": "Archer Ultra Smart vine cu garanție de 1 an. Pe perioada reparației, oferim aparat de schimb pentru ca munca dumneavoastră să nu fie întreruptă."
+    }
   ],
   "whatsIncluded": [
     "MAST Archer Ultra Smart aparat de tatuat",

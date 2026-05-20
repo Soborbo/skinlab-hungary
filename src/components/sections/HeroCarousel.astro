@@ -5,53 +5,97 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
-// SEO-optimized hero images — desktop (1920x800) + mobile (750x400)
+// SEO-optimized hero images — desktop (1920x807) + mobile (1254x1254)
 const slides = [
   {
     titleKey: 'hero.title',
     subtitleKey: 'hero.subtitle',
-    avif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.avif',
-    webp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.webp',
-    jpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.jpg',
-    mobileAvif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.avif',
-    mobileWebp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.webp',
-    mobileJpg: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.jpg',
+    avif: '/hero/hero-athena-1000w-diodalezer.avif',
+    webp: '/hero/hero-athena-1000w-diodalezer.webp',
+    jpg: '/hero/hero-athena-1000w-diodalezer.jpg',
+    mobileAvif: '/hero/hero-athena-1000w-diodalezer-mobile.avif',
+    mobileWebp: '/hero/hero-athena-1000w-diodalezer-mobile.webp',
+    mobileJpg: '/hero/hero-athena-1000w-diodalezer-mobile.jpg',
     imageAlt: 'hero.title',
   },
   {
     titleKey: 'hero.slide2.title',
     subtitleKey: 'hero.slide2.subtitle',
-    avif: '/hero/hero-crush-1600-diodalezer-szortelenito.avif',
-    webp: '/hero/hero-crush-1600-diodalezer-szortelenito.webp',
-    jpg: '/hero/hero-crush-1600-diodalezer-szortelenito.jpg',
-    mobileAvif: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.avif',
-    mobileWebp: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.webp',
-    mobileJpg: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.jpg',
+    avif: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.avif',
+    webp: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.webp',
+    jpg: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.jpg',
+    mobileAvif: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.avif',
+    mobileWebp: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.webp',
+    mobileJpg: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.jpg',
     imageAlt: 'hero.slide2.title',
   },
   {
     titleKey: 'hero.slide4.title',
     subtitleKey: 'hero.slide4.subtitle',
-    avif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.avif',
-    webp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.webp',
-    jpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.jpg',
-    mobileAvif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.avif',
-    mobileWebp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.webp',
-    mobileJpg: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.jpg',
+    avif: '/hero/hero-hidra-mist-elite-hidrofacial-gep.avif',
+    webp: '/hero/hero-hidra-mist-elite-hidrofacial-gep.webp',
+    jpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep.jpg',
+    mobileAvif: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.avif',
+    mobileWebp: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.webp',
+    mobileJpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.jpg',
     imageAlt: 'hero.slide4.title',
   },
   {
     titleKey: 'hero.slide5.title',
     subtitleKey: 'hero.slide5.subtitle',
-    avif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.avif',
-    webp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.webp',
-    jpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.jpg',
-    mobileAvif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.avif',
-    mobileWebp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.webp',
-    mobileJpg: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.jpg',
+    avif: '/hero/hero-monduniq-laser-expert-csomag.avif',
+    webp: '/hero/hero-monduniq-laser-expert-csomag.webp',
+    jpg: '/hero/hero-monduniq-laser-expert-csomag.jpg',
+    mobileAvif: '/hero/hero-monduniq-laser-expert-csomag-mobile.avif',
+    mobileWebp: '/hero/hero-monduniq-laser-expert-csomag-mobile.webp',
+    mobileJpg: '/hero/hero-monduniq-laser-expert-csomag-mobile.jpg',
     imageAlt: 'hero.slide5.title',
   },
 ];
+
+// Korábbi képforgató variánsok — kommentben hagyva referenciaként.
+// const _oldSlides = [
+//   {
+//     titleKey: 'hero.title', subtitleKey: 'hero.subtitle',
+//     avif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.avif',
+//     webp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.webp',
+//     jpg:  '/hero/hero-hydrascan-pro-hidrodermabrazios-gep.jpg',
+//     mobileAvif: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.avif',
+//     mobileWebp: '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.webp',
+//     mobileJpg:  '/hero/hero-hydrascan-pro-hidrodermabrazios-gep-mobile.jpg',
+//     imageAlt: 'hero.title',
+//   },
+//   {
+//     titleKey: 'hero.slide2.title', subtitleKey: 'hero.slide2.subtitle',
+//     avif: '/hero/hero-crush-1600-diodalezer-szortelenito.avif',
+//     webp: '/hero/hero-crush-1600-diodalezer-szortelenito.webp',
+//     jpg:  '/hero/hero-crush-1600-diodalezer-szortelenito.jpg',
+//     mobileAvif: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.avif',
+//     mobileWebp: '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.webp',
+//     mobileJpg:  '/hero/hero-crush-1600-diodalezer-szortelenito-mobile.jpg',
+//     imageAlt: 'hero.slide2.title',
+//   },
+//   {
+//     titleKey: 'hero.slide4.title', subtitleKey: 'hero.slide4.subtitle',
+//     avif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.avif',
+//     webp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.webp',
+//     jpg:  '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas.jpg',
+//     mobileAvif: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.avif',
+//     mobileWebp: '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.webp',
+//     mobileJpg:  '/hero/hero-pixel-carbon-lezer-tetovalas-eltavolitas-mobile.jpg',
+//     imageAlt: 'hero.slide4.title',
+//   },
+//   {
+//     titleKey: 'hero.slide5.title', subtitleKey: 'hero.slide5.subtitle',
+//     avif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.avif',
+//     webp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.webp',
+//     jpg:  '/hero/hero-frame-q-kapcsolt-nd-yag-lezer.jpg',
+//     mobileAvif: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.avif',
+//     mobileWebp: '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.webp',
+//     mobileJpg:  '/hero/hero-frame-q-kapcsolt-nd-yag-lezer-mobile.jpg',
+//     imageAlt: 'hero.slide5.title',
+//   },
+// ];
 
 // Trust badges
 const trustBadges = [
@@ -73,14 +117,14 @@ const icons: Record<string, string> = {
   {/* ── MOBILE: image flows naturally, text below with matching background ── */}
   <div class="sm:hidden" style="background-color: #fbf8f8;">
     <picture>
-      <source type="image/avif" srcset="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.avif" />
-      <source type="image/webp" srcset="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.webp" />
+      <source type="image/avif" srcset={slides[0].mobileAvif} />
+      <source type="image/webp" srcset={slides[0].mobileWebp} />
       <img
-        src="/hero/hero-hydrascan-pro-kozmetikai-gep-mobil.jpg"
+        src={slides[0].mobileJpg}
         alt={t(locale, 'hero.title')}
         class="w-full h-auto"
-        width="750"
-        height="741"
+        width="1254"
+        height="1254"
         loading="eager"
         fetchpriority="high"
         decoding="sync"
@@ -95,7 +139,7 @@ const icons: Record<string, string> = {
       </p>
       <a
         href={contactLink}
-        class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl text-sm hover:bg-primary-700 transition-all shadow-lg"
+        class="inline-flex items-center justify-center px-6 py-3 bg-cta text-white font-semibold rounded-xl text-sm hover:bg-cta-hover transition-all shadow-lg"
       >
         {t(locale, 'hero.cta')}
       </a>
@@ -141,13 +185,13 @@ const icons: Record<string, string> = {
                   <div class="flex flex-row gap-3">
                     <a
                       href={contactLink}
-                      class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm"
+                      class="inline-flex items-center justify-center px-6 py-3 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-all shadow-lg hover:shadow-xl text-sm"
                     >
                       {t(locale, 'hero.cta')}
                     </a>
                     <a
                       href={CONTACT.phoneTel}
-                      class="inline-flex items-center justify-center px-6 py-3 bg-[#9b6b6b]/15 text-[#9b6b6b] font-semibold rounded-xl border-2 border-[#9b6b6b]/30 hover:bg-[#9b6b6b]/25 backdrop-blur-sm transition-all text-sm"
+                      class="inline-flex items-center justify-center px-6 py-3 bg-white text-cta font-semibold rounded-xl border-2 border-cta/40 hover:bg-cta-light backdrop-blur-sm transition-all text-sm"
                     >
                       <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -254,7 +298,6 @@ const icons: Record<string, string> = {
     var interval;
     var INTERVAL_MS = 5000;
     var paused = false;
-    var isDesktop = window.matchMedia('(min-width: 640px)').matches;
 
     function goTo(index) {
       for (var i = 0; i < slides.length; i++) {

@@ -28,7 +28,11 @@ function push(data: Record<string, unknown>): void {
 }
 
 /** Ecommerce-specific push: clears previous ecommerce data, adds standard metadata */
-function pushEcommerceEvent(eventName: string, ecommerce: Record<string, unknown>): void {
+function pushEcommerceEvent(
+  eventName: string,
+  ecommerce: Record<string, unknown>,
+  extra?: Record<string, unknown>,
+): void {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ ecommerce: null }); // GA4: clear previous ecommerce state
   const payload = {
@@ -38,6 +42,7 @@ function pushEcommerceEvent(eventName: string, ecommerce: Record<string, unknown
     device: getDevice(),
     page_url: getPageUrl(),
     ...getAttribution(),
+    ...extra,
   };
   window.dataLayer.push(payload);
   if (debugMode) console.log('[TRACK:ecom]', payload);
@@ -148,6 +153,15 @@ export function trackBeginCheckout(items: EcommerceItem[], value: number, curren
   });
 }
 
+/** Purchase user-data (for Enhanced Conversions / CAPI matching) */
+export interface PurchaseUserData {
+  email?: string;
+  phone?: string;
+  firstName?: string;
+  lastName?: string;
+  eventId?: string;
+}
+
 /** Purchase completed */
 export function trackPurchase(
   transactionId: string,
@@ -156,16 +170,34 @@ export function trackPurchase(
   currency = 'HUF',
   shipping = 0,
   tax = 0,
+  userData?: PurchaseUserData,
 ): void {
   if (!hasAnalyticsConsent()) return;
-  pushEcommerceEvent('purchase', {
-    transaction_id: transactionId,
-    currency,
-    value,
-    shipping,
-    tax,
-    items: items.map(item => ({ ...item, currency: item.currency || currency, quantity: item.quantity || 1 })),
-  });
+
+  const extra: Record<string, unknown> = {};
+  if (userData?.eventId) extra.event_id = userData.eventId;
+
+  if (userData && (userData.email || userData.phone || userData.firstName || userData.lastName)) {
+    const ud: Record<string, string> = {};
+    if (userData.email) ud.email = normalizeEmail(userData.email);
+    if (userData.phone && userData.phone.length >= 8) ud.phone_number = normalizePhone(userData.phone);
+    if (userData.firstName) ud.first_name = sanitizeName(userData.firstName);
+    if (userData.lastName) ud.last_name = sanitizeName(userData.lastName);
+    extra.user_provided_data = ud;
+  }
+
+  pushEcommerceEvent(
+    'purchase',
+    {
+      transaction_id: transactionId,
+      currency,
+      value,
+      shipping,
+      tax,
+      items: items.map(item => ({ ...item, currency: item.currency || currency, quantity: item.quantity || 1 })),
+    },
+    extra,
+  );
 }
 
 /** Lead generation for a specific product (GA4 standard event) */

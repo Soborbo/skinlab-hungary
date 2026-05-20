@@ -5,12 +5,32 @@
   "metaTitle": "HYPERNOVA 7D HIFU Device | Ultrasound + RF + EMS | Skinlab Hungary",
   "metaDescription": "HYPERNOVA 7D HIFU: focused ultrasound, radio frequency, and EMS combined. Non-invasive facelift, fat reduction, body sculpting. CE certified, 12-month warranty.",
   "stats": [
-    { "value": "3", "label": "Technologies in one", "icon": "layers" },
-    { "value": "7D", "label": "HIFU technology", "icon": "zap" },
-    { "value": "650", "unit": "W", "label": "Power output", "icon": "bolt" },
-    { "value": "12", "unit": "months", "label": "Warranty", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Technologies in one",
+      "icon": "layers"
+    },
+    {
+      "value": "7D",
+      "label": "HIFU technology",
+      "icon": "zap"
+    },
+    {
+      "value": "650",
+      "unit": "W",
+      "label": "Power output",
+      "icon": "bolt"
+    },
+    {
+      "value": "12",
+      "unit": "months",
+      "label": "Warranty",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HYPERNOVA – the new generation of non-invasive body sculpting and skin rejuvenation",
     "paragraphs": [
@@ -20,9 +40,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the HYPERNOVA 7D HIFU device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the HYPERNOVA in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the HYPERNOVA 7D HIFU device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the HYPERNOVA 7D HIFU device? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the HYPERNOVA in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the HYPERNOVA 7D HIFU device?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why is the HYPERNOVA the professional choice?",
@@ -64,26 +96,91 @@
     "headline": "Operator training – official adult education program",
     "badge": "With official certificate",
     "intro": "We provide professional operator training for the HYPERNOVA 7D HIFU device within the framework of officially registered adult education. The training comprehensively covers the operation, treatment protocols, and safety requirements of HIFU, RF, and EMS technologies.",
-    "items": ["Operating principles and mechanism of 7D HIFU technology", "Application areas of phased radio frequency (RF)", "EMS muscle stimulation treatment protocols", "Facial and body treatment protocols for various areas", "Correct application and settings of treatment units", "Contraindications and safety rules", "Practical treatments on models"],
-    "closingParagraphs": ["You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.", "Upon completion of the training, we issue an official, FAR-system generated certificate with B-number.", "If you're interested in the training opportunity, please contact us through any of our channels to arrange an appointment!"],
-    "price": "79.990 Ft", "priceNote": "value training", "freeText": "FREE with device purchase!", "duration": "One-day intensive training", "ctaText": "Interested in the training"
+    "items": [
+      "Operating principles and mechanism of 7D HIFU technology",
+      "Application areas of phased radio frequency (RF)",
+      "EMS muscle stimulation treatment protocols",
+      "Facial and body treatment protocols for various areas",
+      "Correct application and settings of treatment units",
+      "Contraindications and safety rules",
+      "Practical treatments on models"
+    ],
+    "closingParagraphs": [
+      "You are welcome to bring a model to the training so you can learn the treatment techniques in a real-world environment.",
+      "Upon completion of the training, we issue an official, FAR-system generated certificate with B-number.",
+      "If you're interested in the training opportunity, please contact us through any of our channels to arrange an appointment!"
+    ],
+    "price": "79.990 Ft",
+    "priceNote": "value training",
+    "freeText": "FREE with device purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "Interested in the training"
   },
   "testimonials": [
-    { "name": "Varga Katalin", "date": "2026. 01. 22.", "text": "The HYPERNOVA completely transformed my salon's service palette. <mark>The combination of facial and body treatments is unique</mark> – clients love that they can get both a facelift and body sculpting with a single device. The 7D HIFU effect is impressive!", "rating": 5 },
-    { "name": "Nagy Renáta", "date": "2026. 02. 08.", "text": "I specifically chose the HYPERNOVA for body sculpting and cellulite reduction treatments. <mark>My clients experience visible changes after just 3-4 treatments</mark>, and the EMS technology has also become very popular with us.", "rating": 5 },
-    { "name": "Papp Zsófia", "date": "2026. 03. 01.", "text": "The demand for HIFU facelift treatments is <mark>enormous</mark>, and with the HYPERNOVA I can serve my clients at a professional level. The combination of three technologies truly delivers more than they would individually. The training was also thorough and professional.", "rating": 5 }
+    {
+      "name": "Varga Katalin",
+      "date": "2026. 01. 22.",
+      "text": "The HYPERNOVA completely transformed my salon's service palette. <mark>The combination of facial and body treatments is unique</mark> – clients love that they can get both a facelift and body sculpting with a single device. The 7D HIFU effect is impressive!",
+      "rating": 5
+    },
+    {
+      "name": "Nagy Renáta",
+      "date": "2026. 02. 08.",
+      "text": "I specifically chose the HYPERNOVA for body sculpting and cellulite reduction treatments. <mark>My clients experience visible changes after just 3-4 treatments</mark>, and the EMS technology has also become very popular with us.",
+      "rating": 5
+    },
+    {
+      "name": "Papp Zsófia",
+      "date": "2026. 03. 01.",
+      "text": "The demand for HIFU facelift treatments is <mark>enormous</mark>, and with the HYPERNOVA I can serve my clients at a professional level. The combination of three technologies truly delivers more than they would individually. The training was also thorough and professional.",
+      "rating": 5
+    }
   ],
-  "expertQuote": { "quote": "7D HIFU technology is one of the most effective non-invasive methods for facelifting and body sculpting. The HYPERNOVA, combining focused ultrasound with RF and EMS, offers a comprehensive treatment capability that was previously only achievable with multiple devices.", "author": "Horváth László", "role": "Technical expert" },
+  "expertQuote": {
+    "quote": "7D HIFU technology is one of the most effective non-invasive methods for facelifting and body sculpting. The HYPERNOVA, combining focused ultrasound with RF and EMS, offers a comprehensive treatment capability that was previously only achievable with multiple devices.",
+    "author": "Horváth László",
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
+  },
   "faq": [
-    { "question": "What is 7D HIFU and how does it work?", "answer": "7D HIFU (High-Intensity Focused Ultrasound) uses high-intensity, focused ultrasound waves that deliver energy into the deeper layers of the skin. This heat effect creates micro-injuries, to which the body responds with natural regeneration – collagen and elastin production increases, and the skin becomes firmer and more elastic." },
-    { "question": "Is the treatment painful?", "answer": "During HIFU treatment, mild warmth and tingling are experienced, but the treatment is generally well-tolerated and doesn't require anesthesia. RF and EMS treatments are also painless." },
-    { "question": "When are results visible?", "answer": "Some improvement may be noticeable after the first treatment, but due to increased collagen production, the full result develops over 2–3 months. The HIFU effect typically lasts 6–12 months, while RF and EMS treatments strengthen results through a course format." },
-    { "question": "What areas can it be used on?", "answer": "Face, neck, double chin, abdomen, waist, thighs, buttocks, arms, and shoulders. HIFU for facelifting and body sculpting, RF for skin firming and wrinkle reduction, EMS for muscle stimulation and contouring." },
-    { "question": "Is there recovery time after treatment?", "answer": "There's no significant recovery time after treatment. Mild redness may occur, which typically subsides within a few hours. The client can immediately continue their daily activities after treatment." },
-    { "question": "What training comes with the device?", "answer": "A one-day official adult education operator training course, free with device purchase. The training covers HIFU, RF, and EMS technology operation, treatment protocols, and safety requirements. We issue a FAR-system generated certificate with B-number." },
-    { "question": "How quickly does the HYPERNOVA pay for itself?", "answer": "HIFU treatment prices typically range from 25,000–60,000 Ft, body treatment prices are in a similar range. With 8–12 treatments per week, the device generally pays for itself within 3–5 months. Use our ROI calculator for exact figures!" }
+    {
+      "question": "What is 7D HIFU and how does it work?",
+      "answer": "7D HIFU (High-Intensity Focused Ultrasound) uses high-intensity, focused ultrasound waves that deliver energy into the deeper layers of the skin. This heat effect creates micro-injuries, to which the body responds with natural regeneration – collagen and elastin production increases, and the skin becomes firmer and more elastic."
+    },
+    {
+      "question": "Is the treatment painful?",
+      "answer": "During HIFU treatment, mild warmth and tingling are experienced, but the treatment is generally well-tolerated and doesn't require anesthesia. RF and EMS treatments are also painless."
+    },
+    {
+      "question": "When are results visible?",
+      "answer": "Some improvement may be noticeable after the first treatment, but due to increased collagen production, the full result develops over 2–3 months. The HIFU effect typically lasts 6–12 months, while RF and EMS treatments strengthen results through a course format."
+    },
+    {
+      "question": "What areas can it be used on?",
+      "answer": "Face, neck, double chin, abdomen, waist, thighs, buttocks, arms, and shoulders. HIFU for facelifting and body sculpting, RF for skin firming and wrinkle reduction, EMS for muscle stimulation and contouring."
+    },
+    {
+      "question": "Is there recovery time after treatment?",
+      "answer": "There's no significant recovery time after treatment. Mild redness may occur, which typically subsides within a few hours. The client can immediately continue their daily activities after treatment."
+    },
+    {
+      "question": "What training comes with the device?",
+      "answer": "A one-day official adult education operator training course, free with device purchase. The training covers HIFU, RF, and EMS technology operation, treatment protocols, and safety requirements. We issue a FAR-system generated certificate with B-number."
+    },
+    {
+      "question": "How quickly does the HYPERNOVA pay for itself?",
+      "answer": "HIFU treatment prices typically range from 25,000–60,000 Ft, body treatment prices are in a similar range. With 8–12 treatments per week, the device generally pays for itself within 3–5 months. Use our ROI calculator for exact figures!"
+    }
   ],
   "whatsIncluded": [
-    "HYPERNOVA 7D HIFU device", "HIFU treatment heads (for face and body)", "RF treatment head", "EMS treatment unit", "Touchscreen control panel", "User manual (Hungarian)", "Legal documentation", "12-month comprehensive warranty", "Replacement device during repairs"
+    "HYPERNOVA 7D HIFU device",
+    "HIFU treatment heads (for face and body)",
+    "RF treatment head",
+    "EMS treatment unit",
+    "Touchscreen control panel",
+    "User manual (Hungarian)",
+    "Legal documentation",
+    "12-month comprehensive warranty",
+    "Replacement device during repairs"
   ]
 }

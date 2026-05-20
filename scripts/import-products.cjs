@@ -131,7 +131,7 @@ function getAvailability(status) {
 }
 
 // Extract variant info from product name
-function extractVariant(name, sku) {
+function extractVariant(name, _sku) {
   // Color variants in parentheses
   const colorMatch = name.match(/\(([^)]+)\)$/);
   if (colorMatch) {

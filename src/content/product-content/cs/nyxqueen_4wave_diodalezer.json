@@ -5,12 +5,31 @@
   "metaTitle": "NyxQueen 4Wave Diodový laser | 600W, 4 vlnové délky, 50M výstřelů",
   "metaDescription": "NyxQueen 600W diodový laser se 4 vlnovými délkami (755, 808, 940, 1064 nm). 50 milionů výstřelů, pokročilé chlazení, prémiové provedení. 2 roky záruky, školení zdarma.",
   "stats": [
-    { "value": "600", "unit": "W", "label": "Výkon", "icon": "zap" },
-    { "value": "50M", "label": "Životnost výstřelů", "icon": "clock" },
-    { "value": "4", "label": "Vlnové délky", "icon": "wave" },
-    { "value": "-5°C", "label": "Chlazení", "icon": "heart" }
+    {
+      "value": "600",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "zap"
+    },
+    {
+      "value": "50M",
+      "label": "Životnost výstřelů",
+      "icon": "clock"
+    },
+    {
+      "value": "4",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "-5°C",
+      "label": "Chlazení",
+      "icon": "heart"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "NyxQueen diodový laser – Královna epilace",
     "paragraphs": [
@@ -144,7 +163,8 @@
   "expertQuote": {
     "quote": "Epilace diodovým laserem patří mezi nejžádanější kosmetické služby. S výkonem 600W a životností 50 milionů výstřelů nabízí NyxQueen jednu z nejlepších investic z hlediska poměru cena/výkon pro salon.",
     "author": "Horváth László",
-    "role": "Technický expert"
+    "role": "Technický expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Výkon": "600W",

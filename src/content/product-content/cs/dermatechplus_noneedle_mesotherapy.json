@@ -5,12 +5,33 @@
   "metaTitle": "DermaTECH+ bezjehlová mezoterapie | DermoPenetrate Max | Skinlab Hungary",
   "metaDescription": "DermaTECH+ bezjehlový mezoterapeutický přístroj. Bezbolestné vpravení účinných látek do 800 kDa. Bez elektrolýzy, bez změny pH. Celoroční použití, s CE certifikací.",
   "stats": [
-    { "value": "800", "unit": "kDa", "label": "Max. velikost molekul", "icon": "layers" },
-    { "value": "0", "unit": "jehel", "label": "Bezbolestné", "icon": "zap" },
-    { "value": "4", "label": "Celoroční použití", "icon": "sun" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "800",
+      "unit": "kDa",
+      "label": "Max. velikost molekul",
+      "icon": "layers"
+    },
+    {
+      "value": "0",
+      "unit": "jehel",
+      "label": "Bezbolestné",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Celoroční použití",
+      "icon": "sun"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "DermaTECH+ – budoucnost vpravení účinných látek, bez jehel",
     "paragraphs": [
@@ -119,7 +140,8 @@
   "expertQuote": {
     "quote": "Technologie DermoPenetrate Max přístroje DermaTECH+ představuje skutečný průlom v bezjehlovém vpravení účinných látek. Kompletní eliminace elektrolýzy a změn pH garantuje, že účinné látky pronikají do pleti v čisté, aktivní formě – to je neinvazivní alternativa klinické mezoterapie.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
     {

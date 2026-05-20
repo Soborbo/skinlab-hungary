@@ -25,11 +25,6 @@ function ref(base: string, suffix: string): { '@id': string } {
   return { '@id': id(base, suffix) };
 }
 
-/** Build canonical URL */
-function fullUrl(config: SiteConfig, path = ''): string {
-  return `${config.url}${path}`;
-}
-
 /** Assemble sameAs array from social + Google Maps CID */
 function buildSameAs(config: SiteConfig): string[] {
   const links: string[] = [];
@@ -245,7 +240,7 @@ export function collectionPageSchema(
   pageUrl: string,
   categoryName: string,
   productUrls: string[],
-) {
+): { '@context': string; '@graph': Record<string, unknown>[] } {
   return {
     '@context': 'https://schema.org',
     '@graph': [

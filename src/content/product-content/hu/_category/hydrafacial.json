@@ -1,9 +1,27 @@
 {
   "stats": [
-    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" },
-    { "value": "6+", "label": "Funkció egyben", "icon": "layers" },
-    { "value": "30", "unit": "perc", "label": "Kezelési idő", "icon": "clock" },
-    { "value": "100%", "label": "Fájdalommentes", "icon": "heart" }
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    },
+    {
+      "value": "6+",
+      "label": "Funkció egyben",
+      "icon": "layers"
+    },
+    {
+      "value": "30",
+      "unit": "perc",
+      "label": "Kezelési idő",
+      "icon": "clock"
+    },
+    {
+      "value": "100%",
+      "label": "Fájdalommentes",
+      "icon": "heart"
+    }
   ],
   "testimonials": [
     {
@@ -31,7 +49,8 @@
   "expertQuote": {
     "quote": "A HydraFacial az egyik legjobb megtérülésű befektetés egy szalonban. A vendégek azonnal látják az eredményt, és rendszeresen visszatérnek - ez garantált bevételt jelent.",
     "author": "Horváth László",
-    "role": "Technikai szakértő"
+    "role": "Technikai szakértő",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "featureRows": {
     "headline": "Miért válassz multifunkciós hydrofacial gépet?",
@@ -70,12 +89,36 @@
     "ctaText": "Érdekel a képzés"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabrázió", "description": "Vákuumos mélytisztítás és hámlasztás" },
-    { "icon": "sound", "name": "Ultrahang", "description": "Hatóanyagbevitel mély rétegekbe" },
-    { "icon": "bubbles", "name": "Oxigénes kezelés", "description": "O₂ hidratálás és revitalizálás" },
-    { "icon": "bolt", "name": "RF lifting", "description": "Bőrfeszesítés rádiófrekvenciával" },
-    { "icon": "snowflake", "name": "Kriotermia", "description": "Hideg-meleg kezelés pórusösszehúzáshoz" },
-    { "icon": "spray", "name": "Spray gun", "description": "Kezelést lezáró tonizálás" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabrázió",
+      "description": "Vákuumos mélytisztítás és hámlasztás"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrahang",
+      "description": "Hatóanyagbevitel mély rétegekbe"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Oxigénes kezelés",
+      "description": "O₂ hidratálás és revitalizálás"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF lifting",
+      "description": "Bőrfeszesítés rádiófrekvenciával"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Kriotermia",
+      "description": "Hideg-meleg kezelés pórusösszehúzáshoz"
+    },
+    {
+      "icon": "spray",
+      "name": "Spray gun",
+      "description": "Kezelést lezáró tonizálás"
+    }
   ],
   "faq": [
     {

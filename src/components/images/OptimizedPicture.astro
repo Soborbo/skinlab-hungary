@@ -89,9 +89,6 @@ const altText = altProp || entry?.alt || '';
 
 // Get applicable widths
 const availableWidths = entry?.widths || [];
-const effectiveWidths = requestedWidths
-  ? requestedWidths.filter(w => availableWidths.includes(w) || availableWidths.some(aw => Math.abs(aw - w) < 40))
-  : availableWidths;
 
 // Map requested widths to nearest available widths
 const finalWidths = requestedWidths

@@ -5,10 +5,28 @@
   "metaTitle": "VanityBlack Premium elektrische Kosmetikliege | 3 Motoren",
   "metaDescription": "VanityBlack Eclipse 3-Motoren elektrische Kosmetikliege. Fernbedienung, 2,3 m Länge, wasserabweisendes Kunstleder. Premium-Salonmöbel für Salons und Kliniken.",
   "stats": [
-    { "value": "3", "label": "Motoren", "icon": "zap" },
-    { "value": "2,3", "unit": "m", "label": "Gesamtlänge", "icon": "layers" },
-    { "value": "180°", "label": "Armlehnen-Schwenkbereich", "icon": "refresh" },
-    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "award" }
+    {
+      "value": "3",
+      "label": "Motoren",
+      "icon": "zap"
+    },
+    {
+      "value": "2,3",
+      "unit": "m",
+      "label": "Gesamtlänge",
+      "icon": "layers"
+    },
+    {
+      "value": "180°",
+      "label": "Armlehnen-Schwenkbereich",
+      "icon": "refresh"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
@@ -51,7 +69,8 @@
   "expertQuote": {
     "quote": "Die 3-Motoren elektrische Kosmetikliege ist die Grundausstattung eines professionellen Salons. Die VanityBlack Eclipse hebt nicht nur den Kundenkomfort auf ein neues Niveau, sondern macht die Arbeit des Behandlers leichter und ergonomischer.",
     "author": "Horváth László",
-    "role": "Saloneinrichtungsberater"
+    "role": "Saloneinrichtungsberater",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

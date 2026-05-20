@@ -58,7 +58,6 @@ const {
   salePrice,
   image,
   gallery,
-  availability,
   hasVariants,
   variants,
   featured,
@@ -71,14 +70,6 @@ const displayPrice = (p: number | null) => {
   if (!p) return null;
   return formatPrice(p, locale);
 };
-
-// Availability info with i18n labels
-const availabilityInfo: Record<string, { label: string; color: string; icon: string }> = {
-  in_stock: { label: t(locale, 'product.inStock'), color: 'success', icon: 'check' },
-  preorder: { label: t(locale, 'product.preorder'), color: 'amber', icon: 'clock' },
-  out_of_stock: { label: t(locale, 'product.outOfStock'), color: 'gray', icon: 'x' },
-};
-const availStatus = availabilityInfo[availability];
 
 // All images for gallery (dedup: drop main image if it's already in gallery)
 const allImages = [image, ...gallery].filter(Boolean);

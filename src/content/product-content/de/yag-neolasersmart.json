@@ -5,12 +5,32 @@
   "metaTitle": "NeoLaser Smart+ – Android ND:YAG Laser für Tattoo- und Pigmentbehandlung",
   "metaDescription": "Der NeoLaser Smart+ intelligente YAG Laser mit Android-System, 13,3\" Touchscreen, integrierter Kühlung. Tattoo- und Pigmententfernung, Carbon Peeling, Hauterneuerung.",
   "stats": [
-    { "value": "4", "label": "Wellenlängen", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. Energie", "icon": "zap" },
-    { "value": "13.3\"", "label": "Touchscreen", "icon": "layers" },
-    { "value": "2", "unit": "J.", "label": "Garantie", "icon": "shield" }
+    {
+      "value": "4",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Max. Energie",
+      "icon": "zap"
+    },
+    {
+      "value": "13.3\"",
+      "label": "Touchscreen",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "J.",
+      "label": "Garantie",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "Neo Laser Smart+ – Der intelligente Laser, der für Sie denkt",
     "paragraphs": [
@@ -98,15 +118,40 @@
   "expertQuote": {
     "quote": "Der Neo Laser Smart+ ist der Gipfel intelligenter Lasertechnologie: Android-Steuerung, 4 Wellenlängen und integrierte Handstückkühlung. Dieses Gerät wurde für die Salons der Zukunft gemacht.",
     "author": "Horváth László",
-    "role": "Technischer Experte"
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Tattooentfernung", "description": "Effektive Entfernung aller Tattoofarben bei 1064 nm und 532 nm Wellenlängen" },
-    { "icon": "sun", "name": "Pigmentfleckenbehandlung", "description": "Behandlung von Sommersprossen, Sonnenflecken, Altersflecken bei 755 nm Wellenlänge" },
-    { "icon": "sparkles", "name": "Carbon Peeling", "description": "Hauttiefenreinigung, Porenverfeinerung mit dem 1320 nm Handstück" },
-    { "icon": "droplet", "name": "Hauterneuerung", "description": "Hautverjüngung, Kollagenstimulation und Hautton-Angleichung" },
-    { "icon": "eye", "name": "Permanent-Make-up-Entfernung", "description": "Präzise Korrektur und Entfernung von Augenbrauen- und Lippen-Permanent-Make-up" },
-    { "icon": "snowflake", "name": "Integrierte Kühlung", "description": "Einzigartige Handstückkühlung für schmerzfreie Behandlungen" }
+    {
+      "icon": "zap",
+      "name": "Tattooentfernung",
+      "description": "Effektive Entfernung aller Tattoofarben bei 1064 nm und 532 nm Wellenlängen"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigmentfleckenbehandlung",
+      "description": "Behandlung von Sommersprossen, Sonnenflecken, Altersflecken bei 755 nm Wellenlänge"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon Peeling",
+      "description": "Hauttiefenreinigung, Porenverfeinerung mit dem 1320 nm Handstück"
+    },
+    {
+      "icon": "droplet",
+      "name": "Hauterneuerung",
+      "description": "Hautverjüngung, Kollagenstimulation und Hautton-Angleichung"
+    },
+    {
+      "icon": "eye",
+      "name": "Permanent-Make-up-Entfernung",
+      "description": "Präzise Korrektur und Entfernung von Augenbrauen- und Lippen-Permanent-Make-up"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Integrierte Kühlung",
+      "description": "Einzigartige Handstückkühlung für schmerzfreie Behandlungen"
+    }
   ],
   "faq": [
     {

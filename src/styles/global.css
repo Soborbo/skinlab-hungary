@@ -46,6 +46,11 @@
   --color-action: #e86030;
   --color-action-light: #f09060;
 
+  /* CTA - smaragd/petrol zöld (egységes, kiugró CTA szín, a rózsaszín komplementere) */
+  --color-cta: #0f8a7e;
+  --color-cta-hover: #0b6e64;
+  --color-cta-light: #e0f2ef;
+
   /* Fonts */
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-heading: 'Playfair Display', 'Georgia', serif;

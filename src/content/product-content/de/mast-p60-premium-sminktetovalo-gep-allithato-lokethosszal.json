@@ -5,10 +5,29 @@
   "metaTitle": "MAST P60 PMU-Gerät – kabellos, mit verstellbarer Hublänge",
   "metaDescription": "Kabelloses MAST P60 Gerät mit verstellbarer Hublänge, langer Laufzeit und leisem Betrieb. Perfekt für Permanent Make-up für Anfänger und Profis.",
   "stats": [
-    { "value": "121", "unit": "g", "label": "Ultraleicht", "icon": "layers" },
-    { "value": "3+", "unit": "Std.", "label": "Laufzeit", "icon": "clock" },
-    { "value": "5", "label": "Hublängen-Stufen", "icon": "zap" },
-    { "value": "11000", "unit": "RPM", "label": "Motorgeschwindigkeit", "icon": "award" }
+    {
+      "value": "121",
+      "unit": "g",
+      "label": "Ultraleicht",
+      "icon": "layers"
+    },
+    {
+      "value": "3+",
+      "unit": "Std.",
+      "label": "Laufzeit",
+      "icon": "clock"
+    },
+    {
+      "value": "5",
+      "label": "Hublängen-Stufen",
+      "icon": "zap"
+    },
+    {
+      "value": "11000",
+      "unit": "RPM",
+      "label": "Motorgeschwindigkeit",
+      "icon": "award"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +107,8 @@
   "expertQuote": {
     "quote": "Die MAST P60 hat eines der besten Preis-Leistungs-Verhältnisse unter den PMU-Geräten auf dem Markt. Die verstellbare Hublänge ist eine seltene Funktion in dieser Kategorie und bietet einen erheblichen Vorteil im täglichen Einsatz.",
     "author": "Horváth László",
-    "role": "Technischer Experte"
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Gewicht": "121 g",

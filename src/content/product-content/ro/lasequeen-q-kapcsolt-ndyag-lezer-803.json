@@ -5,12 +5,31 @@
   "metaTitle": "LaseQueen laser Q-switched ND:YAG – tatuaje, pigment, carbon peeling",
   "metaDescription": "Laserul LaseQueen ND:YAG cu 6 capete pentru orice tatuaj, pigment, carbon peeling, tratamentul cicatricilor și micozei unghiilor, cu metodă precisă și delicată.",
   "stats": [
-    { "value": "6", "label": "Capete de tratament", "icon": "layers" },
-    { "value": "F5", "label": "Cristal laser", "icon": "award" },
-    { "value": "Hybrid", "label": "Sistem de răcire", "icon": "wave" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Capete de tratament",
+      "icon": "layers"
+    },
+    {
+      "value": "F5",
+      "label": "Cristal laser",
+      "icon": "award"
+    },
+    {
+      "value": "Hybrid",
+      "label": "Sistem de răcire",
+      "icon": "wave"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "LaseQueen – 6 capete de tratament, posibilități nelimitate",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre laserul LaseQueen? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați o consultație", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să vedeți laserul LaseQueen ND:YAG în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează laserul LaseQueen ND:YAG?", "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.", "buttonLabel": "Solicitați o consultație" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre laserul LaseQueen? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți laserul LaseQueen ND:YAG în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează laserul LaseQueen ND:YAG?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
   },
   "featureRows": {
     "headline": "De ce LaseQueen este campionul versatilității?",
@@ -78,22 +109,62 @@
   "expertQuote": {
     "quote": "LaseQueen, cu 6 capete de tratament și funcții speciale – tratamentul cicatricilor, micoza unghiilor – deschide posibilități de tratament pe care alte lasere ND:YAG nu le oferă în această categorie de preț.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea tatuajelor corporale de toate culorile la lungimi de undă de 1064 nm și 532 nm" },
-    { "icon": "eye", "name": "Îndepărtarea micropigmentării", "description": "Corecția micropigmentării sprâncenelor și buzelor cu capete No Scar" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Tratament Hollywood cu capetele de 1320 nm și 755 nm" },
-    { "icon": "droplet", "name": "Tratamentul petelor pigmentare", "description": "Atenuarea petelor solare, pistruilor, petelor de vârstă" },
-    { "icon": "bolt", "name": "Tratamentul cicatricilor", "description": "Atenuarea cicatricilor acneice și post-traumatice" },
-    { "icon": "sun", "name": "Tratamentul micozei unghiilor", "description": "Tratamentul laser al micozei unghiilor" }
+    {
+      "icon": "zap",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea tatuajelor corporale de toate culorile la lungimi de undă de 1064 nm și 532 nm"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea micropigmentării",
+      "description": "Corecția micropigmentării sprâncenelor și buzelor cu capete No Scar"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Tratament Hollywood cu capetele de 1320 nm și 755 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Atenuarea petelor solare, pistruilor, petelor de vârstă"
+    },
+    {
+      "icon": "bolt",
+      "name": "Tratamentul cicatricilor",
+      "description": "Atenuarea cicatricilor acneice și post-traumatice"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul micozei unghiilor",
+      "description": "Tratamentul laser al micozei unghiilor"
+    }
   ],
   "faq": [
-    { "question": "Prin ce diferă LaseQueen de laserele ND:YAG obișnuite cu 3 capete?", "answer": "LaseQueen dispune de 6 capete de tratament diferite: 532 nm, 532 nm No Scar, 755 nm (tip Hollywood carbon), 1064 nm, 1064 nm No Scar și 1320 nm. Capetele No Scar permit un tratament mai delicat, plus este potrivit și pentru tratamentul cicatricilor și micozei unghiilor." },
-    { "question": "Este potrivit pentru tratamentul micozei unghiilor?", "answer": "Da! Laserul LaseQueen tratează eficient micoza unghiilor. Aceasta este o posibilitate de tratament și sursă de venit suplimentară pe care puține lasere ND:YAG o oferă." },
-    { "question": "În cât timp se amortizează LaseQueen?", "answer": "Cu combinația de categorie de preț avantajoasă și utilizare versatilă, se amortizează în medie în 1-2 luni, calculând cu 3-5 clienți pe zi. Utilizați calculatorul nostru ROI pentru un calcul exact!" },
-    { "question": "Ce formare este inclusă cu aparatul?", "answer": "Formare oficială de operare cu număr B, înregistrată FAR, GRATUITĂ la achiziționarea aparatului (în valoare de 79.990 Ft). Cursul acoperă totul, de la utilizarea celor 6 capete până la tratamentele speciale." },
-    { "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?", "answer": "Da! În showroom-ul nostru (Érd, Budai út 28.) puteți vedea și testa personal laserul LaseQueen ND:YAG cu programare prealabilă." }
+    {
+      "question": "Prin ce diferă LaseQueen de laserele ND:YAG obișnuite cu 3 capete?",
+      "answer": "LaseQueen dispune de 6 capete de tratament diferite: 532 nm, 532 nm No Scar, 755 nm (tip Hollywood carbon), 1064 nm, 1064 nm No Scar și 1320 nm. Capetele No Scar permit un tratament mai delicat, plus este potrivit și pentru tratamentul cicatricilor și micozei unghiilor."
+    },
+    {
+      "question": "Este potrivit pentru tratamentul micozei unghiilor?",
+      "answer": "Da! Laserul LaseQueen tratează eficient micoza unghiilor. Aceasta este o posibilitate de tratament și sursă de venit suplimentară pe care puține lasere ND:YAG o oferă."
+    },
+    {
+      "question": "În cât timp se amortizează LaseQueen?",
+      "answer": "Cu combinația de categorie de preț avantajoasă și utilizare versatilă, se amortizează în medie în 1-2 luni, calculând cu 3-5 clienți pe zi. Utilizați calculatorul nostru ROI pentru un calcul exact!"
+    },
+    {
+      "question": "Ce formare este inclusă cu aparatul?",
+      "answer": "Formare oficială de operare cu număr B, înregistrată FAR, GRATUITĂ la achiziționarea aparatului (în valoare de 79.990 Ft). Cursul acoperă totul, de la utilizarea celor 6 capete până la tratamentele speciale."
+    },
+    {
+      "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?",
+      "answer": "Da! În showroom-ul nostru (Érd, Budai út 28.) puteți vedea și testa personal laserul LaseQueen ND:YAG cu programare prealabilă."
+    }
   ],
   "whatsIncluded": [
     "Aparat laser LaseQueen Q-switched Nd:YAG",

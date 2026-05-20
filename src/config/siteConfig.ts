@@ -5,7 +5,7 @@
 // ============================================
 
 import { z } from 'zod';
-import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL, FOUNDERS } from '../lib/constants';
+import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL } from '../lib/constants';
 
 // ============================================
 // Zod schema — validates at build time
@@ -16,14 +16,14 @@ const PersonSchema = z.object({
   slug: z.string(),
   jobTitle: z.string(),
   image: z.string(),
-  sameAs: z.array(z.string().url()).default([]),
+  sameAs: z.array(z.url()).default([]),
 });
 
 const ReviewPlatformSchema = z.object({
   platform: z.enum(['google', 'facebook', 'trustpilot']),
   rating: z.number().min(1).max(5),
   count: z.number().int().nonnegative(),
-  url: z.string().url(),
+  url: z.url(),
   primary: z.boolean().default(false),
 });
 
@@ -39,7 +39,7 @@ const SiteConfigSchema = z.object({
   legalName: z.string(),
   brand: z.string(),
   description: z.string(),
-  url: z.string().url(),
+  url: z.url(),
   locale: z.string(),
   currency: z.string(),
   schemaType: z.string(),
@@ -59,7 +59,7 @@ const SiteConfigSchema = z.object({
   contact: z.object({
     phone: z.string(),
     phoneDisplay: z.string(),
-    email: z.string().email(),
+    email: z.email(),
   }),
 
   // Address (showroom / primary location)
@@ -89,11 +89,11 @@ const SiteConfigSchema = z.object({
 
   // Social
   social: z.object({
-    facebook: z.string().url().optional(),
-    instagram: z.string().url().optional(),
-    tiktok: z.string().url().optional(),
-    youtube: z.string().url().optional(),
-    linkedin: z.string().url().optional(),
+    facebook: z.url().optional(),
+    instagram: z.url().optional(),
+    tiktok: z.url().optional(),
+    youtube: z.url().optional(),
+    linkedin: z.url().optional(),
   }),
 
   // Reviews (empty until reviews exist)

@@ -5,12 +5,31 @@
   "metaTitle": "ÉLISE nanosekundni laser – Odstranjevanje pigmenta in tetovaž, carbon peeling",
   "metaDescription": "ÉLISE premium nanosekundni ND:YAG laser za odstranjevanje pigmenta in tetovaž, carbon peeling in pomlajevanje kože – stil in učinkovitost v enem.",
   "stats": [
-    { "value": "3", "label": "Valovne dolžine", "icon": "wave" },
-    { "value": "Nano", "label": "Trajanje pulza", "icon": "zap" },
-    { "value": "Premium", "label": "Rosegold/Srebrna", "icon": "award" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "Nano",
+      "label": "Trajanje pulza",
+      "icon": "zap"
+    },
+    {
+      "value": "Premium",
+      "label": "Rosegold/Srebrna",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "ÉLISE – Kjer se tehnologija sreča z oblikovanjem",
     "paragraphs": [
@@ -97,15 +116,40 @@
   "expertQuote": {
     "quote": "ÉLISE je utelešenje premium kategorije: nanosekundna tehnologija, elegantno oblikovanje in zanesljive zmogljivosti. Popolna izbira za tiste, ki želijo ponuditi najboljše ne le v tehnologiji, temveč tudi v izkušnji strank.",
     "author": "Horváth László",
-    "role": "Tehnični strokovnjak"
+    "role": "Tehnični strokovnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranjevanje tetovaž", "description": "Odstranjevanje telesnih tetovaž in trajne ličke z nanosekundnimi pulzi na valovnih dolžinah 1064 nm in 532 nm" },
-    { "icon": "sun", "name": "Obravnava pigmentnih madežev", "description": "Učinkovito blaženje peg, sončnih madežev, starostnih madežev, melasme in hiperpigmentacije" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Blackdoll obravnava: globinsko čiščenje, zoženje por, pomlajevanje kože z ročajem 1320 nm" },
-    { "icon": "droplet", "name": "Poenotenje tona kože", "description": "Obravnava neenakomernega tona kože, hiperpigmentacije in razbarvanja kože" },
-    { "icon": "eye", "name": "Odstranjevanje trajne ličke", "description": "Natančna korekcija in odstranjevanje trajne ličke obrvi in ustnic" },
-    { "icon": "bolt", "name": "Pomlajevanje kože", "description": "Blaženje brazgotin po aknah, posvetlitev kože in stimulacija kolagena" }
+    {
+      "icon": "zap",
+      "name": "Odstranjevanje tetovaž",
+      "description": "Odstranjevanje telesnih tetovaž in trajne ličke z nanosekundnimi pulzi na valovnih dolžinah 1064 nm in 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Obravnava pigmentnih madežev",
+      "description": "Učinkovito blaženje peg, sončnih madežev, starostnih madežev, melasme in hiperpigmentacije"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Blackdoll obravnava: globinsko čiščenje, zoženje por, pomlajevanje kože z ročajem 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Poenotenje tona kože",
+      "description": "Obravnava neenakomernega tona kože, hiperpigmentacije in razbarvanja kože"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranjevanje trajne ličke",
+      "description": "Natančna korekcija in odstranjevanje trajne ličke obrvi in ustnic"
+    },
+    {
+      "icon": "bolt",
+      "name": "Pomlajevanje kože",
+      "description": "Blaženje brazgotin po aknah, posvetlitev kože in stimulacija kolagena"
+    }
   ],
   "faq": [
     {

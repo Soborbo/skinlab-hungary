@@ -5,12 +5,33 @@
   "metaTitle": "ELYRA nanosekundni laser – Pigment, tetovaže, carbon peeling",
   "metaDescription": "ELYRA ND:YAG laser je kompaktna, 30 kg prenosna naprava za odstranjevanje pigmentnih madežev in tetovaž ter carbon peeling obravnave. Energija 100–2000 mJ, 2 leti garancije.",
   "stats": [
-    { "value": "3", "label": "Valovne dolžine", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Maks. energija", "icon": "zap" },
-    { "value": "30", "unit": "kg", "label": "Neto teža", "icon": "layers" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Maks. energija",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "kg",
+      "label": "Neto teža",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "ELYRA – Prenosni profesionalni laser brez kompromisov",
     "paragraphs": [
@@ -97,14 +118,35 @@
   "expertQuote": {
     "quote": "ELYRA je idealna izbira za mobilne kozmetike in ponudnike storitev na domu: kompaktne dimenzije, visoke zmogljivosti in večnivojski varnostni sistem. Nanosekundna tehnologija omogoča natančne, nežne obravnave.",
     "author": "Horváth László",
-    "role": "Tehnični strokovnjak"
+    "role": "Tehnični strokovnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranjevanje tetovaž", "description": "Odstranjevanje črnih in barvnih tetovaž na valovnih dolžinah 1064 nm in 532 nm" },
-    { "icon": "sun", "name": "Obravnava pigmentnih madežev", "description": "Blaženje peg, melasme, sončnih madežev, starostnih madežev in hiperpigmentacije" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Zoženje por, izboljšanje teksture kože in globinsko čiščenje na valovni dolžini 1320 nm" },
-    { "icon": "droplet", "name": "Posvetlitev kože", "description": "Poenotenje tona kože in posvetlitev pri neenakomerni pigmentaciji" },
-    { "icon": "eye", "name": "Odstranjevanje trajne ličke", "description": "Korekcija in odstranjevanje trajne ličke obrvi in ustnic" }
+    {
+      "icon": "zap",
+      "name": "Odstranjevanje tetovaž",
+      "description": "Odstranjevanje črnih in barvnih tetovaž na valovnih dolžinah 1064 nm in 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Obravnava pigmentnih madežev",
+      "description": "Blaženje peg, melasme, sončnih madežev, starostnih madežev in hiperpigmentacije"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Zoženje por, izboljšanje teksture kože in globinsko čiščenje na valovni dolžini 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Posvetlitev kože",
+      "description": "Poenotenje tona kože in posvetlitev pri neenakomerni pigmentaciji"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranjevanje trajne ličke",
+      "description": "Korekcija in odstranjevanje trajne ličke obrvi in ustnic"
+    }
   ],
   "faq": [
     {

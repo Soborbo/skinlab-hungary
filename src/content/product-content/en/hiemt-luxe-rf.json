@@ -5,12 +5,33 @@
   "metaTitle": "HIEMT Luxe RF | HI-EMT + RF Combined Body Sculpting | Skinlab Hungary",
   "metaDescription": "HIEMT Luxe RF: HI-EMT + radio frequency combined body sculpting. 7 Tesla, 4 applicators, 25% muscle building, 30% fat reduction. Skin firming and muscle building in one.",
   "stats": [
-    { "value": "7", "unit": "Tesla", "label": "Magnetic force", "icon": "zap" },
-    { "value": "4", "label": "Applicators", "icon": "zap" },
-    { "value": "30", "unit": "%", "label": "Fat reduction", "icon": "wave" },
-    { "value": "25", "unit": "%", "label": "Muscle mass increase", "icon": "shield" }
+    {
+      "value": "7",
+      "unit": "Tesla",
+      "label": "Magnetic force",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Applicators",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "%",
+      "label": "Fat reduction",
+      "icon": "wave"
+    },
+    {
+      "value": "25",
+      "unit": "%",
+      "label": "Muscle mass increase",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "Why is combined HI-EMT + RF technology the future?",
     "paragraphs": [
@@ -20,9 +41,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the HIEMT Luxe RF? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the HIEMT Luxe RF in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the HIEMT Luxe RF body sculpting device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the HIEMT Luxe RF? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the HIEMT Luxe RF in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the HIEMT Luxe RF body sculpting device?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why do professionals choose the HIEMT Luxe RF?",
@@ -103,16 +136,38 @@
   "expertQuote": {
     "quote": "Combining HI-EMT and RF technology represents the new generation of body sculpting. The triple effect – muscle building, fat reduction, skin firming – achievable in a single treatment, something that can only be achieved separately with other devices.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "What's the difference between the HIEMT Luxe RF and regular HIEMT devices?", "answer": "The HIEMT Luxe RF features a built-in 400W radio frequency (RF) module alongside the HI-EMT electromagnetic muscle stimulation. The RF heat effect promotes fat cell breakdown, boosts circulation, and stimulates collagen production – so skin firming is also part of the treatment. Regular HIEMT devices can only build muscle and reduce fat." },
-    { "question": "How does the combined HI-EMT + RF treatment work?", "answer": "The HI-EMT component triggers intense muscle contractions with high-energy electromagnetic waves (7 Tesla), increasing muscle mass. Meanwhile, the RF module delivers heat energy to the tissues, accelerating fat cell breakdown and stimulating collagen production for firmer skin. The synergistic effect of both technologies delivers stronger results than either alone." },
-    { "question": "What results can be expected?", "answer": "An average of 25% muscle mass increase and 30% fat reduction can be achieved during the treatment course. Results are visible after 4 treatments, but for optimal effect, a course of 6–8 sessions is recommended, once per week. The final result peaks 2–4 weeks after completing the course." },
-    { "question": "Who should not receive the treatment?", "answer": "Not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants." },
-    { "question": "Is the treatment painful?", "answer": "No, the treatment is painless. The muscle contractions are intense but not uncomfortable – similar to the feeling after a strong workout. The RF component may cause a mild warmth sensation, which is pleasant. No anesthesia is needed, and there's no recovery time after treatment." },
-    { "question": "Won't the RF burn the skin?", "answer": "No, the RF module temperature is precisely controllable, and the device's safety system continuously monitors the temperature. The heat effect causes a pleasant warm sensation that promotes fat breakdown and collagen production without damaging the skin." },
-    { "question": "How quickly does the device pay for itself?", "answer": "You can charge a higher price for combined HI-EMT + RF treatments: 35,000–55,000 Ft/session. With 4 applicators, you can perform 10–16 treatments per day. The device typically pays for itself within 2–4 months. Use our on-page ROI calculator for exact figures!" }
+    {
+      "question": "What's the difference between the HIEMT Luxe RF and regular HIEMT devices?",
+      "answer": "The HIEMT Luxe RF features a built-in 400W radio frequency (RF) module alongside the HI-EMT electromagnetic muscle stimulation. The RF heat effect promotes fat cell breakdown, boosts circulation, and stimulates collagen production – so skin firming is also part of the treatment. Regular HIEMT devices can only build muscle and reduce fat."
+    },
+    {
+      "question": "How does the combined HI-EMT + RF treatment work?",
+      "answer": "The HI-EMT component triggers intense muscle contractions with high-energy electromagnetic waves (7 Tesla), increasing muscle mass. Meanwhile, the RF module delivers heat energy to the tissues, accelerating fat cell breakdown and stimulating collagen production for firmer skin. The synergistic effect of both technologies delivers stronger results than either alone."
+    },
+    {
+      "question": "What results can be expected?",
+      "answer": "An average of 25% muscle mass increase and 30% fat reduction can be achieved during the treatment course. Results are visible after 4 treatments, but for optimal effect, a course of 6–8 sessions is recommended, once per week. The final result peaks 2–4 weeks after completing the course."
+    },
+    {
+      "question": "Who should not receive the treatment?",
+      "answer": "Not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants."
+    },
+    {
+      "question": "Is the treatment painful?",
+      "answer": "No, the treatment is painless. The muscle contractions are intense but not uncomfortable – similar to the feeling after a strong workout. The RF component may cause a mild warmth sensation, which is pleasant. No anesthesia is needed, and there's no recovery time after treatment."
+    },
+    {
+      "question": "Won't the RF burn the skin?",
+      "answer": "No, the RF module temperature is precisely controllable, and the device's safety system continuously monitors the temperature. The heat effect causes a pleasant warm sensation that promotes fat breakdown and collagen production without damaging the skin."
+    },
+    {
+      "question": "How quickly does the device pay for itself?",
+      "answer": "You can charge a higher price for combined HI-EMT + RF treatments: 35,000–55,000 Ft/session. With 4 applicators, you can perform 10–16 treatments per day. The device typically pays for itself within 2–4 months. Use our on-page ROI calculator for exact figures!"
+    }
   ],
   "whatsIncluded": [
     "HIEMT Luxe RF device",

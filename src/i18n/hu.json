@@ -59,7 +59,7 @@
     "warranty": "2 év garancia",
     "warrantyDesc": "Teljes körű garancia minden készülékre",
     "shipping": "15-20 munkanap",
-    "shippingDesc": "Megbízható, hiteles vámkezelésű szállítás",
+    "shippingDesc": "Országos házhozszállítással",
     "training": "FAR tanúsítvány",
     "trainingDesc": "Hivatalos gépkezelői képzés",
     "service": "Saját szerviz",
@@ -320,7 +320,15 @@
     "included": "A gép árában",
     "duration": "Időtartam",
     "location": "Helyszín",
-    "register": "Jelentkezés"
+    "register": "Jelentkezés",
+    "galleryTitle": "Pillanatképek a képzéseinkről",
+    "gallerySubtitle": "Gyakorlati oktatás valódi szalonkörnyezetben, kis létszámú csoportokban.",
+    "galleryAlt1": "Hidrodermabráziós kezelés gyakorlása a képzésen",
+    "galleryAlt2": "Karbonlézeres arckezelés bemutatása oktatás közben",
+    "galleryAlt3": "Diódalézeres kezelés gyakorlati oktatása",
+    "galleryAlt4": "Csoportos gyakorlati oktatás szalonkörnyezetben",
+    "galleryAlt5": "FAR-jegyzett képzés tanúsítványai",
+    "galleryAlt6": "Résztvevők a Skinlab gépkezelői képzésén"
   },
   "comparison": {
     "title": "Összehasonlítás",
@@ -580,19 +588,32 @@
     "backHome": "Vissza a főoldalra"
   },
   "whyUs": {
-    "title": "Miért válasszák a Skinlab-ot a sikeres szalonok?",
-    "subtitle": "Nem csak gépeket adunk el – partnerként segítünk, hogy a befektetésed a lehető leggyorsabban megtérüljön.",
-    "training": "Teljes körű betanítás",
-    "trainingDesc": "4-6 órás személyes oktatás + FAR tanúsítvány + videós tananyag. Nem engedünk el, amíg magabiztosan nem használod a gépet.",
-    "warranty": "2 év garancia, magyar szerviz",
-    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. 24 órán belül reagálunk, és ha szükséges, cserekészüléket adunk.",
-    "financing": "Részletfizetés, lízing",
-    "financingDesc": "Havi ~89.000 Ft-tól. Nem kell egyszerre kifizetni – a gép bevétele fizeti a részleteket.",
-    "consulting": "Üzleti tanácsadás",
-    "consultingDesc": "Segítünk az árazásban, marketingben. Megosztjuk, mit csinálnak a sikeres szalonok.",
+    "title": "Miért választják a Skinlabot a sikeres szalonok?",
+    "subtitle": "Nem csak gépeket adunk el. Mély, szakmailag megalapozott tudást és valódi, hosszú távú támogatást adunk hozzá – hogy magabiztosan és biztonságosan dolgozz.",
+    "training": "Gyakorlatorientált, mély szakmai tudás",
+    "trainingDesc": "Nem egy gyors „összeszerelős” oktatás: megtanítunk magabiztosan paraméterezni, felismerni a hibafaktorokat, és felkészítünk minden eshetőségre. Képzéseink FAR-jegyzettek, B-számos tanúsítvánnyal.",
+    "warranty": "2 év garancia, saját magyar szerviz",
+    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és a javítás idejére cserekészüléket adunk.",
+    "financing": "Jogi és üzleti szemlélet",
+    "financingDesc": "Átbeszéljük a géphasználat jogi kereteit és a dokumentációs elvárásokat, marketing- és üzleti modullal segítünk árazni, kommunikálni és fenntartható vállalkozást építeni.",
+    "consulting": "Nem engedjük el a kezed",
+    "consultingDesc": "A vásárlás után sem hagyunk magadra: az utókövetés nálunk valódi támogatást jelent a használatban, a beállításokban és a mindennapi munkában.",
     "testimonialTitle": "Elégedett partner",
     "testimonialText": "A betanítás szuper volt, és bármikor felhívhatom őket ha kérdésem van.",
     "testimonialAuthor": "Nagy Éva, Skin Studio"
+  },
+  "foundersHome": {
+    "badge": "Az alapítók",
+    "title": "Két világ találkozása – ez vagyunk mi",
+    "intro": "A Skinlabot ketten alapítottuk: Simonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget – és a mögötte lévő tudást – elhozzuk a magyar szalonoknak is.",
+    "quote": "Nem gépeket akarunk eladni, hanem valódi tudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk – és a vásárlás után sem engedjük el a partnereink kezét.",
+    "simonettaName": "Gaszler Simonetta",
+    "simonettaRole": "Alapító",
+    "simonettaSpec": "Kezelési szakértő",
+    "laszloName": "Horváth László",
+    "laszloRole": "Alapító",
+    "laszloSpec": "Technikai vezető, szerviz",
+    "cta": "Ismerd meg a teljes történetünket"
   },
   "search": {
     "placeholder": "Termék keresése név alapján...",
@@ -656,7 +677,7 @@
     "location3": "Szeged"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
+    "badge": "Zászlóshajó modellünk",
     "tagline": "4 hullámhosszú professzionális szőrtelenítő",
     "wavelength": "Hullámhossz",
     "power": "Teljesítmény",

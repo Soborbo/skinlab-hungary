@@ -5,12 +5,33 @@
   "metaTitle": "ELYRA Laser nanosecunde – Pigment, tatuaje, carbon peeling",
   "metaDescription": "Laser ELYRA ND:YAG compact, portabil de 30 kg, pentru îndepărtarea petelor pigmentare și tatuajelor și tratamente carbon peeling. Energie 100–2000 mJ, garanție 2 ani.",
   "stats": [
-    { "value": "3", "label": "Lungimi de undă", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Energie max.", "icon": "zap" },
-    { "value": "30", "unit": "kg", "label": "Greutate netă", "icon": "layers" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ",
+      "label": "Energie max.",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "kg",
+      "label": "Greutate netă",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "ELYRA – Laser profesional portabil fără compromisuri",
     "paragraphs": [
@@ -97,14 +118,35 @@
   "expertQuote": {
     "quote": "ELYRA este alegerea ideală pentru cosmeticienii mobili și furnizorii de servicii la domiciliu: dimensiuni compacte, performanță înaltă și sistem de siguranță pe mai multe niveluri. Tehnologia cu nanosecunde permite tratamente precise și delicate.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea tatuajelor negre și colorate la lungimi de undă de 1064 nm și 532 nm" },
-    { "icon": "sun", "name": "Tratamentul petelor pigmentare", "description": "Atenuarea pistruilor, melasmei, petelor solare, petelor de bătrânețe și hiperpigmentării" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Strângerea porilor, îmbunătățirea texturii pielii și curățare profundă la lungimea de undă de 1320 nm" },
-    { "icon": "droplet", "name": "Luminarea pielii", "description": "Uniformizarea tonului pielii și luminare pentru pigmentare neuniformă" },
-    { "icon": "eye", "name": "Îndepărtarea machiajului permanent", "description": "Corecția și îndepărtarea machiajului permanent de sprâncene și buze" }
+    {
+      "icon": "zap",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea tatuajelor negre și colorate la lungimi de undă de 1064 nm și 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Atenuarea pistruilor, melasmei, petelor solare, petelor de bătrânețe și hiperpigmentării"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Strângerea porilor, îmbunătățirea texturii pielii și curățare profundă la lungimea de undă de 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Luminarea pielii",
+      "description": "Uniformizarea tonului pielii și luminare pentru pigmentare neuniformă"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea machiajului permanent",
+      "description": "Corecția și îndepărtarea machiajului permanent de sprâncene și buze"
+    }
   ],
   "faq": [
     {

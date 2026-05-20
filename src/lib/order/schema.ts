@@ -32,7 +32,7 @@ export const orderSchema = z.object({
   // Kontakt adatok
   lastName: z.string().min(2, 'A vezetéknév megadása kötelező').max(100),
   firstName: z.string().min(2, 'A keresztnév megadása kötelező').max(100),
-  email: z.string().email('Érvényes e-mail cím szükséges').max(200),
+  email: z.email('Érvényes e-mail cím szükséges').max(200),
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges').max(40),
 
   // Céges adatok (opcionális)
@@ -87,7 +87,7 @@ export function validateOrder(data: unknown): {
   if (!result.success) {
     return {
       success: false,
-      errors: result.error.flatten().fieldErrors as Record<string, string[]>,
+      errors: z.flattenError(result.error).fieldErrors as Record<string, string[]>,
     };
   }
   return { success: true, data: result.data };

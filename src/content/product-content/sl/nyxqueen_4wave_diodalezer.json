@@ -5,12 +5,31 @@
   "metaTitle": "NyxQueen 4Wave Diodni laser | 600W, 4 valovne dolžine, 50M strelov",
   "metaDescription": "NyxQueen 600W diodni laser s 4 valovnimi dolžinami (755, 808, 940, 1064 nm). 50 milijonov strelov, napredno hlajenje, premium izvedba. 2 leti garancije, brezplačno usposabljanje.",
   "stats": [
-    { "value": "600", "unit": "W", "label": "Moč", "icon": "zap" },
-    { "value": "50M", "label": "Življenjska doba strelov", "icon": "clock" },
-    { "value": "4", "label": "Valovne dolžine", "icon": "wave" },
-    { "value": "-5°C", "label": "Hlajenje", "icon": "heart" }
+    {
+      "value": "600",
+      "unit": "W",
+      "label": "Moč",
+      "icon": "zap"
+    },
+    {
+      "value": "50M",
+      "label": "Življenjska doba strelov",
+      "icon": "clock"
+    },
+    {
+      "value": "4",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "-5°C",
+      "label": "Hlajenje",
+      "icon": "heart"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "NyxQueen diodni laser – Kraljica epilacije",
     "paragraphs": [
@@ -144,7 +163,8 @@
   "expertQuote": {
     "quote": "Epilacija z diodnim laserjem je ena izmed najbolj iskanih kozmetičnih storitev. Z močjo 600W in življenjsko dobo 50 milijonov strelov NyxQueen ponuja eno izmed najboljših naložb glede na razmerje med ceno in kakovostjo za salon.",
     "author": "Horváth László",
-    "role": "Tehnični strokovnjak"
+    "role": "Tehnični strokovnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Moč": "600W",

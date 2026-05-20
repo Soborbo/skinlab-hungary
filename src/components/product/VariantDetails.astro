@@ -24,7 +24,7 @@ interface Props {
   productName: string;
 }
 
-const { locale, variants, productName } = Astro.props;
+const { locale, variants } = Astro.props;
 
 // Only render if at least one variant has description or specs
 const hasDescriptions = variants.some(v => v.description);

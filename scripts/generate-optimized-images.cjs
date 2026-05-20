@@ -7,8 +7,16 @@
  *
  * Also generates a manifest JSON used by OptimizedPicture.astro at build time.
  *
- * Usage: node scripts/generate-optimized-images.cjs
+ * Default mode is incremental: a variant is regenerated only when the source
+ * file is newer than the existing output (or the output is missing). Pass
+ * --force (or --clean) to wipe the output dir and rebuild every variant.
+ *
+ * Usage:
+ *   node scripts/generate-optimized-images.cjs          # incremental
+ *   node scripts/generate-optimized-images.cjs --force  # full rebuild
  */
+
+const FORCE = process.argv.includes('--force') || process.argv.includes('--clean');
 
 const fs = require('fs');
 const path = require('path');
@@ -185,6 +193,30 @@ function buildNonProductMapping() {
     }
   }
 
+  // Showroom — per-product galériák: src/assets/showroom/{slug}/{file}
+  const showroomDir = path.join(SRC_DIR, 'showroom');
+  if (fs.existsSync(showroomDir)) {
+    const productDirs = fs.readdirSync(showroomDir)
+      .filter(d => fs.statSync(path.join(showroomDir, d)).isDirectory())
+      .sort();
+    for (const productSlug of productDirs) {
+      const productPath = path.join(showroomDir, productSlug);
+      const files = fs.readdirSync(productPath)
+        .filter(f => /\.(jpe?g|png|webp|avif)$/i.test(f))
+        .sort();
+      let idx = 1;
+      for (const file of files) {
+        mapping[`showroom/${productSlug}/${file}`] = {
+          seoSlug: `skinlab-showroom-${productSlug}-${idx}`,
+          alt: `Skinlab showroom – ${productSlug.toUpperCase()} – ${idx}. fotó`,
+          subfolder: `showroom/${productSlug}`,
+          srcSubdir: `showroom/${productSlug}`,
+        };
+        idx++;
+      }
+    }
+  }
+
   // Root assets (hero, training, logo)
   const rootFiles = fs.readdirSync(SRC_DIR).filter(f => {
     const ext = path.extname(f).toLowerCase();
@@ -230,16 +262,21 @@ async function generateVariants(srcPath, seoSlug, outSubfolder) {
   applicableWidths.sort((a, b) => a - b);
 
   const generated = {};
+  const srcMtimeMs = fs.statSync(srcPath).mtimeMs;
+  let generatedCount = 0;
 
   for (const width of applicableWidths) {
     for (const format of FORMATS) {
       const filename = `${seoSlug}-${width}w.${format === 'jpeg' ? 'jpg' : format}`;
       const outPath = path.join(outDir, filename);
 
-      // Skip if already exists (incremental)
+      // Incremental: skip if output exists and is newer than source
       if (fs.existsSync(outPath)) {
-        generated[`${width}-${format}`] = `/${path.relative(path.resolve(__dirname, '../public'), outPath).replace(/\\/g, '/')}`;
-        continue;
+        const outMtimeMs = fs.statSync(outPath).mtimeMs;
+        if (outMtimeMs >= srcMtimeMs) {
+          generated[`${width}-${format}`] = `/${path.relative(path.resolve(__dirname, '../public'), outPath).replace(/\\/g, '/')}`;
+          continue;
+        }
       }
 
       try {
@@ -259,6 +296,7 @@ async function generateVariants(srcPath, seoSlug, outSubfolder) {
 
         await pipeline.toFile(outPath);
         generated[`${width}-${format}`] = `/${path.relative(path.resolve(__dirname, '../public'), outPath).replace(/\\/g, '/')}`;
+        generatedCount++;
       } catch (err) {
         console.warn(`  ⚠ Failed: ${filename} (${err.message})`);
       }
@@ -270,16 +308,17 @@ async function generateVariants(srcPath, seoSlug, outSubfolder) {
     height: srcHeight,
     widths: applicableWidths,
     basePath: `/images/opt/${outSubfolder}/${seoSlug}`,
+    generatedCount,
   };
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log('🖼  Skinlab Image Pre-Generator\n');
+  console.log(`🖼  Skinlab Image Pre-Generator${FORCE ? ' (force rebuild)' : ' (incremental)'}\n`);
 
-  // Clean output dir
-  if (fs.existsSync(OUT_DIR)) {
+  // Force mode: clean output dir; incremental mode: keep existing variants
+  if (FORCE && fs.existsSync(OUT_DIR)) {
     console.log('Cleaning output directory...');
     fs.rmSync(OUT_DIR, { recursive: true });
   }
@@ -293,6 +332,8 @@ async function main() {
   const manifest = {};
   let totalImages = 0;
   let totalVariants = 0;
+  let totalGenerated = 0;
+  let totalSkipped = 0;
 
   // ── Process product images ────────────────────────────────────────────
   console.log(`\nProcessing ${Object.keys(productMapping).length} product images...`);
@@ -306,34 +347,45 @@ async function main() {
       // Orphan image — still generate with filename-based slug
       const name = path.parse(file).name;
       const seoSlug = slugify(name);
-      console.log(`  [orphan] ${file} → ${seoSlug}`);
 
       const result = await generateVariants(srcPath, seoSlug, 'products');
       if (result) {
+        if (result.generatedCount > 0) {
+          console.log(`  [orphan] ${file} → ${seoSlug} (${result.generatedCount} variants)`);
+        }
         const key = `@assets/products/${file}`;
         manifest[key] = {
           seoSlug,
           alt: name.replace(/-/g, ' ').replace(/_/g, ' '),
           ...result,
         };
+        delete manifest[key].generatedCount;
         totalImages++;
-        totalVariants += result.widths.length * FORMATS.length;
+        const total = result.widths.length * FORMATS.length;
+        totalVariants += total;
+        totalGenerated += result.generatedCount;
+        totalSkipped += total - result.generatedCount;
       }
       continue;
     }
 
-    console.log(`  ${file} → ${info.seoSlug}`);
-
     const result = await generateVariants(srcPath, info.seoSlug, info.subfolder);
     if (result) {
+      if (result.generatedCount > 0) {
+        console.log(`  ${file} → ${info.seoSlug} (${result.generatedCount} variants)`);
+      }
       const key = `@assets/products/${file}`;
       manifest[key] = {
         seoSlug: info.seoSlug,
         alt: info.alt,
         ...result,
       };
+      delete manifest[key].generatedCount;
       totalImages++;
-      totalVariants += result.widths.length * FORMATS.length;
+      const total = result.widths.length * FORMATS.length;
+      totalVariants += total;
+      totalGenerated += result.generatedCount;
+      totalSkipped += total - result.generatedCount;
     }
   }
 
@@ -350,10 +402,11 @@ async function main() {
       continue;
     }
 
-    console.log(`  ${relPath} → ${info.seoSlug}`);
-
     const result = await generateVariants(srcPath, info.seoSlug, info.subfolder);
     if (result) {
+      if (result.generatedCount > 0) {
+        console.log(`  ${relPath} → ${info.seoSlug} (${result.generatedCount} variants)`);
+      }
       // Build the @assets/ key for the manifest
       const key = info.srcSubdir
         ? `@assets/${info.srcSubdir}/${path.basename(relPath)}`
@@ -363,8 +416,12 @@ async function main() {
         alt: info.alt,
         ...result,
       };
+      delete manifest[key].generatedCount;
       totalImages++;
-      totalVariants += result.widths.length * FORMATS.length;
+      const total = result.widths.length * FORMATS.length;
+      totalVariants += total;
+      totalGenerated += result.generatedCount;
+      totalSkipped += total - result.generatedCount;
     }
   }
 
@@ -373,7 +430,7 @@ async function main() {
 
   console.log(`\n✅ Done!`);
   console.log(`   Images processed: ${totalImages}`);
-  console.log(`   Variants generated: ${totalVariants}`);
+  console.log(`   Variants generated: ${totalGenerated} (skipped ${totalSkipped} up-to-date)`);
   console.log(`   Manifest: ${MANIFEST_PATH}`);
   console.log(`   Output: ${OUT_DIR}`);
 }

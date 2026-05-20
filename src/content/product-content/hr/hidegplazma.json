@@ -5,12 +5,32 @@
   "metaTitle": "AURA uređaj s hladnom plazmom | CAP tehnologija | Skinlab Hungary",
   "metaDescription": "AURA by skinlab. uređaj s hladnom plazmom CAP tehnologijom. Antibakterijski učinak, unošenje aktivnih tvari, regeneracija kože. Kompetencija kozmetičara, CE certifikat.",
   "stats": [
-    { "value": "CAP", "label": "Tehnologija", "icon": "zap" },
-    { "value": "4", "label": "Glavna područja primjene", "icon": "layers" },
-    { "value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Vrijeme oporavka", "icon": "clock" }
+    {
+      "value": "CAP",
+      "label": "Tehnologija",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Glavna područja primjene",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "god.",
+      "label": "Jamstvo",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Vrijeme oporavka",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 12000 },
+  "roi": {
+    "defaultTreatmentPrice": 12000
+  },
   "videoDescription": {
     "headline": "Što je CAP – i zašto ga je vrijedno uvesti upravo sada?",
     "paragraphs": [
@@ -113,7 +133,8 @@
   "expertQuote": {
     "quote": "AURA je izvrstan izbor za kozmetičare koji žele ući na tržište hladne plazme bez kupnje najskupljeg uređaja. CAP tehnologija ima dokazanu učinkovitost, a AURA je čini dostupnom na profesionalnoj razini.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

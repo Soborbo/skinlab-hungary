@@ -5,10 +5,28 @@
   "metaTitle": "VanityBlack premium electric cosmetic bed | 3 motors",
   "metaDescription": "VanityBlack Eclipse 3-motor electric cosmetic chair. Remote control, 2.3 m length, water-repellent faux leather. Premium salon furniture for salons and clinics.",
   "stats": [
-    { "value": "3", "label": "Motors", "icon": "zap" },
-    { "value": "2.3", "unit": "m", "label": "Extended length", "icon": "layers" },
-    { "value": "180°", "label": "Armrest movement", "icon": "refresh" },
-    { "value": "2", "unit": "years", "label": "Warranty", "icon": "award" }
+    {
+      "value": "3",
+      "label": "Motors",
+      "icon": "zap"
+    },
+    {
+      "value": "2.3",
+      "unit": "m",
+      "label": "Extended length",
+      "icon": "layers"
+    },
+    {
+      "value": "180°",
+      "label": "Armrest movement",
+      "icon": "refresh"
+    },
+    {
+      "value": "2",
+      "unit": "years",
+      "label": "Warranty",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
@@ -51,7 +69,8 @@
   "expertQuote": {
     "quote": "A 3-motor electric cosmetic bed is the essential furniture of a professional salon. The VanityBlack Eclipse not only elevates client comfort to a new level but also makes the operator's work easier and more ergonomic.",
     "author": "Horváth László",
-    "role": "Salon design consultant"
+    "role": "Salon design consultant",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

@@ -5,12 +5,31 @@
   "metaTitle": "ÉLISE nanosekundový laser – Odstranění pigmentu a tetování, carbon peeling",
   "metaDescription": "ÉLISE prémiový nanosekundový ND:YAG laser pro odstranění pigmentů, tetování, carbon peeling a omlazení pleti – styl a účinnost v jednom.",
   "stats": [
-    { "value": "3", "label": "Vlnové délky", "icon": "wave" },
-    { "value": "Nano", "label": "Délka impulzu", "icon": "zap" },
-    { "value": "Prémiový", "label": "Rosegold/Stříbrný", "icon": "award" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "Nano",
+      "label": "Délka impulzu",
+      "icon": "zap"
+    },
+    {
+      "value": "Prémiový",
+      "label": "Rosegold/Stříbrný",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "ÉLISE – Kde se technologie setkává s designem",
     "paragraphs": [
@@ -97,15 +116,40 @@
   "expertQuote": {
     "quote": "ÉLISE je ztělesněním prémiové kategorie: nanosekundová technologie, elegantní design a spolehlivý výkon. Dokonalá volba pro ty, kteří chtějí poskytovat to nejlepší nejen v technologii, ale i v zážitku pro klienty.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranění tetování", "description": "Odstranění tetování na těle i permanentního make-upu nanosekundovými impulzy na vlnových délkách 1064 nm a 532 nm" },
-    { "icon": "sun", "name": "Léčba pigmentových skvrn", "description": "Účinné zesvětlení pih, slunečních skvrn, stařeckých skvrn, melasmy a hyperpigmentace" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Ošetření blackdoll: hloubkové čištění, zúžení pórů, omlazení pleti aplikátorem 1320 nm" },
-    { "icon": "droplet", "name": "Sjednocení tónu pleti", "description": "Ošetření nerovnoměrného tónu pleti, hyperpigmentace a zabarvení pokožky" },
-    { "icon": "eye", "name": "Odstranění permanentního make-upu", "description": "Přesná korekce a odstranění permanentního make-upu obočí a rtů" },
-    { "icon": "bolt", "name": "Omlazení pleti", "description": "Zesvětlení jizev po akné, bělení pleti a stimulace kolagenu" }
+    {
+      "icon": "zap",
+      "name": "Odstranění tetování",
+      "description": "Odstranění tetování na těle i permanentního make-upu nanosekundovými impulzy na vlnových délkách 1064 nm a 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Léčba pigmentových skvrn",
+      "description": "Účinné zesvětlení pih, slunečních skvrn, stařeckých skvrn, melasmy a hyperpigmentace"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Ošetření blackdoll: hloubkové čištění, zúžení pórů, omlazení pleti aplikátorem 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Sjednocení tónu pleti",
+      "description": "Ošetření nerovnoměrného tónu pleti, hyperpigmentace a zabarvení pokožky"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranění permanentního make-upu",
+      "description": "Přesná korekce a odstranění permanentního make-upu obočí a rtů"
+    },
+    {
+      "icon": "bolt",
+      "name": "Omlazení pleti",
+      "description": "Zesvětlení jizev po akné, bělení pleti a stimulace kolagenu"
+    }
   ],
   "faq": [
     {

@@ -300,7 +300,7 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 7. CTA: after features -->
+    <!-- 7. CTA: after features (showroom invite + per-product gallery) -->
     {content.featureRows && (
       <ProductCTA
         locale={locale}
@@ -310,6 +310,7 @@ const productSchema = product.price ? {
         subtitle={content.cta?.afterFeatures?.subtitle}
         buttonLabel={content.cta?.afterFeatures?.buttonLabel}
         showPhone={true}
+        productSlug={locale === 'hu' ? product.slug : undefined}
       />
     )}
 

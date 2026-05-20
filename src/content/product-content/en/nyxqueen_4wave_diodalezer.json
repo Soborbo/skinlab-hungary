@@ -5,12 +5,31 @@
   "metaTitle": "NyxQueen 4Wave Diode Laser | 600W, 4 wavelengths, 50M shots",
   "metaDescription": "NyxQueen 600W diode laser with 4 wavelengths (755, 808, 940, 1064 nm). 50 million shots, advanced cooling, premium build. 2-year warranty, free training.",
   "stats": [
-    { "value": "600", "unit": "W", "label": "Power", "icon": "zap" },
-    { "value": "50M", "label": "Shot lifespan", "icon": "clock" },
-    { "value": "4", "label": "Wavelengths", "icon": "wave" },
-    { "value": "-5°C", "label": "Cooling", "icon": "heart" }
+    {
+      "value": "600",
+      "unit": "W",
+      "label": "Power",
+      "icon": "zap"
+    },
+    {
+      "value": "50M",
+      "label": "Shot lifespan",
+      "icon": "clock"
+    },
+    {
+      "value": "4",
+      "label": "Wavelengths",
+      "icon": "wave"
+    },
+    {
+      "value": "-5°C",
+      "label": "Cooling",
+      "icon": "heart"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "NyxQueen diode laser – The queen of hair removal",
     "paragraphs": [
@@ -144,7 +163,8 @@
   "expertQuote": {
     "quote": "Diode laser hair removal is one of the most sought-after cosmetic services. With its 600W power and 50 million shot lifespan, the NyxQueen offers one of the best value-for-money investments for a salon.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Power": "600W",

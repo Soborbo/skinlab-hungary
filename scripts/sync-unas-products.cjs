@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { XMLParser, XMLBuilder } = require('fast-xml-parser');
+const { XMLParser } = require('fast-xml-parser');
 
 // --- Configuration ---
 
@@ -28,12 +28,6 @@ const xmlParser = new XMLParser({
   parseTagValue: true,
   trimValues: true,
   isArray: (name) => ['Product', 'Price', 'Param', 'Image', 'Category', 'Status'].includes(name),
-});
-
-const xmlBuilder = new XMLBuilder({
-  ignoreAttributes: false,
-  format: true,
-  suppressEmptyNode: true,
 });
 
 // --- Logging ---
@@ -300,10 +294,6 @@ function extractPrices(product) {
 
 function extractSku(product) {
   return (product?.Sku || '').toString().trim();
-}
-
-function extractName(product) {
-  return (product?.Name || '').toString().trim();
 }
 
 function extractSpecs(product) {

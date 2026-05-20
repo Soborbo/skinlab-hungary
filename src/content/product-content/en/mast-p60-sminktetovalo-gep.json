@@ -5,10 +5,27 @@
   "metaTitle": "MAST P60 3in1 permanent makeup set – machine + spare battery + RCA adapter",
   "metaDescription": "Complete MAST P60 set: permanent makeup machine with adjustable stroke length, spare battery, RCA adapter. Professional starter package for 119.990 Ft.",
   "stats": [
-    { "value": "3in1", "label": "Complete set", "icon": "layers" },
-    { "value": "2×", "label": "Battery", "icon": "zap" },
-    { "value": "5", "label": "Stroke length settings", "icon": "award" },
-    { "value": "121", "unit": "g", "label": "Device weight", "icon": "clock" }
+    {
+      "value": "3in1",
+      "label": "Complete set",
+      "icon": "layers"
+    },
+    {
+      "value": "2×",
+      "label": "Battery",
+      "icon": "zap"
+    },
+    {
+      "value": "5",
+      "label": "Stroke length settings",
+      "icon": "award"
+    },
+    {
+      "value": "121",
+      "unit": "g",
+      "label": "Device weight",
+      "icon": "clock"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +105,8 @@
   "expertQuote": {
     "quote": "The 3in1 set is the best choice if you want to use the P60 professionally. The spare battery and RCA adapter provide a safety net that's worth the investment.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Weight": "121 g (machine)",

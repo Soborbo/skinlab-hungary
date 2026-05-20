@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
-import { SITE, CONTACT } from '../../lib/constants';
+import { SITE } from '../../lib/constants';
 import { config } from '../../config/siteConfig';
 import { articleSchema } from '../../config/schema';
 
@@ -20,7 +20,7 @@ const { Content } = await render(post);
 // Get related posts (same tags, excluding current)
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
-  .filter((p) => p.slug !== post.id)
+  .filter((p) => p.id !== post.id)
   .filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)))
   .slice(0, 3);
 

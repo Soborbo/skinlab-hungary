@@ -44,20 +44,6 @@ export function resolveVatCode(country: string, taxNumber: string | undefined): 
   }
   return 'EUK';
 }
-const SHIPPING_FEE_ITEM_NAME = {
-  hu: 'Szállítási díj',
-  en: 'Shipping fee',
-  de: 'Versandkosten',
-  fr: 'Frais de livraison',
-  it: 'Spese di spedizione',
-  hr: 'Trošak dostave',
-  cs: 'Doprava',
-  sk: 'Doprava',
-  ro: 'Cost transport',
-  sl: 'Stroški pošiljanja',
-  es: 'Gastos de envío',
-} as const satisfies Record<BillingoLanguage, string>;
-
 function isoDate(date: Date): string {
   const y = date.getUTCFullYear();
   const m = String(date.getUTCMonth() + 1).padStart(2, '0');
@@ -138,7 +124,7 @@ export function buildProformaPayload(opts: {
 export async function createProforma(
   config: BillingoConfig,
   payload: BillingoDocumentCreate,
-  orderId: string,
+  _orderId: string,
 ): Promise<BillingoDocumentResponse> {
   try {
     return await executeBillingoRequest<BillingoDocumentResponse>(config, {

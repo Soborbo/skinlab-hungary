@@ -5,10 +5,28 @@
   "metaTitle": "VanityBlack premium elektrické kosmetické lehátko | 3 motory",
   "metaDescription": "VanityBlack Eclipse 3motorové elektrické kosmetické křeslo. Dálkové ovládání, 2,3 m délka, voděodolná koženka. Prémiový salónní nábytek pro salóny a kliniky.",
   "stats": [
-    { "value": "3", "label": "Motory", "icon": "zap" },
-    { "value": "2,3", "unit": "m", "label": "Celková délka", "icon": "layers" },
-    { "value": "180°", "label": "Pohyb loketních opěrek", "icon": "refresh" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "award" }
+    {
+      "value": "3",
+      "label": "Motory",
+      "icon": "zap"
+    },
+    {
+      "value": "2,3",
+      "unit": "m",
+      "label": "Celková délka",
+      "icon": "layers"
+    },
+    {
+      "value": "180°",
+      "label": "Pohyb loketních opěrek",
+      "icon": "refresh"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
@@ -51,7 +69,8 @@
   "expertQuote": {
     "quote": "3motorové elektrické kosmetické lehátko je základním vybavením profesionálního salónu. VanityBlack Eclipse nejen zvedá komfort klientů na novou úroveň, ale také usnadňuje a zpříjemňuje práci ošetřujícího.",
     "author": "Horváth László",
-    "role": "Poradce pro vybavení salónů"
+    "role": "Poradce pro vybavení salónů",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

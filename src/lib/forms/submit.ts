@@ -337,7 +337,7 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
  */
 async function sendNotificationEmail(data: LeadData): Promise<void> {
   const resendApiKey = readEnv('RESEND_API_KEY');
-  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'info@skinlabhungary.hu';
+  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
     return;
@@ -694,7 +694,7 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
  */
 async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<void> {
   const resendApiKey = readEnv('RESEND_API_KEY');
-  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'info@skinlabhungary.hu';
+  const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
     return;
@@ -787,7 +787,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
       </p>
       <p style="color: #78716c; font-size: 13px; margin: 0;">
         Skinlab SHOWROOM: 2030 Érd, Budai út 28.<br>
-        Email: <a href="mailto:info@skinlabhungary.hu" style="color: #db2777;">info@skinlabhungary.hu</a>
+        Email: <a href="mailto:hello@skinlabhungary.hu" style="color: #db2777;">hello@skinlabhungary.hu</a>
       </p>
     </div>
 

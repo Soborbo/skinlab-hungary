@@ -1,9 +1,27 @@
 {
   "stats": [
-    { "value": "2", "unit": "years", "label": "Warranty", "icon": "shield" },
-    { "value": "6+", "label": "Functions in one", "icon": "layers" },
-    { "value": "30", "unit": "min", "label": "Treatment time", "icon": "clock" },
-    { "value": "100%", "label": "Painless", "icon": "heart" }
+    {
+      "value": "2",
+      "unit": "years",
+      "label": "Warranty",
+      "icon": "shield"
+    },
+    {
+      "value": "6+",
+      "label": "Functions in one",
+      "icon": "layers"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Treatment time",
+      "icon": "clock"
+    },
+    {
+      "value": "100%",
+      "label": "Painless",
+      "icon": "heart"
+    }
   ],
   "testimonials": [
     {
@@ -31,7 +49,8 @@
   "expertQuote": {
     "quote": "HydraFacial is one of the best return-on-investment purchases for a salon. Clients see results immediately and return regularly – that means guaranteed revenue.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "featureRows": {
     "headline": "Why choose a multifunctional hydrofacial device?",
@@ -70,12 +89,36 @@
     "ctaText": "I'm interested in the training"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hydrodermabrasion", "description": "Vacuum deep cleansing and exfoliation" },
-    { "icon": "sound", "name": "Ultrasound", "description": "Active ingredient infusion into deep layers" },
-    { "icon": "bubbles", "name": "Oxygen treatment", "description": "O₂ hydration and revitalization" },
-    { "icon": "bolt", "name": "RF lifting", "description": "Skin tightening with radiofrequency" },
-    { "icon": "snowflake", "name": "Cryotherapy", "description": "Hot-cold treatment for pore tightening" },
-    { "icon": "spray", "name": "Spray gun", "description": "Toning to close the treatment" }
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrasion",
+      "description": "Vacuum deep cleansing and exfoliation"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrasound",
+      "description": "Active ingredient infusion into deep layers"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Oxygen treatment",
+      "description": "O₂ hydration and revitalization"
+    },
+    {
+      "icon": "bolt",
+      "name": "RF lifting",
+      "description": "Skin tightening with radiofrequency"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Cryotherapy",
+      "description": "Hot-cold treatment for pore tightening"
+    },
+    {
+      "icon": "spray",
+      "name": "Spray gun",
+      "description": "Toning to close the treatment"
+    }
   ],
   "faq": [
     {

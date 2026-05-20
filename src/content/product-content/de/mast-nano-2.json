@@ -5,10 +5,30 @@
   "metaTitle": "MAST Nano 2 PMU-Gerät – Leicht, leise und präzise",
   "metaDescription": "66 g kompaktes PMU-Gerät für Profis und Einsteiger. Minimale Vibration, präzise Lidstrich-Arbeit, leistungsstarke und zuverlässige Performance.",
   "stats": [
-    { "value": "66", "unit": "g", "label": "Ultraleicht", "icon": "layers" },
-    { "value": "2,7", "unit": "mm", "label": "Hublänge", "icon": "zap" },
-    { "value": "10000", "unit": "RPM", "label": "Motorgeschwindigkeit", "icon": "award" },
-    { "value": "18,8", "unit": "mm", "label": "Durchmesser", "icon": "clock" }
+    {
+      "value": "66",
+      "unit": "g",
+      "label": "Ultraleicht",
+      "icon": "layers"
+    },
+    {
+      "value": "2,7",
+      "unit": "mm",
+      "label": "Hublänge",
+      "icon": "zap"
+    },
+    {
+      "value": "10000",
+      "unit": "RPM",
+      "label": "Motorgeschwindigkeit",
+      "icon": "award"
+    },
+    {
+      "value": "18,8",
+      "unit": "mm",
+      "label": "Durchmesser",
+      "icon": "clock"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +108,8 @@
   "expertQuote": {
     "quote": "Die Mast Nano 2 ist die Meisterin der Lidstrich-Arbeit. Die Kombination aus 66 Gramm Gewicht und minimaler Vibration ist in dieser Preisklasse einzigartig.",
     "author": "Horváth László",
-    "role": "Technischer Experte"
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Gewicht": "66 g",

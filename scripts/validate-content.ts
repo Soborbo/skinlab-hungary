@@ -8,7 +8,7 @@
  */
 
 import { readdirSync, readFileSync, statSync } from 'fs';
-import { join, relative, basename } from 'path';
+import { join, relative } from 'path';
 import { fileURLToPath } from 'url';
 import { productContentSchema, categoryContentSchema } from '../src/lib/schemas/product-content.schema.js';
 
@@ -52,7 +52,6 @@ function validateFile(filePath: string): ValidationResult {
   const parts = relPath.split(/[/\\]/);
   const locale = parts[0];
   const isCategory = parts.includes('_category');
-  const fileName = basename(filePath);
 
   const result: ValidationResult = {
     locale,

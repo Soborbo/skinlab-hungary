@@ -5,12 +5,32 @@
   "metaTitle": "HYPERNOVA 7D HIFU přístroj | Ultrazvuk + RF + EMS | Skinlab Hungary",
   "metaDescription": "HYPERNOVA 7D HIFU: fokusovaný ultrazvuk, radiofrekvence a EMS v jednom. Neinvazivní lifting obličeje, odbourávání tuku, tvarování těla. CE certifikace, 12 měsíců záruky.",
   "stats": [
-    { "value": "3", "label": "Technologie v jednom", "icon": "layers" },
-    { "value": "7D", "label": "Technologie HIFU", "icon": "zap" },
-    { "value": "650", "unit": "W", "label": "Výkon", "icon": "bolt" },
-    { "value": "12", "unit": "měsíců", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Technologie v jednom",
+      "icon": "layers"
+    },
+    {
+      "value": "7D",
+      "label": "Technologie HIFU",
+      "icon": "zap"
+    },
+    {
+      "value": "650",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "bolt"
+    },
+    {
+      "value": "12",
+      "unit": "měsíců",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HYPERNOVA – nová generace neinvazivního tvarování těla a omlazení pleti",
     "paragraphs": [
@@ -20,9 +40,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Máte dotazy k přístroji HYPERNOVA 7D HIFU? Rádi vám pomůžeme!", "buttonLabel": "Žádost o konzultaci", "phoneLabel": "Zavolejte nám" },
-    "afterFeatures": { "headline": "Chcete vidět HYPERNOVA naživo?", "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ho osobně!", "buttonLabel": "Rezervace termínu" },
-    "final": { "headline": "Zajímá vás přístroj HYPERNOVA 7D HIFU?", "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to pro vás ta nejlepší volba.", "buttonLabel": "Žádost o konzultaci" }
+    "afterVideo": {
+      "text": "Máte dotazy k přístroji HYPERNOVA 7D HIFU? Rádi vám pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidět HYPERNOVA naživo?",
+      "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ho osobně!",
+      "buttonLabel": "Rezervace termínu"
+    },
+    "final": {
+      "headline": "Zajímá vás přístroj HYPERNOVA 7D HIFU?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to pro vás ta nejlepší volba.",
+      "buttonLabel": "Žádost o konzultaci"
+    }
   },
   "featureRows": {
     "headline": "Proč je HYPERNOVA profesionální volbou?",
@@ -107,16 +139,38 @@
   "expertQuote": {
     "quote": "Technologie 7D HIFU je jednou z nejúčinnějších neinvazivních metod v oblasti liftingu obličeje a tvarování těla. HYPERNOVA kombinací fokusovaného ultrazvuku s RF a EMS nabízí tak komplexní možnosti ošetření, které dříve vyžadovaly více přístrojů.",
     "author": "Horváth László",
-    "role": "Technický expert"
+    "role": "Technický expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "Co je 7D HIFU a jak funguje?", "answer": "7D HIFU (High-Intensity Focused Ultrasound) využívá vysokointenzivní fokusované ultrazvukové vlny, které dodávají energii do hlubších vrstev pleti. Tento tepelný účinek vytváří mikroporanění, na která tělo reaguje přirozenou regenerací – zvyšuje se tvorba kolagenu a elastinu, pleť je pevnější a pružnější." },
-    { "question": "Je ošetření bolestivé?", "answer": "Při HIFU ošetření lze pociťovat mírné teplo a brnění, ale celkově je ošetření dobře tolerovatelné a nevyžaduje anestezii. RF a EMS ošetření jsou rovněž bezbolestná." },
-    { "question": "Kdy jsou viditelné výsledky?", "answer": "Určité zlepšení je patrné již po prvním ošetření, ale díky zvýšené tvorbě kolagenu se plný výsledek vyvíjí během 2–3 měsíců. Účinek HIFU obvykle trvá 6–12 měsíců, RF a EMS ošetření v rámci kúry výsledek posilují." },
-    { "question": "Na jakých oblastech lze přístroj používat?", "answer": "Na obličeji, krku, bradě, břichu, pasu, stehnech, hýždích, pažích a ramenou. HIFU se používá pro lifting obličeje a tvarování těla, RF pro zpevnění pleti a redukci vrásek, EMS pro svalovou stimulaci a tvarování kontur." },
-    { "question": "Je po ošetření nějaká doba rekonvalescence?", "answer": "Po ošetření není žádná výrazná doba rekonvalescence. Může se objevit mírné zarudnutí, které obvykle zmizí během několika hodin. Klient může po ošetření okamžitě pokračovat v běžných aktivitách." },
-    { "question": "Jaké školení k přístroji patří?", "answer": "Jednodenní školení obsluhy v rámci oficiálního vzdělávacího programu, které je při zakoupení přístroje zdarma. Školení pokrývá fungování technologií HIFU, RF a EMS, ošetřovací protokoly a bezpečnostní předpisy. Vystavíme certifikát s registračním číslem v systému FAR." },
-    { "question": "Za jak dlouho se HYPERNOVA zaplatí?", "answer": "Cena HIFU ošetření se obvykle pohybuje mezi 25 000–60 000 Ft, cena ošetření těla v podobném rozmezí. Při 8–12 ošetřeních týdně se přístroj obvykle zaplatí za 3–5 měsíců. Využijte naši ROI kalkulačku pro přesný výpočet!" }
+    {
+      "question": "Co je 7D HIFU a jak funguje?",
+      "answer": "7D HIFU (High-Intensity Focused Ultrasound) využívá vysokointenzivní fokusované ultrazvukové vlny, které dodávají energii do hlubších vrstev pleti. Tento tepelný účinek vytváří mikroporanění, na která tělo reaguje přirozenou regenerací – zvyšuje se tvorba kolagenu a elastinu, pleť je pevnější a pružnější."
+    },
+    {
+      "question": "Je ošetření bolestivé?",
+      "answer": "Při HIFU ošetření lze pociťovat mírné teplo a brnění, ale celkově je ošetření dobře tolerovatelné a nevyžaduje anestezii. RF a EMS ošetření jsou rovněž bezbolestná."
+    },
+    {
+      "question": "Kdy jsou viditelné výsledky?",
+      "answer": "Určité zlepšení je patrné již po prvním ošetření, ale díky zvýšené tvorbě kolagenu se plný výsledek vyvíjí během 2–3 měsíců. Účinek HIFU obvykle trvá 6–12 měsíců, RF a EMS ošetření v rámci kúry výsledek posilují."
+    },
+    {
+      "question": "Na jakých oblastech lze přístroj používat?",
+      "answer": "Na obličeji, krku, bradě, břichu, pasu, stehnech, hýždích, pažích a ramenou. HIFU se používá pro lifting obličeje a tvarování těla, RF pro zpevnění pleti a redukci vrásek, EMS pro svalovou stimulaci a tvarování kontur."
+    },
+    {
+      "question": "Je po ošetření nějaká doba rekonvalescence?",
+      "answer": "Po ošetření není žádná výrazná doba rekonvalescence. Může se objevit mírné zarudnutí, které obvykle zmizí během několika hodin. Klient může po ošetření okamžitě pokračovat v běžných aktivitách."
+    },
+    {
+      "question": "Jaké školení k přístroji patří?",
+      "answer": "Jednodenní školení obsluhy v rámci oficiálního vzdělávacího programu, které je při zakoupení přístroje zdarma. Školení pokrývá fungování technologií HIFU, RF a EMS, ošetřovací protokoly a bezpečnostní předpisy. Vystavíme certifikát s registračním číslem v systému FAR."
+    },
+    {
+      "question": "Za jak dlouho se HYPERNOVA zaplatí?",
+      "answer": "Cena HIFU ošetření se obvykle pohybuje mezi 25 000–60 000 Ft, cena ošetření těla v podobném rozmezí. Při 8–12 ošetřeních týdně se přístroj obvykle zaplatí za 3–5 měsíců. Využijte naši ROI kalkulačku pro přesný výpočet!"
+    }
   ],
   "whatsIncluded": [
     "HYPERNOVA 7D HIFU přístroj",

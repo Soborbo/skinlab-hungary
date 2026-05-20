@@ -202,6 +202,40 @@ const sourceUrl = Astro.url.href;
           <!-- Contact Info -->
           <div class="space-y-6">
 
+            <!-- Founders — friendly, human touch above the contact details -->
+            <div class="flex items-center gap-4 p-4 bg-primary-50/60 rounded-2xl border border-primary-100">
+              <div class="flex -space-x-3 shrink-0">
+                <picture>
+                  <source type="image/avif" srcset="/about/gaszler-simonetta-skinlab-alapito.avif" />
+                  <source type="image/webp" srcset="/about/gaszler-simonetta-skinlab-alapito.webp" />
+                  <img
+                    src="/about/gaszler-simonetta-skinlab-alapito.jpg"
+                    alt="Gaszler Simonetta – alapító"
+                    class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow-sm"
+                    width="112"
+                    height="112"
+                    loading="lazy"
+                  />
+                </picture>
+                <picture>
+                  <source type="image/avif" srcset="/about/horvath-laszlo-skinlab-alapito.avif" />
+                  <source type="image/webp" srcset="/about/horvath-laszlo-skinlab-alapito.webp" />
+                  <img
+                    src="/about/horvath-laszlo-skinlab-alapito.jpg"
+                    alt="Horváth László – alapító"
+                    class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow-sm"
+                    width="112"
+                    height="112"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 text-sm">Simonetta &amp; László</div>
+                <div class="text-xs text-gray-600">A Skinlab alapítói – keress minket bizalommal!</div>
+              </div>
+            </div>
+
             <!-- Phone & Email — compact grid -->
             <div class="grid sm:grid-cols-2 gap-3">
               <a

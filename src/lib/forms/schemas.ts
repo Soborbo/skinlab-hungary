@@ -14,7 +14,7 @@ const phoneRegex = /^(\+|00|0)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]
 export const contactSchema = z.object({
   // Required contact fields
   name: z.string().min(2, 'A név megadása kötelező'),
-  email: z.string().email('Érvényes email cím szükséges'),
+  email: z.email('Érvényes email cím szükséges'),
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
 
   // Product interest (optional — only used by consultation flow, not generic contact)
@@ -28,7 +28,7 @@ export const contactSchema = z.object({
 
   // GDPR - REQUIRED
   gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
-  gdprTimestamp: z.string().datetime(),
+  gdprTimestamp: z.iso.datetime(),
 
   // Spam protection - honeypot
   honeypot: z.string().max(0, 'Spam detected').optional().default(''),
@@ -44,7 +44,7 @@ export const contactSchema = z.object({
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
   // Tracking metadata — captured client-side (URL params + persisted tracking)
-  sourceUrl: z.string().url(),
+  sourceUrl: z.url(),
   utmSource: z.string().max(200).optional().default(''),
   utmMedium: z.string().max(200).optional().default(''),
   utmCampaign: z.string().max(200).optional().default(''),
@@ -61,11 +61,11 @@ export type ContactFormData = z.infer<typeof contactSchema>;
  * Newsletter subscription schema
  */
 export const newsletterSchema = z.object({
-  email: z.string().email('Érvényes email cím szükséges'),
+  email: z.email('Érvényes email cím szükséges'),
   gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
-  gdprTimestamp: z.string().datetime(),
+  gdprTimestamp: z.iso.datetime(),
   honeypot: z.string().max(0).optional().default(''),
-  sourceUrl: z.string().url(),
+  sourceUrl: z.url(),
 });
 
 export type NewsletterFormData = z.infer<typeof newsletterSchema>;
@@ -94,12 +94,12 @@ export const consultationSchema = z.object({
 
   // Step 5: Contact details
   name: z.string().min(2, 'A név megadása kötelező'),
-  email: z.string().email('Érvényes email cím szükséges'),
+  email: z.email('Érvényes email cím szükséges'),
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
 
   // GDPR - REQUIRED
   gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),
-  gdprTimestamp: z.string().datetime(),
+  gdprTimestamp: z.iso.datetime(),
 
   // Spam protection
   honeypot: z.string().max(0, 'Spam detected').optional().default(''),
@@ -112,7 +112,7 @@ export const consultationSchema = z.object({
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
   // Tracking metadata — same as contact form, captured client-side
-  sourceUrl: z.string().url(),
+  sourceUrl: z.url(),
   utmSource: z.string().max(200).optional().default(''),
   utmMedium: z.string().max(200).optional().default(''),
   utmCampaign: z.string().max(200).optional().default(''),
@@ -138,7 +138,7 @@ export function validateConsultationForm(data: unknown): {
   if (!result.success) {
     return {
       success: false,
-      errors: result.error.flatten().fieldErrors as Record<string, string[]>,
+      errors: z.flattenError(result.error).fieldErrors as Record<string, string[]>,
     };
   }
 
@@ -161,7 +161,7 @@ export function validateContactForm(data: unknown): {
   if (!result.success) {
     return {
       success: false,
-      errors: result.error.flatten().fieldErrors as Record<string, string[]>,
+      errors: z.flattenError(result.error).fieldErrors as Record<string, string[]>,
     };
   }
 

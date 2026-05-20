@@ -15,20 +15,22 @@
     "sync:unas": "node scripts/sync-unas-products.cjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.1",
-    "@astrojs/sitemap": "^3.7.1",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "^6.0.4",
-    "fuse.js": "^7.1.0",
-    "tailwindcss": "^4.2.1",
-    "zod": "^4.3.6"
+    "@astrojs/cloudflare": "^13.5.2",
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.5",
+    "fuse.js": "^7.3.0",
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@types/node": "^22.0.0",
-    "fast-xml-parser": "^5.5.9",
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^25.9.0",
+    "fast-xml-parser": "^5.8.0",
+    "heic-convert": "^2.1.0",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.92.0",
     "xlsx": "^0.18.5"
   },
   "overrides": {

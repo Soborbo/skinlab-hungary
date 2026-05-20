@@ -5,10 +5,28 @@
   "metaTitle": "VanityBlack premium električni kozmetički ležaj | 3 motora",
   "metaDescription": "VanityBlack Eclipse električna kozmetička stolica sa 3 motora. Daljinsko upravljanje, 2,3 m dužina, vodootporna veštačka koža. Premium salonski nameštaj za salone i klinike.",
   "stats": [
-    { "value": "3", "label": "Motora", "icon": "zap" },
-    { "value": "2,3", "unit": "m", "label": "Ukupna dužina", "icon": "layers" },
-    { "value": "180°", "label": "Pokret naslona za ruke", "icon": "refresh" },
-    { "value": "2", "unit": "god.", "label": "Garancija", "icon": "award" }
+    {
+      "value": "3",
+      "label": "Motora",
+      "icon": "zap"
+    },
+    {
+      "value": "2,3",
+      "unit": "m",
+      "label": "Ukupna dužina",
+      "icon": "layers"
+    },
+    {
+      "value": "180°",
+      "label": "Pokret naslona za ruke",
+      "icon": "refresh"
+    },
+    {
+      "value": "2",
+      "unit": "god.",
+      "label": "Garancija",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
@@ -51,7 +69,8 @@
   "expertQuote": {
     "quote": "Električna kozmetička stolica sa 3 motora osnovna je oprema profesionalnog salona. VanityBlack Eclipse ne samo da podiže udobnost klijenata na novi nivo, već i olakšava i čini ergonomičnijim rad terapeuta.",
     "author": "Horváth László",
-    "role": "Savetnik za opremanje salona"
+    "role": "Savetnik za opremanje salona",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

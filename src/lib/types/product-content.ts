@@ -82,7 +82,7 @@ export interface ProductContentBuyerChecklist {
 
 export interface ProductContentCTA {
   afterVideo?: { text: string; buttonLabel: string; phoneLabel?: string };
-  afterFeatures?: { headline: string; subtitle: string; buttonLabel: string };
+  afterFeatures?: { headline: string; subtitle: string; buttonLabel: string; showroomDriveFolderId?: string };
   final?: { headline: string; subtitle: string; buttonLabel: string };
 }
 

@@ -5,12 +5,32 @@
   "metaTitle": "Aparat HYPERNOVA 7D HIFU | Ultrasunete + RF + EMS | Skinlab Hungary",
   "metaDescription": "HYPERNOVA 7D HIFU: ultrasunete focalizate, radiofrecvență și EMS într-un singur aparat. Lifting facial non-invaziv, descompunerea grăsimii, modelare corporală. Certificare CE, garanție 12 luni.",
   "stats": [
-    { "value": "3", "label": "Tehnologii combinate", "icon": "layers" },
-    { "value": "7D", "label": "Tehnologie HIFU", "icon": "zap" },
-    { "value": "650", "unit": "W", "label": "Putere", "icon": "bolt" },
-    { "value": "12", "unit": "luni", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Tehnologii combinate",
+      "icon": "layers"
+    },
+    {
+      "value": "7D",
+      "label": "Tehnologie HIFU",
+      "icon": "zap"
+    },
+    {
+      "value": "650",
+      "unit": "W",
+      "label": "Putere",
+      "icon": "bolt"
+    },
+    {
+      "value": "12",
+      "unit": "luni",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HYPERNOVA – noua generație de modelare corporală și întinerire a pielii non-invazivă",
     "paragraphs": [
@@ -20,9 +40,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre aparatul HYPERNOVA 7D HIFU? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați o consultație", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să vedeți HYPERNOVA în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează aparatul HYPERNOVA 7D HIFU?", "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.", "buttonLabel": "Solicitați o consultație" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre aparatul HYPERNOVA 7D HIFU? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți HYPERNOVA în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează aparatul HYPERNOVA 7D HIFU?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
   },
   "featureRows": {
     "headline": "De ce HYPERNOVA este alegerea profesională?",
@@ -107,16 +139,38 @@
   "expertQuote": {
     "quote": "Tehnologia 7D HIFU este una dintre cele mai eficiente metode non-invazive în domeniul liftingului facial și modelării corporale. HYPERNOVA, combinând ultrasunetele focalizate cu RF și EMS, oferă posibilități complexe de tratament care anterior erau disponibile doar cu mai multe aparate.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "Ce este 7D HIFU și cum funcționează?", "answer": "7D HIFU (High-Intensity Focused Ultrasound) utilizează unde ultrasonice focalizate de mare intensitate care furnizează energie în straturile mai profunde ale pielii. Acest efect termic creează microleziuni, la care organismul răspunde cu regenerare naturală – producția de colagen și elastină crește, pielea devine mai fermă și mai elastică." },
-    { "question": "Tratamentul este dureros?", "answer": "În timpul tratamentului HIFU se simte o ușoară senzație de căldură și furnicătură, dar tratamentul este în general bine tolerat și nu necesită anestezie. Tratamentele RF și EMS sunt, de asemenea, nedureroase." },
-    { "question": "Când se vede rezultatul?", "answer": "O anumită îmbunătățire poate fi observată chiar după primul tratament, dar datorită creșterii producției de colagen, rezultatul complet se dezvoltă în 2–3 luni. Efectul HIFU durează de obicei 6–12 luni, iar tratamentele RF și EMS întăresc rezultatul în cadrul curei." },
-    { "question": "Pe ce zone poate fi aplicat?", "answer": "Pe zona feței, gâtului, bărbiei duble, abdomenului, taliei, coapselor, feselor, brațelor și umerilor. HIFU se utilizează pentru lifting facial și modelare corporală, RF pentru tonifierea pielii și reducerea ridurilor, iar EMS pentru stimulare musculară și conturare." },
-    { "question": "Există timp de recuperare după tratament?", "answer": "Nu există timp semnificativ de recuperare după tratament. Poate apărea o ușoară roșeață, care dispare de obicei în câteva ore. Clientul poate continua activitățile zilnice imediat după tratament." },
-    { "question": "Ce formare este inclusă cu aparatul?", "answer": "Un curs de operare de o zi, organizat în cadrul unui program oficial de formare pentru adulți, gratuit la achiziționarea aparatului. Cursul acoperă funcționarea tehnologiilor HIFU, RF și EMS, protocoalele de tratament și reglementările de siguranță. Eliberăm certificat generat în sistem FAR, cu număr B." },
-    { "question": "În cât timp se amortizează HYPERNOVA?", "answer": "Prețul tratamentelor HIFU este de obicei între 25.000–60.000 Ft, prețul tratamentelor corporale în gamă similară. Cu 8–12 tratamente pe săptămână, aparatul se amortizează în general în 3–5 luni. Utilizați calculatorul nostru ROI pentru un calcul exact!" }
+    {
+      "question": "Ce este 7D HIFU și cum funcționează?",
+      "answer": "7D HIFU (High-Intensity Focused Ultrasound) utilizează unde ultrasonice focalizate de mare intensitate care furnizează energie în straturile mai profunde ale pielii. Acest efect termic creează microleziuni, la care organismul răspunde cu regenerare naturală – producția de colagen și elastină crește, pielea devine mai fermă și mai elastică."
+    },
+    {
+      "question": "Tratamentul este dureros?",
+      "answer": "În timpul tratamentului HIFU se simte o ușoară senzație de căldură și furnicătură, dar tratamentul este în general bine tolerat și nu necesită anestezie. Tratamentele RF și EMS sunt, de asemenea, nedureroase."
+    },
+    {
+      "question": "Când se vede rezultatul?",
+      "answer": "O anumită îmbunătățire poate fi observată chiar după primul tratament, dar datorită creșterii producției de colagen, rezultatul complet se dezvoltă în 2–3 luni. Efectul HIFU durează de obicei 6–12 luni, iar tratamentele RF și EMS întăresc rezultatul în cadrul curei."
+    },
+    {
+      "question": "Pe ce zone poate fi aplicat?",
+      "answer": "Pe zona feței, gâtului, bărbiei duble, abdomenului, taliei, coapselor, feselor, brațelor și umerilor. HIFU se utilizează pentru lifting facial și modelare corporală, RF pentru tonifierea pielii și reducerea ridurilor, iar EMS pentru stimulare musculară și conturare."
+    },
+    {
+      "question": "Există timp de recuperare după tratament?",
+      "answer": "Nu există timp semnificativ de recuperare după tratament. Poate apărea o ușoară roșeață, care dispare de obicei în câteva ore. Clientul poate continua activitățile zilnice imediat după tratament."
+    },
+    {
+      "question": "Ce formare este inclusă cu aparatul?",
+      "answer": "Un curs de operare de o zi, organizat în cadrul unui program oficial de formare pentru adulți, gratuit la achiziționarea aparatului. Cursul acoperă funcționarea tehnologiilor HIFU, RF și EMS, protocoalele de tratament și reglementările de siguranță. Eliberăm certificat generat în sistem FAR, cu număr B."
+    },
+    {
+      "question": "În cât timp se amortizează HYPERNOVA?",
+      "answer": "Prețul tratamentelor HIFU este de obicei între 25.000–60.000 Ft, prețul tratamentelor corporale în gamă similară. Cu 8–12 tratamente pe săptămână, aparatul se amortizează în general în 3–5 luni. Utilizați calculatorul nostru ROI pentru un calcul exact!"
+    }
   ],
   "whatsIncluded": [
     "Aparat HYPERNOVA 7D HIFU",

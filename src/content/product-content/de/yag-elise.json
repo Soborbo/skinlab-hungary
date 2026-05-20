@@ -5,12 +5,31 @@
   "metaTitle": "ÉLISE Nanosekunden-Laser – Pigment- & Tattooentfernung, Carbon Peeling",
   "metaDescription": "Der ÉLISE Premium-Nanosekundenlaser ND:YAG für Pigment- und Tattooentfernung, Carbon Peeling und Hauterneuerung – Stil und Effizienz vereint.",
   "stats": [
-    { "value": "3", "label": "Wellenlängen", "icon": "wave" },
-    { "value": "Nano", "label": "Impulsdauer", "icon": "zap" },
-    { "value": "Premium", "label": "Roségold/Silber", "icon": "award" },
-    { "value": "2", "unit": "J.", "label": "Garantie", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "Nano",
+      "label": "Impulsdauer",
+      "icon": "zap"
+    },
+    {
+      "value": "Premium",
+      "label": "Roségold/Silber",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "J.",
+      "label": "Garantie",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "ÉLISE – Wo Technologie auf Design trifft",
     "paragraphs": [
@@ -97,7 +116,8 @@
   "expertQuote": {
     "quote": "Der ÉLISE verkörpert die Premium-Kategorie: Nanosekundentechnologie, elegantes Design und zuverlässige Leistung. Die perfekte Wahl für alle, die nicht nur in der Technologie, sondern auch im Kundenerlebnis das Beste bieten möchten.",
     "author": "Horváth László",
-    "role": "Technischer Experte"
+    "role": "Technischer Experte",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
     {

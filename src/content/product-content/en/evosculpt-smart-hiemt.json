@@ -5,12 +5,33 @@
   "metaTitle": "EvoSculpt Smart HIEMT Body Sculpting | 8500W HIFEM | Skinlab Hungary",
   "metaDescription": "EvoSculpt Smart HIFEM body sculpting device: 20,000 muscle contractions in 30 minutes. Fat reduction + muscle building simultaneously. 2-year warranty, FAR training.",
   "stats": [
-    { "value": "20 000", "label": "Muscle contractions / treatment", "icon": "zap" },
-    { "value": "8500", "unit": "W", "label": "Power output", "icon": "zap" },
-    { "value": "30", "unit": "min", "label": "Treatment time", "icon": "clock" },
-    { "value": "8", "unit": "cm", "label": "Penetration depth", "icon": "wave" }
+    {
+      "value": "20 000",
+      "label": "Muscle contractions / treatment",
+      "icon": "zap"
+    },
+    {
+      "value": "8500",
+      "unit": "W",
+      "label": "Power output",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Treatment time",
+      "icon": "clock"
+    },
+    {
+      "value": "8",
+      "unit": "cm",
+      "label": "Penetration depth",
+      "icon": "wave"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "Why invest in a HIEMT body sculpting device?",
     "paragraphs": [
@@ -20,9 +41,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the EvoSculpt Smart? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to see the EvoSculpt Smart in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the EvoSculpt Smart body sculpting device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the EvoSculpt Smart? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to see the EvoSculpt Smart in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the EvoSculpt Smart body sculpting device?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why do professionals choose the EvoSculpt Smart?",
@@ -101,16 +134,38 @@
   "expertQuote": {
     "quote": "HIFEM body sculpting is one of the most dynamically growing areas of non-invasive aesthetics. Those who introduce it now can count on a stable, returning client base – course-based treatment generates predictable revenue.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "How does the HIFEM body sculpting treatment work?", "answer": "The device delivers focused electromagnetic impulses into deep muscle tissue, up to 8 cm depth. These impulses induce hyper-intensive muscle contractions – up to 20,000 in 30 minutes. The process simultaneously activates fat cell breakdown and muscle building." },
-    { "question": "Who is the treatment recommended for?", "answer": "Anyone seeking a surgery-free, painless body sculpting solution. Particularly popular for abdomen, buttocks, and thigh areas. Also recommended for those who can't exercise regularly but want a more toned body, as well as for post-pregnancy abdominal muscle rehabilitation." },
-    { "question": "Who should not receive the treatment?", "answer": "Not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants. Also not recommended during menstruation." },
-    { "question": "When are results visible?", "answer": "Visible results can be achieved after just 4 treatments. For optimal results, a course of 6–8 sessions is generally recommended, once per week. The final result peaks 2–4 weeks after completing the treatment series, as fat cell breakdown completes." },
-    { "question": "Is the treatment painful?", "answer": "No, the treatment is completely painless. The client feels intense muscle contractions similar to the sensation after a strong workout, but it's not uncomfortable. No anesthesia is needed, and there's no recovery time after treatment." },
-    { "question": "How is HIFEM better than traditional electrical muscle stimulators?", "answer": "Traditional EMS devices only reach surface muscles and require 40 treatments for visible change. HIFEM technology penetrates up to 8 cm deep, activates the entire muscle layer, and delivers visible results after just 4 treatments. It also stimulates fat cell apoptosis, which EMS cannot achieve." },
-    { "question": "How quickly does the device pay for itself?", "answer": "HIEMT treatment prices typically range from 25,000–40,000 Ft. With 5–8 clients per day, the device typically pays for itself within 2–3 months. Clients usually purchase 6–8 session courses, providing stable revenue. Use our on-page ROI calculator for exact figures!" }
+    {
+      "question": "How does the HIFEM body sculpting treatment work?",
+      "answer": "The device delivers focused electromagnetic impulses into deep muscle tissue, up to 8 cm depth. These impulses induce hyper-intensive muscle contractions – up to 20,000 in 30 minutes. The process simultaneously activates fat cell breakdown and muscle building."
+    },
+    {
+      "question": "Who is the treatment recommended for?",
+      "answer": "Anyone seeking a surgery-free, painless body sculpting solution. Particularly popular for abdomen, buttocks, and thigh areas. Also recommended for those who can't exercise regularly but want a more toned body, as well as for post-pregnancy abdominal muscle rehabilitation."
+    },
+    {
+      "question": "Who should not receive the treatment?",
+      "answer": "Not recommended for people with pacemakers, heart conditions, cancer, pregnant or breastfeeding women, diabetics, stroke survivors, or those with metal implants. Also not recommended during menstruation."
+    },
+    {
+      "question": "When are results visible?",
+      "answer": "Visible results can be achieved after just 4 treatments. For optimal results, a course of 6–8 sessions is generally recommended, once per week. The final result peaks 2–4 weeks after completing the treatment series, as fat cell breakdown completes."
+    },
+    {
+      "question": "Is the treatment painful?",
+      "answer": "No, the treatment is completely painless. The client feels intense muscle contractions similar to the sensation after a strong workout, but it's not uncomfortable. No anesthesia is needed, and there's no recovery time after treatment."
+    },
+    {
+      "question": "How is HIFEM better than traditional electrical muscle stimulators?",
+      "answer": "Traditional EMS devices only reach surface muscles and require 40 treatments for visible change. HIFEM technology penetrates up to 8 cm deep, activates the entire muscle layer, and delivers visible results after just 4 treatments. It also stimulates fat cell apoptosis, which EMS cannot achieve."
+    },
+    {
+      "question": "How quickly does the device pay for itself?",
+      "answer": "HIEMT treatment prices typically range from 25,000–40,000 Ft. With 5–8 clients per day, the device typically pays for itself within 2–3 months. Clients usually purchase 6–8 session courses, providing stable revenue. Use our on-page ROI calculator for exact figures!"
+    }
   ],
   "whatsIncluded": [
     "EvoSculpt Smart HIEMT device",

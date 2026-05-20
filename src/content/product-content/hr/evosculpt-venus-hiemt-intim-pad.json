@@ -5,12 +5,32 @@
   "metaTitle": "EvoSculpt Venus intimni jastučić | Kegel trener za jačanje dna zdjelice | Skinlab Hungary",
   "metaDescription": "EvoSculpt Venus: profesionalni uređaj za jačanje dna zdjelice s 3 elektrode. Liječenje inkontinencije, Kegel trening, pojačanje seksualnog doživljaja. Diskretan, udoban.",
   "stats": [
-    { "value": "3", "label": "Elektrode", "icon": "zap" },
-    { "value": "3", "label": "Načina vježbanja", "icon": "wave" },
-    { "value": "1,75", "unit": "kg", "label": "Težina uređaja", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Vrijeme oporavka", "icon": "clock" }
+    {
+      "value": "3",
+      "label": "Elektrode",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Načina vježbanja",
+      "icon": "wave"
+    },
+    {
+      "value": "1,75",
+      "unit": "kg",
+      "label": "Težina uređaja",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Vrijeme oporavka",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "Zašto se isplati ponuditi tretman jačanja intimnih mišića?",
     "paragraphs": [
@@ -108,7 +128,8 @@
   "expertQuote": {
     "quote": "Jačanje dna zdjelice je nedovoljno pokriveno, ali vrlo traženo područje. Diskretno, udobno rješenje EvoSculpt Venus-a znači nizak prag ulaska za klijente i jedinstvenu poziciju za salon.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

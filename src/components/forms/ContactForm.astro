@@ -42,10 +42,12 @@ const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
 const thankYouLink = locale === 'hu' ? '/koszonjuk' : `/${locale}/koszonjuk`;
 
 // Product options from constants with translations
-const productOptions = CATEGORIES.filter(c => c.featured).map((cat) => ({
-  value: cat.id,
-  label: t(locale, `categories.${cat.id}`) || cat.nameShort,
-}));
+const productOptions: { value: string; label: string }[] = CATEGORIES
+  .filter((c) => c.featured)
+  .map((cat) => ({
+    value: cat.id,
+    label: t(locale, `categories.${cat.id}`) || cat.nameShort,
+  }));
 
 // Add "Other" option
 productOptions.push({ value: 'egyeb', label: t(locale, 'common.other') || 'Other' });

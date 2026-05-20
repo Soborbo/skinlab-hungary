@@ -5,12 +5,32 @@
   "metaTitle": "DAME 4 Diodový laser | 1200W, USA COHERENT, -16°C chlazení, 3 roky záruky",
   "metaDescription": "DAME4 1200W elitní diodový laser s USA COHERENT technologií. 4 vlnové délky, -16°C safírové chlazení, 50M výstřelů, 5 velikostí spotu, individuální barva. 3 roky záruky.",
   "stats": [
-    { "value": "1200", "unit": "W", "label": "Výkon", "icon": "zap" },
-    { "value": "4", "label": "Vlnové délky", "icon": "wave" },
-    { "value": "50M", "label": "Životnost výstřelů", "icon": "clock" },
-    { "value": "3", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "50M",
+      "label": "Životnost výstřelů",
+      "icon": "clock"
+    },
+    {
+      "value": "3",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "DAME 4 – Nová éra elitní epilace",
     "paragraphs": [
@@ -127,15 +147,40 @@
   "expertQuote": {
     "quote": "DAME4 s USA COHERENT čipy a výkonem 1200W je jedním z nejserióznějších diodových laserů na trhu. 3 roky záruky a životnost 50 milionů výstřelů nabízejí vynikající poměr ceny a výkonu v prémiovém segmentu.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "1200W výkon", "description": "Rychlá, efektivní ošetření i na velkých plochách." },
-    { "icon": "snowflake", "name": "-16°C safírové chlazení", "description": "Zcela bezbolestný zážitek z ošetření." },
-    { "icon": "sun", "name": "4 vlnové délky", "description": "755, 808, 940, 1064 nm – pro všechny typy pleti a chloupků." },
-    { "icon": "layers", "name": "5 velikostí spotu", "description": "Vyměnitelné ošetřovací hlavice pro každou část těla." },
-    { "icon": "brain", "name": "Inteligentní řízení", "description": "Automatická optimalizace parametrů podle typu pleti." },
-    { "icon": "sparkles", "name": "USA COHERENT čipy", "description": "12 ks prémiových laserových tyčí pro stabilní energii." }
+    {
+      "icon": "zap",
+      "name": "1200W výkon",
+      "description": "Rychlá, efektivní ošetření i na velkých plochách."
+    },
+    {
+      "icon": "snowflake",
+      "name": "-16°C safírové chlazení",
+      "description": "Zcela bezbolestný zážitek z ošetření."
+    },
+    {
+      "icon": "sun",
+      "name": "4 vlnové délky",
+      "description": "755, 808, 940, 1064 nm – pro všechny typy pleti a chloupků."
+    },
+    {
+      "icon": "layers",
+      "name": "5 velikostí spotu",
+      "description": "Vyměnitelné ošetřovací hlavice pro každou část těla."
+    },
+    {
+      "icon": "brain",
+      "name": "Inteligentní řízení",
+      "description": "Automatická optimalizace parametrů podle typu pleti."
+    },
+    {
+      "icon": "sparkles",
+      "name": "USA COHERENT čipy",
+      "description": "12 ks prémiových laserových tyčí pro stabilní energii."
+    }
   ],
   "faq": [
     {

@@ -5,12 +5,33 @@
   "metaTitle": "EvoSculpt Smart HIEMT za oblikovanje tijela | 8500W HIFEM | Skinlab Hungary",
   "metaDescription": "EvoSculpt Smart HIFEM uređaj za oblikovanje tijela: 20 000 mišićnih kontrakcija u 30 minuta. Razgradnja masti + izgradnja mišića istovremeno. 2 godine jamstva, FAR obuka.",
   "stats": [
-    { "value": "20 000", "label": "Mišićnih kontrakcija / tretman", "icon": "zap" },
-    { "value": "8500", "unit": "W", "label": "Snaga", "icon": "zap" },
-    { "value": "30", "unit": "min", "label": "Vrijeme tretmana", "icon": "clock" },
-    { "value": "8", "unit": "cm", "label": "Dubina djelovanja", "icon": "wave" }
+    {
+      "value": "20 000",
+      "label": "Mišićnih kontrakcija / tretman",
+      "icon": "zap"
+    },
+    {
+      "value": "8500",
+      "unit": "W",
+      "label": "Snaga",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "min",
+      "label": "Vrijeme tretmana",
+      "icon": "clock"
+    },
+    {
+      "value": "8",
+      "unit": "cm",
+      "label": "Dubina djelovanja",
+      "icon": "wave"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "Zašto se isplati ulagati u HIEMT uređaj za oblikovanje tijela?",
     "paragraphs": [
@@ -113,7 +134,8 @@
   "expertQuote": {
     "quote": "HIFEM oblikovanje tijela jedno je od najdinamičnije rastućih područja neinvazivne estetike. Tko ga sada uvede, može računati na stabilan, stalan krug klijenata – tretmani na bazi kure generiraju predvidljiv prihod.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak"
+    "role": "Tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
     {

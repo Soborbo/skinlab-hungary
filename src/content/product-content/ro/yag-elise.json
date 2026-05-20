@@ -5,12 +5,31 @@
   "metaTitle": "ÉLISE Laser nanosecunde – Îndepărtare pigment și tatuaje, carbon peeling",
   "metaDescription": "Laser ÉLISE premium ND:YAG cu nanosecunde pentru îndepărtarea pigmentului și tatuajelor, carbon peeling și rejuvenare cutanată – stil și eficiență într-unul singur.",
   "stats": [
-    { "value": "3", "label": "Lungimi de undă", "icon": "wave" },
-    { "value": "Nano", "label": "Durata pulsului", "icon": "zap" },
-    { "value": "Premium", "label": "Rosegold/Argintiu", "icon": "award" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "3",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "Nano",
+      "label": "Durata pulsului",
+      "icon": "zap"
+    },
+    {
+      "value": "Premium",
+      "label": "Rosegold/Argintiu",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "ÉLISE – Unde tehnologia întâlnește designul",
     "paragraphs": [
@@ -97,15 +116,40 @@
   "expertQuote": {
     "quote": "ÉLISE este întruparea categoriei premium: tehnologie cu nanosecunde, design elegant și performanță fiabilă. Alegerea perfectă pentru cei care doresc să ofere ce este mai bun nu doar în tehnologie, ci și în experiența clienților.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea tatuajelor corporale și a machiajului permanent cu pulsuri de nanosecunde la lungimi de undă de 1064 nm și 532 nm" },
-    { "icon": "sun", "name": "Tratamentul petelor pigmentare", "description": "Atenuarea eficientă a pistruilor, petelor solare, petelor de bătrânețe, melasmei și hiperpigmentării" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Tratament blackdoll: curățare profundă, strângerea porilor, rejuvenare cutanată cu piesa de mână de 1320 nm" },
-    { "icon": "droplet", "name": "Uniformizarea tonului pielii", "description": "Tratamentul tonului neuniform al pielii, hiperpigmentării și decolorărilor cutanate" },
-    { "icon": "eye", "name": "Îndepărtarea machiajului permanent", "description": "Corecția și îndepărtarea precisă a machiajului permanent de sprâncene și buze" },
-    { "icon": "bolt", "name": "Rejuvenare cutanată", "description": "Atenuarea cicatricilor de acnee, luminarea pielii și stimularea colagenului" }
+    {
+      "icon": "zap",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea tatuajelor corporale și a machiajului permanent cu pulsuri de nanosecunde la lungimi de undă de 1064 nm și 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Atenuarea eficientă a pistruilor, petelor solare, petelor de bătrânețe, melasmei și hiperpigmentării"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Tratament blackdoll: curățare profundă, strângerea porilor, rejuvenare cutanată cu piesa de mână de 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Uniformizarea tonului pielii",
+      "description": "Tratamentul tonului neuniform al pielii, hiperpigmentării și decolorărilor cutanate"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea machiajului permanent",
+      "description": "Corecția și îndepărtarea precisă a machiajului permanent de sprâncene și buze"
+    },
+    {
+      "icon": "bolt",
+      "name": "Rejuvenare cutanată",
+      "description": "Atenuarea cicatricilor de acnee, luminarea pielii și stimularea colagenului"
+    }
   ],
   "faq": [
     {

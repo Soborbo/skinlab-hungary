@@ -271,9 +271,6 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               >
                 <!-- Badges -->
                 <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                  {product.data.featured && (
-                    <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">BESTSELLER</span>
-                  )}
                   {product.data.hasVariants && (
                     <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                       {product.data.variants.length} szín

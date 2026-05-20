@@ -5,10 +5,27 @@
   "metaTitle": "HydraScan PRO+ 2026 | AI bőranalízissel egybeépített 8+1 funkciós hydrofacial gép",
   "metaDescription": "HydraScan PRO+ 2026 – továbbfejlesztett hydrofacial készülék: valós idejű AI bőrdiagnózis 4K mikrokamerával, 8+1 kezelési funkció, digitális kezelési napló. 2 év garancia.",
   "stats": [
-    { "value": "8+1", "label": "Kezelési funkció", "icon": "layers" },
-    { "value": "AI", "label": "Bőrdiagnózis", "icon": "zap" },
-    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
-    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Kezelési funkció",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Bőrdiagnózis",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Mikrokamera",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
   ],
   "roi": {
     "defaultTreatmentPrice": 30000
@@ -97,18 +114,55 @@
   "expertQuote": {
     "quote": "A HydraScan PRO+ a hydrofacial és AI bőranalízis kombinációjával az egyik legjobb megtérülésű befektetés egy szalonban. A vendégek a saját szemükkel látják a bőrük állapotát és a változást – ez bizalmat, visszatérést és termékvásárlást generál.",
     "author": "Horváth László",
-    "role": "Technikai szakértő"
+    "role": "Technikai szakértő",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabrázió", "description": "Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása" },
-    { "icon": "bubbles", "name": "OxyPod kapszulák", "description": "Célzott hatóanyag-bevitel mikrobuborékos tisztítás közben" },
-    { "icon": "sound", "name": "UH peeling", "description": "Skin Scrubber – fájdalommentes peeling, pórustisztítás" },
-    { "icon": "spray", "name": "Oxy-spray", "description": "Víz és oxigén porlasztása – azonnali hidratálás" },
-    { "icon": "snowflake", "name": "Hideg-meleg kalapács", "description": "Bőrnyugtatás, pórusösszehúzás, keringésserkentés" },
-    { "icon": "bolt", "name": "Bipoláris RF", "description": "Bőrfeszesítés, kollagénstimuláció rádiófrekvenciával" },
-    { "icon": "sound", "name": "UH hatóanyagbevitel", "description": "Sound Wave 40-50 – mély hatóanyag-felszívódás" },
-    { "icon": "sun", "name": "LED maszk", "description": "Piros, kék, zöld, sárga fényterápia – regeneráció és gyulladáscsökkentés" },
-    { "icon": "brain", "name": "AI bőranalízis", "description": "4K mikrokamera, 9+ paraméter, automatikus kezelési ajánlás" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabrázió",
+      "description": "Vákuumos mélytisztítás, pórusok kitisztítása, elhalt hámsejtek eltávolítása"
+    },
+    {
+      "icon": "bubbles",
+      "name": "OxyPod kapszulák",
+      "description": "Célzott hatóanyag-bevitel mikrobuborékos tisztítás közben"
+    },
+    {
+      "icon": "sound",
+      "name": "UH peeling",
+      "description": "Skin Scrubber – fájdalommentes peeling, pórustisztítás"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Víz és oxigén porlasztása – azonnali hidratálás"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hideg-meleg kalapács",
+      "description": "Bőrnyugtatás, pórusösszehúzás, keringésserkentés"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipoláris RF",
+      "description": "Bőrfeszesítés, kollagénstimuláció rádiófrekvenciával"
+    },
+    {
+      "icon": "sound",
+      "name": "UH hatóanyagbevitel",
+      "description": "Sound Wave 40-50 – mély hatóanyag-felszívódás"
+    },
+    {
+      "icon": "sun",
+      "name": "LED maszk",
+      "description": "Piros, kék, zöld, sárga fényterápia – regeneráció és gyulladáscsökkentés"
+    },
+    {
+      "icon": "brain",
+      "name": "AI bőranalízis",
+      "description": "4K mikrokamera, 9+ paraméter, automatikus kezelési ajánlás"
+    }
   ],
   "faq": [
     {

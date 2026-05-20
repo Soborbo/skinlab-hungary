@@ -5,12 +5,32 @@
   "metaTitle": "EvoSculpt Venus Intimate Pad | Pelvic Floor Strengthening Kegel Trainer | Skinlab Hungary",
   "metaDescription": "EvoSculpt Venus: professional pelvic floor strengthener with 3 electrodes. Incontinence treatment, Kegel training, sexual pleasure enhancement. Discreet, comfortable.",
   "stats": [
-    { "value": "3", "label": "Electrodes", "icon": "zap" },
-    { "value": "3", "label": "Training modes", "icon": "wave" },
-    { "value": "1,75", "unit": "kg", "label": "Device weight", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Recovery time", "icon": "clock" }
+    {
+      "value": "3",
+      "label": "Electrodes",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Training modes",
+      "icon": "wave"
+    },
+    {
+      "value": "1,75",
+      "unit": "kg",
+      "label": "Device weight",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Recovery time",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "Why offer intimate muscle strengthening treatments?",
     "paragraphs": [
@@ -20,9 +40,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the EvoSculpt Venus? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to learn more about the EvoSculpt Venus?", "subtitle": "Request a free consultation and we'll help you decide if it fits your services.", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the EvoSculpt Venus intimate pad?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the EvoSculpt Venus? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to learn more about the EvoSculpt Venus?",
+      "subtitle": "Request a free consultation and we'll help you decide if it fits your services.",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the EvoSculpt Venus intimate pad?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why do professionals choose the EvoSculpt Venus?",
@@ -96,16 +128,38 @@
   "expertQuote": {
     "quote": "Pelvic floor strengthening is an underserved but high-demand area. The EvoSculpt Venus's discreet, comfortable solution creates a low entry barrier for clients and provides a unique position for the salon.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "How does the EvoSculpt Venus work?", "answer": "The device delivers strong, low-frequency stimulation to the pelvic floor muscles through 3 specially positioned electrodes. Alternating low and medium frequencies contract and relax the muscles, maximizing the effectiveness of Kegel exercises." },
-    { "question": "Do I need to undress for the treatment?", "answer": "No! One of the EvoSculpt Venus's biggest advantages is that the treatment can be performed fully clothed. This means discretion, comfort, and a low entry barrier for clients." },
-    { "question": "Who is the treatment recommended for?", "answer": "Primarily recommended for women seeking post-childbirth pelvic floor rehabilitation, incontinence treatment, sexual pleasure enhancement, or preventive pelvic floor muscle strengthening. It's also an excellent solution for women going through menopause." },
-    { "question": "How often should it be used?", "answer": "Regular use is recommended for optimal results. The app's training diary helps create a personalized treatment plan and track progress." },
-    { "question": "Is the device safe?", "answer": "Yes, the EvoSculpt Venus is completely safe, hygienic, and made from medical-grade materials (ABS, silicone, STS 304 electrodes). Its effectiveness is confirmed by a scientific study published in a world-renowned SCIE journal." },
-    { "question": "Can I use it alongside the HIEMT body sculpting device?", "answer": "Of course! The EvoSculpt Venus is an excellent complement to the EvoSculpt Smart and Smart 4 body sculpting devices. Offered alongside body sculpting, you can create a comprehensive service package covering both full body and pelvic floor treatments." },
-    { "question": "How does it differ from a salon HIEMT chair?", "answer": "The EvoSculpt Venus is a compact, portable device that can even be recommended for home use by clients. It can be introduced at a lower price point and in less space than large salon chairs, while providing targeted 3-electrode stimulation." }
+    {
+      "question": "How does the EvoSculpt Venus work?",
+      "answer": "The device delivers strong, low-frequency stimulation to the pelvic floor muscles through 3 specially positioned electrodes. Alternating low and medium frequencies contract and relax the muscles, maximizing the effectiveness of Kegel exercises."
+    },
+    {
+      "question": "Do I need to undress for the treatment?",
+      "answer": "No! One of the EvoSculpt Venus's biggest advantages is that the treatment can be performed fully clothed. This means discretion, comfort, and a low entry barrier for clients."
+    },
+    {
+      "question": "Who is the treatment recommended for?",
+      "answer": "Primarily recommended for women seeking post-childbirth pelvic floor rehabilitation, incontinence treatment, sexual pleasure enhancement, or preventive pelvic floor muscle strengthening. It's also an excellent solution for women going through menopause."
+    },
+    {
+      "question": "How often should it be used?",
+      "answer": "Regular use is recommended for optimal results. The app's training diary helps create a personalized treatment plan and track progress."
+    },
+    {
+      "question": "Is the device safe?",
+      "answer": "Yes, the EvoSculpt Venus is completely safe, hygienic, and made from medical-grade materials (ABS, silicone, STS 304 electrodes). Its effectiveness is confirmed by a scientific study published in a world-renowned SCIE journal."
+    },
+    {
+      "question": "Can I use it alongside the HIEMT body sculpting device?",
+      "answer": "Of course! The EvoSculpt Venus is an excellent complement to the EvoSculpt Smart and Smart 4 body sculpting devices. Offered alongside body sculpting, you can create a comprehensive service package covering both full body and pelvic floor treatments."
+    },
+    {
+      "question": "How does it differ from a salon HIEMT chair?",
+      "answer": "The EvoSculpt Venus is a compact, portable device that can even be recommended for home use by clients. It can be introduced at a lower price point and in less space than large salon chairs, while providing targeted 3-electrode stimulation."
+    }
   ],
   "whatsIncluded": [
     "EvoSculpt Venus intimate pad device",

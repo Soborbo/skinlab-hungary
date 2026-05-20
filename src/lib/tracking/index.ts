@@ -21,7 +21,7 @@ export {
   trackViewItem, trackViewItemList, trackSelectItem,
   trackAddToCart, trackBeginCheckout, trackPurchase,
   trackGenerateLead,
-  type ConversionData, type EcommerceItem,
+  type ConversionData, type EcommerceItem, type PurchaseUserData,
 } from './events';
 
 import { hasMarketingConsent, onConsentChange } from './consent';
@@ -31,7 +31,10 @@ import {
   getAllTrackingData, getAttribution, getSourceType, getSessionId, getPageUrl,
   normalizePhone,
 } from './persistence';
-import { generateEventId, pushLeadConversion, pushContactConversion, enableDebug } from './events';
+import {
+  generateEventId, pushLeadConversion, pushContactConversion, enableDebug,
+  trackPurchase, type EcommerceItem,
+} from './events';
 
 // -- Init --
 
@@ -111,6 +114,79 @@ export function trackContactSubmit(
   pushContactConversion({ email: params.email, phone: params.phone, eventId, gclid: gclid || undefined });
   sendBeacon(buildBeaconPayload('contact', params, eventId));
   return { success: true, consentBlocked: false, eventId, gclid, fbclid };
+}
+
+// -- Purchase --
+
+export interface PurchaseSubmitParams {
+  transactionId: string;
+  items: EcommerceItem[];
+  value: number;
+  currency?: string;
+  shipping?: number;
+  tax?: number;
+  email?: string;
+  phone?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
+export interface PurchaseSubmitResult {
+  success: boolean;
+  consentBlocked: boolean;
+  eventId: string;
+}
+
+/**
+ * Track a completed purchase. Pushes GA4 Enhanced Ecommerce `purchase` event
+ * to dataLayer (for client-side Meta Pixel / GA4 / Ads via GTM) AND sends a
+ * server-side beacon to /api/track which forwards to Meta CAPI + GA4 MP for
+ * iOS/ad-block resilience. Both signals carry the same `event_id` so each
+ * destination dedups.
+ */
+export function trackPurchaseSubmit(params: PurchaseSubmitParams): PurchaseSubmitResult {
+  const eventId = generateEventId();
+  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId };
+
+  trackPurchase(
+    params.transactionId,
+    params.items,
+    params.value,
+    params.currency || 'HUF',
+    params.shipping || 0,
+    params.tax || 0,
+    {
+      eventId,
+      email: params.email,
+      phone: params.phone,
+      firstName: params.firstName,
+      lastName: params.lastName,
+    },
+  );
+
+  sendBeacon({
+    type: 'purchase',
+    transactionId: params.transactionId,
+    items: params.items,
+    value: params.value,
+    currency: params.currency || 'HUF',
+    shipping: params.shipping ?? 0,
+    tax: params.tax ?? 0,
+    email: params.email,
+    phone: params.phone ? normalizePhone(params.phone) : undefined,
+    firstName: params.firstName,
+    lastName: params.lastName,
+    eventId,
+    sessionId: getSessionId(),
+    sourceType: getSourceType(),
+    pageUrl: getPageUrl(),
+    gclid: getGclid(), fbclid: getFbclid(),
+    fbp: getFbp(), fbc: getFbc(),
+    ...getAttribution(),
+    ...getAllTrackingData(),
+  });
+
+  return { success: true, consentBlocked: false, eventId };
 }
 
 // -- Hidden fields --

@@ -289,7 +289,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
 <script>
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
-  import { trackPurchase, waitForTracking, type EcommerceItem } from '@/lib/tracking';
+  import { trackPurchaseSubmit, waitForTracking, type EcommerceItem } from '@/lib/tracking';
 
   // Turnstile globális callbackek
   declare global {
@@ -517,7 +517,20 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             currency: 'HUF',
             index: idx,
           }));
-          trackPurchase(result.orderId, ecomItems, summary.subtotal, 'HUF');
+
+          // trackPurchaseSubmit: client-side GA4/Meta Pixel via dataLayer
+          // + server-side beacon to /api/track → Meta CAPI + GA4 MP.
+          // Both signals carry the same event_id so each destination dedups.
+          trackPurchaseSubmit({
+            transactionId: result.orderId,
+            items: ecomItems,
+            value: summary.subtotal,
+            currency: 'HUF',
+            email: payload.email,
+            phone: payload.phone,
+            firstName: payload.firstName,
+            lastName: payload.lastName,
+          });
 
           // Wait briefly for the GTM/beacon pipeline to flush before the redirect
           await waitForTracking(600);

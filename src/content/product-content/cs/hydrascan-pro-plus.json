@@ -5,12 +5,31 @@
   "metaTitle": "HydraScan PRO+ 2026 | Hydrofaciální přístroj 8+1 s integrovanou AI analýzou pleti",
   "metaDescription": "HydraScan PRO+ 2026 – pokročilý hydrofaciální přístroj: AI diagnostika v reálném čase s 4K mikrokamerou, 8+1 funkcí ošetření, digitální deník. 2 roky záruky.",
   "stats": [
-    { "value": "8+1", "label": "Ošetřovacích funkcí", "icon": "layers" },
-    { "value": "AI", "label": "Diagnostika pleti", "icon": "zap" },
-    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Ošetřovacích funkcí",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Diagnostika pleti",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Mikrokamera",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HydraScan PRO+ 2026 – nejen přístroj, ale i inteligentní diagnostický a prodejní systém",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Máte dotazy k HydraScan PRO+? Rádi pomůžeme!", "buttonLabel": "Žádost o konzultaci", "phoneLabel": "Zavolejte nám" },
-    "afterFeatures": { "headline": "Chcete vidět HydraScan PRO+ naživo?", "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si AI analýzu i na vlastní pleti!", "buttonLabel": "Rezervace termínu" },
-    "final": { "headline": "Zajímá vás HydraScan PRO+ 2026?", "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to nejlepší volba pro váš salon.", "buttonLabel": "Žádost o konzultaci" }
+    "afterVideo": {
+      "text": "Máte dotazy k HydraScan PRO+? Rádi pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidět HydraScan PRO+ naživo?",
+      "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si AI analýzu i na vlastní pleti!",
+      "buttonLabel": "Rezervace termínu"
+    },
+    "final": {
+      "headline": "Zajímá vás HydraScan PRO+ 2026?",
+      "subtitle": "Požádejte o bezplatnou konzultaci a pomůžeme vám rozhodnout, zda je to nejlepší volba pro váš salon.",
+      "buttonLabel": "Žádost o konzultaci"
+    }
   },
   "featureRows": {
     "headline": "Proč si kosmetičky vybírají HydraScan PRO+?",
@@ -83,29 +114,93 @@
   "expertQuote": {
     "quote": "HydraScan PRO+ je díky kombinaci hydrofaciálu a AI analýzy pleti jednou z investic s nejlepší návratností v salonu. Klienti vidí stav své pleti i změny na vlastní oči – to buduje důvěru, návraty a prodej produktů.",
     "author": "Horváth László",
-    "role": "Technický expert"
+    "role": "Technický expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hydrodermabraze", "description": "Vakuové hloubkové čištění, čištění pórů, odstranění odumřelých buněk" },
-    { "icon": "bubbles", "name": "OxyPod kapsle", "description": "Cílené dodání účinných látek během mikrobublinkového čištění" },
-    { "icon": "sound", "name": "UZ peeling", "description": "Skin Scrubber – bezbolestný peeling, čištění pórů" },
-    { "icon": "spray", "name": "Oxy-spray", "description": "Rozprašování vody a kyslíku – okamžitá hydratace" },
-    { "icon": "snowflake", "name": "Chladivé/teplé kladívko", "description": "Uklidnění pleti, stažení pórů, stimulace oběhu" },
-    { "icon": "bolt", "name": "Bipolární RF", "description": "Zpevnění pleti, stimulace kolagenu radiofrekvencí" },
-    { "icon": "sound", "name": "UZ vpravování látek", "description": "Sound Wave 40-50 – hluboké vstřebávání aktivních látek" },
-    { "icon": "sun", "name": "LED maska", "description": "Červené, modré, zelené, žluté světlo – regenerace, protizánětlivý účinek" },
-    { "icon": "brain", "name": "AI analýza pleti", "description": "4K mikrokamera, 9+ parametrů, automatická doporučení ošetření" }
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabraze",
+      "description": "Vakuové hloubkové čištění, čištění pórů, odstranění odumřelých buněk"
+    },
+    {
+      "icon": "bubbles",
+      "name": "OxyPod kapsle",
+      "description": "Cílené dodání účinných látek během mikrobublinkového čištění"
+    },
+    {
+      "icon": "sound",
+      "name": "UZ peeling",
+      "description": "Skin Scrubber – bezbolestný peeling, čištění pórů"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Rozprašování vody a kyslíku – okamžitá hydratace"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Chladivé/teplé kladívko",
+      "description": "Uklidnění pleti, stažení pórů, stimulace oběhu"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipolární RF",
+      "description": "Zpevnění pleti, stimulace kolagenu radiofrekvencí"
+    },
+    {
+      "icon": "sound",
+      "name": "UZ vpravování látek",
+      "description": "Sound Wave 40-50 – hluboké vstřebávání aktivních látek"
+    },
+    {
+      "icon": "sun",
+      "name": "LED maska",
+      "description": "Červené, modré, zelené, žluté světlo – regenerace, protizánětlivý účinek"
+    },
+    {
+      "icon": "brain",
+      "name": "AI analýza pleti",
+      "description": "4K mikrokamera, 9+ parametrů, automatická doporučení ošetření"
+    }
   ],
   "faq": [
-    { "question": "Mohou být i stolní hydrofaciální systémy účinné?", "answer": "Ano, absolutně. Účinnost neurčuje velikost, ale technologie a možnosti nastavení. HydraScan PRO+ 2026 disponuje profesionálním vakuovým systémem a více ošetřovacími funkcemi, takže umožňuje plnohodnotná salonní ošetření." },
-    { "question": "Je vakuum/sací síla přístroje dostatečná?", "answer": "Ano. Vakuový rozsah přístroje (−6 kPa – −86 kPa) lze nastavit v širokém rozmezí: pro citlivou pleť šetrně, pro problematickou pleť poskytuje účinné hloubkové čištění. Při správném nastavení není „příliš silný\", ale ani slabý – klíčem je správné použití, které podrobně učíme na školení." },
-    { "question": "Jakou údržbu přístroj vyžaduje?", "answer": "Denní údržba je jednoduchá: propláchnutí trubkového systému čistou vodou po použití, vyprázdnění a vyčištění nádrží, dezinfekce ošetřovacích hlavic. To zajišťuje hygienický provoz a dlouhou životnost." },
-    { "question": "Jak často je nutný servis?", "answer": "Při běžném používání není častá povinná servisní potřeba. Doporučujeme roční pravidelnou kontrolu, při intenzivním (denním) používání rychlou kontrolní návštěvu každých 6 měsíců. Správné čištění výrazně snižuje potřebu servisu." },
-    { "question": "Na co je třeba si při použití dávat pozor?", "answer": "Používejte pouze tekutiny doporučené pro přístroj, vyhněte se kyselým, olejovitým nebo zrnitým látkám, používejte bezalkoholové dezinfekční prostředky a nenechávejte systém po použití naplněný kapalinou. Tím se předejde poruchám." },
-    { "question": "Mohu jako začínající kosmetička přístroj používat?", "answer": "Ano. Ovládání přístroje je logické a školení vás krok za krokem provede používáním, takže je ideální i pro začátečníky. Základní ošetření zvládnete bezpečně hned po školení, rutina se vytvoří během několika týdnů." },
-    { "question": "Jak rychle se cena přístroje vrátí?", "answer": "Rychlou návratnost lze dosáhnout již se 2-3 klienty denně. Cena komplexního ošetření obličeje se pohybuje mezi 25 000–50 000 Ft, takže s 3 klienty denně lze měsíčně generovat 1,5–3 milióny Ft. Hydro ošetření jsou velmi žádaná a dobře cenově dostupná." },
-    { "question": "Lze kombinovat s jinými ošetřeními?", "answer": "Ano, výslovně doporučujeme. HydraScan PRO+ je perfektní základní ošetření před nebo po carbon peelingu, případně před nebo po jiných přístrojích. Analýzu lze použít před každým jiným ošetřením, ale i samostatně může být plnohodnotnou službou." },
-    { "question": "Kolik místa přístroj zabírá?", "answer": "Kompaktní stolní design, takže se pohodlně vejde i do menší ošetřovací místnosti. K přístroji je k dispozici i speciálně vyrobený vozík HydraScan PRO+ za cenu 79 990 Ft." }
+    {
+      "question": "Mohou být i stolní hydrofaciální systémy účinné?",
+      "answer": "Ano, absolutně. Účinnost neurčuje velikost, ale technologie a možnosti nastavení. HydraScan PRO+ 2026 disponuje profesionálním vakuovým systémem a více ošetřovacími funkcemi, takže umožňuje plnohodnotná salonní ošetření."
+    },
+    {
+      "question": "Je vakuum/sací síla přístroje dostatečná?",
+      "answer": "Ano. Vakuový rozsah přístroje (−6 kPa – −86 kPa) lze nastavit v širokém rozmezí: pro citlivou pleť šetrně, pro problematickou pleť poskytuje účinné hloubkové čištění. Při správném nastavení není „příliš silný\", ale ani slabý – klíčem je správné použití, které podrobně učíme na školení."
+    },
+    {
+      "question": "Jakou údržbu přístroj vyžaduje?",
+      "answer": "Denní údržba je jednoduchá: propláchnutí trubkového systému čistou vodou po použití, vyprázdnění a vyčištění nádrží, dezinfekce ošetřovacích hlavic. To zajišťuje hygienický provoz a dlouhou životnost."
+    },
+    {
+      "question": "Jak často je nutný servis?",
+      "answer": "Při běžném používání není častá povinná servisní potřeba. Doporučujeme roční pravidelnou kontrolu, při intenzivním (denním) používání rychlou kontrolní návštěvu každých 6 měsíců. Správné čištění výrazně snižuje potřebu servisu."
+    },
+    {
+      "question": "Na co je třeba si při použití dávat pozor?",
+      "answer": "Používejte pouze tekutiny doporučené pro přístroj, vyhněte se kyselým, olejovitým nebo zrnitým látkám, používejte bezalkoholové dezinfekční prostředky a nenechávejte systém po použití naplněný kapalinou. Tím se předejde poruchám."
+    },
+    {
+      "question": "Mohu jako začínající kosmetička přístroj používat?",
+      "answer": "Ano. Ovládání přístroje je logické a školení vás krok za krokem provede používáním, takže je ideální i pro začátečníky. Základní ošetření zvládnete bezpečně hned po školení, rutina se vytvoří během několika týdnů."
+    },
+    {
+      "question": "Jak rychle se cena přístroje vrátí?",
+      "answer": "Rychlou návratnost lze dosáhnout již se 2-3 klienty denně. Cena komplexního ošetření obličeje se pohybuje mezi 25 000–50 000 Ft, takže s 3 klienty denně lze měsíčně generovat 1,5–3 milióny Ft. Hydro ošetření jsou velmi žádaná a dobře cenově dostupná."
+    },
+    {
+      "question": "Lze kombinovat s jinými ošetřeními?",
+      "answer": "Ano, výslovně doporučujeme. HydraScan PRO+ je perfektní základní ošetření před nebo po carbon peelingu, případně před nebo po jiných přístrojích. Analýzu lze použít před každým jiným ošetřením, ale i samostatně může být plnohodnotnou službou."
+    },
+    {
+      "question": "Kolik místa přístroj zabírá?",
+      "answer": "Kompaktní stolní design, takže se pohodlně vejde i do menší ošetřovací místnosti. K přístroji je k dispozici i speciálně vyrobený vozík HydraScan PRO+ za cenu 79 990 Ft."
+    }
   ],
   "whatsIncluded": [
     "HydraScan PRO+ 2026 přístroj",

@@ -5,12 +5,31 @@
   "metaTitle": "LaseQueen MaPetite Limited Edition – Laser Q-switched ND:YAG",
   "metaDescription": "LaseQueen MaPetite ediție limitată laser ND:YAG cu 6 capete: tatuaje, pigment, carbon peeling, tratamentul cicatricilor, micoza unghiilor. Formare cu număr B și garanție 2 ani.",
   "stats": [
-    { "value": "6", "label": "Capete de tratament", "icon": "layers" },
-    { "value": "F5", "label": "Cristal laser", "icon": "award" },
-    { "value": "Limited", "label": "Ediție", "icon": "award" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Capete de tratament",
+      "icon": "layers"
+    },
+    {
+      "value": "F5",
+      "label": "Cristal laser",
+      "icon": "award"
+    },
+    {
+      "value": "Limited",
+      "label": "Ediție",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "LaseQueen MaPetite – Ediție limitată, funcționalitate completă",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre laserul LaseQueen MaPetite? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați o consultație", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să vedeți LaseQueen MaPetite în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează LaseQueen MaPetite Limited Edition?", "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.", "buttonLabel": "Solicitați o consultație" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre laserul LaseQueen MaPetite? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți LaseQueen MaPetite în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează LaseQueen MaPetite Limited Edition?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
   },
   "featureRows": {
     "headline": "De ce să alegeți LaseQueen MaPetite?",
@@ -78,22 +109,62 @@
   "expertQuote": {
     "quote": "LaseQueen MaPetite este întâlnirea dintre farmecul ediției limitate și tehnologia profesională. Același sistem cu 6 capete, aceeași fiabilitate – în cantitate limitată.",
     "author": "Horváth László",
-    "role": "Expert tehnic"
+    "role": "Expert tehnic",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea tatuajelor de toate culorile la lungimi de undă de 1064 nm și 532 nm" },
-    { "icon": "eye", "name": "Îndepărtarea micropigmentării", "description": "Corecția micropigmentării sprâncenelor și buzelor cu capete No Scar" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Curățare profundă, strângerea porilor cu capetele de 1320 nm și 755 nm" },
-    { "icon": "droplet", "name": "Tratamentul petelor pigmentare", "description": "Atenuarea petelor solare, pistruilor, petelor de vârstă" },
-    { "icon": "bolt", "name": "Tratamentul cicatricilor", "description": "Atenuarea cicatricilor acneice și post-traumatice" },
-    { "icon": "sun", "name": "Tratamentul micozei unghiilor", "description": "Tratamentul laser al micozei unghiilor" }
+    {
+      "icon": "zap",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea tatuajelor de toate culorile la lungimi de undă de 1064 nm și 532 nm"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea micropigmentării",
+      "description": "Corecția micropigmentării sprâncenelor și buzelor cu capete No Scar"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Curățare profundă, strângerea porilor cu capetele de 1320 nm și 755 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Atenuarea petelor solare, pistruilor, petelor de vârstă"
+    },
+    {
+      "icon": "bolt",
+      "name": "Tratamentul cicatricilor",
+      "description": "Atenuarea cicatricilor acneice și post-traumatice"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul micozei unghiilor",
+      "description": "Tratamentul laser al micozei unghiilor"
+    }
   ],
   "faq": [
-    { "question": "Care este diferența dintre MaPetite și LaseQueen standard?", "answer": "MaPetite este ediția limitată a LaseQueen, cu aspect exclusiv. Din punct de vedere tehnologic sunt identice: aceleași 6 capete de tratament, cristal laser F5, sistem de răcire hibrid și posibilități de tratament. Diferența constă exclusiv în aspectul estetic al ediției limitate." },
-    { "question": "Ce tratamente poate efectua LaseQueen MaPetite?", "answer": "Îndepărtarea tatuajelor corporale și a micropigmentării, carbon peeling, tratamentul petelor pigmentare, tratamentul cicatricilor și micozei unghiilor. Cele 6 capete de tratament asigură funcții mai cuprinzătoare decât aparatele obișnuite cu 3 capete." },
-    { "question": "În cât timp se amortizează?", "answer": "Cu combinația de categorie de preț avantajoasă și utilizare versatilă, se amortizează în medie în 1-2 luni, calculând cu 3-5 clienți pe zi. Utilizați calculatorul nostru ROI pentru un calcul exact!" },
-    { "question": "Ce formare este inclusă cu aparatul?", "answer": "Formare oficială de operare cu număr B, înregistrată FAR, GRATUITĂ la achiziționarea aparatului (în valoare de 79.990 Ft). Cursul acoperă totul, de la utilizarea celor 6 capete până la tratamentele speciale." },
-    { "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?", "answer": "Da! În showroom-ul nostru (Érd, Budai út 28.) puteți vedea și testa personal LaseQueen MaPetite cu programare prealabilă." }
+    {
+      "question": "Care este diferența dintre MaPetite și LaseQueen standard?",
+      "answer": "MaPetite este ediția limitată a LaseQueen, cu aspect exclusiv. Din punct de vedere tehnologic sunt identice: aceleași 6 capete de tratament, cristal laser F5, sistem de răcire hibrid și posibilități de tratament. Diferența constă exclusiv în aspectul estetic al ediției limitate."
+    },
+    {
+      "question": "Ce tratamente poate efectua LaseQueen MaPetite?",
+      "answer": "Îndepărtarea tatuajelor corporale și a micropigmentării, carbon peeling, tratamentul petelor pigmentare, tratamentul cicatricilor și micozei unghiilor. Cele 6 capete de tratament asigură funcții mai cuprinzătoare decât aparatele obișnuite cu 3 capete."
+    },
+    {
+      "question": "În cât timp se amortizează?",
+      "answer": "Cu combinația de categorie de preț avantajoasă și utilizare versatilă, se amortizează în medie în 1-2 luni, calculând cu 3-5 clienți pe zi. Utilizați calculatorul nostru ROI pentru un calcul exact!"
+    },
+    {
+      "question": "Ce formare este inclusă cu aparatul?",
+      "answer": "Formare oficială de operare cu număr B, înregistrată FAR, GRATUITĂ la achiziționarea aparatului (în valoare de 79.990 Ft). Cursul acoperă totul, de la utilizarea celor 6 capete până la tratamentele speciale."
+    },
+    {
+      "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?",
+      "answer": "Da! În showroom-ul nostru (Érd, Budai út 28.) puteți vedea și testa personal LaseQueen MaPetite cu programare prealabilă."
+    }
   ],
   "whatsIncluded": [
     "LaseQueen MaPetite laser Q-switched Nd:YAG (Ediție limitată)",

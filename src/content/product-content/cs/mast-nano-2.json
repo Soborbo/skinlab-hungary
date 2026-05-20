@@ -5,10 +5,30 @@
   "metaTitle": "MAST Nano 2 PMU přístroj – Lehký, tichý a přesný",
   "metaDescription": "66g kompaktní PMU přístroj pro profesionální i začátečnické použití. Minimální vibrace, přesná práce na očních linkách, výkonný a spolehlivý.",
   "stats": [
-    { "value": "66", "unit": "g", "label": "Ultralehký", "icon": "layers" },
-    { "value": "2,7", "unit": "mm", "label": "Délka zdvihu", "icon": "zap" },
-    { "value": "10000", "unit": "RPM", "label": "Rychlost motoru", "icon": "award" },
-    { "value": "18,8", "unit": "mm", "label": "Průměr", "icon": "clock" }
+    {
+      "value": "66",
+      "unit": "g",
+      "label": "Ultralehký",
+      "icon": "layers"
+    },
+    {
+      "value": "2,7",
+      "unit": "mm",
+      "label": "Délka zdvihu",
+      "icon": "zap"
+    },
+    {
+      "value": "10000",
+      "unit": "RPM",
+      "label": "Rychlost motoru",
+      "icon": "award"
+    },
+    {
+      "value": "18,8",
+      "unit": "mm",
+      "label": "Průměr",
+      "icon": "clock"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -88,7 +108,8 @@
   "expertQuote": {
     "quote": "Mast Nano 2 je mistryní práce na očních linkách. Kombinace 66gramové hmotnosti a minimální vibrace je v této cenové kategorii jedinečná.",
     "author": "Horváth László",
-    "role": "Technický odborník"
+    "role": "Technický odborník",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Hmotnost": "66 g",

@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { CONTACT } from '../../lib/constants';
-import { ContentImage } from '../../components/images';
+import { ContentImage, ThirdImage } from '../../components/images';
 import TrainingSignupForm from '../../components/forms/TrainingSignupForm.astro';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
@@ -19,6 +19,16 @@ const trainings = await getCollection('trainings');
 
 // Localized training detail URL prefix
 const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
+
+// Képzési pillanatképek — visszahozott képforgató
+const galleryImages = [
+  { src: '@assets/training-gallery-1.jpg', alt: t(locale, 'training.galleryAlt1') },
+  { src: '@assets/training-gallery-2.jpg', alt: t(locale, 'training.galleryAlt2') },
+  { src: '@assets/training-gallery-3.jpg', alt: t(locale, 'training.galleryAlt3') },
+  { src: '@assets/training-gallery-4.jpg', alt: t(locale, 'training.galleryAlt4') },
+  { src: '@assets/training-gallery-5.jpg', alt: t(locale, 'training.galleryAlt5') },
+  { src: '@assets/training-gallery-6.jpg', alt: t(locale, 'training.galleryAlt6') },
+];
 ---
 
 <BaseLayout
@@ -135,6 +145,52 @@ const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
         <p class="text-lg text-gray-500 leading-relaxed">
           Képzéseink egészségügyi háttérre épülnek, klinikailag igazolt eredményekkel dolgozunk, és nagy hangsúlyt fektetünk a kezelések biztonságos, felelős és szakszerű kivitelezésére.
         </p>
+      </div>
+    </section>
+
+    <!-- Képforgató: pillanatképek a képzésekről -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{t(locale, 'training.galleryTitle')}</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">{t(locale, 'training.gallerySubtitle')}</p>
+        </div>
+
+        <div class="relative" data-training-carousel>
+          <div class="flex items-center gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 training-gallery-track" data-track>
+            {galleryImages.map((img) => (
+              <div class="snap-start shrink-0 h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+                <ThirdImage
+                  src={img.src}
+                  alt={img.alt}
+                  class="h-full w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          <!-- Lapozó nyilak (desktop) -->
+          <button
+            type="button"
+            data-prev
+            aria-label="Előző képek"
+            class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-white text-primary-600 shadow-lg border border-gray-200 hover:bg-primary-50 transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            data-next
+            aria-label="Következő képek"
+            class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-white text-primary-600 shadow-lg border border-gray-200 hover:bg-primary-50 transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -286,21 +342,29 @@ const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {trainings.map((training) => (
-            <a
-              href={`${trainingUrlPrefix}/${training.id}`}
-              class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all group block"
-            >
-              <div class="p-6">
-                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
-                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
+          {trainings.map((training) => {
+            const detailUrl = `${trainingUrlPrefix}/${training.id}`;
+            return (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all group flex flex-col">
+              <!-- Training photo -->
+              <a href={detailUrl} class="block aspect-[16/10] overflow-hidden bg-gray-100">
+                <img
+                  src={training.data.image}
+                  alt={training.data.name}
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </a>
 
-                <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                  {training.data.name}
-                </h3>
+              <div class="p-6 flex flex-col flex-1">
+                <a href={detailUrl}>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    {training.data.name}
+                  </h3>
+                </a>
                 <p class="text-gray-600 mb-4">{training.data.shortDescription}</p>
 
                 <div class="space-y-2 mb-4">
@@ -326,17 +390,21 @@ const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
                   )}
                 </div>
 
-                <div class="border-t border-gray-100 pt-4">
-                  <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-700">
+                <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
+                  <a href={detailUrl} class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
                     {t(locale, 'common.viewDetails')}
                     <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                  </span>
+                  </a>
+                  <a href="#jelentkezes" class="inline-flex items-center px-4 py-2 bg-cta text-white text-sm font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-sm">
+                    Jelentkezés
+                  </a>
                 </div>
               </div>
-            </a>
-          ))}
+            </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -349,3 +417,26 @@ const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
 
   </div>
 </BaseLayout>
+
+<style>
+  .training-gallery-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .training-gallery-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-training-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('[data-track]') as HTMLElement | null;
+    const prev = carousel.querySelector('[data-prev]');
+    const next = carousel.querySelector('[data-next]');
+    if (!track) return;
+
+    const step = () => Math.max(track.clientWidth * 0.8, 240);
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  });
+</script>

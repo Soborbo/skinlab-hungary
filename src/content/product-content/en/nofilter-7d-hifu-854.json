@@ -5,12 +5,31 @@
   "metaTitle": "NOFILTER 7D HIFU + Microneedle RF | Non-Surgical Facelift | Skinlab Hungary",
   "metaDescription": "NOFILTER 7D HIFU + microneedle RF device. 7-depth HIFU cartridges, 4 RF heads. Non-surgical facelift, body sculpting, skin rejuvenation. With FAR training.",
   "stats": [
-    { "value": "7", "label": "HIFU cartridge depths", "icon": "layers" },
-    { "value": "4", "label": "RF treatment heads", "icon": "zap" },
-    { "value": "10K", "label": "Shots/cartridge", "icon": "bolt" },
-    { "value": "12", "unit": "months", "label": "Warranty", "icon": "shield" }
+    {
+      "value": "7",
+      "label": "HIFU cartridge depths",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "RF treatment heads",
+      "icon": "zap"
+    },
+    {
+      "value": "10K",
+      "label": "Shots/cartridge",
+      "icon": "bolt"
+    },
+    {
+      "value": "12",
+      "unit": "months",
+      "label": "Warranty",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NOFILTER 7D – when you believe in aesthetics, not filters",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Have questions about the NOFILTER 7D HIFU device? We're happy to help!", "buttonLabel": "Request consultation", "phoneLabel": "Call us" },
-    "afterFeatures": { "headline": "Want to try the NOFILTER 7D in person?", "subtitle": "Visit our showroom in Érd and try it out yourself!", "buttonLabel": "Book an appointment" },
-    "final": { "headline": "Interested in the NOFILTER 7D HIFU device?", "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.", "buttonLabel": "Request consultation" }
+    "afterVideo": {
+      "text": "Have questions about the NOFILTER 7D HIFU device? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
+    "afterFeatures": {
+      "headline": "Want to try the NOFILTER 7D in person?",
+      "subtitle": "Visit our showroom in Érd and try it out yourself!",
+      "buttonLabel": "Book an appointment"
+    },
+    "final": {
+      "headline": "Interested in the NOFILTER 7D HIFU device?",
+      "subtitle": "Request a free consultation and we'll help you decide if this is the best choice for you.",
+      "buttonLabel": "Request consultation"
+    }
   },
   "featureRows": {
     "headline": "Why is the NOFILTER 7D the professional choice?",
@@ -102,16 +133,38 @@
   "expertQuote": {
     "quote": "The NOFILTER 7D is unique in combining the deep-layer lifting effect of HIFU with the surface renewal power of microneedle RF. This dual technology enables targeted treatment of every layer of the skin within a single session – from the SMAS layer to the epidermis.",
     "author": "Horváth László",
-    "role": "Technical expert"
+    "role": "Technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    { "question": "What's the difference between the NOFILTER 7D and the HYPERNOVA?", "answer": "The NOFILTER 7D combines HIFU and microneedle RF technology, optimized primarily for facelifting, skin rejuvenation, and targeted body treatments. The HYPERNOVA contains HIFU, RF, and EMS muscle stimulation, focusing more on body sculpting and muscle stimulation. The NOFILTER 7D cartridges cover 7 depths, and the microneedle RF provides personalized treatment with 4 heads." },
-    { "question": "Is the HIFU treatment painful?", "answer": "During treatment, mild warmth and tingling are experienced, but most clients tolerate it well. No anesthesia is required. With microneedle RF treatments, minimal prickling is felt; treatment with the nano head is completely painless." },
-    { "question": "How many shots can a HIFU cartridge deliver?", "answer": "Each HIFU cartridge can deliver 10,000 shots. For facial treatments, this typically enables 15–20 full treatments; for body treatments, 8–12 treatments." },
-    { "question": "When are results visible?", "answer": "With HIFU treatment, alongside immediate firming, the full result develops over 2–3 months due to increased collagen production. The effect typically lasts 6–12 months. Microneedle RF treatment results become complete after 3–5 sessions in a course format." },
-    { "question": "Is there recovery time after treatment?", "answer": "After HIFU treatment, minimal redness may occur, which subsides within hours. After microneedle RF, 24–48 hours of mild redness is possible. In both cases, the client can immediately continue their daily activities." },
-    { "question": "What training comes with the device?", "answer": "A one-day official adult education course, free with device purchase. The training covers HIFU and microneedle RF technology operation, correct use of cartridges and heads, and treatment protocols. We issue a FAR-system generated certificate with B-number." },
-    { "question": "How quickly does the NOFILTER 7D pay for itself?", "answer": "HIFU facelift treatment prices typically range from 20,000–50,000 Ft, body treatments from 15,000–35,000 Ft. With 6–10 treatments per week, the device generally pays for itself within 3–4 months. Use our ROI calculator for exact figures!" }
+    {
+      "question": "What's the difference between the NOFILTER 7D and the HYPERNOVA?",
+      "answer": "The NOFILTER 7D combines HIFU and microneedle RF technology, optimized primarily for facelifting, skin rejuvenation, and targeted body treatments. The HYPERNOVA contains HIFU, RF, and EMS muscle stimulation, focusing more on body sculpting and muscle stimulation. The NOFILTER 7D cartridges cover 7 depths, and the microneedle RF provides personalized treatment with 4 heads."
+    },
+    {
+      "question": "Is the HIFU treatment painful?",
+      "answer": "During treatment, mild warmth and tingling are experienced, but most clients tolerate it well. No anesthesia is required. With microneedle RF treatments, minimal prickling is felt; treatment with the nano head is completely painless."
+    },
+    {
+      "question": "How many shots can a HIFU cartridge deliver?",
+      "answer": "Each HIFU cartridge can deliver 10,000 shots. For facial treatments, this typically enables 15–20 full treatments; for body treatments, 8–12 treatments."
+    },
+    {
+      "question": "When are results visible?",
+      "answer": "With HIFU treatment, alongside immediate firming, the full result develops over 2–3 months due to increased collagen production. The effect typically lasts 6–12 months. Microneedle RF treatment results become complete after 3–5 sessions in a course format."
+    },
+    {
+      "question": "Is there recovery time after treatment?",
+      "answer": "After HIFU treatment, minimal redness may occur, which subsides within hours. After microneedle RF, 24–48 hours of mild redness is possible. In both cases, the client can immediately continue their daily activities."
+    },
+    {
+      "question": "What training comes with the device?",
+      "answer": "A one-day official adult education course, free with device purchase. The training covers HIFU and microneedle RF technology operation, correct use of cartridges and heads, and treatment protocols. We issue a FAR-system generated certificate with B-number."
+    },
+    {
+      "question": "How quickly does the NOFILTER 7D pay for itself?",
+      "answer": "HIFU facelift treatment prices typically range from 20,000–50,000 Ft, body treatments from 15,000–35,000 Ft. With 6–10 treatments per week, the device generally pays for itself within 3–4 months. Use our ROI calculator for exact figures!"
+    }
   ],
   "whatsIncluded": [
     "NOFILTER 7D HIFU device",
