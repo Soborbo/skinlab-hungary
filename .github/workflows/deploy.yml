@@ -1,0 +1,39 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Never let two deploys overlap; let an in-flight one finish.
+concurrency:
+  group: deploy-cloudflare-workers
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Root package-lock.json is gitignored, so `npm ci` cannot run here.
+      - name: Install dependencies
+        run: npm install
+
+      # `astro build` also runs scripts/patch-wrangler-config.cjs, which injects
+      # the SESSION KV id and GOOGLE_SHEETS_SPREADSHEET_ID into dist/server/wrangler.json.
+      - name: Build
+        run: npm run build
+
+      # `npm run deploy` = wrangler deploy --config dist/server/wrangler.json --keep-vars
+      # --keep-vars preserves dashboard-managed secrets/vars (RESEND_API_KEY,
+      # service-account key, Turnstile, Billingo, CRM).
+      - name: Deploy
+        run: npm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: '075668606da58c5b96a45a075f1ca99c'
