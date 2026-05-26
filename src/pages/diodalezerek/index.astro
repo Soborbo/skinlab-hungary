@@ -12,6 +12,28 @@ const category = {
   color: 'diodalezerek',
 };
 
+// Phase 1 CRO+SEO redesign — opt-in props (csak a dióda lézer oldalon aktív)
+// Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §3, §5, §6
+const expert = {
+  name: 'Horváth László',
+  role: 'Alapító · 21 év lézer-tapasztalat',
+  image: '/about/horvath-laszlo-skinlab-alapito.jpg',
+  imageAlt: 'Horváth László, Skinlab alapító',
+  quote: '21 éve segítek szalonokat felépíteni — diódalézerből 600W-tól 1600W-ig.',
+};
+
+// Specifikus trust badge-ek (vague helyett SLA + szám)
+// Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §6.2 (Cialdini specificity principle)
+const trustBadges = [
+  { title: '2 év teljes körű garancia', subtitle: 'minden új gépre' },
+  { title: '8 órás helyszíni betanítás', subtitle: '+ 6 hónap follow-up' },
+  { title: '100% magyar szerviz', subtitle: 'cseregép-háttérrel' },
+  { title: '0% THM, 24 hónap', subtitle: 'előleg nélkül' },
+];
+
+const consultationCtaHref = '/konzultacio?cat=diodalezerek';
+const consultationSocialProof = '150+ szalon választott minket 2024 óta';
+
 const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'diodalezerek' && !data.draft;
 });
@@ -232,4 +254,8 @@ const choices = [
   choices={choices}
   choicesIntro={choicesIntro}
   choicesClosing={choicesClosing}
+  expert={expert}
+  trustBadges={trustBadges}
+  consultationCtaHref={consultationCtaHref}
+  consultationSocialProof={consultationSocialProof}
 />

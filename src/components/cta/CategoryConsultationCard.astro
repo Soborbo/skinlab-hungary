@@ -1,0 +1,110 @@
+---
+/**
+ * CategoryConsultationCard
+ *
+ * Hero jobb oldali lead-capture kártya magas-jegyű B2B kategóriáknál.
+ * Konkrét személy (founder/expert) + díjmentes konzultáció CTA-val.
+ *
+ * Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §3.2 #1
+ * Tudományos alap: Drift 2024 (+32% B2B CR naptár-widgettel),
+ *                  Cialdini Liking elv (2,3× CTR konkrét személyfotóval).
+ */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+
+interface Props {
+  expert: {
+    name: string;
+    role: string;
+    image: string;           // path under public/ vagy @assets alias
+    imageAlt?: string;
+    quote?: string;
+  };
+  ctaLabel?: string;
+  ctaHref: string;
+  socialProof?: string;       // pl. "150+ szalon választott minket"
+  accentColor: string;        // pl. CATEGORY_COLORS[slug].accent
+  accentDark: string;         // pl. CATEGORY_COLORS[slug].accentDark
+  accentLight: string;        // pl. CATEGORY_COLORS[slug].accentLight
+}
+
+const {
+  expert,
+  ctaLabel = 'Időpont foglalása',
+  ctaHref,
+  socialProof,
+  accentColor,
+  accentDark,
+  accentLight,
+} = Astro.props;
+---
+
+<aside
+  class="relative bg-white rounded-2xl shadow-md border border-gray-100 p-6 lg:p-7 flex flex-col gap-4"
+  aria-label="Ingyenes konzultáció kártya"
+>
+  <!-- Soft accent ring at top -->
+  <div
+    class="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
+    style={`background: linear-gradient(90deg, ${accentColor}, transparent 80%)`}
+    aria-hidden="true"
+  />
+
+  <!-- Expert row -->
+  <div class="flex items-center gap-4">
+    <div
+      class="relative w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white shadow-sm"
+      style={`background-color: ${accentLight}`}
+    >
+      <OptimizedPicture
+        src={expert.image}
+        alt={expert.imageAlt || `${expert.name}, ${expert.role}`}
+        widths={[80, 160]}
+        sizes="80px"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+    <div class="min-w-0">
+      <div class="font-semibold text-gray-900 leading-tight">{expert.name}</div>
+      <div class="text-sm text-gray-500 leading-tight mt-0.5">{expert.role}</div>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  {expert.quote && (
+    <blockquote
+      class="text-gray-700 text-sm lg:text-base leading-relaxed border-l-2 pl-3 italic"
+      style={`border-color: ${accentColor}`}
+    >
+      „{expert.quote}"
+    </blockquote>
+  )}
+
+  <!-- Value prop -->
+  <p class="text-gray-700 text-sm lg:text-base leading-relaxed">
+    Bizonytalan, melyik készülék illik a szalonjához?
+    <strong class="text-gray-900">20 perc, díjmentes online konzultáció</strong> — üzleti modellt is átnézzük.
+  </p>
+
+  <!-- CTA -->
+  <a
+    href={ctaHref}
+    class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white shadow-sm hover:shadow-md transition-all bg-cta hover:bg-cta-hover"
+    data-event="category-consultation-cta-click"
+  >
+    {ctaLabel}
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </a>
+
+  <!-- Social proof (optional) -->
+  {socialProof && (
+    <div class="flex items-center gap-2 text-xs text-gray-500 pt-1">
+      <svg class="w-4 h-4 flex-shrink-0" style={`color: ${accentDark}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.539 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <span>{socialProof}</span>
+    </div>
+  )}
+</aside>
