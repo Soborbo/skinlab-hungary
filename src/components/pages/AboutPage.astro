@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE, COMPANY, FOUNDERS, CONTACT, LOCATIONS, STATS } from '../../lib/constants';
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import { Image } from 'astro:assets';
+import rolunk2 from '../../assets/rolunk2.jpg';
+import rolunk3 from '../../assets/rolunk3.jpg';
+import { SITE, COMPANY, FOUNDERS, CONTACT, STATS } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { aboutPageSchema } from '../../config/schema';
@@ -13,6 +17,56 @@ const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
 
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
+
+// "Why us" benefits — stacked list with an accompanying image.
+// Icons/colors preserved from the previous card grid.
+const whyUs = [
+  {
+    bg: 'bg-success-100',
+    fg: 'text-success-600',
+    paths: ['M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
+    title: 'about.benefit1Title',
+    desc: 'about.benefit1Desc',
+  },
+  {
+    bg: 'bg-primary-100',
+    fg: 'text-primary-600',
+    paths: ['M13 10V3L4 14h7v7l9-11h-7z'],
+    title: 'about.benefit2Title',
+    desc: 'about.benefit2Desc',
+  },
+  {
+    bg: 'bg-warning-100',
+    fg: 'text-warning-600',
+    paths: ['M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],
+    title: 'about.benefit3Title',
+    desc: 'about.benefit3Desc',
+  },
+  {
+    bg: 'bg-primary-100',
+    fg: 'text-primary-600',
+    paths: ['M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
+    title: 'about.benefit4Title',
+    desc: 'about.benefit4Desc',
+  },
+  {
+    bg: 'bg-success-100',
+    fg: 'text-success-600',
+    paths: [
+      'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
+      'M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+    ],
+    title: 'about.benefit5Title',
+    desc: 'about.benefit5Desc',
+  },
+  {
+    bg: 'bg-warning-100',
+    fg: 'text-warning-600',
+    paths: ['M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
+    title: 'about.benefit6Title',
+    desc: 'about.benefit6Desc',
+  },
+];
 ---
 
 <BaseLayout
@@ -22,21 +76,34 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 >
   <div>
 
-    <!-- Hero -->
-    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+    <!-- Hero - background photo with a white overlay; heading sits naturally on the left -->
+    <section class="relative overflow-hidden min-h-[440px] lg:min-h-[540px] flex items-center">
+      <div class="absolute inset-0">
+        <OptimizedPicture
+          src="@assets/rolunk-foto.jpg"
+          alt={t(locale, 'about.heroPhotoAlt')}
+          widths={[640, 828, 1080, 1200, 1600, 1920, 2560]}
+          sizes="100vw"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!-- White overlay: solid-ish on the left where the text sits, clearing to the photo on the right -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40 md:to-transparent"></div>
+      </div>
+      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="max-w-xl">
+          <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
             {t(locale, 'about.title', { companyName: COMPANY.brand })}
           </h1>
-          <p class="text-lg text-gray-600">
+          <p class="text-lg text-gray-700 leading-relaxed">
             {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Story + Team Photo -->
+    <!-- Story + Photos -->
     <section class="py-12 lg:py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
@@ -64,131 +131,99 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
               <p>{t(locale, 'about.storyClosing')}</p>
             </div>
           </div>
-          <div class="lg:col-span-2">
-            <div class="rounded-2xl overflow-hidden shadow-lg">
-              <picture>
-                <source type="image/avif" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.avif" />
-                <source type="image/webp" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.webp" />
-                <img
-                  src="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.jpg"
-                  alt={t(locale, 'about.teamPhotoAlt')}
-                  class="w-full h-auto"
-                  width="1200"
-                  height="1600"
-                  loading="lazy"
-                />
-              </picture>
+          <div class="lg:col-span-2 space-y-6">
+            <div>
+              <div class="rounded-2xl overflow-hidden shadow-lg">
+                <picture>
+                  <source type="image/avif" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.avif" />
+                  <source type="image/webp" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.webp" />
+                  <img
+                    src="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.jpg"
+                    alt={t(locale, 'about.teamPhotoAlt')}
+                    class="w-full h-auto"
+                    width="1200"
+                    height="1600"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <p class="text-center text-sm text-gray-500 mt-3">
+                {t(locale, 'about.teamPhotoCaption')}
+              </p>
             </div>
-            <p class="text-center text-sm text-gray-500 mt-3">
-              {t(locale, 'about.teamPhotoCaption')}
-            </p>
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+              <Image src={rolunk3} alt="Skinlab diódalézer kezelőfelülete a showroomban" class="w-full h-auto" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Founders -->
+    <!-- Founders - four columns on one row: image, text, image, text -->
     <section class="py-12 lg:py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">{t(locale, 'about.foundersTitle')}</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-10 lg:mb-14 text-center">{t(locale, 'about.foundersTitle')}</h2>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center max-w-6xl mx-auto">
           {FOUNDERS.map((founder) => (
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-              <div class="flex items-center gap-5 mb-5">
-                <div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-md ring-2 ring-primary-100">
-                  <picture>
-                    <source type="image/avif" srcset={`${founder.image}.avif`} />
-                    <source type="image/webp" srcset={`${founder.image}.webp`} />
-                    <img
-                      src={`${founder.image}.jpg`}
-                      alt={founder.name}
-                      class="w-full h-full object-cover"
-                      width="400"
-                      height="400"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold text-gray-900">{founder.name}</h3>
-                  <p class="text-primary-600 font-medium text-sm">{t(locale, `about.founder.${founder.roleKey}`)}</p>
-                </div>
+            <Fragment>
+              <figure class="rounded-2xl overflow-hidden shadow-lg">
+                <picture>
+                  <source type="image/avif" srcset={`${founder.image}.avif`} />
+                  <source type="image/webp" srcset={`${founder.image}.webp`} />
+                  <img
+                    src={`${founder.image}.jpg`}
+                    alt={founder.name}
+                    class="w-full h-auto"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                </picture>
+              </figure>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-1">{founder.name}</h3>
+                <p class="text-primary-600 font-medium mb-3">{t(locale, `about.founder.${founder.roleKey}`)}</p>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {t(locale, `about.founder.${founder.roleKey}Bio`)}
+                </p>
               </div>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                {t(locale, `about.founder.${founder.roleKey}Bio`)}
-              </p>
-            </div>
+            </Fragment>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Why Us -->
+    <!-- Why Us - six benefits stacked in a column, with an image alongside -->
     <section class="py-12 lg:py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">{t(locale, 'about.whyUsTitle')}</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-10 lg:mb-14 text-center">{t(locale, 'about.whyUsTitle')}</h2>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <!-- Image -->
+          <div class="order-1">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+              <Image src={rolunk2} alt="Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be" class="w-full h-auto" loading="lazy" />
             </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit1Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit1Desc')}</p>
           </div>
 
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit2Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit2Desc')}</p>
-          </div>
-
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-warning-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit3Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit3Desc')}</p>
-          </div>
-
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit4Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit4Desc')}</p>
-          </div>
-
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit5Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit5Desc')}</p>
-          </div>
-
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="w-12 h-12 bg-warning-100 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'about.benefit6Title')}</h3>
-            <p class="text-gray-600 text-sm">{t(locale, 'about.benefit6Desc')}</p>
+          <!-- Six benefits stacked -->
+          <div class="order-2 space-y-6">
+            {whyUs.map((b) => (
+              <div class="flex gap-4 items-start">
+                <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center shrink-0`}>
+                  <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {b.paths.map((d) => (
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+                    ))}
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">{t(locale, b.title)}</h3>
+                  <p class="text-gray-600 text-sm">{t(locale, b.desc)}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -204,44 +239,6 @@ const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
               <div class="text-primary-200">{t(locale, `stats.${stat.key}`) || stat.label}</div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Company Info -->
-    <section class="py-12 lg:py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">{t(locale, 'about.companyInfoTitle')}</h2>
-
-          <div class="bg-gray-50 rounded-2xl p-6 space-y-4">
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.companyName')}</div>
-                <div class="font-medium text-gray-900">{COMPANY.legalName}</div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.foundingYear')}</div>
-                <div class="font-medium text-gray-900">{COMPANY.foundingDate}</div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.registrationNumber')}</div>
-                <div class="font-medium text-gray-900">{COMPANY.registrationNumber}</div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.taxId')}</div>
-                <div class="font-medium text-gray-900">{COMPANY.taxId}</div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.vatId')}</div>
-                <div class="font-medium text-gray-900">{COMPANY.vatId}</div>
-              </div>
-              <div>
-                <div class="text-sm text-gray-500">{t(locale, 'about.headquarters')}</div>
-                <div class="font-medium text-gray-900">{LOCATIONS.headquarters.fullAddress}</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
