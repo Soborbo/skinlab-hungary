@@ -18,6 +18,38 @@ const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 
+// Story as a numbered timeline — same copy as before, restructured into milestones.
+const story = [
+  { n: '01', title: t(locale, 'about.storySection1Title'), paras: [t(locale, 'about.storySection1')] },
+  {
+    n: '02',
+    title: t(locale, 'about.storySection2Title'),
+    paras: [
+      t(locale, 'about.storySection2a'),
+      t(locale, 'about.storySection2b', { companyName: COMPANY.brand }),
+    ],
+  },
+  { n: '03', title: t(locale, 'about.storySection3Title'), paras: [t(locale, 'about.storySection3')] },
+  {
+    n: '04',
+    title: t(locale, 'about.storySection4Title', { companyName: COMPANY.brand }),
+    paras: [
+      t(locale, 'about.storySection4a', { companyName: COMPANY.brand }),
+      t(locale, 'about.storySection4b', { companyName: COMPANY.brand }),
+    ],
+  },
+  {
+    n: '05',
+    title: t(locale, 'about.storySection5Title'),
+    paras: [
+      t(locale, 'about.storySection5a'),
+      t(locale, 'about.storySection5b'),
+      t(locale, 'about.storySection5c'),
+      t(locale, 'about.storySection5d'),
+    ],
+  },
+];
+
 // "Why us" benefits — stacked list with an accompanying image.
 // Icons/colors preserved from the previous card grid.
 const whyUs = [
@@ -74,10 +106,12 @@ const whyUs = [
   description={t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
   schema={aboutPageSchema(config, pageUrl)}
 >
-  <div>
+  <div class="bg-white">
 
-    <!-- Hero - background photo with a white overlay; heading sits naturally on the left -->
-    <section class="relative overflow-hidden min-h-[440px] lg:min-h-[540px] flex items-center">
+    <!-- ============================================================= -->
+    <!-- Hero — cinematic photo with a teal-tinted scrim, content left -->
+    <!-- ============================================================= -->
+    <section class="relative overflow-hidden min-h-[520px] lg:min-h-[640px] flex items-center">
       <div class="absolute inset-0">
         <OptimizedPicture
           src="@assets/rolunk-foto.jpg"
@@ -88,52 +122,82 @@ const whyUs = [
           loading="eager"
           fetchpriority="high"
         />
-        <!-- White overlay: solid-ish on the left where the text sits, clearing to the photo on the right -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40 md:to-transparent"></div>
+        <!-- Layered scrim: dark teal on the left for legibility, clearing right -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/55 to-gray-900/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
       </div>
-      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div class="max-w-xl">
-          <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+
+      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white ring-1 ring-white/25 px-3.5 py-1.5 rounded-full text-sm font-medium mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-cta"></span>
+            {COMPANY.brand} — {t(locale, 'nav.about')}
+          </span>
+
+          <h1 class="text-4xl lg:text-6xl font-bold text-white mb-5 leading-[1.08] tracking-tight">
             {t(locale, 'about.title', { companyName: COMPANY.brand })}
           </h1>
-          <p class="text-lg text-gray-700 leading-relaxed">
+
+          <p class="text-lg lg:text-xl text-gray-100 leading-relaxed max-w-xl">
             {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
           </p>
+
+          <div class="mt-9 flex flex-col sm:flex-row gap-3.5">
+            <a
+              href={contactLink}
+              class="inline-flex items-center justify-center px-6 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-lg shadow-cta/25"
+            >
+              {t(locale, 'header.freeConsultation')}
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href={CONTACT.phoneTel}
+              class="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl ring-1 ring-white/30 hover:bg-white/20 transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              {CONTACT.phoneDisplay}
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Story + Photos -->
-    <section class="py-12 lg:py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
-          <div class="lg:col-span-3">
-            <div class="prose prose-lg text-gray-600">
-              <h2 class="text-2xl font-bold text-gray-900 mt-0 mb-3">{t(locale, 'about.storySection1Title')}</h2>
-              <p>{t(locale, 'about.storySection1')}</p>
-
-              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection2Title')}</h2>
-              <p>{t(locale, 'about.storySection2a')}</p>
-              <p>{t(locale, 'about.storySection2b', { companyName: COMPANY.brand })}</p>
-
-              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection3Title')}</h2>
-              <p>{t(locale, 'about.storySection3')}</p>
-
-              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection4Title', { companyName: COMPANY.brand })}</h2>
-              <p>{t(locale, 'about.storySection4a', { companyName: COMPANY.brand })}</p>
-              <p>{t(locale, 'about.storySection4b', { companyName: COMPANY.brand })}</p>
-
-              <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">{t(locale, 'about.storySection5Title')}</h2>
-              <p>{t(locale, 'about.storySection5a')}</p>
-              <p>{t(locale, 'about.storySection5b')}</p>
-              <p>{t(locale, 'about.storySection5c')}</p>
-              <p>{t(locale, 'about.storySection5d')}</p>
-              <p>{t(locale, 'about.storyClosing')}</p>
+    <!-- ============================================================= -->
+    <!-- Stats — overlapping band that bridges the hero and the story  -->
+    <!-- ============================================================= -->
+    <section class="relative -mt-14 lg:-mt-16 z-10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl ring-1 ring-gray-100 grid grid-cols-2 lg:grid-cols-4 divide-y divide-x divide-gray-100 overflow-hidden">
+          {STATS.map((stat) => (
+            <div class="text-center px-6 py-7 lg:py-9">
+              <div class="text-3xl lg:text-4xl font-bold text-cta mb-1.5">{stat.value}</div>
+              <div class="text-sm text-gray-500 font-medium">{t(locale, `stats.${stat.key}`) || stat.label}</div>
             </div>
-          </div>
-          <div class="lg:col-span-2 space-y-6">
-            <div>
-              <div class="rounded-2xl overflow-hidden shadow-lg">
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- Story — sticky photo rail + numbered timeline                 -->
+    <!-- ============================================================= -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+
+          <!-- Left: sticky intro + photos -->
+          <div class="lg:col-span-5">
+            <div class="lg:sticky lg:top-28">
+              <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.story')}</span>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-8 leading-tight">
+                {t(locale, 'about.storySection1Title')} — {t(locale, 'about.foundersTitle')}
+              </h2>
+
+              <figure class="rounded-2xl overflow-hidden shadow-lg">
                 <picture>
                   <source type="image/avif" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.avif" />
                   <source type="image/webp" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.webp" />
@@ -146,12 +210,42 @@ const whyUs = [
                     loading="lazy"
                   />
                 </picture>
+                <figcaption class="text-center text-sm text-gray-500 px-4 py-3 bg-gray-50">
+                  {t(locale, 'about.teamPhotoCaption')}
+                </figcaption>
+              </figure>
+
+              <div class="hidden lg:block mt-6 rounded-2xl overflow-hidden shadow-lg">
+                <Image src={rolunk3} alt="Skinlab diódalézer kezelőfelülete a showroomban" class="w-full h-auto" loading="lazy" />
               </div>
-              <p class="text-center text-sm text-gray-500 mt-3">
-                {t(locale, 'about.teamPhotoCaption')}
-              </p>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-lg">
+          </div>
+
+          <!-- Right: timeline -->
+          <div class="lg:col-span-7">
+            <ol class="relative border-l-2 border-gray-100 ml-3 space-y-12">
+              {story.map((item) => (
+                <li class="relative pl-8 lg:pl-10">
+                  <span class="absolute -left-[1.05rem] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-cta-light text-cta-hover text-xs font-bold ring-4 ring-white">
+                    {item.n}
+                  </span>
+                  <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <div class="space-y-3 text-gray-600 leading-relaxed">
+                    {item.paras.map((p) => <p>{p}</p>)}
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <!-- Closing pull-quote -->
+            <blockquote class="mt-12 ml-3 rounded-2xl bg-gradient-to-br from-cta-light to-primary-50/50 border-l-4 border-cta p-6 lg:p-8">
+              <p class="text-lg lg:text-xl text-gray-800 font-medium leading-relaxed italic">
+                „{t(locale, 'about.storyClosing')}”
+              </p>
+            </blockquote>
+
+            <!-- rolunk3 shown inline on mobile (sticky rail is hidden there) -->
+            <div class="lg:hidden mt-8 rounded-2xl overflow-hidden shadow-lg">
               <Image src={rolunk3} alt="Skinlab diódalézer kezelőfelülete a showroomban" class="w-full h-auto" loading="lazy" />
             </div>
           </div>
@@ -159,115 +253,125 @@ const whyUs = [
       </div>
     </section>
 
-    <!-- Founders - four columns on one row: image, text, image, text -->
-    <section class="py-12 lg:py-16 bg-gray-50">
+    <!-- ============================================================= -->
+    <!-- Founders — two elegant portrait cards                          -->
+    <!-- ============================================================= -->
+    <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-10 lg:mb-14 text-center">{t(locale, 'about.foundersTitle')}</h2>
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.team')}</span>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.foundersTitle')}</h2>
+        </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
           {FOUNDERS.map((founder) => (
-            <Fragment>
-              <figure class="rounded-2xl overflow-hidden shadow-lg">
-                <picture>
-                  <source type="image/avif" srcset={`${founder.image}.avif`} />
-                  <source type="image/webp" srcset={`${founder.image}.webp`} />
-                  <img
-                    src={`${founder.image}.jpg`}
-                    alt={founder.name}
-                    class="w-full h-auto"
-                    width="800"
-                    height="1000"
-                    loading="lazy"
-                  />
-                </picture>
-              </figure>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-1">{founder.name}</h3>
-                <p class="text-primary-600 font-medium mb-3">{t(locale, `about.founder.${founder.roleKey}`)}</p>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                  {t(locale, `about.founder.${founder.roleKey}Bio`)}
-                </p>
+            <article class="group bg-white rounded-3xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-cta/20 transition-all duration-300">
+              <div class="grid sm:grid-cols-5">
+                <figure class="sm:col-span-2 aspect-[4/5] sm:aspect-auto overflow-hidden">
+                  <picture>
+                    <source type="image/avif" srcset={`${founder.image}.avif`} />
+                    <source type="image/webp" srcset={`${founder.image}.webp`} />
+                    <img
+                      src={`${founder.image}.jpg`}
+                      alt={founder.name}
+                      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      width="800"
+                      height="1000"
+                      loading="lazy"
+                    />
+                  </picture>
+                </figure>
+                <div class="sm:col-span-3 p-6 lg:p-8 flex flex-col">
+                  <h3 class="text-xl lg:text-2xl font-bold text-gray-900">{founder.name}</h3>
+                  <p class="inline-flex self-start items-center mt-2 mb-4 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
+                    {t(locale, `about.founder.${founder.roleKey}`)}
+                  </p>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    {t(locale, `about.founder.${founder.roleKey}Bio`)}
+                  </p>
+                </div>
               </div>
-            </Fragment>
+            </article>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Why Us - six benefits stacked in a column, with an image alongside -->
-    <section class="py-12 lg:py-16 bg-white">
+    <!-- ============================================================= -->
+    <!-- Why us — image + benefit cards                                 -->
+    <!-- ============================================================= -->
+    <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-10 lg:mb-14 text-center">{t(locale, 'about.whyUsTitle')}</h2>
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <!-- Image -->
-          <div class="order-1">
-            <div class="rounded-2xl overflow-hidden shadow-lg">
-              <Image src={rolunk2} alt="Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be" class="w-full h-auto" loading="lazy" />
-            </div>
-          </div>
-
-          <!-- Six benefits stacked -->
-          <div class="order-2 space-y-6">
-            {whyUs.map((b) => (
-              <div class="flex gap-4 items-start">
-                <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center shrink-0`}>
-                  <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {b.paths.map((d) => (
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
-                    ))}
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">{t(locale, b.title)}</h3>
-                  <p class="text-gray-600 text-sm">{t(locale, b.desc)}</p>
-                </div>
+          <div class="lg:col-span-5">
+            <div class="lg:sticky lg:top-28">
+              <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.mission')}</span>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-8 leading-tight">
+                {t(locale, 'about.whyUsTitle')}
+              </h2>
+              <div class="rounded-3xl overflow-hidden shadow-lg">
+                <Image src={rolunk2} alt="Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be" class="w-full h-auto" loading="lazy" />
               </div>
-            ))}
+            </div>
+          </div>
+
+          <!-- Benefit cards -->
+          <div class="lg:col-span-7">
+            <div class="grid sm:grid-cols-2 gap-5">
+              {whyUs.map((b) => (
+                <div class="bg-white rounded-2xl p-6 ring-1 ring-gray-100 hover:ring-cta/30 hover:shadow-md transition-all">
+                  <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center mb-4`}>
+                    <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {b.paths.map((d) => (
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+                      ))}
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-gray-900 mb-1.5">{t(locale, b.title)}</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">{t(locale, b.desc)}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="py-12 lg:py-16 bg-primary-600">
+    <!-- ============================================================= -->
+    <!-- CTA — teal band                                                -->
+    <!-- ============================================================= -->
+    <section class="py-16 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {STATS.map((stat) => (
-            <div class="text-center">
-              <div class="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</div>
-              <div class="text-primary-200">{t(locale, `stats.${stat.key}`) || stat.label}</div>
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cta to-cta-hover px-6 py-12 lg:px-16 lg:py-16 text-center">
+          <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
+          <div class="absolute -bottom-20 -left-10 w-56 h-56 rounded-full bg-white/10"></div>
+          <div class="relative">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+              {t(locale, 'about.ctaTitle')}
+            </h2>
+            <p class="text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+              {t(locale, 'about.ctaSubtitle')}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={CONTACT.phoneTel}
+                class="inline-flex items-center justify-center px-6 py-3.5 bg-white text-cta-hover font-semibold rounded-xl hover:bg-gray-50 transition-colors shadow-md"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {CONTACT.phoneDisplay}
+              </a>
+              <a
+                href={contactLink}
+                class="inline-flex items-center justify-center px-6 py-3.5 bg-white/15 backdrop-blur-sm text-white font-semibold rounded-xl ring-1 ring-white/40 hover:bg-white/25 transition-colors"
+              >
+                {t(locale, 'nav.contact')}
+              </a>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-12 lg:py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-          {t(locale, 'about.ctaTitle')}
-        </h2>
-        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-          {t(locale, 'about.ctaSubtitle')}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={CONTACT.phoneTel}
-            class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            {CONTACT.phoneDisplay}
-          </a>
-          <a
-            href={contactLink}
-            class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border border-gray-300 hover:bg-gray-50 transition-colors"
-          >
-            {t(locale, 'nav.contact')}
-          </a>
+          </div>
         </div>
       </div>
     </section>
