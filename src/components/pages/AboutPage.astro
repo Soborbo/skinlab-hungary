@@ -4,6 +4,10 @@ import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { Image } from 'astro:assets';
 import rolunk2 from '../../assets/rolunk2.jpg';
 import rolunk3 from '../../assets/rolunk3.jpg';
+import rolunk4 from '../../assets/rolunk4.jpg';
+import rolunk5 from '../../assets/rolunk5.jpg';
+import rolunk6 from '../../assets/rolunk6.jpg';
+import rolunk7 from '../../assets/rolunk7.jpg';
 import { SITE, COMPANY, FOUNDERS, CONTACT, STATS } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
@@ -18,9 +22,19 @@ const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 
-// Story as a numbered timeline — same copy as before, restructured into milestones.
+// Story as a checkerboard timeline — same copy as before, restructured into
+// milestones. `imageLeft` alternates (kép-szöveg / szöveg-kép). On mobile the
+// DOM order is always text→image (md:order swaps sides on desktop only).
+// Image picks: rolunk3 ("skinlab ma" — háttérben a skinlab feliratos képernyő).
 const story = [
-  { n: '01', title: t(locale, 'about.storySection1Title'), paras: [t(locale, 'about.storySection1')] },
+  {
+    n: '01',
+    title: t(locale, 'about.storySection1Title'),
+    paras: [t(locale, 'about.storySection1')],
+    image: rolunk5,
+    imageAlt: 'Gaszler Simonetta egy nemzetközi kozmetikai szakkiállításon',
+    imageLeft: true,
+  },
   {
     n: '02',
     title: t(locale, 'about.storySection2Title'),
@@ -28,8 +42,18 @@ const story = [
       t(locale, 'about.storySection2a'),
       t(locale, 'about.storySection2b', { companyName: COMPANY.brand }),
     ],
+    image: rolunk4,
+    imageAlt: 'Horváth László a Skinlab showroomban',
+    imageLeft: false,
   },
-  { n: '03', title: t(locale, 'about.storySection3Title'), paras: [t(locale, 'about.storySection3')] },
+  {
+    n: '03',
+    title: t(locale, 'about.storySection3Title'),
+    paras: [t(locale, 'about.storySection3')],
+    image: rolunk2,
+    imageAlt: 'Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be',
+    imageLeft: true,
+  },
   {
     n: '04',
     title: t(locale, 'about.storySection4Title', { companyName: COMPANY.brand }),
@@ -37,6 +61,9 @@ const story = [
       t(locale, 'about.storySection4a', { companyName: COMPANY.brand }),
       t(locale, 'about.storySection4b', { companyName: COMPANY.brand }),
     ],
+    image: rolunk3,
+    imageAlt: 'Skinlab diódalézer kezelőfelülete, háttérben a skinlab márkajelzéssel',
+    imageLeft: false,
   },
   {
     n: '05',
@@ -47,11 +74,14 @@ const story = [
       t(locale, 'about.storySection5c'),
       t(locale, 'about.storySection5d'),
     ],
+    image: rolunk6,
+    imageAlt: 'A Skinlab csapata egy szakkiállítási standon, skinlab márkás készülékekkel',
+    imageLeft: true,
   },
 ];
 
-// "Why us" benefits — stacked list with an accompanying image.
-// Icons/colors preserved from the previous card grid.
+// "Why us" benefits — icon on the left, text beside it. Icons/colors preserved
+// from the previous card grid.
 const whyUs = [
   {
     bg: 'bg-success-100',
@@ -109,36 +139,38 @@ const whyUs = [
   <div class="bg-white">
 
     <!-- ============================================================= -->
-    <!-- Hero — cinematic photo with a teal-tinted scrim, content left -->
+    <!-- Hero — focus stays on the LEFT of the photo (shop lead);       -->
+    <!-- text moves RIGHT, left ~half of the image is left uncovered    -->
     <!-- ============================================================= -->
-    <section class="relative overflow-hidden min-h-[520px] lg:min-h-[640px] flex items-center">
+    <section class="relative overflow-hidden min-h-[560px] lg:min-h-[680px] flex items-center">
       <div class="absolute inset-0">
         <OptimizedPicture
           src="@assets/rolunk-foto.jpg"
           alt={t(locale, 'about.heroPhotoAlt')}
           widths={[640, 828, 1080, 1200, 1600, 1920, 2560]}
           sizes="100vw"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-left"
           loading="eager"
           fetchpriority="high"
         />
-        <!-- Layered scrim: dark teal on the left for legibility, clearing right -->
-        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/55 to-gray-900/10"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
+        <!-- Mobile: subtle bottom scrim only, so text stays legible -->
+        <div class="absolute inset-0 md:hidden bg-gradient-to-t from-gray-900/85 via-gray-900/30 to-transparent"></div>
+        <!-- Desktop: scrim only on the RIGHT half; left half fully clear -->
+        <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/90 from-10% via-gray-900/45 via-40% to-transparent to-55%"></div>
       </div>
 
-      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <div class="max-w-2xl">
+      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="md:ml-auto md:max-w-xl text-white">
           <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white ring-1 ring-white/25 px-3.5 py-1.5 rounded-full text-sm font-medium mb-6">
             <span class="w-1.5 h-1.5 rounded-full bg-cta"></span>
             {COMPANY.brand} — {t(locale, 'nav.about')}
           </span>
 
-          <h1 class="text-4xl lg:text-6xl font-bold text-white mb-5 leading-[1.08] tracking-tight">
+          <h1 class="text-4xl lg:text-6xl font-bold mb-5 leading-[1.08] tracking-tight">
             {t(locale, 'about.title', { companyName: COMPANY.brand })}
           </h1>
 
-          <p class="text-lg lg:text-xl text-gray-100 leading-relaxed max-w-xl">
+          <p class="text-lg lg:text-xl text-gray-100 leading-relaxed">
             {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
           </p>
 
@@ -167,13 +199,13 @@ const whyUs = [
     </section>
 
     <!-- ============================================================= -->
-    <!-- Stats — overlapping band that bridges the hero and the story  -->
+    <!-- Stats band                                                     -->
     <!-- ============================================================= -->
-    <section class="relative -mt-14 lg:-mt-16 z-10">
+    <section class="border-b border-gray-100">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-xl ring-1 ring-gray-100 grid grid-cols-2 lg:grid-cols-4 divide-y divide-x divide-gray-100 overflow-hidden">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-gray-100">
           {STATS.map((stat) => (
-            <div class="text-center px-6 py-7 lg:py-9">
+            <div class="text-center px-6 py-8 lg:py-10">
               <div class="text-3xl lg:text-4xl font-bold text-cta mb-1.5">{stat.value}</div>
               <div class="text-sm text-gray-500 font-medium">{t(locale, `stats.${stat.key}`) || stat.label}</div>
             </div>
@@ -183,78 +215,58 @@ const whyUs = [
     </section>
 
     <!-- ============================================================= -->
-    <!-- Story — sticky photo rail + numbered timeline                 -->
+    <!-- Story — checkerboard: kép-szöveg / szöveg-kép alternating.     -->
+    <!-- Mobile: szöveg majd kép minden blokknál.                       -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+        <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.story')}</span>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">
+            {t(locale, 'about.title', { companyName: COMPANY.brand })}
+          </h2>
+        </div>
 
-          <!-- Left: sticky intro + photos -->
-          <div class="lg:col-span-5">
-            <div class="lg:sticky lg:top-28">
-              <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.story')}</span>
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-8 leading-tight">
-                {t(locale, 'about.storySection1Title')} — {t(locale, 'about.foundersTitle')}
-              </h2>
+        <div class="space-y-16 lg:space-y-24">
+          {story.map((item) => (
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-14 items-center">
+              <!-- Text (DOM-first → mobile shows text then image) -->
+              <div class={item.imageLeft ? 'md:order-2' : 'md:order-1'}>
+                <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cta-light text-cta-hover text-sm font-bold mb-4">
+                  {item.n}
+                </span>
+                <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">{item.title}</h3>
+                <div class="space-y-3 text-gray-600 leading-relaxed">
+                  {item.paras.map((p) => <p>{p}</p>)}
+                </div>
+              </div>
 
-              <figure class="rounded-2xl overflow-hidden shadow-lg">
-                <picture>
-                  <source type="image/avif" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.avif" />
-                  <source type="image/webp" srcset="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.webp" />
-                  <img
-                    src="/about/skinlab-hungary-csapat-kozmetikai-lezer-szakertok.jpg"
-                    alt={t(locale, 'about.teamPhotoAlt')}
-                    class="w-full h-auto"
-                    width="1200"
-                    height="1600"
+              <!-- Image -->
+              <div class={item.imageLeft ? 'md:order-1' : 'md:order-2'}>
+                <div class="rounded-3xl overflow-hidden shadow-lg">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    class="w-full h-auto aspect-[4/3] object-cover"
                     loading="lazy"
                   />
-                </picture>
-                <figcaption class="text-center text-sm text-gray-500 px-4 py-3 bg-gray-50">
-                  {t(locale, 'about.teamPhotoCaption')}
-                </figcaption>
-              </figure>
-
-              <div class="hidden lg:block mt-6 rounded-2xl overflow-hidden shadow-lg">
-                <Image src={rolunk3} alt="Skinlab diódalézer kezelőfelülete a showroomban" class="w-full h-auto" loading="lazy" />
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Right: timeline -->
-          <div class="lg:col-span-7">
-            <ol class="relative border-l-2 border-gray-100 ml-3 space-y-12">
-              {story.map((item) => (
-                <li class="relative pl-8 lg:pl-10">
-                  <span class="absolute -left-[1.05rem] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-cta-light text-cta-hover text-xs font-bold ring-4 ring-white">
-                    {item.n}
-                  </span>
-                  <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <div class="space-y-3 text-gray-600 leading-relaxed">
-                    {item.paras.map((p) => <p>{p}</p>)}
-                  </div>
-                </li>
-              ))}
-            </ol>
-
-            <!-- Closing pull-quote -->
-            <blockquote class="mt-12 ml-3 rounded-2xl bg-gradient-to-br from-cta-light to-primary-50/50 border-l-4 border-cta p-6 lg:p-8">
-              <p class="text-lg lg:text-xl text-gray-800 font-medium leading-relaxed italic">
-                „{t(locale, 'about.storyClosing')}”
-              </p>
-            </blockquote>
-
-            <!-- rolunk3 shown inline on mobile (sticky rail is hidden there) -->
-            <div class="lg:hidden mt-8 rounded-2xl overflow-hidden shadow-lg">
-              <Image src={rolunk3} alt="Skinlab diódalézer kezelőfelülete a showroomban" class="w-full h-auto" loading="lazy" />
-            </div>
-          </div>
+          ))}
         </div>
+
+        <!-- Closing pull-quote -->
+        <blockquote class="mt-16 lg:mt-24 max-w-4xl mx-auto rounded-2xl bg-gradient-to-br from-cta-light to-primary-50/50 border-l-4 border-cta p-6 lg:p-8 text-center">
+          <p class="text-lg lg:text-xl text-gray-800 font-medium leading-relaxed italic">
+            „{t(locale, 'about.storyClosing')}”
+          </p>
+        </blockquote>
       </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- Founders — two elegant portrait cards                          -->
+    <!-- Founders — equal-size portrait cards                           -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -263,33 +275,32 @@ const whyUs = [
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.foundersTitle')}</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+        <div class="grid sm:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
           {FOUNDERS.map((founder) => (
-            <article class="group bg-white rounded-3xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-cta/20 transition-all duration-300">
-              <div class="grid sm:grid-cols-5">
-                <figure class="sm:col-span-2 aspect-[4/5] sm:aspect-auto overflow-hidden">
-                  <picture>
-                    <source type="image/avif" srcset={`${founder.image}.avif`} />
-                    <source type="image/webp" srcset={`${founder.image}.webp`} />
-                    <img
-                      src={`${founder.image}.jpg`}
-                      alt={founder.name}
-                      class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      width="800"
-                      height="1000"
-                      loading="lazy"
-                    />
-                  </picture>
-                </figure>
-                <div class="sm:col-span-3 p-6 lg:p-8 flex flex-col">
-                  <h3 class="text-xl lg:text-2xl font-bold text-gray-900">{founder.name}</h3>
-                  <p class="inline-flex self-start items-center mt-2 mb-4 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
-                    {t(locale, `about.founder.${founder.roleKey}`)}
-                  </p>
-                  <p class="text-gray-600 text-sm leading-relaxed">
-                    {t(locale, `about.founder.${founder.roleKey}Bio`)}
-                  </p>
-                </div>
+            <article class="bg-white rounded-3xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-cta/20 transition-all duration-300">
+              <!-- fixed aspect ratio → both portraits identical size -->
+              <div class="aspect-[4/5] overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset={`${founder.image}.avif`} />
+                  <source type="image/webp" srcset={`${founder.image}.webp`} />
+                  <img
+                    src={`${founder.image}.jpg`}
+                    alt={founder.name}
+                    class="w-full h-full object-cover object-top"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <div class="p-6 lg:p-8 text-center">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900">{founder.name}</h3>
+                <p class="inline-flex items-center mt-2 mb-4 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
+                  {t(locale, `about.founder.${founder.roleKey}`)}
+                </p>
+                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                  {t(locale, `about.founder.${founder.roleKey}Bio`)}
+                </p>
               </div>
             </article>
           ))}
@@ -298,42 +309,45 @@ const whyUs = [
     </section>
 
     <!-- ============================================================= -->
-    <!-- Why us — image + benefit cards                                 -->
+    <!-- Why us — standing image + icon-left benefit rows (~1 screen)   -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.mission')}</span>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.whyUsTitle')}</h2>
+        </div>
 
-          <!-- Image -->
-          <div class="lg:col-span-5">
-            <div class="lg:sticky lg:top-28">
-              <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.mission')}</span>
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-8 leading-tight">
-                {t(locale, 'about.whyUsTitle')}
-              </h2>
-              <div class="rounded-3xl overflow-hidden shadow-lg">
-                <Image src={rolunk2} alt="Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be" class="w-full h-auto" loading="lazy" />
-              </div>
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+          <!-- Standing image (fills the column height on desktop) -->
+          <div class="order-2 lg:order-1">
+            <div class="rounded-3xl overflow-hidden shadow-lg h-full max-h-[80vh] mx-auto">
+              <Image
+                src={rolunk7}
+                alt="Gaszler Simonetta egy szakmai bemutatón a Skinlab készülékeiről"
+                class="w-full h-full object-cover aspect-[3/4] lg:aspect-auto"
+                loading="lazy"
+              />
             </div>
           </div>
 
-          <!-- Benefit cards -->
-          <div class="lg:col-span-7">
-            <div class="grid sm:grid-cols-2 gap-5">
-              {whyUs.map((b) => (
-                <div class="bg-white rounded-2xl p-6 ring-1 ring-gray-100 hover:ring-cta/30 hover:shadow-md transition-all">
-                  <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center mb-4`}>
-                    <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {b.paths.map((d) => (
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
-                      ))}
-                    </svg>
-                  </div>
-                  <h3 class="font-semibold text-gray-900 mb-1.5">{t(locale, b.title)}</h3>
+          <!-- Icon-left benefit rows -->
+          <div class="order-1 lg:order-2 flex flex-col justify-center gap-5">
+            {whyUs.map((b) => (
+              <div class="flex gap-4 items-start">
+                <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center shrink-0`}>
+                  <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {b.paths.map((d) => (
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
+                    ))}
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">{t(locale, b.title)}</h3>
                   <p class="text-gray-600 text-sm leading-relaxed">{t(locale, b.desc)}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
