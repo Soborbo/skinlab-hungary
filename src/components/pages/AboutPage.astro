@@ -8,7 +8,7 @@ import rolunk4 from '../../assets/rolunk4.jpg';
 import rolunk5 from '../../assets/rolunk5.jpg';
 import rolunk6 from '../../assets/rolunk6.jpg';
 import rolunk7 from '../../assets/rolunk7.jpg';
-import { SITE, COMPANY, FOUNDERS, CONTACT, STATS } from '../../lib/constants';
+import { SITE, COMPANY, FOUNDERS, CONTACT } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { aboutPageSchema } from '../../config/schema';
@@ -22,10 +22,9 @@ const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
 
-// Story as a checkerboard timeline — same copy as before, restructured into
-// milestones. `imageLeft` alternates (kép-szöveg / szöveg-kép). On mobile the
-// DOM order is always text→image (md:order swaps sides on desktop only).
-// Image picks: rolunk3 ("skinlab ma" — háttérben a skinlab feliratos képernyő).
+// Story as a full-bleed checkerboard — same copy, alternating image/text.
+// `imageLeft` alternates (kép-szöveg / szöveg-kép). On mobile DOM order is
+// always text→image. rolunk3 → "skinlab ma" (háttérben a skinlab feliratos kijelző).
 const story = [
   {
     n: '01',
@@ -80,40 +79,29 @@ const story = [
   },
 ];
 
-// "Why us" benefits — icon on the left, text beside it. Icons/colors preserved
-// from the previous card grid.
+// "Why us" benefits — elegant single-tone grey icons, icon on the left.
 const whyUs = [
   {
-    bg: 'bg-success-100',
-    fg: 'text-success-600',
     paths: ['M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
     title: 'about.benefit1Title',
     desc: 'about.benefit1Desc',
   },
   {
-    bg: 'bg-primary-100',
-    fg: 'text-primary-600',
     paths: ['M13 10V3L4 14h7v7l9-11h-7z'],
     title: 'about.benefit2Title',
     desc: 'about.benefit2Desc',
   },
   {
-    bg: 'bg-warning-100',
-    fg: 'text-warning-600',
     paths: ['M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],
     title: 'about.benefit3Title',
     desc: 'about.benefit3Desc',
   },
   {
-    bg: 'bg-primary-100',
-    fg: 'text-primary-600',
     paths: ['M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
     title: 'about.benefit4Title',
     desc: 'about.benefit4Desc',
   },
   {
-    bg: 'bg-success-100',
-    fg: 'text-success-600',
     paths: [
       'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
       'M15 12a3 3 0 11-6 0 3 3 0 016 0z',
@@ -122,8 +110,6 @@ const whyUs = [
     desc: 'about.benefit5Desc',
   },
   {
-    bg: 'bg-warning-100',
-    fg: 'text-warning-600',
     paths: ['M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
     title: 'about.benefit6Title',
     desc: 'about.benefit6Desc',
@@ -139,8 +125,8 @@ const whyUs = [
   <div class="bg-white">
 
     <!-- ============================================================= -->
-    <!-- Hero — focus stays on the LEFT of the photo (shop lead);       -->
-    <!-- text moves RIGHT, left ~half of the image is left uncovered    -->
+    <!-- Hero — focus stays LEFT (shop lead); text panel sits centre-   -->
+    <!-- right (40/60) with a readable frosted dark panel behind it     -->
     <!-- ============================================================= -->
     <section class="relative overflow-hidden min-h-[560px] lg:min-h-[680px] flex items-center">
       <div class="absolute inset-0">
@@ -153,85 +139,98 @@ const whyUs = [
           loading="eager"
           fetchpriority="high"
         />
-        <!-- Mobile: subtle bottom scrim only, so text stays legible -->
+        <!-- Mobile: bottom scrim for legibility -->
         <div class="absolute inset-0 md:hidden bg-gradient-to-t from-gray-900/85 via-gray-900/30 to-transparent"></div>
-        <!-- Desktop: scrim only on the RIGHT half; left half fully clear -->
-        <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/90 from-10% via-gray-900/45 via-40% to-transparent to-55%"></div>
+        <!-- Desktop: darken the right ~60%, keep the left clear -->
+        <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/85 from-25% via-gray-900/45 via-55% to-transparent to-75%"></div>
       </div>
 
       <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div class="md:ml-auto md:max-w-xl text-white">
-          <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white ring-1 ring-white/25 px-3.5 py-1.5 rounded-full text-sm font-medium mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-cta"></span>
-            {COMPANY.brand} — {t(locale, 'nav.about')}
-          </span>
+        <div class="md:grid md:grid-cols-5">
+          <div class="hidden md:block md:col-span-2"></div>
+          <div class="md:col-span-3">
+            <div class="rounded-2xl bg-gray-900/45 ring-1 ring-white/10 backdrop-blur-md p-7 lg:p-9 text-white">
+              <span class="inline-flex items-center gap-2 bg-white/10 text-white ring-1 ring-white/25 px-3.5 py-1.5 rounded-full text-sm font-medium mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-cta"></span>
+                {COMPANY.brand} — {t(locale, 'nav.about')}
+              </span>
 
-          <h1 class="text-4xl lg:text-6xl font-bold mb-5 leading-[1.08] tracking-tight">
-            {t(locale, 'about.title', { companyName: COMPANY.brand })}
-          </h1>
+              <h1 class="text-4xl lg:text-5xl font-bold mb-4 leading-[1.1] tracking-tight">
+                {t(locale, 'about.title', { companyName: COMPANY.brand })}
+              </h1>
 
-          <p class="text-lg lg:text-xl text-gray-100 leading-relaxed">
-            {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
-          </p>
+              <p class="text-lg text-gray-100 leading-relaxed">
+                {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
+              </p>
 
-          <div class="mt-9 flex flex-col sm:flex-row gap-3.5">
-            <a
-              href={contactLink}
-              class="inline-flex items-center justify-center px-6 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-lg shadow-cta/25"
-            >
-              {t(locale, 'header.freeConsultation')}
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a
-              href={CONTACT.phoneTel}
-              class="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl ring-1 ring-white/30 hover:bg-white/20 transition-colors"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              {CONTACT.phoneDisplay}
-            </a>
+              <div class="mt-7 flex flex-col sm:flex-row gap-3.5">
+                <a
+                  href={contactLink}
+                  class="inline-flex items-center justify-center px-6 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-lg shadow-cta/25"
+                >
+                  {t(locale, 'header.freeConsultation')}
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <a
+                  href={CONTACT.phoneTel}
+                  class="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 text-white font-semibold rounded-xl ring-1 ring-white/30 hover:bg-white/20 transition-colors"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  {CONTACT.phoneDisplay}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- Stats band                                                     -->
+    <!-- Mission quote — prominent designed band (replaces stats)       -->
     <!-- ============================================================= -->
-    <section class="border-b border-gray-100">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-gray-100">
-          {STATS.map((stat) => (
-            <div class="text-center px-6 py-8 lg:py-10">
-              <div class="text-3xl lg:text-4xl font-bold text-cta mb-1.5">{stat.value}</div>
-              <div class="text-sm text-gray-500 font-medium">{t(locale, `stats.${stat.key}`) || stat.label}</div>
-            </div>
-          ))}
+    <section class="relative overflow-hidden bg-gradient-to-br from-cta to-cta-hover py-16 lg:py-24">
+      <div class="absolute -top-20 -left-16 w-72 h-72 rounded-full bg-white/10"></div>
+      <div class="absolute -bottom-24 -right-16 w-80 h-80 rounded-full bg-white/10"></div>
+      <div class="relative max-w-4xl mx-auto px-6 text-center">
+        <svg class="w-12 h-12 mx-auto mb-6 text-white/40" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+        </svg>
+        <p class="text-2xl lg:text-3xl font-semibold text-white leading-relaxed">
+          {t(locale, 'about.storyClosing')}
+        </p>
+        <div class="mt-8 flex items-center justify-center gap-3 text-white/80">
+          <span class="h-px w-10 bg-white/40"></span>
+          <span class="font-medium">{COMPANY.brand}</span>
+          <span class="h-px w-10 bg-white/40"></span>
         </div>
       </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- Story — checkerboard: kép-szöveg / szöveg-kép alternating.     -->
-    <!-- Mobile: szöveg majd kép minden blokknál.                       -->
+    <!-- Story — full-bleed checkerboard. Images go wall-to-wall, sharp -->
+    <!-- corners that meet between rows. Mobile: szöveg → kép.           -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+        <div class="text-center max-w-2xl mx-auto -mt-5 mb-12 lg:mb-16">
           <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.story')}</span>
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">
             {t(locale, 'about.title', { companyName: COMPANY.brand })}
           </h2>
         </div>
+      </div>
 
-        <div class="space-y-16 lg:space-y-24">
-          {story.map((item) => (
-            <div class="grid md:grid-cols-2 gap-8 lg:gap-14 items-center">
-              <!-- Text (DOM-first → mobile shows text then image) -->
-              <div class={item.imageLeft ? 'md:order-2' : 'md:order-1'}>
+      <!-- Rows: full width, no gaps, no rounding -->
+      <div>
+        {story.map((item) => (
+          <div class="grid md:grid-cols-2 md:min-h-[24rem] lg:min-h-[30rem]">
+            <!-- Text (DOM-first → mobile shows text then image) -->
+            <div class={`flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-16 ${item.imageLeft ? 'md:order-2' : 'md:order-1'}`}>
+              <div class="max-w-xl mx-auto md:mx-0">
                 <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cta-light text-cta-hover text-sm font-bold mb-4">
                   {item.n}
                 </span>
@@ -240,33 +239,24 @@ const whyUs = [
                   {item.paras.map((p) => <p>{p}</p>)}
                 </div>
               </div>
-
-              <!-- Image -->
-              <div class={item.imageLeft ? 'md:order-1' : 'md:order-2'}>
-                <div class="rounded-3xl overflow-hidden shadow-lg">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    class="w-full h-auto aspect-[4/3] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
             </div>
-          ))}
-        </div>
 
-        <!-- Closing pull-quote -->
-        <blockquote class="mt-16 lg:mt-24 max-w-4xl mx-auto rounded-2xl bg-gradient-to-br from-cta-light to-primary-50/50 border-l-4 border-cta p-6 lg:p-8 text-center">
-          <p class="text-lg lg:text-xl text-gray-800 font-medium leading-relaxed italic">
-            „{t(locale, 'about.storyClosing')}”
-          </p>
-        </blockquote>
+            <!-- Image: fills its half to the wall, sharp corners -->
+            <div class={item.imageLeft ? 'md:order-1' : 'md:order-2'}>
+              <Image
+                src={item.image}
+                alt={item.imageAlt}
+                class="w-full h-64 sm:h-80 md:h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
     <!-- ============================================================= -->
-    <!-- Founders — equal-size portrait cards                           -->
+    <!-- Founders — compact horizontal cards (smaller, equal images)    -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,11 +265,11 @@ const whyUs = [
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.foundersTitle')}</h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
+        <div class="max-w-3xl mx-auto space-y-6">
           {FOUNDERS.map((founder) => (
-            <article class="bg-white rounded-3xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-xl hover:ring-cta/20 transition-all duration-300">
-              <!-- fixed aspect ratio → both portraits identical size -->
-              <div class="aspect-[4/5] overflow-hidden">
+            <article class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-md hover:ring-cta/20 transition-all">
+              <!-- small, fixed-size portrait → both identical -->
+              <div class="sm:w-44 lg:w-52 shrink-0 aspect-[4/5] sm:aspect-auto overflow-hidden">
                 <picture>
                   <source type="image/avif" srcset={`${founder.image}.avif`} />
                   <source type="image/webp" srcset={`${founder.image}.webp`} />
@@ -293,12 +283,12 @@ const whyUs = [
                   />
                 </picture>
               </div>
-              <div class="p-6 lg:p-8 text-center">
-                <h3 class="text-xl lg:text-2xl font-bold text-gray-900">{founder.name}</h3>
-                <p class="inline-flex items-center mt-2 mb-4 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
+              <div class="p-6 lg:p-7 flex flex-col">
+                <h3 class="text-xl font-bold text-gray-900">{founder.name}</h3>
+                <p class="inline-flex self-start items-center mt-1.5 mb-3 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
                   {t(locale, `about.founder.${founder.roleKey}`)}
                 </p>
-                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                <p class="text-gray-600 text-sm leading-relaxed">
                   {t(locale, `about.founder.${founder.roleKey}Bio`)}
                 </p>
               </div>
@@ -309,7 +299,7 @@ const whyUs = [
     </section>
 
     <!-- ============================================================= -->
-    <!-- Why us — standing image + icon-left benefit rows (~1 screen)   -->
+    <!-- Why us — image + grey icon rows, vertically centred            -->
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -318,25 +308,25 @@ const whyUs = [
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.whyUsTitle')}</h2>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-          <!-- Standing image (fills the column height on desktop) -->
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <!-- Image: natural ratio, not cropped -->
           <div class="order-2 lg:order-1">
-            <div class="rounded-3xl overflow-hidden shadow-lg h-full max-h-[80vh] mx-auto">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src={rolunk7}
                 alt="Gaszler Simonetta egy szakmai bemutatón a Skinlab készülékeiről"
-                class="w-full h-full object-cover aspect-[3/4] lg:aspect-auto"
+                class="w-full h-auto"
                 loading="lazy"
               />
             </div>
           </div>
 
-          <!-- Icon-left benefit rows -->
-          <div class="order-1 lg:order-2 flex flex-col justify-center gap-5">
+          <!-- Grey icon rows -->
+          <div class="order-1 lg:order-2 space-y-5">
             {whyUs.map((b) => (
               <div class="flex gap-4 items-start">
-                <div class={`w-12 h-12 ${b.bg} rounded-xl flex items-center justify-center shrink-0`}>
-                  <svg class={`w-6 h-6 ${b.fg}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {b.paths.map((d) => (
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
                     ))}
