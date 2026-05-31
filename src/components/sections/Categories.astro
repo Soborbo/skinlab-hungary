@@ -2,30 +2,19 @@
 import { getCollection } from 'astro:content';
 import { FifthImage } from '../images';
 import { hasImage } from '@/lib/resolve-image';
-import { CATEGORIES, CATEGORY_COLORS } from '../../lib/constants';
+import { CATEGORIES, CATEGORY_COLORS, CATEGORY_CARD_IMAGE } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Manual category image overrides (product photos on white background)
-const CATEGORY_IMAGE_OVERRIDES: Record<string, string> = {
-  'kellekek': '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
-  'sminktetovalas': '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
-  'hydrafacial': '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
-  // OxyGenX pod szett főképe — egységes, fehér hátteres termékfotó
-  'kezeloanyagok': '/images/opt/products/oxygenx-pod-szett-detox-pod-1-800w.avif',
-  'diodalezerek': '/images/opt/products/helios-1600w-diodalezer-1-828w.avif',
-  // mezoterápia: nincs override — ugyanaz a termékfőkép, mint a mega menüben
-};
-
 // Fetch all products and group by category
 const allProducts = await getCollection('products', ({ data }) => !data.draft);
 
-// Get first product image for each category (overrides take priority)
+// Get first product image for each category (CATEGORY_CARD_IMAGE overrides take priority)
 const categoryImages: Record<string, string | null> = {};
 for (const category of CATEGORIES.filter(c => c.featured)) {
-  if (CATEGORY_IMAGE_OVERRIDES[category.slug]) {
-    categoryImages[category.slug] = CATEGORY_IMAGE_OVERRIDES[category.slug];
+  if (CATEGORY_CARD_IMAGE[category.slug]) {
+    categoryImages[category.slug] = CATEGORY_CARD_IMAGE[category.slug];
     continue;
   }
   const categoryProducts = allProducts.filter(p => p.data.categorySlug === category.slug);
@@ -47,7 +36,7 @@ function getCategoryLink(slug: string): string {
 const visibleCategories = CATEGORIES.filter(c => c.featured);
 ---
 
-<section class="py-14 lg:py-20 bg-gray-50/60">
+<section class="py-14 lg:py-20 bg-slate-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-10">
@@ -84,7 +73,7 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
                 style="background: white"
               >
                 {categoryImage ? (
-                  CATEGORY_IMAGE_OVERRIDES[category.slug] ? (
+                  CATEGORY_CARD_IMAGE[category.slug] ? (
                     <img
                       src={categoryImage}
                       alt={categoryName}

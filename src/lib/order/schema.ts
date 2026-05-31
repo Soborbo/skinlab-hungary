@@ -1,5 +1,5 @@
 /**
- * Megrendelés (order) validációs séma — Zod.
+ * Megrendelés (order) validációs séma - Zod.
  *
  * A `/api/order` végpont ezzel ellenőrzi a kosárból érkező beküldést.
  * Az árakat a végpont a termék-kollekcióból újraszámolja (a kliens által
@@ -7,7 +7,7 @@
  */
 import { z } from 'zod';
 
-// Nemzetközi telefonszám — HU (06...), SK, RO, DE, AT, CZ, HR, RS, SI formátumok.
+// Nemzetközi telefonszám - HU (06...), SK, RO, DE, AT, CZ, HR, RS, SI formátumok.
 // A vezető 0 opcionális, hogy a HU "06 70 …" lokális forma is átmenjen.
 const phoneRegex = /^(\+|00|0)?[1-9][0-9]{0,3}[ -]?[0-9]{1,4}[ -]?[0-9]{2,4}[ -]?[0-9]{2,6}$/;
 
@@ -19,7 +19,7 @@ export const orderItemSchema = z.object({
   categorySlug: z.string().default(''),
   name: z.string().min(1),
   variantName: z.string().optional().default(''),
-  // A kliens által küldött ár — a szerver újraszámolja
+  // A kliens által küldött ár - a szerver újraszámolja
   price: z.number().nullable(),
   qty: z.number().int().positive().max(99),
 });
@@ -53,17 +53,17 @@ export const orderSchema = z.object({
   subtotal: z.number().min(0).default(0),
   hasPriceOnRequest: z.boolean().default(false),
 
-  // GDPR — kötelező
+  // GDPR - kötelező
   gdpr: z.literal(true, { message: 'Az adatkezelési hozzájárulás kötelező' }),
 
   // Spam védelem
   website: z.string().max(0, 'Spam detected').optional().default(''),
   formStartTime: z.coerce.number().optional().default(0),
 
-  // Turnstile (opcionális — csak ha be van állítva a site key)
+  // Turnstile (opcionális - csak ha be van állítva a site key)
   turnstileToken: z.string().optional().default(''),
 
-  // Követés / attribúció — a checkout client-side feltölti URL paramokból
+  // Követés / attribúció - a checkout client-side feltölti URL paramokból
   // és localStorage-ben tárolt persistent trackingből (lib/tracking/persistence).
   sourceUrl: z.string().optional().default(''),
   utmSource: z.string().max(200).optional().default(''),

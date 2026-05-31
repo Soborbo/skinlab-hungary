@@ -5,7 +5,7 @@
  * - Admin értesítő e-mail: magyarul (a csapat magyar), a vásárló nyelvét
  *   külön mezőben jelzi, hogy tudják, milyen nyelven hívják vissza.
  *
- * Nincs kártyás fizetés — az e-mail jelzi, hogy visszahívjuk a vásárlót,
+ * Nincs kártyás fizetés - az e-mail jelzi, hogy visszahívjuk a vásárlót,
  * majd e-mailben küldjük a fizetési linket.
  */
 import { t, formatPrice, localeConfig, type Locale } from '@/i18n/ui';
@@ -16,9 +16,9 @@ export interface OrderEmailItem {
   variantName: string;
   sku: string;
   qty: number;
-  /** Egységár — null = ár egyeztetés alatt */
+  /** Egységár - null = ár egyeztetés alatt */
   unitPrice: number | null;
-  /** Sorösszeg — null, ha az egységár ismeretlen */
+  /** Sorösszeg - null, ha az egységár ismeretlen */
   lineTotal: number | null;
 }
 
@@ -40,7 +40,7 @@ export interface OrderEmailInput {
   subtotal: number;
   hasPriceOnRequest: boolean;
   sourceUrl: string;
-  // Attribution / tracking — captured at checkout time from URL params,
+  // Attribution / tracking - captured at checkout time from URL params,
   // persisted tracking storage, and request headers (user-agent)
   utmSource?: string;
   utmMedium?: string;
@@ -59,8 +59,8 @@ function escapeHtml(str: string): string {
   );
 }
 
-const ACCENT = '#9b6b6b';
-const ACCENT_DARK = '#7c5454';
+const ACCENT = '#ce2252';
+const ACCENT_DARK = '#a01c42';
 
 /** A teljes név a nyelvi konvenció szerint összerakva */
 function fullName(input: { lastName: string; firstName: string; locale: Locale }): string {
@@ -129,7 +129,7 @@ export function buildCustomerEmail(input: OrderEmailInput): { subject: string; h
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body style="margin:0;padding:0;background-color:#f8f0ed;font-family:Arial,Helvetica,sans-serif;color:#333;">
+<body style="margin:0;padding:0;background-color:#fff0f4;font-family:Arial,Helvetica,sans-serif;color:#333;">
 <div style="max-width:580px;margin:0 auto;padding:30px 15px;">
   <div style="text-align:center;margin-bottom:24px;">
     <div style="font-size:22px;font-weight:bold;color:${ACCENT};">Skinlab Hungary</div>
@@ -140,7 +140,7 @@ export function buildCustomerEmail(input: OrderEmailInput): { subject: string; h
     <p style="margin:0 0 16px;font-size:15px;">${escapeHtml(tr('greeting', { name }))}</p>
     <p style="margin:0 0 20px;font-size:15px;line-height:1.7;">${escapeHtml(tr('intro'))}</p>
 
-    <div style="background:#f8f0ed;border-left:3px solid ${ACCENT};padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 22px;">
+    <div style="background:#fff0f4;border-left:3px solid ${ACCENT};padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 22px;">
       <p style="margin:0 0 2px;font-size:12px;color:#888;">${escapeHtml(tr('orderNumber'))}</p>
       <p style="margin:0;font-family:'Courier New',monospace;font-size:16px;color:${ACCENT_DARK};font-weight:bold;">${escapeHtml(orderId)}</p>
     </div>
@@ -205,7 +205,7 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
         <tr>
           <td style="padding:10px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;">
             <strong>${escapeHtml(item.name)}</strong>${variant}<br />
-            <span style="color:#888;font-size:13px;">${escapeHtml(item.sku)} — ${item.qty} db</span>
+            <span style="color:#888;font-size:13px;">${escapeHtml(item.sku)} - ${item.qty} db</span>
           </td>
           <td style="padding:10px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;text-align:right;white-space:nowrap;vertical-align:top;">${escapeHtml(line)}</td>
         </tr>`;
@@ -242,7 +242,7 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
       <h1 style="margin:14px 0 4px;font-size:19px;color:#333;font-family:Arial,sans-serif;">Új megrendelés: ${escapeHtml(name)}</h1>
       <p style="margin:0 0 18px;font-size:13px;color:#999;">Rendelésszám: <strong style="color:${ACCENT_DARK};font-family:'Courier New',monospace;">${escapeHtml(input.orderId)}</strong></p>
 
-      <p style="margin:0 0 20px;padding:12px 15px;background:#f8f0ed;border-left:3px solid ${ACCENT};border-radius:0 4px 4px 0;font-size:14px;color:${ACCENT_DARK};">
+      <p style="margin:0 0 20px;padding:12px 15px;background:#fff0f4;border-left:3px solid ${ACCENT};border-radius:0 4px 4px 0;font-size:14px;color:${ACCENT_DARK};">
         Végösszeg: <strong style="font-size:18px;">${escapeHtml(totalText)}</strong>
       </p>
 

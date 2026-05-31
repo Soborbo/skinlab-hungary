@@ -1,8 +1,8 @@
 /**
- * Cart Store — localStorage-alapú kosár kezelés (Skinlab Hungary)
+ * Cart Store - localStorage-alapú kosár kezelés (Skinlab Hungary)
  *
  * A trapézlemezes webshop kosár-mintáját követi, a Skinlab termékkatalógusához
- * igazítva: nincs kártyás fizetés a végén — a vásárló beküldi az adatait,
+ * igazítva: nincs kártyás fizetés a végén - a vásárló beküldi az adatait,
  * majd visszahívjuk és e-mailben elküldjük a fizetési linket.
  *
  * - Egyetlen forrás: a böngésző `localStorage`-a (kulcs: `skinlab_cart`)
@@ -31,7 +31,7 @@ export interface CartItem {
   variantName?: string;
   /** Termékkép útvonal */
   image: string;
-  /** Bruttó ár Ft-ban — `null` esetén "ár egyeztetés alatt" */
+  /** Bruttó ár Ft-ban - `null` esetén "ár egyeztetés alatt" */
   price: number | null;
   /** Darabszám */
   qty: number;
@@ -43,7 +43,7 @@ export interface CartSummary {
   itemCount: number;
   /** Összes darabszám */
   totalQty: number;
-  /** Részösszeg — csak az árazott tételek összege */
+  /** Részösszeg - csak az árazott tételek összege */
   subtotal: number;
   /** Van-e a kosárban "ár egyeztetés alatt" tétel */
   hasPriceOnRequest: boolean;

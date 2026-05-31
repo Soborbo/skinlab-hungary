@@ -56,7 +56,7 @@ const EU_COUNTRIES = new Set<string>([
  *
  * A megrendelési form szabad szöveges országot fogad (pl. "Magyarország",
  * "Hungary", "HU"). A leggyakoribb európai elnevezéseket fedjük le. Ami nincs
- * benne, `null`-t adunk vissza — a hívó vagy default HU-t használ (Billingo
+ * benne, `null`-t adunk vissza - a hívó vagy default HU-t használ (Billingo
  * partner létrehozáshoz), vagy a VAT logika `UNKNOWN`-ként kezeli.
  */
 export function deriveCountryCode(country: string): string {
@@ -148,7 +148,7 @@ function lookupCountryCode(country: string): string | null {
 
 /**
  * Email alapján keres partnert. Ha találat van, az első ID-t adja vissza,
- * különben `null`. Lista végpont 4xx-jét nem dobjuk fel — fallback az új
+ * különben `null`. Lista végpont 4xx-jét nem dobjuk fel - fallback az új
  * partner létrehozására.
  */
 async function findPartnerByEmail(
@@ -172,7 +172,7 @@ async function findPartnerByEmail(
     if (caught instanceof BillingoApiError && caught.code === 'BILLINGO-AUTH-001') {
       throw caught;
     }
-    // Search failure nem blokkolja a flow-t — új partnert hozunk létre.
+    // Search failure nem blokkolja a flow-t - új partnert hozunk létre.
     console.warn('[billingo] partner search failed, falling back to create:', caught);
     return null;
   }
@@ -181,7 +181,7 @@ async function findPartnerByEmail(
 /**
  * Partner upsert: keresés email alapján, ha nincs, létrehoz.
  *
- * Kifelé dob `BillingoApiError`-t — a generateProforma() fordítja le a
+ * Kifelé dob `BillingoApiError`-t - a generateProforma() fordítja le a
  * regisztrált error code-okra.
  */
 export async function findOrCreatePartner(

@@ -5,7 +5,7 @@ import { CONTACT } from '../../lib/constants';
 <div
   id="desktop-contact-widget"
   class="hidden lg:block fixed bottom-6 right-6 z-40"
-  style="transform: translateX(calc(100% + 2rem)); transition: transform 0.5s ease-out;"
+  style="transform: translateX(calc(100% + 2rem)); transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);"
 >
   <!-- Collapsed: just the avatar bubble -->
   <button
@@ -93,44 +93,34 @@ import { CONTACT } from '../../lib/constants';
 
     const STORAGE_KEY = 'contact-widget-dismissed';
 
+    // Alapállapot: csak az összecsukott avatar buborék (a kártya rejtve).
+    // Maga a buborék a widget-konténer transformjával csúszik be / marad rejtve.
+    card.style.display = 'none';
+    reopenBtn.classList.remove('hidden');
+
+    const slideIn = () => {
+      widget.style.transform = 'translateX(0)';
+    };
+
     const showCard = () => {
       card.style.display = '';
       reopenBtn.classList.add('hidden');
-      widget.style.transform = 'translateX(0)';
+      slideIn();
     };
 
     const collapseToAvatar = () => {
-      widget.style.transform = 'translateX(calc(100% + 2rem))';
-      setTimeout(() => {
-        card.style.display = 'none';
-        reopenBtn.classList.remove('hidden');
-        widget.style.transform = 'translateX(0)';
-      }, 500);
-    };
-
-    // If previously dismissed, show avatar directly
-    if (sessionStorage.getItem(STORAGE_KEY)) {
       card.style.display = 'none';
       reopenBtn.classList.remove('hidden');
-      widget.style.transform = 'translateX(0)';
+    };
+
+    // Ha korábban bezárta, a buborék azonnal látszik (nincs 9s várakozás).
+    if (sessionStorage.getItem(STORAGE_KEY)) {
+      slideIn();
       return;
     }
 
-    // Show 9s after first scroll
-    let scrollTriggered = false;
-    const onFirstScroll = () => {
-      if (scrollTriggered) return;
-      scrollTriggered = true;
-      window.removeEventListener('scroll', onFirstScroll);
-      setTimeout(() => {
-        widget.style.transform = 'translateX(0)';
-        setTimeout(() => {
-          const shimmer = widget.querySelector('.shimmer-overlay');
-          if (shimmer) shimmer.classList.add('shimmer-active');
-        }, 2000);
-      }, 9000);
-    };
-    window.addEventListener('scroll', onFirstScroll, { passive: true });
+    // 8 másodperc késleltetéssel csúszik be csak az avatar buborék (nem a kártya).
+    setTimeout(slideIn, 8000);
 
     closeBtn?.addEventListener('click', () => {
       sessionStorage.setItem(STORAGE_KEY, '1');

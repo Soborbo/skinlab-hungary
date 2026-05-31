@@ -22,35 +22,56 @@ const { locale, content } = Astro.props;
 
 <section class="py-16 bg-gray-50" id="kepzes">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <!--
+      Two columns. Left: copy + practice photo that grows to fill the empty space
+      beside the (taller) price-card column. Right: hero image + price card.
+    -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch">
 
-      <!-- Left: Training content -->
-      <div>
-        <div class="inline-flex items-center gap-2 bg-success-50 text-success-700 font-semibold px-4 py-2 rounded-lg text-sm mb-4">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-          </svg>
-          {content.badge}
+      <!-- LEFT column: copy on top, practice photo filling the rest -->
+      <div class="flex flex-col">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-success-50 text-success-700 font-semibold px-4 py-2 rounded-lg text-sm mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+            </svg>
+            {content.badge}
+          </div>
+
+          <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+            {content.headline}
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed">
+            {content.intro}
+          </p>
+
+          {content.closingParagraphs && content.closingParagraphs.length > 0 && (
+            <div class="mt-4 space-y-4">
+              {content.closingParagraphs.map((paragraph) => (
+                <p class="text-gray-600 leading-relaxed">{paragraph}</p>
+              ))}
+            </div>
+          )}
         </div>
 
-        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
-          {content.headline}
-        </h2>
-
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          {content.intro}
-        </p>
-
-        {content.closingParagraphs && (
-          <div class="space-y-4">
-            {content.closingParagraphs.map((paragraph) => (
-              <p class="text-gray-600 leading-relaxed">{paragraph}</p>
-            ))}
-          </div>
-        )}
+        <!-- Practice photo — fills the empty space below the copy.
+             On lg the <picture> is absolutely positioned so the image takes exactly
+             the leftover column height (flush with the price-card column), instead of
+             forcing the column taller via its intrinsic height. -->
+        <div class="mt-8 rounded-2xl overflow-hidden shadow-lg lg:flex-1 lg:min-h-0 lg:relative [&>picture]:block lg:[&>picture]:absolute lg:[&>picture]:inset-0">
+          <OptimizedPicture
+            src="@assets/gepkezeloi-oktatas-gyakorlat.jpg"
+            alt="Gépkezelői oktatás gyakorlatban – Skinlab"
+            class="w-full h-64 lg:h-full object-cover"
+            widths={[400, 600]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
+          />
+        </div>
       </div>
 
-      <!-- Right: Image + Price card -->
+      <!-- RIGHT column: hero image + price card -->
       <div class="space-y-6">
         <div class="rounded-2xl overflow-hidden shadow-lg">
           <OptimizedPicture

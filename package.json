@@ -11,8 +11,7 @@
     "deploy": "wrangler deploy --config dist/server/wrangler.json --keep-vars",
     "deploy:dry": "wrangler deploy --config dist/server/wrangler.json --keep-vars --dry-run",
     "generate:images": "node scripts/generate-optimized-images.cjs",
-    "validate:content": "npx tsx scripts/validate-content.ts",
-    "sync:unas": "node scripts/sync-unas-products.cjs"
+    "validate:content": "npx tsx scripts/validate-content.ts"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.2",

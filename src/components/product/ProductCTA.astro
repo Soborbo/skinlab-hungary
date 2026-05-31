@@ -23,7 +23,7 @@ interface Props {
   buttonLabel?: string;
   phoneLabel?: string;
   showPhone?: boolean;
-  /** Product slug — if set on an "accent" variant, the showroom gallery is
+  /** Product slug - if set on an "accent" variant, the showroom gallery is
    *  rendered when @assets/showroom/{slug}/ has photos in the manifest. */
   productSlug?: string;
 }
@@ -59,7 +59,7 @@ const displayPhone = t(locale, 'cta.defaultPhone');
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-gray-700 font-medium text-center sm:text-left">{displayHeadline}</p>
       <div class="flex gap-3 shrink-0">
-        <a href={contactUrl} class="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors text-sm">
+        <a href={contactUrl} class="inline-flex items-center px-5 py-2.5 bg-primary-700 text-white font-semibold rounded-lg hover:bg-primary-800 transition-colors text-sm">
           {displayButton}
         </a>
         {showPhone && (
@@ -81,7 +81,7 @@ const displayPhone = t(locale, 'cta.defaultPhone');
       <p class="text-lg font-semibold text-gray-900 mb-2">{displayHeadline}</p>
       {displaySubtitle && <p class="text-gray-600 mb-6">{displaySubtitle}</p>}
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href={contactUrl} class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors">
+        <a href={contactUrl} class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors">
           {displayButton}
         </a>
         {showPhone && (

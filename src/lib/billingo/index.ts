@@ -3,12 +3,12 @@
  *
  * Bemenet: a megrendelés `OrderEmailInput`-ja (az `/api/order` handler már
  * validálta és újraszámolta az árakat). Kimenet: strukturált eredmény, soha
- * nem dob — a hívó eldönti, hogyan kezeli (logolás, admin email mező, stb.).
+ * nem dob - a hívó eldönti, hogyan kezeli (logolás, admin email mező, stb.).
  *
  * Skip szabályok:
- *   - `hasPriceOnRequest === true` — nem tudunk árazott díjbekérőt kiállítani.
- *   - `subtotal <= 0` — Billingo nem ad ki 0 Ft-os bizonylatot.
- *   - Config hiányzik — BILLINGO-CFG-* skipként visszaadjuk.
+ *   - `hasPriceOnRequest === true` - nem tudunk árazott díjbekérőt kiállítani.
+ *   - `subtotal <= 0` - Billingo nem ad ki 0 Ft-os bizonylatot.
+ *   - Config hiányzik - BILLINGO-CFG-* skipként visszaadjuk.
  *
  * Flow:
  *   1. Skip ellenőrzés
@@ -33,7 +33,7 @@ function buildDisplayName(order: OrderEmailInput): string {
 }
 
 /**
- * Díjbekérő generálása egy rendeléshez. Soha nem dob — a sikertelenség
+ * Díjbekérő generálása egy rendeléshez. Soha nem dob - a sikertelenség
  * is a visszatérési típusban van.
  */
 export async function generateProforma(
@@ -41,11 +41,11 @@ export async function generateProforma(
   env: OrderEnv,
 ): Promise<BillingoProformaResult> {
   if (order.hasPriceOnRequest) {
-    console.info('[billingo] skip BILLINGO-SKIP-001 — price on request:', order.orderId);
+    console.info('[billingo] skip BILLINGO-SKIP-001 - price on request:', order.orderId);
     return { success: false, skipped: true, reason: 'price_on_request', code: 'BILLINGO-SKIP-001' };
   }
   if (order.subtotal <= 0) {
-    console.info('[billingo] skip BILLINGO-SKIP-002 — zero subtotal:', order.orderId);
+    console.info('[billingo] skip BILLINGO-SKIP-002 - zero subtotal:', order.orderId);
     return { success: false, skipped: true, reason: 'zero_total', code: 'BILLINGO-SKIP-002' };
   }
 
@@ -68,7 +68,7 @@ export async function generateProforma(
   const languageMapping = mapLocaleToBillingo(order.locale);
   if (languageMapping.fellBack) {
     console.info(
-      `[billingo] BILLINGO-LOCALE-001 — ${languageMapping.requested} → ${languageMapping.language} fallback`,
+      `[billingo] BILLINGO-LOCALE-001 - ${languageMapping.requested} → ${languageMapping.language} fallback`,
     );
   }
 
@@ -87,7 +87,7 @@ export async function generateProforma(
 
     if (!emailSent) {
       console.warn(
-        `[billingo] BILLINGO-EMAIL-001 — proforma ${proforma.invoice_number} létrejött, de email küldés bukott`,
+        `[billingo] BILLINGO-EMAIL-001 - proforma ${proforma.invoice_number} létrejött, de email küldés bukott`,
       );
     }
 

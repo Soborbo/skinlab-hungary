@@ -1,11 +1,11 @@
 ---
 /**
- * QuickAddButton — kompakt "Kosárba" gomb a terméklistákhoz
+ * QuickAddButton - kompakt "Kosárba" gomb a terméklistákhoz
  * (kategória oldalak, összes termék oldal).
  *
  * 1 db-ot tesz a kosárba a megjelenített termékből. Variánsos terméknél
  * a termékoldalon lehet pontos variánst választani; itt az alap termék
- * (alapár) kerül a kosárba. Több példány is lehet egy oldalon — a
+ * (alapár) kerül a kosárba. Több példány is lehet egy oldalon - a
  * kliens script eseménydelegálással kezeli az összeset.
  */
 import { t, type Locale } from '@/i18n/ui';
@@ -39,7 +39,7 @@ const cartImage = resolveCartImage(image);
 <button
   type="button"
   class:list={[
-    'inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors disabled:opacity-60',
+    'inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#ce2252] text-white font-semibold text-sm rounded-xl hover:bg-[#a01c42] transition-colors disabled:opacity-60',
     className,
   ]}
   data-quick-add-btn
@@ -62,7 +62,7 @@ const cartImage = resolveCartImage(image);
   import { addToCart } from '@/lib/cart/store';
 
   function initQuickAdd() {
-    // Eseménydelegálás — egy listener kezeli az oldal összes gombját
+    // Eseménydelegálás - egy listener kezeli az oldal összes gombját
     if ((window as any).__quickAddBound) return;
     (window as any).__quickAddBound = true;
 

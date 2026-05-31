@@ -47,7 +47,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     if (!validation.success) {
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizze a megadott adatokat — néhány mező hibás vagy hiányzik.',
+        userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
         context: { formId: 'consultation' },
       });
@@ -59,18 +59,18 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen — kérjük, végezze el újra.',
+        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezze el újra.',
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'consultation' },
       });
     }
 
-    // Process form submission — capture User-Agent for the Sheets row too
+    // Process form submission - capture User-Agent for the Sheets row too
     const userAgent = request.headers.get('user-agent') ?? undefined;
     const result = await processConsultationSubmission(validation.data!, clientAddress, userAgent, waitUntil);
 
     if (!result.success) {
-      // Keep internal error details server-side only — userMessage is generic
+      // Keep internal error details server-side only - userMessage is generic
       // so we don't leak stack/host/IP info into the browser response.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
         userMessage: 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbálja újra később.',
@@ -94,7 +94,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     const message = error instanceof Error ? error.message : String(error);
     console.error('Consultation form error:', error);
 
-    // Internal error details stay in the log context — do not echo into userMessage.
+    // Internal error details stay in the log context - do not echo into userMessage.
     return errorResponse('FORM-SUBMIT-001', {
       userMessage: 'Váratlan hiba történt a konzultációs űrlap feldolgozása közben. Kérjük, próbálja újra később.',
       context: { formId: 'consultation', errorMessage: message },

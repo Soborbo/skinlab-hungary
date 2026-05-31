@@ -1,6 +1,6 @@
 ---
 /**
- * CartDrawer — becsúszó mini-kosár fiók (jobb oldalról).
+ * CartDrawer - becsúszó mini-kosár fiók (jobb oldalról).
  *
  * Egyszer renderelődik (a BaseLayout-ban). A fejléc kosár ikonja
  * `cart:open` eseménnyel nyitja; `cart:added` eseményre is kinyílik
@@ -36,7 +36,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
   >
     <!-- Header -->
     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-      <h2 class="text-lg font-bold text-[#9b6b6b] flex items-center gap-2">
+      <h2 class="text-lg font-bold text-[#ce2252] flex items-center gap-2">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
         </svg>
@@ -64,7 +64,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
       <p class="text-gray-600 mb-6">{t(locale, 'cart.drawerEmpty')}</p>
       <a
         href={productsUrl}
-        class="inline-flex items-center px-5 py-2.5 bg-[#9b6b6b] text-white font-semibold text-sm rounded-xl hover:bg-[#8a5c5c] transition-colors"
+        class="inline-flex items-center px-5 py-2.5 bg-[#ce2252] text-white font-semibold text-sm rounded-xl hover:bg-[#a01c42] transition-colors"
         data-cart-close-link
       >
         {t(locale, 'cart.browseProducts')}
@@ -83,14 +83,14 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
       <p class="text-xs text-gray-400 mb-4">{t(locale, 'cart.priceNote')}</p>
       <a
         href={checkoutUrl}
-        class="block w-full text-center px-6 py-3 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md"
+        class="block w-full text-center px-6 py-3 bg-[#ce2252] text-white font-semibold rounded-xl hover:bg-[#a01c42] transition-colors shadow-md"
         data-cart-close-link
       >
         {t(locale, 'cart.checkout')}
       </a>
       <a
         href={cartUrl}
-        class="block w-full text-center px-6 py-2.5 mt-2 text-[#9b6b6b] font-medium text-sm hover:underline"
+        class="block w-full text-center px-6 py-2.5 mt-2 text-[#ce2252] font-medium text-sm hover:underline"
         data-cart-close-link
       >
         {t(locale, 'cart.viewCart')}
@@ -175,9 +175,9 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
             ${variant}
             <div class="flex items-center justify-between mt-2">
               <div class="inline-flex items-center border border-gray-200 rounded-lg">
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b]" data-drawer-minus="${item.id}" aria-label="−">−</button>
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#ce2252]" data-drawer-minus="${item.id}" aria-label="−">−</button>
                 <span class="w-8 text-center text-sm font-semibold text-gray-900" data-drawer-qty="${item.id}">${item.qty}</span>
-                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b]" data-drawer-plus="${item.id}" aria-label="+">+</button>
+                <button type="button" class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-[#ce2252]" data-drawer-plus="${item.id}" aria-label="+">+</button>
               </div>
               <span class="text-sm font-bold text-gray-900 whitespace-nowrap">${priceText}</span>
             </div>

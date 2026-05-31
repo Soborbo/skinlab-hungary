@@ -63,7 +63,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
   novalidate
   data-contact-form
 >
-  <!-- Hidden fields for tracking — populated client-side from URL params,
+  <!-- Hidden fields for tracking - populated client-side from URL params,
        persisted tracking storage (sb_tracking localStorage), and document.referrer -->
   <input type="hidden" name="sourceUrl" value={sourceUrl} />
   <input type="hidden" name="formStartTime" data-form-start />
@@ -315,7 +315,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     // Resolution order per field:
     //   1. URL param on the current page (?utm_source=…&gclid=… etc.)
     //   2. Persisted tracking in localStorage `sb_tracking` (lib/tracking/persistence)
-    //      — survives across pages so the click ID isn't lost when the user
+    //      - survives across pages so the click ID isn't lost when the user
     //      browses around before filling the form.
     //   3. `referrer` falls back to `document.referrer` if not in storage.
     const urlParams = new URLSearchParams(window.location.search);
@@ -324,7 +324,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
       const raw = localStorage.getItem('sb_tracking');
       if (raw) storedTracking = JSON.parse(raw);
     } catch {
-      /* private mode / quota — ignore */
+      /* private mode / quota - ignore */
     }
     formEl.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
@@ -374,7 +374,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
       spinner?.classList.remove('hidden');
 
       try {
-        // Restamp GDPR timestamp at submit time — `change` may not fire after
+        // Restamp GDPR timestamp at submit time - `change` may not fire after
         // bfcache restore or password-manager autofill, leaving the hidden
         // field empty and triggering FORM-ZOD-002 server-side.
         if (gdprCheckbox?.checked && gdprTimestamp && !gdprTimestamp.value) {
@@ -420,7 +420,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           await waitForTracking(600);
           window.location.href = `${thankYouLink}?lead=${result.leadId}`;
         } else {
-          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
+          if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
           // Show field errors
           if (result.errors) {
             Object.entries(result.errors).forEach(([field, messages]) => {
@@ -448,7 +448,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         }
       } catch (error) {
         // Network error
-        console.error('[NET-OFFLINE-001] contact network error:', error);
+        if (window.__slDebug) console.error('[NET-OFFLINE-001] contact network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
           const networkError = errorMessage?.getAttribute('data-network-error') || 'A network error occurred. Please try again.';

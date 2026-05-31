@@ -1,6 +1,6 @@
 ---
 /**
- * CheckoutPageContent — a /megrendeles oldal tartalma.
+ * CheckoutPageContent - a /megrendeles oldal tartalma.
  *
  * Nincs kártyás fizetés: a vásárló beküldi az adatait, a megrendelést
  * rögzítjük, majd visszahívjuk és e-mailben elküldjük a fizetési linket
@@ -43,7 +43,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
       <p class="text-gray-600 mb-8">{t(locale, 'checkout.emptyDesc')}</p>
       <a
         href={productsUrl}
-        class="inline-flex items-center px-6 py-3 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md"
+        class="inline-flex items-center px-6 py-3 bg-[#ce2252] text-white font-semibold rounded-xl hover:bg-[#a01c42] transition-colors shadow-md"
       >
         {t(locale, 'cart.browseProducts')}
       </a>
@@ -120,7 +120,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
           <!-- Céges adatok (lenyitható) -->
           <details class="group border border-gray-200 rounded-xl overflow-hidden">
-            <summary class="flex items-center gap-2 px-4 py-3 cursor-pointer text-sm font-semibold text-[#9b6b6b] bg-gray-50 select-none list-none">
+            <summary class="flex items-center gap-2 px-4 py-3 cursor-pointer text-sm font-semibold text-[#ce2252] bg-gray-50 select-none list-none">
               <svg class="w-4 h-4 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/></svg>
               {t(locale, 'checkout.companyToggle')}
             </summary>
@@ -199,7 +199,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
           <div>
             <button
               type="submit"
-              class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#9b6b6b] text-white font-bold text-base rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#ce2252] text-white font-bold text-base rounded-xl hover:bg-[#a01c42] transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
               data-submit-btn
             >
               <span data-submit-label>{t(locale, 'checkout.submit')}</span>
@@ -232,7 +232,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
       <aside class="lg:sticky lg:top-24 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-lg font-bold text-gray-900">{t(locale, 'checkout.orderSummary')}</h2>
-          <a href={cartUrl} class="text-sm text-[#9b6b6b] hover:underline font-medium">{t(locale, 'checkout.edit')}</a>
+          <a href={cartUrl} class="text-sm text-[#ce2252] hover:underline font-medium">{t(locale, 'checkout.edit')}</a>
         </div>
         <div class="space-y-3 mb-4" data-summary-items></div>
         <div class="border-t border-gray-100 pt-3 flex items-center justify-between">
@@ -422,7 +422,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         hasError = true;
       }
       const emailInput = form!.querySelector<HTMLInputElement>('[name="email"]');
-      // Conservative regex: localpart@domain.tld — catches the "a@" / missing
+      // Conservative regex: localpart@domain.tld - catches the "a@" / missing
       // TLD / spaces typos that the bare `.includes('@')` check let through.
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (emailInput && emailInput.value.trim() && !emailRegex.test(emailInput.value.trim())) {
@@ -471,7 +471,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         website: '',
         turnstileToken: window.__orderTurnstileToken || '',
         sourceUrl: window.location.href,
-        // Attribution stack — URL params → persisted tracking → document.referrer
+        // Attribution stack - URL params → persisted tracking → document.referrer
         ...(() => {
           const urlParams = new URLSearchParams(window.location.search);
           let stored: Record<string, string | undefined> = {};
@@ -479,7 +479,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             const raw = localStorage.getItem('sb_tracking');
             if (raw) stored = JSON.parse(raw);
           } catch {
-            /* private mode / quota — ignore */
+            /* private mode / quota - ignore */
           }
           const pick = (key: string) => urlParams.get(key) || stored[key] || '';
           return {

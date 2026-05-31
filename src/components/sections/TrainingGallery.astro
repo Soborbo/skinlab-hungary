@@ -1,0 +1,127 @@
+---
+import { ThirdImage } from '../images';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Képzési pillanatképek - sorrend: 3. (diódalézeres) elöl, 6. kép a harmadik
+const galleryImages = [
+  { src: '@assets/training-gallery-3.jpg', alt: t(locale, 'training.galleryAlt3') },
+  { src: '@assets/training-gallery-1.jpg', alt: t(locale, 'training.galleryAlt1') },
+  { src: '@assets/training-gallery-6.jpg', alt: t(locale, 'training.galleryAlt6') },
+  { src: '@assets/training-gallery-2.jpg', alt: t(locale, 'training.galleryAlt2') },
+  { src: '@assets/training-gallery-4.jpg', alt: t(locale, 'training.galleryAlt4') },
+  { src: '@assets/training-gallery-5.jpg', alt: t(locale, 'training.galleryAlt5') },
+];
+
+// Duplikált készlet a folyamatos, varratmentes (loop) görgetéshez
+const carouselImages = [...galleryImages, ...galleryImages];
+---
+
+<!-- Képforgató: pillanatképek a képzésekről -->
+<section class="py-12 lg:py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{t(locale, 'training.galleryTitle')}</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">{t(locale, 'training.gallerySubtitle')}</p>
+    </div>
+
+    <div class="relative" data-training-carousel>
+      <div class="flex items-center gap-4 lg:gap-5 overflow-x-auto pb-2 training-gallery-track" data-track>
+        {carouselImages.map((img, i) => (
+          <div
+            class="shrink-0 h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50"
+            aria-hidden={i >= galleryImages.length ? 'true' : undefined}
+          >
+            <ThirdImage
+              src={img.src}
+              alt={i >= galleryImages.length ? '' : img.alt}
+              class="h-full w-auto object-contain"
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Lapozó nyilak (desktop) -->
+      <button
+        type="button"
+        data-prev
+        aria-label="Előző képek"
+        class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-white text-primary-600 shadow-lg border border-gray-200 hover:bg-primary-50 transition-colors cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-next
+        aria-label="Következő képek"
+        class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-11 h-11 items-center justify-center rounded-full bg-white text-primary-600 shadow-lg border border-gray-200 hover:bg-primary-50 transition-colors cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .training-gallery-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .training-gallery-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-training-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('[data-track]') as HTMLElement | null;
+    const prev = carousel.querySelector('[data-prev]');
+    const next = carousel.querySelector('[data-next]');
+    if (!track) return;
+
+    // Lapozó nyilak (sima görgetés)
+    const step = () => Math.max(track.clientWidth * 0.8, 240);
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+
+    // Lassú, folyamatos automata forgatás (varratmentes a duplikált készlettel)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const SPEED = 0.4; // px / frame — lassú pörgés
+    let paused = false;
+
+    // A fél pályányi (egy teljes készlet) görgetési távolság
+    const loopWidth = () => {
+      const children = track.children;
+      const half = children.length / 2;
+      if (children.length < 2 || !children[half]) return 0;
+      return (children[half] as HTMLElement).offsetLeft - (children[0] as HTMLElement).offsetLeft;
+    };
+
+    const pause = () => { paused = true; };
+    const resume = () => { paused = false; };
+    carousel.addEventListener('mouseenter', pause);
+    carousel.addEventListener('mouseleave', resume);
+    track.addEventListener('pointerdown', pause);
+    window.addEventListener('pointerup', resume);
+    document.addEventListener('visibilitychange', () => { paused = document.hidden; });
+
+    const tick = () => {
+      if (!paused) {
+        track.scrollLeft += SPEED;
+        const w = loopWidth();
+        if (w > 0 && track.scrollLeft >= w) {
+          track.scrollLeft -= w;
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+</script>

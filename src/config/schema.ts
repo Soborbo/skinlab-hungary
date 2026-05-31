@@ -1,5 +1,5 @@
 // ============================================
-// schema.ts — JSON-LD entity graph generators
+// schema.ts - JSON-LD entity graph generators
 //
 // Architecture (per skill):
 //   - ONE entity gets declared once with full @id
@@ -14,7 +14,7 @@ import type { SiteConfig } from './siteConfig';
 // Helpers
 // ============================================
 
-/** Build full URL with hash fragment — never bare #fragments */
+/** Build full URL with hash fragment - never bare #fragments */
 function id(base: string, suffix: string): string {
   const clean = base.replace(/\/+$/, '');
   return `${clean}#${suffix}`;
@@ -97,7 +97,7 @@ function clean(obj: Record<string, unknown>): Record<string, unknown> {
 // Entity builders
 // ============================================
 
-/** Full LocalBusiness entity — declared ONLY on homepage */
+/** Full LocalBusiness entity - declared ONLY on homepage */
 function buildLocalBusiness(config: SiteConfig) {
   return clean({
     '@type': config.schemaType,
@@ -129,7 +129,7 @@ function buildLocalBusiness(config: SiteConfig) {
   });
 }
 
-/** Organization entity — declared on homepage */
+/** Organization entity - declared on homepage */
 function buildOrganization(config: SiteConfig) {
   return clean({
     '@type': 'Organization',
@@ -148,7 +148,7 @@ function buildOrganization(config: SiteConfig) {
   });
 }
 
-/** WebSite entity — declared on homepage */
+/** WebSite entity - declared on homepage */
 function buildWebSite(config: SiteConfig) {
   return {
     '@type': 'WebSite',
@@ -180,7 +180,7 @@ function buildPerson(config: SiteConfig, slug: string) {
 // Each returns a full JSON-LD object with @context + @graph
 // ============================================
 
-/** Homepage — declares full LocalBusiness + WebSite + Organization */
+/** Homepage - declares full LocalBusiness + WebSite + Organization */
 export function homepageSchema(config: SiteConfig) {
   return {
     '@context': 'https://schema.org',
@@ -194,7 +194,7 @@ export function homepageSchema(config: SiteConfig) {
   };
 }
 
-/** Contact page — ContactPage entity + LocalBusiness ref */
+/** Contact page - ContactPage entity + LocalBusiness ref */
 export function contactPageSchema(config: SiteConfig, pageUrl: string) {
   return {
     '@context': 'https://schema.org',
@@ -213,7 +213,7 @@ export function contactPageSchema(config: SiteConfig, pageUrl: string) {
   };
 }
 
-/** About page — AboutPage entity + Person entities */
+/** About page - AboutPage entity + Person entities */
 export function aboutPageSchema(config: SiteConfig, pageUrl: string) {
   return {
     '@context': 'https://schema.org',
@@ -234,7 +234,7 @@ export function aboutPageSchema(config: SiteConfig, pageUrl: string) {
   };
 }
 
-/** Category/collection page — CollectionPage + ItemList */
+/** Category/collection page - CollectionPage + ItemList */
 export function collectionPageSchema(
   config: SiteConfig,
   pageUrl: string,
@@ -268,7 +268,7 @@ export function collectionPageSchema(
   };
 }
 
-/** Blog post — aligns existing BlogPosting with entity graph */
+/** Blog post - aligns existing BlogPosting with entity graph */
 export function articleSchema(
   config: SiteConfig,
   pageUrl: string,
@@ -305,7 +305,7 @@ export function articleSchema(
   };
 }
 
-/** Breadcrumb — reusable, can be pushed into any page's @graph */
+/** Breadcrumb - reusable, can be pushed into any page's @graph */
 export function breadcrumbSchema(
   pageUrl: string,
   items: { name: string; url?: string }[],
@@ -322,7 +322,7 @@ export function breadcrumbSchema(
   };
 }
 
-/** FAQ — can be pushed into any page's @graph */
+/** FAQ - can be pushed into any page's @graph */
 export function faqSchema(
   pageUrl: string,
   questions: { question: string; answer: string }[],
@@ -341,7 +341,7 @@ export function faqSchema(
   };
 }
 
-/** Generic WebPage — for pages that don't have a specific type */
+/** Generic WebPage - for pages that don't have a specific type */
 export function webPageSchema(config: SiteConfig, pageUrl: string, name: string) {
   return {
     '@context': 'https://schema.org',

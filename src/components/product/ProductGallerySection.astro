@@ -1,0 +1,189 @@
+---
+/**
+ * ProductGallerySection - Standalone image gallery section.
+ *
+ * Responsive thumbnail grid of the product's non-main images. Click any image
+ * to open a full-screen lightbox with zoom, prev/next, keyboard nav and touch
+ * swipe. All images are lazy-loaded and served from the optimized manifest.
+ *
+ * Scoped via [data-pgallery] so it never collides with the hero ProductGallery.
+ */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import { getImageEntry, hasImage } from '@/lib/resolve-image';
+
+interface Props {
+  images: string[];
+  productName: string;
+  headline?: string;
+}
+
+const { images, productName, headline = 'Termékképek közelről' } = Astro.props;
+
+const resolved = images.filter((img) => img && hasImage(img));
+
+function altFor(img: string, i: number): string {
+  const entry = getImageEntry(img);
+  return entry?.alt || `${productName} – kép ${i + 1}`;
+}
+
+const thumbWidths = [320, 480, 640];
+const thumbSizes = '(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw';
+const lightboxWidths = [480, 828, 1080, 1280, 1920];
+const lightboxSizes = '100vw';
+---
+
+{resolved.length > 0 && (
+  <section class="py-12 lg:py-16 bg-white" data-pgallery>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">{headline}</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+        {resolved.map((img, i) => (
+          <button
+            type="button"
+            class="group relative aspect-square rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-cta"
+            data-pgallery-open={i}
+            aria-label={`${altFor(img, i)} – nagyítás`}
+          >
+            <OptimizedPicture
+              src={img}
+              alt={altFor(img, i)}
+              widths={thumbWidths}
+              sizes={thumbSizes}
+              class="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+            <span class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity pointer-events-none">
+              <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Lightbox -->
+      <div class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm" data-pgallery-lightbox role="dialog" aria-modal="true" aria-label="Képnagyító">
+        <button type="button" class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-close aria-label="Bezárás">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {resolved.length > 1 && (
+          <>
+            <button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-prev aria-label="Előző kép">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-next aria-label="Következő kép">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+
+        <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+          {resolved.map((img, i) => (
+            <div
+              class:list={[
+                'pgallery-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
+              ]}
+              data-pgallery-slide={i}
+            >
+              <OptimizedPicture
+                src={img}
+                alt={altFor(img, i)}
+                widths={lightboxWidths}
+                sizes={lightboxSizes}
+                class="max-w-full max-h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+
+        {resolved.length > 1 && (
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm bg-white/10 px-3 py-1 rounded-full">
+            <span data-pgallery-index>1</span> / {resolved.length}
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  function initProductGallerySections() {
+    document.querySelectorAll<HTMLElement>('[data-pgallery]').forEach((root) => {
+      if (root.dataset.pgalleryBound) return;
+      root.dataset.pgalleryBound = '1';
+
+      const openBtns = root.querySelectorAll<HTMLButtonElement>('[data-pgallery-open]');
+      const lightbox = root.querySelector<HTMLElement>('[data-pgallery-lightbox]');
+      const slides = root.querySelectorAll<HTMLElement>('[data-pgallery-slide]');
+      const indexEl = root.querySelector('[data-pgallery-index]');
+      const closeBtn = root.querySelector('[data-pgallery-close]');
+      const prevBtn = root.querySelector('[data-pgallery-prev]');
+      const nextBtn = root.querySelector('[data-pgallery-next]');
+      if (!lightbox) return;
+
+      const total = slides.length;
+      let current = 0;
+
+      function show(i: number) {
+        current = (i + total) % total;
+        slides.forEach((s, idx) => {
+          s.classList.toggle('opacity-100', idx === current);
+          s.classList.toggle('opacity-0', idx !== current);
+          s.classList.toggle('pointer-events-none', idx !== current);
+        });
+        if (indexEl) indexEl.textContent = String(current + 1);
+      }
+
+      function open(i: number) {
+        show(i);
+        lightbox!.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lightbox!.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      openBtns.forEach((btn) => {
+        btn.addEventListener('click', () => open(parseInt(btn.dataset.pgalleryOpen || '0', 10)));
+      });
+      closeBtn?.addEventListener('click', close);
+      prevBtn?.addEventListener('click', () => show(current - 1));
+      nextBtn?.addEventListener('click', () => show(current + 1));
+
+      document.addEventListener('keydown', (e) => {
+        if (lightbox!.classList.contains('hidden')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target === lightbox || target.hasAttribute('data-pgallery-slide')) close();
+      });
+
+      let startX = 0;
+      lightbox.addEventListener('touchstart', (e) => {
+        startX = (e as TouchEvent).changedTouches[0].screenX;
+      }, { passive: true });
+      lightbox.addEventListener('touchend', (e) => {
+        const diff = startX - (e as TouchEvent).changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) show(current + (diff > 0 ? 1 : -1));
+      }, { passive: true });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initProductGallerySections);
+  if (document.readyState !== 'loading') initProductGallerySections();
+</script>

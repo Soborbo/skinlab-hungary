@@ -54,6 +54,67 @@ const faq = [
   },
 ];
 
+// Kategórián belüli modell-összehasonlítás (a tényleges, publikált gépek).
+// Alap: ár / AI bőranalízis / kezelőfejek / kijelző / garancia / kinek ajánlott.
+const comparison = {
+  features: ['Ár', 'AI bőranalízis', 'Kezelőfejek', 'Kijelző', 'Garancia', 'Ajánlott'],
+  products: [
+    {
+      name: 'HydraScan PRO',
+      tag: 'AI belépő',
+      tagColor: 'blue',
+      link: '/hydrafacial/hydrascan-pro',
+      specs: {
+        'Ár': '599 990 Ft',
+        'AI bőranalízis': 'Valós idejű mikrokamera',
+        'Kezelőfejek': '8 kezelőfej + digitális vendégkarton',
+        'Kijelző': '10,1" érintő',
+        'Garancia': '2 év',
+        'Ajánlott': 'AI-alapú arckezelés belépő szinten',
+      },
+    },
+    {
+      name: 'HydraScan PRO+',
+      tag: '2026 csúcsmodell',
+      tagColor: 'purple',
+      highlighted: true,
+      link: '/hydrafacial/hydrascanpro',
+      specs: {
+        'Ár': '669 990 Ft',
+        'AI bőranalízis': '4K, három spektrumú kamera (~2 perc)',
+        'Kezelőfejek': '8 kezelőfej + LED maszk, Android',
+        'Kijelző': '10,1" (800×1280) érintő',
+        'Garancia': '2 év teljes körű',
+        'Ajánlott': 'Legfejlettebb AI-elemzés, prémium kabin',
+      },
+    },
+    {
+      name: 'HydraMIST Elite',
+      tag: '11 az 1-ben',
+      tagColor: 'orange',
+      link: '/hydrafacial/hidra-mist-elite',
+      specs: {
+        'Ár': '749 990 Ft',
+        'AI bőranalízis': '✗',
+        'Kezelőfejek': '11 funkció (UH, RF, vákuum, oxigén, LED, scrubber)',
+        'Kijelző': '—',
+        'Garancia': '2 év',
+        'Ajánlott': 'Sokfunkciós rendszer AI-elemzés nélkül',
+      },
+    },
+  ],
+};
+
+const choicesHeading = 'Melyik hydrofacial gépet válaszd?';
+const choicesSubheading = 'A három publikált modell egy pillantás alatt – AI-elemzés, funkciók, ár';
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  faq={faq}
+  comparison={comparison}
+  choicesHeading={choicesHeading}
+  choicesSubheading={choicesSubheading}
+/>

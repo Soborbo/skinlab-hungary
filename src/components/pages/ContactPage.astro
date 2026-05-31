@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE, CONTACT, LOCATIONS, COMPANY } from '../../lib/constants';
+import { Image } from 'astro:assets';
+import kapcsolatHero from '../../assets/kapcsolat2.jpg';
+import { SITE, CONTACT, LOCATIONS, COMPANY, OPENING_HOURS } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { contactPageSchema } from '../../config/schema';
@@ -28,35 +30,42 @@ const sourceUrl = Astro.url.href;
 >
   <div>
 
-    <!-- Hero -->
-    <section class="bg-gradient-to-b from-primary-50 via-primary-50/30 to-white py-8 lg:py-10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-          <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            {COMPANY.name}
-          </div>
-          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-            {t(locale, 'contact.subtitle')}
-          </h1>
-        </div>
-      </div>
-    </section>
+    <!-- ============================================================= -->
+    <!-- Hero — the showroom photo IS the full background.              -->
+    <!-- A Skinlab névjegykártya bal oldalt a hős → a kapcsolati        -->
+    <!-- kártya jobbra, a tiszta (üres) képfelület fölé kerül, és       -->
+    <!-- asztali nézetben felülre igazítva a kép alsó foltja FÖLÖTT.    -->
+    <!-- ============================================================= -->
+    <section class="relative isolate overflow-hidden">
+      <!-- Full-bleed background photo -->
+      <Image
+        src={kapcsolatHero}
+        alt="Skinlab laser & beauty equipment névjegykártya az érdi showroomban"
+        class="absolute inset-0 -z-20 h-full w-full object-cover object-left"
+        widths={[640, 960, 1280, 1600, 1920, 2560]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Legibility scrim: darker low on mobile (card sits over the photo),
+           a soft right-side wash on desktop so the white card reads cleanly. -->
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/10 to-black/25 lg:bg-gradient-to-l lg:from-white/35 lg:via-white/0 lg:to-transparent" aria-hidden="true"></div>
 
-    <!-- Contact Grid -->
-    <section class="py-10 lg:py-14 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid min-h-[620px] grid-cols-1 items-end gap-8 py-10 lg:min-h-[calc(100svh-var(--header-h,64px))] lg:grid-cols-12 lg:items-start">
 
-          <!-- Contact Form -->
-          <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-              {t(locale, 'contact.formTitle')}
-            </h2>
+          <!-- Left column kept clear — this is László's space in the photo. -->
+          <div class="hidden lg:col-span-7 lg:block" aria-hidden="true"></div>
 
-            <form class="space-y-4" id="contact-form" novalidate>
+          <!-- Contact Form — pinned to the upper-right over the clean wall area,
+               top-aligned so the whole card always stays above the bottom "folt". -->
+          <div class="w-full lg:col-span-5 lg:col-start-8">
+            <div class="rounded-3xl bg-white/95 p-6 shadow-2xl ring-1 ring-black/5 backdrop-blur-md sm:p-8">
+              <h1 class="mb-6 whitespace-nowrap font-bold text-gray-900 text-[clamp(1rem,1.7vw,1.5rem)]">
+                {t(locale, 'contact.subtitle')}
+              </h1>
+
+              <form class="space-y-4" id="contact-form" novalidate>
               <!-- Hidden tracking / anti-spam fields -->
               <input type="hidden" name="sourceUrl" value={sourceUrl} />
               <input type="hidden" name="formStartTime" data-form-start />
@@ -65,49 +74,69 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="utmMedium" data-utm="utm_medium" />
               <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
 
-              <!-- Name -->
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
-                  {t(locale, 'form.name')}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder={t(locale, 'form.namePlaceholder')}
-                />
+              <!-- Combined name (composed from the two fields below on submit) -->
+              <input type="hidden" id="name" name="name" />
+
+              <!-- Name: Vezetéknév + Keresztnév (magyar sorrend) -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">
+                    {t(locale, 'form.lastName')}
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    autocomplete="family-name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors"
+                    placeholder="Kovács"
+                  />
+                </div>
+                <div>
+                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">
+                    {t(locale, 'form.firstName')}
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    autocomplete="given-name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors"
+                    placeholder="Anna"
+                  />
+                </div>
               </div>
 
-              <!-- Email -->
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                  {t(locale, 'form.email')}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder={t(locale, 'form.emailPlaceholder')}
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
-                  {t(locale, 'form.phone')}
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                  placeholder={t(locale, 'form.phonePlaceholder')}
-                />
+              <!-- Email + Telefon, egymás mellett -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                    {t(locale, 'form.email')}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors"
+                    placeholder={t(locale, 'form.emailPlaceholder')}
+                  />
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+                    {t(locale, 'form.phone')}
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors"
+                    placeholder={t(locale, 'form.phonePlaceholder')}
+                  />
+                </div>
               </div>
 
               <!-- Subject -->
@@ -119,7 +148,7 @@ const sourceUrl = Astro.url.href;
                   type="text"
                   id="subject"
                   name="subject"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors"
                   placeholder={t(locale, 'form.subjectPlaceholder')}
                 />
               </div>
@@ -133,12 +162,12 @@ const sourceUrl = Astro.url.href;
                   id="message"
                   name="message"
                   rows="3"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cta focus:border-cta transition-colors resize-none"
                   placeholder={t(locale, 'form.messagePlaceholder')}
                 ></textarea>
               </div>
 
-              <!-- Honeypot (must remain empty — spam bots fill it) -->
+              <!-- Honeypot (must remain empty - spam bots fill it) -->
               <div class="hidden" aria-hidden="true">
                 <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
               </div>
@@ -165,14 +194,14 @@ const sourceUrl = Astro.url.href;
                   value="true"
                   required
                   data-gdpr-checkbox
-                  class="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  class="w-5 h-5 text-cta border-gray-300 rounded focus:ring-cta"
                 />
                 <label for="gdpr" class="text-sm text-gray-600">
                   {t(locale, 'form.gdprConsentPrefix')}{' '}
-                  <a href={privacyLink} target="_blank" class="text-primary-600 hover:underline">
+                  <a href={privacyLink} target="_blank" class="text-cta hover:underline">
                     {t(locale, 'form.gdprConsentLink')}
-                  </a>.{' '}
-                  <span class="text-red-500">*</span>
+                  </a>{' '}
+                  <span class="text-red-500">*</span>.
                 </label>
               </div>
 
@@ -193,16 +222,28 @@ const sourceUrl = Astro.url.href;
                 <p class="font-medium text-red-800">Hiba történt</p>
                 <p class="text-sm text-red-600" data-error-text>Kérjük, próbálja újra.</p>
               </div>
-            </form>
+              </form>
 
-            <!-- Turnstile script -->
-            <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+              <!-- Turnstile script -->
+              <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+            </div>
           </div>
 
-          <!-- Contact Info -->
-          <div class="space-y-6">
+        </div>
+      </div>
+    </section>
 
-            <!-- Founders — friendly, human touch above the contact details -->
+    <!-- ============================================================= -->
+    <!-- Contact Info — full detail block below the hero.               -->
+    <!-- ============================================================= -->
+    <section class="bg-white py-12 lg:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">
+          {t(locale, 'contact.title')}
+        </h2>
+        <div class="space-y-6">
+
+            <!-- Founders - friendly, human touch above the contact details -->
             <div class="flex items-center gap-4 p-4 bg-primary-50/60 rounded-2xl border border-primary-100">
               <div class="flex -space-x-3 shrink-0">
                 <picture>
@@ -210,7 +251,7 @@ const sourceUrl = Astro.url.href;
                   <source type="image/webp" srcset="/about/gaszler-simonetta-skinlab-alapito.webp" />
                   <img
                     src="/about/gaszler-simonetta-skinlab-alapito.jpg"
-                    alt="Gaszler Simonetta – alapító"
+                    alt="Gaszler Szimonetta – alapító"
                     class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow-sm"
                     width="112"
                     height="112"
@@ -231,12 +272,12 @@ const sourceUrl = Astro.url.href;
                 </picture>
               </div>
               <div>
-                <div class="font-semibold text-gray-900 text-sm">Simonetta &amp; László</div>
+                <div class="font-semibold text-gray-900 text-sm">Szimonetta &amp; László</div>
                 <div class="text-xs text-gray-600">A Skinlab alapítói – keress minket bizalommal!</div>
               </div>
             </div>
 
-            <!-- Phone & Email — compact grid -->
+            <!-- Phone & Email - compact grid -->
             <div class="grid sm:grid-cols-2 gap-3">
               <a
                 href={CONTACT.phoneTel}
@@ -297,7 +338,7 @@ const sourceUrl = Astro.url.href;
                       href={LOCATIONS.showroom.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 text-sm mt-2"
+                      class="inline-flex items-center text-cta font-medium hover:text-cta-hover text-sm mt-2"
                     >
                       {t(locale, 'contact.getDirections')}
                       <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,9 +362,15 @@ const sourceUrl = Astro.url.href;
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">{t(locale, 'contact.openingHours')}</h3>
-                    <p class="text-sm text-gray-700">{t(locale, 'contact.openingHoursDetails')}</p>
-                    <p class="text-xs text-gray-500 mt-1">{t(locale, 'contact.openingHoursNote')}</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'contact.openingHours')}</h3>
+                    <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
+                      {OPENING_HOURS.map((row) => (
+                        <>
+                          <dt class="text-gray-500">{row.day}</dt>
+                          <dd class={`text-right ${row.hours === 'Zárva' ? 'text-gray-400' : 'text-gray-800'}`}>{row.hours}</dd>
+                        </>
+                      ))}
+                    </dl>
                   </div>
                 </div>
               </div>
@@ -369,7 +416,6 @@ const sourceUrl = Astro.url.href;
 
             </div>
 
-          </div>
         </div>
       </div>
     </section>
@@ -379,6 +425,18 @@ const sourceUrl = Astro.url.href;
 
 <script>
   import { trackContactSubmit } from '@/lib/tracking';
+
+  // Keep the hero exactly one fold tall: feed the sticky header's REAL height
+  // into --header-h so calc(100svh - var(--header-h)) never over/under-shoots,
+  // whatever the menu height is (breakpoint changes, promo bar, etc.).
+  const headerEl = document.querySelector('header');
+  if (headerEl) {
+    const syncHeaderHeight = () =>
+      document.documentElement.style.setProperty('--header-h', `${headerEl.offsetHeight}px`);
+    syncHeaderHeight();
+    new ResizeObserver(syncHeaderHeight).observe(headerEl);
+    window.addEventListener('resize', syncHeaderHeight);
+  }
 
   declare global {
     interface Window {
@@ -400,7 +458,7 @@ const sourceUrl = Astro.url.href;
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
   if (form) {
-    // Stamp form-load time (used as anti-spam — schema requires >3s before submit)
+    // Stamp form-load time (used as anti-spam - schema requires >3s before submit)
     const startTimeInput = form.querySelector<HTMLInputElement>('[data-form-start]');
     if (startTimeInput) startTimeInput.value = Date.now().toString();
 
@@ -438,6 +496,10 @@ const sourceUrl = Astro.url.href;
 
       try {
         const formData = new FormData(form);
+        // Compose the full name in Hungarian order: Vezetéknév Keresztnév
+        const lastName = (form.querySelector<HTMLInputElement>('#lastName')?.value || '').trim();
+        const firstName = (form.querySelector<HTMLInputElement>('#firstName')?.value || '').trim();
+        formData.set('name', `${lastName} ${firstName}`.trim());
         if (turnstileToken) formData.set('cf-turnstile-response', turnstileToken);
 
         const response = await fetch('/api/contact', {
@@ -461,7 +523,7 @@ const sourceUrl = Astro.url.href;
           }
           turnstileToken = '';
         } else {
-          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
+          if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] contact:', result);
           errorMessage?.classList.remove('hidden');
           if (errorText) {
             const code = result.code ? '[' + result.code + '] ' : '';
@@ -469,7 +531,7 @@ const sourceUrl = Astro.url.href;
           }
         }
       } catch (error) {
-        console.error('[NET-OFFLINE-001] contact network error:', error);
+        if (window.__slDebug) console.error('[NET-OFFLINE-001] contact network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérjük, próbálja újra.';
       } finally {

@@ -1,5 +1,5 @@
 /**
- * /api/track — Meta CAPI + GA4 Measurement Protocol + beacon endpoint
+ * /api/track - Meta CAPI + GA4 Measurement Protocol + beacon endpoint
  *
  * Security layers:
  *   1. Payload size limit (32 KB)
@@ -9,11 +9,11 @@
  *   5. In-memory rate limiting
  *
  * Env vars:
- *   META_ACCESS_TOKEN, META_PIXEL_ID       — required for Meta CAPI
- *   GA4_MEASUREMENT_ID, GA4_MP_API_SECRET  — required for GA4 MP server-side
- *   ALLOWED_ORIGINS                        — required (comma-separated)
- *   TRACK_TOKEN                            — optional (shared secret header)
- *   TRACKING_SHEETS_WEBHOOK                — optional
+ *   META_ACCESS_TOKEN, META_PIXEL_ID       - required for Meta CAPI
+ *   GA4_MEASUREMENT_ID, GA4_MP_API_SECRET  - required for GA4 MP server-side
+ *   ALLOWED_ORIGINS                        - required (comma-separated)
+ *   TRACK_TOKEN                            - optional (shared secret header)
+ *   TRACKING_SHEETS_WEBHOOK                - optional
  */
 
 import type { APIRoute } from 'astro';
@@ -144,7 +144,7 @@ function isOriginAllowed(req: Request, env: Record<string, string>): boolean {
   // Fail-closed: if no allowlist configured, reject in prod and dev alike.
   // Configure ALLOWED_ORIGINS=https://skinlabhungary.hu,http://localhost:4321 to enable.
   if (!raw) {
-    console.error('[Track] ALLOWED_ORIGINS not set — rejecting request (fail-closed).');
+    console.error('[Track] ALLOWED_ORIGINS not set - rejecting request (fail-closed).');
     return false;
   }
   const allowed = raw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
@@ -335,7 +335,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   // isolates. It's best-effort only. For production move to KV/Durable Object.
   if (isRateLimited(ip)) {
     return errorResponse('HTTP-429-001', {
-      userMessage: 'Túl sok tracking kérés rövid időn belül — 60 másodperc után próbálja újra.',
+      userMessage: 'Túl sok tracking kérés rövid időn belül - 60 másodperc után próbálja újra.',
       context: { endpoint: '/api/track', ip },
       extraHeaders: { 'Cache-Control': 'no-store' },
     });
@@ -378,7 +378,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   const parsed = BeaconSchema.safeParse(raw);
   if (!parsed.success) {
     return errorResponse('FORM-ZOD-002', {
-      userMessage: 'A tracking payload nem felel meg a sémának — nézze meg a details mezőt.',
+      userMessage: 'A tracking payload nem felel meg a sémának - nézze meg a details mezőt.',
       details: z.flattenError(parsed.error).fieldErrors,
       context: { endpoint: '/api/track' },
       extraHeaders: { 'Cache-Control': 'no-store' },
@@ -398,7 +398,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     });
   }
 
-  // Fire both forwarders in parallel — independent destinations.
+  // Fire both forwarders in parallel - independent destinations.
   const [metaOk, ga4Ok] = await Promise.all([
     sendMeta(payload, ip, env),
     sendGA4MP(payload, env),

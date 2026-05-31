@@ -80,7 +80,7 @@ const localizedPath = getLocalizedUrl(currentLocale, currentPath);
 const canonicalURL = `${SITE.url}${localizedPath}`;
 const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | Skinlab Hungary`;
 
-// Generate hreflang links — restricted to availableLocales if the page sets one.
+// Generate hreflang links - restricted to availableLocales if the page sets one.
 const localesToAnnounce = (availableLocales && availableLocales.length > 0)
   ? locales.filter((l) => availableLocales.includes(l))
   : locales;
@@ -152,14 +152,28 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     </>
   )}
   
-  <!-- Schema.org — page-specific schemas passed via schema prop -->
+  <!-- Schema.org - page-specific schemas passed via schema prop -->
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
   
-  <!-- Global JS error logger — every uncaught error logs with a code prefix -->
+  <!-- Global JS error logger - every uncaught error logs with a code prefix -->
   <script is:inline>
     (function () {
+      // Debug gate: the [CODE] console output appears only for developers or
+      // opted-in users (localhost, ?debug=1, or localStorage 'sl-debug'='1').
+      // Normal visitors never see it; server-side (Worker) logs are unaffected.
+      var DEBUG = (function () {
+        try {
+          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return true;
+          if (/[?&](debug|sl-debug)=1\b/.test(location.search)) {
+            try { localStorage.setItem('sl-debug', '1'); } catch (e) {}
+            return true;
+          }
+          return localStorage.getItem('sl-debug') === '1';
+        } catch (e) { return false; }
+      })();
+      window.__slDebug = DEBUG;
       function pickCode(err) {
         if (!err) return 'JS-UNHANDLED-001';
         var name = (err && err.name) || '';
@@ -170,6 +184,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
         return 'JS-UNHANDLED-001';
       }
       window.addEventListener('error', function (event) {
+        if (!DEBUG) return;
         var code = pickCode(event.error);
         console.error('[' + code + ']', {
           message: event.message,
@@ -180,6 +195,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
         });
       });
       window.addEventListener('unhandledrejection', function (event) {
+        if (!DEBUG) return;
         var reason = event.reason;
         var code = (reason && reason.name) ? pickCode(reason) : 'JS-PROMISE-001';
         console.error('[' + code + '] unhandled promise rejection:', reason);

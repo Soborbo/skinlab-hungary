@@ -90,7 +90,7 @@ const allSpecKeys = [...new Set(variants.flatMap(v => Object.keys(v.specs || {})
                   </td>
                   {variants.map(variant => (
                     <td class="px-4 py-3 text-sm text-center text-gray-600">
-                      {variant.specs?.[key] || '—'}
+                      {variant.specs?.[key] || '-'}
                     </td>
                   ))}
                 </tr>
@@ -108,7 +108,7 @@ const allSpecKeys = [...new Set(variants.flatMap(v => Object.keys(v.specs || {})
                 {allSpecKeys.map(key => (
                   <div class="flex justify-between">
                     <dt class="text-sm text-gray-500">{key}</dt>
-                    <dd class="text-sm font-medium text-gray-900">{variant.specs?.[key] || '—'}</dd>
+                    <dd class="text-sm font-medium text-gray-900">{variant.specs?.[key] || '-'}</dd>
                   </div>
                 ))}
               </dl>

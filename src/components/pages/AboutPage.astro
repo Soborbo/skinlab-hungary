@@ -167,7 +167,7 @@ const whyUs = [
               <div class="mt-7 flex flex-col sm:flex-row gap-3.5">
                 <a
                   href={contactLink}
-                  class="inline-flex items-center justify-center px-6 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors shadow-lg shadow-cta/25"
+                  class="inline-flex items-center justify-center px-6 py-3.5 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors shadow-lg shadow-primary-700/25"
                 >
                   {t(locale, 'header.freeConsultation')}
                   <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,7 +232,7 @@ const whyUs = [
             <!-- Text (DOM-first → mobile shows text then image) -->
             <div class={`flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-16 ${item.imageLeft ? 'md:order-2' : 'md:order-1'}`}>
               <div class="max-w-xl mx-auto md:mx-0">
-                <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-cta-light text-cta-hover text-sm font-bold mb-4">
+                <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 text-sm font-bold mb-4">
                   {item.n}
                 </span>
                 <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">{item.title}</h3>
@@ -286,7 +286,7 @@ const whyUs = [
               </div>
               <div class="p-6 lg:p-7 flex flex-col">
                 <h3 class="text-xl font-bold text-gray-900">{founder.name}</h3>
-                <p class="inline-flex self-start items-center mt-1.5 mb-3 px-3 py-1 rounded-full bg-cta-light text-cta-hover text-sm font-medium">
+                <p class="inline-flex self-start items-center mt-1.5 mb-3 px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-medium">
                   {t(locale, `about.founder.${founder.roleKey}`)}
                 </p>
                 <p class="text-gray-600 text-sm leading-relaxed">

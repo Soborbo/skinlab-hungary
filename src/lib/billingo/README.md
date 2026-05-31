@@ -3,7 +3,7 @@
 A modul az **`/api/order`** flow-ba illeszkedik: minden sikeres megrendelés
 után a `processOrder()` automatikusan generál egy Billingo díjbekérőt
 (proforma) és kiküldi a vevőnek e-mailben. A díjbekérőn a vevő közvetlenül
-fizethet bankkártyával (Billingo-ba kötött SimplePay) vagy átutalással —
+fizethet bankkártyával (Billingo-ba kötött SimplePay) vagy átutalással -
 a végszámlát és a fizetett státuszt a Billingo kezeli.
 
 ## Architektúra
@@ -26,7 +26,7 @@ processOrder()  ── Promise.all ──┐
                                        └── POST /documents/{id}/send (email kiküldés)
 ```
 
-A díjbekérő emailt **maga a Billingo küldi** — nem mi. Tartalmazza a
+A díjbekérő emailt **maga a Billingo küldi** - nem mi. Tartalmazza a
 SimplePay kártyás gombot és a banki utalási adatokat is.
 
 ## Skip szabályok
@@ -35,16 +35,16 @@ A `generateProforma()` átugorja a kiállítást a következő esetekben:
 
 | Feltétel                              | Kód                | Indok                                    |
 |---------------------------------------|--------------------|------------------------------------------|
-| `hasPriceOnRequest === true`          | `BILLINGO-SKIP-001`| Ár egyeztetés alatt — nincs mit fizetni  |
+| `hasPriceOnRequest === true`          | `BILLINGO-SKIP-001`| Ár egyeztetés alatt - nincs mit fizetni  |
 | `subtotal <= 0`                       | `BILLINGO-SKIP-002`| Billingo nem ad ki 0 Ft-os bizonylatot   |
 | `BILLINGO_*` env hiányzik             | `BILLINGO-CFG-*`   | Config incomplete                        |
 
-Skip esetén a rendelés sikeres marad — a csapat manuálisan utánajár.
+Skip esetén a rendelés sikeres marad - a csapat manuálisan utánajár.
 
 ## Hibakezelés
 
 Minden hiba `BILLINGO-*` kódra fordítva loggolódik (lásd
-`src/lib/errors/codes.ts`). A `generateProforma()` **soha nem dob** — a hiba
+`src/lib/errors/codes.ts`). A `generateProforma()` **soha nem dob** - a hiba
 a `BillingoProformaResult` discriminált unióban jelenik meg. A
 `processOrder()` failure policy-ja szerint a Billingo hiba **nem akadályozza**
 a rendelés sikeres rögzítését.
@@ -72,17 +72,17 @@ wrangler secret put BILLINGO_BANK_ACCOUNT_ID --config dist/server/wrangler.json
 
 Mielőtt a kód éles üzembe kerül, a Billingo fiókban el kell végezni:
 
-1. **API kulcs létrehozása** — `app.billingo.hu` → Beállítások → API kulcsok →
+1. **API kulcs létrehozása** - `app.billingo.hu` → Beállítások → API kulcsok →
    új kulcs neve: pl. *"SkinLab Webshop"*. Mentés a `BILLINGO_API_KEY`-be.
-2. **Új bizonylattömb létrehozása** *(dedikált SkinLab tömb)* — Beállítások →
+2. **Új bizonylattömb létrehozása** *(dedikált SkinLab tömb)* - Beállítások →
    Bizonylattömbök → új tömb, prefix pl. `SL`. Az ID-t mentsd a
    `BILLINGO_BLOCK_ID`-be.
-3. **Bankszámla beállítása** — Beállítások → Bankszámlák. Ha még nincs, vedd
+3. **Bankszámla beállítása** - Beállítások → Bankszámlák. Ha még nincs, vedd
    fel. ID a `BILLINGO_BANK_ACCOUNT_ID`-be.
-4. **SimplePay integráció bekötése** — Beállítások → Online fizetés →
+4. **SimplePay integráció bekötése** - Beállítások → Online fizetés →
    SimplePay aktiválás (Billingo dokumentáció). Csak ezután lesz a vevő
    díjbekérőjén a "Fizetés bankkártyával" gomb aktív.
-5. **Bankszinkron bekapcsolása** (opcionális, de ajánlott) — Bank → új
+5. **Bankszinkron bekapcsolása** (opcionális, de ajánlott) - Bank → új
    Bankszinkron kapcsolat. Ezzel a banki utalások automatikusan párosulnak
    a kiállított díjbekérőkkel.
 
@@ -129,17 +129,17 @@ if (proformaResult.success) {
 }
 ```
 
-A `BillingoProformaResult` discriminált unió — a TypeScript a `success` és
+A `BillingoProformaResult` discriminált unió - a TypeScript a `success` és
 `skipped` flag-eken keresztül szűkíti a típust, így nincs `any`-vadászat.
 
 ## Korlátozások / nem ebben a feladatban
 
-- **Sztornó számla** — Billingo admin felületen
-- **Visszatérítés flow** — Billingo admin felületen
-- **Részleges fizetés** — Billingo admin felületen
-- **Szállítási díj sor** — az `OrderEmailInput` séma jelenleg nem
+- **Sztornó számla** - Billingo admin felületen
+- **Visszatérítés flow** - Billingo admin felületen
+- **Részleges fizetés** - Billingo admin felületen
+- **Szállítási díj sor** - az `OrderEmailInput` séma jelenleg nem
   tartalmaz `shippingFee` mezőt; a `SHIPPING_FEE_ITEM_NAME` map már
   lokalizált, ha később hozzáadjuk
-- **ÁFA kulcsok** — minden tétel fix 27% (kozmetikum). Kivétel esetén
+- **ÁFA kulcsok** - minden tétel fix 27% (kozmetikum). Kivétel esetén
   külön ticketben kezelendő
-- **Részleges teljesítés** — egy proforma, egy rendelés
+- **Részleges teljesítés** - egy proforma, egy rendelés

@@ -8,7 +8,7 @@
  * TechSpecs → FunctionCards → FAQ → BuyerChecklist →
  * WhatsIncluded → Warranty → CTA(primary) → Related
  *
- * All sections are standalone components — zero inline HTML.
+ * All sections are standalone components - zero inline HTML.
  * i18n-aware: uses loadProductContent for locale-specific content,
  * t() for UI chrome, getLocalizedUrl for links.
  */
@@ -16,7 +16,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/product/Breadcrumb.astro';
 import ProductHero from '../components/product/ProductHero.astro';
-import StatsBar from '../components/product/StatsBar.astro';
+import FounderConsult from '../components/cta/FounderConsult.astro';
 import ROICalculator from '../components/product/ROICalculator.astro';
 import VideoDescription from '../components/product/VideoDescription.astro';
 import ProductCTA from '../components/product/ProductCTA.astro';
@@ -32,6 +32,9 @@ import ProductFAQ from '../components/product/ProductFAQ.astro';
 import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import VariantDetails from '../components/product/VariantDetails.astro';
+import USPStrip from '../components/product/USPStrip.astro';
+import InstallmentCalculator from '../components/product/InstallmentCalculator.astro';
+import { INSTALLMENT_MIN } from '@/lib/installment';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
@@ -39,7 +42,7 @@ import { SITE, CATEGORIES } from '../lib/constants';
 import { getLocaleFromUrl, t, getLocalizedUrl } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
 import { getOgImagePath } from '@/lib/resolve-image';
-import type { ProductContentStat, ProductContentFAQItem } from '@/lib/types/product-content';
+import type { ProductContentFAQItem } from '@/lib/types/product-content';
 
 interface Variant {
   sku: string;
@@ -102,7 +105,6 @@ const { content } = loadProductContent(locale, product.slug, product.categorySlu
 const displayName = content.name || product.name;
 const displayShortDesc = content.shortDescription || product.shortDescription;
 const displayDesc = content.description || product.description;
-const resolvedStats = (content.stats || product.stats || []) as ProductContentStat[];
 const resolvedFaq = (content.faq || product.faq || []) as ProductContentFAQItem[];
 const resolvedWhatsIncluded = content.whatsIncluded || product.whatsIncluded || [];
 const resolvedSpecs = content.specs || product.specs || {} as Record<string, string>;
@@ -127,6 +129,10 @@ const breadcrumbItems = [
 // Extract first YouTube video URL
 const firstVideoUrl = product.youtubeVideos?.[0] || '';
 
+
+// Installment calculator: HU only, and only above the installment minimum
+const showInstallment = locale === 'hu' && !!product.price && product.price > INSTALLMENT_MIN;
+
 // FAQ questions for schema (if available)
 const faqQuestions = resolvedFaq.map(item => ({
   question: item.question,
@@ -140,7 +146,7 @@ const variantImageSets = product.hasVariants && product.variants.some(v => v.ima
       .map(v => ({ value: v.value, images: v.images! }))
   : undefined;
 
-// OG image — use the product's main image
+// OG image - use the product's main image
 const ogImage = getOgImagePath(product.image) || '/og-image.jpg';
 
 // Product schema
@@ -152,7 +158,7 @@ const productSchema = product.price ? {
   "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
   "brand": { "@type": "Brand", "name": "Skinlab" },
-  "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
+  "image": [new URL(ogImage, SITE.url).href],
   "offers": {
     "@type": "Offer",
     "url": pageUrl,
@@ -249,6 +255,9 @@ const productSchema = product.price ? {
       variantImageSets={variantImageSets}
     />
 
+    <!-- 1.1. USP STRIP (brand-wide trust promises, above the fold) -->
+    <USPStrip />
+
     <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
     {product.hasVariants && product.variants.length > 0 && (
       <VariantDetails
@@ -258,17 +267,24 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 2. STATS BAR -->
-    {resolvedStats.length > 0 && (
-      <StatsBar locale={locale} stats={resolvedStats} />
-    )}
-
     <!-- 3. ROI CALCULATOR -->
     <ROICalculator
       locale={locale}
       productPrice={product.price}
       productName={displayName}
       defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+    />
+
+    <!-- 3.5. INSTALLMENT CALCULATOR (HU, above installment minimum) -->
+    {showInstallment && product.price && (
+      <InstallmentCalculator price={product.price} productName={displayName} />
+    )}
+
+    <!-- 3.7. FOUNDER CONSULT (személyes segítség - tanácsadói hang) -->
+    <FounderConsult
+      ctaHref="/konzultacio"
+      eventPrefix="product"
+      heading={{ pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő gép', post: 'az Ön szalonjának?' }}
     />
 
     <!-- 4. VIDEO + DESCRIPTION -->

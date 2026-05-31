@@ -37,7 +37,7 @@ export function normalizeImagePath(imgPath: string): string {
   if (imgPath.startsWith('/src/assets/')) {
     return `@assets/${imgPath.slice(12)}`;
   }
-  // Bare filename — assume products folder
+  // Bare filename - assume products folder
   const filename = imgPath.split('/').pop();
   return `@assets/products/${filename}`;
 }

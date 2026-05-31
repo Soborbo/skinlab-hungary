@@ -1,5 +1,5 @@
 // ============================================
-// siteConfig.ts — Single source of truth for schema.org entity graph
+// siteConfig.ts - Single source of truth for schema.org entity graph
 // All schema generators in schema.ts derive from this config.
 // Business data is imported from lib/constants.ts (the existing UI source).
 // ============================================
@@ -8,7 +8,7 @@ import { z } from 'zod';
 import { SITE, COMPANY, CONTACT, LOCATIONS, SOCIAL } from '../lib/constants';
 
 // ============================================
-// Zod schema — validates at build time
+// Zod schema - validates at build time
 // ============================================
 
 const PersonSchema = z.object({
@@ -103,7 +103,7 @@ const SiteConfigSchema = z.object({
 export type SiteConfig = z.infer<typeof SiteConfigSchema>;
 
 // ============================================
-// Assembled config — derived from constants.ts
+// Assembled config - derived from constants.ts
 // ============================================
 
 const siteUrl = SITE.url;
@@ -128,7 +128,7 @@ export const config: SiteConfig = SiteConfigSchema.parse({
 
   people: [
     {
-      name: 'Gaszler Simonetta',
+      name: 'Gaszler Szimonetta',
       slug: 'gaszler-simonetta',
       jobTitle: 'Társalapító',
       image: `${siteUrl}/about/gaszler-simonetta-skinlab-alapito.jpg`,
@@ -172,8 +172,13 @@ export const config: SiteConfig = SiteConfigSchema.parse({
   hours: [
     {
       days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '17:00',
+      opens: '10:00',
+      closes: '18:00',
+    },
+    {
+      days: ['Saturday'],
+      opens: '10:00',
+      closes: '14:00',
     },
   ],
 

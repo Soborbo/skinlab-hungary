@@ -3,7 +3,7 @@
  * ShowroomGallery - Masonry képgaléria a showroom CTA-hoz, natív arányokkal.
  *
  * - Forrás: src/assets/showroom/{slug}/*.jpg (pre-optimalizálva avif/webp/jpg-re)
- * - Desktop: CSS multi-column masonry — minden tile a kép natív arányában
+ * - Desktop: CSS multi-column masonry - minden tile a kép natív arányában
  * - Mobil: vízszintes scroll-snap karusszel peek-kel, natív arány
  * - Hover: scale + 3D tilt + magnifier overlay
  * - Reveal: stagger fade-up IntersectionObserver-rel (reduced-motion barát)
@@ -13,7 +13,7 @@ import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
 import manifest from '@/lib/image-manifest.json';
 
 interface Props {
-  /** Product slug — determines which subfolder of @assets/showroom/ is loaded. */
+  /** Product slug - determines which subfolder of @assets/showroom/ is loaded. */
   slug: string;
   /** Optional caption shown above the grid. */
   eyebrow?: string;
@@ -28,7 +28,7 @@ const SHOWROOM_KEYS = Object.keys(manifestData)
   .filter(k => k.startsWith(SHOWROOM_PREFIX))
   .sort();
 
-// Per-index reveal delay + tilt. Span/layout no longer needed — the
+// Per-index reveal delay + tilt. Span/layout no longer needed - the
 // masonry preserves each image's native aspect ratio.
 const TILT_PRESETS: Array<[number, number]> = [
   [2, -3], [-2, 2], [3, -2], [-3, 3],

@@ -1,5 +1,5 @@
 /**
- * Installment payment rules — price-based tier calculation.
+ * Installment payment rules - price-based tier calculation.
  *
  * Rules (HUF):
  *   ≤ 100,000        → no installment

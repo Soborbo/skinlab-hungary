@@ -1,11 +1,11 @@
 ---
 /**
- * AddToCartButton — termékoldali "Kosárba" gomb mennyiség-választóval.
+ * AddToCartButton - termékoldali "Kosárba" gomb mennyiség-választóval.
  *
  * Variánsos termékeknél a ProductHero variáns-gombjaihoz igazodik:
  * figyeli a `variant-change` eseményt, és a kiválasztott variáns
  * SKU-ját / árát teszi a kosárba. Ár nélküli ("priceOnRequest")
- * terméknél is működik — ekkor "ár egyeztetés alatt" tételként kerül be.
+ * terméknél is működik - ekkor "ár egyeztetés alatt" tételként kerül be.
  */
 import { t, type Locale } from '@/i18n/ui';
 import { resolveCartImage } from '@/lib/cart/image';
@@ -69,7 +69,7 @@ const variantMap =
   <div class="inline-flex items-center border-2 border-gray-200 rounded-xl overflow-hidden shrink-0">
     <button
       type="button"
-      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b] hover:bg-gray-50 transition-colors text-xl font-bold"
+      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#ce2252] hover:bg-gray-50 transition-colors text-xl font-bold"
       data-qty-minus
       aria-label="−"
     >−</button>
@@ -85,7 +85,7 @@ const variantMap =
     />
     <button
       type="button"
-      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#9b6b6b] hover:bg-gray-50 transition-colors text-xl font-bold"
+      class="w-11 h-12 flex items-center justify-center text-gray-500 hover:text-[#ce2252] hover:bg-gray-50 transition-colors text-xl font-bold"
       data-qty-plus
       aria-label="+"
     >+</button>
@@ -94,7 +94,7 @@ const variantMap =
   <!-- Kosárba gomb -->
   <button
     type="button"
-    class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-lg disabled:opacity-60"
+    class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#ce2252] text-white font-semibold rounded-xl hover:bg-[#a01c42] transition-colors shadow-lg disabled:opacity-60"
     data-add-to-cart-btn
     data-label-default={t(locale, 'cart.addToCart')}
     data-label-added={t(locale, 'cart.added')}

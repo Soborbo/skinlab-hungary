@@ -11,7 +11,7 @@
  * - Max 760px width, fits above fold
  * - Mobile-first, smooth animations
  */
-import { CATEGORIES } from '@/lib/constants';
+import { CATEGORIES, CATEGORY_CARD_IMAGE } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
 
 interface Props {
@@ -30,11 +30,12 @@ const {
 
 const turnstileSiteKey = getTurnstileSiteKey();
 
-// Category options with images (exclude kellekek and kezeloanyagok — not gépek, not relevant for consultation)
+// Category options with images (exclude kellekek and kezeloanyagok - not gépek, not relevant for consultation)
 const categoryOptions = CATEGORIES.filter(cat => cat.featured && cat.id !== 'kellekek' && cat.id !== 'kezeloanyagok').map((cat) => ({
   value: cat.id,
   label: cat.nameShort,
-  image: cat.image,
+  // Mirror the homepage category-card image so the two never drift
+  image: CATEGORY_CARD_IMAGE[cat.slug] ?? cat.image,
 }));
 
 // Step definitions
@@ -133,7 +134,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <div class="step-content" data-step-content="1">
       <div class="text-center mb-3">
         <h1 class="text-lg font-bold text-gray-900">Melyik termék érdekli?</h1>
-        <p class="text-gray-500 text-sm">Válassza ki a kategóriát — többet is jelölhet</p>
+        <p class="text-gray-500 text-sm">Válassza ki a kategóriát - többet is jelölhet</p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -551,7 +552,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       const raw = localStorage.getItem('sb_tracking');
       if (raw) storedTracking = JSON.parse(raw);
     } catch {
-      /* private mode / quota — ignore */
+      /* private mode / quota - ignore */
     }
     form.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
@@ -778,7 +779,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       spinner?.classList.remove('hidden');
 
       try {
-        // Restamp GDPR timestamp at submit time — `change` may not fire after
+        // Restamp GDPR timestamp at submit time - `change` may not fire after
         // bfcache restore or password-manager autofill, leaving the hidden
         // field empty and triggering FORM-ZOD-002 server-side.
         if (gdprCheckbox?.checked && gdprTimestamp && !gdprTimestamp.value) {
@@ -823,7 +824,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           await waitForTracking(600);
           window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
         } else {
-          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] consultation:', result);
+          if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] consultation:', result);
 
           // Surface per-field errors and jump to the first failing step so the
           // user can see what to fix instead of a generic "néhány mező hibás".
@@ -862,7 +863,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           }
         }
       } catch (error) {
-        console.error('[NET-OFFLINE-001] consultation network error:', error);
+        if (window.__slDebug) console.error('[NET-OFFLINE-001] consultation network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
           errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérjük, próbálja újra.';

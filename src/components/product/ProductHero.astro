@@ -1,14 +1,15 @@
 ---
 /**
- * ProductHero - Product hero section with gallery and product info
+ * ProductHero - Product hero section.
  *
- * Composes: ProductGallery (left) + ProductInfo (right: availability, title,
- * description, variants, price, InstallmentBadge, trust badges, CTAs, SKU).
+ * Layout: image gallery on the LEFT, product info on the RIGHT (desktop).
+ * On mobile the gallery stacks on top, info below.
  *
- * Props-based: locale for i18n. All labels use t(locale, 'product.*').
+ * The hero gallery shows the main image plus all gallery images as a carousel
+ * with thumbnails below it. Trust/USP badges live in the USPStrip, and
+ * installment info in the InstallmentCalculator section.
  */
 import ProductGallery from './ProductGallery.astro';
-import InstallmentBadge from '../ui/InstallmentBadge.astro';
 import AddToCartButton from '../cart/AddToCartButton.astro';
 import { CONTACT } from '@/lib/constants';
 import type { Locale } from '@/i18n';
@@ -71,49 +72,18 @@ const displayPrice = (p: number | null) => {
   return formatPrice(p, locale);
 };
 
-// All images for gallery (dedup: drop main image if it's already in gallery)
-const allImages = [image, ...gallery].filter(Boolean);
-const seen = new Set<string>();
-const dedupedImages = allImages.filter((img) => {
-  if (seen.has(img)) return false;
-  seen.add(img);
-  return true;
-});
-
-// Trust badges with i18n keys
-const trustBadges = [
-  { icon: 'shield-check', labelKey: 'trust.warranty' },
-  { icon: 'truck', labelKey: 'trust.shipping' },
-  { icon: 'graduation-cap', labelKey: 'trust.training' },
-  { icon: 'wrench', labelKey: 'trust.service' },
-];
-
-// Trust badge icons
-const icons: Record<string, string> = {
-  'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
-  'truck': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
-  'graduation-cap': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />`,
-  'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
-};
+// Hero gallery: main image + all gallery images (deduped) → carousel with
+// thumbnails. Variant products keep per-variant switching via variantImageSets
+// (ProductGallery ignores `images` in variant mode).
+const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
 ---
 
 <section class="bg-white py-6 lg:py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
 
-      <!-- Media Gallery -->
-      <ProductGallery
-        images={dedupedImages}
-        productName={name}
-        badges={{
-          featured: featured,
-          variantCount: hasVariants ? variants.length : undefined
-        }}
-        variantImageSets={variantImageSets}
-      />
-
-      <!-- Product Info -->
-      <div>
+      <!-- Product Info (right on desktop, below on mobile) -->
+      <div class="order-2">
         <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
           {name}
         </h1>
@@ -167,19 +137,6 @@ const icons: Record<string, string> = {
           )}
         </div>
 
-        <!-- Installment Payment Info -->
-        <InstallmentBadge price={price || 0} class="mb-6" />
-
-        <!-- Trust badges mini -->
-        <div class="grid grid-cols-2 gap-3 mb-8">
-          {trustBadges.map((badge) => (
-            <div class="flex items-center gap-2 text-sm">
-              <svg class="w-5 h-5 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[badge.icon]} />
-              <span class="text-gray-700">{t(locale, badge.labelKey)}</span>
-            </div>
-          ))}
-        </div>
-
         <!-- Add to cart -->
         <div class="mb-4">
           <AddToCartButton
@@ -218,6 +175,19 @@ const icons: Record<string, string> = {
         <div class="mt-6 text-xs text-gray-400">
           {t(locale, 'product.sku')}: {sku}
         </div>
+      </div>
+
+      <!-- Image gallery (left on desktop, top on mobile) -->
+      <div class="order-1">
+        <ProductGallery
+          images={heroImages}
+          productName={name}
+          badges={{
+            featured: featured,
+            variantCount: hasVariants ? variants.length : undefined
+          }}
+          variantImageSets={variantImageSets}
+        />
       </div>
     </div>
   </div>
