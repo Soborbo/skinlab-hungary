@@ -16,7 +16,7 @@ interface TurnstileResult {
  * Verify Turnstile CAPTCHA token (server-side).
  *
  * In dev (`import.meta.env.DEV`), if no secret is configured, allows the
- * submission through — this matches the prior behaviour.
+ * submission through - this matches the prior behaviour.
  */
 export async function verifyTurnstile(
   token: string,

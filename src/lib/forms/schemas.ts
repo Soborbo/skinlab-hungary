@@ -17,7 +17,7 @@ export const contactSchema = z.object({
   email: z.email('Érvényes email cím szükséges'),
   phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
 
-  // Product interest (optional — only used by consultation flow, not generic contact)
+  // Product interest (optional - only used by consultation flow, not generic contact)
   product: z.string().optional().default(''),
 
   // Optional subject line (generic contact form)
@@ -43,7 +43,7 @@ export const contactSchema = z.object({
   // Turnstile CAPTCHA token
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
-  // Tracking metadata — captured client-side (URL params + persisted tracking)
+  // Tracking metadata - captured client-side (URL params + persisted tracking)
   sourceUrl: z.url(),
   utmSource: z.string().max(200).optional().default(''),
   utmMedium: z.string().max(200).optional().default(''),
@@ -77,7 +77,7 @@ export const consultationSchema = z.object({
   // Step 1: Product selection
   product: z.string().min(1, 'Válasszon kategóriát'),
 
-  // Step 2: Timeline — Zod v4 syntax: `{ message }` (no `required_error`)
+  // Step 2: Timeline - Zod v4 syntax: `{ message }` (no `required_error`)
   timeline: z.enum(['asap', '1-3-month', '3-6-month', 'just-looking'], {
     message: 'Válasszon időzítést',
   }),
@@ -111,7 +111,7 @@ export const consultationSchema = z.object({
   // Turnstile CAPTCHA token
   'cf-turnstile-response': z.string().min(1, 'CAPTCHA ellenőrzés szükséges'),
 
-  // Tracking metadata — same as contact form, captured client-side
+  // Tracking metadata - same as contact form, captured client-side
   sourceUrl: z.url(),
   utmSource: z.string().max(200).optional().default(''),
   utmMedium: z.string().max(200).optional().default(''),

@@ -12,6 +12,35 @@ const category = {
   color: 'diodalezerek',
 };
 
+// Phase 1 CRO+SEO redesign - opt-in props (csak a dióda lézer oldalon aktív)
+// Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §3, §5, §6
+const expert = {
+  name: 'Horváth László',
+  role: 'Skinlab alapító · technikai szakértő',
+  image: '/about/horvath-laszlo-skinlab-alapito.jpg',
+  imageAlt: 'Horváth László, Skinlab alapító',
+  quote: 'Segítek megtalálni a szalonjához illő diódalézert - 600W-tól 1600W-ig.',
+};
+
+// Specifikus trust badge-ek (vague helyett SLA + szám)
+// Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §6.2 (Cialdini specificity principle)
+const trustBadges = [
+  { title: '2 év teljes körű garancia', subtitle: 'minden új gépre' },
+  { title: '8 órás helyszíni betanítás', subtitle: '+ 6 hónap follow-up' },
+  { title: '100% magyar szerviz', subtitle: 'cseregép-háttérrel' },
+  { title: '0% THM, 24 hónap', subtitle: 'előleg nélkül' },
+];
+
+const consultationCtaHref = '/konzultacio?cat=diodalezerek';
+const consultationSocialProof = '150+ szalon választott minket 2024 óta';
+
+// Egysoros "melyik nekem" orientáció a decision-fold hero bal oszlopában
+const heroChooser = [
+  { label: 'Kezdő / kiegészítő szolgáltatás?', target: 'ATHENA' },
+  { label: 'Tempó kontrollal?', target: 'OLYMPIA' },
+  { label: 'Klinika, nagy forgalom?', target: 'HELIOS' },
+];
+
 const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'diodalezerek' && !data.draft;
 });
@@ -107,9 +136,9 @@ const comparison = {
   ],
 };
 
-const choicesIntro = 'Nem három gép. Három különböző szemlélet. Mindhárom ugyanarra készült: valódi, reális és észlelhető eredményt adni — válaszd azt az erőt, ami hozzád illik.';
+const choicesIntro = 'Nem három gép. Három különböző szemlélet. Mindhárom ugyanarra készült: valódi, reális és észlelhető eredményt adni - válaszd azt az erőt, ami hozzád illik.';
 
-const choicesClosing = 'Mi a közös bennük? Mindhárom valódi, nyomon követhető teljesítmény — nem üres marketing. Nem egy gépet választasz, hanem egy szemléletet.';
+const choicesClosing = 'Mi a közös bennük? Mindhárom valódi, nyomon követhető teljesítmény - nem üres marketing. Nem egy gépet választasz, hanem egy szemléletet.';
 
 const choices = [
   {
@@ -118,7 +147,7 @@ const choices = [
     tagline: 'A tudásból születő erő.',
     image: '@assets/products/athena-1.png',
     imageAlt: 'ATHENA 1000W diódalézer',
-    intro: 'Athena nem a nyers erő istennője volt, hanem a stratégia, a pontosság és a tudatos működés jelképe. Az ATHENA diódalézer ezt képviseli — és bölcsességére is számíthatsz: okos szoftvere automatikusan segít megállapítani, melyik bőr- és szőrtípus milyen beállításon kezelhető. Athena ott van melletted, és segít.',
+    intro: 'Athena nem a nyers erő istennője volt, hanem a stratégia, a pontosság és a tudatos működés jelképe. Az ATHENA diódalézer ezt képviseli - és bölcsességére is számíthatsz: okos szoftvere automatikusan segít megállapítani, melyik bőr- és szőrtípus milyen beállításon kezelhető. Athena ott van melletted, és segít.',
     pillars: [
       'stabil működés',
       'kiszámítható eredmények',
@@ -141,7 +170,7 @@ const choices = [
     ],
     notes: [
       'Akkor is jó választás, ha erre építenéd a vállalkozásod? Igen. Az 1000W kimeneti teljesítmény bőven elegendő a professzionális szintű munkavégzéshez és látványos eredményekhez.',
-      'Az átlag diódalézerek többsége 600W körül működik — a 1000W gyorsabb munkavégzést, nagyobb hatékonyságot, stabilabb működést és kényelmesebb kezeléseket jelent.',
+      'Az átlag diódalézerek többsége 600W körül működik - a 1000W gyorsabb munkavégzést, nagyobb hatékonyságot, stabilabb működést és kényelmesebb kezeléseket jelent.',
     ],
     closing: 'ATHENA. A nőies erő és precizitás harmóniája.',
     link: '/diodalezerek/athena',
@@ -153,7 +182,7 @@ const choices = [
     tagline: 'Ahol a teljesítmény győz.',
     image: '@assets/products/olympia-1.png',
     imageAlt: 'OLYMPIA 1200W diódalézer',
-    intro: 'Olympia az a hely volt, ahol csak a legjobbak számítottak — nem az, ki honnan jött, hanem hogy mit tud valójában. Nem voltak kifogások, csak eredmények. A 1200W kimeneti teljesítmény már nem átlag: ez az a szint, ahol a kezelések felgyorsulnak, és az eredmények kiszámíthatóvá válnak. Az 5 állítható spotméret pedig valódi kuriózum — precíz munka kisebb területeken, gyors haladás nagy felületeken.',
+    intro: 'Olympia az a hely volt, ahol csak a legjobbak számítottak - nem az, ki honnan jött, hanem hogy mit tud valójában. Nem voltak kifogások, csak eredmények. A 1200W kimeneti teljesítmény már nem átlag: ez az a szint, ahol a kezelések felgyorsulnak, és az eredmények kiszámíthatóvá válnak. Az 5 állítható spotméret pedig valódi kuriózum - precíz munka kisebb területeken, gyors haladás nagy felületeken.',
     pillars: [
       'gyorsabb kezelések',
       'hatékonyabb munkavégzés',
@@ -163,11 +192,11 @@ const choices = [
     when: [
       {
         title: 'Ha erős gépet keresel reális áron',
-        description: 'A 1200W már az a szint, ahol nem kell „okoskodni" a kezeléseknél — egyszerűen működik, gyorsan és hatékonyan.',
+        description: 'A 1200W már az a szint, ahol nem kell „okoskodni" a kezeléseknél - egyszerűen működik, gyorsan és hatékonyan.',
       },
       {
         title: 'Ha tempót akarsz, de kontrollal',
-        description: 'Nem csak haladni szeretnél, hanem jól dolgozni. Az 5 spotméret precizitás + sebesség egyben — és az okos kezelőrendszer melletted áll.',
+        description: 'Nem csak haladni szeretnél, hanem jól dolgozni. Az 5 spotméret precizitás + sebesség egyben - és az okos kezelőrendszer melletted áll.',
       },
       {
         title: 'Ha fejlődni akarsz, de tudatosan',
@@ -175,13 +204,13 @@ const choices = [
       },
       {
         title: 'Ha fontos a rugalmasság',
-        description: 'Különböző vendégek, különböző területek — az OLYMPIA minden helyzethez alkalmazkodik.',
+        description: 'Különböző vendégek, különböző területek - az OLYMPIA minden helyzethez alkalmazkodik.',
       },
     ],
     notes: [
-      'Az OLYMPIA nagyon erős, mégis elérhető — okos rendszerrel, kiváló európai ár-érték aránnyal.',
+      'Az OLYMPIA nagyon erős, mégis elérhető - okos rendszerrel, kiváló európai ár-érték aránnyal.',
     ],
-    closing: '„Μολὼν λαβέ" — Gyere és vedd el! /Leonidász/',
+    closing: '„Μολὼν λαβέ" - Gyere és vedd el! /Leonidász/',
     link: '/diodalezerek/olympia',
     ctaLabel: 'OLYMPIA részletei',
   },
@@ -191,7 +220,7 @@ const choices = [
     tagline: 'Erő, fény és könyörtelen pontosság.',
     image: '@assets/products/helios-1.png',
     imageAlt: 'HELIOS 1600W diódalézer',
-    intro: 'Helios a görög mitológiában a Nap istene. Ő az, aki minden nap fényt hoz, mindent lát, és semmi nem marad rejtve előle. Egy 1600W-os kimeneti teljesítménynél nincs szükség magyarázkodásra — ahogy Helios sem kérdezte soha, elég fényt hoz-e a világba. Minden hajnalban elindult aranyszekerén, csendesen, mégis megállíthatatlanul.',
+    intro: 'Helios a görög mitológiában a Nap istene. Ő az, aki minden nap fényt hoz, mindent lát, és semmi nem marad rejtve előle. Egy 1600W-os kimeneti teljesítménynél nincs szükség magyarázkodásra - ahogy Helios sem kérdezte soha, elég fényt hoz-e a világba. Minden hajnalban elindult aranyszekerén, csendesen, mégis megállíthatatlanul.',
     pillars: [
       'mélyebbre hat a szőrtüszőben',
       'hatékonyabb energialeadás',
@@ -201,11 +230,11 @@ const choices = [
     when: [
       {
         title: 'Ha már nem kezdő szinten gondolkodsz',
-        description: 'Olyan rendszert akarsz, ami nem lassít, hanem visz előre — és nem kell hozzá alkalmazkodnod.',
+        description: 'Olyan rendszert akarsz, ami nem lassít, hanem visz előre - és nem kell hozzá alkalmazkodnod.',
       },
       {
         title: 'Ha tempót és bevételt akarsz növelni',
-        description: 'A nagyobb teljesítmény gyorsabb látványos eredményt ad, gyakran kevesebb ismétléssel — a vendég hamarabb elégedett.',
+        description: 'A nagyobb teljesítmény gyorsabb látványos eredményt ad, gyakran kevesebb ismétléssel - a vendég hamarabb elégedett.',
       },
       {
         title: 'Ha mást is csinálsz mellette',
@@ -232,4 +261,9 @@ const choices = [
   choices={choices}
   choicesIntro={choicesIntro}
   choicesClosing={choicesClosing}
+  expert={expert}
+  trustBadges={trustBadges}
+  consultationCtaHref={consultationCtaHref}
+  consultationSocialProof={consultationSocialProof}
+  heroChooser={heroChooser}
 />

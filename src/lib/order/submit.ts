@@ -1,7 +1,7 @@
 /**
  * Megrendelés feldolgozó pipeline.
  *
- * - Admin értesítő e-mail (magyar) — a csapat ezzel kapja meg a rendelést.
+ * - Admin értesítő e-mail (magyar) - a csapat ezzel kapja meg a rendelést.
  * - Vevői visszaigazoló e-mail (a vásárló nyelvén).
  * - Google Sheets sor a "Rendelések" fülre.
  *
@@ -21,7 +21,7 @@ export interface OrderResult {
   success: boolean;
   error?: string;
   code?: string;
-  /** Billingo díjbekérő eredménye — null, ha nem futott le (skip vagy hiba). */
+  /** Billingo díjbekérő eredménye - null, ha nem futott le (skip vagy hiba). */
   proforma?: BillingoProformaResult;
 }
 
@@ -34,7 +34,7 @@ interface ResendEmailOptions {
   replyTo?: string;
 }
 
-/** Egyszerű Resend e-mail küldő (fetch — Cloudflare Workers kompatibilis) */
+/** Egyszerű Resend e-mail küldő (fetch - Cloudflare Workers kompatibilis) */
 async function sendResendEmail(opts: ResendEmailOptions): Promise<boolean> {
   const apiKey = getEnvValue(opts.env, 'RESEND_API_KEY');
   if (!apiKey) {
@@ -163,7 +163,7 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
 
   // Promise.allSettled so a single channel throwing doesn't take down the
   // whole pipeline silently. Each `sendResendEmail` already catches internally,
-  // but generateProforma can throw synchronously — defensive guard.
+  // but generateProforma can throw synchronously - defensive guard.
   const results = await Promise.allSettled([
     adminPromise,
     customerPromise,
@@ -204,7 +204,7 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
     );
   }
 
-  // Siker, ha legalább egy tartós csatorna működött — Billingo most már az is
+  // Siker, ha legalább egy tartós csatorna működött - Billingo most már az is
   const billingoOk = proformaResult.success;
   if (adminOk || sheetsOk || billingoOk) {
     return { success: true, proforma: proformaResult };

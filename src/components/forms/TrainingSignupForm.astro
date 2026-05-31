@@ -97,7 +97,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <input type="hidden" name="formStartTime" data-form-start />
             <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
             <input type="hidden" name="product" value="kepzesek" />
-            <!-- Attribution — populated client-side from URL params + persisted tracking. -->
+            <!-- Attribution - populated client-side from URL params + persisted tracking. -->
             <input type="hidden" name="utmSource" data-track="utm_source" />
             <input type="hidden" name="utmMedium" data-track="utm_medium" />
             <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
@@ -278,7 +278,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
       const raw = localStorage.getItem('sb_tracking');
       if (raw) storedTracking = JSON.parse(raw);
     } catch {
-      /* private mode / quota — ignore */
+      /* private mode / quota - ignore */
     }
     formEl.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
@@ -328,7 +328,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
       spinner?.classList.remove('hidden');
 
       try {
-        // Restamp GDPR timestamp at submit time — `change` may not fire after
+        // Restamp GDPR timestamp at submit time - `change` may not fire after
         // bfcache restore or password-manager autofill, leaving the hidden
         // field empty and triggering FORM-ZOD-002 server-side.
         if (gdprCheckbox?.checked && gdprTimestamp && !gdprTimestamp.value) {
@@ -373,7 +373,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           await waitForTracking(600);
           window.location.href = `/koszonjuk?lead=${result.leadId}`;
         } else {
-          console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] training:', result);
+          if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] training:', result);
           // Show field errors
           if (result.errors) {
             Object.entries(result.errors).forEach(([field, messages]) => {
@@ -399,7 +399,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           }
         }
       } catch (error) {
-        console.error('[NET-OFFLINE-001] training network error:', error);
+        if (window.__slDebug) console.error('[NET-OFFLINE-001] training network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
           errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba, kérjük próbáld újra.';

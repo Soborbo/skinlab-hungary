@@ -54,10 +54,55 @@ const faq = [
   },
 ];
 
+// Kategórián belüli modell-összehasonlítás (a tényleges, publikált gépek).
+// Az alap szándékosan nem nyers spec-háború: a két gép eltérő kategória
+// (asztali AI-platform vs. kézi pen), ezért ár / technológia / felhasználás /
+// kinek-ajánlott a döntést segítő szempontok.
 const comparison = {
-  features: [],
-  products: [],
+  features: ['Ár', 'Technológia', 'Kialakítás', 'Extra', 'Alkalmazás', 'Ajánlott'],
+  products: [
+    {
+      name: 'AESTIQ AI',
+      tag: 'AI platform',
+      tagColor: 'purple',
+      highlighted: true,
+      link: '/anti-aging/aestiq-ai',
+      specs: {
+        'Ár': '1 699 990 Ft',
+        'Technológia': 'Vákuumos mikrotűs RF',
+        'Kialakítás': 'Asztali platform',
+        'Extra': 'AI Educator + ANG™ tűvezérlés',
+        'Alkalmazás': 'Ráncok, aknés hegek, striák, textúra',
+        'Ajánlott': 'Profi anti-aging fő szolgáltatásnak',
+      },
+    },
+    {
+      name: 'Bio Pen Q2',
+      tag: 'Kézi, mobil',
+      tagColor: 'blue',
+      link: '/anti-aging/q2-biopen',
+      specs: {
+        'Ár': '89 990 Ft',
+        'Technológia': 'EMS mikrotű + LED fényterápia',
+        'Kialakítás': 'Vezeték nélküli kézi pen',
+        'Extra': 'Kék 470 nm / vörös 630 nm LED',
+        'Alkalmazás': 'Arc, szemkörnyék, fejbőr, test',
+        'Ajánlott': 'Belépő / kiegészítő, mobil kezelések',
+      },
+    },
+  ],
 };
+
+const choicesHeading = 'Melyik anti-aging gép való hozzád?';
+const choicesSubheading = 'Egy asztali AI-platform és egy mobil kézi pen – más célra, más árszinten';
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  faq={faq}
+  comparison={comparison}
+  choicesHeading={choicesHeading}
+  choicesSubheading={choicesSubheading}
+/>

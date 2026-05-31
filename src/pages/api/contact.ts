@@ -45,7 +45,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     if (!validation.success) {
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizze a megadott adatokat — néhány mező hibás vagy hiányzik.',
+        userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
         context: { formId: 'contact' },
       });
@@ -57,13 +57,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen — kérjük, végezze el újra.',
+        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezze el újra.',
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'contact' },
       });
     }
 
-    // Process form submission — capture User-Agent for the Sheets row too
+    // Process form submission - capture User-Agent for the Sheets row too
     const userAgent = request.headers.get('user-agent') ?? undefined;
     const result = await processFormSubmission(validation.data!, clientAddress, userAgent);
 

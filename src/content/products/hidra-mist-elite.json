@@ -1,18 +1,38 @@
 {
   "slug": "hidra-mist-elite",
-  "draft": true,
+  "draft": false,
   "sku": "HIDRAMISTELITE",
-  "name": "Hidra Mist Elite",
+  "name": "HydraMIST Elite 11az1-ben hydrofacial",
   "categorySlug": "hydrafacial",
-  "shortDescription": "Hidra Mist Elite — részletes leírás hamarosan.",
-  "description": "Hidra Mist Elite részletek hamarosan. (Placeholder rekord — draft állapotban.)",
-  "price": null,
-  "image": "/images/placeholder.jpg",
+  "shortDescription": "11 az 1-ben multifunkciós hydrofacial rendszer: vákuumos hydradermabrázió, oxigénes hatóanyag-bevitel, RF, LED-oxigén kupola és még sok más egy platformon.",
+  "description": "A HydraMIST Elite egy multifunkciós elektrokozmetikai rendszer, amely a modern bőrkezelési technológiákat egyetlen platformon egyesíti: mélytisztítás, hidratálás, hatóanyag-bevitel, bőrregeneráció és anti-aging kezelés. 11 kezelési lehetőség egy készülékben – köztük vákuumos hydradermabrázió a pórusok mélytisztítására, ultrahangos peeling, CO₂ buborékos tisztítás, nagy nyomású és porlasztott oxigénes hatóanyag-bevitel, ultrahangos sonophoresis, multipoláris rádiófrekvenciás bőrfeszesítés, ionos masszázs és lifting, LED fényterápia oxigénnel kombinálva, valamint hideg terápiás fej a bőr megnyugtatására. Az oxigénes kupolába integrált multimédiás rendszerrel a kezelés alatt zene is játszható – prémium élmény a vendégnek. Profi szalonhasználatra készült, megfelelő szaktudást igényel.",
+  "metaTitle": "HydraMIST Elite – 11 az 1-ben hydrofacial rendszer | Skinlab",
+  "metaDescription": "HydraMIST Elite 11 az 1-ben multifunkciós hydrofacial: vákuumos hydradermabrázió, oxigénes hatóanyag-bevitel, RF bőrfeszesítés, LED-oxigén kupola. Profi szalongép.",
+  "price": 749990,
+  "image": "@assets/products/hydramist-elite-webshop1.png",
+  "gallery": [],
+  "images": [
+    "@assets/products/hydramist-elite-webshop1.png",
+    "@assets/products/hydramist-elite-webshop2.png",
+    "@assets/products/hydramist-elite-webshop3.png"
+  ],
+  "youtubeVideos": [],
   "availability": "preorder",
   "hasVariants": false,
   "variants": [],
   "featured": false,
-  "gallery": [],
-  "images": [],
-  "youtubeVideos": []
+  "specs": {
+    "Készülék típusa": "Multifunkciós elektrokozmetikai rendszer (11 az 1-ben)",
+    "Bemeneti feszültség": "220–240 V / 50–60 Hz",
+    "Teljesítmény": "150–300 W",
+    "Vákuum erősség": "0–80 kPa (állítható)",
+    "Oxigén nyomás": "0–6 bar (modelltől függően)",
+    "Ultrahang frekvencia": "1–3 MHz",
+    "Rádiófrekvencia": "0,3–1 MHz (multipoláris)",
+    "LED fényterápia": "több hullámhossz (kb. 415–640 nm)",
+    "Skin scrubber": "kb. 25–30 kHz",
+    "Oldattartályok": "3 db (A/B/C) + hulladéktartály",
+    "Zajszint": "< 60 dB",
+    "Súly": "15–25 kg"
+  }
 }

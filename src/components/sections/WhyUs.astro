@@ -11,25 +11,21 @@ const features = [
     titleKey: 'whyUs.training',
     descKey: 'whyUs.trainingDesc',
     icon: 'graduation',
-    color: 'blue',
   },
   {
     titleKey: 'whyUs.warranty',
     descKey: 'whyUs.warrantyDesc',
     icon: 'shield',
-    color: 'green',
   },
   {
     titleKey: 'whyUs.financing',
     descKey: 'whyUs.financingDesc',
     icon: 'currency',
-    color: 'purple',
   },
   {
     titleKey: 'whyUs.consulting',
     descKey: 'whyUs.consultingDesc',
     icon: 'chart',
-    color: 'amber',
   },
 ];
 
@@ -40,12 +36,6 @@ const icons: Record<string, string> = {
   'chart': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />`,
 };
 
-const colorClasses: Record<string, { bg: string; text: string }> = {
-  'blue': { bg: 'bg-blue-100', text: 'text-blue-600' },
-  'green': { bg: 'bg-green-100', text: 'text-green-600' },
-  'purple': { bg: 'bg-purple-100', text: 'text-purple-600' },
-  'amber': { bg: 'bg-amber-100', text: 'text-amber-600' },
-};
 ---
 
 <section class="py-16 lg:py-20 bg-white">
@@ -63,8 +53,8 @@ const colorClasses: Record<string, { bg: string; text: string }> = {
         <div class="space-y-5">
           {features.map((feature) => (
             <div class="flex gap-4">
-              <div class={`w-12 h-12 ${colorClasses[feature.color].bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                <svg class={`w-6 h-6 ${colorClasses[feature.color].text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[feature.icon]} />
+              <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[feature.icon]} />
               </div>
               <div>
                 <h3 class="font-bold text-gray-900 mb-1">{t(locale, feature.titleKey)}</h3>

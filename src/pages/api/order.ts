@@ -1,10 +1,10 @@
 /**
- * Megrendelés API végpont — POST /api/order
+ * Megrendelés API végpont - POST /api/order
  *
  * A kosárból érkező megrendelést fogadja. Nincs kártyás fizetés: a
  * megrendelést rögzítjük (admin e-mail + vevői visszaigazoló + Google
  * Sheets), majd a csapat visszahívja a vásárlót és e-mailben küldi a
- * fizetési linket — a trapézlemezes.hu logikáját követve.
+ * fizetési linket - a trapézlemezes.hu logikáját követve.
  *
  * Top-level try/catch + SRV-FUNC-001 / ORDER-SUBMIT-001 naplózással,
  * hogy a handler ne "csendben" 500-azzon.
@@ -22,7 +22,7 @@ import type { Locale } from '@/i18n/ui';
 
 export const prerender = false;
 
-/** GET — csak POST-ot fogad */
+/** GET - csak POST-ot fogad */
 export const GET: APIRoute = async () => {
   return errorResponse('FORM-METHOD-001', {
     userMessage: 'Ez a végpont csak POST kéréseket fogad (megrendelés beküldés).',
@@ -45,7 +45,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     }
     const raw = (body || {}) as Record<string, unknown>;
 
-    // 2. Spam védelem — honeypot
+    // 2. Spam védelem - honeypot
     if (typeof raw.website === 'string' && raw.website.length > 0) {
       return errorResponse('ORDER-SPAM-001', {
         status: 400,
@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 3. Spam védelem — time-check (>3 mp kitöltési idő)
+    // 3. Spam védelem - time-check (>3 mp kitöltési idő)
     const startTime = Number(raw.formStartTime || 0);
     if (startTime > 0 && Date.now() - startTime < 3000) {
       return errorResponse('ORDER-SPAM-001', {
@@ -69,7 +69,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     const validation = validateOrder(raw);
     if (!validation.success || !validation.data) {
       return errorResponse('ORDER-ZOD-001', {
-        userMessage: 'Kérjük, ellenőrizze a megadott adatokat — néhány mező hibás vagy hiányzik.',
+        userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
         context: { formId: 'order' },
       });
@@ -78,7 +78,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
 
     if (data.items.length === 0) {
       return errorResponse('ORDER-EMPTY-001', {
-        userMessage: 'A kosár üres — kérjük, adjon hozzá terméket a megrendeléshez.',
+        userMessage: 'A kosár üres - kérjük, adjon hozzá terméket a megrendeléshez.',
         context: { formId: 'order' },
       });
     }
@@ -86,14 +86,14 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     // 5. Env feloldás (Cloudflare runtime → import.meta.env fallback)
     const env = resolveOrderEnv(locals);
 
-    // 6. Turnstile — a központi `verifyTurnstile` ellenőrzi a secret meglétét
+    // 6. Turnstile - a központi `verifyTurnstile` ellenőrzi a secret meglétét
     //    (dev-ben átengedi, prod-ban szigorúan kötelezi).
     const turnstileSecret = readEnv('TURNSTILE_SECRET_KEY');
     if (turnstileSecret) {
       const result = await verifyTurnstile(data.turnstileToken, clientAddress || '');
       if (!result.success) {
         return errorResponse('ORDER-TURN-001', {
-          userMessage: 'A biztonsági ellenőrzés sikertelen — kérjük, próbálja újra.',
+          userMessage: 'A biztonsági ellenőrzés sikertelen - kérjük, próbálja újra.',
           errors: { turnstile: ['A biztonsági ellenőrzés sikertelen.'] },
           context: { formId: 'order', turnstileError: result.error ?? 'unknown' },
         });
@@ -101,7 +101,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     }
 
     // 7. Szerveroldali ár-újraszámolás a termék-kollekcióból
-    //    (a kliens által küldött ár csak tájékoztató — nem megbízható)
+    //    (a kliens által küldött ár csak tájékoztató - nem megbízható)
     const products = await getCollection('products');
     const items: OrderEmailItem[] = data.items.map((item) => {
       const product = products.find((p) => p.data.slug === item.slug);
@@ -162,7 +162,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       subtotal,
       hasPriceOnRequest,
       sourceUrl: data.sourceUrl || '',
-      // Attribution stack — captured by the checkout form
+      // Attribution stack - captured by the checkout form
       utmSource: data.utmSource || '',
       utmMedium: data.utmMedium || '',
       utmCampaign: data.utmCampaign || '',
@@ -183,7 +183,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 9. Siker — proforma státusz visszaadva, hogy a success page jelezhesse
+    // 9. Siker - proforma státusz visszaadva, hogy a success page jelezhesse
     //    a vevőnek, várjon-e külön fizetési e-mailre
     const proformaStatus = result.proforma?.success
       ? { sent: true as const, number: result.proforma.proformaNumber }

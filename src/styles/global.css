@@ -6,23 +6,23 @@
    ============================================ */
 
 @theme {
-  /* Primary - Dusty Rose Brand Palette */
-  --color-primary-50: #f8f0ed;
-  --color-primary-100: #e8d5c8;
-  --color-primary-200: #d4b5bf;
-  --color-primary-300: #c9a5a5;
-  --color-primary-400: #b5616a;
-  --color-primary-500: #a8787e;
-  --color-primary-600: #b5616a;
-  --color-primary-700: #4e2a2a;
-  --color-primary-800: #3e2222;
-  --color-primary-900: #2e1a1a;
-  --color-primary-950: #1e1010;
+  /* Primary - Pink Brand Palette (alap: #fe6893) */
+  --color-primary-50: #fff0f4;
+  --color-primary-100: #ffdbe5;
+  --color-primary-200: #ffbdd0;
+  --color-primary-300: #fe9ab6;
+  --color-primary-400: #fe81a4;
+  --color-primary-500: #fe6893;
+  --color-primary-600: #ec3c6e;
+  --color-primary-700: #ce2252;
+  --color-primary-800: #a01c42;
+  --color-primary-900: #751a34;
+  --color-primary-950: #4a1122;
 
-  /* Accent - Dusty rose (másodlagos szín) */
-  --color-accent: #c9a5a5;
-  --color-accent-light: #e8d5c8;
-  --color-accent-dark: #b5616a;
+  /* Accent - világosabb rózsaszín (másodlagos szín) */
+  --color-accent: #fe9ab6;
+  --color-accent-light: #ffdbe5;
+  --color-accent-dark: #ec3c6e;
 
   /* Success - zöld (nyugtázás) */
   --color-success-50: #ecfdf5;
@@ -46,10 +46,10 @@
   --color-action: #e86030;
   --color-action-light: #f09060;
 
-  /* CTA - smaragd/petrol zöld (egységes, kiugró CTA szín, a rózsaszín komplementere) */
-  --color-cta: #0f8a7e;
-  --color-cta-hover: #0b6e64;
-  --color-cta-light: #e0f2ef;
+  /* CTA - élénk smaragd-türkiz (a #fe6893 rózsaszín valódi komplementere, kiugró action szín) */
+  --color-cta: #0b8e72;
+  --color-cta-hover: #066f59;
+  --color-cta-light: #e8f8f4;
 
   /* Fonts */
   --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -97,13 +97,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #9b6b6b;
+    color: #ce2252;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f8f0ed;
+    background-color: #fff0f4;
     color: #645a59;
   }
 

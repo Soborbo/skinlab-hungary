@@ -25,7 +25,7 @@ const steps = [
     {/* Mobile: horizontally scrollable */}
     <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 lg:hidden scrollbar-hide">
       {steps.map((step, index) => (
-        <div class="snap-start flex-shrink-0 w-[75vw] sm:w-[45vw] bg-[#fbf8f6] rounded-2xl p-6 text-center border border-[#9b6b6b]/10">
+        <div class="snap-start flex-shrink-0 w-[75vw] sm:w-[45vw] bg-[#fbf8f6] rounded-2xl p-6 text-center border border-[#fe6893]/10">
           <div class="how-step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-white" style={`opacity: ${0.55 + index * 0.15}`}>
             {step.number}
           </div>
@@ -38,7 +38,7 @@ const steps = [
     {/* Desktop: 4 columns with connecting line */}
     <div class="hidden lg:block relative">
       {/* Connecting line */}
-      <div class="absolute top-7 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-gradient-to-r from-[#9b6b6b]/20 via-[#9b6b6b]/40 to-[#9b6b6b]/60" aria-hidden="true"></div>
+      <div class="absolute top-7 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-gradient-to-r from-[#fe6893]/20 via-[#fe6893]/40 to-[#fe6893]/60" aria-hidden="true"></div>
 
       <div class="grid grid-cols-4 gap-6 relative z-10">
         {steps.map((step, index) => (
@@ -57,7 +57,7 @@ const steps = [
 
 <style>
   .how-step-number {
-    background-color: #9b6b6b;
+    background-color: #ce2252;
   }
   .scrollbar-hide {
     -ms-overflow-style: none;

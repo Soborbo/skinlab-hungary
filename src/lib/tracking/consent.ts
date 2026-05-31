@@ -1,5 +1,5 @@
 /**
- * Consent Management — CookieYes
+ * Consent Management - CookieYes
  *
  * Every tracking function checks consent before doing anything.
  * If no CMP is detected in production -> deny all (safe default).

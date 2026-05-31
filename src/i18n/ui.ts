@@ -247,7 +247,7 @@ export function isRTL(_locale: Locale): boolean {
 
 /**
  * Get HTML lang attribute value for a locale.
- * Returns the regional BCP-47 tag (e.g. `hu-HU`) — better for screen readers
+ * Returns the regional BCP-47 tag (e.g. `hu-HU`) - better for screen readers
  * and Google than the bare language tag.
  */
 export function getHtmlLang(locale: Locale): string {

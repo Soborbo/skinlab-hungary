@@ -29,8 +29,8 @@ export const COMPANY = {
 };
 
 export const FOUNDERS = [
+  { name: 'Gaszler Szimonetta', roleKey: 'treatment', image: '/about/gaszler-simonetta-skinlab-alapito' },
   { name: 'Horváth László', roleKey: 'technical', image: '/about/horvath-laszlo-skinlab-alapito' },
-  { name: 'Gaszler Simonetta', roleKey: 'treatment', image: '/about/gaszler-simonetta-skinlab-alapito' },
 ];
 
 export const CONTACT = {
@@ -60,8 +60,8 @@ export const LOCATIONS = {
     country: 'HU',
     countryName: 'Magyarország',
     fullAddress: '2030 Érd, Budai út 28.',
-    openingHours: 'Előre egyeztetett időpontban',
-    openingHoursNote: 'H-P: előre egyeztetett időpontban',
+    openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
+    openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {
       latitude: 47.378666588736394,
       longitude: 18.9253785018499,
@@ -69,6 +69,18 @@ export const LOCATIONS = {
     googleMapsUrl: 'https://www.google.com/maps?q=47.378666588736394,18.9253785018499',
   },
 };
+
+// Opening hours - single source of truth (contact page list, footer note, schema).
+// Order: Monday → Sunday.
+export const OPENING_HOURS = [
+  { day: 'Hétfő', hours: '10:00–18:00' },
+  { day: 'Kedd', hours: '10:00–18:00' },
+  { day: 'Szerda', hours: '10:00–18:00' },
+  { day: 'Csütörtök', hours: '10:00–18:00' },
+  { day: 'Péntek', hours: '10:00–18:00' },
+  { day: 'Szombat', hours: '10:00–14:00' },
+  { day: 'Vasárnap', hours: 'Zárva' },
+];
 
 export const SOCIAL = {
   facebook: {
@@ -201,7 +213,7 @@ export const CATEGORIES = [
     icon: 'droplet',
     image: '/images/opt/products/hydrascanpro2-480w.webp',
     featured: true,
-    productCount: 5,
+    productCount: 3,
     color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -225,7 +237,7 @@ export const CATEGORIES = [
     icon: 'sparkles',
     image: '/images/opt/products/aestiq-ai-mesterseges-intelligencias-vakuumos-mikrotus-rf-1-480w.webp',
     featured: true,
-    productCount: 1,
+    productCount: 2,
     color: 'anti-aging' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -285,7 +297,7 @@ export const CATEGORIES = [
     icon: 'package',
     image: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-480w.webp',
     featured: true,
-    productCount: 5,
+    productCount: 3,
     color: 'kellekek' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -297,10 +309,25 @@ export const CATEGORIES = [
     icon: 'droplet',
     image: '/images/opt/products/hydraliquid-oldatok-1-480w.webp',
     featured: true,
-    productCount: 13,
+    productCount: 2,
     color: 'kezeloanyagok' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
+
+// Category card images - single source of truth for the homepage Categories
+// grid AND the consultation wizard, so the two never drift ("a konzultáció
+// képei mindig a kategóriaképek legyenek"). White-background product shots.
+// Categories without an entry fall back to the first live product image
+// (homepage) / CATEGORIES[].image (consultation wizard).
+export const CATEGORY_CARD_IMAGE: Record<string, string> = {
+  diodalezerek: '/images/opt/products/helios-1600w-diodalezer-1-828w.avif',
+  hydrafacial: '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
+  coldplasma: '/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1-828w.avif',
+  mezoterapia: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-1-640w.avif',
+  sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
+  kellekek: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
+  kezeloanyagok: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-800w.avif',
+};
 
 export const TRUST_BADGES = [
   {
@@ -333,7 +360,7 @@ export const STATS = [
 ];
 
 // Mega Menu Navigation Structure
-// All labels use i18n translation keys — resolve with t(locale, key) in components
+// All labels use i18n translation keys - resolve with t(locale, key) in components
 export interface MegaMenuItem {
   labelKey: string;
   href: string;
@@ -362,7 +389,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.treatments',
       items: [
-        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 5, descriptionKey: 'megaMenu.hydrafacialDesc' },
+        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
         { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 2, descriptionKey: 'megaMenu.coldplasmaDesc' },
       ],
@@ -370,7 +397,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.skinCare',
       items: [
-        { labelKey: 'categories.anti-aging', href: '/anti-aging', count: 1, descriptionKey: 'megaMenu.antiAgingDesc' },
+        { labelKey: 'categories.anti-aging', href: '/anti-aging', count: 2, descriptionKey: 'megaMenu.antiAgingDesc' },
         { labelKey: 'categories.testkezeles', href: '/testkezeles', count: 2, descriptionKey: 'megaMenu.bodyShapingDesc' },
         { labelKey: 'categories.mezoterapia', href: '/mezoterapia', count: 1, descriptionKey: 'megaMenu.mesoDesc' },
       ],
@@ -379,8 +406,8 @@ export const MEGA_MENU: {
       titleKey: 'megaMenu.pmu',
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
-        { labelKey: 'categories.kellekek', href: '/kellekek', count: 5, descriptionKey: 'megaMenu.accessoriesDesc' },
-        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 13, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
+        { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 2, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],
@@ -390,8 +417,18 @@ export const MEGA_MENU: {
   },
 };
 
+// White-background thumbnails for the category mega-menu.
+// The menu otherwise derives its thumbnail from the first published product in
+// each category; these slugs override that because their first product's main
+// image is a lifestyle/non-white shot, and the menu must use white-bg images only.
+export const CATEGORY_MENU_IMAGE: Record<string, string> = {
+  hydrafacial: '@assets/products/HydraSCANPRO2.webp',
+  kellekek: '@assets/products/ocheart.webp',
+  kezeloanyagok: '@assets/products/Glam-Pods-Oxy-Genx.webp',
+};
+
 // Simple navigation for header
-// Labels use i18n translation keys — resolve with t(locale, key) in components
+// Labels use i18n translation keys - resolve with t(locale, key) in components
 export const NAV_ITEMS = [
   { labelKey: 'nav.products', href: '/termekek', hasMegaMenu: true },
   { labelKey: 'nav.about', href: '/rolunk' },

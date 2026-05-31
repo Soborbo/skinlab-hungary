@@ -2,7 +2,7 @@
  * Billingo API v3 típusok.
  *
  * Csak azokat a mezőket modellezzük, amiket a díjbekérő flow ténylegesen
- * használ. A teljes API surface jóval szélesebb — referencia:
+ * használ. A teljes API surface jóval szélesebb - referencia:
  * https://billingo.docs.apiary.io/
  */
 
@@ -20,7 +20,7 @@ export type BillingoLanguage =
   | 'sl'
   | 'es';
 
-/** Billingo ÁFA kulcsok — magyar 27% a kozmetikumokra. */
+/** Billingo ÁFA kulcsok - magyar 27% a kozmetikumokra. */
 export type BillingoVat = '27%' | '18%' | '5%' | '0%' | 'AAM' | 'TAM' | 'EU' | 'EUK';
 
 /** Bizonylat típusok közül itt csak a proforma érdekel. */
@@ -120,7 +120,7 @@ export interface BillingoSendPayload {
 /**
  * A `generateProforma()` orchestrator visszatérési típusa.
  *
- * Soha nem dob — minden eredményt struktúráltan ad vissza, hogy a hívó
+ * Soha nem dob - minden eredményt struktúráltan ad vissza, hogy a hívó
  * (processOrder) eldönthesse, sikerült-e, és logolhassa a részleteket.
  */
 export type BillingoProformaResult =

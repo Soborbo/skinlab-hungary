@@ -3,7 +3,7 @@
  *
  * - Tételenként bruttó egységár, fix 27% ÁFA (felhasználói döntés szerint).
  * - 8 nap fizetési határidő.
- * - `payment_method: 'online_bankcard'` — Billingo-ban beállított SimplePay
+ * - `payment_method: 'online_bankcard'` - Billingo-ban beállított SimplePay
  *   integráció így kínálja fel a kártyás fizetés gombot a vevőnek.
  * - Hozzáfűzi a rendelésszámot a `comment` mezőbe és minden tételhez
  *   `item_comment`-ben a SKU-t, hogy a vevő utánakövethesse.
@@ -28,7 +28,7 @@ const DEFAULT_UNIT = 'db';
  *
  *   HU                            → '27%'   (belföldi)
  *   EU-tag + van adószám (B2B)    → 'EU'    (reverse charge / fordított adózás)
- *   EU-tag B2C                    → '27%'   (HU OSS-szabály — a 10k EUR küszöb alatt
+ *   EU-tag B2C                    → '27%'   (HU OSS-szabály - a 10k EUR küszöb alatt
  *                                            HU ÁFA; nagyobb forgalomnál külön rendezni!)
  *   EU-n kívüli (CH, GB, NO …)    → 'EUK'   (Európán/EU-n kívüli export)
  *   Ismeretlen ország             → '27%'   (konzervatív; jobb HU ÁFA-t fizetni, mint
@@ -60,7 +60,7 @@ function addDaysIso(base: Date, days: number): string {
 /**
  * Order tétel → Billingo bizonylat tétel.
  *
- * Dob, ha bármelyik tétel egységára null (ár egyeztetés alatt) — a hívó
+ * Dob, ha bármelyik tétel egységára null (ár egyeztetés alatt) - a hívó
  * (generateProforma) ezt a `hasPriceOnRequest` flaggel előzetesen kiszűri.
  */
 function mapItem(orderItem: OrderEmailItem, orderId: string, vat: BillingoVat): BillingoDocumentItem {
@@ -72,7 +72,7 @@ function mapItem(orderItem: OrderEmailItem, orderId: string, vat: BillingoVat): 
       retryable: false,
     });
   }
-  const variantSuffix = orderItem.variantName ? ` — ${orderItem.variantName}` : '';
+  const variantSuffix = orderItem.variantName ? ` - ${orderItem.variantName}` : '';
   return {
     name: `${orderItem.name}${variantSuffix}`,
     unit_price: orderItem.unitPrice,
@@ -87,7 +87,7 @@ function mapItem(orderItem: OrderEmailItem, orderId: string, vat: BillingoVat): 
 /**
  * Díjbekérő payload összeállítása a megrendelés-inputból.
  *
- * Megj.: szállítási díj sort jelenleg nem ad hozzá — az `OrderEmailInput`
+ * Megj.: szállítási díj sort jelenleg nem ad hozzá - az `OrderEmailInput`
  * sémában nincs `shippingFee` mező. Ha később bekerül, itt csak `if`-fel
  * lehet kiegészíteni (a `SHIPPING_FEE_ITEM_NAME` lokalizációk készen állnak).
  */
@@ -113,12 +113,12 @@ export function buildProformaPayload(opts: {
     electronic: false,
     paid: false,
     items: order.items.map((it) => mapItem(it, order.orderId, vat)),
-    comment: `Rendelésszám: ${order.orderId}${order.notes ? ` — ${order.notes}` : ''}`,
+    comment: `Rendelésszám: ${order.orderId}${order.notes ? ` - ${order.notes}` : ''}`,
   };
 }
 
 /**
- * POST /v3/documents — proforma létrehozása.
+ * POST /v3/documents - proforma létrehozása.
  * 4xx-et `BILLINGO-DOC-001`-re, 5xx-et `BILLINGO-DOC-002`-re fordít.
  */
 export async function createProforma(
@@ -155,9 +155,9 @@ export async function createProforma(
 }
 
 /**
- * POST /v3/documents/{id}/send — proforma kiküldése e-mailben.
+ * POST /v3/documents/{id}/send - proforma kiküldése e-mailben.
  *
- * Ha a küldés meghiúsul, a proforma akkor is létrejött — a hívó eldönti,
+ * Ha a küldés meghiúsul, a proforma akkor is létrejött - a hívó eldönti,
  * hogyan kezeli (jellemzően: log + folytatás, mert a dokumentum publicUrl-en
  * elérhető és a csapat manuálisan újraküldheti).
  */

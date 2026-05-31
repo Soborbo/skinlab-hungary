@@ -1,6 +1,6 @@
 ---
 /**
- * OrderSuccessContent — a /rendeles-koszonjuk oldal tartalma.
+ * OrderSuccessContent - a /rendeles-koszonjuk oldal tartalma.
  *
  * A sikeres megrendelés után jelenik meg. A rendelésszámot az `?id=`
  * URL paraméterből olvassa ki a kliens script. Nincs kártyás fizetés:
@@ -36,7 +36,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
       <!-- Rendelésszám -->
       <div class="bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 mb-8 inline-flex items-center gap-3" style="display:none" data-order-id-box>
         <span class="text-sm text-gray-500">{t(locale, 'checkout.success.orderNumber')}:</span>
-        <span class="font-mono font-bold text-[#9b6b6b]" data-order-id></span>
+        <span class="font-mono font-bold text-[#ce2252]" data-order-id></span>
       </div>
 
       <!-- Mi történik most -->
@@ -45,7 +45,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
         <ol class="space-y-4">
           {[1, 2, 3].map((n) => (
             <li class="flex gap-3">
-              <span class="w-7 h-7 rounded-full bg-[#9b6b6b] text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
+              <span class="w-7 h-7 rounded-full bg-[#ce2252] text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
               <div>
                 <p class="text-sm font-semibold text-gray-900">{t(locale, `checkout.success.step${n}Title`)}</p>
                 <p class="text-sm text-gray-600 mt-0.5">{t(locale, `checkout.success.step${n}Desc`)}</p>
@@ -58,13 +58,13 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
       <p class="text-sm text-gray-500 mb-1">{t(locale, 'checkout.success.emailNote')}</p>
       <p class="text-sm text-gray-500 mb-8">
         {t(locale, 'checkout.email.questions')}{' '}
-        <a href={CONTACT.phoneTel} class="text-[#9b6b6b] font-semibold hover:underline whitespace-nowrap">{CONTACT.phoneDisplay}</a>
+        <a href={CONTACT.phoneTel} class="text-[#ce2252] font-semibold hover:underline whitespace-nowrap">{CONTACT.phoneDisplay}</a>
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a
           href={productsUrl}
-          class="inline-flex items-center justify-center px-6 py-3 bg-[#9b6b6b] text-white font-semibold rounded-xl hover:bg-[#8a5c5c] transition-colors shadow-md"
+          class="inline-flex items-center justify-center px-6 py-3 bg-[#ce2252] text-white font-semibold rounded-xl hover:bg-[#a01c42] transition-colors shadow-md"
         >
           {t(locale, 'checkout.success.browseProducts')}
         </a>

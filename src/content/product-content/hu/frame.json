@@ -1,13 +1,91 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Hamarosan elérhető.",
-  "description": "A Frame részletes leírása hamarosan elérhető.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Hamarosan elérhető. Részletes információkért kérjen konzultációt!",
+  "name": "FRAME ND:YAG lézerkészülék",
+  "shortDescription": "Androidos okos ND:YAG lézer 13.3\" érintőképernyővel. Beépített kezelőfej-hűtés, 4 hullámhossz, tetoválás és pigment eltávolítás.",
+  "description": "Androidos vezérlésű, intelligens Q-kapcsolt Nd:YAG lézerkészülék tetoválás-eltávolításhoz, pigmentkezeléshez, carbon peelinghez és bőrfiatalításhoz, beépített kezelőfej-hűtéssel és 13,3\"-os színes érintőképernyővel.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Max. energiasűrűség",
+      "icon": "zap"
+    },
+    {
+      "value": "13,3\"",
+      "label": "Érintőképernyő",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Impulzusfrekvencia",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – androidos okos ND:YAG lézer a professzionális szalonokba",
+    "paragraphs": [
+      "A FRAME egy androidos vezérlésű, intelligens Q-kapcsolt Nd:YAG lézerkészülék, amely a tetoválás-eltávolítás, a pigmentkezelés és a bőrfiatalítás területén kínál csúcstechnológiás megoldást. Az Android operációs rendszer könnyű kezelhetőséget és személyre szabható beállításokat tesz lehetővé.",
+      "A kezelőfejbe épített, egyedülálló hűtőszerkezet azonnal hűti a bőrt, így minimalizálja a fájdalmat és a bőrkárosodás kockázatát – maximális komfortérzetet biztosítva a vendégnek.",
+      "Négy hullámhosszának köszönhetően sokoldalúan használható: 1064 nm és 532 nm a tetoválások minden színéhez, 755 nm a pigmentfoltokhoz, szeplőkhöz és napfoltokhoz, 1320 nm pedig a carbon peelinghez (bőrmélytisztítás, pórusösszehúzás).",
+      "A nagy energiájú lézerimpulzusok (10–2000 mJ/cm²) és az 1–10 Hz impulzusfrekvencia látványos, gyors eredményeket adnak, a 13,3\"-os színes érintőképernyő pedig egyszerűvé és átláthatóvá teszi a kezelést."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Tetoválás-eltávolítás",
+      "description": "Minden színhez – 1064 nm és 532 nm hullámhosszon."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Pigmentkezelés",
+      "description": "Pigmentfoltok, szeplők, napfoltok – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon peeling",
+      "description": "Bőrmélytisztítás és pórusösszehúzás – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Androidos vezérlés",
+      "description": "Intelligens szoftver, személyre szabható beállítások."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Beépített hűtés",
+      "description": "Kezelőfej-hűtés a kényelmes, fájdalomszegény kezelésért."
+    },
+    {
+      "icon": "chart",
+      "name": "Professzionális teljesítmény",
+      "description": "10–2000 mJ/cm², 1–10 Hz impulzusfrekvencia."
+    }
+  ],
+  "specs": {
+    "Lézer típusa": "Q-kapcsolt Nd:YAG",
+    "Hullámhosszok": "1064 nm, 532 nm, 755 nm, 1320 nm (carbon peeling)",
+    "Energiasűrűség": "10–2000 mJ/cm²",
+    "Impulzusfrekvencia": "1–10 Hz",
+    "Spotméret": "2–6 mm (állítható)",
+    "Kijelző": "13,3\" színes érintőképernyő",
+    "Hűtés": "Kezelőfejbe épített hűtés, 15 W hűtési teljesítmény",
+    "Vezérlés": "Android operációs rendszer"
+  },
   "cta": {
+    "afterVideo": {
+      "text": "Kérdésed van a FRAME ND:YAG lézerrel kapcsolatban? Szívesen segítünk!",
+      "buttonLabel": "Konzultáció kérése",
+      "phoneLabel": "Hívj minket"
+    },
     "final": {
-      "headline": "Érdekel a Frame?",
-      "subtitle": "Kérj ingyenes konzultációt, és értesítünk, amint elérhető!",
+      "headline": "Érdekli a FRAME ND:YAG lézer?",
+      "subtitle": "Kérjen ingyenes konzultációt vagy showroom bemutatót, és segítünk a szalonjába illő beállításokban.",
       "buttonLabel": "Konzultáció kérése"
     }
   }

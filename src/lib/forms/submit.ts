@@ -45,7 +45,7 @@ interface LeadData {
   ipHash: string;
   gdprConsent: boolean;
   gdprTimestamp: string;
-  // Attribution / tracking — captured at submit time from URL params,
+  // Attribution / tracking - captured at submit time from URL params,
   // persisted tracking storage, and document.referrer
   utmSource?: string;
   utmMedium?: string;
@@ -568,7 +568,7 @@ export async function processConsultationSubmission(
     // 3. Send notification email to team
     await sendConsultationNotificationEmail(leadData);
 
-    // 4. Send lead to CRM (non-blocking — don't fail submission if CRM is down).
+    // 4. Send lead to CRM (non-blocking - don't fail submission if CRM is down).
     // On Cloudflare Workers fire-and-forget fetches can be terminated before
     // the response resolves. If the caller passes ctx.waitUntil, register
     // the promise; otherwise fall back to await so the work isn't dropped.

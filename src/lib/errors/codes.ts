@@ -1,5 +1,5 @@
 // src/lib/errors/codes.ts
-// Teljes hibakód-regiszter — 290 kód, TypeScript-ben
+// Teljes hibakód-regiszter - 290 kód, TypeScript-ben
 //
 // Minden kód FIXÁLT severity + retryable + userImpact.
 // requiredContext: ezek a context mezők KÖTELEZŐEK ehhez a kódhoz.
@@ -8,39 +8,39 @@
 import type { ErrorCodeDef } from './types';
 
 // ============================================================
-// 1. HTTP — HTTP Status Hibák (25 kód)
+// 1. HTTP - HTTP Status Hibák (25 kód)
 // ============================================================
 
 export const HTTP_CODES: Record<string, ErrorCodeDef> = {
-  'HTTP-400-001': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '400 Bad Request — hibás request body', requiredContext: ['endpoint', 'method'] },
-  'HTTP-400-002': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '400 — hiányzó required paraméter', requiredContext: ['endpoint', 'missingParam'] },
-  'HTTP-401-001': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '401 Unauthorized — auth hiányzik', requiredContext: ['endpoint'] },
-  'HTTP-401-002': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '401 — auth lejárt/érvénytelen', requiredContext: ['endpoint', 'keyPrefix'] },
-  'HTTP-403-001': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '403 Forbidden — jogosultság', requiredContext: ['endpoint', 'origin'] },
-  'HTTP-403-002': { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: '403 — Cloudflare WAF blokkolta', requiredContext: ['cfRay'] },
-  'HTTP-404-001': { severity: 'INFO',     retryable: false, userImpact: 'degraded', message: '404 — oldal nem található', requiredContext: ['requestedUrl', 'referrer'] },
-  'HTTP-404-002': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '404 — API endpoint nem található', requiredContext: ['endpoint', 'method'] },
-  'HTTP-404-003': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '404 — statikus asset hiányzik', requiredContext: ['assetUrl', 'referrerPage'] },
-  'HTTP-404-004': { severity: 'INFO',     retryable: false, userImpact: 'none',     message: '404 — bot/crawler kér nem létező URL-t', requiredContext: ['requestedUrl', 'userAgent'] },
+  'HTTP-400-001': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '400 Bad Request - hibás request body', requiredContext: ['endpoint', 'method'] },
+  'HTTP-400-002': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '400 - hiányzó required paraméter', requiredContext: ['endpoint', 'missingParam'] },
+  'HTTP-401-001': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '401 Unauthorized - auth hiányzik', requiredContext: ['endpoint'] },
+  'HTTP-401-002': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '401 - auth lejárt/érvénytelen', requiredContext: ['endpoint', 'keyPrefix'] },
+  'HTTP-403-001': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '403 Forbidden - jogosultság', requiredContext: ['endpoint', 'origin'] },
+  'HTTP-403-002': { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: '403 - Cloudflare WAF blokkolta', requiredContext: ['cfRay'] },
+  'HTTP-404-001': { severity: 'INFO',     retryable: false, userImpact: 'degraded', message: '404 - oldal nem található', requiredContext: ['requestedUrl', 'referrer'] },
+  'HTTP-404-002': { severity: 'ERROR',    retryable: false, userImpact: 'blocked',  message: '404 - API endpoint nem található', requiredContext: ['endpoint', 'method'] },
+  'HTTP-404-003': { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: '404 - statikus asset hiányzik', requiredContext: ['assetUrl', 'referrerPage'] },
+  'HTTP-404-004': { severity: 'INFO',     retryable: false, userImpact: 'none',     message: '404 - bot/crawler kér nem létező URL-t', requiredContext: ['requestedUrl', 'userAgent'] },
   'HTTP-405-001': { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: '405 Method Not Allowed', requiredContext: ['endpoint', 'method'] },
   'HTTP-408-001': { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: '408 Request Timeout', requiredContext: ['endpoint', 'durationMs'] },
   'HTTP-413-001': { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: '413 Payload Too Large', requiredContext: ['endpoint', 'bodySize'] },
-  'HTTP-429-001': { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: '429 Too Many Requests — saját rate limit', requiredContext: ['endpoint', 'ip'] },
-  'HTTP-429-002': { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: '429 — külső API rate limit', requiredContext: ['apiName', 'retryAfter'] },
-  'HTTP-500-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '500 Internal Server Error — saját endpoint', requiredContext: ['endpoint', 'errorMessage'] },
-  'HTTP-500-002': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '500 — dependency threw', requiredContext: ['endpoint', 'dependency', 'depError'] },
+  'HTTP-429-001': { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: '429 Too Many Requests - saját rate limit', requiredContext: ['endpoint', 'ip'] },
+  'HTTP-429-002': { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: '429 - külső API rate limit', requiredContext: ['apiName', 'retryAfter'] },
+  'HTTP-500-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '500 Internal Server Error - saját endpoint', requiredContext: ['endpoint', 'errorMessage'] },
+  'HTTP-500-002': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '500 - dependency threw', requiredContext: ['endpoint', 'dependency', 'depError'] },
   'HTTP-502-001': { severity: 'ERROR',    retryable: true,  userImpact: 'blocked',  message: '502 Bad Gateway', requiredContext: ['endpoint', 'cfRay'] },
-  'HTTP-503-001': { severity: 'ERROR',    retryable: true,  userImpact: 'blocked',  message: '503 Service Unavailable — szerver túlterhelt', requiredContext: ['endpoint', 'cfRay'] },
-  'HTTP-503-002': { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: '503 — külső API maintenance', requiredContext: ['apiName'] },
+  'HTTP-503-001': { severity: 'ERROR',    retryable: true,  userImpact: 'blocked',  message: '503 Service Unavailable - szerver túlterhelt', requiredContext: ['endpoint', 'cfRay'] },
+  'HTTP-503-002': { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: '503 - külső API maintenance', requiredContext: ['apiName'] },
   'HTTP-504-001': { severity: 'ERROR',    retryable: true,  userImpact: 'blocked',  message: '504 Gateway Timeout', requiredContext: ['endpoint', 'durationMs'] },
   'HTTP-520-001': { severity: 'ERROR',    retryable: true,  userImpact: 'blocked',  message: '520 CF Unknown Error', requiredContext: ['cfRay'] },
   'HTTP-521-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '521 Web Server Is Down', requiredContext: ['cfRay'] },
   'HTTP-522-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'blocked',  message: '522 Connection Timed Out', requiredContext: ['cfRay', 'durationMs'] },
-  'HTTP-524-001': { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: '524 A Timeout Occurred — CF 30s limit', requiredContext: ['cfRay', 'endpoint'] },
+  'HTTP-524-001': { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: '524 A Timeout Occurred - CF 30s limit', requiredContext: ['cfRay', 'endpoint'] },
 };
 
 // ============================================================
-// 2. SRV — Server / CF Worker Hibák (23 kód)
+// 2. SRV - Server / CF Worker Hibák (23 kód)
 // ============================================================
 
 export const SRV_CODES: Record<string, ErrorCodeDef> = {
@@ -70,7 +70,7 @@ export const SRV_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 3. RESEND — Resend Email API (20 kód)
+// 3. RESEND - Resend Email API (20 kód)
 // ============================================================
 
 export const RESEND_CODES: Record<string, ErrorCodeDef> = {
@@ -88,7 +88,7 @@ export const RESEND_CODES: Record<string, ErrorCodeDef> = {
   'RESEND-NET-002':   { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Resend API timeout (>5s)', requiredContext: ['durationMs'] },
   'RESEND-SRV-001':   { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Resend 500 szerver hiba', requiredContext: ['statusCode'] },
   'RESEND-SRV-002':   { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Resend 503 service unavailable', requiredContext: ['statusCode'] },
-  'RESEND-PAY-001':   { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Resend 400 — hibás payload', requiredContext: ['statusCode', 'errorBody'] },
+  'RESEND-PAY-001':   { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Resend 400 - hibás payload', requiredContext: ['statusCode', 'errorBody'] },
   'RESEND-PAY-002':   { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Attachment túl nagy (>40MB)', requiredContext: ['attachmentSize'] },
   'RESEND-HEAD-001':  { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Reply-to cím hibás', requiredContext: ['replyTo'] },
   'RESEND-HEAD-002':  { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Authorization header hiányzik', requiredContext: ['hasAuthHeader'] },
@@ -97,7 +97,7 @@ export const RESEND_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 4. BREVO + EMAIL — Brevo & Mindkét Provider (12 kód)
+// 4. BREVO + EMAIL - Brevo & Mindkét Provider (12 kód)
 // ============================================================
 
 export const BREVO_CODES: Record<string, ErrorCodeDef> = {
@@ -107,39 +107,39 @@ export const BREVO_CODES: Record<string, ErrorCodeDef> = {
   'BREVO-NET-001':    { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Brevo API nem elérhető', requiredContext: ['errorMessage'] },
   'BREVO-NET-002':    { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Brevo API timeout', requiredContext: ['durationMs'] },
   'BREVO-SRV-001':    { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Brevo 500 szerver hiba', requiredContext: ['statusCode'] },
-  'BREVO-PAY-001':    { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Brevo 400 — payload hibás', requiredContext: ['statusCode', 'errorBody'] },
+  'BREVO-PAY-001':    { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Brevo 400 - payload hibás', requiredContext: ['statusCode', 'errorBody'] },
   'BREVO-TO-001':     { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Címzett blocklisted', requiredContext: ['toMasked'] },
   'BREVO-RESP-001':   { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Brevo válasz nem JSON', requiredContext: ['contentType'] },
   'BREVO-ACCT-001':   { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Brevo fiók suspended', requiredContext: ['statusCode'] },
-  'EMAIL-BOTH-001':   { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Resend ÉS Brevo is failed — LEAD ELVESZHET', requiredContext: ['resendError', 'brevoError', 'formId'] },
+  'EMAIL-BOTH-001':   { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Resend ÉS Brevo is failed - LEAD ELVESZHET', requiredContext: ['resendError', 'brevoError', 'formId'] },
   'EMAIL-CFG-001':    { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Egyik email provider API key sincs beállítva', requiredContext: ['hasResendKey', 'hasBrevoKey'] },
 };
 
 // ============================================================
-// 5. SHEETS — Google Sheets API & Webhook (28 kód)
+// 5. SHEETS - Google Sheets API & Webhook (28 kód)
 // ============================================================
 
 export const SHEETS_CODES: Record<string, ErrorCodeDef> = {
   'SHEETS-NET-001':     { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Webhook nem elérhető (network)', requiredContext: ['webhookUrlPrefix'] },
   'SHEETS-NET-002':     { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Webhook timeout (>10s)', requiredContext: ['durationMs'] },
-  'SHEETS-AUTH-001':    { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Webhook 401/403 — jogosultság', requiredContext: ['statusCode'] },
+  'SHEETS-AUTH-001':    { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Webhook 401/403 - jogosultság', requiredContext: ['statusCode'] },
   'SHEETS-AUTH-002':    { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Google OAuth token lejárt', requiredContext: ['statusCode'] },
   'SHEETS-QUOTA-001':   { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Apps Script napi execution quota (6 perc)', requiredContext: ['statusCode'] },
   'SHEETS-QUOTA-002':   { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Apps Script trigger quota (20/nap)', requiredContext: ['triggerCount'] },
   'SHEETS-QUOTA-003':   { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Sheets API rate limit (100 req/100s)', requiredContext: ['requestsLastMinute'] },
   'SHEETS-QUOTA-004':   { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Sheet 10M cella limit közelít', requiredContext: ['cellCount'] },
   'SHEETS-QUOTA-005':   { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Apps Script URL fetch quota (20k/nap)', requiredContext: ['dailyFetchCount'] },
-  'SHEETS-API-001':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Sheets API 400 — invalid request', requiredContext: ['statusCode', 'errorMessage'] },
-  'SHEETS-API-002':     { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Sheets API 403 — no access', requiredContext: ['statusCode', 'sheetId'] },
-  'SHEETS-API-003':     { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Sheets API 404 — spreadsheet nem létezik', requiredContext: ['statusCode', 'sheetId'] },
-  'SHEETS-API-004':     { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Sheets API 429 — rate limited', requiredContext: ['statusCode', 'retryAfter'] },
-  'SHEETS-API-005':     { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Sheets API 500 — Google szerver hiba', requiredContext: ['statusCode'] },
-  'SHEETS-API-006':     { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Sheets API 503 — service unavailable', requiredContext: ['statusCode'] },
+  'SHEETS-API-001':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Sheets API 400 - invalid request', requiredContext: ['statusCode', 'errorMessage'] },
+  'SHEETS-API-002':     { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Sheets API 403 - no access', requiredContext: ['statusCode', 'sheetId'] },
+  'SHEETS-API-003':     { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Sheets API 404 - spreadsheet nem létezik', requiredContext: ['statusCode', 'sheetId'] },
+  'SHEETS-API-004':     { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Sheets API 429 - rate limited', requiredContext: ['statusCode', 'retryAfter'] },
+  'SHEETS-API-005':     { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Sheets API 500 - Google szerver hiba', requiredContext: ['statusCode'] },
+  'SHEETS-API-006':     { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Sheets API 503 - service unavailable', requiredContext: ['statusCode'] },
   'SHEETS-WRITE-001':   { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'appendRow() hiba', requiredContext: ['sheetName'] },
   'SHEETS-WRITE-002':   { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'Sor nem íródott ki (silent failure)', requiredContext: ['sheetName'] },
   'SHEETS-WRITE-003':   { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Rossz tab-ra írt', requiredContext: ['targetTab', 'actualTab'] },
-  'SHEETS-COL-001':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Oszlop mismatch — kevesebb adat mint header', requiredContext: ['expectedCols', 'receivedCols'] },
-  'SHEETS-COL-002':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Oszlop mismatch — több adat mint header', requiredContext: ['expectedCols', 'receivedCols'] },
+  'SHEETS-COL-001':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Oszlop mismatch - kevesebb adat mint header', requiredContext: ['expectedCols', 'receivedCols'] },
+  'SHEETS-COL-002':     { severity: 'WARN',     retryable: false, userImpact: 'degraded', message: 'Oszlop mismatch - több adat mint header', requiredContext: ['expectedCols', 'receivedCols'] },
   'SHEETS-PARSE-001':   { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Apps Script JSON parse hiba', requiredContext: ['bodyPreview'] },
   'SHEETS-PARSE-002':   { severity: 'WARN',     retryable: false, userImpact: 'none',     message: 'Apps Script response JSON hiba', requiredContext: ['scriptResponse'] },
   'SHEETS-DUP-001':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Duplikált submission (<5s)', requiredContext: ['requestId', 'timeSinceLast'] },
@@ -151,7 +151,7 @@ export const SHEETS_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 6. TURN — Cloudflare Turnstile (13 kód)
+// 6. TURN - Cloudflare Turnstile (13 kód)
 // ============================================================
 
 export const TURN_CODES: Record<string, ErrorCodeDef> = {
@@ -171,7 +171,7 @@ export const TURN_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 7. KV — Cloudflare KV (14 kód)
+// 7. KV - Cloudflare KV (14 kód)
 // ============================================================
 
 export const KV_CODES: Record<string, ErrorCodeDef> = {
@@ -192,26 +192,26 @@ export const KV_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 8. FORM — Form Handling (30 kód)
+// 8. FORM - Form Handling (30 kód)
 // ============================================================
 
 export const FORM_CODES: Record<string, ErrorCodeDef> = {
   'FORM-ZOD-001':      { severity: 'ERROR', retryable: false, userImpact: 'blocked',  message: 'Zod schema definíciós hiba', requiredContext: ['schemaName'] },
-  'FORM-ZOD-002':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation — required field hiányzik', requiredContext: ['fieldName', 'formId'] },
-  'FORM-ZOD-003':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation — formátum (email/phone)', requiredContext: ['fieldName', 'fieldType'] },
-  'FORM-ZOD-004':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation — custom refinement', requiredContext: ['refinementName'] },
+  'FORM-ZOD-002':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation - required field hiányzik', requiredContext: ['fieldName', 'formId'] },
+  'FORM-ZOD-003':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation - formátum (email/phone)', requiredContext: ['fieldName', 'fieldType'] },
+  'FORM-ZOD-004':      { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Validation - custom refinement', requiredContext: ['refinementName'] },
   'FORM-BODY-001':     { severity: 'WARN',  retryable: false, userImpact: 'blocked',  message: 'Request body parse hiba', requiredContext: ['contentType'] },
   'FORM-BODY-002':     { severity: 'WARN',  retryable: false, userImpact: 'blocked',  message: 'Request body túl nagy (>1MB)', requiredContext: ['bodySize'] },
   'FORM-BODY-003':     { severity: 'WARN',  retryable: false, userImpact: 'blocked',  message: 'Request body üres', requiredContext: ['contentLength'] },
-  'FORM-HONEY-001':    { severity: 'INFO',  retryable: false, userImpact: 'none',     message: 'Honeypot kitöltve — bot', requiredContext: ['fieldValue'] },
-  'FORM-TIME-001':     { severity: 'INFO',  retryable: false, userImpact: 'none',     message: '<3s kitöltés — bot', requiredContext: ['fillTimeMs'] },
+  'FORM-HONEY-001':    { severity: 'INFO',  retryable: false, userImpact: 'none',     message: 'Honeypot kitöltve - bot', requiredContext: ['fieldValue'] },
+  'FORM-TIME-001':     { severity: 'INFO',  retryable: false, userImpact: 'none',     message: '<3s kitöltés - bot', requiredContext: ['fillTimeMs'] },
   'FORM-GDPR-001':     { severity: 'INFO',  retryable: false, userImpact: 'none',     message: 'GDPR checkbox nem jelölt', requiredContext: ['formId'] },
   'FORM-GDPR-002':     { severity: 'WARN',  retryable: false, userImpact: 'none',     message: 'GDPR timestamp invalid', requiredContext: ['timestampValue'] },
   'FORM-SUBMIT-001':   { severity: 'CRITICAL', retryable: false, userImpact: 'blocked', message: 'Handler top-level exception', requiredContext: ['formId', 'errorMessage'] },
   'FORM-SUBMIT-002':   { severity: 'CRITICAL', retryable: false, userImpact: 'blocked', message: 'Handler timeout (CF 30s)', requiredContext: ['formId', 'durationMs'] },
   'FORM-SUBMIT-003':   { severity: 'WARN',  retryable: false, userImpact: 'none',     message: 'Dupla submit (<2s)', requiredContext: ['formId', 'timeSinceLast'] },
   'FORM-FETCH-001':    { severity: 'ERROR', retryable: true,  userImpact: 'blocked',  message: 'Client fetch endpoint-ra failed', requiredContext: ['endpoint'] },
-  'FORM-FETCH-002':    { severity: 'ERROR', retryable: false, userImpact: 'blocked',  message: 'Client fetch — non-JSON response', requiredContext: ['statusCode', 'contentType'] },
+  'FORM-FETCH-002':    { severity: 'ERROR', retryable: false, userImpact: 'blocked',  message: 'Client fetch - non-JSON response', requiredContext: ['statusCode', 'contentType'] },
   'FORM-FETCH-003':    { severity: 'WARN',  retryable: true,  userImpact: 'degraded', message: 'Client fetch timeout', requiredContext: ['durationMs', 'endpoint'] },
   'FORM-ID-001':       { severity: 'WARN',  retryable: false, userImpact: 'none',     message: 'requestId generálás hiba', requiredContext: ['fallbackUsed'] },
   'FORM-STATE-001':    { severity: 'WARN',  retryable: false, userImpact: 'degraded', message: 'Form state restoration hiba', requiredContext: ['stateKeys'] },
@@ -229,7 +229,7 @@ export const FORM_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// 9. CALC — Calculator (30 kód)
+// 9. CALC - Calculator (30 kód)
 // ============================================================
 
 export const CALC_CODES: Record<string, ErrorCodeDef> = {
@@ -392,24 +392,24 @@ export const IMG_CODES: Record<string, ErrorCodeDef> = {
 };
 
 // ============================================================
-// PROJECT-SPECIFIC — Projektenként bővítsd
+// PROJECT-SPECIFIC - Projektenként bővítsd
 // ============================================================
 
 export const PROJECT_CODES: Record<string, ErrorCodeDef> = {
-  // Webshop — kosár / megrendelés flow (/api/order)
+  // Webshop - kosár / megrendelés flow (/api/order)
   'ORDER-SUBMIT-001':  { severity: 'CRITICAL', retryable: false, userImpact: 'blocked',  message: 'Order handler top-level exception', requiredContext: ['errorMessage'] },
-  'ORDER-ZOD-001':     { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: 'Order validation — hibás vagy hiányzó mező', requiredContext: ['formId'] },
+  'ORDER-ZOD-001':     { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: 'Order validation - hibás vagy hiányzó mező', requiredContext: ['formId'] },
   'ORDER-EMPTY-001':   { severity: 'WARN',     retryable: false, userImpact: 'blocked',  message: 'Order beküldés üres kosárral', requiredContext: ['formId'] },
   'ORDER-SPAM-001':    { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Order beküldés spam-szűrőn fennakadt (honeypot / time-check)', requiredContext: ['formId'] },
   'ORDER-TURN-001':    { severity: 'WARN',     retryable: true,  userImpact: 'blocked',  message: 'Order Turnstile ellenőrzés sikertelen', requiredContext: ['formId'] },
-  'ORDER-PERSIST-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'degraded', message: 'Order nem rögzült — admin e-mail ÉS Sheets is sikertelen', requiredContext: ['orderId'] },
+  'ORDER-PERSIST-001': { severity: 'CRITICAL', retryable: true,  userImpact: 'degraded', message: 'Order nem rögzült - admin e-mail ÉS Sheets is sikertelen', requiredContext: ['orderId'] },
 
   // Billingo díjbekérő flow (src/lib/billingo)
-  'BILLINGO-CFG-001':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_API_KEY hiányzik — díjbekérő nem generálódik', requiredContext: ['varName'] },
+  'BILLINGO-CFG-001':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_API_KEY hiányzik - díjbekérő nem generálódik', requiredContext: ['varName'] },
   'BILLINGO-CFG-002':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_BLOCK_ID hiányzik', requiredContext: ['varName'] },
   'BILLINGO-CFG-003':      { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'BILLINGO_BANK_ACCOUNT_ID hiányzik', requiredContext: ['varName'] },
-  'BILLINGO-SKIP-001':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva — ár egyeztetés alatt tétel van a rendelésben', requiredContext: ['orderId'] },
-  'BILLINGO-SKIP-002':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva — nulla összegű rendelés', requiredContext: ['orderId'] },
+  'BILLINGO-SKIP-001':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva - ár egyeztetés alatt tétel van a rendelésben', requiredContext: ['orderId'] },
+  'BILLINGO-SKIP-002':     { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Díjbekérő átugorva - nulla összegű rendelés', requiredContext: ['orderId'] },
   'BILLINGO-AUTH-001':     { severity: 'CRITICAL', retryable: false, userImpact: 'degraded', message: 'Billingo API kulcs elutasítva (401/403)', requiredContext: ['statusCode'] },
   'BILLINGO-RATE-001':     { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Billingo API rate limit (429)', requiredContext: ['statusCode', 'retryAfter'] },
   'BILLINGO-NET-001':      { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Billingo API nem elérhető (network)', requiredContext: ['errorMessage'] },
@@ -419,13 +419,13 @@ export const PROJECT_CODES: Record<string, ErrorCodeDef> = {
   'BILLINGO-PARTNER-002':  { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Partner upsert exception', requiredContext: ['orderId', 'errorMessage'] },
   'BILLINGO-DOC-001':      { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Díjbekérő create hibás payload (4xx)', requiredContext: ['statusCode', 'errorBody'] },
   'BILLINGO-DOC-002':      { severity: 'ERROR',    retryable: true,  userImpact: 'degraded', message: 'Díjbekérő create exception', requiredContext: ['orderId', 'errorMessage'] },
-  'BILLINGO-EMAIL-001':    { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Díjbekérő e-mail küldés sikertelen — proforma létrejött', requiredContext: ['proformaId'] },
-  'BILLINGO-LOCALE-001':   { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Locale nem támogatott Billingo-ban — fallback nyelv', requiredContext: ['requested', 'fallback'] },
+  'BILLINGO-EMAIL-001':    { severity: 'WARN',     retryable: true,  userImpact: 'degraded', message: 'Díjbekérő e-mail küldés sikertelen - proforma létrejött', requiredContext: ['proformaId'] },
+  'BILLINGO-LOCALE-001':   { severity: 'INFO',     retryable: false, userImpact: 'none',     message: 'Locale nem támogatott Billingo-ban - fallback nyelv', requiredContext: ['requested', 'fallback'] },
   'BILLINGO-MAP-001':      { severity: 'ERROR',    retryable: false, userImpact: 'degraded', message: 'Tétel egységár hiányzik a proforma generálásnál', requiredContext: ['orderId', 'sku'] },
 };
 
 // ============================================================
-// MERGED — Egyetlen lookup tábla
+// MERGED - Egyetlen lookup tábla
 // ============================================================
 
 export const ALL_CODES: Record<string, ErrorCodeDef> = {

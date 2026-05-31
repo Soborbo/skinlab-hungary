@@ -4,7 +4,7 @@
  * - `X-API-KEY` autentikáció (NEM `Authorization: Bearer`).
  * - Retry exponential backoff-fal 5xx és 429 esetén (max 3 próba).
  * - Strukturált hiba: `BillingoApiError` az error code + statusCode-dal.
- * - `fetch` natív API — Cloudflare Workers és Node 18+ kompatibilis.
+ * - `fetch` natív API - Cloudflare Workers és Node 18+ kompatibilis.
  */
 import type { OrderEnv } from '@/lib/order/env';
 import { getEnvValue } from '@/lib/order/env';
@@ -112,7 +112,7 @@ function buildUrl(baseUrl: string, path: string, query?: BillingoRequest['query'
   return url.toString();
 }
 
-/** Egy próbálkozás — visszaadja a JSON-t vagy dob `BillingoApiError`-t. */
+/** Egy próbálkozás - visszaadja a JSON-t vagy dob `BillingoApiError`-t. */
 async function executeOnce<T>(
   config: BillingoConfig,
   request: BillingoRequest,
@@ -197,7 +197,7 @@ async function executeOnce<T>(
   }
 
   // 4xx (nem 401/403/429): payload-hiba, nem retryable.
-  // A hívó (partners/documents) dönti el a végleges kódot — itt egy generikus
+  // A hívó (partners/documents) dönti el a végleges kódot - itt egy generikus
   // payload-hibát dobunk, és a body-t átadjuk.
   throw new BillingoApiError({
     code: 'BILLINGO-DOC-001',
@@ -233,7 +233,7 @@ export async function executeBillingoRequest<T>(
     }
   }
 
-  // Elérhetetlen ág — a ciklus mindig dob vagy visszatér.
+  // Elérhetetlen ág - a ciklus mindig dob vagy visszatér.
   throw lastError ?? new BillingoApiError({
     code: 'BILLINGO-NET-001',
     message: 'Billingo: ismeretlen hiba',

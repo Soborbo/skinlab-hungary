@@ -2,10 +2,13 @@
 import BaseLayout from './BaseLayout.astro';
 import { SITE, CONTACT, CATEGORY_COLORS } from '../lib/constants';
 import OptimizedPicture from '../components/images/OptimizedPicture.astro';
+import { Image } from 'astro:assets';
 import { hasImage, getImageAlt, getOgImagePath } from '@/lib/resolve-image';
 import { config } from '../config/siteConfig';
-import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb } from '../config/schema';
+import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb, faqSchema as buildFaqSchema } from '../config/schema';
 import QuickAddButton from '../components/cart/QuickAddButton.astro';
+import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
+import FounderConsult from '../components/cta/FounderConsult.astro';
 import { getLocaleFromUrl, type Locale } from '../i18n/ui';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
@@ -40,6 +43,19 @@ interface Choice {
   ctaLabel?: string;
 }
 
+interface Expert {
+  name: string;
+  role: string;
+  image: string;
+  imageAlt?: string;
+  quote?: string;
+}
+
+interface TrustBadge {
+  title: string;
+  subtitle?: string;
+}
+
 interface Props {
   category: {
     name: string;
@@ -53,6 +69,12 @@ interface Props {
   products?: any[];
   faq?: { question: string; answer: string }[];
   benefits?: { icon: string; title: string; description: string }[];
+  /**
+   * Opt-in: a benefits-szekció jobb oldali képe (a "Kép helye" placeholder helyett).
+   * Astro:assets ImageMetadata (import a src/assets-ből) vagy kész URL string.
+   */
+  benefitsImage?: ImageMetadata;
+  benefitsImageAlt?: string;
   comparison?: {
     features: string[];
     products: ComparisonProduct[];
@@ -62,6 +84,43 @@ interface Props {
   choicesSubheading?: string;
   choicesIntro?: string;
   choicesClosing?: string;
+  /**
+   * Opt-in: hero jobb oldal lead-capture kártya (founder/expert).
+   * Ha jelen van, a placeholder helyett a CategoryConsultationCard renderelődik.
+   * Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §3
+   */
+  expert?: Expert;
+  /**
+   * Opt-in: specifikus trust badge-ek (cím + alcím SLA-val).
+   * Ha undefined, a jelenlegi 4 vague badge marad (backwards-compatible).
+   * Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §6.2
+   */
+  trustBadges?: TrustBadge[];
+  /**
+   * Opt-in: lead-capture kártya CTA href.
+   * Default: /konzultacio?cat={category.slug}
+   */
+  consultationCtaHref?: string;
+  /**
+   * Opt-in: social proof sor a lead-capture kártya alján.
+   */
+  consultationSocialProof?: string;
+  /**
+   * Opt-in: egysoros "chooser" a decision-fold hero bal oszlopában.
+   * Pl. [{ label: 'Kezdő szalon?', target: 'ATHENA' }, ...]
+   * Gyors "melyik nekem" orientáció görgetés nélkül.
+   * Forrás: docs/CATEGORY-PAGE-HANDBOOK.md §3 (decision-first fold)
+   */
+  heroChooser?: { label: string; target: string }[];
+  /**
+   * Opt-in: a benefits-szekció címe.
+   * Default: 'Mire figyelj a választásnál?' — döntés-támogató keret (NEM "miért
+   * válaszd a kategóriát", mert a látogató már a kategórián belül van).
+   * A korábbi `Miért érdemes {nameShort}t választani?` automatikus cím
+   * nyelvtanilag hibás accusative-ot gyártott (pl. "diódalézerekt"), ezért
+   * explicit, felülírható címet használunk.
+   */
+  benefitsHeading?: string;
 }
 
 const {
@@ -69,13 +128,59 @@ const {
   products = [],
   faq = [],
   benefits = [],
+  benefitsImage,
+  benefitsImageAlt,
   comparison,
   choices = [],
   choicesHeading,
   choicesSubheading,
   choicesIntro,
   choicesClosing,
+  expert,
+  trustBadges,
+  consultationCtaHref,
+  consultationSocialProof,
+  heroChooser,
+  benefitsHeading,
 } = Astro.props;
+
+const resolvedBenefitsHeading = benefitsHeading || 'Mire figyelj a választásnál?';
+
+const resolvedCtaHref = consultationCtaHref || `/konzultacio?cat=${category.slug}`;
+
+// Fold-mód a terméklétszám alapján (lásd docs/CATEGORY-PAGE-HANDBOOK.md §3):
+//  - 1 termék  → 'single'  : a fold MAGA a termék (kép-jobb landing), nincs grid
+//  - 2-4 termék → 'decision': a hero jobb oszlopa a tényleges termékeket mutatja
+//                  döntő-kártyaként; a founder lekerül egy slim sávba
+//  - 0 vagy 5+  → 'classic' : eredeti viselkedés (founder/placeholder + grid)
+const productCount = products.length;
+const heroMode: 'single' | 'decision' | 'classic' =
+  productCount === 1 ? 'single'
+  : (productCount >= 2 && productCount <= 4 ? 'decision' : 'classic');
+const heroProduct = heroMode === 'single' ? products[0] : null;
+// A különálló terméknégyzet-grid csak classic módban kell — single/decision
+// módban a fold már megmutatja a termékeket, a duplikáció zavaró lenne.
+const showStandaloneGrid = heroMode === 'classic';
+// Founder (visszahívás) szekció a hero alatt minden gép-kategória oldalon.
+// Alapértelmezett: Horváth László (alapító) - oldalanként felülírható az `expert` proppal.
+const defaultExpert: Expert = {
+  name: 'Horváth László',
+  role: 'Skinlab alapító · technikai szakértő',
+  image: '/about/horvath-laszlo-skinlab-alapito.jpg',
+  imageAlt: 'Horváth László, Skinlab alapító',
+};
+const resolvedExpert: Expert = expert ?? defaultExpert;
+const showFounderSection = heroMode !== 'classic';
+
+const huFmt = new Intl.NumberFormat('hu-HU');
+const productHref = (p: any) => `/${p.data.categorySlug}/${p.data.slug || p.id}`;
+const defaultTrustBadges: TrustBadge[] = [
+  { title: '2 év garancia' },
+  { title: 'Ingyenes betanítás' },
+  { title: 'Magyar szerviz' },
+  { title: 'Részletfizetés' },
+];
+const resolvedTrustBadges: TrustBadge[] = trustBadges && trustBadges.length > 0 ? trustBadges : defaultTrustBadges;
 
 const hasChoices = choices.length > 0;
 const showChoicesSection = hasChoices || (comparison && comparison.products.length > 0);
@@ -141,6 +246,10 @@ categorySchema['@graph'].push(
     { name: category.nameShort },
   ])
 );
+// Push FAQPage into the @graph if FAQs are provided (SEO-only, no visual change)
+if (faq.length > 0) {
+  categorySchema['@graph'].push(buildFaqSchema(pageUrl, faq));
+}
 
 // Resolve category color from the centralized palette
 const catColor = (category.color && category.color in CATEGORY_COLORS)
@@ -149,7 +258,7 @@ const catColor = (category.color && category.color in CATEGORY_COLORS)
 const accentColor = catColor.accent;
 const accentDark = catColor.accentDark;
 
-// OG image — use the first product's main image if available
+// OG image - use the first product's main image if available
 const firstProductImage = products.length > 0 ? products[0].data.image : '';
 const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og-image.jpg';
 ---
@@ -183,7 +292,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
+          <!-- Hero bal oszlop (single módban a szöveg jobbra kerül) -->
+          <div class={heroMode === 'single' ? 'lg:order-2' : ''}>
             {category.badge && (
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4 border" style={`background-color: ${catColor.accentLight}; border-color: ${accentColor}; color: ${accentDark}`}>
                 {category.badge}
@@ -194,46 +304,161 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <p class="text-lg lg:text-xl text-gray-600 mb-6">
               {category.heroDescription || category.description}
             </p>
+
+            {/* Egysoros chooser - csak decision módban, ha kapott adatot */}
+            {heroMode === 'decision' && heroChooser && heroChooser.length > 0 && (
+              <div class="flex flex-wrap gap-x-4 gap-y-1.5 mb-6 text-sm">
+                {heroChooser.map((c) => (
+                  <span class="inline-flex items-center gap-1.5 text-gray-700">
+                    <span class="text-gray-500">{c.label}</span>
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <span class="font-semibold" style={`color: ${accentDark}`}>{c.target}</span>
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Single módban a termék ajánlat-blokk (ár + havi + CTA) */}
+            {heroMode === 'single' && heroProduct && (
+              <div class="mb-6">
+                <div class="text-sm font-semibold uppercase tracking-wide mb-1" style={`color: ${accentDark}`}>{heroProduct.data.name}</div>
+                {heroProduct.data.price ? (
+                  <div class="flex items-baseline gap-3 mb-4">
+                    <span class="text-3xl font-bold text-gray-900">{huFmt.format(heroProduct.data.price)} Ft</span>
+                    <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(Math.round(heroProduct.data.price / 12))} Ft</span>
+                  </div>
+                ) : (
+                  <div class="text-xl font-semibold mb-4" style={`color: ${accentDark}`}>Kérjen ajánlatot</div>
+                )}
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href={productHref(heroProduct)} class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white shadow-sm hover:shadow-md transition-all" style={`background-color: ${accentDark}`}>
+                    Részletek megtekintése
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </a>
+                </div>
+              </div>
+            )}
+
             <div class="flex flex-wrap gap-3 text-sm">
-              <span class="px-3 py-1.5 rounded-lg flex items-center gap-1 border border-gray-200 text-gray-600 bg-white">
-                <svg class="w-4 h-4" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                2 év garancia
-              </span>
-              <span class="px-3 py-1.5 rounded-lg flex items-center gap-1 border border-gray-200 text-gray-600 bg-white">
-                <svg class="w-4 h-4" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Ingyenes betanítás
-              </span>
-              <span class="px-3 py-1.5 rounded-lg flex items-center gap-1 border border-gray-200 text-gray-600 bg-white">
-                <svg class="w-4 h-4" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Magyar szerviz
-              </span>
-              <span class="px-3 py-1.5 rounded-lg flex items-center gap-1 border border-gray-200 text-gray-600 bg-white">
-                <svg class="w-4 h-4" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                Részletfizetés
-              </span>
+              {resolvedTrustBadges.map((badge) => (
+                <span class="px-3 py-1.5 rounded-lg inline-flex items-start gap-1.5 border border-gray-200 text-gray-700 bg-white">
+                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style={`color: ${accentDark}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span class="leading-tight">
+                    <span class="font-medium text-gray-900">{badge.title}</span>
+                    {badge.subtitle && (
+                      <span class="block text-xs text-gray-500 mt-0.5">{badge.subtitle}</span>
+                    )}
+                  </span>
+                </span>
+              ))}
             </div>
           </div>
-          <div class="hidden lg:block">
-            <div class="bg-white/10 backdrop-blur rounded-2xl aspect-video flex items-center justify-center">
-              <div class="text-center p-8">
-                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-white/20 flex items-center justify-center">
-                  <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p class="text-white/60 font-medium text-sm">Kategória kép / Videó</p>
+
+          <!-- Hero jobb oszlop (single módban a kép balra kerül) -->
+          <div class={heroMode === 'single' ? 'lg:order-1' : ''}>
+            {heroMode === 'single' && heroProduct ? (
+              <!-- SINGLE: nagy termékfotó -->
+              <div class="relative aspect-square rounded-3xl overflow-hidden flex items-center justify-center p-8 lg:p-12" style={`background: linear-gradient(135deg, ${catColor.accentLight} 0%, white 70%)`}>
+                <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-30" style={`background-color: ${accentColor}`} aria-hidden="true"></div>
+                {hasImage(heroProduct.data.image) ? (
+                  <OptimizedPicture
+                    src={heroProduct.data.image}
+                    alt={getImageAlt(heroProduct.data.image, heroProduct.data.name)}
+                    widths={[480, 640, 800]}
+                    sizes="(min-width: 1024px) 45vw, 90vw"
+                    class="relative z-10 w-full h-full object-contain"
+                    loading="eager"
+                  />
+                ) : (
+                  <div class="relative z-10 w-20 h-20 rounded-2xl bg-white/70 flex items-center justify-center">
+                    <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  </div>
+                )}
               </div>
-            </div>
+            ) : heroMode === 'decision' ? (
+              <!-- DECISION: a tényleges termékek kompakt döntő-kártyaként -->
+              <div class="space-y-3">
+                {products.map((p) => (
+                  <a
+                    href={productHref(p)}
+                    class="prod-card group flex items-center gap-4 bg-white rounded-2xl p-3"
+                    style={`--card-accent: ${accentColor}; --card-accent-dark: ${accentDark}`}
+                  >
+                    <div class="w-20 h-20 lg:w-24 lg:h-24 flex-shrink-0 rounded-xl overflow-hidden flex items-center justify-center" style={`background-color: ${catColor.accentLight}`}>
+                      {hasImage(p.data.image) ? (
+                        <OptimizedPicture
+                          src={p.data.image}
+                          alt={getImageAlt(p.data.image, p.data.name)}
+                          widths={[96, 192]}
+                          sizes="96px"
+                          class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform"
+                          loading="eager"
+                        />
+                      ) : (
+                        <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      )}
+                    </div>
+                    <div class="min-w-0 flex-1">
+                      <div class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors truncate">{p.data.name}</div>
+                      {p.data.shortDescription && (
+                        <p class="text-gray-500 text-sm line-clamp-1">{p.data.shortDescription}</p>
+                      )}
+                      {p.data.price ? (
+                        <div class="mt-1 flex items-baseline gap-2">
+                          <span class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</span>
+                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(Math.round(p.data.price / 12))} Ft</span>
+                        </div>
+                      ) : (
+                        <div class="mt-1 text-sm font-semibold" style={`color: ${accentDark}`}>Kérjen ajánlatot</div>
+                      )}
+                    </div>
+                    <svg class="w-5 h-5 text-gray-300 group-hover:text-primary-600 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <!-- CLASSIC: eredeti viselkedés (founder-kártya vagy placeholder) -->
+              <div class="hidden lg:block">
+                {expert ? (
+                  <CategoryConsultationCard
+                    expert={expert}
+                    ctaHref={resolvedCtaHref}
+                    socialProof={consultationSocialProof}
+                    accentColor={accentColor}
+                    accentDark={accentDark}
+                    accentLight={catColor.accentLight}
+                  />
+                ) : (
+                  <div class="bg-white/10 backdrop-blur rounded-2xl aspect-video flex items-center justify-center">
+                    <div class="text-center p-8">
+                      <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-white/20 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <p class="text-white/60 font-medium text-sm">Kategória kép / Videó</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Grid -->
+    {/* Founder "Kérjen ingyenes konzultációt" szekció - kép-bal / szöveg-jobb,
+        kiszervezve a FounderConsult komponensbe (a termékoldal is ezt használja). */}
+    {showFounderSection && (
+      <FounderConsult expert={resolvedExpert} ctaHref={resolvedCtaHref} eventPrefix="category" />
+    )}
+
+    <!-- Products Grid (csak classic módban; single/decision a hero-ban mutatja) -->
+    {showStandaloneGrid && (
     <section class="bg-gray-50 py-12 lg:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Filter bar (placeholder) -->
+        {/* Filter bar - kommentbe rakva, mert kevés termék van kategóriánként. Visszahelyezhető, ha bővül a katalógus.
         <div class="bg-white rounded-xl p-4 mb-8 shadow-sm border border-gray-100 flex flex-wrap items-center gap-4">
           <span class="text-gray-500 text-sm">Rendezés:</span>
           <select class="border border-gray-200 rounded-lg px-4 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500">
@@ -244,6 +469,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="flex-1"></div>
           <span class="text-gray-500 text-sm">{products.length} termék</span>
         </div>
+        */}
 
         {products.length === 0 ? (
           <!-- Empty state -->
@@ -257,7 +483,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
             <a
               href="/konzultacio"
-              class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700"
+              class="inline-flex items-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800"
             >
               Konzultáció kérése
             </a>
@@ -267,7 +493,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product, index) => (
               <div
-                class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative flex flex-col"
+                class="prod-card group bg-white rounded-2xl overflow-hidden relative flex flex-col"
+                style={`--card-accent: ${accentColor}; --card-accent-dark: ${accentDark}`}
               >
                 <!-- Badges -->
                 <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
@@ -350,8 +577,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         )}
       </div>
     </section>
+    )}
 
-    <!-- "Melyiket válaszd?" — rich choices + comparison table (optional) -->
+    <!-- "Melyiket válaszd?" - rich choices + comparison table (optional) -->
     {showChoicesSection && (
       <section class="bg-white py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -383,7 +611,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   <div class="choice-content">
                     <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
                       <span style={`color: ${accentDark}`}>{choice.name}</span>
-                      <span class="text-gray-500 font-semibold text-2xl lg:text-3xl"> — {choice.subtitle}</span>
+                      <span class="text-gray-500 font-semibold text-2xl lg:text-3xl"> - {choice.subtitle}</span>
                     </h3>
                     {choice.tagline && (
                       <p class="italic text-lg text-gray-600 mb-5 border-l-2 pl-4" style={`border-color: ${accentColor}`}>„{choice.tagline}"</p>
@@ -554,7 +782,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Miért érdemes {category.nameShort.toLowerCase()}t választani?
+                {resolvedBenefitsHeading}
               </h2>
               <div class="space-y-5">
                 {benefits.map((benefit) => (
@@ -574,9 +802,22 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 ))}
               </div>
             </div>
-            <div class="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center">
-              <p class="text-gray-400">Kép helye</p>
-            </div>
+            {benefitsImage ? (
+              <div class="relative rounded-2xl aspect-square overflow-hidden shadow-sm">
+                <Image
+                  src={benefitsImage}
+                  alt={benefitsImageAlt || `${category.nameShort} használat közben`}
+                  widths={[480, 640, 800]}
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div class="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center">
+                <p class="text-gray-400">Kép helye</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -609,7 +850,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       </section>
     )}
 
-    <!-- CTA -->
+    {/* Záró CTA - csak akkor, ha NINCS founder-szekció (classic mód).
+        Decision/single módban a founder-szekció már tartalmazza ugyanezt a "kérj konzultációt" üzenetet, ne duplikáljuk. */}
+    {!showFounderSection && (
     <section class="py-12 lg:py-16 relative overflow-hidden" style={`background: linear-gradient(135deg, ${catColor.accentLight} 0%, white 50%, ${catColor.accentLight} 100%)`}>
       <div class="absolute top-0 left-0 right-0 h-[2px]" style={`background: linear-gradient(90deg, transparent, ${accentColor}, transparent)`} aria-hidden="true"></div>
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -622,8 +865,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/konzultacio"
-            class="font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl"
-            style={`background-color: ${accentDark}`}
+            class="font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl bg-primary-700 hover:bg-primary-800"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -643,6 +885,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         </div>
       </div>
     </section>
+    )}
 
   </div>
 
@@ -693,3 +936,41 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
     if (document.readyState !== 'loading') fireCategoryTracking();
   </script>
 </BaseLayout>
+
+<style>
+  /* Termékkártya-kiemelés: accent-keret + színezett árnyék, hover-emelés és
+     finom, eltolt ütemű lebegés — hogy a kártyák elemelkedjenek és a szemet
+     odahúzzák. A lebegés `translate`-et, a hover `scale`-t használ (külön CSS
+     tulajdonságok), így nem írják felül egymást. */
+  .prod-card {
+    border: 2px solid var(--card-accent, #e5e7eb);
+    box-shadow: 0 6px 18px -8px var(--card-accent, rgba(0, 0, 0, 0.15));
+    transition: box-shadow 0.35s ease, border-color 0.35s ease, scale 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: prod-float 4.5s ease-in-out infinite;
+    will-change: translate;
+  }
+
+  .prod-card:nth-child(2) { animation-delay: 0.6s; }
+  .prod-card:nth-child(3) { animation-delay: 1.2s; }
+  .prod-card:nth-child(4) { animation-delay: 1.8s; }
+
+  .prod-card:hover {
+    scale: 1.03;
+    border-color: var(--card-accent-dark, #9ca3af);
+    box-shadow: 0 24px 48px -12px var(--card-accent, rgba(0, 0, 0, 0.25));
+  }
+
+  @keyframes prod-float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prod-card {
+      animation: none;
+    }
+    .prod-card:hover {
+      scale: 1;
+    }
+  }
+</style>

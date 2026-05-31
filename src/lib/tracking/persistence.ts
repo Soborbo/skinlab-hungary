@@ -1,5 +1,5 @@
 /**
- * Persistence — localStorage, attribution, sessions, normalization
+ * Persistence - localStorage, attribution, sessions, normalization
  *
  * Storage rules:
  *   localStorage  -> only after marketing consent

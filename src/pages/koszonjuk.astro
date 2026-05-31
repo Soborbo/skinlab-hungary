@@ -5,9 +5,9 @@
  *
  * Reached after a successful /api/contact submission. The conversion is fired
  * at form-submit time via the tracking-kit (`lead_submit` / `contact_submit`
- * dataLayer events + /api/track beacon) — see src/lib/tracking.
+ * dataLayer events + /api/track beacon) - see src/lib/tracking.
  *
- * Layout: founder photos (László + Simonetta) → personal thank-you → opening
+ * Layout: founder photos (László + Szimonetta) → personal thank-you → opening
  * hours → urgent phone CTA. Single-screen friendly.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -15,7 +15,7 @@ import { CONTACT, FOUNDERS } from '@/lib/constants';
 
 const leadId = Astro.url.searchParams.get('lead') || '';
 const laszlo = FOUNDERS.find((f) => f.name === 'Horváth László')!;
-const simonetta = FOUNDERS.find((f) => f.name === 'Gaszler Simonetta')!;
+const simonetta = FOUNDERS.find((f) => f.name === 'Gaszler Szimonetta')!;
 ---
 
 <BaseLayout

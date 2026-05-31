@@ -1,6 +1,7 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import benefitsImage from '../../assets/sminktetovalas-mast.jpg';
 
 const category = {
   name: 'MAST sminktetováló eszközök',
@@ -104,4 +105,12 @@ const comparison = {
 };
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  benefitsImage={benefitsImage}
+  benefitsImageAlt="PMU specialista MAST sminktetováló géppel ajak pigmentálás közben"
+  faq={faq}
+  comparison={comparison}
+/>

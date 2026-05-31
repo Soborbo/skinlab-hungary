@@ -1,5 +1,5 @@
 /**
- * Soborbo Tracking — Unified Entry Point
+ * Soborbo Tracking - Unified Entry Point
  * Extended for webshop e-commerce events
  */
 

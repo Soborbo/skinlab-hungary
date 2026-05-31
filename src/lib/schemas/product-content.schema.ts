@@ -96,7 +96,7 @@ export const productContentCTASchema = z.object({
     subtitle: z.string(),
     buttonLabel: z.string(),
     /** Drive folder ID of the showroom gallery. The actual photos must live
-     * under src/assets/showroom/{slug}/ — this field is documentation only,
+     * under src/assets/showroom/{slug}/ - this field is documentation only,
      * pointing to the canonical Drive source for the next sync. */
     showroomDriveFolderId: z.string().optional(),
   }).optional(),

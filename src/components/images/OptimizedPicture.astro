@@ -26,7 +26,7 @@ interface Props {
   widths?: number[];
   sizes?: string;
   formats?: string[];
-  quality?: number; // ignored — quality is baked into pre-generated files
+  quality?: number; // ignored - quality is baked into pre-generated files
   class?: string;
   loading?: 'lazy' | 'eager';
   fetchpriority?: 'high' | 'low' | 'auto';
@@ -53,7 +53,7 @@ function getManifestKey(src: ImageMetadata | string): string | null {
     return src.startsWith('@assets/') ? src : null;
   }
 
-  // ImageMetadata — extract the original path from .src
+  // ImageMetadata - extract the original path from .src
   // Astro's ImageMetadata.src looks like "/_astro/foo.hash.webp" or the raw path
   // We need to match against manifest keys which are "@assets/..." paths
   // The fsPath is available on ImageMetadata in dev mode

@@ -1,0 +1,58 @@
+---
+/**
+ * USPStrip - Persistent trust/USP strip shown on every product page.
+ *
+ * Desktop: single horizontal row (sits directly under the hero, above the fold).
+ * Mobile: 2x2 grid.
+ *
+ * Content is intentionally fixed (brand-wide promises), not per-product.
+ */
+
+const items = [
+  {
+    icon: 'shield-check',
+    title: '2 év garancia',
+    sub: 'Teljes körű, minden gépre',
+  },
+  {
+    icon: 'truck',
+    title: '15–20 munkanap',
+    sub: 'Kiszámítható szállítás',
+  },
+  {
+    icon: 'certificate',
+    title: 'FAR tanúsítvány',
+    sub: 'Akkreditált oktatással',
+  },
+  {
+    icon: 'wrench',
+    title: 'Saját szerviz',
+    sub: 'Magyar háttér, cseregép',
+  },
+];
+
+const icons: Record<string, string> = {
+  'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+  'truck': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+  'certificate': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+};
+---
+
+<section class="bg-primary-50 border-y border-primary-200/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-6">
+    <ul class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      {items.map((item) => (
+        <li class="flex items-center gap-3">
+          <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-white flex items-center justify-center">
+            <svg class="w-6 h-6 text-cta-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[item.icon]} />
+          </span>
+          <span class="min-w-0">
+            <span class="block font-semibold text-gray-900 leading-tight">{item.title}</span>
+            <span class="block text-sm text-gray-500 leading-tight">{item.sub}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

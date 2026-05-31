@@ -4,7 +4,7 @@
  * History: this module used to read `Astro.locals.runtime.env` (Astro v5
  * pattern), then fall back to `import.meta.env`. Both are broken on Astro
  * v6 + Cloudflare adapter for runtime-only secrets:
- *   - `import.meta.env.X` is inlined at build time — empty if the var
+ *   - `import.meta.env.X` is inlined at build time - empty if the var
  *     wasn't set as a build variable.
  *   - `Astro.locals.runtime.env` was removed in Astro v6 per the official
  *     upgrade docs; reading it in a server handler can throw.

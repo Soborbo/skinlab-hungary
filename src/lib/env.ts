@@ -22,7 +22,7 @@ const cfEnv = cloudflareRuntimeEnv as unknown as EnvBag | undefined;
  * Returns the value for `name` from the Cloudflare Worker runtime,
  * falling back to Astro's build-time `import.meta.env`.
  *
- * Returns `undefined` if the value is missing or an empty string —
+ * Returns `undefined` if the value is missing or an empty string -
  * callers can then short-circuit (skip the integration, log a warning,
  * etc.) instead of trying to use an empty credential.
  */
