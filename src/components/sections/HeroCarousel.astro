@@ -5,7 +5,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
-// SEO-optimized hero images - desktop (1920x807) + mobile (1254x1254)
+// SEO-optimized hero images - desktop (1920x800) + mobile (1080x1080, athena re-encoded for LCP)
 const slides = [
   {
     titleKey: 'hero.title',
@@ -123,8 +123,8 @@ const icons: Record<string, string> = {
         src={slides[0].mobileJpg}
         alt={t(locale, 'hero.title')}
         class="w-full h-auto"
-        width="1254"
-        height="1254"
+        width="1080"
+        height="1080"
         loading="eager"
         fetchpriority="high"
         decoding="sync"

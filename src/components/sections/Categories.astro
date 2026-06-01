@@ -33,6 +33,18 @@ function getCategoryLink(slug: string): string {
   return getLocalizedUrl(locale, `/${slug}`);
 }
 
+// CATEGORY_CARD_IMAGE overrides are resolved "-NNNw.ext" URLs. Derive the
+// base path so we can emit a responsive srcset instead of shipping one large
+// fixed width (cards display ~150-183px, so 800w was massively oversized).
+const CARD_IMG_WIDTHS = [320, 480, 640];
+function cardImageBase(url: string): string {
+  return url.replace(/-\d+w\.(avif|webp|jpe?g)$/i, '');
+}
+function cardSrcset(base: string, ext: string): string {
+  return CARD_IMG_WIDTHS.map((w) => `${base}-${w}w.${ext} ${w}w`).join(', ');
+}
+const CARD_IMG_SIZES = '(min-width: 1024px) 22vw, 48vw';
+
 const visibleCategories = CATEGORIES.filter(c => c.featured);
 ---
 
@@ -74,15 +86,21 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
               >
                 {categoryImage ? (
                   CATEGORY_CARD_IMAGE[category.slug] ? (
-                    <img
-                      src={categoryImage}
-                      alt={categoryName}
-                      width="400"
-                      height="300"
-                      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <picture>
+                      <source type="image/avif" srcset={cardSrcset(cardImageBase(categoryImage), 'avif')} sizes={CARD_IMG_SIZES} />
+                      <source type="image/webp" srcset={cardSrcset(cardImageBase(categoryImage), 'webp')} sizes={CARD_IMG_SIZES} />
+                      <img
+                        src={`${cardImageBase(categoryImage)}-480w.jpg`}
+                        srcset={cardSrcset(cardImageBase(categoryImage), 'jpg')}
+                        sizes={CARD_IMG_SIZES}
+                        alt={categoryName}
+                        width="400"
+                        height="300"
+                        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                   ) : (
                     <FifthImage
                       src={categoryImage}
