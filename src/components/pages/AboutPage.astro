@@ -134,28 +134,29 @@ const whyUs = [
     <!-- Hero — focus stays LEFT (shop lead); text panel sits centre-   -->
     <!-- right (40/60) with a readable frosted dark panel behind it     -->
     <!-- ============================================================= -->
-    <section class="relative overflow-hidden min-h-[560px] lg:min-h-[680px] flex items-center">
-      <div class="absolute inset-0">
+    <!-- Mobile: photo is a real block on top (left-focused, fully visible),    -->
+    <!-- text sits BELOW it. Desktop: photo is the full background, text overlaid -->
+    <!-- on the right — unchanged.                                               -->
+    <section class="relative overflow-hidden md:min-h-[600px] lg:min-h-[680px] md:flex md:items-center">
+      <div class="relative flex md:absolute md:inset-0">
         <OptimizedPicture
           src="@assets/rolunk-foto.jpg"
           alt={t(locale, 'about.heroPhotoAlt')}
           widths={[640, 828, 1080, 1200, 1600, 1920, 2560]}
           sizes="100vw"
-          class="w-full h-full object-cover object-left"
+          class="block w-full h-64 sm:h-80 md:h-full object-cover object-left"
           loading="eager"
           fetchpriority="high"
         />
-        <!-- Mobile: bottom scrim for legibility -->
-        <div class="absolute inset-0 md:hidden bg-gradient-to-t from-gray-900/85 via-gray-900/30 to-transparent"></div>
-        <!-- Desktop: darken the right ~60%, keep the left clear -->
+        <!-- Desktop only: darken the right ~60%, keep the left clear -->
         <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/85 from-25% via-gray-900/45 via-55% to-transparent to-75%"></div>
       </div>
 
-      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-24">
         <div class="md:grid md:grid-cols-5">
           <div class="hidden md:block md:col-span-2"></div>
           <div class="md:col-span-3">
-            <div class="rounded-2xl bg-gray-900/45 ring-1 ring-white/10 backdrop-blur-md p-7 lg:p-9 text-white">
+            <div class="rounded-2xl bg-gray-900 md:bg-gray-900/45 ring-1 ring-white/10 md:backdrop-blur-md p-7 lg:p-9 text-white">
               <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1] tracking-tight">
                 {titleLine1}{titleLine2 && (<><br />{titleLine2}</>)}
               </h1>
@@ -304,14 +305,24 @@ const whyUs = [
     <!-- ============================================================= -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Mobile only: image goes ABOVE the "Küldetésünk" eyebrow. -->
+        <div class="lg:hidden mb-10 rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src={rolunk7}
+            alt="Gaszler Simonetta egy szakmai bemutatón a Skinlab készülékeiről"
+            class="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+
         <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.mission')}</span>
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.whyUsTitle')}</h2>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <!-- Image: natural ratio, not cropped -->
-          <div class="order-2 lg:order-1">
+          <!-- Image: natural ratio, not cropped (desktop only — mobile copy is above) -->
+          <div class="hidden lg:block order-2 lg:order-1">
             <div class="rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src={rolunk7}

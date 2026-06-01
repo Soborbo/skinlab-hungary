@@ -3,7 +3,7 @@
  *
  * Usage: node scripts/import-products.js
  *
- * This script reads the UNAS export Excel file and generates
+ * This script reads the exported Excel file and generates
  * JSON files for Astro content collections.
  */
 
@@ -15,7 +15,7 @@ const path = require('path');
 const EXCEL_PATH = path.join(__dirname, '../../..', 'skinlab-xlsx-export-2026-01-03_10_33_31.xlsx');
 const OUTPUT_DIR = path.join(__dirname, '../src/content/products');
 
-// Category mapping from UNAS to our slugs
+// Category mapping from the source export to our slugs
 const CATEGORY_MAP = {
   'HIEMT Alakformáló gépek': 'hiemt',
   'Diódalézeres szőrtelenítő készülékek': 'diodalezerek',

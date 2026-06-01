@@ -1,6 +1,7 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import ndyagKezeles from '../../assets/ndyag-lezer-kezeles.jpg';
 
 const category = {
   name: 'Q-kapcsolt ND:YAG lézerkészülékek',
@@ -88,4 +89,12 @@ const comparison = {
 };
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  benefitsImage={ndyagKezeles}
+  benefitsImageAlt="Q-kapcsolt ND:YAG lézeres carbon peeling kezelés egy Skinlab készülékkel a szalonban"
+  faq={faq}
+  comparison={comparison}
+/>

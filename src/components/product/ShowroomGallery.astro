@@ -72,7 +72,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
         <button
           type="button"
           class="showroom-tile group relative overflow-hidden rounded-xl bg-gray-200 outline-none
-                 shrink-0 snap-center w-[80%] md:w-full
+                 shrink-0 snap-start w-[45%] md:w-full
                  md:block md:break-inside-avoid md:mb-2 lg:mb-3
                  focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           data-index={index}
@@ -128,7 +128,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
     <!-- Mobile hint -->
     <p class="md:hidden mt-3 text-center text-xs text-gray-500">
       <span class="inline-flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="showroom-hint-arrow w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7M3 12h18" />
         </svg>
         Húzd oldalra a több képért
@@ -236,6 +236,16 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
     .showroom-grid::-webkit-scrollbar { display: none; }
   }
 
+  /* Mikrointerakció: a mobil "húzd oldalra" nyíl finoman lüktet oldalra,
+     hogy görgetésre bíztasson. */
+  .showroom-hint-arrow {
+    animation: showroom-arrow-nudge 1.6s ease-in-out infinite;
+  }
+  @keyframes showroom-arrow-nudge {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(4px); }
+  }
+
   /* Lightbox visibility */
   .showroom-lightbox.is-open {
     display: flex;
@@ -252,7 +262,8 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
 
   @media (prefers-reduced-motion: reduce) {
     .showroom-tile,
-    .showroom-tile__img {
+    .showroom-tile__img,
+    .showroom-hint-arrow {
       transition: none !important;
       animation: none !important;
     }
@@ -294,6 +305,29 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
         tiles.forEach(t => io.observe(t));
       } else {
         tiles.forEach(t => t.classList.add('is-visible'));
+      }
+
+      // ── Mobile scroll nudge: egyszeri "oda-vissza" mozdulat, ami jelzi,
+      //    hogy a sáv oldalra görgethető (görgetésre bíztat). ──────────────
+      const grid = gallery.querySelector<HTMLElement>('.showroom-grid');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isNarrow = window.matchMedia('(max-width: 767px)').matches;
+      if (grid && isNarrow && !prefersReduced && 'IntersectionObserver' in window) {
+        let nudged = false;
+        const nudgeIO = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !nudged) {
+              nudged = true;
+              nudgeIO.disconnect();
+              const startLeft = grid.scrollLeft;
+              grid.scrollTo({ left: startLeft + 40, behavior: 'smooth' });
+              window.setTimeout(() => {
+                grid.scrollTo({ left: startLeft, behavior: 'smooth' });
+              }, 650);
+            }
+          });
+        }, { threshold: 0.4 });
+        nudgeIO.observe(grid);
       }
 
       // ── Pointer-driven tilt (desktop fine pointers only) ─────────────

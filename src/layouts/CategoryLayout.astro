@@ -144,6 +144,11 @@ const {
   benefitsHeading,
 } = Astro.props;
 
+// Termékek ár szerint növekvő sorrendben (legolcsóbb elöl, legdrágább hátul);
+// ár nélküli ("Kérjen ajánlatot") termékek a lista végére kerülnek.
+// Ez vonatkozik a hero döntő-kártyákra, a termékrácsra és a schema-listára is.
+products.sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity));
+
 const resolvedBenefitsHeading = benefitsHeading || 'Mire figyelj a választásnál?';
 
 const resolvedCtaHref = consultationCtaHref || `/konzultacio?cat=${category.slug}`;
@@ -233,6 +238,10 @@ const benefitIcons: Record<string, string> = {
   'wrench': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
   // Trophy / award
   'trophy': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />`,
+  // Snowflake / cold (hidegplazma)
+  'snowflake': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />`,
+  // Shield / protection
+  'shield': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016A11.955 11.955 0 0112 2.944z" />`,
 };
 
 // Schema: CollectionPage + Breadcrumb entity graph
@@ -292,8 +301,14 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
-          <!-- Hero bal oszlop (single módban a szöveg jobbra kerül) -->
-          <div class={heroMode === 'single' ? 'lg:order-2' : ''}>
+          <!-- Hero bal oszlop (szöveg). Mobilon a termék/kép fölé kerül, ezért
+               single/decision módban a szöveg order-2 (alulra), desktopon marad
+               az eredeti elrendezés. -->
+          <div class={
+            heroMode === 'single' ? 'order-2 lg:order-2'
+            : heroMode === 'decision' ? 'order-2 lg:order-1'
+            : ''
+          }>
             {category.badge && (
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4 border" style={`background-color: ${catColor.accentLight}; border-color: ${accentColor}; color: ${accentDark}`}>
                 {category.badge}
@@ -354,8 +369,13 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             </div>
           </div>
 
-          <!-- Hero jobb oszlop (single módban a kép balra kerül) -->
-          <div class={heroMode === 'single' ? 'lg:order-1' : ''}>
+          <!-- Hero jobb oszlop (termék/kép). Mobilon ez kerül legfelülre
+               (order-1), hogy egyből terméket lásson a látogató. -->
+          <div class={
+            heroMode === 'single' ? 'order-1 lg:order-1'
+            : heroMode === 'decision' ? 'order-1 lg:order-2'
+            : ''
+          }>
             {heroMode === 'single' && heroProduct ? (
               <!-- SINGLE: nagy termékfotó -->
               <div class="relative aspect-square rounded-3xl overflow-hidden flex items-center justify-center p-8 lg:p-12" style={`background: linear-gradient(135deg, ${catColor.accentLight} 0%, white 70%)`}>

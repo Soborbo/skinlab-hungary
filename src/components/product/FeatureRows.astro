@@ -64,14 +64,14 @@ const { content } = Astro.props;
     <!-- Feature Rows -->
     <div class="space-y-0">
       {content.features.map((feature, index) => (
-        <div class:list={[
-          "grid lg:grid-cols-2 items-center",
-          index % 2 === 1 ? "lg:direction-rtl" : ""
-        ]}>
+        <div class="grid lg:grid-cols-2 items-center">
+          {/* Mobilon a forrás-sorrend miatt mindig: KÉP felül, SZÖVEG alul.
+              Desktopon váltakozik: páros sor = szöveg balra / kép jobbra,
+              páratlan sor = kép balra / szöveg jobbra. */}
           <!-- Image Placeholder -->
           <div class:list={[
             "relative",
-            index % 2 === 1 ? "lg:order-2" : ""
+            index % 2 === 0 ? "lg:order-2" : "lg:order-1"
           ]}>
             {feature.image && hasImage(feature.image) ? (
               <OptimizedPicture
@@ -96,7 +96,7 @@ const { content } = Astro.props;
           <!-- Content -->
           <div class:list={[
             "px-6 py-8 lg:px-10 lg:py-10",
-            index % 2 === 1 ? "lg:order-1" : ""
+            index % 2 === 0 ? "lg:order-1" : "lg:order-2"
           ]}>
             <h3 class="text-2xl lg:text-[1.65rem] font-bold text-gray-900 mb-4 leading-tight">
               {feature.title}

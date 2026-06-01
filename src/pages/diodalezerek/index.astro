@@ -1,6 +1,7 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import diodalezerKezeles from '../../assets/diodalezer-kezeles.jpg';
 
 const category = {
   name: 'Professzionális diódalézerek',
@@ -256,6 +257,8 @@ const choices = [
   category={category}
   products={products}
   benefits={benefits}
+  benefitsImage={diodalezerKezeles}
+  benefitsImageAlt="Diódalézeres tartós szőrtelenítés egy Skinlab készülékkel a szalonban"
   faq={faq}
   comparison={comparison}
   choices={choices}

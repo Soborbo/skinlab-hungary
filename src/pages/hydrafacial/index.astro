@@ -1,6 +1,7 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import hydrafacialKezeles from '../../assets/hydrafacial-kezeles.jpg';
 
 const category = {
   name: 'Hidrodermabrázió és multifunkcionális gépek',
@@ -113,6 +114,8 @@ const choicesSubheading = 'A három publikált modell egy pillantás alatt – A
   category={category}
   products={products}
   benefits={benefits}
+  benefitsImage={hydrafacialKezeles}
+  benefitsImageAlt="Hidrodermabráziós arckezelés egy Skinlab készülékkel a szalonban"
   faq={faq}
   comparison={comparison}
   choicesHeading={choicesHeading}

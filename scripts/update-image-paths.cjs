@@ -17,12 +17,12 @@ downloadedImagesRaw.forEach(f => {
   downloadedImages.set(f.toLowerCase(), f); // Map lowercase -> actual filename
 });
 
-// Helper: convert UNAS path to local filename
-function toLocalFilename(unasPath) {
-  if (!unasPath) return null;
+// Helper: convert source image path to local filename
+function toLocalFilename(sourcePath) {
+  if (!sourcePath) return null;
 
   // Remove 'product/' prefix
-  let filename = unasPath.replace(/^product\//, '');
+  let filename = sourcePath.replace(/^product\//, '');
 
   // Replace special chars (same logic as download script)
   filename = filename.replace(/[^a-zA-Z0-9._-]/g, '-');
@@ -31,10 +31,10 @@ function toLocalFilename(unasPath) {
 }
 
 // Helper: find matching local image (case-insensitive)
-function findLocalImage(unasPath) {
-  if (!unasPath) return null;
+function findLocalImage(sourcePath) {
+  if (!sourcePath) return null;
 
-  const filename = toLocalFilename(unasPath);
+  const filename = toLocalFilename(sourcePath);
   if (!filename) return null;
 
   const filenameLower = filename.toLowerCase();
@@ -51,7 +51,7 @@ function findLocalImage(unasPath) {
   }
 
   // Try just the filename without product/ prefix (for paths like /DAME4.png)
-  const justFilename = unasPath.split('/').pop().toLowerCase();
+  const justFilename = sourcePath.split('/').pop().toLowerCase();
   if (downloadedImages.has(justFilename)) {
     return `/images/products/${downloadedImages.get(justFilename)}`;
   }

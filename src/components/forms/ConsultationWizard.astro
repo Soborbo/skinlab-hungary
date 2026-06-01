@@ -254,7 +254,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <div class="step-content hidden" data-step-content="5">
       <div class="text-center mb-4">
         <h2 class="text-xl font-bold text-gray-900">Hogyan érhetjük el?</h2>
-        <p class="text-gray-500 text-sm mt-1">Hamarosan felvesszük Önnel a kapcsolatot</p>
+        <p class="text-gray-500 text-sm mt-1">Hamarosan felvesszük veled a kapcsolatot</p>
       </div>
 
       <div class="space-y-4">
@@ -412,7 +412,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       <div class="flex items-center gap-3">
         <div>
           <p class="font-medium text-red-800">Hiba történt</p>
-          <p class="text-sm text-red-600" data-error-text>Kérjük, próbálja újra.</p>
+          <p class="text-sm text-red-600" data-error-text>Kérlek, próbáld újra.</p>
         </div>
       </div>
     </div>
@@ -676,7 +676,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         if (!isChecked) {
           const errorEl = stepContent.querySelector('[data-error="product"]') as HTMLElement;
           if (errorEl) {
-            errorEl.textContent = 'Kérjük, válasszon legalább egy kategóriát';
+            errorEl.textContent = 'Kérlek, válassz legalább egy kategóriát';
             errorEl.classList.remove('hidden');
           }
           isValid = false;
@@ -695,7 +695,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           if (!isChecked) {
             const errorEl = stepContent.querySelector(`[data-error="${name}"]`) as HTMLElement;
             if (errorEl) {
-              errorEl.textContent = 'Kérjük, válasszon egy opciót';
+              errorEl.textContent = 'Kérlek, válassz egy opciót';
               errorEl.classList.remove('hidden');
             }
             isValid = false;
@@ -859,14 +859,14 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           errorMessage?.classList.remove('hidden');
           if (errorText) {
             const code = result.code ? '[' + result.code + '] ' : '';
-            errorText.textContent = code + (result.error || 'Kérjük, próbálja újra.');
+            errorText.textContent = code + (result.error || 'Kérlek, próbáld újra.');
           }
         }
       } catch (error) {
         if (window.__slDebug) console.error('[NET-OFFLINE-001] consultation network error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
-          errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérjük, próbálja újra.';
+          errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérlek, próbáld újra.';
         }
       } finally {
         submitBtn.disabled = false;
