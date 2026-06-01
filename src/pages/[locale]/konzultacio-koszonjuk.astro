@@ -13,8 +13,8 @@ const leadId = Astro.url.searchParams.get('lead') || '';
 ---
 
 <BaseLayout
-  title="Köszönjük érdeklődését"
-  description="Megkaptuk konzultáció kérését, hamarosan felvesszük Önnel a kapcsolatot."
+  title="Köszönjük az érdeklődésed"
+  description="Megkaptuk a konzultációkérésed, hamarosan felvesszük veled a kapcsolatot."
   noIndex={true}
 >
   <section class="min-h-[80vh] flex items-center justify-center py-12 px-4">
@@ -43,7 +43,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
 
       <p class="text-lg text-gray-600 mb-8">
         Megkaptuk konzultáció kérését.<br />
-        <strong class="text-gray-800">Hamarosan felvesszük Önnel a kapcsolatot!</strong>
+        <strong class="text-gray-800">Hamarosan felvesszük veled a kapcsolatot!</strong>
       </p>
 
       {leadId && (
@@ -61,7 +61,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
               <span class="text-pink-600 font-semibold">1</span>
             </div>
             <div class="pt-1">
-              <p class="font-medium text-gray-900">Átnézzük az igényeit</p>
+              <p class="font-medium text-gray-900">Átnézzük az igényeid</p>
               <p class="text-sm text-gray-500">Kollégánk feldolgozza a megadott információkat</p>
             </div>
           </div>
@@ -80,7 +80,7 @@ const leadId = Astro.url.searchParams.get('lead') || '';
             </div>
             <div class="pt-1">
               <p class="font-medium text-gray-900">Személyre szabott ajánlat</p>
-              <p class="text-sm text-gray-500">Az igényei alapján részletes tájékoztatást küldünk</p>
+              <p class="text-sm text-gray-500">Az igényeid alapján részletes tájékoztatást küldünk</p>
             </div>
           </div>
         </div>

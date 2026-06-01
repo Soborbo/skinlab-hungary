@@ -28,7 +28,7 @@ const formatPriceDisplay = (price: number) => {
 ---
 
 <section class="py-10 lg:py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" style="max-width: min(80vw, 64rem)">
+  <div class="calc-shell mx-auto px-2 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-6 lg:mb-8">
       <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -319,6 +319,17 @@ const formatPriceDisplay = (price: number) => {
 </script>
 
 <style>
+  /* Mobilon a kalkulátor közel teljes szélességű (csak ~8px oldalpadding),
+     a 80vw-os korlát csak tablet/desktop méretben él. */
+  .calc-shell {
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .calc-shell {
+      max-width: min(80vw, 64rem);
+    }
+  }
+
   /* Custom slider styling */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;

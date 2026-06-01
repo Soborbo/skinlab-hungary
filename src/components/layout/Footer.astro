@@ -107,6 +107,16 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
             </a>
           </li>
           <li>
+            <a href={getLocalizedUrl(locale, '/finanszirozas')} class="text-sm text-gray-400 hover:text-white transition-colors">
+              {t(locale, 'footer.financing')}
+            </a>
+          </li>
+          <li>
+            <a href={getLocalizedUrl(locale, '/elallas')} class="text-sm text-gray-400 hover:text-white transition-colors">
+              {t(locale, 'footer.withdrawal')}
+            </a>
+          </li>
+          <li>
             <a href={getLocalizedUrl(locale, '/gyik')} class="text-sm text-gray-400 hover:text-white transition-colors">
               {t(locale, 'nav.faq')}
             </a>
