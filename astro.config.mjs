@@ -34,6 +34,12 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: 'passthrough',
   }),
+  build: {
+    // Inline the shared stylesheet into each document so first paint isn't
+    // blocked on a separate render-blocking CSS request (~300ms on slow
+    // mobile). The CSS gzips to a few KB, so the per-page cost is small.
+    inlineStylesheets: 'always',
+  },
   image: {
     service: passthroughImageService(),
     domains: ['skinlabhungary.hu'],

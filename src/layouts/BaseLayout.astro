@@ -135,9 +135,12 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   
-  <!-- Fonts: self-hosted, preload critical subsets -->
-  <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/playfair-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Fonts: self-hosted, preload the primary `latin` subsets (these render the
+       bulk of visible above-the-fold text). The heavier `latin-ext` subset
+       (HU ő/ű etc.) is left to load on demand via @font-face + font-display:swap
+       so it doesn't compete with the LCP hero image on slow connections. -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- LCP image preload (page-specific). If a mobile variant is provided,
        split the preload via `media` queries so each viewport fetches the
