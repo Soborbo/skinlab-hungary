@@ -21,6 +21,7 @@
 import type { OrderEmailInput } from '@/lib/order/email';
 import type { OrderEnv } from '@/lib/order/env';
 import { BillingoApiError, loadBillingoConfig } from './client';
+import { logError } from '@/lib/errors/respond';
 import { findOrCreatePartner } from './partners';
 import { buildProformaPayload, createProforma, sendProformaEmail } from './documents';
 import { mapLocaleToBillingo } from './language';
@@ -54,7 +55,16 @@ export async function generateProforma(
     config = loadBillingoConfig(env);
   } catch (caught) {
     if (caught instanceof BillingoApiError) {
-      console.error(`[billingo] config missing (${caught.code}):`, caught.message);
+      // A hiányzó/érvénytelen konfig NEM blokkolja a rendelést (skip marad,
+      // a vevő nem kap hibát), de strukturált CRITICAL hibaként logoljuk, hogy
+      // az observability-ben (Cloudflare Workers Logs / Logpush a `[err]`
+      // payloadra szűrve) látható és riasztható legyen - különben a díjbekérő
+      // csendben kimaradna. A varName-t a hibaüzenet első tokenjéből vesszük
+      // (pl. "BILLINGO_API_KEY hiányzik").
+      logError(caught.code, {
+        varName: caught.message.split(' ')[0],
+        orderId: order.orderId,
+      });
       return {
         success: false,
         skipped: true,
@@ -100,11 +110,14 @@ export async function generateProforma(
     };
   } catch (caught) {
     if (caught instanceof BillingoApiError) {
-      console.error(
-        `[billingo] ${caught.code} for ${order.orderId}:`,
-        caught.message,
-        caught.body ?? '',
-      );
+      logError(caught.code, {
+        orderId: order.orderId,
+        errorMessage: caught.message,
+        ...(caught.statusCode != null ? { statusCode: caught.statusCode } : {}),
+        ...(caught.body != null
+          ? { errorBody: typeof caught.body === 'string' ? caught.body : JSON.stringify(caught.body) }
+          : {}),
+      });
       return {
         success: false,
         skipped: false,
@@ -113,7 +126,7 @@ export async function generateProforma(
       };
     }
     const message = caught instanceof Error ? caught.message : String(caught);
-    console.error(`[billingo] unexpected error for ${order.orderId}:`, message);
+    logError('BILLINGO-PARTNER-002', { orderId: order.orderId, errorMessage: message });
     return {
       success: false,
       skipped: false,
@@ -121,6 +134,7 @@ export async function generateProforma(
       errorMessage: message,
     };
   }
+
 }
 
 export type { BillingoProformaResult } from './types';

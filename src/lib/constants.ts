@@ -271,7 +271,7 @@ export const CATEGORIES = [
     slug: 'testkezeles',
     description: 'Cryolipolysis, contour shaping és egyéb test- és alakformáló kezelőgépek.',
     icon: 'snowflake',
-    image: '/images/opt/products/freeze-me-slim-cryolipolysis-1-480w.webp',
+    image: '/images/opt/products/freeze-me-slim-cryolipolysis-3-480w.webp',
     featured: true,
     productCount: 2,
     color: 'testkezeles' as keyof typeof CATEGORY_COLORS,
@@ -324,6 +324,7 @@ export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   hydrafacial: '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
   coldplasma: '/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1-828w.avif',
   mezoterapia: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-1-640w.avif',
+  testkezeles: '/images/opt/products/freeze-me-slim-cryolipolysis-3-640w.avif',
   sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
   kellekek: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
   kezeloanyagok: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-800w.avif',
@@ -423,6 +424,7 @@ export const MEGA_MENU: {
 // image is a lifestyle/non-white shot, and the menu must use white-bg images only.
 export const CATEGORY_MENU_IMAGE: Record<string, string> = {
   hydrafacial: '@assets/products/HydraSCANPRO2.webp',
+  testkezeles: '@assets/products/freeze-me-slim-3.png',
   kellekek: '@assets/products/ocheart.webp',
   kezeloanyagok: '@assets/products/Glam-Pods-Oxy-Genx.webp',
 };

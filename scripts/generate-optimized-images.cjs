@@ -90,6 +90,16 @@ function buildImageMapping() {
       }
     }
 
+    // Secondary gallery images (deeper gallery section)
+    if (product.extraImages && product.extraImages.length > 0) {
+      for (const imgPath of product.extraImages) {
+        const fn = imgPath.split('/').pop();
+        if (!allImageEntries.some(e => e.filename === fn)) {
+          allImageEntries.push({ filename: fn, context: 'gallery' });
+        }
+      }
+    }
+
     // Variant images
     if (product.variants) {
       for (const variant of product.variants) {

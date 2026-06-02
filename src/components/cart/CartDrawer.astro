@@ -165,7 +165,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
         ? `<span class="text-xs text-gray-400">${escapeHtml(item.variantName)}</span>`
         : '';
       const img = item.image
-        ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" width="56" height="56" loading="lazy" decoding="async" class="w-14 h-14 object-cover rounded-lg border border-gray-100 bg-gray-50 shrink-0" />`
+        ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" width="56" height="56" loading="lazy" decoding="async" class="w-14 h-14 object-contain p-1 rounded-lg border border-gray-100 bg-white shrink-0" />`
         : `<div class="w-14 h-14 rounded-lg bg-gray-100 shrink-0" aria-hidden="true"></div>`;
       return `
         <div class="flex gap-3" data-drawer-item="${item.id}">

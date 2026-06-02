@@ -1561,6 +1561,37 @@
     "basePath": "/images/opt/products/spectraglow-premium-pico-lezer-2"
   },
   "@assets/products/freeze-me-slim-1.png": {
+    "seoSlug": "freeze-me-slim-cryolipolysis-2",
+    "alt": "FREEZE ME SLIM Cryolipolysis - 2. kép",
+    "width": 1023,
+    "height": 1537,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1023
+    ],
+    "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-2"
+  },
+  "@assets/products/freeze-me-slim-2.png": {
+    "seoSlug": "freeze-me-slim-cryolipolysis-3",
+    "alt": "FREEZE ME SLIM Cryolipolysis - 3. kép",
+    "width": 924,
+    "height": 1703,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      924
+    ],
+    "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-3"
+  },
+  "@assets/products/freeze-me-slim-3.png": {
     "seoSlug": "freeze-me-slim-cryolipolysis-1",
     "alt": "FREEZE ME SLIM Cryolipolysis",
     "width": 1023,
@@ -1575,37 +1606,6 @@
       1023
     ],
     "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-1"
-  },
-  "@assets/products/freeze-me-slim-2.png": {
-    "seoSlug": "freeze-me-slim-cryolipolysis-2",
-    "alt": "FREEZE ME SLIM Cryolipolysis - 2. kép",
-    "width": 924,
-    "height": 1703,
-    "widths": [
-      160,
-      320,
-      480,
-      640,
-      828,
-      924
-    ],
-    "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-2"
-  },
-  "@assets/products/freeze-me-slim-3.png": {
-    "seoSlug": "freeze-me-slim-cryolipolysis-3",
-    "alt": "FREEZE ME SLIM Cryolipolysis - 3. kép",
-    "width": 1023,
-    "height": 1537,
-    "widths": [
-      160,
-      320,
-      480,
-      640,
-      828,
-      960,
-      1023
-    ],
-    "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-3"
   },
   "@assets/products/freeze-me-slim-design-1.png": {
     "seoSlug": "freeze-me-slim-design-1",
@@ -3470,6 +3470,111 @@
       800
     ],
     "basePath": "/images/opt/products/mary2"
+  },
+  "@assets/products/mast-p60-arany-allvany.png": {
+    "seoSlug": "mast-p60-sminktetovalo-2",
+    "alt": "MAST P60 Sminktetováló - 2. kép",
+    "width": 1151,
+    "height": 1367,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1151
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-2"
+  },
+  "@assets/products/mast-p60-jellemzok.png": {
+    "seoSlug": "mast-p60-sminktetovalo-6",
+    "alt": "MAST P60 Sminktetováló - 6. kép",
+    "width": 1331,
+    "height": 1182,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1331
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-6"
+  },
+  "@assets/products/mast-p60-kozelrol.png": {
+    "seoSlug": "mast-p60-sminktetovalo-5",
+    "alt": "MAST P60 Sminktetováló - 5. kép",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-5"
+  },
+  "@assets/products/mast-p60-lila-allvany.png": {
+    "seoSlug": "mast-p60-sminktetovalo-4",
+    "alt": "MAST P60 Sminktetováló - 4. kép",
+    "width": 1148,
+    "height": 1370,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1148
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-4"
+  },
+  "@assets/products/mast-p60-parameterek.png": {
+    "seoSlug": "mast-p60-sminktetovalo-7",
+    "alt": "MAST P60 Sminktetováló - 7. kép",
+    "width": 1247,
+    "height": 1261,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1247
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-7"
+  },
+  "@assets/products/mast-p60-rosegold-allvany.png": {
+    "seoSlug": "mast-p60-sminktetovalo-3",
+    "alt": "MAST P60 Sminktetováló - 3. kép",
+    "width": 1149,
+    "height": 1369,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1149
+    ],
+    "basePath": "/images/opt/products/mast-p60-sminktetovalo-3"
   },
   "@assets/products/mastfoldprosnake.webp": {
     "seoSlug": "dragonhawk-fold-pro-year-of-snake-edition-2",
@@ -6189,6 +6294,26 @@
     ],
     "basePath": "/images/opt/showroom/olympia/skinlab-showroom-olympia-12"
   },
+  "@assets/diodalezer-kezeles.jpg": {
+    "seoSlug": "diodalezer-kezeles",
+    "alt": "Diodalezer Kezeles",
+    "width": 2142,
+    "height": 2500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2142
+    ],
+    "basePath": "/images/opt/site/diodalezer-kezeles"
+  },
   "@assets/gepkezeloi-oktatas-gyakorlat.jpg": {
     "seoSlug": "gepkezeloi-oktatas-gyakorlat",
     "alt": "Gepkezeloi Oktatas Gyakorlat",
@@ -6224,6 +6349,26 @@
       1600
     ],
     "basePath": "/images/opt/site/hero-image"
+  },
+  "@assets/hydrafacial-kezeles.jpg": {
+    "seoSlug": "hydrafacial-kezeles",
+    "alt": "Hydrafacial Kezeles",
+    "width": 2142,
+    "height": 2500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2142
+    ],
+    "basePath": "/images/opt/site/hydrafacial-kezeles"
   },
   "@assets/kapcsolat.jpg": {
     "seoSlug": "kapcsolat",
@@ -6359,6 +6504,26 @@
       560
     ],
     "basePath": "/images/opt/site/logo"
+  },
+  "@assets/ndyag-lezer-kezeles.jpg": {
+    "seoSlug": "ndyag-lezer-kezeles",
+    "alt": "Ndyag Lezer Kezeles",
+    "width": 2142,
+    "height": 2500,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1600,
+      1920,
+      2142
+    ],
+    "basePath": "/images/opt/site/ndyag-lezer-kezeles"
   },
   "@assets/rolunk-foto.jpg": {
     "seoSlug": "rolunk-foto",

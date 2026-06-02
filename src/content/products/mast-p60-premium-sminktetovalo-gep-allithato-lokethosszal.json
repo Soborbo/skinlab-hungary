@@ -14,21 +14,21 @@
   "variants": [
     {
       "sku": "MP60gold",
-      "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
+      "name": "Arany",
       "value": "MP60gold",
       "price": 79990,
       "image": "@assets/products/P60arany.webp"
     },
     {
       "sku": "MP60rosegold",
-      "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
+      "name": "Rose Gold",
       "value": "MP60rosegold",
       "price": 79990,
       "image": "@assets/products/P60rosegold.webp"
     },
     {
       "sku": "MP60PURPLE",
-      "name": "MAST P60 premium sminktetováló gép állítható lökethosszal",
+      "name": "Lila",
       "value": "MP60PURPLE",
       "price": 79990,
       "image": "@assets/products/P60lila.webp"
@@ -37,6 +37,14 @@
   "featured": false,
   "images": [
     "@assets/products/P60arany.webp",
+    "@assets/products/mast-p60-arany-allvany.png",
+    "@assets/products/mast-p60-rosegold-allvany.png",
+    "@assets/products/mast-p60-lila-allvany.png",
+    "@assets/products/mast-p60-kozelrol.png",
+    "@assets/products/mast-p60-jellemzok.png",
+    "@assets/products/mast-p60-parameterek.png"
+  ],
+  "extraImages": [
     "@assets/products/WQP-053-1.webp",
     "@assets/products/WQP-053-4.webp",
     "@assets/products/WQP-053-5-1024x1024.webp",
