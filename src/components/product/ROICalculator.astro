@@ -27,7 +27,7 @@ const formatPriceDisplay = (price: number) => {
 };
 ---
 
-<section class="py-10 lg:py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50">
+<section class="roi-revert py-10 lg:py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50">
   <div class="calc-shell mx-auto px-2 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-6 lg:mb-8">
@@ -319,6 +319,25 @@ const formatPriceDisplay = (price: number) => {
 </script>
 
 <style>
+  /* Régi (lila) primary paletta visszaállítása CSAK ehhez a modulhoz.
+     A globális brand primary szándékosan rózsaszín maradt; itt felülírjuk a
+     CSS változókat, így minden primary-* utility a korábbi lila/indigó
+     megjelenést kapja vissza (a kék csúszkák és az indigo-800 horgony eddig is
+     ehhez illeszkedett). */
+  .roi-revert {
+    --color-primary-50: #f8f5fa;
+    --color-primary-100: #f0e8f4;
+    --color-primary-200: #e0d0e8;
+    --color-primary-300: #c8aed8;
+    --color-primary-400: #a882c0;
+    --color-primary-500: #8b5ca8;
+    --color-primary-600: #724890;
+    --color-primary-700: #5c3878;
+    --color-primary-800: #4a2d60;
+    --color-primary-900: #3d2450;
+    --color-primary-950: #271538;
+  }
+
   /* Mobilon a kalkulátor közel teljes szélességű (csak ~8px oldalpadding),
      a 80vw-os korlát csak tablet/desktop méretben él. */
   .calc-shell {

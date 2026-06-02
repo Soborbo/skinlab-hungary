@@ -110,6 +110,27 @@ export function errorResponse(
 }
 
 /**
+ * Strukturált hibalog HTTP válasz nélkül - observability-hez.
+ *
+ * Ugyanazt a `[err]` payload-formátumot és severity-alapú console-szintet
+ * használja, mint az `errorResponse` (így a Cloudflare Workers Logs /
+ * Logpush ugyanúgy szűrhető rá), de NEM épít Response-t. Olyan
+ * háttér-csatornákhoz való, amelyek nem a kérés-választ blokkolják, de a
+ * hibát/kihagyást látni akarjuk a logban - pl. a Billingo díjbekérő
+ * csendes kihagyása hiányzó konfig miatt.
+ */
+export function logError(code: string, context?: ErrorContext): void {
+  const def = ALL_CODES[code];
+  const severity = def?.severity ?? 'ERROR';
+  logSeverity(severity, {
+    code,
+    severity,
+    message: def?.message ?? DEFAULT_MESSAGE,
+    context,
+  });
+}
+
+/**
  * Look up the descriptive message for a code without producing a Response.
  * Useful for in-process logging or composing error text.
  */

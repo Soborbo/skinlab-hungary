@@ -8,39 +8,35 @@ const contactLink = getLocalizedUrl(locale, '/konzultacio');
 // SEO-optimized hero images - desktop (1920x800) + mobile (1080x1080, athena re-encoded for LCP)
 const slides = [
   {
+    // 1. SLIDE – "Professzionális kozmetikai berendezések" cím, az ND:YAG/carbon
+    // kártyájáról áthozott DermaTech+ képpel (a felhasználó kérése: az első
+    // mindig a Professzionális kártya legyen, ezzel a képpel).
     titleKey: 'hero.title',
     subtitleKey: 'hero.subtitle',
-    avif: '/hero/hero-athena-1000w-diodalezer.avif',
-    webp: '/hero/hero-athena-1000w-diodalezer.webp',
-    jpg: '/hero/hero-athena-1000w-diodalezer.jpg',
-    mobileAvif: '/hero/hero-athena-1000w-diodalezer-mobile.avif',
-    mobileWebp: '/hero/hero-athena-1000w-diodalezer-mobile.webp',
-    mobileJpg: '/hero/hero-athena-1000w-diodalezer-mobile.jpg',
-    imageAlt: 'hero.title',
-  },
-  {
-    titleKey: 'hero.slide2.title',
-    subtitleKey: 'hero.slide2.subtitle',
     avif: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.avif',
     webp: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.webp',
     jpg: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia.jpg',
     mobileAvif: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.avif',
     mobileWebp: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.webp',
     mobileJpg: '/hero/hero-dermatech-plus-tu-nelkuli-mezoterapia-mobile.jpg',
+    imageAlt: 'hero.title',
+  },
+  {
+    // 2. SLIDE – "A legmodernebb diódalézerek garanciával" az Athena diódalézer
+    // képpel (illeszkedő kép-szöveg pár).
+    titleKey: 'hero.slide2.title',
+    subtitleKey: 'hero.slide2.subtitle',
+    avif: '/hero/hero-athena-1000w-diodalezer.avif',
+    webp: '/hero/hero-athena-1000w-diodalezer.webp',
+    jpg: '/hero/hero-athena-1000w-diodalezer.jpg',
+    mobileAvif: '/hero/hero-athena-1000w-diodalezer-mobile.avif',
+    mobileWebp: '/hero/hero-athena-1000w-diodalezer-mobile.webp',
+    mobileJpg: '/hero/hero-athena-1000w-diodalezer-mobile.jpg',
     imageAlt: 'hero.slide2.title',
   },
   {
-    titleKey: 'hero.slide4.title',
-    subtitleKey: 'hero.slide4.subtitle',
-    avif: '/hero/hero-hidra-mist-elite-hidrofacial-gep.avif',
-    webp: '/hero/hero-hidra-mist-elite-hidrofacial-gep.webp',
-    jpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep.jpg',
-    mobileAvif: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.avif',
-    mobileWebp: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.webp',
-    mobileJpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.jpg',
-    imageAlt: 'hero.slide4.title',
-  },
-  {
+    // 3. SLIDE – "Hozd ki a maximumot a carbon peelingből" a Monduniq laser
+    // expert (utóápolási) csomag képpel.
     titleKey: 'hero.slide5.title',
     subtitleKey: 'hero.slide5.subtitle',
     avif: '/hero/hero-monduniq-laser-expert-csomag.avif',
@@ -50,6 +46,19 @@ const slides = [
     mobileWebp: '/hero/hero-monduniq-laser-expert-csomag-mobile.webp',
     mobileJpg: '/hero/hero-monduniq-laser-expert-csomag-mobile.jpg',
     imageAlt: 'hero.slide5.title',
+  },
+  {
+    // 4. SLIDE – AI/versenyelőny üzenet a HidraMIST Elite képpel (a felhasználó
+    // kérése: a korábbi "Professzionális" kártya képére kerüljön az AI-szöveg).
+    titleKey: 'hero.slide6.title',
+    subtitleKey: 'hero.slide6.subtitle',
+    avif: '/hero/hero-hidra-mist-elite-hidrofacial-gep.avif',
+    webp: '/hero/hero-hidra-mist-elite-hidrofacial-gep.webp',
+    jpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep.jpg',
+    mobileAvif: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.avif',
+    mobileWebp: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.webp',
+    mobileJpg: '/hero/hero-hidra-mist-elite-hidrofacial-gep-mobile.jpg',
+    imageAlt: 'hero.slide6.title',
   },
 ];
 
@@ -121,7 +130,7 @@ const icons: Record<string, string> = {
       <source type="image/webp" srcset={slides[0].mobileWebp} />
       <img
         src={slides[0].mobileJpg}
-        alt={t(locale, 'hero.title')}
+        alt={t(locale, slides[0].imageAlt)}
         class="w-full h-auto"
         width="1080"
         height="1080"
@@ -131,11 +140,11 @@ const icons: Record<string, string> = {
       />
     </picture>
     <div class="px-4 pb-6 text-center" style="margin-top: 20px;">
-      <h1 class="text-2xl font-normal text-[#ce2252] mb-2 leading-snug font-heading">
-        {t(locale, 'hero.title')}
+      <h1 class="text-2xl font-normal text-[#ce2252] mb-2 leading-snug font-heading" style="white-space: pre-line;">
+        {t(locale, slides[0].titleKey)}
       </h1>
       <p class="text-sm text-[#645a59] mb-4 leading-relaxed">
-        {t(locale, 'hero.subtitle')}
+        {t(locale, slides[0].subtitleKey)}
       </p>
       <a
         href={contactLink}
@@ -178,7 +187,17 @@ const icons: Record<string, string> = {
                 <div class="hero-panel relative max-w-[620px] px-7 py-7 lg:px-10 lg:py-9">
                   <!-- ferde rózsaszín dizájn-vonal a cím fölött -->
                   <span class="hero-accent-line" aria-hidden="true"></span>
-                  <h2 class="relative text-3xl lg:text-5xl font-normal text-[#ce2252] mb-4 leading-tight font-heading">
+                  <h2
+                    class:list={[
+                      'relative text-3xl font-normal text-[#ce2252] mb-4 leading-tight font-heading',
+                      // A hosszú címek lg-n 48px-en 3 sorba törnének a panelben,
+                      // ezért itt 40px, hogy 2 sorba férjenek
+                      // ("Professzionális kozmetikai / berendezések", ill. az
+                      // "Álomszerű kezelőgépek / mesterséges intelligenciával").
+                      ['hero.title', 'hero.slide6.title'].includes(slide.titleKey) ? 'lg:text-[2.5rem]' : 'lg:text-5xl',
+                    ]}
+                    style="white-space: pre-line;"
+                  >
                     {t(locale, slide.titleKey)}
                   </h2>
                   <p class="relative text-base lg:text-lg text-[#645a59] mb-6 max-w-[572px]">
@@ -225,21 +244,21 @@ const icons: Record<string, string> = {
               />
             ))}
           </div>
-          <div class="flex gap-1 ml-3">
+          <div class="flex gap-2 ml-3">
             <button
-              class="carousel-prev p-1.5 rounded-lg bg-[#fe6893]/15 border border-[#fe6893]/30 text-[#ce2252] hover:bg-[#fe6893]/25 backdrop-blur-sm transition-all cursor-pointer"
+              class="carousel-prev p-3 rounded-xl bg-[#fe6893] text-white shadow-lg hover:bg-[#ce2252] hover:scale-105 transition-all cursor-pointer"
               aria-label="Previous slide"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
-              class="carousel-next p-1.5 rounded-lg bg-[#fe6893]/15 border border-[#fe6893]/30 text-[#ce2252] hover:bg-[#fe6893]/25 backdrop-blur-sm transition-all cursor-pointer"
+              class="carousel-next p-3 rounded-xl bg-[#fe6893] text-white shadow-lg hover:bg-[#ce2252] hover:scale-105 transition-all cursor-pointer"
               aria-label="Next slide"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>

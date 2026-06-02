@@ -172,12 +172,12 @@ const isHomePage = pathname === '/' || pathname === '/hu';
                     style={catColors ? `border-color: ${catColors.accent}; --mega-item-color: ${catColors.accent}` : 'border-color: transparent'}
                   >
                     {/* Category thumbnail */}
-                    <div class="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 shrink-0">
+                    <div class="w-12 h-12 rounded-lg overflow-hidden bg-white border border-gray-100 shrink-0">
                       {itemImage ? (
                         <FifthImage
                           src={itemImage}
                           alt={t(locale, item.labelKey)}
-                          class="w-full h-full object-cover"
+                          class="w-full h-full object-contain p-1"
                         />
                       ) : (
                         <div class="w-full h-full flex items-center justify-center">
@@ -309,7 +309,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
                         <FifthImage
                           src={itemImage}
                           alt={t(locale, item.labelKey)}
-                          class="w-full h-full object-cover"
+                          class="w-full h-full object-contain p-0.5"
                         />
                       ) : (
                         <div class="w-full h-full flex items-center justify-center">

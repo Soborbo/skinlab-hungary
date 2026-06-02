@@ -9,16 +9,20 @@ import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Brand logos with their display settings (using manifest string paths)
+// Brand logos. `h` = rendered visual height in px — the per-brand knob that
+// normalizes how large the wordmark *looks*. Pure wordmarks (brovi, MAST) need a
+// smaller height; logos with an emblem or lots of internal whitespace
+// (Dragonhawk, Farmona, Biotatum) need a larger height so the lettering matches.
+// `maxW` caps width so a wide lockup can't overflow the fixed-width card.
 const brands = [
-  { name: 'MAST', logo: '@assets/brands/mast-logo.png', width: 120 },
-  { name: 'Dragonhawk', logo: '@assets/brands/dragonhawk-logo.png', width: 140 },
-  { name: 'WJX', logo: '@assets/brands/wjx-logo.png', width: 100 },
-  { name: "M'onduniq", logo: '@assets/brands/monduniq-logo.png', width: 140 },
-  { name: 'Biotatum', logo: '@assets/brands/biotatum-logo.png', width: 90 },
-  { name: 'Biopen', logo: '@assets/brands/biopen-logo.png', width: 130 },
-  { name: 'Farmona', logo: '@assets/brands/farmona-logo.png', width: 90 },
-  { name: 'Brovi', logo: '@assets/brands/brovi-logo.png', width: 120 },
+  { name: 'MAST', logo: '@assets/brands/mast-logo.png', h: 28, maxW: 130 },
+  { name: 'Dragonhawk', logo: '@assets/brands/dragonhawk-logo.png', h: 54, maxW: 140 },
+  { name: 'WJX', logo: '@assets/brands/wjx-logo.png', h: 36, maxW: 130 },
+  { name: "M'onduniq", logo: '@assets/brands/monduniq-logo.png', h: 40, maxW: 144 },
+  { name: 'Biotatum', logo: '@assets/brands/biotatum-logo.png', h: 52, maxW: 140 },
+  { name: 'Biopen', logo: '@assets/brands/biopen-logo.png', h: 38, maxW: 130 },
+  { name: 'Farmona', logo: '@assets/brands/farmona-logo.png', h: 52, maxW: 130 },
+  { name: 'Brovi', logo: '@assets/brands/brovi-logo.png', h: 30, maxW: 120 },
 ];
 ---
 
@@ -48,12 +52,13 @@ const brands = [
       {[...Array(2)].map((_, setIndex) => (
         <div class="marquee-content flex items-center gap-12 lg:gap-16 px-6 lg:px-8" aria-hidden={setIndex > 0 ? "true" : undefined}>
           {brands.map((brand) => (
-            <div class="flex-shrink-0 flex items-center justify-center h-16 px-6 bg-white rounded-xl shadow-sm border border-gray-100">
+            <div class="flex-shrink-0 flex items-center justify-center w-44 h-20 px-4 bg-white rounded-xl shadow-sm border border-gray-100">
               <Logo
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                width={brand.width}
-                class="h-10 w-auto object-contain"
+                width={160}
+                class="w-auto object-contain"
+                style={`height:${brand.h}px;max-width:${brand.maxW}px;aspect-ratio:auto`}
               />
             </div>
           ))}

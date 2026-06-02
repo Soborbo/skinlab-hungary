@@ -150,9 +150,9 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
             </div>
           </div>
 
-          {/* Thumbnails */}
+          {/* Thumbnails – egysoros, vízszintesen görgethető (sosem törik új sorba) */}
           {set.images.length > 1 && (
-            <div class="thumb-strip flex gap-2 overflow-x-auto sm:grid sm:grid-cols-6 sm:overflow-visible" role="tablist" aria-label="Termékképek">
+            <div class="thumb-strip flex gap-2 overflow-x-auto" role="tablist" aria-label="Termékképek">
               {set.images.map((img, i) => (
                 <button
                   type="button"
@@ -160,7 +160,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                   aria-selected={i === 0 ? 'true' : 'false'}
                   aria-label={getAlt(img, i, set.images.length)}
                   class:list={[
-                    'aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
+                    'aspect-square w-16 sm:w-20 lg:w-24 flex-shrink-0 rounded-lg overflow-hidden bg-white border border-gray-100 cursor-pointer transition-all',
                     'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
                     i === 0 ? 'ring-2 ring-primary-600' : ''
                   ]}
@@ -171,7 +171,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                     alt={getAlt(img, i, set.images.length)}
                     widths={thumbWidths}
                     sizes={thumbSizes}
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-contain p-1"
                     loading="lazy"
                   />
                 </button>
@@ -280,7 +280,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                       alt={getAlt(img, i, set.images.length)}
                       widths={[160, 320]}
                       sizes="64px"
-                      class="w-full h-full object-cover"
+                      class="w-full h-full object-contain p-1"
                       loading="lazy"
                     />
                   </button>
@@ -376,9 +376,9 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
         )}
       </div>
 
-      {/* Thumbnails */}
+      {/* Thumbnails – egysoros, vízszintesen görgethető (sosem törik új sorba) */}
       {resolvedImages.length > 1 && (
-        <div class="thumb-strip flex gap-2 overflow-x-auto sm:grid sm:grid-cols-6 sm:overflow-visible" role="tablist" aria-label="Termékképek">
+        <div class="thumb-strip flex gap-2 overflow-x-auto" role="tablist" aria-label="Termékképek">
           {resolvedImages.map((img, i) => (
             <button
               type="button"
@@ -386,7 +386,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
               aria-selected={i === 0 ? 'true' : 'false'}
               aria-label={getAlt(img, i, resolvedImages.length)}
               class:list={[
-                'aspect-square w-16 flex-shrink-0 sm:w-auto rounded-lg overflow-hidden bg-gray-100 cursor-pointer transition-all',
+                'aspect-square w-16 sm:w-20 lg:w-24 flex-shrink-0 rounded-lg overflow-hidden bg-white border border-gray-100 cursor-pointer transition-all',
                 'hover:ring-2 hover:ring-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500',
                 i === 0 ? 'ring-2 ring-primary-600' : ''
               ]}
@@ -397,7 +397,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                 alt={getAlt(img, i, resolvedImages.length)}
                 widths={thumbWidths}
                 sizes={thumbSizes}
-                class="w-full h-full object-cover"
+                class="w-full h-full object-contain p-1"
                 loading="lazy"
               />
             </button>
@@ -506,7 +506,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                   alt=""
                   widths={[160, 320]}
                   sizes="64px"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-contain p-1"
                   loading="lazy"
                 />
               </button>
@@ -527,6 +527,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
     function initGalleryGroup(group: Element) {
       const galleryTrack = group.querySelector('[data-gallery-track]') as HTMLElement | null;
       const mainImageContainer = group.querySelector('[data-open-lightbox]');
+      const thumbStrip = group.querySelector('.thumb-strip') as HTMLElement | null;
       const thumbnails = group.querySelectorAll('[data-thumbnail]');
       const lightbox = group.querySelector('[data-lightbox]');
       const slides = group.querySelectorAll('[data-slide]');
@@ -543,6 +544,17 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
       let currentIndex = 0;
       const totalImages = slides.length || 1;
 
+      // Az aktív bélyegképet a sáv közepére görgeti (a strip "forog" lapozáskor).
+      // A strip görgetését módosítja, nem az oldalét → nincs függőleges ugrás.
+      function scrollActiveThumbIntoView(index: number) {
+        const thumb = thumbnails[index] as HTMLElement | undefined;
+        if (!thumbStrip || !thumb) return;
+        const stripRect = thumbStrip.getBoundingClientRect();
+        const thumbRect = thumb.getBoundingClientRect();
+        const delta = (thumbRect.left - stripRect.left) - (thumbStrip.clientWidth - thumb.clientWidth) / 2;
+        thumbStrip.scrollTo({ left: thumbStrip.scrollLeft + delta, behavior: 'smooth' });
+      }
+
       function updateMainImage(index: number) {
         currentIndex = index;
         if (galleryTrack) {
@@ -553,6 +565,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
           thumb.classList.toggle('ring-primary-600', i === index);
           thumb.setAttribute('aria-selected', i === index ? 'true' : 'false');
         });
+        scrollActiveThumbIntoView(index);
         if (currentIndexEl) {
           currentIndexEl.textContent = String(index + 1);
         }
@@ -616,6 +629,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
           thumb.classList.toggle('ring-primary-600', i === 0);
           thumb.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
         });
+        thumbStrip?.scrollTo({ left: 0, behavior: 'smooth' });
         if (currentIndexEl) {
           currentIndexEl.textContent = '1';
         }
@@ -727,8 +741,8 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
 </script>
 
 <style>
-  /* Mobil bélyegkép-sáv: egysoros, oldalra görgethető (sosem törik két sorba).
-     sm+ méreten visszavált rácsra, így ott nincs scrollbar. */
+  /* Bélyegkép-sáv: minden méreten egysoros, oldalra görgethető (sosem törik
+     két sorba). Rejtett scrollbar; lapozáskor az aktív bélyegkép középre görög. */
   .thumb-strip {
     scrollbar-width: none;
     -ms-overflow-style: none;

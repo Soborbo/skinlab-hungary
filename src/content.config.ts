@@ -39,6 +39,9 @@ const productSchema = z.object({
   image: z.string().default('/images/placeholder.jpg'),
   gallery: z.array(z.string()).default([]),
   images: z.array(z.string()).default([]),
+  // Secondary images shown in a dedicated gallery section deeper in the page
+  // (separate from the hero gallery built from `image` + `images`).
+  extraImages: z.array(z.string()).default([]),
   youtubeVideos: z.array(z.string()).default([]),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
   hasVariants: z.boolean().default(false),

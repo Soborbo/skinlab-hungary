@@ -16,6 +16,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/product/Breadcrumb.astro';
 import ProductHero from '../components/product/ProductHero.astro';
+import ProductGallerySection from '../components/product/ProductGallerySection.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
 import ROICalculator from '../components/product/ROICalculator.astro';
 import VideoDescription from '../components/product/VideoDescription.astro';
@@ -79,6 +80,7 @@ interface Props {
     salePrice?: number | null;
     image: string;
     gallery: string[];
+    extraImages?: string[];
     youtubeVideos?: string[];
     availability: 'in_stock' | 'preorder' | 'out_of_stock';
     hasVariants: boolean;
@@ -333,6 +335,15 @@ const productSchema = product.price ? {
       phoneLabel={content.cta?.afterVideo?.phoneLabel}
       showPhone={true}
     />
+
+    <!-- 5.5. GALLERY SECTION (secondary product images, deeper in the page) -->
+    {product.extraImages && product.extraImages.length > 0 && (
+      <ProductGallerySection
+        images={product.extraImages}
+        productName={displayName}
+        headline="Galéria"
+      />
+    )}
 
     <!-- 6. FEATURE ROWS -->
     {content.featureRows && (
