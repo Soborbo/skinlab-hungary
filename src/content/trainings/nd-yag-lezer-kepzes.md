@@ -1,68 +1,99 @@
 ---
-name: "ND:YAG lézer gépkezelői tanfolyam"
-description: "Hivatalos FAR tanúsítvánnyal záruló gépkezelői képzés tetoválás és pigmentfolt eltávolításhoz Q-kapcsolt ND:YAG lézerrel."
-shortDescription: "FAR tanúsítvánnyal záruló ND:YAG lézer képzés"
-price: 0
-priceFormatted: "A gép árában"
-duration: "1 nap"
+name: "Q-kapcsolt ND:YAG lézerkezelői képzés"
+description: "Q-kapcsolt ND:YAG / carbon-lézer kezelői képzés – Carbon Peeling, sminktetoválás- és pigmentfolt-eltávolítás, bőrmegújítás biztonságos technikával és helyes paraméterezéssel."
+shortDescription: "Q-kapcsolt ND:YAG / carbon-lézer kezelői képzés: Carbon Peeling, sminktetoválás- és pigmentfolt-eltávolítás, bőrmegújítás – a hullámhosszak és paraméterek helyes megválasztásával, biztonságos technikával, gyakorlati, modelles oktatással."
+price: 99990
+priceFormatted: "99 990 Ft"
+duration: "Kb. 4 óra"
 maxParticipants: 4
-certificate: "FAR gépkezelői tanúsítvány"
+certificate: "FAR-jegyzett, B-számos tanúsítvány"
 topics:
-  - "Az ND:YAG lézer működési elve"
-  - "Q-kapcsolás technológia magyarázata"
-  - "Hullámhosszak: 532nm és 1064nm alkalmazása"
-  - "Tetoválás eltávolítás protokollja"
-  - "Pigmentfolt kezelési technikák"
-  - "Carbon peeling eljárás"
-  - "Bőrmegújítás lézerrel"
-  - "Kontraindikációk és biztonsági előírások"
-  - "Gyakorlati kezelések"
+  - "Jogszabályi háttér és felelősségi körök"
+  - "A Q-kapcsolt ND:YAG lézer működési elve"
+  - "Hullámhosszak és felhasználási területeik"
+  - "A bőr és a pigmentek kölcsönhatása a lézerfénnyel"
+  - "Indikációk és kontraindikációk"
+  - "Carbon Peeling (Hollywood Peel)"
+  - "Sminktetoválás eltávolítás"
+  - "Pigmentfoltok halványítása, bőrmegújítás"
+  - "Kezelési paraméterek és mellékhatások megelőzése"
 requirements:
   - "18 éves kor betöltése"
-  - "ND:YAG lézer készülék megvásárlása a Skinlab-tól"
-image: "/images/trainings/ndyag-kepzes.jpg"
+  - "Saját modell biztosítása a gyakorlati részhez (a képzés utolsó órájában)"
+image: "@assets/q-kapcsolt-ndyag-carbon-lezer-kepzes.png"
 featured: true
 ---
 
-## A képzés célja
+Szeretnéd magabiztosan és biztonságosan alkalmazni a Q-kapcsolt ND:YAG / carbon-lézertechnológiát? Gyakorlatorientált képzésünk során átfogó elméleti és gyakorlati tudást biztosítunk, hogy a készüléket eredményesen használhasd különböző esztétikai kezelésekhez.
 
-Az ND:YAG lézer gépkezelői tanfolyam célja, hogy a résztvevők elsajátítsák a tetoválás eltávolítás, pigmentfolt kezelés és carbon peeling biztonságos végrehajtásához szükséges ismereteket.
+## A képzés felépítése
 
-## Mit tanulsz a képzésen?
+### 1. Jogszabályi háttér
 
-### Elméleti rész (4 óra)
+- A lézeres kezelésekre vonatkozó aktuális szabályozások
+- Kompetenciahatárok és felelősségi körök
+- Dokumentációs kötelezettségek
+- A biztonságos munkavégzés alapelvei
 
-- **A Q-kapcsolt ND:YAG lézer működése**: A picoszekundumos és nanoszekundumos impulzusok különbségei
-- **Hullámhosszak**: Az 532nm (zöld/piros pigmentek) és 1064nm (fekete/sötét pigmentek) alkalmazása
-- **Tetoválás eltávolítás**: A festékanyagok lebontásának folyamata, kezelési terv készítése
-- **Pigmentációk**: Melasma, lentigo, szeplők kezelése
-- **Carbon peeling**: A pórusok tisztítása, bőrmegújítás
-- **Biztonsági protokollok**: Védőfelszerelések, kontraindikációk
+### 2. Elméleti oktatás
 
-### Gyakorlati rész (4 óra)
+- A Q-kapcsolt ND:YAG lézer működési elve
+- Hullámhosszak és azok felhasználási területei
+- A bőr és a pigmentek kölcsönhatása a lézerfénnyel
+- Indikációk és kontraindikációk
+- A kezelési paraméterek helyes megválasztása
+- Lehetséges mellékhatások és azok megelőzése
 
-- **Gépkezelés**: Paraméterek beállítása különböző kezelésekhez
-- **Tetoválás eltávolítás demonstráció**: Különböző színű és méretű tetoválások kezelése
-- **Carbon peeling**: Lépésről lépésre végigvezetjük a kezelést
-- **Kezelés utáni protokollok**: Utókezelés, gyógyulási folyamat
+### 3. Gyakorlati oktatás
 
-## FAR tanúsítvány
+A gyakorlati rész során bemutatjuk és közösen elvégezzük a legnépszerűbb kezeléseket:
 
-A képzés elvégzése után hivatalos FAR gépkezelői tanúsítványt kapsz, amely igazolja a képzettségedet és szükséges a legális működéshez.
+- Carbon Peeling (Hollywood Peel)
+- Sminktetoválás eltávolítás
+- Pigmentfoltok halványítása
+- Bőrmegújító kezelések
 
-## Képzési anyagok
+Külön hangsúlyt fektetünk a helyes technikára és a biztonságos paraméterezésre.
 
-- Részletes oktatási anyag
-- Kezelési protokollok tetoválás eltávolításhoz
-- Carbon peeling protokoll
-- Beleegyező nyilatkozat minták
-- FAR tanúsítvány
+### 4. Modelles gyakorlás
+
+A modell jelenléte kizárólag a képzés utolsó órájában szükséges. **A modellről a résztvevőnek kell gondoskodnia.**
+
+Javasolt kezelések: Carbon Peeling, sminktetoválás eltávolítás.
+
+## Amit a képzés tartalmaz
+
+- Részletes, nyomtatott vagy digitális tananyag
+- Utókezelési protokollok
+- Hatóanyag- és termékajánlások
+- Kezelési tanácsok a maximális eredményesség érdekében
+- Kávé és harapnivaló a képzés alatt
+
+## Plusz előny
+
+A képzés során használt és ajánlott utókezelő termékek, hatóanyagok és kiegészítők nálunk egy helyen beszerezhetők, így azonnal elkezdheted a kezelések professzionális kivitelezését.
+
+## Miért érdemes megtanulni a Carbon Peeling kezelést?
+
+A Carbon Peeling napjaink egyik legnépszerűbb arckezelése. A megfelelő technika és paraméterek alkalmazásával látványos eredmények érhetők el:
+
+- Egységesebb bőrkép
+- Tisztább pórusok
+- Frissebb, ragyogóbb megjelenés
+- Üdébb arcbőr
+
+A képzés során bemutatjuk azokat a gyakorlati fogásokat, amelyekkel a kezelés valóban látványos eredményeket biztosíthat.
+
+## Miért más a képzésünk?
+
+A lézeres esztétikai kezelések piaca Nyugat- és Kelet-Európa számos országában jelentősen előrébb jár, mint Magyarországon. Különösen Lengyelországban alakult ki az elmúlt években egy rendkívül magas színvonalú lézeres kezelési kultúra, ahol a szakemberek nap mint nap kiemelkedő eredményeket érnek el különböző bőrproblémák és esztétikai kezelések területén.
+
+Képzésünk során nem csupán a készülék kezelését tanítjuk meg, hanem olyan gyakorlati szemléletet és kezelési protokollokat is átadunk, amelyeket a lengyel és orosz lézeres szakemberek hosszú évek alatt tökéletesítettek. Célunk, hogy ne csak „használni" tudd a készüléket, hanem valódi eredményeket érj el vele.
+
+Mi abban hiszünk, hogy a sikeres kezelések titka nem kizárólag a gépben rejlik, hanem a mögötte álló tudásban. Ezért olyan nemzetközi tapasztalatokon alapuló ismeretanyagot adunk át, amelyet a legfejlettebb lézeres piacok szakemberei is alkalmaznak a mindennapi gyakorlatban.
+
+Tanulj úgy, ahogyan a legjobb szakemberek dolgoznak – és érj el olyan eredményeket, amelyek miatt a vendégeid visszatérnek.
 
 ## Helyszín
 
-**Skinlab SHOWROOM**
-2030 Érd, Budai út 28.
-
-## Jelentkezés
-
-A képzésre a gépvásárlás után automatikusan jogosulttá válsz.
+**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
