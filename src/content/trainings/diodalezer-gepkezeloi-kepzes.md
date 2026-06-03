@@ -1,76 +1,124 @@
 ---
-name: "Diódalézer gépkezelői tanfolyam"
-description: "Hivatalos FAR tanúsítvánnyal záruló gépkezelői képzés diódalézeres tartós szőrtelenítéshez. A képzés elméleti és gyakorlati részből áll."
-shortDescription: "FAR tanúsítvánnyal záruló diódalézer képzés"
-price: 0
-priceFormatted: "A gép árában"
-duration: "1 nap"
+name: "Diódalézeres szőrtelenítő képzés"
+description: "Professzionális diódalézeres tartós szőrtelenítő képzés – szelektív fototermolízis, bőr- és szőrtípusra szabott paraméterezés, nemzetközi protokollok és gyakorlati, modelles oktatás."
+shortDescription: "A diódalézeres tartós szőrtelenítés biztonságos, eredményes kivitelezése – a szelektív fototermolízis elvétől a bőr- és szőrtípusra szabott paraméterezésig, nemzetközi (lengyel) protokollokra építve, gyakorlati, modelles oktatással."
+price: 99990
+priceFormatted: "99 990 Ft"
+duration: "Kb. 4 óra"
 maxParticipants: 4
-certificate: "FAR gépkezelői tanúsítvány"
+certificate: "FAR-jegyzett, B-számos tanúsítvány"
 topics:
-  - "A diódalézer technológia működési elve"
-  - "Bőrtípusok és Fitzpatrick skála"
-  - "Hullámhosszak és alkalmazási területeik (755nm, 808nm, 940nm, 1064nm)"
-  - "Kezelési protokollok testrégiónként"
-  - "Kontraindikációk és biztonsági előírások"
-  - "Kezelési paraméterek beállítása"
-  - "Gyakorlati kezelések végrehajtása"
-  - "Gépkarbantartás és tisztítás"
-  - "Ügyféltájékoztatás és beleegyező nyilatkozatok"
+  - "Jogszabályi háttér és kompetenciahatárok"
+  - "A diódalézer működése – szelektív fototermolízis"
+  - "Bőr- és szőrtípusok, Fitzpatrick-skála"
+  - "Kezelési paraméterek (energia, pulzushossz, frekvencia)"
+  - "Hűtési technológiák szerepe"
+  - "Indikációk és kontraindikációk"
+  - "Konzultáció, állapotfelmérés, kezelési terv"
+  - "Teljes test-, arc- és intimterületek kezelése"
+  - "Utókezelési protokollok és termékajánlások"
 requirements:
   - "18 éves kor betöltése"
-  - "Diódalézer készülék megvásárlása a Skinlab-tól"
-image: "/images/trainings/diodalezer-kepzes.jpg"
+  - "Saját modell biztosítása a gyakorlati részhez (a képzés utolsó órájában)"
+image: "@assets/diodalezeres-szortelenites-kepzes.jpg"
 featured: true
 ---
 
-## A képzés célja
+A diódalézeres szőrtelenítés napjaink egyik legkeresettebb esztétikai kezelése. Képzésünk célja, hogy a résztvevők ne csupán a készülék kezelését sajátítsák el, hanem olyan gyakorlati tudást kapjanak, amellyel biztonságosan, eredményesen és magabiztosan tudnak dolgozni a mindennapokban.
 
-A diódalézer gépkezelői tanfolyam célja, hogy a résztvevők megszerezzék a szükséges elméleti tudást és gyakorlati készségeket a professzionális diódalézeres szőrtelenítés biztonságos és hatékony végzéséhez.
+## Miért más a képzésünk?
 
-## Mit tanulsz a képzésen?
+A lézeres esztétikai kezelések piacán egyértelműen látható, hogy bizonyos országok több éves előnyben járnak a kezelési protokollok, technikák és eredményesség tekintetében. Különösen Lengyelországban alakult ki rendkívül magas szintű lézeres kezelési kultúra, ahol a szakemberek napi szinten kiemelkedő eredményeket érnek el. Oktatási anyagaink és kezelési szemléletünk jelentős részben olyan nemzetközi tapasztalatokra épülnek, amelyeket lengyel és kelet-európai szakemberek hosszú évek alatt tökéletesítettek.
 
-A képzés során átfogó ismereteket szerzel:
+Célunk, hogy ne csak kezeléseket végezz, hanem valóban eredményeket érj el.
 
-### Elméleti rész (4 óra)
+## A képzés felépítése
 
-- **A lézer fizikája**: A diódalézer működési elve, a szelektív fototermolízis fogalma
-- **Bőrtípusok**: A Fitzpatrick skála használata, különböző bőrtípusok kezelése
-- **Hullámhosszak**: A 4 hullámhossz (755nm, 808nm, 940nm, 1064nm) jellemzői és alkalmazási területei
-- **Biztonsági előírások**: Védőfelszerelések, kontraindikációk, mellékhatások kezelése
-- **Jogi háttér**: Szükséges dokumentációk, beleegyező nyilatkozatok
+### 1. Jogszabályi háttér
 
-### Gyakorlati rész (4 óra)
+- Lézeres kezelésekre vonatkozó szabályozások
+- Kompetenciahatárok
+- Dokumentációs kötelezettségek
+- Munkavédelmi és biztonsági előírások
+- Beleegyező nyilatkozatok és vendégkezelés
 
-- **Gépkezelés**: A készülék beállítása, kezelése
-- **Kezelési protokollok**: Különböző testrégiók kezelése (arc, hónalj, bikinivonal, lábak, stb.)
-- **Valós kezelések**: Gyakorlati kezelések végrehajtása oktató felügyeletével
-- **Karbantartás**: A gép tisztítása, karbantartása
+### 2. Elméleti oktatás
 
-## FAR tanúsítvány
+#### A diódalézer működése
 
-A képzés elvégzése után hivatalos FAR (Foglalkozás-egészségügyi és Munkavédelmi) gépkezelői tanúsítványt kapsz, amely:
+- A szelektív fototermolízis elve
+- A szőrszál és a melanin szerepe
+- A lézerenergia útja a szőrtüszőig
+- Miért csak bizonyos növekedési fázisban kezelhető eredményesen a szőr?
 
-- Hivatalosan igazolja a gépkezelői képzettséget
-- Kötelező dokumentum a legális működéshez
-- Szükséges az esetleges hatósági ellenőrzésekhez
+#### Bőr- és szőrtípusok
 
-## Képzési anyagok
+- Fitzpatrick bőrtípusok
+- Szőrvastagság és pigmentáltság
+- Egyéni kezelési stratégia kialakítása
 
-A képzéshez biztosítjuk:
+#### Kezelési paraméterek
 
-- Részletes oktatási anyag (nyomtatott és digitális formában)
-- Kezelési protokollok
-- Mintadokumentumok (beleegyező nyilatkozatok, adatlapok)
-- FAR tanúsítvány
+- Energia (J/cm²)
+- Pulzushossz
+- Frekvencia
+- Hűtési technológiák szerepe
+- Paraméterválasztás különböző bőr- és szőrtípusok esetén
+
+#### Indikációk és kontraindikációk
+
+- Mikor végezhető biztonságosan kezelés?
+- Mikor kell elhalasztani vagy megtagadni a kezelést?
+- Gyógyszerek és fényérzékenység
+
+### 3. Gyakorlati oktatás
+
+A gyakorlati képzés során bemutatjuk:
+
+- A konzultáció menetét
+- Állapotfelmérést
+- Kezelési terv készítését
+- A helyes kezelőfej-mozgatást
+- Paraméterezési gyakorlatot
+- Teljes testkezelések kivitelezését
+- Arc- és intimterületek sajátosságait
+- Gyakori hibákat és azok elkerülését
+
+### 4. Modelles gyakorlás
+
+A modell jelenléte kizárólag a képzés utolsó órájában szükséges. **A modellről a résztvevőnek kell gondoskodnia.**
+
+## Amit a képzés tartalmaz
+
+- Részletes, több fejezetes szakmai tananyag
+- Kezelési protokollok különböző bőr- és szőrtípusokra
+- Vendégkonzultációs segédanyagok
+- Utókezelési protokollok
+- Kávé és harapnivaló
+
+## Utókezelési protokollok és termékajánlások
+
+A sikeres lézeres szőrtelenítés nem ér véget a kezelés befejezésével. A képzés során részletesen bemutatjuk:
+
+- Az azonnali utóápolási teendőket
+- A fényvédelem fontosságát
+- Az ajánlott hatóanyagokat
+- Az irritációcsökkentő készítményeket
+- Az otthoni bőrápolási protokollokat
+
+A képzés során ajánlott termékek és kiegészítők nálunk egy helyen beszerezhetők.
+
+## Miért érdemes diódalézerrel dolgozni?
+
+A modern diódalézeres technológia megfelelő alkalmazás mellett:
+
+- Hosszú távú szőrzetcsökkenést biztosít
+- Kényelmesebb kezelési élményt nyújt a vendégeknek
+- Nagyobb kezelési területek gyors kezelését teszi lehetővé
+- Egész évben kiemelkedően keresett szolgáltatás
+
+A képzés során megmutatjuk azokat a gyakorlati fogásokat és beállításokat, amelyekkel biztonságosan és eredményesen dolgozhatsz. Tanulj úgy, ahogy a nemzetközi piac sikeres szakemberei dolgoznak, és építs stabil, visszatérő vendégkört professzionális lézeres kezelésekkel.
 
 ## Helyszín
 
-A képzés a Skinlab showroomban zajlik, ahol minden szükséges eszköz rendelkezésre áll:
-
-**Skinlab SHOWROOM**
-2030 Érd, Budai út 28.
-
-## Jelentkezés
-
-A képzésre a gépvásárlás után automatikusan jogosulttá válsz. Az időpontot egyénileg egyeztetjük a gép átadásakor.
+**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.

@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { CONTACT } from '../../lib/constants';
-import { ContentImage } from '../../components/images';
+import { ContentImage, CardImage } from '../../components/images';
 import TrainingSignupForm from '../../components/forms/TrainingSignupForm.astro';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
@@ -329,13 +329,9 @@ const pillarIcons: Record<string, string> = {
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all group flex flex-col">
               <!-- Training photo -->
               <a href={detailUrl} class="block aspect-[16/10] overflow-hidden bg-gray-100">
-                <img
-                  src={training.data.image}
+                <CardImage
+                  src={training.data.image || '/images/placeholder.jpg'}
                   alt={training.data.name}
-                  width="640"
-                  height="400"
-                  loading="lazy"
-                  decoding="async"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </a>

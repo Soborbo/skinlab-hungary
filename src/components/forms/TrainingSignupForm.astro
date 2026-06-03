@@ -8,9 +8,13 @@ import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
 
 interface Props {
   class?: string;
+  /** Value stored in the hidden `product` field for lead attribution (e.g. a course name). */
+  product?: string;
+  /** Optional heading override for the form column. */
+  heading?: string;
 }
 
-const { class: className = '' } = Astro.props;
+const { class: className = '', product = 'kepzesek', heading } = Astro.props;
 
 const turnstileSiteKey = getTurnstileSiteKey();
 const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
@@ -30,7 +34,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
         </div>
 
         <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-          Jelentkezz képzéseinkre!
+          {heading || 'Jelentkezz képzéseinkre!'}
         </h2>
         <p class="text-primary-100 text-lg leading-relaxed mb-8">
           Add meg adataidat és felvesszük veled a kapcsolatot a részletekkel.
@@ -96,7 +100,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <input type="hidden" name="sourceUrl" value={Astro.url.href} />
             <input type="hidden" name="formStartTime" data-form-start />
             <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
-            <input type="hidden" name="product" value="kepzesek" />
+            <input type="hidden" name="product" value={product} />
             <!-- Attribution - populated client-side from URL params + persisted tracking. -->
             <input type="hidden" name="utmSource" data-track="utm_source" />
             <input type="hidden" name="utmMedium" data-track="utm_medium" />
