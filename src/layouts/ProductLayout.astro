@@ -118,13 +118,16 @@ const resolvedFunctionCards = content.functionCards || [];
 const category = CATEGORIES.find(c => c.slug === product.categorySlug);
 const categoryName = category?.nameShort || product.categorySlug;
 
-// Page URL (trailing slash to match the served/canonical URL)
-const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}/`;
+// Page URL (trailing slash to match the served/canonical URL).
+// NB: the slash is concatenated, not placed inside the template literal — a
+// `}/` immediately before a closing backtick trips the Astro compiler's
+// frontmatter tokenizer (it misreads the `/` as a regex start).
+const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`) + '/';
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
-  { name: t(locale, 'breadcrumb.home'), url: `${SITE.url}/` },
-  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}/` },
+  { name: t(locale, 'breadcrumb.home'), url: SITE.url + '/' },
+  { name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) + '/' },
   { name: displayName }
 ];
 
@@ -176,8 +179,7 @@ const reviewSchema = ratedTestimonials.map((tm) => {
   };
 });
 
-// Offer price validity — end of next year, refreshed on every build.
-// Google recommends priceValidUntil on Offer; without it Rich Results warns.
+// Offer price validity end of next year.
 const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
 
 // Product schema
