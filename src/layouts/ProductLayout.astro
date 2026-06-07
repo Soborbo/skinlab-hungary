@@ -81,6 +81,7 @@ interface Props {
     image: string;
     gallery: string[];
     extraImages?: string[];
+    canonicalSlug?: string;
     youtubeVideos?: string[];
     availability: 'in_stock' | 'preorder' | 'out_of_stock';
     hasVariants: boolean;
@@ -123,6 +124,12 @@ const categoryName = category?.nameShort || product.categorySlug;
 // `}/` immediately before a closing backtick trips the Astro compiler's
 // frontmatter tokenizer (it misreads the `/` as a regex start).
 const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`) + '/';
+
+// Canonical override: spin-off/duplicate products (e.g. a limited-edition colour
+// that is also a variant of the canonical product) point to the canonical slug.
+const canonicalOverride = product.canonicalSlug
+  ? `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.canonicalSlug}`)}`
+  : undefined;
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
@@ -247,6 +254,7 @@ const productSchema = product.price ? {
   description={content.metaDescription || product.metaDescription || displayShortDesc || displayDesc?.slice(0, 160)}
   image={ogImage}
   schema={productSchema}
+  canonicalOverride={canonicalOverride}
 >
   <!-- E-commerce: view_item data for tracking -->
   <div id="track-view-item"

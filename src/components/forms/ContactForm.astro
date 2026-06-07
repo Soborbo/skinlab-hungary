@@ -281,6 +281,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 
 <script>
   import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Turnstile callbacks (global)
   declare global {
@@ -393,7 +394,7 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           body: formData,
         });
 
-        const result = await response.json();
+        const result = await readJsonResponse(response);
 
         if (result.success) {
           // Show success
@@ -447,12 +448,13 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           }
         }
       } catch (error) {
-        // Network error
-        if (window.__slDebug) console.error('[NET-OFFLINE-001] contact network error:', error);
+        // Network / server / non-JSON error - classify instead of always blaming "offline"
+        const info = describeClientError(error);
+        if (window.__slDebug) console.error('[' + info.code + '] contact submit error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
           const networkError = errorMessage?.getAttribute('data-network-error') || 'A network error occurred. Please try again.';
-          errorText.textContent = '[NET-OFFLINE-001] ' + networkError;
+          errorText.textContent = '[' + info.code + '] ' + networkError;
         }
       } finally {
         // Reset button

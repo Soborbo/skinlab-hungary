@@ -24,6 +24,9 @@ interface Props {
   description?: string;
   image?: string;
   noIndex?: boolean;
+  /** Absolute URL to use for <link rel="canonical">. When set, hreflang
+   *  alternates are suppressed (the page consolidates to another URL). */
+  canonicalOverride?: string;
   schema?: object | object[] | null;
   hideDesktopWidget?: boolean;
   /** URL of the LCP hero image to preload (desktop / default) */
@@ -47,6 +50,7 @@ const {
   description = SEO_DEFAULTS.defaultDescription,
   image = '/og-image.jpg',
   noIndex = false,
+  canonicalOverride,
   schema,
   hideDesktopWidget = false,
   preloadImage,
@@ -82,7 +86,10 @@ const htmlLang = getHtmlLang(currentLocale);
 // before a closing backtick trips the Astro compiler's frontmatter tokenizer.
 const withTrailingSlash = (p: string) => (p.endsWith('/') ? p : p + '/');
 const localizedPath = withTrailingSlash(getLocalizedUrl(currentLocale, currentPath));
-const canonicalURL = `${SITE.url}${localizedPath}`;
+// canonicalOverride (a product's canonicalSlug spin-off target) wins; otherwise
+// the trailing-slashed localized path. Trailing-slash the override too so it
+// doesn't point at a 307-redirecting URL under trailingSlash: 'always'.
+const canonicalURL = canonicalOverride ? withTrailingSlash(canonicalOverride) : `${SITE.url}${localizedPath}`;
 // Avoid a doubled brand ("… | Skinlab Hungary | Skinlab Hungary") when a page
 // (e.g. a localized homepage) already includes the brand in its own title.
 const fullTitle = (title === SEO_DEFAULTS.defaultTitle || title.includes('Skinlab Hungary'))
@@ -115,11 +122,13 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <link rel="canonical" href={canonicalURL} />
   {noIndex && <meta name="robots" content="noindex, nofollow" />}
 
-  <!-- Hreflang tags for international SEO -->
-  {hreflangLinks.map(({ hreflang, href }) => (
+  <!-- Hreflang tags for international SEO (suppressed on canonicalized pages) -->
+  {!canonicalOverride && hreflangLinks.map(({ hreflang, href }) => (
     <link rel="alternate" hreflang={hreflang} href={href} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={`${SITE.url}${withTrailingSlash(getLocalizedUrl(defaultLocale, currentPath))}`} />
+  {!canonicalOverride && (
+    <link rel="alternate" hreflang="x-default" href={`${SITE.url}${withTrailingSlash(getLocalizedUrl(defaultLocale, currentPath))}`} />
+  )}
   <link rel="help" type="text/plain" href="/llm.txt" />
 
   <!-- Open Graph -->

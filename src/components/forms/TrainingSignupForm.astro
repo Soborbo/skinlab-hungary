@@ -245,6 +245,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
 <script>
   import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Turnstile callbacks (global)
   declare global {
@@ -351,7 +352,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           body: formData,
         });
 
-        const result = await response.json();
+        const result = await readJsonResponse(response);
 
         if (result.success) {
           // Show success
@@ -403,10 +404,11 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           }
         }
       } catch (error) {
-        if (window.__slDebug) console.error('[NET-OFFLINE-001] training network error:', error);
+        const info = describeClientError(error);
+        if (window.__slDebug) console.error('[' + info.code + '] training submit error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
-          errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba, kérjük próbáld újra.';
+          errorText.textContent = info.message;
         }
       } finally {
         submitButton.disabled = false;

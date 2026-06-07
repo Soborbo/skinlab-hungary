@@ -152,7 +152,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
 
           {/* Thumbnails – egysoros, vízszintesen görgethető (sosem törik új sorba) */}
           {set.images.length > 1 && (
-            <div class="thumb-strip flex gap-2 overflow-x-auto" role="tablist" aria-label="Termékképek">
+            <div class="thumb-strip flex gap-2 overflow-x-auto select-none max-w-[280px] sm:max-w-[344px] lg:max-w-[408px]" role="tablist" aria-label="Termékképek">
               {set.images.map((img, i) => (
                 <button
                   type="button"
@@ -378,7 +378,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
 
       {/* Thumbnails – egysoros, vízszintesen görgethető (sosem törik új sorba) */}
       {resolvedImages.length > 1 && (
-        <div class="thumb-strip flex gap-2 overflow-x-auto" role="tablist" aria-label="Termékképek">
+        <div class="thumb-strip flex gap-2 overflow-x-auto select-none max-w-[280px] sm:max-w-[344px] lg:max-w-[408px]" role="tablist" aria-label="Termékképek">
           {resolvedImages.map((img, i) => (
             <button
               type="button"
@@ -703,6 +703,91 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
         }
       });
 
+      // Bélyegkép-sáv: lassú, magától forgó karusszel + egérrel húzható görgetés.
+      // Csak akkor aktív, ha 4-nél több kép van (különben mind elfér, nincs mit forgatni).
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (thumbStrip && thumbnails.length > 4 && !reduceMotion) {
+        const strip = thumbStrip; // nem-null lokális a beágyazott függvényekhez
+        const SPEED = 0.4; // px / frame ≈ lassú sodródás
+        let autoDir = 1;
+        let paused = false;     // egér a sávon → áll
+        let inView = true;      // képernyőn kívül → nem pörög feleslegesen
+        let dragging = false;   // épp húzza-e az egér
+        let dragMoved = false;  // húzás történt-e (kattintás-elnyeléshez)
+        let startX = 0;
+        let startScroll = 0;
+
+        strip.classList.add('thumb-strip--auto');
+
+        const maxScroll = () => strip.scrollWidth - strip.clientWidth;
+
+        function tick() {
+          if (!paused && !dragging && inView) {
+            const max = maxScroll();
+            if (max > 1) {
+              let next = strip.scrollLeft + autoDir * SPEED;
+              if (next >= max) { next = max; autoDir = -1; }
+              else if (next <= 0) { next = 0; autoDir = 1; }
+              strip.scrollLeft = next;
+            }
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+
+        // Csak akkor pörögjön, ha látszik
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            inView = entries[0]?.isIntersecting ?? true;
+          }).observe(strip);
+        }
+
+        // Egér ráhúzva → megáll
+        strip.addEventListener('mouseenter', () => { paused = true; });
+        strip.addEventListener('mouseleave', () => { paused = false; });
+
+        // Húzás: egérrel jobbra-balra. Érintésen a natív görgetés viszi.
+        strip.addEventListener('pointerdown', (e) => {
+          const pe = e as PointerEvent;
+          paused = true;
+          if (pe.pointerType !== 'mouse') return;
+          dragging = true;
+          dragMoved = false;
+          startX = pe.clientX;
+          startScroll = strip.scrollLeft;
+          strip.setPointerCapture(pe.pointerId);
+          strip.classList.add('thumb-strip--dragging');
+        });
+        strip.addEventListener('pointermove', (e) => {
+          if (!dragging) return;
+          const dx = (e as PointerEvent).clientX - startX;
+          if (Math.abs(dx) > 4) dragMoved = true;
+          strip.scrollLeft = startScroll - dx;
+        });
+        const endDrag = (e: Event) => {
+          const pe = e as PointerEvent;
+          if (pe.pointerType !== 'mouse') {
+            // érintés vége után kis szünettel induljon újra
+            setTimeout(() => { paused = false; }, 1500);
+          }
+          if (!dragging) return;
+          dragging = false;
+          strip.classList.remove('thumb-strip--dragging');
+          try { strip.releasePointerCapture(pe.pointerId); } catch (_) {}
+        };
+        strip.addEventListener('pointerup', endDrag);
+        strip.addEventListener('pointercancel', endDrag);
+
+        // Ha húzott (nem csak kattintott), ne váltson képet a thumbnail
+        strip.addEventListener('click', (e) => {
+          if (dragMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+            dragMoved = false;
+          }
+        }, true);
+      }
+
       return { reset };
     }
 
@@ -753,6 +838,20 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
   }
   .thumb-strip > button {
     scroll-snap-align: start;
+  }
+
+  /* Auto-forgó karusszel: a folyamatos görgetés mellett a snap zavarna,
+     ezért kikapcsoljuk; a "megfogható" jelzést grab-kurzorral adjuk. */
+  .thumb-strip--auto {
+    scroll-snap-type: none;
+    cursor: grab;
+  }
+  .thumb-strip--auto > button {
+    cursor: grab;
+  }
+  .thumb-strip--auto.thumb-strip--dragging,
+  .thumb-strip--auto.thumb-strip--dragging > button {
+    cursor: grabbing;
   }
 
   /* Slide transition for gallery track */

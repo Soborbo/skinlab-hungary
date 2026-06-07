@@ -428,6 +428,7 @@ const sourceUrl = Astro.url.href;
 
 <script>
   import { trackContactSubmit } from '@/lib/tracking';
+  import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Keep the hero exactly one fold tall: feed the sticky header's REAL height
   // into --header-h so calc(100svh - var(--header-h)) never over/under-shoots,
@@ -510,7 +511,7 @@ const sourceUrl = Astro.url.href;
           body: formData,
         });
 
-        const result = await response.json();
+        const result = await readJsonResponse(response);
 
         if (result.success) {
           trackContactSubmit({
@@ -534,9 +535,10 @@ const sourceUrl = Astro.url.href;
           }
         }
       } catch (error) {
-        if (window.__slDebug) console.error('[NET-OFFLINE-001] contact network error:', error);
+        const info = describeClientError(error);
+        if (window.__slDebug) console.error('[' + info.code + '] contact submit error:', error);
         errorMessage?.classList.remove('hidden');
-        if (errorText) errorText.textContent = '[NET-OFFLINE-001] Hálózati hiba. Kérlek, próbáld újra.';
+        if (errorText) errorText.textContent = info.message;
       } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (buttonText) buttonText.textContent = originalButtonText;

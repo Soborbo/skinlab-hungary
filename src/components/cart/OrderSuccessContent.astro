@@ -17,6 +17,21 @@ const { locale } = Astro.props;
 
 const homeUrl = getLocalizedUrl(locale, '/');
 const productsUrl = getLocalizedUrl(locale, '/termekek');
+
+// A Skinlab alapítói – személyes köszöntő a megrendelés után.
+// Ugyanazok a portrék, mint a FoundersStory szekcióban (/public/about).
+const founders = [
+  {
+    image: '/about/gaszler-simonetta-skinlab-alapito',
+    nameKey: 'foundersHome.simonettaName',
+    roleKey: 'foundersHome.simonettaRole',
+  },
+  {
+    image: '/about/horvath-laszlo-skinlab-alapito',
+    nameKey: 'foundersHome.laszloName',
+    roleKey: 'foundersHome.laszloRole',
+  },
+];
 ---
 
 <section class="bg-gray-50 min-h-[60vh] py-12 lg:py-20">
@@ -53,6 +68,36 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
             </li>
           ))}
         </ol>
+      </div>
+
+      <!-- Az alapítók személyes köszöntője -->
+      <div class="bg-primary-50/60 border border-primary-100 rounded-xl p-5 sm:p-6 mb-8">
+        <div class="flex items-center justify-center gap-6 sm:gap-8 mb-4">
+          {founders.map((f) => (
+            <figure class="text-center">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden ring-2 ring-white shadow-md">
+                <picture>
+                  <source type="image/avif" srcset={`${f.image}.avif`} />
+                  <source type="image/webp" srcset={`${f.image}.webp`} />
+                  <img
+                    src={`${f.image}.jpg`}
+                    alt={t(locale, f.nameKey)}
+                    width="96"
+                    height="96"
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <figcaption class="mt-2">
+                <div class="text-sm font-semibold text-gray-900">{t(locale, f.nameKey)}</div>
+                <div class="text-xs text-gray-500">{t(locale, f.roleKey)}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="text-base font-semibold text-gray-900 mb-1">{t(locale, 'checkout.success.foundersTitle')}</p>
+        <p class="text-sm text-gray-600 leading-relaxed max-w-md mx-auto">{t(locale, 'checkout.success.foundersNote')}</p>
       </div>
 
       <p class="text-sm text-gray-500 mb-1">{t(locale, 'checkout.success.emailNote')}</p>

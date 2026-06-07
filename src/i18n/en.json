@@ -806,6 +806,10 @@
     "postcode": "Postal code",
     "city": "City",
     "street": "Street and number",
+    "postcodeHelp": "We fill in the city and country from your postal code.",
+    "postcodeUnknown": "We don't recognise this postal code – please enter the city and country manually.",
+    "postcodeMultiple": "Several places share this postal code – pick one, or type your own:",
+    "countySuffix": "county",
     "notes": "Note",
     "notesPlaceholder": "Anything important about your order...",
     "optional": "optional",
@@ -843,6 +847,8 @@
       "step3Title": "Delivery",
       "step3Desc": "Once payment arrives, we ship the device.",
       "emailNote": "We have sent the order confirmation to your email address.",
+      "foundersTitle": "Thank you for your trust!",
+      "foundersNote": "We, the founders of Skinlab, personally make sure your order goes smoothly. If you have any questions, don't hesitate to reach out!",
       "backToHome": "Back to home",
       "browseProducts": "More products"
     }

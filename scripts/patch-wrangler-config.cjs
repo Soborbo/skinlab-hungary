@@ -47,6 +47,26 @@ if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
   patched.push(`GOOGLE_SHEETS_SPREADSHEET_ID (${GOOGLE_SHEETS_SPREADSHEET_ID})`);
 }
 
+// Route /api/* to the User (Astro) Worker BEFORE the static-asset layer.
+// Without this, Cloudflare Workers Assets intercepts API requests first and
+// applies HTML trailing-slash normalization: a POST to /api/consultation gets
+// 308-redirected to /api/consultation/, and a redirected/normalized POST to the
+// asset layer is answered with an HTML redirect body (or a "Cross-site POST
+// submissions are forbidden" 403) instead of reaching the API handler. The
+// browser's response.json() then throws and the form shows a phantom network
+// error. run_worker_first makes /api/* skip the asset layer regardless of the
+// site's trailingSlash setting.
+config.assets = config.assets ?? {};
+const API_ROUTES = ['/api/*'];
+const currentWorkerFirst = Array.isArray(config.assets.run_worker_first)
+  ? config.assets.run_worker_first
+  : [];
+const missingRoutes = API_ROUTES.filter((r) => !currentWorkerFirst.includes(r));
+if (missingRoutes.length > 0) {
+  config.assets.run_worker_first = [...currentWorkerFirst, ...missingRoutes];
+  patched.push(`assets.run_worker_first (${config.assets.run_worker_first.join(', ')})`);
+}
+
 if (patched.length > 0) {
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config));
   console.log(`[patch-wrangler-config] Injected: ${patched.join(', ')}.`);
