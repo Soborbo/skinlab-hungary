@@ -74,7 +74,10 @@ function fullName(input: { lastName: string; firstName: string; locale: Locale }
 // VEVŐI VISSZAIGAZOLÓ E-MAIL (lokalizált)
 // ============================================
 
-export function buildCustomerEmail(input: OrderEmailInput): { subject: string; html: string } {
+export function buildCustomerEmail(
+  input: OrderEmailInput,
+  opts: { paymentUrl?: string | null } = {},
+): { subject: string; html: string } {
   const { locale, orderId } = input;
   const name = fullName(input);
   const tr = (key: string, params?: Record<string, string | number>) =>
@@ -123,6 +126,19 @@ export function buildCustomerEmail(input: OrderEmailInput): { subject: string; h
     )
     .join('');
 
+  // Optional Billingo payment CTA: rendered only when the proforma was issued
+  // and we have its public payment URL. Skip/fail → no button (the "what next"
+  // steps below still explain that the payment link arrives separately).
+  const payBlock = opts.paymentUrl
+    ? `
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 24px;">
+      <tr><td style="font-family:Arial,sans-serif;font-size:14px;color:#555;line-height:1.6;padding:0 0 14px;">${escapeHtml(tr('payIntro'))}</td></tr>
+      <tr><td align="center">
+        <a href="${escapeHtml(opts.paymentUrl)}" style="display:inline-block;background:${ACCENT};color:#ffffff;font-size:16px;font-weight:bold;text-decoration:none;padding:15px 30px;border-radius:8px;">${escapeHtml(tr('payButton'))}</a>
+      </td></tr>
+    </table>`
+    : '';
+
   const html = `<!DOCTYPE html>
 <html lang="${localeConfig[locale].hreflang}">
 <head>
@@ -156,6 +172,8 @@ export function buildCustomerEmail(input: OrderEmailInput): { subject: string; h
         <td style="padding:14px 16px;background-color:${ACCENT};font-family:Arial,sans-serif;font-size:20px;color:#fff;font-weight:bold;text-align:right;white-space:nowrap;border-radius:0 6px 6px 0;">${escapeHtml(totalText)}</td>
       </tr>
     </table>
+
+    ${payBlock}
 
     <p style="margin:0 0 18px;font-size:13px;color:#999;font-style:italic;">${escapeHtml(tr('priceDisclaimer'))}</p>
 

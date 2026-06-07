@@ -84,7 +84,6 @@ function itemsSummary(items: OrderEmailInput['items']): string {
 export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promise<OrderResult> {
   const notifyEmail = getEnvValue(env, 'NOTIFY_EMAIL') || CONTACT.email;
 
-  const customer = buildCustomerEmail(input);
   const admin = buildAdminEmail(input);
 
   // 1. Admin értesítő (tartós csatorna #1)
@@ -95,16 +94,6 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
     subject: admin.subject,
     html: admin.html,
     replyTo: input.email,
-  });
-
-  // 2. Vevői visszaigazoló
-  const customerPromise = sendResendEmail({
-    env,
-    from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
-    to: input.email,
-    subject: customer.subject,
-    html: customer.html,
-    replyTo: CONTACT.email,
   });
 
   // 3. Google Sheets (tartós csatorna #2)
@@ -154,42 +143,50 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
       return false;
     });
 
-  // 4. Billingo díjbekérő (4. tartós csatorna)
+  // 4. Billingo díjbekérő (tartós csatorna #3) — ezt VÁRJUK MEG ELŐSZÖR, hogy a
+  //    vevői visszaigazolóba beágyazhassuk a Billingo fizetési linkjét (publicUrl).
+  //    Az admin email és a Sheets közben párhuzamosan fut.
   //    - Skip: ár egyeztetés alatt vagy 0 Ft-os rendelés esetén
   //    - Hiba esetén: logolt + folytatás, nem akadályozza a sikeres rendelést
-  //    - Siker esetén: Billingo közvetlenül emailezi a vevőnek a SimplePay
-  //      gombbal együtt; a proforma maga a fizetési link
-  const proformaPromise = generateProforma(input, env);
-
-  // Promise.allSettled so a single channel throwing doesn't take down the
-  // whole pipeline silently. Each `sendResendEmail` already catches internally,
-  // but generateProforma can throw synchronously - defensive guard.
-  const results = await Promise.allSettled([
-    adminPromise,
-    customerPromise,
-    sheetsPromise,
-    proformaPromise,
-  ]);
-
-  const adminOk = results[0].status === 'fulfilled' && results[0].value === true;
-  const customerOk = results[1].status === 'fulfilled' && results[1].value === true;
-  const sheetsOk = results[2].status === 'fulfilled' && results[2].value === true;
-  const proformaResult: BillingoProformaResult = results[3].status === 'fulfilled'
-    ? results[3].value
-    : {
-        success: false,
-        skipped: false,
-        code: 'BILLINGO-EXCEPTION',
-        errorMessage: String((results[3] as PromiseRejectedResult).reason),
-      };
-
-  for (let i = 0; i < results.length; i += 1) {
-    const r = results[i];
-    if (r.status === 'rejected') {
-      console.error('[order] channel rejected:', ['admin', 'customer', 'sheets', 'billingo'][i], r.reason);
-    }
+  //    A `generateProforma` szerződés szerint soha nem dob; a try/catch csak
+  //    végső védőháló egy váratlan throw esetére.
+  let proformaResult: BillingoProformaResult;
+  try {
+    proformaResult = await generateProforma(input, env);
+  } catch (reason) {
+    proformaResult = {
+      success: false,
+      skipped: false,
+      code: 'BILLINGO-EXCEPTION',
+      errorMessage: reason instanceof Error ? reason.message : String(reason),
+    };
   }
 
+  // 2. Vevői visszaigazoló — most már a fizetési link birtokában épül. Ha a
+  //    proforma sikeres, a `publicUrl`-re mutató "Fizetés" gomb is bekerül;
+  //    skip/hiba esetén a gomb kimarad (a "mi történik most" lépések állnak).
+  const paymentUrl = proformaResult.success ? proformaResult.publicUrl : undefined;
+  const customer = buildCustomerEmail(input, { paymentUrl });
+  const customerOk = await sendResendEmail({
+    env,
+    from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
+    to: input.email,
+    subject: customer.subject,
+    html: customer.html,
+    replyTo: CONTACT.email,
+  });
+
+  // Az admin email és a Sheets párhuzamosan futott a proformával; itt zárjuk le.
+  const [adminSettled, sheetsSettled] = await Promise.allSettled([adminPromise, sheetsPromise]);
+  const adminOk = adminSettled.status === 'fulfilled' && adminSettled.value === true;
+  const sheetsOk = sheetsSettled.status === 'fulfilled' && sheetsSettled.value === true;
+
+  if (adminSettled.status === 'rejected') {
+    console.error('[order] channel rejected: admin', adminSettled.reason);
+  }
+  if (sheetsSettled.status === 'rejected') {
+    console.error('[order] channel rejected: sheets', sheetsSettled.reason);
+  }
   if (!customerOk) {
     console.warn('[order] Customer confirmation email failed for', input.orderId);
   }
