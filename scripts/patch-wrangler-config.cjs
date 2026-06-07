@@ -11,14 +11,17 @@
  *
  * KV namespace `skinlab-hungary-session` is provisioned once; ID is stable.
  * GOOGLE_SHEETS_SPREADSHEET_ID is a public identifier (it appears in the
- * spreadsheet URL), so it is safe to commit here. Secrets (RESEND_API_KEY,
- * service-account private key, etc.) stay in the Cloudflare dashboard.
+ * spreadsheet URL) and GOOGLE_SERVICE_ACCOUNT_EMAIL is likewise non-secret
+ * (it is just the service account's identity, embedded in every signed JWT),
+ * so both are safe to commit here. Secrets (RESEND_API_KEY, the service-account
+ * private key, etc.) stay in the Cloudflare dashboard.
  */
 const fs = require('fs');
 const path = require('path');
 
 const SESSION_KV_ID = '8e0cf4b9bc294757aebc764a9e7f9a57';
 const GOOGLE_SHEETS_SPREADSHEET_ID = '1uvGHcXBMmf-nkYCHC9gigrFuiVQgVWuvqKtCG_KhPWE';
+const GOOGLE_SERVICE_ACCOUNT_EMAIL = 'skinlab-website-form@skinlab-483512.iam.gserviceaccount.com';
 const CONFIG_PATH = path.resolve(__dirname, '../dist/server/wrangler.json');
 
 if (!fs.existsSync(CONFIG_PATH)) {
@@ -45,6 +48,10 @@ config.vars = config.vars ?? {};
 if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
   config.vars.GOOGLE_SHEETS_SPREADSHEET_ID = GOOGLE_SHEETS_SPREADSHEET_ID;
   patched.push(`GOOGLE_SHEETS_SPREADSHEET_ID (${GOOGLE_SHEETS_SPREADSHEET_ID})`);
+}
+if (config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL !== GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+  config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL = GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  patched.push(`GOOGLE_SERVICE_ACCOUNT_EMAIL (${GOOGLE_SERVICE_ACCOUNT_EMAIL})`);
 }
 
 // Route /api/* to the User (Astro) Worker BEFORE the static-asset layer.
