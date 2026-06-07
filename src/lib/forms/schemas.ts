@@ -3,6 +3,7 @@
  * Based on astro-forms skill
  */
 import { z } from 'zod';
+import { normalizePhone } from '@/lib/phone';
 
 // International phone regex - accepts various formats from HU, SK, RO, DE, AT, CZ, HR, SR, SL, etc.
 // Supports: +XX XXXXXXXXX, +XXX XXXXXXXXX, 00XX XXXXXXXXX, local "06 …" HU format, and similar.
@@ -15,7 +16,7 @@ export const contactSchema = z.object({
   // Required contact fields
   name: z.string().min(2, 'A név megadása kötelező'),
   email: z.email('Érvényes email cím szükséges'),
-  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
+  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges').transform(normalizePhone),
 
   // Product interest (optional - only used by consultation flow, not generic contact)
   product: z.string().optional().default(''),
@@ -95,7 +96,7 @@ export const consultationSchema = z.object({
   // Step 5: Contact details
   name: z.string().min(2, 'A név megadása kötelező'),
   email: z.email('Érvényes email cím szükséges'),
-  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges'),
+  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges').transform(normalizePhone),
 
   // GDPR - REQUIRED
   gdprConsent: z.literal(true, { message: 'Az adatvédelmi hozzájárulás kötelező' }),

@@ -252,37 +252,39 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data (order must match sheet columns)
-  // Columns A–T (20). Update the sheet header row to match:
-  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
-  // G Üzenet | H Forrás URL | I IP hash | J GDPR | K GDPR time |
-  // L UTM source | M UTM medium | N UTM campaign | O UTM term |
-  // P UTM content | Q gclid | R fbclid | S Referrer | T User-Agent
+  // Columns A–S (19). Update the sheet header row to match:
+  // A Beküldés dátuma | B Név | C Email | D Telefon | E Termék |
+  // F Üzenet | G Forrás URL | H IP hash | I GDPR | J UTM source |
+  // K UTM medium | L UTM campaign | M UTM term | N UTM content |
+  // O gclid | P fbclid | Q Referrer | R User-Agent | S Lead ID
+  //
+  // A beküldés dátuma csak egyszer szerepel (a `gdprTimestamp` korábban egy
+  // második dátum-oszlopot duplikált). A Lead ID a sor végére került.
   const rowData = [
-    data.leadId,
-    data.timestamp,
-    data.name,
-    data.email,
-    data.phone,
-    data.product,
-    data.message || '',
-    data.sourceUrl,
-    data.ipHash,
-    data.gdprConsent ? 'Igen' : 'Nem',
-    data.gdprTimestamp,
-    data.utmSource || '',
-    data.utmMedium || '',
-    data.utmCampaign || '',
-    data.utmTerm || '',
-    data.utmContent || '',
-    data.gclid || '',
-    data.fbclid || '',
-    data.referrer || '',
-    data.userAgent || '',
+    data.timestamp,                    // A: Beküldés dátuma
+    data.name,                         // B: Név
+    data.email,                        // C: Email
+    data.phone,                        // D: Telefon
+    data.product,                      // E: Termék
+    data.message || '',                // F: Üzenet
+    data.sourceUrl,                    // G: Forrás URL
+    data.ipHash,                       // H: IP hash
+    data.gdprConsent ? 'Igen' : 'Nem', // I: GDPR
+    data.utmSource || '',              // J: UTM source
+    data.utmMedium || '',              // K: UTM medium
+    data.utmCampaign || '',            // L: UTM campaign
+    data.utmTerm || '',                // M: UTM term
+    data.utmContent || '',             // N: UTM content
+    data.gclid || '',                  // O: gclid
+    data.fbclid || '',                 // P: fbclid
+    data.referrer || '',               // Q: Referrer
+    data.userAgent || '',              // R: User-Agent
+    data.leadId,                       // S: Lead ID (a sor végén)
   ];
 
   // Append to sheet (sheet name: "Kapcsolat")
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:T:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:S:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -607,39 +609,44 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data for Konzultáció sheet
-  // Columns A–V (22). Update the sheet header row to match:
-  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
-  // G Időzítés | H Vállalkozás | I Tapasztalat | J Forrás URL |
-  // K IP hash | L GDPR | M GDPR time | N UTM source | O UTM medium |
-  // P UTM campaign | Q UTM term | R UTM content | S gclid | T fbclid |
-  // U Referrer | V User-Agent
+  // Columns A–U (21). Update the sheet header row to match:
+  // A Beküldés dátuma | B Név | C Email | D Telefon | E Termék |
+  // F Időzítés | G Vállalkozás | H Tapasztalat | I Forrás URL |
+  // J IP hash | K GDPR | L UTM source | M UTM medium | N UTM campaign |
+  // O UTM term | P UTM content | Q gclid | R fbclid | S Referrer |
+  // T User-Agent | U Lead ID
+  //
+  // A beküldés dátuma csak egyszer szerepel (korábban a `gdprTimestamp`
+  // gyakorlatilag ugyanazt a beküldési időt ismételte egy második
+  // oszlopban). A Lead ID a sor végére került – a hívható kontakt- és
+  // lead-adatok kerülnek előre. A GDPR-hozzájárulás idejét a beküldés
+  // dátuma (A) + a "GDPR: Igen/Nem" (K) együtt rögzíti.
   const rowData = [
-    data.leadId,
-    data.timestamp,
-    data.name,
-    data.email,
-    data.phone,
-    data.product,
-    TIMELINE_LABELS[data.timeline] || data.timeline,
-    BUSINESS_LABELS[data.businessType] || data.businessType,
-    EXPERIENCE_LABELS[data.experience] || data.experience,
-    data.sourceUrl,
-    data.ipHash,
-    data.gdprConsent ? 'Igen' : 'Nem',
-    data.gdprTimestamp,
-    data.utmSource || '',
-    data.utmMedium || '',
-    data.utmCampaign || '',
-    data.utmTerm || '',
-    data.utmContent || '',
-    data.gclid || '',
-    data.fbclid || '',
-    data.referrer || '',
-    data.userAgent || '',
+    data.timestamp,                                          // A: Beküldés dátuma
+    data.name,                                               // B: Név
+    data.email,                                              // C: Email
+    data.phone,                                              // D: Telefon
+    data.product,                                            // E: Termék
+    TIMELINE_LABELS[data.timeline] || data.timeline,         // F: Időzítés
+    BUSINESS_LABELS[data.businessType] || data.businessType, // G: Vállalkozás
+    EXPERIENCE_LABELS[data.experience] || data.experience,   // H: Tapasztalat
+    data.sourceUrl,                                          // I: Forrás URL
+    data.ipHash,                                             // J: IP hash
+    data.gdprConsent ? 'Igen' : 'Nem',                       // K: GDPR
+    data.utmSource || '',                                    // L: UTM source
+    data.utmMedium || '',                                    // M: UTM medium
+    data.utmCampaign || '',                                  // N: UTM campaign
+    data.utmTerm || '',                                      // O: UTM term
+    data.utmContent || '',                                   // P: UTM content
+    data.gclid || '',                                        // Q: gclid
+    data.fbclid || '',                                       // R: fbclid
+    data.referrer || '',                                     // S: Referrer
+    data.userAgent || '',                                    // T: User-Agent
+    data.leadId,                                             // U: Lead ID (a sor végén)
   ];
 
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:V:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:U:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {

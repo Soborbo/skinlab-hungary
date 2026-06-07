@@ -6,6 +6,7 @@
  * küldött `price` mező csak tájékoztató jellegű, nem megbízható).
  */
 import { z } from 'zod';
+import { normalizePhone } from '@/lib/phone';
 
 // Nemzetközi telefonszám - HU (06...), SK, RO, DE, AT, CZ, HR, RS, SI formátumok.
 // A vezető 0 opcionális, hogy a HU "06 70 …" lokális forma is átmenjen.
@@ -33,7 +34,7 @@ export const orderSchema = z.object({
   lastName: z.string().min(2, 'A vezetéknév megadása kötelező').max(100),
   firstName: z.string().min(2, 'A keresztnév megadása kötelező').max(100),
   email: z.email('Érvényes e-mail cím szükséges').max(200),
-  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges').max(40),
+  phone: z.string().regex(phoneRegex, 'Érvényes telefonszám szükséges').max(40).transform(normalizePhone),
 
   // Céges adatok (opcionális)
   company: z.string().max(200).optional().default(''),
