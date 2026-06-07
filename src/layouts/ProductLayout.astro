@@ -118,13 +118,13 @@ const resolvedFunctionCards = content.functionCards || [];
 const category = CATEGORIES.find(c => c.slug === product.categorySlug);
 const categoryName = category?.nameShort || product.categorySlug;
 
-// Page URL
-const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}`;
+// Page URL (trailing slash to match the served/canonical URL)
+const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`)}/`;
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
-  { name: t(locale, 'breadcrumb.home'), url: SITE.url },
-  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}` },
+  { name: t(locale, 'breadcrumb.home'), url: `${SITE.url}/` },
+  { name: categoryName, url: `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}`)}/` },
   { name: displayName }
 ];
 
@@ -176,6 +176,10 @@ const reviewSchema = ratedTestimonials.map((tm) => {
   };
 });
 
+// Offer price validity — end of next year, refreshed on every build.
+// Google recommends priceValidUntil on Offer; without it Rich Results warns.
+const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
+
 // Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
@@ -191,6 +195,7 @@ const productSchema = product.price ? {
     "url": pageUrl,
     "priceCurrency": "HUF",
     "price": String(product.salePrice || product.price),
+    "priceValidUntil": priceValidUntil,
     "availability": product.availability === 'in_stock'
       ? "https://schema.org/InStock"
       : product.availability === 'preorder'

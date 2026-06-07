@@ -74,11 +74,18 @@ const rawPath = Astro.url.pathname;
 const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
 
-// Generate canonical URL - absolute URL for SEO
-// Using SITE.url as base for all languages (path-based routing)
-const localizedPath = getLocalizedUrl(currentLocale, currentPath);
+// Generate canonical URL - absolute URL for SEO.
+// trailingSlash: 'always' — emit a trailing slash so canonical/hreflang match
+// the URL the server actually serves (Cloudflare normalizes to a trailing
+// slash; without this the canonical pointed at a 307-redirecting URL).
+const withTrailingSlash = (p: string) => (p === '/' ? '/' : p.replace(/\/?$/, '/'));
+const localizedPath = withTrailingSlash(getLocalizedUrl(currentLocale, currentPath));
 const canonicalURL = `${SITE.url}${localizedPath}`;
-const fullTitle = title === SEO_DEFAULTS.defaultTitle ? title : `${title} | Skinlab Hungary`;
+// Avoid a doubled brand ("… | Skinlab Hungary | Skinlab Hungary") when a page
+// (e.g. a localized homepage) already includes the brand in its own title.
+const fullTitle = (title === SEO_DEFAULTS.defaultTitle || title.includes('Skinlab Hungary'))
+  ? title
+  : `${title} | Skinlab Hungary`;
 
 // Generate hreflang links - restricted to availableLocales if the page sets one.
 const localesToAnnounce = (availableLocales && availableLocales.length > 0)
@@ -87,7 +94,7 @@ const localesToAnnounce = (availableLocales && availableLocales.length > 0)
 const hreflangLinks = localesToAnnounce.map((locale) => ({
   locale,
   hreflang: localeConfig[locale].hreflang,
-  href: `${SITE.url}${getLocalizedUrl(locale, currentPath)}`,
+  href: `${SITE.url}${withTrailingSlash(getLocalizedUrl(locale, currentPath))}`,
 }));
 
 // Helper to render schema(s)
@@ -110,7 +117,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   {hreflangLinks.map(({ hreflang, href }) => (
     <link rel="alternate" hreflang={hreflang} href={href} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={`${SITE.url}${getLocalizedUrl(defaultLocale, currentPath)}`} />
+  <link rel="alternate" hreflang="x-default" href={`${SITE.url}${withTrailingSlash(getLocalizedUrl(defaultLocale, currentPath))}`} />
   <link rel="help" type="text/plain" href="/llm.txt" />
 
   <!-- Open Graph -->
@@ -131,9 +138,12 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(image, SITE.url)} />
   
-  <!-- Favicon -->
+  <!-- Favicon: SVG for modern browsers, .ico fallback for older crawlers/UAs.
+       TODO: add a designed 180×180 public/apple-touch-icon.png and re-add
+       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+       (the previous link was removed because the file 404'd). -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
   
   <!-- Fonts: self-hosted, preload the primary `latin` subsets (these render the
        bulk of visible above-the-fold text). The heavier `latin-ext` subset

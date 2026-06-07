@@ -20,19 +20,9 @@ interface Props {
 
 const { locale, faq, productName } = Astro.props;
 
-// Schema.org FAQPage markup
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faq.map(item => ({
-    "@type": "Question",
-    "name": item.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.answer
-    }
-  }))
-};
+// NOTE: the FAQPage JSON-LD is emitted once, centrally, by ProductLayout via
+// <FAQSchema>. This component intentionally renders only the visible accordion —
+// emitting its own FAQPage here produced two FAQPage blocks on one URL.
 ---
 
 {faq.length > 0 && (
@@ -110,9 +100,6 @@ const faqSchema = {
         </a>
       </div>
     </div>
-
-    <!-- FAQ Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </section>
 )}
 
