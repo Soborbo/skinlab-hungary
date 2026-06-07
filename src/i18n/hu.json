@@ -844,6 +844,10 @@
     "postcode": "Irányítószám",
     "city": "Város",
     "street": "Utca, házszám",
+    "postcodeHelp": "Az irányítószám alapján kitöltjük a várost és az országot.",
+    "postcodeUnknown": "Ezt az irányítószámot nem ismerjük fel – kérlek, add meg a várost és az országot kézzel.",
+    "postcodeMultiple": "Több település tartozik ehhez az irányítószámhoz – válassz, vagy írd át kézzel:",
+    "countySuffix": "megye",
     "notes": "Megjegyzés",
     "notesPlaceholder": "Bármi, amit fontosnak tart a megrendeléssel kapcsolatban...",
     "optional": "opcionális",
@@ -881,6 +885,8 @@
       "step3Title": "Szállítás",
       "step3Desc": "A fizetés beérkezése után kiszállítjuk a készüléket.",
       "emailNote": "A megrendelés visszaigazolását elküldtük az e-mail címedre.",
+      "foundersTitle": "Köszönjük a bizalmad!",
+      "foundersNote": "Mi, a Skinlab alapítói, személyesen gondoskodunk róla, hogy a megrendelésed gördülékenyen menjen. Bármi kérdésed van, keress minket bizalommal!",
       "backToHome": "Vissza a főoldalra",
       "browseProducts": "További termékek"
     }
