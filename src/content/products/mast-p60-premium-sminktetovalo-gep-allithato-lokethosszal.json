@@ -17,21 +17,46 @@
       "name": "Arany",
       "value": "MP60gold",
       "price": 79990,
-      "image": "@assets/products/P60arany.webp"
+      "image": "@assets/products/P60arany.webp",
+      "images": [
+        "@assets/products/P60arany.webp",
+        "@assets/products/mast-p60-arany-allvany.png"
+      ]
     },
     {
       "sku": "MP60rosegold",
       "name": "Rose Gold",
       "value": "MP60rosegold",
       "price": 79990,
-      "image": "@assets/products/P60rosegold.webp"
+      "image": "@assets/products/mast-p60-rosegold-allvany.png",
+      "images": [
+        "@assets/products/mast-p60-rosegold-allvany.png",
+        "@assets/products/P60rosegold.webp",
+        "@assets/products/mast-p60-kozelrol.png"
+      ]
     },
     {
       "sku": "MP60PURPLE",
       "name": "Lila",
       "value": "MP60PURPLE",
       "price": 79990,
-      "image": "@assets/products/P60lila.webp"
+      "image": "@assets/products/mast-p60-lila-allvany.png",
+      "images": [
+        "@assets/products/mast-p60-lila-allvany.png",
+        "@assets/products/P60lila.webp"
+      ]
+    },
+    {
+      "sku": "MP60menta",
+      "name": "Menta – Limited Edition",
+      "value": "MP60menta",
+      "price": 79990,
+      "image": "@assets/products/mast-p60-menta.png",
+      "images": [
+        "@assets/products/mast-p60-menta.png",
+        "@assets/products/mast-p60-menta-eletkep.png",
+        "@assets/products/mast-p60-szincsalad.png"
+      ]
     }
   ],
   "featured": false,

@@ -42,6 +42,11 @@ const productSchema = z.object({
   // Secondary images shown in a dedicated gallery section deeper in the page
   // (separate from the hero gallery built from `image` + `images`).
   extraImages: z.array(z.string()).default([]),
+  // If set, this product's page emits <link rel="canonical"> pointing to the
+  // product with this slug (same category). Used for duplicate/variant spin-off
+  // products (e.g. a limited-edition colour that also exists as a variant of the
+  // canonical product). Hreflang is suppressed on canonicalized pages.
+  canonicalSlug: z.string().optional(),
   youtubeVideos: z.array(z.string()).default([]),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
   hasVariants: z.boolean().default(false),
