@@ -182,16 +182,15 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             <textarea id="order-notes" name="notes" rows="3" maxlength="2000" placeholder={t(locale, 'checkout.notesPlaceholder')} class={`${inputClass} resize-y`}></textarea>
           </div>
 
-          <!-- Turnstile -->
+          <!-- Turnstile - explicit (JS-vezérelt) rendelés, lásd a lenti scriptet.
+               Szándékosan NINCS `cf-turnstile` class: az api.js automatikus
+               renderelése csak egyszer, betöltéskor fut, és nem renderel
+               megbízhatóan egy kezdetben rejtett ([data-checkout-content]
+               display:none) konténerben vagy kliensoldali navigáció után -
+               emiatt maradt el a token és blokkolódott a megrendelés. -->
           {turnstileSiteKey && (
             <div>
-              <div
-                class="cf-turnstile"
-                data-sitekey={turnstileSiteKey}
-                data-callback="onOrderTurnstileSuccess"
-                data-error-callback="onOrderTurnstileError"
-                data-theme="light"
-              ></div>
+              <div id="order-turnstile" data-turnstile-widget></div>
               <p class="mt-1 text-sm text-red-600 hidden" data-error="turnstile"></p>
             </div>
           )}
@@ -301,6 +300,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     postcodeMultiple: t(locale, 'checkout.postcodeMultiple'),
     countySuffix: t(locale, 'checkout.countySuffix'),
     hasTurnstile: !!turnstileSiteKey,
+    turnstileSiteKey,
   })}
 ></script>
 
@@ -308,17 +308,21 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
   import { trackPurchaseSubmit, waitForTracking, type EcommerceItem } from '@/lib/tracking';
 
-  // Turnstile globális callbackek
+  // Turnstile: az aktuális tokent egy globális változóban tartjuk. A widgetet
+  // explicit módon (turnstile.render) rendereljük a checkout init során - lásd
+  // ensureTurnstile() -, hogy a kezdetben rejtett konténer / kliensoldali
+  // navigáció ne akadályozza meg a renderelést és így a token kiadását.
+  interface TurnstileApi {
+    render: (el: HTMLElement | string, opts: Record<string, unknown>) => string;
+    reset: (id?: string) => void;
+  }
   declare global {
     interface Window {
-      onOrderTurnstileSuccess: (token: string) => void;
-      onOrderTurnstileError: () => void;
       __orderTurnstileToken: string;
+      turnstile?: TurnstileApi;
     }
   }
   window.__orderTurnstileToken = '';
-  window.onOrderTurnstileSuccess = (token: string) => { window.__orderTurnstileToken = token; };
-  window.onOrderTurnstileError = () => { window.__orderTurnstileToken = ''; };
 
   function initCheckout() {
     const form = document.getElementById('order-form') as HTMLFormElement | null;
@@ -340,6 +344,49 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     const locale: string = i18n.locale || 'hu';
 
     if (startTimeInput) startTimeInput.value = String(Date.now());
+
+    // --- Turnstile explicit renderelés -----------------------------------
+    // A widgetet kódból rendereljük (nem az api.js auto-renderére bízzuk),
+    // hogy biztosan lefusson akkor is, ha a checkout konténer kezdetben rejtett
+    // volt, vagy ha kliensoldali navigációval (astro:page-load) érkeztünk ide.
+    // A callback így megbízhatóan beállítja a tokent - korábban ennek hiánya
+    // miatt blokkolt a "Kérlek, ellenőrizd a megadott adatokat" üzenettel.
+    let turnstileWidgetId: string | undefined;
+    let turnstileScriptInjected = false;
+    function ensureTurnstile(attempt = 0) {
+      if (!i18n.hasTurnstile || !i18n.turnstileSiteKey) return;
+      const el = document.getElementById('order-turnstile');
+      if (!el || el.dataset.rendered) return;
+      const api = window.turnstile;
+      if (!api || typeof api.render !== 'function') {
+        // Biztosíték: ha az api.js nem töltődött be (pl. kliensoldali
+        // navigáció után nem futott le a beágyazott script), pár próbálkozás
+        // után magunk injektáljuk - különben sosem lenne window.turnstile.
+        if (
+          attempt === 10 &&
+          !turnstileScriptInjected &&
+          !document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')
+        ) {
+          turnstileScriptInjected = true;
+          const s = document.createElement('script');
+          s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+          s.async = true;
+          s.defer = true;
+          document.head.appendChild(s);
+        }
+        if (attempt < 50) window.setTimeout(() => ensureTurnstile(attempt + 1), 200);
+        return;
+      }
+      el.dataset.rendered = '1';
+      turnstileWidgetId = api.render(el, {
+        sitekey: i18n.turnstileSiteKey,
+        theme: 'light',
+        callback: (token: string) => { window.__orderTurnstileToken = token; },
+        'error-callback': () => { window.__orderTurnstileToken = ''; },
+        'expired-callback': () => { window.__orderTurnstileToken = ''; },
+      });
+    }
+    ensureTurnstile();
 
     // --- Irányítószám → város / ország automatikus kitöltés ---------------
     // A vásárló az irányítószámot adja meg először; abból a /api/postcode
@@ -688,9 +735,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
           formError.classList.remove('hidden');
         }
         setLoading(false);
-        // Turnstile reset
-        if (window.__orderTurnstileToken) window.__orderTurnstileToken = '';
-        if ((window as any).turnstile) (window as any).turnstile.reset();
+        // Turnstile reset - a konkrét widgetet állítjuk vissza, hogy a vásárló
+        // újra megoldhassa, és friss tokent kapjon a következő próbálkozáshoz.
+        window.__orderTurnstileToken = '';
+        window.turnstile?.reset(turnstileWidgetId);
       } catch (err) {
         if (formError) {
           formError.textContent = i18n.networkError || 'Network error';
