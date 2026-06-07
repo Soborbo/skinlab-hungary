@@ -13,3 +13,13 @@
 declare module 'cloudflare:workers' {
   export const env: Record<string, string | undefined>;
 }
+
+/**
+ * Public, build-time-inlined env vars. Declaring them here makes static
+ * `import.meta.env.PUBLIC_*` access type-safe and signals that the value is
+ * inlined into the client bundle at build time (required for the Turnstile
+ * widget to render on prerendered pages).
+ */
+interface ImportMetaEnv {
+  readonly PUBLIC_TURNSTILE_SITE_KEY: string;
+}

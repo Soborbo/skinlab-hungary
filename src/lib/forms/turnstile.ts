@@ -64,11 +64,21 @@ export async function verifyTurnstile(
 /**
  * Get Turnstile site key for the frontend widget.
  *
- * Called from `.astro` frontmatter (SSR). Reads the Cloudflare runtime env
- * via `cloudflare:workers`, with `import.meta.env` fallback so local `astro
- * dev` and prerendered contexts continue to work as long as the value is in
- * the `.env` file.
+ * The site key is PUBLIC and is baked into the (prerendered) client HTML, so it
+ * must be inlined at BUILD time. Astro/Vite only statically inlines direct
+ * `import.meta.env.PUBLIC_X` access; the dynamic `readEnv()` lookup
+ * (`import.meta.env[name]`) is not reliably inlined and resolved to an empty
+ * string on prerendered pages - which dropped the Turnstile widget entirely
+ * (no widget -> the client sends no token -> the server rejects the empty
+ * token with ORDER-TURN-001 / HTTP 400, so no order can be placed).
+ *
+ * We therefore read it via static access, keeping `readEnv()` as a fallback
+ * for SSR / `astro dev` contexts.
  */
 export function getTurnstileSiteKey(): string {
-  return readEnv('PUBLIC_TURNSTILE_SITE_KEY') ?? '';
+  return (
+    import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
+    readEnv('PUBLIC_TURNSTILE_SITE_KEY') ||
+    ''
+  );
 }
