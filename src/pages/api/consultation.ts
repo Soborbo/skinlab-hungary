@@ -24,8 +24,22 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
-  const runtime = (locals as unknown as { runtime?: { ctx?: { waitUntil: (p: Promise<unknown>) => void } } }).runtime;
-  const waitUntil = runtime?.ctx?.waitUntil?.bind(runtime.ctx);
+  // Astro v6 removed `locals.runtime.ctx` (it is now a *throwing* getter) and
+  // moved the Cloudflare execution context to `locals.cfContext`. Resolve the
+  // `waitUntil` hook defensively so a missing/renamed binding can never crash
+  // the handler - falling back to `undefined` simply awaits the CRM webhook
+  // inline instead of fire-and-forget.
+  let waitUntil: ((p: Promise<unknown>) => void) | undefined;
+  try {
+    const cfContext = (locals as unknown as {
+      cfContext?: { waitUntil?: (p: Promise<unknown>) => void };
+    }).cfContext;
+    if (typeof cfContext?.waitUntil === 'function') {
+      waitUntil = cfContext.waitUntil.bind(cfContext);
+    }
+  } catch {
+    waitUntil = undefined;
+  }
 
   try {
     // Parse form data
