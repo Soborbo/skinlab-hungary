@@ -1,164 +1,154 @@
-# Cloudflare Pages _redirects
-# Migration: OpenCart (skinlabhungary.hu) -> Astro
+# Cloudflare _redirects - skinlabhungary.hu (OpenCart -> Astro)
+# A teljes GSC indexelt + Coverage URL-halmazbol, draft=megszunt->kategoria policy szerint.
+# Celok ELO (200) oldalak, zaro perjellel (a perjel nelkuli alak 307-tel arra ugrik).
+# Sorrend: konkret szabalyok elol, /* catch-all-ok a vegen (first-match-wins).
 
-# ============ LEGACY OPENCART CORE ============
-/index.php  /  301
+/index.php                                                                       /  301
 
-# ============ STATIC PAGES ============
-/adatvedelmi-nyilatkozat-44                                 /adatvedelem                                 301
-/altalanos_szerzodesi_feltetelek                            /aszf                                        301
-/fizetes-szallitas-34                                       /szallitas-fizetes                           301
-/garancia-37                                                /garancia                                    301
-/gyakran-ismetelt-kerdesek                                  /gyik                                        301
-/oktatasok_kozmetikusoknak                                  /kepzesek                                    301
-/reszletfizetes                                             /szallitas-fizetes#reszletfizetes            301
-/segitseg-35                                                /kapcsolat                                   301
-/vasarlasi-feltetelek-5                                     /aszf                                        301
+/akcios-termekek-206                                                             /  301
+/babaapolas-209                                                                  /  301
+/babakocsi-221                                                                   /  301
+/chicco-m-71                                                                     /  301
+/adatvedelem-45                                                                  /adatvedelem/  301
+/adatvedelmi-nyilatkozat-44                                                      /adatvedelem/  301
+/ai-boranalizis-gepek                                                            /anti-aging/  301
+/anti_aging_keszulekek                                                           /anti-aging/  301
+/nofilter-7d-hifu-854                                                            /anti-aging/  301
+/radiofrekvencias-gepek-257                                                      /anti-aging/  301
+/skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-821                  /anti-aging/  301
+/altalanos_szerzodesi_feltetelek                                                 /aszf/  301
+/vasarlasi-feltetelek-5                                                          /aszf/  301
+/hidegplazma                                                                     /coldplasma/  301
+/professzionalishidegplazma                                                      /coldplasma/  301
+/thefrostcoldplasma                                                              /coldplasma/thefrostcoldplasma/  301
+/blackpearl-diodalezer                                                           /diodalezerek/  301
+/blue-laser-271                                                                  /diodalezerek/  301
+/dahlia-noir-premium-dioda-lezer-4-hullamhosszal-770                             /diodalezerek/  301
+/dame-4-nagyteljesitmenyu-diodalezer-keszulek-860                                /diodalezerek/  301
+/dame4                                                                           /diodalezerek/  301
+/dioda-lezerek-239                                                               /diodalezerek/  301
+/diodalezer                                                                      /diodalezerek/  301
+/lunox_2in1_lezerkeszulek                                                        /diodalezerek/  301
+/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-836     /diodalezerek/  301
+/nightyvibe-diodalezer                                                           /diodalezerek/  301
+/nxyqueenrosegold                                                                /diodalezerek/  301
+/nyxqueen_4wave_diodalezer                                                       /diodalezerek/  301
+/nyxqueen_champagnegold                                                          /diodalezerek/  301
+/nyxqueen_crystalfrost                                                           /diodalezerek/  301
+/nyxqueen_peony                                                                  /diodalezerek/  301
+/nyxqueen_snowwhite                                                              /diodalezerek/  301
+/nyxqueen-premium-diodalezer-keszulek-848                                        /diodalezerek/  301
+/pearl-diodalezer-4-hullamhosszal                                                /diodalezerek/  301
+/peony-4-hullamhossz-diodalezer                                                  /diodalezerek/  301
+/prestige4wave_diodalezer                                                        /diodalezerek/  301
+/professzionalis_diodalezer_keszulekek                                           /diodalezerek/  301
+/garancia-37                                                                     /garancia/  301
+/gyakran-ismetelt-kerdesek                                                       /gyik/  301
+/gyakran-ismetelt-kerdesek-36                                                    /gyik/  301
+/hydra-facial-245                                                                /hydrafacial/  301
+/hydracrownexpert                                                                /hydrafacial/  301
+/hydrafacial/hydracrownexpert                                                    /hydrafacial/  301
+/hydrafacial/hydramax-professzionalis-hydrofacial-keszulek-833                   /hydrafacial/  301
+/hydramax-professzionalis-hydrofacial-keszulek-833                               /hydrafacial/  301
+/hydrapulse-quantum-hydrofacial-10in1                                            /hydrafacial/  301
+/hydrascan-                                                                      /hydrafacial/  301
+/skinlab-oxygenx-kezelogep                                                       /hydrafacial/  301
+/hydrascan-pro                                                                   /hydrafacial/hydrascan-pro/  301
+/hydrafacial/hydrascan-pro-plus                                                  /hydrafacial/hydrascanpro/  301
+/hydrascan-pro-plus                                                              /hydrafacial/hydrascanpro/  301
+/hydrascanpro                                                                    /hydrafacial/hydrascanpro/  301
+/segitseg-35                                                                     /kapcsolat/  301
+/hypernova-7d-hifu-keszulek                                                      /kellekek/  301
+/kezeles-es-utoapolas-263                                                        /kellekek/  301
+/carbon-peeling-fust-                                                            /kellekek/carbon-peeling-fust-elszivo-keszulek-815/  301
+/carbon-peeling-fust-elszivo-keszulek-815                                        /kellekek/carbon-peeling-fust-elszivo-keszulek-815/  301
+/carbonpeeling_fustelszivo                                                       /kellekek/carbon-peeling-fust-elszivo-keszulek-815/  301
+/ndyag-lezerek/carbonpeeling_fustelszivo                                         /kellekek/carbon-peeling-fust-elszivo-keszulek-815/  301
+/mast-oceanheart-tumodul-020-1rl                                                 /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul-025mm-1rl                                               /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul-025mm-3rl                                               /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul-030mm-1rl                                               /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul-035mm-1rl                                               /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul-035mm-1rl-787                                           /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/mast-oceanheart-tumodul018-1rl                                                  /kellekek/mast-oceanheart-tumodul-030mm-1rl/  301
+/wjx-tumodul-025-1rl-791                                                         /kellekek/wjxtumodul/  301
+/wjx-tumodul-025-3rl-794                                                         /kellekek/wjxtumodul/  301
+/wjx-tumodul-030-1rl-797                                                         /kellekek/wjxtumodul/  301
+/wjxtumodul                                                                      /kellekek/wjxtumodul/  301
+/oktatasok_kozmetikusoknak                                                       /kepzesek/  301
+/hydra-facial-245/hydrofacial-oldatok-es-kozmetikai-kezeloanyagok-290            /kezeloanyagok/  301
+/hydraliquid_borvilagosito                                                       /kezeloanyagok/  301
+/hydraliquid_feltolto                                                            /kezeloanyagok/  301
+/hydraliquid_hegyikristallyal                                                    /kezeloanyagok/  301
+/hydraliquid_hidratalo                                                           /kezeloanyagok/  301
+/hydraliquid_lifting                                                             /kezeloanyagok/  301
+/hydraliquid-erosen-hamlaszto-884                                                /kezeloanyagok/  301
+/hydraliquid-lifting-bioretinollal-887                                           /kezeloanyagok/  301
+/hydrofacial-oldatok-es-kozmetikai-kezeloanyagok-290                             /kezeloanyagok/  301
+/skinlab-oxygenx-kezelogep-695                                                   /kezeloanyagok/  301
+/hydraliquid_peeling                                                             /kezeloanyagok/hydraliquid_peeling/  301
+/kellekek/hydraliquid_peeling                                                    /kezeloanyagok/hydraliquid_peeling/  301
+/kellekek/oxygenx-pod-szett-glam-pod                                             /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-detox-pod                                                     /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-glam-pod                                                      /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-hydrate-pod                                                   /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-illuminate-pod-740                                            /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-retouch-pod                                                   /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-retouch-pod-725                                               /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/oxygenx-pod-szett-revive-pod-743                                                /kezeloanyagok/oxygenx-pod-szett-glam-pod/  301
+/mezoterapia-248                                                                 /mezoterapia/  301
+/dermatechplus_noneedle_mesotherapy                                              /mezoterapia/dermatechplus_noneedle_mesotherapy/  301
+/carbon-lezer-gepek-251                                                          /nd-yag-lezerek/  301
+/lasequeen-mapetite-q-kapcsolt-ndyag-lezer-limited-edition-800                   /nd-yag-lezerek/  301
+/nd-yag-lezerek/lasequeen-mapetite-q-kapcsolt-ndyag-lezer-limited-edition-800/   /nd-yag-lezerek/  301
+/nd-yag-lezerek/yag-elise                                                        /nd-yag-lezerek/  301
+/nd-yag-lezerek/yag-elise/                                                       /nd-yag-lezerek/  301
+/nd-yag-lezerek/yag-lasequeen/                                                   /nd-yag-lezerek/  301
+/ndyag-lezerek                                                                   /nd-yag-lezerek/  301
+/novalite-carbon-lezer                                                           /nd-yag-lezerek/  301
+/picosekundumos-lezer-gepek-268                                                  /nd-yag-lezerek/  301
+/spectraglow-premium-pico-lezer                                                  /nd-yag-lezerek/  301
+/yag-elise                                                                       /nd-yag-lezerek/  301
+/yag-elyra                                                                       /nd-yag-lezerek/  301
+/yag-lasequeen                                                                   /nd-yag-lezerek/  301
+/yag-neolasersmart                                                               /nd-yag-lezerek/  301
+/pixelcarbonlezer                                                                /nd-yag-lezerek/pixelcarbonlezer/  301
+/dragonhawk-m-80                                                                 /sminktetovalas/  301
+/foldpro-snake-edition                                                           /sminktetovalas/  301
+/mast-archer-ultra-smart-vezetek-nelkuli-tetovalogep-bluetooth-verzio            /sminktetovalas/  301
+/mast-tumodulok                                                                  /sminktetovalas/  301
+/mast-y22-pro                                                                    /sminktetovalas/  301
+/sminktetovalo-gepek                                                             /sminktetovalas/  301
+/sminktetovalo-gepek/mast-sminktetovalo-keszulekek-296                           /sminktetovalas/  301
+/sminktetovalo-gepek/sminktetovalo-tumodulok-293                                 /sminktetovalas/  301
+/tetovalogepek-266                                                               /sminktetovalas/  301
+/mast-nano-2                                                                     /sminktetovalas/mast-nano-2/  301
+/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal                       /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal/  301
+/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal-                      /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal/  301
+/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal-620                   /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal/  301
+/mast-p60-sminktetovalo-gep                                                      /sminktetovalas/mast-p60-sminktetovalo-gep/  301
+/fizetes-szallitas-34                                                            /szallitas-fizetes/  301
+/reszletfizetes                                                                  /szallitas-fizetes/#reszletfizetes  301
+/albaroyal-827                                                                   /termekek/  301
+/arctictrolley-842                                                               /termekek/  301
+/frostlinetrolley-845                                                            /termekek/  301
+/onyxgold-kezeloszek-824                                                         /termekek/  301
+/snowlinetrolley-839                                                             /termekek/  301
+/szalon-berendezesek                                                             /termekek/  301
+/szalon-berendezesek/eszkozkocsi-281                                             /termekek/  301
+/szalon-berendezesek/kozmetikai-agyak-275                                        /termekek/  301
+/szalon-berendezesek/szekek-287                                                  /termekek/  301
+/szalonberendezes                                                                /termekek/  301
+/vanityblack-premium-elektromos-kozmetikai-agy-830                               /termekek/  301
+/evosculpt-smart-4-hiemt                                                         /testkezeles/  301
+/evosculpt-smart-hiemt                                                           /testkezeles/  301
+/evosculpt-venus-hiemt-intim-pad                                                 /testkezeles/  301
 
-# ============ CATEGORIES ============
-/hidegplazma                                                /coldplasma                                  301
-/hydra-facial-245                                           /hydrafacial                                 301
-/ndyag-lezerek                                              /nd-yag-lezerek                              301
-/sminktetovalo-gepek                                        /sminktetovalas                              301
-/szalon-berendezesek                                        /termekek                                    301
-/szalonberendezes                                           /termekek                                    301
-/professzionalishidegplazma                                 /coldplasma                                  301
-/professzionalis_diodalezer_keszulekek                      /diodalezerek                                301
+# --- HydraScan Pro+ alias ---
 
-# Old sub-category listings -> main category
-/hydra-facial-245/*                                         /hydrafacial                                 301
-/ndyag-lezerek/*                                            /nd-yag-lezerek                              301
-/sminktetovalo-gepek/*                                      /sminktetovalas                              301
-/szalon-berendezesek/*                                      /termekek                                    301
-/szalonberendezes/*                                         /termekek                                    301
-
-# ============ PRODUCTS ============
-
-# -- diodalezerek --
-/blackpearl-diodalezer                                      /diodalezerek/blackpearl-diodalezer          301
-/dame4                                                      /diodalezerek/dame4                          301
-/lunox_2in1_lezerkeszulek                                   /diodalezerek/lunox_2in1_lezerkeszulek       301
-/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-836 /diodalezerek/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-836 301
-/nyxqueen_4wave_diodalezer                                  /diodalezerek/nyxqueen_4wave_diodalezer      301
-/nyxqueen_crystalfrost                                      /diodalezerek/nyxqueen_crystalfrost          301
-/nyxqueen_snowwhite                                         /diodalezerek/nyxqueen_snowwhite             301
-/pearl-diodalezer-4-hullamhosszal                           /diodalezerek/pearl-diodalezer-4-hullamhosszal 301
-/prestige4wave_diodalezer                                   /diodalezerek/prestige4wave_diodalezer       301
-
-# -- nd-yag-lezerek --
-/novalite-carbon-lezer                                      /nd-yag-lezerek/novalite-carbon-lezer        301
-/pixelcarbonlezer                                           /nd-yag-lezerek/pixelcarbonlezer             301
-/yag-elise                                                  /nd-yag-lezerek/yag-elise                    301
-/yag-elyra                                                  /nd-yag-lezerek/yag-elyra                    301
-/yag-neolasersmart                                          /nd-yag-lezerek/yag-neolasersmart            301
-
-# -- hydrafacial --
-# -- HydraScan család: Pro és Pro+ külön termékek, Pro+ duplikátum-feloldás --
-/hydrascanpro                                               /hydrafacial/hydrascanpro                    301
-/hydrascan-pro                                              /hydrafacial/hydrascan-pro                   301
-/hydrascan-pro-plus                                         /hydrafacial/hydrascanpro                    301
-/hydrafacial/hydrascan-pro-plus                             /hydrafacial/hydrascanpro                    301
-
-# -- Megszűnt Hidra termékek → kategória --
-/hydracrownexpert                                           /hydrafacial                                 301
-/hydrafacial/hydracrownexpert                               /hydrafacial                                 301
-/hydramax-professzionalis-hydrofacial-keszulek-833          /hydrafacial                                 301
-/hydrafacial/hydramax-professzionalis-hydrofacial-keszulek-833 /hydrafacial                              301
-
-# -- hydraliquid_* + oxygenx-pod-szett-* termékek mostantól /kezeloanyagok/ --
-/hydraliquid_borvilagosito                                  /kezeloanyagok/hydraliquid_borvilagosito     301
-/hydraliquid_feltolto                                       /kezeloanyagok/hydraliquid_feltolto          301
-/hydraliquid_hegyikristallyal                               /kezeloanyagok/hydraliquid_hegyikristallyal  301
-/hydraliquid_hidratalo                                      /kezeloanyagok/hydraliquid_hidratalo         301
-/hydraliquid_lifting                                        /kezeloanyagok/hydraliquid_lifting           301
-/oxygenx-pod-szett-detox-pod                                /kezeloanyagok/oxygenx-pod-szett-detox-pod   301
-/oxygenx-pod-szett-hydrate-pod                              /kezeloanyagok/oxygenx-pod-szett-hydrate-pod 301
-/oxygenx-pod-szett-illuminate-pod-740                       /kezeloanyagok/oxygenx-pod-szett-illuminate-pod-740 301
-/oxygenx-pod-szett-retouch-pod                              /kezeloanyagok/oxygenx-pod-szett-retouch-pod 301
-/oxygenx-pod-szett-retouch-pod-725                          /kezeloanyagok/oxygenx-pod-szett-retouch-pod-725 301
-/oxygenx-pod-szett-revive-pod-743                           /kezeloanyagok/oxygenx-pod-szett-revive-pod-743 301
-
-# -- coldplasma --
-/thefrostcoldplasma                                         /coldplasma/thefrostcoldplasma               301
-
-# -- sminktetovalas --
-/mast-nano-2                                                /sminktetovalas/mast-nano-2                  301
-/mast-oceanheart-tumodul-020-1rl                            /sminktetovalas/mast-oceanheart-tumodul-020-1rl 301
-/mast-oceanheart-tumodul-025mm-1rl                          /sminktetovalas/mast-oceanheart-tumodul-025mm-1rl 301
-/mast-oceanheart-tumodul-035mm-1rl                          /sminktetovalas/mast-oceanheart-tumodul-035mm-1rl 301
-/mast-oceanheart-tumodul-035mm-1rl-787                      /sminktetovalas/mast-oceanheart-tumodul-035mm-1rl-787 301
-/mast-oceanheart-tumodul018-1rl                             /sminktetovalas/mast-oceanheart-tumodul018-1rl 301
-/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal  /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal 301
-/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal- /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal- 301
-/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal-620 /sminktetovalas/mast-p60-premium-sminktetovalo-gep-allithato-lokethosszal-620 301
-/mast-p60-sminktetovalo-gep                                 /sminktetovalas/mast-p60-sminktetovalo-gep   301
-/wjx-tumodul-025-1rl-791                                    /sminktetovalas/wjx-tumodul-025-1rl-791      301
-/wjx-tumodul-025-3rl-794                                    /sminktetovalas/wjx-tumodul-025-3rl-794      301
-/wjx-tumodul-030-1rl-797                                    /sminktetovalas/wjx-tumodul-030-1rl-797      301
-
-# -- szalonberendezes (category removed → fallback to /termekek) --
-/albaroyal-827                                              /termekek                                    301
-/arctictrolley-842                                          /termekek                                    301
-/frostlinetrolley-845                                       /termekek                                    301
-/onyxgold-kezeloszek-824                                    /termekek                                    301
-/snowlinetrolley-839                                        /termekek                                    301
-/vanityblack-premium-elektromos-kozmetikai-agy-830          /termekek                                    301
-
-# -- kellekek --
-/carbon-peeling-fust-elszivo-keszulek-815                   /kellekek/carbon-peeling-fust-elszivo-keszulek-815 301
-/hydraliquid_peeling                                        /kezeloanyagok/hydraliquid_peeling           301
-/kellekek/hydraliquid_peeling                               /kezeloanyagok/hydraliquid_peeling           301
-/mast-oceanheart-tumodul-030mm-1rl                          /kellekek/mast-oceanheart-tumodul-030mm-1rl  301
-/oxygenx-pod-szett-glam-pod                                 /kezeloanyagok/oxygenx-pod-szett-glam-pod    301
-/kellekek/oxygenx-pod-szett-glam-pod                        /kezeloanyagok/oxygenx-pod-szett-glam-pod    301
-/wjxtumodul                                                 /kellekek/wjxtumodul                         301
-
-# -- _UNMAPPED --
-# /dragonhawk-m-80 — product removed, fallback to category
-/dragonhawk-m-80                                            /sminktetovalas                              301
-
-# ============ MISSING LEGACY URLs (from Google Search Console) ============
-
-# -- Static pages (ID-suffixed variants) --
-/gyakran-ismetelt-kerdesek-36                               /gyik                                        301
-/adatvedelem-45                                             /adatvedelem                                 301
-
-# -- Old OpenCart categories (no longer exist / merged) --
-/diodalezer                                                 /diodalezerek                                301
-/dioda-lezerek-239                                          /diodalezerek                                301
-/blue-laser-271                                             /diodalezerek                                301
-/carbon-lezer-gepek-251                                     /nd-yag-lezerek                              301
-/picosekundumos-lezer-gepek-268                             /nd-yag-lezerek                              301
-/tetovalogepek-266                                          /sminktetovalas                              301
-/mast-tumodulok                                             /sminktetovalas                              301
-/radiofrekvencias-gepek-257                                 /anti-aging                                  301
-/anti_aging_keszulekek                                      /anti-aging                                  301
-/ai-boranalizis-gepek                                       /hydrafacial                                 301
-/mezoterapia-248                                            /kellekek                                    301
-/kezeles-es-utoapolas-263                                   /kellekek                                    301
-/hydrofacial-oldatok-es-kozmetikai-kezeloanyagok-290        /hydrafacial                                 301
-
-# -- Unrelated old categories (no new target) --
-/babaapolas-209                                             /                                            301
-/babakocsi-221                                              /                                            301
-
-# -- Discontinued / renamed products (redirect to parent category) --
-/hydrapulse-quantum-hydrofacial-10in1                       /hydrafacial                                 301
-/skinlab-oxygenx-kezelogep-695                              /hydrafacial                                 301
-/hydraliquid-lifting-bioretinollal-887                      /hydrafacial                                 301
-/dahlia-noir-premium-dioda-lezer-4-hullamhosszal-770        /diodalezerek                                301
-/nyxqueen-premium-diodalezer-keszulek-848                   /diodalezerek                                301
-/peony-4-hullamhossz-diodalezer                             /diodalezerek                                301
-/nightyvibe-diodalezer                                      /diodalezerek                                301
-/yag-lasequeen                                              /nd-yag-lezerek                              301
-/nyxqueen_peony                                             /diodalezerek                                301
-/lasequeen-mapetite-q-kapcsolt-ndyag-lezer-limited-edition-800 /nd-yag-lezerek                           301
-/dermatechplus_noneedle_mesotherapy                         /kellekek                                    301
-/nofilter-7d-hifu-854                                       /anti-aging                                  301
-/foldpro-snake-edition                                      /sminktetovalas                              301
-/mast-oceanheart-tumodul-025mm-3rl                          /sminktetovalas                              301
-
-# -- Typo and trailing-dash variants --
-/nxyqueenrosegold                                           /diodalezerek                                301
-/hydrascan-                                                 /hydrafacial/hydrascan-pro                   301
-/carbon-peeling-fust-                                       /kellekek/carbon-peeling-fust-elszivo-keszulek-815 301
+# --- Regi kategoriak catch-all (a GSC-mintaban nem szereplo mely URL-ekre) ---
+/hydra-facial-245/*                                                              /hydrafacial/  301
+/ndyag-lezerek/*                                                                 /nd-yag-lezerek/  301
+/sminktetovalo-gepek/*                                                           /sminktetovalas/  301
+/szalon-berendezesek/*                                                           /termekek/  301
+/szalonberendezes/*                                                              /termekek/  301

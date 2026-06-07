@@ -8,7 +8,11 @@ const siteUrl = isDev ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
 
 export default defineConfig({
   site: siteUrl,
-  trailingSlash: 'never',
+  // Cloudflare serves directory routes with a trailing slash (a no-slash URL
+  // 307-redirects to the slash form). Match that here so the canonical,
+  // hreflang and sitemap URLs equal the actually-served URL instead of
+  // pointing at a redirecting one.
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       // Exclude noindex utility/conversion routes so Google doesn't see
@@ -17,16 +21,20 @@ export default defineConfig({
         !/\/(koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
       i18n: {
         defaultLocale: 'hu',
+        // Language-only hreflang codes to match the <head> alternate links
+        // (localeConfig[*].hreflang). Region-specific codes (hu-HU, en-GB…)
+        // here previously disagreed with the head, sending Google two
+        // different annotations for the same alternate.
         locales: {
-          hu: 'hu-HU',
-          en: 'en-GB',
-          sk: 'sk-SK',
-          ro: 'ro-RO',
-          de: 'de-DE',
-          cs: 'cs-CZ',
-          hr: 'hr-HR',
-          sr: 'sr-RS',
-          sl: 'sl-SI',
+          hu: 'hu',
+          en: 'en',
+          sk: 'sk',
+          ro: 'ro',
+          de: 'de',
+          cs: 'cs',
+          hr: 'hr',
+          sr: 'sr',
+          sl: 'sl',
         },
       },
     }),
