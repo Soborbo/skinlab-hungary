@@ -18,6 +18,7 @@
 
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
+import { env as cfEnv } from 'cloudflare:workers';
 import { normalizeEmail, normalizePhone } from '@/lib/tracking/persistence';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -312,14 +313,13 @@ const MAX_BODY = 32 * 1024;
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
   const ip = clientAddress || 'unknown';
-  const runtime = (locals as unknown as {
-    runtime?: {
-      env: Record<string, string>;
-      ctx?: { waitUntil: (p: Promise<unknown>) => void };
-    };
-  }).runtime;
-  const env = runtime?.env ?? {} as Record<string, string>;
-  const ctx = runtime?.ctx;
+  // Astro v6 (@astrojs/cloudflare): `locals.runtime.env` and `locals.runtime.ctx`
+  // were removed and are now getters that THROW. Reading them (even behind `?.`)
+  // crashed the worker before any try-block -> bare 500. Per the adapter's own
+  // guidance, env comes from the `cloudflare:workers` binding and the
+  // ExecutionContext from `locals.cfContext`.
+  const env = cfEnv as unknown as Record<string, string>;
+  const ctx = (locals as unknown as { cfContext?: { waitUntil: (p: Promise<unknown>) => void } }).cfContext;
 
   // Fast-fail on shared token (if configured) BEFORE doing any expensive work.
   const token = env.TRACK_TOKEN;

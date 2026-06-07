@@ -24,8 +24,13 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
-  const runtime = (locals as unknown as { runtime?: { ctx?: { waitUntil: (p: Promise<unknown>) => void } } }).runtime;
-  const waitUntil = runtime?.ctx?.waitUntil?.bind(runtime.ctx);
+  // Astro v6 (@astrojs/cloudflare): `locals.runtime.ctx` was removed and is now
+  // a getter that THROWS. Optional chaining does not protect against a throwing
+  // getter, so the old `runtime?.ctx?.waitUntil` line crashed the worker before
+  // the try-block (bare 500 -> form shows FORM-SUBMIT-001). The ExecutionContext
+  // now lives on `locals.cfContext`.
+  const cfContext = (locals as unknown as { cfContext?: { waitUntil: (p: Promise<unknown>) => void } }).cfContext;
+  const waitUntil = cfContext?.waitUntil?.bind(cfContext);
 
   try {
     // Parse form data
