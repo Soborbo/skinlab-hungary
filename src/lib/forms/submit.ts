@@ -72,7 +72,27 @@ interface GoogleAuthToken {
 let cachedToken: GoogleAuthToken | null = null;
 
 /**
- * Process form submission
+ * Run one submission channel as best-effort. NEVER rejects: any failure is
+ * logged and resolved to `false`. This is what makes the pipeline resilient -
+ * a single channel's failure can no longer blow up the whole submission (the
+ * old code awaited each channel in sequence, so the first throw failed the
+ * form even when the lead had already been stored elsewhere).
+ */
+function settleChannel(p: Promise<boolean>, label: string): Promise<boolean> {
+  return p.catch((err) => {
+    console.error(`${label}:`, err instanceof Error ? err.message : err);
+    return false;
+  });
+}
+
+/**
+ * Process contact form submission.
+ *
+ * Resilient pipeline (mirrors lib/order/submit.ts): Google Sheets, the team
+ * notification email and the customer confirmation email all run independently
+ * and in parallel. The lead counts as CAPTURED if at least one *durable*
+ * channel persisted it - Google Sheets OR the team notification email. The
+ * customer confirmation email is best-effort and never fails the submission.
  */
 export async function processFormSubmission(
   data: ContactFormData,
@@ -105,41 +125,25 @@ export async function processFormSubmission(
     userAgent,
   };
 
-  try {
-    // 1. Send to Google Sheets (primary storage)
-    await sendToGoogleSheets(leadData);
+  // Durable channels (Sheets, team notification) + best-effort confirmation.
+  const channels = await Promise.all([
+    settleChannel(sendToGoogleSheets(leadData), '[contact] Sheets write failed'),
+    settleChannel(sendNotificationEmail(leadData), '[contact] Notification email failed'),
+    settleChannel(sendConfirmationEmail(leadData).then(() => true), '[contact] Confirmation email failed'),
+  ]);
+  const sheetsOk = channels[0];
+  const notifyOk = channels[1];
 
-    // 2. Send confirmation email
-    await sendConfirmationEmail(leadData);
-
-    // 3. Send notification email to team
-    await sendNotificationEmail(leadData);
-
+  if (sheetsOk || notifyOk) {
     return { success: true, leadId };
-  } catch (error) {
-    console.error('Form submission failed:', error);
-    const message = error instanceof Error ? error.message : 'Submission failed';
-    return {
-      success: false,
-      error: message,
-      code: classifyPipelineError(message),
-    };
   }
-}
 
-/**
- * Map a thrown pipeline error to the most descriptive code we can infer
- * from its message. Falls back to FORM-SUBMIT-001 for unknown failures.
- */
-function classifyPipelineError(message: string): string {
-  const m = message.toLowerCase();
-  if (m.includes('google sheets') || m.includes('spreadsheet')) return 'SHEETS-WRITE-001';
-  if (m.includes('google access token')) return 'SHEETS-AUTH-002';
-  if (m.includes('confirmation email')) return 'RESEND-NET-001';
-  if (m.includes('resend')) return 'RESEND-NET-001';
-  if (m.includes('service account')) return 'CFG-ENV-003';
-  if (m.includes('crm webhook')) return 'SHEETS-NET-001';
-  return 'FORM-SUBMIT-001';
+  console.error('[contact] CRITICAL: every durable channel failed for', leadId);
+  return {
+    success: false,
+    error: 'Egyik tartós csatorna sem mentette el a leadet (Sheets és értesítő email is hibázott).',
+    code: 'FORM-SUBMIT-001',
+  };
 }
 
 /**
@@ -241,48 +245,50 @@ async function getGoogleAccessToken(): Promise<string> {
 /**
  * Send lead data to Google Sheets via API
  */
-async function sendToGoogleSheets(data: LeadData): Promise<void> {
+async function sendToGoogleSheets(data: LeadData): Promise<boolean> {
   const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
-    return;
+    return false;
   }
 
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data (order must match sheet columns)
-  // Columns A–T (20). Update the sheet header row to match:
-  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
-  // G Üzenet | H Forrás URL | I IP hash | J GDPR | K GDPR time |
-  // L UTM source | M UTM medium | N UTM campaign | O UTM term |
-  // P UTM content | Q gclid | R fbclid | S Referrer | T User-Agent
+  // Columns A–S (19). Update the sheet header row to match:
+  // A Beküldés dátuma | B Név | C Email | D Telefon | E Termék |
+  // F Üzenet | G Forrás URL | H IP hash | I GDPR | J UTM source |
+  // K UTM medium | L UTM campaign | M UTM term | N UTM content |
+  // O gclid | P fbclid | Q Referrer | R User-Agent | S Lead ID
+  //
+  // A beküldés dátuma csak egyszer szerepel (a `gdprTimestamp` korábban egy
+  // második dátum-oszlopot duplikált). A Lead ID a sor végére került.
   const rowData = [
-    data.leadId,
-    data.timestamp,
-    data.name,
-    data.email,
-    data.phone,
-    data.product,
-    data.message || '',
-    data.sourceUrl,
-    data.ipHash,
-    data.gdprConsent ? 'Igen' : 'Nem',
-    data.gdprTimestamp,
-    data.utmSource || '',
-    data.utmMedium || '',
-    data.utmCampaign || '',
-    data.utmTerm || '',
-    data.utmContent || '',
-    data.gclid || '',
-    data.fbclid || '',
-    data.referrer || '',
-    data.userAgent || '',
+    data.timestamp,                    // A: Beküldés dátuma
+    data.name,                         // B: Név
+    data.email,                        // C: Email
+    data.phone,                        // D: Telefon
+    data.product,                      // E: Termék
+    data.message || '',                // F: Üzenet
+    data.sourceUrl,                    // G: Forrás URL
+    data.ipHash,                       // H: IP hash
+    data.gdprConsent ? 'Igen' : 'Nem', // I: GDPR
+    data.utmSource || '',              // J: UTM source
+    data.utmMedium || '',              // K: UTM medium
+    data.utmCampaign || '',            // L: UTM campaign
+    data.utmTerm || '',                // M: UTM term
+    data.utmContent || '',             // N: UTM content
+    data.gclid || '',                  // O: gclid
+    data.fbclid || '',                 // P: fbclid
+    data.referrer || '',               // Q: Referrer
+    data.userAgent || '',              // R: User-Agent
+    data.leadId,                       // S: Lead ID (a sor végén)
   ];
 
   // Append to sheet (sheet name: "Kapcsolat")
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:T:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:S:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -297,8 +303,11 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to save to Google Sheets: ${error}`);
+    console.error('[contact] Sheets append failed:', response.status, error);
+    return false;
   }
+
+  return true;
 }
 
 /**
@@ -335,15 +344,16 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
 /**
  * Send notification email to team
  */
-async function sendNotificationEmail(data: LeadData): Promise<void> {
+async function sendNotificationEmail(data: LeadData): Promise<boolean> {
   const resendApiKey = readEnv('RESEND_API_KEY');
   const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
-    return;
+    console.warn('RESEND_API_KEY not configured, skipping notification email');
+    return false;
   }
 
-  await fetch('https://api.resend.com/emails', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${resendApiKey}`,
@@ -356,6 +366,14 @@ async function sendNotificationEmail(data: LeadData): Promise<void> {
       html: generateNotificationEmailHtml(data),
     }),
   });
+
+  if (!response.ok) {
+    const error = await response.text();
+    console.error('[contact] Notification email failed:', response.status, error);
+    return false;
+  }
+
+  return true;
 }
 
 /**
@@ -558,88 +576,94 @@ export async function processConsultationSubmission(
     userAgent,
   };
 
-  try {
-    // 1. Send to Google Sheets
-    await sendConsultationToGoogleSheets(leadData);
+  // Durable channels (Sheets, team notification) + best-effort confirmation,
+  // all in parallel. Lead counts as captured if at least one durable channel
+  // persisted it.
+  const channels = await Promise.all([
+    settleChannel(sendConsultationToGoogleSheets(leadData), '[consultation] Sheets write failed'),
+    settleChannel(sendConsultationNotificationEmail(leadData), '[consultation] Notification email failed'),
+    settleChannel(sendConsultationConfirmationEmail(leadData).then(() => true), '[consultation] Confirmation email failed'),
+  ]);
+  const sheetsOk = channels[0];
+  const notifyOk = channels[1];
 
-    // 2. Send confirmation email to customer
-    await sendConsultationConfirmationEmail(leadData);
-
-    // 3. Send notification email to team
-    await sendConsultationNotificationEmail(leadData);
-
-    // 4. Send lead to CRM (non-blocking - don't fail submission if CRM is down).
-    // On Cloudflare Workers fire-and-forget fetches can be terminated before
-    // the response resolves. If the caller passes ctx.waitUntil, register
-    // the promise; otherwise fall back to await so the work isn't dropped.
-    const crmPromise = sendToCrm(leadData).catch((err) => {
-      console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
-    });
-    if (waitUntil) {
-      waitUntil(crmPromise);
-    } else {
-      await crmPromise;
-    }
-
-    return { success: true, leadId };
-  } catch (error) {
-    console.error('Consultation form submission failed:', error);
-    const message = error instanceof Error ? error.message : 'Submission failed';
-    return {
-      success: false,
-      error: message,
-      code: classifyPipelineError(message),
-    };
+  // CRM webhook (non-blocking - never affects submission success).
+  // On Cloudflare Workers fire-and-forget fetches can be terminated before the
+  // response resolves. If the caller passes ctx.waitUntil, register the promise;
+  // otherwise fall back to await so the work isn't dropped.
+  const crmPromise = sendToCrm(leadData).catch((err) => {
+    console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
+  });
+  if (waitUntil) {
+    waitUntil(crmPromise);
+  } else {
+    await crmPromise;
   }
+
+  if (sheetsOk || notifyOk) {
+    return { success: true, leadId };
+  }
+
+  console.error('[consultation] CRITICAL: every durable channel failed for', leadId);
+  return {
+    success: false,
+    error: 'Egyik tartós csatorna sem mentette el a leadet (Sheets és értesítő email is hibázott).',
+    code: 'FORM-SUBMIT-001',
+  };
 }
 
 /**
  * Send consultation lead data to Google Sheets
  */
-async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<void> {
+async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<boolean> {
   const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
-    return;
+    return false;
   }
 
   const accessToken = await getGoogleAccessToken();
 
   // Prepare row data for Konzultáció sheet
-  // Columns A–V (22). Update the sheet header row to match:
-  // A Lead ID | B Timestamp | C Név | D Email | E Telefon | F Termék |
-  // G Időzítés | H Vállalkozás | I Tapasztalat | J Forrás URL |
-  // K IP hash | L GDPR | M GDPR time | N UTM source | O UTM medium |
-  // P UTM campaign | Q UTM term | R UTM content | S gclid | T fbclid |
-  // U Referrer | V User-Agent
+  // Columns A–U (21). Update the sheet header row to match:
+  // A Beküldés dátuma | B Név | C Email | D Telefon | E Termék |
+  // F Időzítés | G Vállalkozás | H Tapasztalat | I Forrás URL |
+  // J IP hash | K GDPR | L UTM source | M UTM medium | N UTM campaign |
+  // O UTM term | P UTM content | Q gclid | R fbclid | S Referrer |
+  // T User-Agent | U Lead ID
+  //
+  // A beküldés dátuma csak egyszer szerepel (korábban a `gdprTimestamp`
+  // gyakorlatilag ugyanazt a beküldési időt ismételte egy második
+  // oszlopban). A Lead ID a sor végére került – a hívható kontakt- és
+  // lead-adatok kerülnek előre. A GDPR-hozzájárulás idejét a beküldés
+  // dátuma (A) + a "GDPR: Igen/Nem" (K) együtt rögzíti.
   const rowData = [
-    data.leadId,
-    data.timestamp,
-    data.name,
-    data.email,
-    data.phone,
-    data.product,
-    TIMELINE_LABELS[data.timeline] || data.timeline,
-    BUSINESS_LABELS[data.businessType] || data.businessType,
-    EXPERIENCE_LABELS[data.experience] || data.experience,
-    data.sourceUrl,
-    data.ipHash,
-    data.gdprConsent ? 'Igen' : 'Nem',
-    data.gdprTimestamp,
-    data.utmSource || '',
-    data.utmMedium || '',
-    data.utmCampaign || '',
-    data.utmTerm || '',
-    data.utmContent || '',
-    data.gclid || '',
-    data.fbclid || '',
-    data.referrer || '',
-    data.userAgent || '',
+    data.timestamp,                                          // A: Beküldés dátuma
+    data.name,                                               // B: Név
+    data.email,                                              // C: Email
+    data.phone,                                              // D: Telefon
+    data.product,                                            // E: Termék
+    TIMELINE_LABELS[data.timeline] || data.timeline,         // F: Időzítés
+    BUSINESS_LABELS[data.businessType] || data.businessType, // G: Vállalkozás
+    EXPERIENCE_LABELS[data.experience] || data.experience,   // H: Tapasztalat
+    data.sourceUrl,                                          // I: Forrás URL
+    data.ipHash,                                             // J: IP hash
+    data.gdprConsent ? 'Igen' : 'Nem',                       // K: GDPR
+    data.utmSource || '',                                    // L: UTM source
+    data.utmMedium || '',                                    // M: UTM medium
+    data.utmCampaign || '',                                  // N: UTM campaign
+    data.utmTerm || '',                                      // O: UTM term
+    data.utmContent || '',                                   // P: UTM content
+    data.gclid || '',                                        // Q: gclid
+    data.fbclid || '',                                       // R: fbclid
+    data.referrer || '',                                     // S: Referrer
+    data.userAgent || '',                                    // T: User-Agent
+    data.leadId,                                             // U: Lead ID (a sor végén)
   ];
 
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:V:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Konzultáció!A:U:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -654,8 +678,11 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to save to Google Sheets: ${error}`);
+    console.error('[consultation] Sheets append failed:', response.status, error);
+    return false;
   }
+
+  return true;
 }
 
 /**
@@ -692,12 +719,13 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
 /**
  * Send consultation notification email to team
  */
-async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<void> {
+async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<boolean> {
   const resendApiKey = readEnv('RESEND_API_KEY');
   const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
-    return;
+    console.warn('RESEND_API_KEY not configured, skipping notification email');
+    return false;
   }
 
   // Determine priority based on timeline
@@ -706,7 +734,7 @@ async function sendConsultationNotificationEmail(data: ConsultationLeadData): Pr
     ? `🔥 FORRÓ LEAD: ${data.name} - ${data.product}`
     : `Új konzultáció: ${data.name} - ${data.product}`;
 
-  await fetch('https://api.resend.com/emails', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${resendApiKey}`,
@@ -719,6 +747,14 @@ async function sendConsultationNotificationEmail(data: ConsultationLeadData): Pr
       html: generateConsultationNotificationEmailHtml(data),
     }),
   });
+
+  if (!response.ok) {
+    const error = await response.text();
+    console.error('[consultation] Notification email failed:', response.status, error);
+    return false;
+  }
+
+  return true;
 }
 
 /**
