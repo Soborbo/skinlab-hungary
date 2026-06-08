@@ -33,7 +33,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           Következő képzés hamarosan
         </div>
 
-        <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight text-white">
           {heading || 'Jelentkezz képzéseinkre!'}
         </h2>
         <p class="text-primary-100 text-lg leading-relaxed mb-8">
@@ -101,6 +101,8 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <input type="hidden" name="formStartTime" data-form-start />
             <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
             <input type="hidden" name="product" value={product} />
+            <!-- Routes this lead to the "Képzések" Google Sheets tab (see /api/contact). -->
+            <input type="hidden" name="leadType" value="training" />
             <!-- Attribution - populated client-side from URL params + persisted tracking. -->
             <input type="hidden" name="utmSource" data-track="utm_source" />
             <input type="hidden" name="utmMedium" data-track="utm_medium" />
@@ -166,12 +168,12 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
               {turnstileSiteKey && (
                 <div>
                   <div
-                    class="cf-turnstile"
+                    class="cf-turnstile w-full"
                     data-sitekey={turnstileSiteKey}
                     data-callback="onTurnstileSuccessTraining"
                     data-error-callback="onTurnstileErrorTraining"
                     data-theme="light"
-                    data-size="compact"
+                    data-size="flexible"
                   ></div>
                   <p class="mt-1 text-xs text-red-600 hidden" data-error="cf-turnstile-response"></p>
                 </div>
@@ -209,7 +211,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
               <!-- Micro-copy under button -->
               <p class="text-center text-xs text-gray-400">
-                Nem kötelez semmire. Felvesszük veled a kapcsolatot 24 órán belül.
+                Nem kötelez semmire.<br />Felvesszük veled a kapcsolatot 24 órán belül.
               </p>
             </div>
 

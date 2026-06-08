@@ -33,10 +33,32 @@ const laszlo = FOUNDERS.find((f) => f.name === 'Horváth László')!;
         </p>
       </div>
 
-      <!-- Content (text-first, image last) -->
-      <div class="flex flex-col gap-8">
-        <!-- Text content -->
-        <div>
+      <!-- Content: mobile → founder photo ABOVE the text; desktop → photo LEFT, text RIGHT -->
+      <div class="flex flex-col md:flex-row md:items-center gap-8">
+        <!-- Founder photo (mobile: top, desktop: left) -->
+        <div class="flex justify-center md:shrink-0">
+          <div class="relative w-40 md:w-48">
+            <picture>
+              <source srcset={`${laszlo.image}.avif`} type="image/avif" />
+              <source srcset={`${laszlo.image}.webp`} type="image/webp" />
+              <img
+                src={`${laszlo.image}.jpg`}
+                alt={laszlo.name}
+                width="192"
+                height="192"
+                class="w-full aspect-square object-cover rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </picture>
+            <div class="mt-2 text-center">
+              <p class="text-sm font-semibold text-gray-900">{laszlo.name}</p>
+              <p class="text-xs text-gray-500">Skinlab Hungary alapító</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text content (mobile: below photo, desktop: right) -->
+        <div class="flex-1">
           <!-- Next steps -->
           <div class="mb-5">
             <h2 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Mi történik most?</h2>
@@ -58,7 +80,7 @@ const laszlo = FOUNDERS.find((f) => f.name === 'Horváth László')!;
 
           <!-- Urgent phone CTA -->
           <div class="bg-white border border-primary-100 rounded-2xl px-4 py-3 shadow-sm">
-            <p class="text-xs text-gray-600 mb-1">Sürgős esetben hívjon bennünket nyitvatartási időben az alábbi telefonszámon:</p>
+            <p class="text-xs text-gray-600 mb-1">Sürgős esetben hívj minket nyitvatartási időben az alábbi telefonszámon:</p>
             <a
               href={`tel:${CONTACT.phone}`}
               class="inline-flex items-center gap-2 text-lg md:text-xl font-bold text-primary-700 hover:text-primary-800 transition-colors"
@@ -73,32 +95,10 @@ const laszlo = FOUNDERS.find((f) => f.name === 'Horváth László')!;
 
           <!-- Lead reference (footer-style, low priority) -->
           {leadId && (
-            <p class="mt-4 text-xs text-gray-400 text-center">
+            <p class="mt-4 text-xs text-gray-400 text-center md:text-left">
               Azonosító: <span class="font-mono">{leadId}</span>
             </p>
           )}
-        </div>
-
-        <!-- Founder photo (small, centered, below content) -->
-        <div class="flex justify-center">
-          <div class="relative w-40 md:w-48">
-            <picture>
-              <source srcset={`${laszlo.image}.avif`} type="image/avif" />
-              <source srcset={`${laszlo.image}.webp`} type="image/webp" />
-              <img
-                src={`${laszlo.image}.jpg`}
-                alt={laszlo.name}
-                width="192"
-                height="192"
-                class="w-full aspect-square object-cover rounded-2xl shadow-lg"
-                loading="lazy"
-              />
-            </picture>
-            <div class="mt-2 text-center">
-              <p class="text-sm font-semibold text-gray-900">{laszlo.name}</p>
-              <p class="text-xs text-gray-500">Skinlab Hungary alapító</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -63,9 +63,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       });
     }
 
+    // Route training signups to the dedicated "Képzések" tab; every other
+    // contact submission keeps the default "Kapcsolat" tab. `leadType` is a
+    // hidden field on the training form and is stripped by Zod validation.
+    const sheetName = data.leadType === 'training' ? 'Képzések' : 'Kapcsolat';
+
     // Process form submission - capture User-Agent for the Sheets row too
     const userAgent = request.headers.get('user-agent') ?? undefined;
-    const result = await processFormSubmission(validation.data!, clientAddress, userAgent);
+    const result = await processFormSubmission(validation.data!, clientAddress, userAgent, sheetName);
 
     if (!result.success) {
       // Internal error stays server-side only.

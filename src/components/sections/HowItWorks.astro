@@ -26,7 +26,7 @@ const steps = [
     <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 lg:hidden scrollbar-hide">
       {steps.map((step, index) => (
         <div class="snap-start flex-shrink-0 w-[75vw] sm:w-[45vw] bg-[#fbf8f6] rounded-2xl p-6 text-center border border-[#fe6893]/10">
-          <div class="how-step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-white" style={`opacity: ${0.55 + index * 0.15}`}>
+          <div class="how-step-number w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-white">
             {step.number}
           </div>
           <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>
@@ -43,7 +43,7 @@ const steps = [
       <div class="grid grid-cols-4 gap-6 relative z-10">
         {steps.map((step, index) => (
           <div class="text-center group">
-            <div class="how-step-number w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-110" style={`opacity: ${0.55 + index * 0.15}`}>
+            <div class="how-step-number w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-xl font-semibold text-white shadow-md transition-transform duration-300 group-hover:scale-110">
               {step.number}
             </div>
             <h3 class="font-bold text-gray-900 mb-2">{t(locale, step.titleKey)}</h3>

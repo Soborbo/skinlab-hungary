@@ -133,8 +133,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 1: Product Selection with Images (Multi-select) -->
     <div class="step-content" data-step-content="1">
       <div class="text-center mb-3">
-        <h1 class="text-lg font-bold text-gray-900">Melyik termék érdekli?</h1>
-        <p class="text-gray-500 text-sm">Válassza ki a kategóriát - többet is jelölhet</p>
+        <h1 class="text-lg font-bold text-gray-900">Melyik termék érdekel?</h1>
+        <p class="text-gray-500 text-sm">Válaszd ki a kategóriát – többet is jelölhetsz</p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -175,12 +175,12 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 2: Timeline (Auto-next) -->
     <div class="step-content hidden" data-step-content="2">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Mikor tervezi a vásárlást?</h2>
+        <h2 class="text-xl font-bold text-gray-900">Mikor tervezed a vásárlást?</h2>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 auto-rows-fr gap-3">
         {timelineOptions.map((opt) => (
-          <label class="option-card cursor-pointer">
+          <label class="option-card cursor-pointer flex">
             <input
               type="radio"
               name="timeline"
@@ -189,7 +189,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               required
               data-auto-next
             />
-            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50">
+            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50 h-full w-full flex items-center justify-center">
               <span class="font-medium text-gray-700 peer-checked:text-primary-700">{opt.label}</span>
             </div>
           </label>
@@ -201,12 +201,12 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 3: Business Type (Auto-next) -->
     <div class="step-content hidden" data-step-content="3">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Van már szalonja?</h2>
+        <h2 class="text-xl font-bold text-gray-900">Van már szalonod?</h2>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 auto-rows-fr gap-3">
         {businessOptions.map((opt) => (
-          <label class="option-card cursor-pointer">
+          <label class="option-card cursor-pointer flex">
             <input
               type="radio"
               name="businessType"
@@ -215,7 +215,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               required
               data-auto-next
             />
-            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50">
+            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50 h-full w-full flex items-center justify-center">
               <span class="font-medium text-gray-700 peer-checked:text-primary-700">{opt.label}</span>
             </div>
           </label>
@@ -227,12 +227,12 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 4: Experience (Auto-next) -->
     <div class="step-content hidden" data-step-content="4">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Használt már hasonló gépet?</h2>
+        <h2 class="text-xl font-bold text-gray-900">Használtál már hasonló gépet?</h2>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 auto-rows-fr gap-3">
         {experienceOptions.map((opt) => (
-          <label class="option-card cursor-pointer">
+          <label class="option-card cursor-pointer flex">
             <input
               type="radio"
               name="experience"
@@ -241,7 +241,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               required
               data-auto-next
             />
-            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50">
+            <div class="p-4 rounded-xl border-2 border-gray-200 bg-white text-center transition-all duration-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 hover:bg-primary-50/50 h-full w-full flex items-center justify-center">
               <span class="font-medium text-gray-700 peer-checked:text-primary-700">{opt.label}</span>
             </div>
           </label>
@@ -259,7 +259,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
       <div class="space-y-4">
         <!-- Name fields side by side -->
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 auto-rows-fr gap-3">
           <!-- Last Name -->
           <div>
             <label for={`${formId}-lastName`} class="block text-sm font-medium text-gray-700 mb-1.5">
@@ -392,7 +392,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           data-submit-btn
         >
           <span data-button-text>Ingyenes konzultáció kérése</span>
-          <svg class="hidden ml-2 h-5 w-5 animate-spin inline-block" data-loading-spinner viewBox="0 0 24 24">
+          <svg class="hidden ml-2 h-5 w-5 animate-spin" data-loading-spinner viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
           </svg>
@@ -716,7 +716,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       if (emailInput?.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
         const errorEl = stepContent.querySelector('[data-error="email"]') as HTMLElement;
         if (errorEl) {
-          errorEl.textContent = 'Érvényes email címet adjon meg';
+          errorEl.textContent = 'Adj meg egy érvényes email címet';
           errorEl.classList.remove('hidden');
         }
         isValid = false;
@@ -727,7 +727,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       if (phoneInput?.value && phoneInput.value.replace(/\D/g, '').length < 9) {
         const errorEl = stepContent.querySelector('[data-error="phone"]') as HTMLElement;
         if (errorEl) {
-          errorEl.textContent = 'Érvényes telefonszámot adjon meg';
+          errorEl.textContent = 'Adj meg egy érvényes telefonszámot';
           errorEl.classList.remove('hidden');
         }
         isValid = false;

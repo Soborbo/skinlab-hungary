@@ -105,6 +105,11 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: #fff0f4;
     color: #645a59;
+    /* Guard against stray horizontal overflow (the "extra band on the right"
+       that pushed the header hamburger off-screen on narrow phones).
+       `clip` kills horizontal scroll without creating a scroll container,
+       so the sticky header keeps working. */
+    overflow-x: clip;
   }
 
   :focus-visible {

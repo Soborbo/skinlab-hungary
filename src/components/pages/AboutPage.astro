@@ -152,11 +152,13 @@ const whyUs = [
         <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/85 from-25% via-gray-900/45 via-55% to-transparent to-75%"></div>
       </div>
 
-      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-24">
+      <div class="relative w-full max-w-7xl mx-auto px-0 py-0 md:px-6 lg:px-8 md:py-16 lg:py-24">
         <div class="md:grid md:grid-cols-5">
           <div class="hidden md:block md:col-span-2"></div>
           <div class="md:col-span-3">
-            <div class="rounded-2xl bg-gray-900 md:bg-gray-900/45 ring-1 ring-white/10 md:backdrop-blur-md p-7 lg:p-9 text-white">
+            <!-- Mobile: full-bleed dark band (no card framing — flush top/sides/bottom).
+                 Desktop (md+): floating frosted card overlaid on the photo. -->
+            <div class="bg-gray-900 md:bg-gray-900/45 md:rounded-2xl md:ring-1 ring-white/10 md:backdrop-blur-md px-6 py-9 md:p-7 lg:p-9 text-white">
               <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1] tracking-tight">
                 {titleLine1}{titleLine2 && (<><br />{titleLine2}</>)}
               </h1>
@@ -286,7 +288,7 @@ const whyUs = [
                 </picture>
               </div>
               <div class="p-6 lg:p-7 flex flex-col">
-                <h3 class="text-xl font-bold text-gray-900">{founder.name}</h3>
+                <h3 class="text-xl font-bold text-gray-900 whitespace-nowrap">{founder.name}</h3>
                 <p class="inline-flex self-start items-center mt-1.5 mb-3 px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-medium">
                   {t(locale, `about.founder.${founder.roleKey}`)}
                 </p>

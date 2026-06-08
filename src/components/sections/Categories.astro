@@ -73,10 +73,10 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
         return (
           <a
             href={getCategoryLink(category.slug)}
-            class="group w-auto"
+            class="group w-auto flex"
           >
             <div
-              class="category-card relative rounded-2xl overflow-hidden transition-all duration-300"
+              class="category-card relative rounded-2xl overflow-hidden transition-all duration-300 h-full w-full flex flex-col"
               style={colors ? `--cat-accent: ${colors.accent}; --cat-light: ${colors.accentLight}; --cat-dark: ${colors.accentDark}; border-color: ${colors.accent}40` : ''}
             >
               <!-- Image with category-colored gradient -->
@@ -118,10 +118,10 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
               </div>
 
               <!-- Content -->
-              <div class="p-4" style={colors ? `background: linear-gradient(135deg, ${colors.accentLight}90, ${colors.accentLight}30)` : 'background: white'}>
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="font-semibold text-sm lg:text-base transition-colors duration-300" style={colors ? `color: ${colors.accentDark}` : ''}>
+              <div class="p-3 lg:p-4 flex-1 flex items-center" style={colors ? `background: linear-gradient(135deg, ${colors.accentLight}90, ${colors.accentLight}30)` : 'background: white'}>
+                <div class="flex items-center justify-between w-full">
+                  <div class="min-w-0">
+                    <h3 class="font-semibold text-[13px] sm:text-sm lg:text-base leading-tight tracking-tight whitespace-nowrap transition-colors duration-300" style={colors ? `color: ${colors.accentDark}` : ''}>
                       {categoryName}
                     </h3>
                     <p class="text-xs mt-0.5" style={colors ? `color: ${colors.accent}` : 'color: #9ca3af'}>
@@ -129,7 +129,7 @@ const visibleCategories = CATEGORIES.filter(c => c.featured);
                     </p>
                   </div>
                   <div
-                    class="w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                    class="w-8 h-8 rounded-full hidden lg:flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 shrink-0"
                     style={colors ? `background: ${colors.accentLight}; color: ${colors.accentDark}` : 'background: #f3f4f6; color: #6b7280'}
                   >
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">

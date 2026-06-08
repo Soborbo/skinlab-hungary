@@ -98,6 +98,9 @@ export async function processFormSubmission(
   data: ContactFormData,
   ip: string,
   userAgent?: string,
+  /** Google Sheets tab to append to. Defaults to "Kapcsolat"; training
+   *  signups pass "Képzések". Both tabs share the A–S column layout. */
+  sheetName: string = 'Kapcsolat',
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -127,7 +130,7 @@ export async function processFormSubmission(
 
   // Durable channels (Sheets, team notification) + best-effort confirmation.
   const channels = await Promise.all([
-    settleChannel(sendToGoogleSheets(leadData), '[contact] Sheets write failed'),
+    settleChannel(sendToGoogleSheets(leadData, sheetName), `[contact] Sheets write failed (${sheetName})`),
     settleChannel(sendNotificationEmail(leadData), '[contact] Notification email failed'),
     settleChannel(sendConfirmationEmail(leadData).then(() => true), '[contact] Confirmation email failed'),
   ]);
@@ -245,7 +248,7 @@ async function getGoogleAccessToken(): Promise<string> {
 /**
  * Send lead data to Google Sheets via API
  */
-async function sendToGoogleSheets(data: LeadData): Promise<boolean> {
+async function sendToGoogleSheets(data: LeadData, sheetName: string = 'Kapcsolat'): Promise<boolean> {
   const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
@@ -286,9 +289,11 @@ async function sendToGoogleSheets(data: LeadData): Promise<boolean> {
     data.leadId,                       // S: Lead ID (a sor végén)
   ];
 
-  // Append to sheet (sheet name: "Kapcsolat")
+  // Append to the given tab (default "Kapcsolat"; training signups → "Képzések").
+  // fetch percent-encodes the accented tab name automatically (same as the
+  // "Konzultáció" append below).
   const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Kapcsolat!A:S:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!A:S:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {
@@ -303,7 +308,7 @@ async function sendToGoogleSheets(data: LeadData): Promise<boolean> {
 
   if (!response.ok) {
     const error = await response.text();
-    console.error('[contact] Sheets append failed:', response.status, error);
+    console.error(`[contact] Sheets append failed (${sheetName}):`, response.status, error);
     return false;
   }
 

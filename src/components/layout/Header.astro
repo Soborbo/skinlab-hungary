@@ -121,10 +121,11 @@ const isHomePage = pathname === '/' || pathname === '/hu';
           <span class="text-sm font-bold tracking-wide whitespace-nowrap">{CONTACT.phoneDisplay}</span>
         </a>
 
-        <!-- CTA Button (brand pink) -->
+        <!-- CTA Button (brand pink) — hidden on small phones so the hamburger
+             always fits; the mobile menu + sticky bottom CTA cover that case. -->
         <a
           href={contactLink}
-          class="group inline-flex items-center px-5 lg:px-6 py-2.5 bg-primary-700 text-white font-semibold text-sm rounded-xl hover:bg-primary-800 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary-700/30 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+          class="group hidden sm:inline-flex items-center px-5 lg:px-6 py-2.5 bg-primary-700 text-white font-semibold text-sm rounded-xl hover:bg-primary-800 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-primary-700/30 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
         >
           {t(locale, 'header.freeConsultation')}
         </a>
