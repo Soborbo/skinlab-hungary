@@ -72,7 +72,27 @@ interface GoogleAuthToken {
 let cachedToken: GoogleAuthToken | null = null;
 
 /**
- * Process form submission
+ * Run one submission channel as best-effort. NEVER rejects: any failure is
+ * logged and resolved to `false`. This is what makes the pipeline resilient -
+ * a single channel's failure can no longer blow up the whole submission (the
+ * old code awaited each channel in sequence, so the first throw failed the
+ * form even when the lead had already been stored elsewhere).
+ */
+function settleChannel(p: Promise<boolean>, label: string): Promise<boolean> {
+  return p.catch((err) => {
+    console.error(`${label}:`, err instanceof Error ? err.message : err);
+    return false;
+  });
+}
+
+/**
+ * Process contact form submission.
+ *
+ * Resilient pipeline (mirrors lib/order/submit.ts): Google Sheets, the team
+ * notification email and the customer confirmation email all run independently
+ * and in parallel. The lead counts as CAPTURED if at least one *durable*
+ * channel persisted it - Google Sheets OR the team notification email. The
+ * customer confirmation email is best-effort and never fails the submission.
  */
 export async function processFormSubmission(
   data: ContactFormData,
@@ -105,41 +125,25 @@ export async function processFormSubmission(
     userAgent,
   };
 
-  try {
-    // 1. Send to Google Sheets (primary storage)
-    await sendToGoogleSheets(leadData);
+  // Durable channels (Sheets, team notification) + best-effort confirmation.
+  const channels = await Promise.all([
+    settleChannel(sendToGoogleSheets(leadData), '[contact] Sheets write failed'),
+    settleChannel(sendNotificationEmail(leadData), '[contact] Notification email failed'),
+    settleChannel(sendConfirmationEmail(leadData).then(() => true), '[contact] Confirmation email failed'),
+  ]);
+  const sheetsOk = channels[0];
+  const notifyOk = channels[1];
 
-    // 2. Send confirmation email
-    await sendConfirmationEmail(leadData);
-
-    // 3. Send notification email to team
-    await sendNotificationEmail(leadData);
-
+  if (sheetsOk || notifyOk) {
     return { success: true, leadId };
-  } catch (error) {
-    console.error('Form submission failed:', error);
-    const message = error instanceof Error ? error.message : 'Submission failed';
-    return {
-      success: false,
-      error: message,
-      code: classifyPipelineError(message),
-    };
   }
-}
 
-/**
- * Map a thrown pipeline error to the most descriptive code we can infer
- * from its message. Falls back to FORM-SUBMIT-001 for unknown failures.
- */
-function classifyPipelineError(message: string): string {
-  const m = message.toLowerCase();
-  if (m.includes('google sheets') || m.includes('spreadsheet')) return 'SHEETS-WRITE-001';
-  if (m.includes('google access token')) return 'SHEETS-AUTH-002';
-  if (m.includes('confirmation email')) return 'RESEND-NET-001';
-  if (m.includes('resend')) return 'RESEND-NET-001';
-  if (m.includes('service account')) return 'CFG-ENV-003';
-  if (m.includes('crm webhook')) return 'SHEETS-NET-001';
-  return 'FORM-SUBMIT-001';
+  console.error('[contact] CRITICAL: every durable channel failed for', leadId);
+  return {
+    success: false,
+    error: 'Egyik tartós csatorna sem mentette el a leadet (Sheets és értesítő email is hibázott).',
+    code: 'FORM-SUBMIT-001',
+  };
 }
 
 /**
@@ -241,12 +245,12 @@ async function getGoogleAccessToken(): Promise<string> {
 /**
  * Send lead data to Google Sheets via API
  */
-async function sendToGoogleSheets(data: LeadData): Promise<void> {
+async function sendToGoogleSheets(data: LeadData): Promise<boolean> {
   const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
-    return;
+    return false;
   }
 
   const accessToken = await getGoogleAccessToken();
@@ -299,8 +303,11 @@ async function sendToGoogleSheets(data: LeadData): Promise<void> {
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to save to Google Sheets: ${error}`);
+    console.error('[contact] Sheets append failed:', response.status, error);
+    return false;
   }
+
+  return true;
 }
 
 /**
@@ -337,15 +344,16 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
 /**
  * Send notification email to team
  */
-async function sendNotificationEmail(data: LeadData): Promise<void> {
+async function sendNotificationEmail(data: LeadData): Promise<boolean> {
   const resendApiKey = readEnv('RESEND_API_KEY');
   const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
-    return;
+    console.warn('RESEND_API_KEY not configured, skipping notification email');
+    return false;
   }
 
-  await fetch('https://api.resend.com/emails', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${resendApiKey}`,
@@ -358,6 +366,14 @@ async function sendNotificationEmail(data: LeadData): Promise<void> {
       html: generateNotificationEmailHtml(data),
     }),
   });
+
+  if (!response.ok) {
+    const error = await response.text();
+    console.error('[contact] Notification email failed:', response.status, error);
+    return false;
+  }
+
+  return true;
 }
 
 /**
@@ -560,50 +576,51 @@ export async function processConsultationSubmission(
     userAgent,
   };
 
-  try {
-    // 1. Send to Google Sheets
-    await sendConsultationToGoogleSheets(leadData);
+  // Durable channels (Sheets, team notification) + best-effort confirmation,
+  // all in parallel. Lead counts as captured if at least one durable channel
+  // persisted it.
+  const channels = await Promise.all([
+    settleChannel(sendConsultationToGoogleSheets(leadData), '[consultation] Sheets write failed'),
+    settleChannel(sendConsultationNotificationEmail(leadData), '[consultation] Notification email failed'),
+    settleChannel(sendConsultationConfirmationEmail(leadData).then(() => true), '[consultation] Confirmation email failed'),
+  ]);
+  const sheetsOk = channels[0];
+  const notifyOk = channels[1];
 
-    // 2. Send confirmation email to customer
-    await sendConsultationConfirmationEmail(leadData);
-
-    // 3. Send notification email to team
-    await sendConsultationNotificationEmail(leadData);
-
-    // 4. Send lead to CRM (non-blocking - don't fail submission if CRM is down).
-    // On Cloudflare Workers fire-and-forget fetches can be terminated before
-    // the response resolves. If the caller passes ctx.waitUntil, register
-    // the promise; otherwise fall back to await so the work isn't dropped.
-    const crmPromise = sendToCrm(leadData).catch((err) => {
-      console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
-    });
-    if (waitUntil) {
-      waitUntil(crmPromise);
-    } else {
-      await crmPromise;
-    }
-
-    return { success: true, leadId };
-  } catch (error) {
-    console.error('Consultation form submission failed:', error);
-    const message = error instanceof Error ? error.message : 'Submission failed';
-    return {
-      success: false,
-      error: message,
-      code: classifyPipelineError(message),
-    };
+  // CRM webhook (non-blocking - never affects submission success).
+  // On Cloudflare Workers fire-and-forget fetches can be terminated before the
+  // response resolves. If the caller passes ctx.waitUntil, register the promise;
+  // otherwise fall back to await so the work isn't dropped.
+  const crmPromise = sendToCrm(leadData).catch((err) => {
+    console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
+  });
+  if (waitUntil) {
+    waitUntil(crmPromise);
+  } else {
+    await crmPromise;
   }
+
+  if (sheetsOk || notifyOk) {
+    return { success: true, leadId };
+  }
+
+  console.error('[consultation] CRITICAL: every durable channel failed for', leadId);
+  return {
+    success: false,
+    error: 'Egyik tartós csatorna sem mentette el a leadet (Sheets és értesítő email is hibázott).',
+    code: 'FORM-SUBMIT-001',
+  };
 }
 
 /**
  * Send consultation lead data to Google Sheets
  */
-async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<void> {
+async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promise<boolean> {
   const spreadsheetId = readEnv('GOOGLE_SHEETS_SPREADSHEET_ID');
 
   if (!spreadsheetId) {
     console.warn('GOOGLE_SHEETS_SPREADSHEET_ID not configured, skipping sheets');
-    return;
+    return false;
   }
 
   const accessToken = await getGoogleAccessToken();
@@ -661,8 +678,11 @@ async function sendConsultationToGoogleSheets(data: ConsultationLeadData): Promi
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to save to Google Sheets: ${error}`);
+    console.error('[consultation] Sheets append failed:', response.status, error);
+    return false;
   }
+
+  return true;
 }
 
 /**
@@ -699,12 +719,13 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
 /**
  * Send consultation notification email to team
  */
-async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<void> {
+async function sendConsultationNotificationEmail(data: ConsultationLeadData): Promise<boolean> {
   const resendApiKey = readEnv('RESEND_API_KEY');
   const notifyEmail = readEnv('NOTIFY_EMAIL') || 'hello@skinlabhungary.hu';
 
   if (!resendApiKey) {
-    return;
+    console.warn('RESEND_API_KEY not configured, skipping notification email');
+    return false;
   }
 
   // Determine priority based on timeline
@@ -713,7 +734,7 @@ async function sendConsultationNotificationEmail(data: ConsultationLeadData): Pr
     ? `🔥 FORRÓ LEAD: ${data.name} - ${data.product}`
     : `Új konzultáció: ${data.name} - ${data.product}`;
 
-  await fetch('https://api.resend.com/emails', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${resendApiKey}`,
@@ -726,6 +747,14 @@ async function sendConsultationNotificationEmail(data: ConsultationLeadData): Pr
       html: generateConsultationNotificationEmailHtml(data),
     }),
   });
+
+  if (!response.ok) {
+    const error = await response.text();
+    console.error('[consultation] Notification email failed:', response.status, error);
+    return false;
+  }
+
+  return true;
 }
 
 /**

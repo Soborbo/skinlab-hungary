@@ -341,6 +341,16 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
     if (startTimeInput) startTimeInput.value = String(Date.now());
 
+    // Turnstile token resolver: prefer the JS callback value, but fall back to
+    // the hidden input Turnstile injects into the widget. Closes a race where
+    // Turnstile solves BEFORE onOrderTurnstileSuccess is registered, which would
+    // otherwise leave __orderTurnstileToken empty and block an otherwise-valid
+    // order (contact/consultation are immune because they submit FormData, which
+    // already carries the cf-turnstile-response input).
+    const readTurnstileToken = (): string =>
+      window.__orderTurnstileToken ||
+      (form!.querySelector<HTMLInputElement>('input[name="cf-turnstile-response"]')?.value || '');
+
     // --- Irányítószám → város / ország automatikus kitöltés ---------------
     // A vásárló az irányítószámot adja meg először; abból a /api/postcode
     // végpont visszaadja a várost, megyét és az országot ("Magyarország").
@@ -564,7 +574,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         showFieldError('email', i18n.validationError || '');
         hasError = true;
       }
-      if (i18n.hasTurnstile && !window.__orderTurnstileToken) {
+      if (i18n.hasTurnstile && !readTurnstileToken()) {
         showFieldError('turnstile', i18n.validationError || '');
         hasError = true;
       }
@@ -604,7 +614,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         hasPriceOnRequest: summary.hasPriceOnRequest,
         formStartTime: Number(startTimeInput?.value || Date.now()),
         website: '',
-        turnstileToken: window.__orderTurnstileToken || '',
+        turnstileToken: readTurnstileToken(),
         sourceUrl: window.location.href,
         // Attribution stack - URL params → persisted tracking → document.referrer
         ...(() => {

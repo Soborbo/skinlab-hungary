@@ -21,7 +21,7 @@ const path = require('path');
 
 const SESSION_KV_ID = '8e0cf4b9bc294757aebc764a9e7f9a57';
 const GOOGLE_SHEETS_SPREADSHEET_ID = '1uvGHcXBMmf-nkYCHC9gigrFuiVQgVWuvqKtCG_KhPWE';
-const GOOGLE_SERVICE_ACCOUNT_EMAIL = 'skinlab-website-form@skinlab-483512.iam.gserviceaccount.com';
+const GOOGLE_SERVICE_ACCOUNT_EMAIL = 'skinlab@skinlab-483512.iam.gserviceaccount.com';
 const CONFIG_PATH = path.resolve(__dirname, '../dist/server/wrangler.json');
 
 if (!fs.existsSync(CONFIG_PATH)) {
