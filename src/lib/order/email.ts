@@ -9,7 +9,7 @@
  * majd e-mailben küldjük a fizetési linket.
  */
 import { t, formatPrice, localeConfig, type Locale } from '@/i18n/ui';
-import { COMPANY, CONTACT } from '@/lib/constants';
+import { COMPANY, CONTACT, BANK } from '@/lib/constants';
 
 export interface OrderEmailItem {
   name: string;
@@ -139,6 +139,26 @@ export function buildCustomerEmail(
     </table>`
     : '';
 
+  // Banki utalási adatok - mindig megjelenik, hogy a vevő az egyeztetés után
+  // tudja, hová utalja az összeget (a Billingo díjbekérőtől függetlenül is).
+  const bankLabel = (label: string) =>
+    `<td style="padding:5px 12px 5px 0;font-family:Arial,sans-serif;font-size:13px;color:#888;white-space:nowrap;vertical-align:top;">${escapeHtml(label)}</td>`;
+  const bankValue = (value: string, mono = true) =>
+    `<td style="padding:5px 0;font-family:${mono ? "'Courier New',monospace" : 'Arial,sans-serif'};font-size:14px;color:#222;font-weight:bold;word-break:break-all;">${escapeHtml(value)}</td>`;
+  const bankBlock = `
+    <div style="border:2px solid ${ACCENT};background:#fff0f4;border-radius:10px;padding:18px 20px;margin:0 0 24px;">
+      <p style="margin:0 0 6px;font-size:15px;font-weight:bold;color:${ACCENT_DARK};">${escapeHtml(t(locale, 'bank.title'))}</p>
+      <p style="margin:0 0 14px;font-size:14px;color:#555;line-height:1.6;">${escapeHtml(t(locale, 'bank.emailIntro'))}</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border-radius:8px;">
+        <tr>${bankLabel(t(locale, 'bank.accountHolder'))}${bankValue(BANK.accountHolder, false)}</tr>
+        <tr>${bankLabel(t(locale, 'bank.bankName'))}${bankValue(BANK.bankName, false)}</tr>
+        <tr>${bankLabel(t(locale, 'bank.accountNumber'))}${bankValue(BANK.accountNumber)}</tr>
+        <tr>${bankLabel(t(locale, 'bank.iban'))}${bankValue(BANK.iban)}</tr>
+        <tr>${bankLabel(t(locale, 'bank.swift'))}${bankValue(BANK.swift)}</tr>
+      </table>
+      <p style="margin:12px 0 0;font-size:12px;color:#999;">${escapeHtml(t(locale, 'bank.referenceNote'))}</p>
+    </div>`;
+
   const html = `<!DOCTYPE html>
 <html lang="${localeConfig[locale].hreflang}">
 <head>
@@ -174,6 +194,8 @@ export function buildCustomerEmail(
     </table>
 
     ${payBlock}
+
+    ${bankBlock}
 
     <p style="margin:0 0 18px;font-size:13px;color:#999;font-style:italic;">${escapeHtml(tr('priceDisclaimer'))}</p>
 

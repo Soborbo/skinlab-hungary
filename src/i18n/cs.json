@@ -846,5 +846,17 @@
       "backToHome": "Zpět na úvod",
       "browseProducts": "Další produkty"
     }
+  },
+  "bank": {
+    "title": "Údaje pro bankovní převod",
+    "intro": "Částku objednávky můžete uhradit bankovním převodem.",
+    "accountHolder": "Majitel účtu",
+    "bankName": "Banka",
+    "accountNumber": "Číslo účtu",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Do zprávy pro příjemce prosím uveďte číslo své objednávky.",
+    "successIntro": "Po telefonickém potvrzení nám částku objednávky zašlete na níže uvedený bankovní účet.",
+    "emailIntro": "Po potvrzení můžete částku objednávky převést na níže uvedený bankovní účet."
   }
 }

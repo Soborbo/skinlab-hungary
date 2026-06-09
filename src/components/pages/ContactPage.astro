@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import kapcsolatHero from '../../assets/kapcsolat2.jpg';
-import { SITE, CONTACT, LOCATIONS, COMPANY, OPENING_HOURS } from '../../lib/constants';
+import { SITE, CONTACT, LOCATIONS, COMPANY, OPENING_HOURS, BANK } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { contactPageSchema } from '../../config/schema';
@@ -412,6 +412,32 @@ const sourceUrl = Astro.url.href;
                       <dd class="text-gray-800">{COMPANY.taxId}</dd>
                       <dt class="text-gray-500">{t(locale, 'contact.vatId')}</dt>
                       <dd class="text-gray-800">{COMPANY.vatId}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bank account - bankszámlaszám átutaláshoz -->
+              <div class="bg-gray-50 rounded-xl p-5">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 10l9-6 9 6M4 10v8a1 1 0 001 1h14a1 1 0 001-1v-8M8 14v3m4-3v3m4-3v3" />
+                    </svg>
+                  </div>
+                  <div class="min-w-0">
+                    <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'bank.accountNumber')}</h3>
+                    <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
+                      <dt class="text-gray-500">{t(locale, 'bank.accountHolder')}</dt>
+                      <dd class="text-gray-800">{BANK.accountHolder}</dd>
+                      <dt class="text-gray-500">{t(locale, 'bank.bankName')}</dt>
+                      <dd class="text-gray-800">{BANK.bankName}</dd>
+                      <dt class="text-gray-500">{t(locale, 'bank.accountNumber')}</dt>
+                      <dd class="text-gray-900 font-medium font-mono break-all">{BANK.accountNumber}</dd>
+                      <dt class="text-gray-500">{t(locale, 'bank.iban')}</dt>
+                      <dd class="text-gray-800 font-mono break-all">{BANK.iban}</dd>
+                      <dt class="text-gray-500">{t(locale, 'bank.swift')}</dt>
+                      <dd class="text-gray-800 font-mono">{BANK.swift}</dd>
                     </dl>
                   </div>
                 </div>

@@ -846,5 +846,17 @@
       "backToHome": "Späť na úvod",
       "browseProducts": "Ďalšie produkty"
     }
+  },
+  "bank": {
+    "title": "Údaje pre bankový prevod",
+    "intro": "Sumu objednávky môžete uhradiť bankovým prevodom.",
+    "accountHolder": "Majiteľ účtu",
+    "bankName": "Banka",
+    "accountNumber": "Číslo účtu",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Do poznámky pre príjemcu uveďte prosím číslo svojej objednávky.",
+    "successIntro": "Po telefonickom potvrdení nám sumu objednávky pošlite na nižšie uvedený bankový účet.",
+    "emailIntro": "Po potvrdení môžete sumu objednávky previesť na nižšie uvedený bankový účet."
   }
 }

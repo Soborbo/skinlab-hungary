@@ -846,5 +846,17 @@
       "backToHome": "Nazaj na domačo stran",
       "browseProducts": "Več izdelkov"
     }
+  },
+  "bank": {
+    "title": "Podatki za bančno nakazilo",
+    "intro": "Znesek naročila lahko poravnate z bančnim nakazilom.",
+    "accountHolder": "Imetnik računa",
+    "bankName": "Banka",
+    "accountNumber": "Številka računa",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Prosimo, da v namen plačila vpišete številko svojega naročila.",
+    "successIntro": "Po telefonski potrditvi znesek naročila nakažite na spodnji bančni račun.",
+    "emailIntro": "Po potrditvi lahko znesek naročila nakažete na spodnji bančni račun."
   }
 }

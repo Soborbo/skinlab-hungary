@@ -42,6 +42,19 @@ export const CONTACT = {
   emailLegacy: 'skinlabhungary@gmail.com',
 };
 
+// Banki utalási adatok - egyetlen forrás a kapcsolat oldalhoz, a megrendelés
+// utáni köszönő oldalhoz és a vevői visszaigazoló e-mailhez. A vevő ide utalja
+// a megrendelés összegét a telefonos egyeztetést követően.
+export const BANK = {
+  accountHolder: COMPANY.legalName,
+  bankName: 'Erste Bank',
+  // Belföldi (GIRO) számlaszám 3×8 számjegyes formátumban.
+  accountNumber: '11600006-00000002-03766147',
+  // IBAN 4-es csoportokra tördelve (megjelenítéshez).
+  iban: 'HU18 1160 0006 0000 0002 0376 6147',
+  swift: 'GIBAHUHB',
+};
+
 export const LOCATIONS = {
   headquarters: {
     name: 'Székhely',
