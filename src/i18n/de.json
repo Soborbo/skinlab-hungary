@@ -846,5 +846,17 @@
       "backToHome": "Zurück zur Startseite",
       "browseProducts": "Weitere Produkte"
     }
+  },
+  "bank": {
+    "title": "Banküberweisungsdaten",
+    "intro": "Den Bestellbetrag können Sie per Banküberweisung begleichen.",
+    "accountHolder": "Kontoinhaber",
+    "bankName": "Bank",
+    "accountNumber": "Kontonummer",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Bitte geben Sie Ihre Bestellnummer als Verwendungszweck an.",
+    "successIntro": "Nach der telefonischen Abstimmung überweisen Sie den Bestellbetrag bitte auf das untenstehende Bankkonto.",
+    "emailIntro": "Nach der Abstimmung können Sie den Bestellbetrag auf das untenstehende Bankkonto überweisen."
   }
 }

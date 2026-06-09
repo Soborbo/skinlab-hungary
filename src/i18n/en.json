@@ -852,5 +852,17 @@
       "backToHome": "Back to home",
       "browseProducts": "More products"
     }
+  },
+  "bank": {
+    "title": "Bank transfer details",
+    "intro": "You can settle the order amount by bank transfer.",
+    "accountHolder": "Account holder",
+    "bankName": "Bank",
+    "accountNumber": "Account number",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Please include your order number as the payment reference.",
+    "successIntro": "After we confirm the details by phone, please transfer the order amount to the bank account below.",
+    "emailIntro": "After we confirm the details, you can transfer the order amount to the bank account below."
   }
 }

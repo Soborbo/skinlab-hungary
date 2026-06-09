@@ -846,5 +846,17 @@
       "backToHome": "Înapoi la pagina principală",
       "browseProducts": "Mai multe produse"
     }
+  },
+  "bank": {
+    "title": "Date pentru transfer bancar",
+    "intro": "Puteți achita suma comenzii prin transfer bancar.",
+    "accountHolder": "Titularul contului",
+    "bankName": "Banca",
+    "accountNumber": "Număr de cont",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Vă rugăm să indicați numărul comenzii la detaliile plății.",
+    "successIntro": "După confirmarea telefonică, vă rugăm să transferați suma comenzii în contul bancar de mai jos.",
+    "emailIntro": "După confirmare, puteți transfera suma comenzii în contul bancar de mai jos."
   }
 }

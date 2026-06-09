@@ -892,5 +892,17 @@
       "backToHome": "Vissza a főoldalra",
       "browseProducts": "További termékek"
     }
+  },
+  "bank": {
+    "title": "Banki átutalás adatai",
+    "intro": "A megrendelés összegét banki átutalással rendezheted.",
+    "accountHolder": "Számlatulajdonos",
+    "bankName": "Bank",
+    "accountNumber": "Bankszámlaszám",
+    "iban": "IBAN",
+    "swift": "SWIFT / BIC",
+    "referenceNote": "Kérjük, a közlemény rovatba írd be a rendelésszámodat.",
+    "successIntro": "A telefonos egyeztetést követően az alábbi bankszámlaszámra várjuk a megrendelés összegét.",
+    "emailIntro": "Az egyeztetést követően az alábbi bankszámlaszámra utalhatod a megrendelés összegét."
   }
 }
