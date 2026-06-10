@@ -71,12 +71,9 @@ const videoSchemas = videoIds.map((videoId, index) => ({
       ]}>
         {videoIds.map((videoId, index) => (
           <div
-            class="video-facade relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 aspect-video cursor-pointer group"
+            class="video-facade relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 aspect-video group"
             data-video-id={videoId}
             data-video-title={`${productName} bemutató videó ${index + 1}`}
-            role="button"
-            tabindex="0"
-            aria-label={`Videó lejátszása: ${productName} bemutató`}
           >
             <!-- Thumbnail (remote for now, should be local for best performance) -->
             <img
@@ -91,13 +88,17 @@ const videoSchemas = videoIds.map((videoId, index) => ({
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
 
             <!-- Play button (simple, no YouTube trademark) -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700">
+            <button
+              type="button"
+              class="video-facade-play absolute inset-0 flex w-full items-center justify-center cursor-pointer"
+              aria-label={`Videó lejátszása: ${productName} bemutató`}
+            >
+              <span class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700">
                 <svg class="w-8 h-8 lg:w-10 lg:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
-              </div>
-            </div>
+              </span>
+            </button>
           </div>
         ))}
       </div>
@@ -160,24 +161,14 @@ const videoSchemas = videoIds.map((videoId, index) => ({
           iframe.allowFullscreen = true;
           iframe.className = 'absolute inset-0 w-full h-full';
 
-          // Replace content with iframe
+          // Replace content with iframe (removes the play button too)
           facade.replaceChildren(iframe);
-          facade.classList.remove('cursor-pointer');
-          facade.removeAttribute('role');
-          facade.removeAttribute('tabindex');
-          facade.removeAttribute('aria-label');
         };
 
-        // Click handler
-        facade.addEventListener('click', handler);
-
-        // Keyboard accessibility (Enter/Space)
-        facade.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handler();
-          }
-        });
+        // Native <button> handles keyboard activation (Enter/Space) itself;
+        // a thumbnail click outside the button still plays via the facade.
+        var playButton = facade.querySelector('.video-facade-play');
+        (playButton || facade).addEventListener('click', handler);
       });
     }
 

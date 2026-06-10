@@ -227,8 +227,15 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   </script>
 
   <!-- Tracking: GTM + Consent Mode v2.
-       deferGtmMs > 0 delays gtm.js fetch until user interaction or timeout. -->
-  <Tracking gtmId="GTM-NW7DKC2D" deferMs={deferGtmMs} />
+       deferGtmMs > 0 delays gtm.js fetch until user interaction or timeout.
+       cookieYesId: build-time env (PUBLIC_COOKIEYES_ID) - enélkül nincs
+       consent banner, így a marketing/analytics tagek sosem kapnak consentet
+       (a GTM konténerben sincs CookieYes tag - 2026-06-10 audit). -->
+  <Tracking
+    gtmId="GTM-NW7DKC2D"
+    cookieYesId={import.meta.env.PUBLIC_COOKIEYES_ID}
+    deferMs={deferGtmMs}
+  />
 
   <!-- Additional head content from pages -->
   <slot name="head" />

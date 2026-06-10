@@ -5,9 +5,10 @@
  * Based on astro-forms skill
  */
 import type { APIRoute } from 'astro';
-import { validateContactForm } from '@/lib/forms/schemas';
+import { validateContactForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { processFormSubmission } from '@/lib/forms/submit';
+import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
 export const prerender = false;
@@ -26,6 +27,15 @@ export const GET: APIRoute = async () => {
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
+    // Rate limit - max 5 feldolgozott beküldés / IP / óra
+    if (isFormRateLimited(clientAddress, 'contact')) {
+      return errorResponse('HTTP-429-001', {
+        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbálja újra később.',
+        context: { endpoint: '/api/contact', ip: clientAddress },
+        extraHeaders: { 'Retry-After': '3600' },
+      });
+    }
+
     // Parse form data
     const formData = await request.formData();
     const data = Object.fromEntries(formData.entries());
@@ -44,6 +54,19 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const validation = validateContactForm(data);
 
     if (!validation.success) {
+      // Honeypot: csendes elutasítás - a botnak hamis sikert adunk vissza,
+      // hogy ne tudja kitanulni, melyik mező buktatta le.
+      if (validation.errors?.honeypot) {
+        console.warn('[contact] honeypot tripped - returning fake success', { ip: clientAddress });
+        return new Response(
+          JSON.stringify({
+            success: true,
+            leadId: generateLeadId(),
+            message: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+          }),
+          { status: 200, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
       return errorResponse('FORM-ZOD-002', {
         userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
@@ -69,6 +92,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const sheetName = data.leadType === 'training' ? 'Képzések' : 'Kapcsolat';
 
     // Process form submission - capture User-Agent for the Sheets row too
+    recordFormSubmission(clientAddress, 'contact');
     const userAgent = request.headers.get('user-agent') ?? undefined;
     const result = await processFormSubmission(validation.data!, clientAddress, userAgent, sheetName);
 

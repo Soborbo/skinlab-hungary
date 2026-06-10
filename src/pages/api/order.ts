@@ -17,7 +17,7 @@ import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
-import { readEnv } from '@/lib/env';
+import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import type { Locale } from '@/i18n/ui';
 
 export const prerender = false;
@@ -33,6 +33,15 @@ export const GET: APIRoute = async () => {
 
 export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
   try {
+    // 0. Rate limit - max 5 feldolgozott megrendelés / IP / óra
+    if (isFormRateLimited(clientAddress, 'order')) {
+      return errorResponse('HTTP-429-001', {
+        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbálja újra később.',
+        context: { endpoint: '/api/order', ip: clientAddress },
+        extraHeaders: { 'Retry-After': '3600' },
+      });
+    }
+
     // 1. Body parse
     let body: unknown;
     try {
@@ -45,23 +54,21 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     }
     const raw = (body || {}) as Record<string, unknown>;
 
-    // 2. Spam védelem - honeypot
-    if (typeof raw.website === 'string' && raw.website.length > 0) {
-      return errorResponse('ORDER-SPAM-001', {
-        status: 400,
-        userMessage: 'A megrendelést nem sikerült feldolgozni.',
-        context: { formId: 'order' },
-      });
-    }
-
-    // 3. Spam védelem - time-check (>3 mp kitöltési idő)
+    // 2-3. Spam védelem - honeypot + time-check (>3 mp kitöltési idő).
+    //    Csendes elutasítás: a botnak hamis sikert adunk vissza, hogy ne
+    //    tudja kitanulni, melyik védelem buktatta le.
+    const honeypotTripped = typeof raw.website === 'string' && raw.website.length > 0;
     const startTime = Number(raw.formStartTime || 0);
-    if (startTime > 0 && Date.now() - startTime < 3000) {
-      return errorResponse('ORDER-SPAM-001', {
-        status: 400,
-        userMessage: 'A megrendelést nem sikerült feldolgozni.',
-        context: { formId: 'order' },
+    const tooFast = startTime > 0 && Date.now() - startTime < 3000;
+    if (honeypotTripped || tooFast) {
+      console.warn('[order] spam guard tripped - returning fake success', {
+        ip: clientAddress,
+        guard: honeypotTripped ? 'honeypot' : 'time-check',
       });
+      return new Response(
+        JSON.stringify({ success: true, orderId: generateOrderId(), proforma: { sent: false } }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      );
     }
 
     // 4. Validáció (a normalizált `raw`-ot validáljuk, hogy a fenti
@@ -86,10 +93,11 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     // 5. Env feloldás (Cloudflare runtime → import.meta.env fallback)
     const env = resolveOrderEnv(locals);
 
-    // 6. Turnstile - a központi `verifyTurnstile` ellenőrzi a secret meglétét
-    //    (dev-ben átengedi, prod-ban szigorúan kötelezi).
-    const turnstileSecret = readEnv('TURNSTILE_SECRET_KEY');
-    if (turnstileSecret) {
+    // 6. Turnstile - feltétel nélkül a központi `verifyTurnstile`-on keresztül,
+    //    ami dev-ben hiányzó secret mellett átenged, prod-ban viszont
+    //    fail-closed (hiányzó secret = minden beküldés elutasítva), ugyanúgy,
+    //    mint a contact/consultation végpontokon.
+    {
       const result = await verifyTurnstile(data.turnstileToken, clientAddress || '');
       if (!result.success) {
         return errorResponse('ORDER-TURN-001', {
@@ -174,6 +182,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       userAgent: request.headers.get('user-agent') ?? undefined,
     };
 
+    recordFormSubmission(clientAddress, 'order');
     const result = await processOrder(orderInput, env);
     if (!result.success) {
       // Belső hibarészletet csak logba, generikus üzenetet a kliensnek.

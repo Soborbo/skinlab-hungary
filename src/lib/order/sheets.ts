@@ -139,7 +139,7 @@ async function appendRows(
   // (UTM source/medium/campaign/term/content, gclid, fbclid, referrer,
   // user-agent).
   return fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(ORDER_SHEET_NAME)}!A:AA:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(ORDER_SHEET_NAME)}!A:AA:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {

@@ -15,9 +15,17 @@
   Cache-Control: public, max-age=2592000
 
 # HTML pages — always revalidate
+#
+# CSP egyelőre Report-Only módban fut (astro-security skill: enforcement előtt
+# kötelező report-only teszt). Éles bekapcsolás: a böngészőkonzol CSP-
+# figyelmeztetéseinek átnézése után nevezd át Content-Security-Policy-ra.
+# A script-src 'unsafe-inline'-t a GTM Custom HTML tagek és az Astro inline
+# consent/GTM-loader scriptek igénylik.
 /*
   Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn-cookieyes.com https://challenges.cloudflare.com https://connect.facebook.net https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://*.facebook.com https://challenges.cloudflare.com https://cdn-cookieyes.com https://*.cookieyes.com https://www.google.com; frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'
