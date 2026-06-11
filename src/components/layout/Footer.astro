@@ -1,5 +1,6 @@
 ---
 import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
+import { BLOG_ENABLED } from '../../config/features';
 import { Logo } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 const skinlabLogo = '@assets/logo.png';
@@ -121,11 +122,13 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
               {t(locale, 'nav.faq')}
             </a>
           </li>
-          <li>
-            <a href={getLocalizedUrl(locale, '/blog')} class="text-sm text-gray-400 hover:text-white transition-colors">
-              {t(locale, 'nav.blog')}
-            </a>
-          </li>
+          {BLOG_ENABLED && (
+            <li>
+              <a href={getLocalizedUrl(locale, '/blog')} class="text-sm text-gray-400 hover:text-white transition-colors">
+                {t(locale, 'nav.blog')}
+              </a>
+            </li>
+          )}
           <li>
             <a href={getLocalizedUrl(locale, '/kapcsolat')} class="text-sm text-gray-400 hover:text-white transition-colors">
               {t(locale, 'nav.contact')}

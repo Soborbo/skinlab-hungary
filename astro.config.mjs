@@ -17,8 +17,10 @@ export default defineConfig({
     sitemap({
       // Exclude noindex utility/conversion routes so Google doesn't see
       // duplicate-content / thank-you / cart pages in the sitemap.
+      // `blog` is excluded while the section is drafted off (see
+      // src/config/features.ts → BLOG_ENABLED); remove it when re-publishing.
       filter: (page) =>
-        !/\/(koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
+        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
       i18n: {
         defaultLocale: 'hu',
         // Language-only hreflang codes to match the <head> alternate links

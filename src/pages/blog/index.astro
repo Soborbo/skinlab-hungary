@@ -1,5 +1,14 @@
 ---
 import BlogPage from '../../components/pages/BlogPage.astro';
+import { BLOG_ENABLED } from '../../config/features';
+
+// Blog drafted off (BLOG_ENABLED=false): return a real 404 instead of an empty
+// "coming soon" page, so the route stays out of the index/sitemap. (A plain 404
+// Response is used rather than Astro.rewrite('/404') because the 'server' output
+// forbids an on-demand route rewriting the prerendered 404 page.) Nothing links
+// to /blog while drafted, so the unstyled body is never seen in practice.
+export const prerender = false;
+if (!BLOG_ENABLED) return new Response(null, { status: 404, statusText: 'Not Found' });
 ---
 
 <BlogPage />

@@ -1,6 +1,11 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'zod';
+import { BLOG_ENABLED } from './config/features';
+
+// Empty loader used to "draft" a whole collection behind a feature flag:
+// loads zero entries, so dependent routes build nothing and search finds nothing.
+const emptyLoader = { name: 'disabled', load: async () => {} };
 
 // Variant schema for products with multiple options
 const variantSchema = z.object({
@@ -99,7 +104,11 @@ export const collections = {
     schema: trainingSchema,
   }),
   blog: defineCollection({
-    loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+    // Drafted off via BLOG_ENABLED: empty collection ⇒ no post pages build and
+    // blog is dropped from search until the section is re-published.
+    loader: BLOG_ENABLED
+      ? glob({ pattern: '**/*.md', base: './src/content/blog' })
+      : emptyLoader,
     schema: blogSchema,
   }),
 };
