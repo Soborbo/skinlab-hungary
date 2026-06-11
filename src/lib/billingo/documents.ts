@@ -24,6 +24,21 @@ const PROFORMA_DUE_DAYS = 8;
 const DEFAULT_UNIT = 'db';
 
 /**
+ * Szállítási díj tétel megnevezése a díjbekérőn, a bizonylat nyelvén.
+ * Ismeretlen nyelvnél magyar fallback.
+ */
+const SHIPPING_FEE_ITEM_NAME: Partial<Record<BillingoLanguage, string>> = {
+  hu: 'Szállítási díj',
+  en: 'Shipping fee',
+  de: 'Versandkosten',
+  cs: 'Poštovné',
+  sk: 'Poštovné',
+  ro: 'Taxă de livrare',
+  hr: 'Troškovi dostave',
+  sl: 'Stroški dostave',
+};
+
+/**
  * Order-szintű ÁFA kulcs eldöntése a számlázási ország + adószám alapján.
  *
  *   HU                            → '27%'   (belföldi)
@@ -87,9 +102,8 @@ function mapItem(orderItem: OrderEmailItem, orderId: string, vat: BillingoVat): 
 /**
  * Díjbekérő payload összeállítása a megrendelés-inputból.
  *
- * Megj.: szállítási díj sort jelenleg nem ad hozzá - az `OrderEmailInput`
- * sémában nincs `shippingFee` mező. Ha később bekerül, itt csak `if`-fel
- * lehet kiegészíteni (a `SHIPPING_FEE_ITEM_NAME` lokalizációk készen állnak).
+ * Ha a rendeléshez tartozik szállítási díj (`order.shippingFee > 0`), külön
+ * tételként kerül a bizonylatra, a termékekkel azonos ÁFA-kulccsal.
  */
 export function buildProformaPayload(opts: {
   order: OrderEmailInput;
@@ -100,6 +114,19 @@ export function buildProformaPayload(opts: {
   const { order, partnerId, config, language } = opts;
   const today = new Date();
   const vat = resolveVatCode(order.country, order.taxNumber);
+
+  const items = order.items.map((it) => mapItem(it, order.orderId, vat));
+  if (order.shippingFee > 0) {
+    items.push({
+      name: SHIPPING_FEE_ITEM_NAME[language] ?? SHIPPING_FEE_ITEM_NAME.hu!,
+      unit_price: order.shippingFee,
+      unit_price_type: 'gross',
+      quantity: 1,
+      unit: DEFAULT_UNIT,
+      vat,
+    });
+  }
+
   return {
     partner_id: partnerId,
     block_id: config.blockId,
@@ -112,7 +139,7 @@ export function buildProformaPayload(opts: {
     currency: 'HUF',
     electronic: false,
     paid: false,
-    items: order.items.map((it) => mapItem(it, order.orderId, vat)),
+    items,
     comment: `Rendelésszám: ${order.orderId}${order.notes ? ` - ${order.notes}` : ''}`,
   };
 }

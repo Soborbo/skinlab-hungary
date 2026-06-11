@@ -15,6 +15,7 @@ import { buildCustomerEmail, buildAdminEmail, type OrderEmailInput } from './ema
 import { appendOrderRow } from './sheets';
 import { generateProforma, type BillingoProformaResult } from '@/lib/billingo';
 import { CONTACT } from '@/lib/constants';
+import { SHIPPING_LABEL_HU, PAYMENT_LABEL_HU } from '@/lib/shipping/methods';
 import { localeConfig } from '@/i18n/ui';
 
 export interface OrderResult {
@@ -134,6 +135,12 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
     input.fbclid || '', // Y: Facebook Click ID
     input.referrer || '', // Z: Referrer
     input.userAgent || '', // AA: User-Agent
+    SHIPPING_LABEL_HU[input.shippingMethod], // AB: Szállítási mód
+    input.foxpostPoint
+      ? `${input.foxpostPoint.name} – ${input.foxpostPoint.zip} ${input.foxpostPoint.city}, ${input.foxpostPoint.address}`
+      : '', // AC: Foxpost automata
+    input.shippingFee > 0 ? String(input.shippingFee) : '', // AD: Szállítási díj (Ft)
+    input.parcelTier ? PAYMENT_LABEL_HU[input.paymentMethod] : 'Egyeztetés szerint', // AE: Fizetési mód
   ];
 
   const sheetsPromise = appendOrderRow(env, sheetRow)

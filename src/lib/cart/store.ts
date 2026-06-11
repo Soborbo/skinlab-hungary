@@ -11,6 +11,8 @@
  *   ezek nem számítanak bele a részösszegbe.
  */
 
+import { isCartShippable } from '@/lib/shipping/methods';
+
 // ============================================
 // TÍPUSOK
 // ============================================
@@ -47,7 +49,13 @@ export interface CartSummary {
   subtotal: number;
   /** Van-e a kosárban "ár egyeztetés alatt" tétel */
   hasPriceOnRequest: boolean;
-  /** Végösszeg (jelenleg = részösszeg; a szállítást telefonon egyeztetjük) */
+  /**
+   * Futárral szállítható-e a kosár? Igaz, ha minden tétel árazott és a
+   * 500 000 Ft-os tételhatár alatt van (lásd `lib/shipping/methods`). Hamis
+   * esetén csak személyes átvétel / egyeztetett kiszállítás kínálható.
+   */
+  shippable: boolean;
+  /** Végösszeg (a szállítási díj a pénztárban, a mód kiválasztásakor adódik hozzá) */
   grandTotal: number;
 }
 
@@ -205,6 +213,7 @@ export function getCartSummary(): CartSummary {
     totalQty,
     subtotal,
     hasPriceOnRequest,
+    shippable: isCartShippable(items),
     grandTotal: subtotal,
   };
 }

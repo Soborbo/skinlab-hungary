@@ -31,8 +31,8 @@
       "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na sve naše proizvode"
     },
     "slide4": {
-      "title": "ND:YAG и карбон ласери",
-      "subtitle": "Премиум третмани лица са награђиваним уређајима и локалним сервисом"
+      "title": "Уклањање тетоважа ND:YAG ласером",
+      "subtitle": "Безбедно и ефикасно уклањање тетоважа и пигмента Q-switched ND:YAG ласерима – награђивани уређаји и локални сервис"
     },
     "slide5": {
       "title": "Стигао је наш нови Frame YAG ласер!",
@@ -679,6 +679,8 @@
     "subtitle": "Pouzdana, dokumentovana isporuka i fleksibilni planovi plaćanja - sve što treba da znate do prijema uređaja.",
     "professionalTitle": "Isporuka profesionalnih uređaja",
     "professionalDesc": "Većina naših uređaja izrađuje se po narudžbini u profesionalnom kvalitetu, pa se rokovi isporuke razlikuju od uobičajenih proizvoda iz skladišta. Nakon potvrde narudžbine pratimo ceo proces proizvodnje, kontrole kvaliteta i isporuke i javljamo vam jasne rokove.",
+    "intlTitle": "Isporuka i primopredaja",
+    "intlNote": "Detalje vaše porudžbine uvek dogovaramo lično: naš kolega će vas kontaktirati kako bismo se dogovorili o isporuci ili ličnom preuzimanju i načinu plaćanja. Tako možemo da garantujemo bezbednu primopredaju i za uređaje visoke vrednosti i osetljive konstrukcije.",
     "deliveryTime": "Rok isporuke",
     "deliveryTimeValue": "15-20 radnih dana od potvrde narudžbine",
     "customConfig": "Posebna konfiguracija i važna napomena",
@@ -778,6 +780,18 @@
     "yourDetails": "Vaši podaci",
     "lastName": "Prezime",
     "firstName": "Ime",
+    "shipping": {
+      "title": "Način isporuke",
+      "methodRequired": "Molimo izaberite način isporuke.",
+      "free": "Besplatno",
+      "summaryLine": "Isporuka",
+      "recommended": "Preporučeno",
+      "highValueNote": "Isporuku vaše porudžbine dogovaramo individualno. Naš kolega će vas kontaktirati kako bismo se dogovorili o ličnom preuzimanju ili isporuci i načinu plaćanja.",
+      "pickupCeremony": "Lično preuzimanje u showroomu",
+      "pickupCeremonyDesc": "Primopredaja, puštanje u rad i obuka na licu mesta — na sva vaša pitanja odmah odgovaramo. Uređaj možete preuzeti i na kraju naših obuka.",
+      "arranged": "Isporuka po dogovoru",
+      "arrangedDesc": "S obzirom na vrednost proizvoda, isporuku dogovaramo lično — ili vam ga donosimo ili ga šaljemo na bezbedan način. Naš kolega će vas kontaktirati u vezi sa detaljima."
+    },
     "email": {
       "subject": "Potvrda porudžbine",
       "greeting": "Poštovani/a {name},",
@@ -796,7 +810,13 @@
       "payButton": "Plati / otvori predračun",
       "questions": "Imate pitanje? Slobodno nas pozovite:",
       "regards": "S poštovanjem,",
-      "team": "Tim Skinlab Hungary"
+      "team": "Tim Skinlab Hungary",
+      "shippingTitle": "Isporuka",
+      "freeShipping": "Besplatno",
+      "shippingMethods": {
+        "personal_pickup": "Lično preuzimanje — Skinlab Showroom (Érd)",
+        "arranged": "Isporuka po dogovoru"
+      }
     },
     "phone": "Broj telefona",
     "companyToggle": "Unesi podatke firme",
@@ -858,5 +878,21 @@
     "referenceNote": "Molimo da u svrhu uplate upišete broj svoje porudžbine.",
     "successIntro": "Na osnovu predračuna možete iznos porudžbine uplatiti na dole navedeni bankovni račun.",
     "emailIntro": "Iznos naveden na predračunu možete uplatiti na dole navedeni bankovni račun."
+  },
+  "blogPost": {
+    "share": "Podeli članak:",
+    "shareFacebook": "Podeli na Facebooku",
+    "shareTwitter": "Podeli na X",
+    "shareLinkedin": "Podeli na LinkedInu",
+    "related": "Povezani članci",
+    "back": "Nazad na blog"
+  },
+  "trainingDetail": {
+    "farBadge": "FAR-registrovana obuka",
+    "apply": "Prijavi se za ovu obuku",
+    "topics": "Teme obuke",
+    "requirements": "Uslovi za učešće",
+    "back": "Nazad na obuke",
+    "signupHeading": "Prijavite se: {name}"
   }
 }

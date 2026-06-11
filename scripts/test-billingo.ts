@@ -103,6 +103,17 @@ function buildFixture(flags: CliFlags): OrderEmailInput {
     ],
     subtotal: flags.priceOnRequest ? 0 : flags.zeroTotal ? 0 : 4990,
     hasPriceOnRequest: flags.priceOnRequest,
+    shippingMethod: 'foxpost',
+    shippingFee: flags.priceOnRequest || flags.zeroTotal ? 0 : 1490,
+    foxpostPoint: {
+      id: 'SMOKE-APT-001',
+      name: 'Teszt Csomagautomata',
+      zip: '1011',
+      city: 'Budapest',
+      address: 'Példa utca 1.',
+    },
+    paymentMethod: 'transfer',
+    parcelTier: true,
     sourceUrl: 'smoke-test',
   };
 }

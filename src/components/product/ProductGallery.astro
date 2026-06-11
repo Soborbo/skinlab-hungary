@@ -755,13 +755,20 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
           dragMoved = false;
           startX = pe.clientX;
           startScroll = strip.scrollLeft;
-          strip.setPointerCapture(pe.pointerId);
-          strip.classList.add('thumb-strip--dragging');
+          // A pointert NEM itt fogjuk el: a setPointerCapture a rákövetkező
+          // click-et a sávra célozná (Chromium), így a bélyegkép saját click
+          // figyelője sosem futna le → nem váltana képet. Csak tényleges
+          // húzáskor (pointermove, 4px küszöb fölött) kapjuk el a pointert.
         });
         strip.addEventListener('pointermove', (e) => {
           if (!dragging) return;
-          const dx = (e as PointerEvent).clientX - startX;
-          if (Math.abs(dx) > 4) dragMoved = true;
+          const pe = e as PointerEvent;
+          const dx = pe.clientX - startX;
+          if (Math.abs(dx) > 4 && !dragMoved) {
+            dragMoved = true;
+            strip.setPointerCapture(pe.pointerId);
+            strip.classList.add('thumb-strip--dragging');
+          }
           strip.scrollLeft = startScroll - dx;
         });
         const endDrag = (e: Event) => {

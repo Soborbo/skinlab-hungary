@@ -18,6 +18,14 @@ import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
+import {
+  isCartShippable,
+  isParcelLocale,
+  isMethodAllowed,
+  shippingFeeFor,
+  type ShippingMethodId,
+  type PaymentMethodId,
+} from '@/lib/shipping/methods';
 import type { Locale } from '@/i18n/ui';
 
 export const prerender = false;
@@ -150,6 +158,37 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     const subtotal = items.reduce((sum, i) => sum + (i.lineTotal || 0), 0);
     const hasPriceOnRequest = items.some((i) => i.unitPrice === null);
 
+    // 7b. Szállítási + fizetési mód szerveroldali ellenőrzése és újraszámolása.
+    //    "Kellék-ág" (parcel tier) = SZERVEROLDALI árak per-tétel < 100k, mind
+    //    árazott, ÉS magyar nyelvű rendelés (Foxpost/MPL csak HU). Más nyelven
+    //    csak egyeztetett ("visszahívós") szállítás van. Érvénytelen mód↔kosár
+    //    kombináció vagy hiányzó Foxpost automata → validációs hiba.
+    const shippable =
+      isCartShippable(items.map((i) => ({ price: i.unitPrice }))) && isParcelLocale(data.locale);
+    const shippingMethod = data.shippingMethod as ShippingMethodId;
+    if (!isMethodAllowed(shippingMethod, shippable, data.locale)) {
+      return errorResponse('ORDER-ZOD-001', {
+        userMessage: shippable
+          ? 'Kérjük, válasszon érvényes szállítási módot.'
+          : 'Ezeknél a termékeknél nincs automatikus futáros szállítás. Kérjük, válasszon személyes átvételt vagy egyeztetett kiszállítást.',
+        errors: { shippingMethod: ['Érvénytelen szállítási mód ehhez a kosárhoz.'] },
+        context: { formId: 'order', shippingMethod, shippable },
+      });
+    }
+    const foxpostPoint = shippingMethod === 'foxpost' ? data.foxpostPoint ?? null : null;
+    if (shippingMethod === 'foxpost' && !foxpostPoint) {
+      return errorResponse('ORDER-ZOD-001', {
+        userMessage: 'Kérjük, válasszon Foxpost csomagautomatát az átvételhez.',
+        errors: { foxpostPoint: ['Válassz Foxpost automatát.'] },
+        context: { formId: 'order' },
+      });
+    }
+    // A díjat mindig a módból számoljuk (a kliens értékét nem hisszük el).
+    const shippingFee = shippingFeeFor(shippingMethod);
+    // Utánvét csak a kellék-ágon engedélyezett; egyébként előreutalás/díjbekérő.
+    const paymentMethod: PaymentMethodId =
+      shippable && data.paymentMethod === 'cod' ? 'cod' : 'transfer';
+
     // 8. Megrendelés feldolgozása
     const orderId = generateOrderId();
     const orderInput: OrderEmailInput = {
@@ -169,6 +208,11 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       items,
       subtotal,
       hasPriceOnRequest,
+      shippingMethod,
+      shippingFee,
+      foxpostPoint,
+      paymentMethod,
+      parcelTier: shippable,
       sourceUrl: data.sourceUrl || '',
       // Attribution stack - captured by the checkout form
       utmSource: data.utmSource || '',

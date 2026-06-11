@@ -10,6 +10,13 @@
  */
 import { t, formatPrice, localeConfig, type Locale } from '@/i18n/ui';
 import { COMPANY, CONTACT, BANK } from '@/lib/constants';
+import {
+  SHIPPING_LABEL_HU,
+  PAYMENT_LABEL_HU,
+  type ShippingMethodId,
+  type PaymentMethodId,
+  type FoxpostPoint,
+} from '@/lib/shipping/methods';
 
 export interface OrderEmailItem {
   name: string;
@@ -39,6 +46,16 @@ export interface OrderEmailInput {
   items: OrderEmailItem[];
   subtotal: number;
   hasPriceOnRequest: boolean;
+  /** Választott szállítási mód (lásd lib/shipping/methods). */
+  shippingMethod: ShippingMethodId;
+  /** Szállítási díj Ft-ban (0 = ingyenes / egyeztetés alatt). */
+  shippingFee: number;
+  /** Kiválasztott Foxpost automata, ha a mód `foxpost`. */
+  foxpostPoint: FoxpostPoint | null;
+  /** Fizetési mód (csak a kellék-ágon releváns; `cod` = utánvét). */
+  paymentMethod: PaymentMethodId;
+  /** Kellék-ág (HU, futárral szállítható) - önkiszolgáló flow, nincs visszahívás. */
+  parcelTier: boolean;
   sourceUrl: string;
   // Attribution / tracking - captured at checkout time from URL params,
   // persisted tracking storage, and request headers (user-agent)
@@ -109,12 +126,43 @@ export function buildCustomerEmail(
     })
     .join('');
 
+  // Szállítás: a mód címkéje (lokalizált), a díj és a Foxpost automata.
+  // A végösszeg már a szállítási díjat is tartalmazza.
+  const shipMethodLabel = tr(`shippingMethods.${input.shippingMethod}`);
+  const shipFeeText = input.shippingFee > 0 ? formatPrice(input.shippingFee, locale) : tr('freeShipping');
+  const grandTotal = input.subtotal + input.shippingFee;
+  // Önkiszolgáló kellék-ág vs. egyeztetett ("visszahívós") flow.
+  const isParcel = input.parcelTier;
+  const isCod = isParcel && input.paymentMethod === 'cod';
   const totalText =
     input.subtotal > 0
-      ? formatPrice(input.subtotal, locale) + (input.hasPriceOnRequest ? ' +' : '')
+      ? formatPrice(grandTotal, locale) + (input.hasPriceOnRequest ? ' +' : '')
       : tr('priceOnRequest');
 
-  const steps = [tr('step1'), tr('step2'), tr('step3')]
+  const foxpostLine = input.foxpostPoint
+    ? `<p style="margin:6px 0 0;font-size:13px;color:#555;">${escapeHtml(tr('foxpostPointLabel'))}: <strong>${escapeHtml(input.foxpostPoint.name)}</strong> – ${escapeHtml(input.foxpostPoint.zip)} ${escapeHtml(input.foxpostPoint.city)}, ${escapeHtml(input.foxpostPoint.address)}</p>`
+    : '';
+  const shippingBlock = `
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 8px;">
+      ${
+        input.shippingFee > 0
+          ? `<tr>
+              <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#555;">${escapeHtml(tr('subtotalLabel'))}</td>
+              <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#555;text-align:right;white-space:nowrap;">${escapeHtml(formatPrice(input.subtotal, locale) + (input.hasPriceOnRequest ? ' +' : ''))}</td>
+            </tr>`
+          : ''
+      }
+      <tr>
+        <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#555;">${escapeHtml(tr('shippingTitle'))} <span style="color:#999;">· ${escapeHtml(shipMethodLabel)}</span></td>
+        <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#555;text-align:right;white-space:nowrap;">${escapeHtml(shipFeeText)}</td>
+      </tr>
+    </table>
+    ${foxpostLine}`;
+
+  // Tier-függő "mi történik most" lépések: önkiszolgáló utánvét / önkiszolgáló
+  // előreutalás / egyeztetett (visszahívós).
+  const stepPrefix = isCod ? 'codStep' : isParcel ? 'parcelStep' : 'step';
+  const steps = [tr(`${stepPrefix}1`), tr(`${stepPrefix}2`), tr(`${stepPrefix}3`)]
     .map(
       (s, i) => `
       <tr>
@@ -127,9 +175,9 @@ export function buildCustomerEmail(
     .join('');
 
   // Optional Billingo payment CTA: rendered only when the proforma was issued
-  // and we have its public payment URL. Skip/fail → no button (the "what next"
-  // steps below still explain that the payment link arrives separately).
-  const payBlock = opts.paymentUrl
+  // and we have its public payment URL. Utánvétnél (cod) nincs gomb - a vevő
+  // az átvételkor fizet.
+  const payBlock = !isCod && opts.paymentUrl
     ? `
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 24px;">
       <tr><td style="font-family:Arial,sans-serif;font-size:14px;color:#555;line-height:1.6;padding:0 0 14px;">${escapeHtml(tr('payIntro'))}</td></tr>
@@ -159,6 +207,13 @@ export function buildCustomerEmail(
       <p style="margin:12px 0 0;font-size:12px;color:#999;">${escapeHtml(t(locale, 'bank.referenceNote'))}</p>
     </div>`;
 
+  // Utánvét esetén nincs banki/utalási blokk - helyette rövid utánvét-tájékoztató.
+  const codBlock = `
+    <div style="border:2px solid ${ACCENT};background:#fff0f4;border-radius:10px;padding:18px 20px;margin:0 0 24px;">
+      <p style="margin:0;font-size:15px;font-weight:bold;color:${ACCENT_DARK};">${escapeHtml(tr('codTitle'))}</p>
+      <p style="margin:8px 0 0;font-size:14px;color:#555;line-height:1.6;">${escapeHtml(tr('codNote'))}</p>
+    </div>`;
+
   const html = `<!DOCTYPE html>
 <html lang="${localeConfig[locale].hreflang}">
 <head>
@@ -186,6 +241,8 @@ export function buildCustomerEmail(
       ${itemsRows}
     </table>
 
+    ${shippingBlock}
+
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
       <tr>
         <td style="padding:14px 16px;background-color:${ACCENT};font-family:Arial,sans-serif;font-size:14px;color:#fff;font-weight:bold;text-transform:uppercase;letter-spacing:1px;border-radius:6px 0 0 6px;">${escapeHtml(tr('total'))}</td>
@@ -195,9 +252,9 @@ export function buildCustomerEmail(
 
     ${payBlock}
 
-    ${bankBlock}
+    ${isCod ? codBlock : bankBlock}
 
-    <p style="margin:0 0 18px;font-size:13px;color:#999;font-style:italic;">${escapeHtml(tr('priceDisclaimer'))}</p>
+    ${isParcel ? '' : `<p style="margin:0 0 18px;font-size:13px;color:#999;font-style:italic;">${escapeHtml(tr('priceDisclaimer'))}</p>`}
 
     <p style="margin:0 0 10px;font-size:13px;color:#999;text-transform:uppercase;letter-spacing:1px;font-weight:bold;">${escapeHtml(tr('whatNextTitle'))}</p>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
@@ -231,9 +288,15 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
   const name = `${input.lastName} ${input.firstName}`.trim();
   const langName = localeConfig[input.locale].nativeName;
 
+  // Szállítás + fizetés (mindig magyar - a csapat nyelve)
+  const shipLabelHu = SHIPPING_LABEL_HU[input.shippingMethod];
+  const shipFeeHu = input.shippingFee > 0 ? formatPrice(input.shippingFee, 'hu') : 'Ingyenes';
+  const payLabelHu = input.parcelTier ? PAYMENT_LABEL_HU[input.paymentMethod] : 'Egyeztetés szerint (visszahívás)';
+  const grandTotal = input.subtotal + input.shippingFee;
+
   const totalText =
     input.subtotal > 0
-      ? formatPrice(input.subtotal, 'hu') + (input.hasPriceOnRequest ? ' + (egyeztetés alatt)' : '')
+      ? formatPrice(grandTotal, 'hu') + (input.hasPriceOnRequest ? ' + (egyeztetés alatt)' : '')
       : 'Ár egyeztetés alatt';
 
   const itemsRows = input.items
@@ -299,6 +362,14 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
         ${row('Adószám', escapeHtml(input.taxNumber), true)}
       </table>
 
+      <p style="margin:0 0 6px;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;font-weight:bold;">Szállítási mód</p>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee;margin-bottom:20px;">
+        ${row('Mód', `<strong>${escapeHtml(shipLabelHu)}</strong>`)}
+        ${row('Szállítási díj', escapeHtml(shipFeeHu))}
+        ${row('Fizetés', escapeHtml(payLabelHu))}
+        ${input.foxpostPoint ? row('Foxpost automata', `<strong>${escapeHtml(input.foxpostPoint.name)}</strong><br />${escapeHtml(input.foxpostPoint.zip)} ${escapeHtml(input.foxpostPoint.city)}, ${escapeHtml(input.foxpostPoint.address)}`) : ''}
+      </table>
+
       <p style="margin:0 0 6px;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;font-weight:bold;">Szállítási cím</p>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #eee;margin-bottom:20px;">
         ${row('Ország', escapeHtml(input.country))}
@@ -312,6 +383,18 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
         ${itemsRows}
       </table>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
+        ${
+          input.shippingFee > 0
+            ? `<tr>
+          <td style="padding:4px 0;font-size:13px;color:#666;font-family:Arial,sans-serif;">Részösszeg</td>
+          <td style="padding:4px 0;font-size:13px;color:#666;text-align:right;font-family:Arial,sans-serif;">${escapeHtml(formatPrice(input.subtotal, 'hu') + (input.hasPriceOnRequest ? ' +' : ''))}</td>
+        </tr>
+        <tr>
+          <td style="padding:4px 0;font-size:13px;color:#666;font-family:Arial,sans-serif;">Szállítás · ${escapeHtml(shipLabelHu)}</td>
+          <td style="padding:4px 0;font-size:13px;color:#666;text-align:right;font-family:Arial,sans-serif;">${escapeHtml(shipFeeHu)}</td>
+        </tr>`
+            : ''
+        }
         <tr>
           <td style="padding:8px 0;font-size:15px;color:${ACCENT_DARK};font-weight:bold;font-family:Arial,sans-serif;">Végösszeg</td>
           <td style="padding:8px 0;font-size:15px;color:${ACCENT_DARK};font-weight:bold;text-align:right;font-family:Arial,sans-serif;">${escapeHtml(totalText)}</td>

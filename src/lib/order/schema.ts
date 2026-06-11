@@ -7,6 +7,12 @@
  */
 import { z } from 'zod';
 import { normalizePhone } from '@/lib/phone';
+import {
+  SHIPPING_METHOD_IDS,
+  PAYMENT_METHOD_IDS,
+  type ShippingMethodId,
+  type PaymentMethodId,
+} from '@/lib/shipping/methods';
 
 // Nemzetközi telefonszám - HU (06...), SK, RO, DE, AT, CZ, HR, RS, SI formátumok.
 // A vezető 0 opcionális, hogy a HU "06 70 …" lokális forma is átmenjen.
@@ -53,6 +59,28 @@ export const orderSchema = z.object({
   items: z.array(orderItemSchema).min(1, 'A kosár üres'),
   subtotal: z.number().min(0).default(0),
   hasPriceOnRequest: z.boolean().default(false),
+
+  // Szállítás - a módot és a díjat a szerver újraszámolja a kosár ágából
+  // (lib/shipping/methods); a Foxpost automatát a térkép-widget tölti fel.
+  shippingMethod: z
+    .enum(SHIPPING_METHOD_IDS as [ShippingMethodId, ...ShippingMethodId[]])
+    .default('personal_pickup'),
+  shippingFee: z.number().min(0).max(100000).default(0),
+  foxpostPoint: z
+    .object({
+      id: z.string().max(64),
+      name: z.string().max(200),
+      zip: z.string().max(16),
+      city: z.string().max(120),
+      address: z.string().max(300),
+    })
+    .nullable()
+    .optional()
+    .default(null),
+  // Fizetési mód - utánvét (cod) csak a kellék-ágon; a szerver ellenőrzi
+  paymentMethod: z
+    .enum(PAYMENT_METHOD_IDS as [PaymentMethodId, ...PaymentMethodId[]])
+    .default('transfer'),
 
   // GDPR - kötelező
   gdpr: z.literal(true, { message: 'Az adatkezelési hozzájárulás kötelező' }),

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../../lib/constants';
-import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
@@ -18,8 +18,12 @@ function resolveImageUrl(imagePath: string): string | null {
 
 // Build search index at build time
 const products = await getCollection('products', ({ data }) => !data.draft);
-const trainings = await getCollection('trainings');
-const blog = await getCollection('blog');
+// Blog/trainings now carry per-locale translations (ids `{locale}/{slug}`);
+// only index the current locale's entries.
+const inLocale = (id: string) =>
+  locale === 'hu' ? !id.includes('/') : id.startsWith(`${locale}/`);
+const trainings = (await getCollection('trainings')).filter((tr) => inLocale(tr.id));
+const blog = (await getCollection('blog')).filter((post) => inLocale(post.id));
 
 // Create a category lookup for display names
 const categoryMap = Object.fromEntries(
@@ -40,7 +44,7 @@ const searchIndex = [
   ...trainings.map(tr => ({
     name: tr.data.name,
     type: 'training' as const,
-    url: `/kepzesek/${tr.id}`,
+    url: getLocalizedUrl(locale, `/kepzesek/${tr.id.split('/').pop()}`),
     category: t(locale, 'nav.trainings'),
     price: tr.data.price || null,
     image: null,
@@ -49,7 +53,7 @@ const searchIndex = [
   ...blog.map(post => ({
     name: post.data.title,
     type: 'blog' as const,
-    url: `/blog/${post.id}`,
+    url: getLocalizedUrl(locale, `/blog/${post.id.split('/').pop()}`),
     category: t(locale, 'nav.blog'),
     price: null,
     image: null,

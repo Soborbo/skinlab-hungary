@@ -134,7 +134,7 @@ export type BillingoProformaResult =
   | {
       success: false;
       skipped: true;
-      reason: 'price_on_request' | 'zero_total' | 'config_missing';
+      reason: 'price_on_request' | 'zero_total' | 'config_missing' | 'cod';
       code: string;
     }
   | {

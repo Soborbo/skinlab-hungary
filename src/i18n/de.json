@@ -31,8 +31,8 @@
       "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf alle unsere Produkte"
     },
     "slide4": {
-      "title": "ND:YAG- & Carbon-Laser",
-      "subtitle": "Premium-Gesichtsbehandlungen mit preisgekrönten Geräten und lokalem Service"
+      "title": "Tattooentfernung mit ND:YAG-Laser",
+      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Lasern – preisgekrönte Geräte und lokaler Service"
     },
     "slide5": {
       "title": "Unser neuer Frame YAG Laser ist da!",
@@ -675,6 +675,8 @@
   },
   "shipping": {
     "title": "Versand und Zahlung",
+    "intlTitle": "Versand & Übergabe",
+    "intlNote": "Die Details deiner Bestellung stimmen wir immer persönlich ab: Unser Mitarbeiter setzt sich mit dir in Verbindung, um die Lieferung oder persönliche Abholung sowie die Zahlungsart zu vereinbaren. So können wir auch bei hochwertigen, empfindlichen Geräten die sichere Übergabe garantieren.",
     "description": "Transparente Versandbedingungen und flexible Zahlungsmöglichkeiten für unsere professionellen Kosmetikgeräte.",
     "subtitle": "Zuverlässige, dokumentierte Lieferung und flexible Zahlungskonditionen - alles, was Sie bis zur Übergabe wissen müssen.",
     "professionalTitle": "Versand professioneller Geräte",
@@ -778,9 +780,27 @@
     "yourDetails": "Ihre Daten",
     "lastName": "Nachname",
     "firstName": "Vorname",
+    "shipping": {
+      "title": "Versandart",
+      "methodRequired": "Bitte wähle eine Versandart.",
+      "free": "Kostenlos",
+      "summaryLine": "Versand",
+      "recommended": "Empfohlen",
+      "highValueNote": "Die Lieferung deiner Bestellung stimmen wir individuell ab. Unser Mitarbeiter setzt sich mit dir in Verbindung, um die persönliche Abholung oder Lieferung sowie die Zahlungsart zu vereinbaren.",
+      "pickupCeremony": "Persönliche Abholung im Showroom",
+      "pickupCeremonyDesc": "Übergabe, Inbetriebnahme und Einweisung vor Ort – wir beantworten alle deine Fragen sofort. Das Gerät kannst du auch am Ende unserer Schulungen abholen.",
+      "arranged": "Lieferung nach Vereinbarung",
+      "arrangedDesc": "Aufgrund des Produktwerts vereinbaren wir die Lieferung persönlich – wir bringen es dir entweder vorbei oder versenden es sicher. Unser Mitarbeiter setzt sich wegen der Details mit dir in Verbindung."
+    },
     "email": {
       "subject": "Bestellbestätigung",
       "greeting": "Sehr geehrte/r {name},",
+      "shippingTitle": "Versand",
+      "freeShipping": "Kostenlos",
+      "shippingMethods": {
+        "personal_pickup": "Persönliche Abholung — Skinlab Showroom (Érd)",
+        "arranged": "Lieferung nach Vereinbarung"
+      },
       "intro": "Vielen Dank für Ihre Bestellung bei Skinlab Hungary! Nachstehend finden Sie die Zusammenfassung Ihrer Bestellung.",
       "orderNumber": "Bestellnummer",
       "itemsTitle": "Bestellte Produkte",
@@ -858,5 +878,21 @@
     "referenceNote": "Bitte geben Sie Ihre Bestellnummer als Verwendungszweck an.",
     "successIntro": "Auf Basis der Proforma-Rechnung können Sie den Bestellbetrag auf das untenstehende Bankkonto überweisen.",
     "emailIntro": "Den auf der Proforma-Rechnung ausgewiesenen Betrag können Sie auf das untenstehende Bankkonto überweisen."
+  },
+  "blogPost": {
+    "share": "Artikel teilen:",
+    "shareFacebook": "Auf Facebook teilen",
+    "shareTwitter": "Auf X teilen",
+    "shareLinkedin": "Auf LinkedIn teilen",
+    "related": "Ähnliche Artikel",
+    "back": "Zurück zum Blog"
+  },
+  "trainingDetail": {
+    "farBadge": "FAR-registrierte Schulung",
+    "apply": "Für diese Schulung anmelden",
+    "topics": "Schulungsthemen",
+    "requirements": "Teilnahmevoraussetzungen",
+    "back": "Zurück zu den Schulungen",
+    "signupHeading": "Jetzt anmelden: {name}"
   }
 }

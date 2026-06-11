@@ -31,8 +31,8 @@
       "subtitle": "Brezplačno usposabljanje, stalna tehnična podpora in 2-letna garancija na vse naše izdelke"
     },
     "slide4": {
-      "title": "ND:YAG in ogljikovi laserji",
-      "subtitle": "Premium obrazne nege z nagrajeno opremo in lokalnim servisom"
+      "title": "Odstranjevanje tetovaž z laserjem ND:YAG",
+      "subtitle": "Varno in učinkovito odstranjevanje tetovaž in pigmenta z Q-switched ND:YAG laserji – nagrajene naprave in lokalni servis"
     },
     "slide5": {
       "title": "Naš novi Frame YAG laser je prispel!",
@@ -677,6 +677,8 @@
     "title": "Dostava in plačilo",
     "description": "Pregledni dostavni pogoji in fleksibilne možnosti plačila za naše profesionalne kozmetične naprave.",
     "subtitle": "Zanesljiva, dokumentirana dostava in fleksibilni plačilni načrti - vse, kar morate vedeti do prevzema naprave.",
+    "intlTitle": "Dostava in predaja",
+    "intlNote": "Podrobnosti vašega naročila vedno dogovorimo osebno: naš sodelavec vas bo kontaktiral, da se dogovorimo o dostavi ali osebnem prevzemu in načinu plačila. Tako lahko zagotovimo varno predajo tudi visokovrednih, občutljivih naprav.",
     "professionalTitle": "Dostava profesionalnih naprav",
     "professionalDesc": "Večino naših naprav izdelujemo po naročilu v profesionalni kakovosti, zato se dostavni roki razlikujejo od običajnih skladiščnih izdelkov. Po potrditvi naročila spremljamo celoten proces izdelave, nadzora kakovosti in dostave ter vas obveščamo z jasno določenimi roki.",
     "deliveryTime": "Rok dostave",
@@ -775,6 +777,18 @@
     "empty": "Vaša košarica je prazna",
     "emptyDesc": "Pred naročilom dodajte izdelek v košarico.",
     "backToCart": "Nazaj v košarico",
+    "shipping": {
+      "title": "Način dostave",
+      "methodRequired": "Prosimo, izberite način dostave.",
+      "free": "Brezplačno",
+      "summaryLine": "Dostava",
+      "recommended": "Priporočeno",
+      "highValueNote": "Dostavo vašega naročila bomo uredili individualno. Naš sodelavec vas bo kontaktiral, da se dogovorimo o osebnem prevzemu ali dostavi in načinu plačila.",
+      "pickupCeremony": "Osebni prevzem v razstavnem salonu",
+      "pickupCeremonyDesc": "Predaja na lokaciji, namestitev in usposabljanje – na vsa vaša vprašanja odgovorimo takoj. Napravo lahko prevzamete tudi ob koncu naših izobraževanj.",
+      "arranged": "Dostava po dogovoru",
+      "arrangedDesc": "Glede na vrednost izdelka dostavo uredimo osebno – napravo vam bodisi pripeljemo bodisi varno odpošljemo. Naš sodelavec vas bo kontaktiral glede podrobnosti."
+    },
     "yourDetails": "Vaši podatki",
     "lastName": "Priimek",
     "firstName": "Ime",
@@ -787,6 +801,12 @@
       "qty": "kos",
       "priceOnRequest": "Cena na zahtevo",
       "total": "Skupni znesek",
+      "shippingTitle": "Dostava",
+      "freeShipping": "Brezplačno",
+      "shippingMethods": {
+        "personal_pickup": "Osebni prevzem — Skinlab razstavni salon (Érd)",
+        "arranged": "Dostava po dogovoru"
+      },
       "whatNextTitle": "Kako naprej?",
       "step1": "Predračun smo vam že poslali po e-pošti — na njem je naveden znesek za plačilo.",
       "step2": "Naš sodelavec vas bo kmalu poklical, da potrdimo podrobnosti in način prevzema naročila.",
@@ -858,5 +878,21 @@
     "referenceNote": "Prosimo, da v namen plačila vpišete številko svojega naročila.",
     "successIntro": "Na podlagi predračuna lahko znesek naročila nakažete na spodnji bančni račun.",
     "emailIntro": "Znesek, naveden na predračunu, lahko nakažete na spodnji bančni račun."
+  },
+  "blogPost": {
+    "share": "Deli članek:",
+    "shareFacebook": "Deli na Facebooku",
+    "shareTwitter": "Deli na X",
+    "shareLinkedin": "Deli na LinkedInu",
+    "related": "Sorodni članki",
+    "back": "Nazaj na blog"
+  },
+  "trainingDetail": {
+    "farBadge": "FAR-registrirano usposabljanje",
+    "apply": "Prijavi se na to usposabljanje",
+    "topics": "Teme usposabljanja",
+    "requirements": "Pogoji za udeležbo",
+    "back": "Nazaj na usposabljanja",
+    "signupHeading": "Prijavite se: {name}"
   }
 }

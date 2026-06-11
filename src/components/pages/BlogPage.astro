@@ -12,9 +12,12 @@ const blogUrlPrefix = locale === 'hu' ? '/blog' : `/${locale}/blog`;
 // Localized privacy link
 const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
-);
+// Only this locale's posts: hu canonical (no prefix) or `{locale}/…` translations.
+const posts = (await getCollection('blog'))
+  .filter((post) =>
+    locale === 'hu' ? !post.id.includes('/') : post.id.startsWith(`${locale}/`)
+  )
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 ---
 
 <BaseLayout
@@ -53,7 +56,7 @@ const posts = (await getCollection('blog')).sort(
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <article class="group">
-                <a href={`${blogUrlPrefix}/${post.id}`} class="block">
+                <a href={`${blogUrlPrefix}/${post.id.split('/').pop()}`} class="block">
                   <!-- Image placeholder -->
                   <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
                     {post.data.image ? (

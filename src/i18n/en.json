@@ -31,8 +31,8 @@
       "subtitle": "Free training, continuous technical support and 2-year warranty on all our products"
     },
     "slide4": {
-      "title": "ND:YAG & Carbon Lasers",
-      "subtitle": "Premium facial treatments with award-winning devices and local service"
+      "title": "Tattoo Removal with ND:YAG Lasers",
+      "subtitle": "Safe, effective tattoo and pigment removal with Q-switched ND:YAG lasers – award-winning devices and local service"
     },
     "slide5": {
       "title": "Our new Frame YAG laser has arrived!",
@@ -677,6 +677,8 @@
     "title": "Shipping & payment",
     "description": "Transparent shipping terms and flexible payment options for our professional beauty equipment.",
     "subtitle": "Reliable, documented delivery and flexible payment plans - everything you need to know until the machine arrives.",
+    "intlTitle": "Shipping & handover",
+    "intlNote": "We always arrange the details of your order personally: our colleague will contact you to agree on delivery or personal pickup and the payment method. This way we can guarantee the safe handover of high-value, delicate devices too.",
     "professionalTitle": "Shipping of professional equipment",
     "professionalDesc": "Most of our machines are built to order in professional quality, so delivery times differ from standard stock products. After order confirmation, we track the full manufacturing, quality check and shipping process and keep you informed with clear deadlines.",
     "deliveryTime": "Delivery time",
@@ -778,9 +780,27 @@
     "yourDetails": "Your details",
     "lastName": "Last name",
     "firstName": "First name",
+    "shipping": {
+      "title": "Shipping method",
+      "methodRequired": "Please choose a shipping method.",
+      "free": "Free",
+      "summaryLine": "Shipping",
+      "recommended": "Recommended",
+      "highValueNote": "We'll arrange your order's delivery individually. Our colleague will contact you to agree on personal pickup or delivery and the payment method.",
+      "pickupCeremony": "Personal pickup at the showroom",
+      "pickupCeremonyDesc": "On-site handover, setup and training — we answer all your questions right away. You can also collect the device at the end of our trainings.",
+      "arranged": "Delivery by arrangement",
+      "arrangedDesc": "Given the value of the product, we arrange delivery personally — we either bring it to you or ship it safely. Our colleague will contact you about the details."
+    },
     "email": {
       "subject": "Order confirmation",
       "greeting": "Dear {name},",
+      "shippingTitle": "Shipping",
+      "freeShipping": "Free",
+      "shippingMethods": {
+        "personal_pickup": "Personal pickup — Skinlab Showroom (Érd)",
+        "arranged": "Delivery by arrangement"
+      },
       "intro": "Thank you for your order at Skinlab Hungary! Below is a summary of your order.",
       "orderNumber": "Order number",
       "itemsTitle": "Ordered products",
@@ -822,8 +842,8 @@
     "howItWorks": "What happens next?",
     "step1Title": "We call you back",
     "step1Desc": "Our colleague will discuss the order details and delivery with you.",
-    "step2Title": "We send the payment link",
-    "step2Desc": "After the consultation, you'll receive the payment link by email.",
+    "step2Title": "We send the proforma invoice",
+    "step2Desc": "After the consultation, you'll receive the proforma invoice by email.",
     "step3Title": "We deliver the device",
     "step3Desc": "Once payment arrives, the order goes into production and shipping.",
     "trustNoPayment": "No payment needed now",
@@ -864,5 +884,21 @@
     "referenceNote": "Please include your order number as the payment reference.",
     "successIntro": "Based on the proforma invoice, you can transfer the order amount to the bank account below.",
     "emailIntro": "You can transfer the amount shown on the proforma invoice to the bank account below."
+  },
+  "blogPost": {
+    "share": "Share this article:",
+    "shareFacebook": "Share on Facebook",
+    "shareTwitter": "Share on X",
+    "shareLinkedin": "Share on LinkedIn",
+    "related": "Related articles",
+    "back": "Back to the blog"
+  },
+  "trainingDetail": {
+    "farBadge": "FAR-registered training",
+    "apply": "Apply for this training",
+    "topics": "Training topics",
+    "requirements": "Requirements",
+    "back": "Back to trainings",
+    "signupHeading": "Apply: {name}"
   }
 }

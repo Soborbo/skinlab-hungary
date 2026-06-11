@@ -15,7 +15,10 @@ const kepzesTanusitvany = '@assets/kozmetikai-kepzes-far-tanusitvany.jpg';
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-const trainings = await getCollection('trainings');
+// Only this locale's trainings: hu canonical (no prefix) or `{locale}/…` translations.
+const trainings = (await getCollection('trainings')).filter((training) =>
+  locale === 'hu' ? !training.id.includes('/') : training.id.startsWith(`${locale}/`)
+);
 
 // Localized training detail URL prefix
 const trainingUrlPrefix = locale === 'hu' ? '/kepzesek' : `/${locale}/kepzesek`;
@@ -324,7 +327,7 @@ const pillarIcons: Record<string, string> = {
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {trainings.map((training) => {
-            const detailUrl = `${trainingUrlPrefix}/${training.id}`;
+            const detailUrl = `${trainingUrlPrefix}/${training.id.split('/').pop()}`;
             return (
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all group flex flex-col">
               <!-- Training photo -->

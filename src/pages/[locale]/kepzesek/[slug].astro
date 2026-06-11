@@ -1,0 +1,22 @@
+---
+import TrainingDetailLayout from '../../../components/pages/TrainingDetailLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const trainings = await getCollection('trainings');
+  // Localized translations only — ids shaped `{locale}/{slug}`.
+  return trainings
+    .filter((training) => training.id.includes('/'))
+    .map((training) => {
+      const [locale, ...rest] = training.id.split('/');
+      return {
+        params: { locale, slug: rest.join('/') },
+        props: { training },
+      };
+    });
+}
+
+const { training } = Astro.props;
+---
+
+<TrainingDetailLayout training={training} />

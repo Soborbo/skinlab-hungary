@@ -17,7 +17,7 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
             Általános Szerződési Feltételek
           </h1>
           <p class="text-lg text-gray-600">
-            Hatályos: 2024. szeptember 1-től
+            Hatályos: 2026. június 11-től
           </p>
         </div>
       </div>
@@ -51,6 +51,12 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
             <strong>Weboldal:</strong> <a href={SITE.url} class="text-primary-600 hover:underline">{SITE.url}</a><br />
             <strong>Facebook oldal:</strong> <a href={SOCIAL.facebook.url} target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">{SOCIAL.facebook.url}</a><br />
             <strong>Felügyeleti szerv:</strong> Budapest Főváros Kormányhivatala
+          </p>
+          <p>
+            <strong>Tárhelyszolgáltató:</strong> Cloudflare, Inc.<br />
+            <strong>Székhely:</strong> 101 Townsend Street, San Francisco, CA 94107, Amerikai Egyesült Államok<br />
+            <strong>E-mail:</strong> support@cloudflare.com<br />
+            <strong>Weboldal:</strong> <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://www.cloudflare.com</a>
           </p>
 
           <h2>3. A szerződés létrejötte</h2>
@@ -86,13 +92,21 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
 
           <h2>5. Szállítási feltételek</h2>
           <p>
-            5.1. A termékek kiszállítása futárszolgálattal (pl. GLS, Foxpost) történik.
+            5.1. <strong>500 000 Ft alatti termékek:</strong> az 500 000 Ft alatti termékek (kellékek, kezelőanyagok és kisebb készülékek) esetén a Vásárló a megrendeléskor az alábbi szállítási módok közül választhat:
+          </p>
+          <ul>
+            <li>Foxpost csomagautomatás átvétel – 1 490 Ft (az átvevő automatát a Vásárló a megrendeléskor választja ki);</li>
+            <li>MPL (Magyar Posta) házhozszállítás, következő munkanapos kézbesítés (MPL Üzleti csomag) – 3 490 Ft;</li>
+            <li>Személyes átvétel a showroomban ({LOCATIONS.showroom.fullAddress}) – díjmentes, előzetes időpont-egyeztetéssel.</li>
+          </ul>
+          <p>
+            5.2. <strong>Nagy értékű készülékek (500 000 Ft feletti termékek):</strong> a nagy értékű, érzékeny készülékeknél nem áll rendelkezésre automatikus futáros szállítás. Ezek átvétele személyesen, a showroomban történik (ahol a beüzemelést és a betanítást is elvégezzük), vagy – a termék értékére és törékenységére tekintettel – előzetesen, személyesen egyeztetett kiszállítással. A pontos átadás módját minden esetben a megrendelés visszaigazolásakor egyeztetjük.
           </p>
           <p>
-            5.2. A szállítási költség a rendelés leadásakor kerül feltüntetésre.
+            5.3. <strong>Szállítási határidő:</strong> a raktáron lévő kellékek és kezelőanyagok jellemzően 1–4 munkanap alatt érkeznek meg. A rendelésre beszerzett, professzionális készülékek esetében a beszerzési (beérkezési) idő általában 15–25 munkanap; egyedi konfiguráció esetén ez hosszabb lehet. A várható határidőről a Vásárló a visszaigazoláskor írásban tájékoztatást kap.
           </p>
           <p>
-            5.3. Szállítási határidő: általában 3–10 munkanap, készlethiány esetén a Vásárló külön értesítést kap.
+            5.4. A szállítási mód és a fizetendő szállítási költség a megrendelés véglegesítése (a fizetési kötelezettséget keletkeztető megrendelés leadása) előtt, a pénztárban egyértelműen feltüntetésre kerül.
           </p>
 
           <h2>6. Elállási jog</h2>
@@ -110,6 +124,9 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
           </p>
           <p>
             6.5. A Szolgáltató az elállás bejelentésétől számított 14 napon belül visszautalja a vételárat.
+          </p>
+          <p>
+            6.6. Az elállási jog gyakorlásához a Vásárló az alábbi nyilatkozatmintát is használhatja: <a href="/elallasi-nyilatkozatminta.html" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">Elállási nyilatkozatminta (letölthető, nyomtatható)</a>.
           </p>
 
           <h2>7. Szavatosság és jótállás</h2>
@@ -150,7 +167,7 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
             9.1. Vásárlói panaszát e-mailben ({CONTACT.email}) vagy telefonon ({CONTACT.phoneDisplay}) teheti meg.
           </p>
           <p>
-            9.2. Amennyiben panaszát elutasítjuk, fordulhat a lakóhelye szerinti Békéltető Testülethez.
+            9.2. Amennyiben panaszát elutasítjuk, fordulhat a lakóhelye szerint illetékes Békéltető Testülethez. A Szolgáltató székhelye szerint illetékes békéltető testület a <strong>Pest Vármegyei Békéltető Testület</strong> (cím és levelezési cím: 1055 Budapest, Balassi Bálint u. 25. IV/2.; e-mail: <a href="mailto:pmbekelteto@pmkik.hu" class="text-primary-600 hover:underline">pmbekelteto@pmkik.hu</a>; telefon: +36 1 792 7881; web: <a href="https://panaszrendezes.hu" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">panaszrendezes.hu</a>).
           </p>
           <p>
             9.3. Online vitarendezés: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://ec.europa.eu/consumers/odr</a>
@@ -180,7 +197,7 @@ import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../lib/constants';
           </p>
 
           <p class="text-sm text-gray-500 mt-8">
-            Utolsó módosítás: 2024. szeptember 1.
+            Utolsó módosítás: 2026. június 11.
           </p>
 
         </div>

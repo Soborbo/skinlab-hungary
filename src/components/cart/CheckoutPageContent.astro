@@ -63,7 +63,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             </svg>
             <div>
               <p class="font-semibold text-success-700">{t(locale, 'checkout.trustNoPayment')}</p>
-              <p class="text-sm text-success-700/80 mt-0.5">{t(locale, 'checkout.noPaymentNote')}</p>
+              <p class="text-sm text-success-700/80 mt-0.5" data-intro-note>{t(locale, 'checkout.noPaymentNote')}</p>
             </div>
           </div>
           <!-- Hogyan tovább -->
@@ -72,8 +72,8 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
               <div class="flex gap-3">
                 <span class="w-7 h-7 rounded-full bg-success-600 text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
                 <div>
-                  <p class="text-sm font-semibold text-gray-900 leading-tight">{t(locale, `checkout.step${n}Title`)}</p>
-                  <p class="text-xs text-gray-600 mt-0.5">{t(locale, `checkout.step${n}Desc`)}</p>
+                  <p class="text-sm font-semibold text-gray-900 leading-tight" data-step-title={n}>{t(locale, `checkout.step${n}Title`)}</p>
+                  <p class="text-xs text-gray-600 mt-0.5" data-step-desc={n}>{t(locale, `checkout.step${n}Desc`)}</p>
                 </div>
               </div>
             ))}
@@ -174,6 +174,103 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             <p class="mt-1 text-sm text-red-600 hidden" data-error="street"></p>
           </div>
 
+          <!-- Szállítási mód (a kliens dönti el, melyik ág látszik a kosár alapján) -->
+          <div class="pt-2" data-shipping-section>
+            <h2 class="text-lg font-bold text-gray-900 mb-3">{t(locale, 'checkout.shipping.title')}</h2>
+
+            <!-- Kellék ág: futár választható (minden tétel < 500 000 Ft) -->
+            <div class="space-y-2.5" data-shipping-parcel hidden>
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
+                <input type="radio" name="shippingMethod" value="personal_pickup" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <span class="flex-1 min-w-0">
+                  <span class="flex items-center justify-between gap-2">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.pickup')}</span>
+                    <span class="text-sm font-bold text-success-700 whitespace-nowrap">{t(locale, 'checkout.shipping.free')}</span>
+                  </span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.pickupDesc')}</span>
+                </span>
+              </label>
+
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
+                <input type="radio" name="shippingMethod" value="foxpost" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <span class="flex-1 min-w-0">
+                  <span class="flex items-center justify-between gap-2">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.foxpost')}</span>
+                    <span class="text-sm font-bold text-gray-900 whitespace-nowrap">1 490 Ft</span>
+                  </span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.foxpostDesc')}</span>
+                  <span class="block mt-2.5 hidden" data-foxpost-picker>
+                    <button type="button" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#ce2252] text-[#ce2252] text-sm font-semibold hover:bg-[#ce2252]/5 transition-colors" data-foxpost-open>
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                      <span data-foxpost-btn-label>{t(locale, 'checkout.shipping.foxpostChoose')}</span>
+                    </button>
+                    <span class="block mt-2 text-sm text-gray-800 hidden" data-foxpost-selected></span>
+                    <span class="block mt-1 text-sm text-red-600 hidden" data-error="foxpostPoint"></span>
+                  </span>
+                </span>
+              </label>
+
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
+                <input type="radio" name="shippingMethod" value="mpl" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <span class="flex-1 min-w-0">
+                  <span class="flex items-center justify-between gap-2">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.mpl')}</span>
+                    <span class="text-sm font-bold text-gray-900 whitespace-nowrap">3 490 Ft</span>
+                  </span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.mplDesc')}</span>
+                </span>
+              </label>
+            </div>
+
+            <!-- Nagy értékű ág: nincs automatizált futár (bármely tétel >= 500 000 Ft) -->
+            <div class="space-y-2.5" data-shipping-highvalue hidden>
+              <p class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-sm text-amber-900">{t(locale, 'checkout.shipping.highValueNote')}</p>
+
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
+                <input type="radio" name="shippingMethod" value="personal_pickup" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <span class="flex-1 min-w-0">
+                  <span class="flex items-center gap-2 flex-wrap">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.pickupCeremony')}</span>
+                    <span class="px-2 py-0.5 bg-success-100 text-success-700 text-xs font-medium rounded-full">{t(locale, 'checkout.shipping.recommended')}</span>
+                  </span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.pickupCeremonyDesc')}</span>
+                </span>
+              </label>
+
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
+                <input type="radio" name="shippingMethod" value="arranged" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <span class="flex-1 min-w-0">
+                  <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.arranged')}</span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.arrangedDesc')}</span>
+                </span>
+              </label>
+            </div>
+
+            <p class="mt-1.5 text-sm text-red-600 hidden" data-error="shippingMethod"></p>
+
+            <!-- Fizetési mód (csak a kellék-ág / parcel tier; a kliens mutatja) -->
+            <div class="mt-5 hidden" data-payment-section>
+              <h3 class="text-base font-bold text-gray-900 mb-3">{t(locale, 'checkout.payment.title')}</h3>
+              <div class="space-y-2.5">
+                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-pay-option>
+                  <input type="radio" name="paymentMethod" value="transfer" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-pay-radio />
+                  <span class="flex-1 min-w-0">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.payment.transfer')}</span>
+                    <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.payment.transferDesc')}</span>
+                  </span>
+                </label>
+                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-pay-option>
+                  <input type="radio" name="paymentMethod" value="cod" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-pay-radio />
+                  <span class="flex-1 min-w-0">
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.payment.cod')}</span>
+                    <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.payment.codDesc')}</span>
+                  </span>
+                </label>
+              </div>
+              <p class="mt-1.5 text-sm text-red-600 hidden" data-error="paymentMethod"></p>
+            </div>
+          </div>
+
           <!-- Megjegyzés -->
           <div>
             <label class={labelClass} for="order-notes">
@@ -233,7 +330,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
               </span>
               <span class="inline-flex items-center gap-1">
                 <svg class="w-3.5 h-3.5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                {t(locale, 'checkout.trustCallback')}
+                <span data-trust-callback>{t(locale, 'checkout.trustCallback')}</span>
               </span>
             </div>
             <!-- Általános hibaüzenet -->
@@ -249,6 +346,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
           <a href={cartUrl} class="text-sm text-[#ce2252] hover:underline font-medium">{t(locale, 'checkout.edit')}</a>
         </div>
         <div class="space-y-3 mb-4" data-summary-items></div>
+        <div class="flex items-center justify-between text-sm mb-3 hidden" data-summary-shipping-row>
+          <span class="text-gray-600">{t(locale, 'checkout.shipping.summaryLine')}</span>
+          <span class="font-semibold text-gray-900 whitespace-nowrap" data-summary-shipping></span>
+        </div>
         <div class="border-t border-gray-100 pt-3 flex items-center justify-between">
           <span class="text-base font-bold text-gray-900">{t(locale, 'cart.total')}</span>
           <span class="text-xl font-bold text-gray-900" data-summary-total>0</span>
@@ -258,6 +359,22 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     </div>
   </div>
 </section>
+
+<!-- Foxpost automata-választó modál (a Foxpost térkép-widget iframe-ben) -->
+<div class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-3 sm:p-4" data-foxpost-modal>
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[92vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between px-5 py-3.5 border-b border-gray-100">
+      <h3 class="font-bold text-gray-900">{t(locale, 'checkout.shipping.foxpostModalTitle')}</h3>
+      <button type="button" class="p-2 -mr-2 text-gray-400 hover:text-gray-700 transition-colors" data-foxpost-close aria-label="Bezárás">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="relative flex-1 min-h-[60vh] bg-gray-50">
+      <iframe data-foxpost-iframe title="Foxpost automata kereső" class="absolute inset-0 w-full h-full border-0"></iframe>
+    </div>
+    <p class="px-5 py-2.5 text-xs text-gray-500 border-t border-gray-100">{t(locale, 'checkout.shipping.foxpostLoadHint')}</p>
+  </div>
+</div>
 
 <!-- Azonnali állapot: form vs. üres kosár (blokkoló, a DOM után) -->
 <script is:inline>
@@ -300,6 +417,19 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     postcodeUnknown: t(locale, 'checkout.postcodeUnknown'),
     postcodeMultiple: t(locale, 'checkout.postcodeMultiple'),
     countySuffix: t(locale, 'checkout.countySuffix'),
+    shipFree: t(locale, 'checkout.shipping.free'),
+    shipMethodRequired: t(locale, 'checkout.shipping.methodRequired'),
+    foxpostRequired: t(locale, 'checkout.shipping.foxpostRequired'),
+    foxpostChoose: t(locale, 'checkout.shipping.foxpostChoose'),
+    foxpostChange: t(locale, 'checkout.shipping.foxpostChange'),
+    foxpostSelectedPrefix: t(locale, 'checkout.email.foxpostPointLabel'),
+    payMethodRequired: t(locale, 'checkout.payment.required'),
+    parcelNoPaymentNote: t(locale, 'checkout.parcelNoPaymentNote'),
+    parcelTrustShipping: t(locale, 'checkout.parcelTrustShipping'),
+    parcelSteps: [1, 2, 3].map((n) => ({
+      title: t(locale, `checkout.parcelStep${n}Title`),
+      desc: t(locale, `checkout.parcelStep${n}Desc`),
+    })),
     hasTurnstile: !!turnstileSiteKey,
   })}
 ></script>
@@ -307,6 +437,13 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 <script>
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
   import { trackPurchaseSubmit, waitForTracking, type EcommerceItem } from '@/lib/tracking';
+  import {
+    shippingFeeFor,
+    FOXPOST_WIDGET_URL,
+    FOXPOST_WIDGET_ORIGINS,
+    type ShippingMethodId,
+    type FoxpostPoint,
+  } from '@/lib/shipping/methods';
 
   // Turnstile globális callbackek
   declare global {
@@ -340,6 +477,174 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     const locale: string = i18n.locale || 'hu';
 
     if (startTimeInput) startTimeInput.value = String(Date.now());
+
+    // --- Szállítási mód kezelése --------------------------------------------
+    // A kosár "ágát" (futár vs. nagy értékű) a store `shippable` flagje dönti
+    // el; a megfelelő ágat mutatjuk, a másikat letiltjuk. A díjat és a Foxpost
+    // automatát a payload viszi; a szerver mindent újraszámol/ellenőriz.
+    let selectedFoxpostPoint: FoxpostPoint | null = null;
+    const shipParcel = form.querySelector<HTMLElement>('[data-shipping-parcel]');
+    const shipHighValue = form.querySelector<HTMLElement>('[data-shipping-highvalue]');
+    const foxpostPicker = form.querySelector<HTMLElement>('[data-foxpost-picker]');
+    const foxpostSelectedEl = form.querySelector<HTMLElement>('[data-foxpost-selected]');
+    const foxpostBtnLabel = form.querySelector<HTMLElement>('[data-foxpost-btn-label]');
+    const summaryShipRow = document.querySelector<HTMLElement>('[data-summary-shipping-row]');
+    const summaryShipAmount = document.querySelector<HTMLElement>('[data-summary-shipping]');
+    const foxpostModal = document.querySelector<HTMLElement>('[data-foxpost-modal]');
+    const foxpostIframe = document.querySelector<HTMLIFrameElement>('[data-foxpost-iframe]');
+
+    const getSelectedMethod = (): ShippingMethodId | '' =>
+      (form!.querySelector<HTMLInputElement>('input[name="shippingMethod"]:checked:not(:disabled)')
+        ?.value as ShippingMethodId) || '';
+
+    const paymentSection = form.querySelector<HTMLElement>('[data-payment-section]');
+    const getSelectedPayment = (): string =>
+      form!.querySelector<HTMLInputElement>('input[name="paymentMethod"]:checked:not(:disabled)')?.value ||
+      'transfer';
+
+    // Kellék-ágon (parcel tier) lecseréljük a "visszahívós" intro szöveget az
+    // önkiszolgáló (díjbekérő/utánvét) változatra.
+    function applyParcelIntro() {
+      const steps = (i18n.parcelSteps || []) as Array<{ title: string; desc: string }>;
+      steps.forEach((s, idx) => {
+        const tEl = document.querySelector<HTMLElement>(`[data-step-title="${idx + 1}"]`);
+        const dEl = document.querySelector<HTMLElement>(`[data-step-desc="${idx + 1}"]`);
+        if (tEl && s.title) tEl.textContent = s.title;
+        if (dEl && s.desc) dEl.textContent = s.desc;
+      });
+      const note = document.querySelector<HTMLElement>('[data-intro-note]');
+      if (note && i18n.parcelNoPaymentNote) note.textContent = i18n.parcelNoPaymentNote;
+      const trust = document.querySelector<HTMLElement>('[data-trust-callback]');
+      if (trust && i18n.parcelTrustShipping) trust.textContent = i18n.parcelTrustShipping;
+    }
+
+    function currentShippingFee(): number {
+      const s = getCartSummary();
+      if (!s.shippable) return 0;
+      const m = getSelectedMethod();
+      return m ? shippingFeeFor(m as ShippingMethodId) : 0;
+    }
+
+    function styleOptionGroup(optionSel: string, inputName: string) {
+      form!.querySelectorAll<HTMLElement>(optionSel).forEach((label) => {
+        const input = label.querySelector<HTMLInputElement>(`input[name="${inputName}"]`);
+        const on = !!input && input.checked && !input.disabled;
+        label.classList.toggle('border-[#ce2252]', on);
+        label.classList.toggle('bg-[#ce2252]/5', on);
+        label.classList.toggle('border-gray-200', !on);
+      });
+    }
+    function refreshShipOptionStyles() {
+      styleOptionGroup('[data-ship-option]', 'shippingMethod');
+      styleOptionGroup('[data-pay-option]', 'paymentMethod');
+    }
+
+    function onMethodChange() {
+      const m = getSelectedMethod();
+      if (foxpostPicker) foxpostPicker.classList.toggle('hidden', m !== 'foxpost');
+      refreshShipOptionStyles();
+      if (m !== 'foxpost') form!.querySelector('[data-error="foxpostPoint"]')?.classList.add('hidden');
+      form!.querySelector('[data-error="shippingMethod"]')?.classList.add('hidden');
+      renderSummary();
+    }
+
+    function openFoxpostModal() {
+      if (foxpostIframe && !foxpostIframe.src) foxpostIframe.src = FOXPOST_WIDGET_URL;
+      foxpostModal?.classList.remove('hidden');
+      foxpostModal?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeFoxpostModal() {
+      foxpostModal?.classList.add('hidden');
+      foxpostModal?.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function onFoxpostMessage(event: MessageEvent) {
+      if (!FOXPOST_WIDGET_ORIGINS.some((o) => event.origin === o)) return;
+      let apt: Record<string, unknown> | null = null;
+      try {
+        apt = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+      } catch {
+        return;
+      }
+      if (!apt || typeof apt !== 'object') return;
+      const id = apt.place_id || apt.operator_id || apt.findme || apt.id;
+      const name = apt.name || apt.findme;
+      if (!id && !name) return; // nem automataválasztó üzenet
+      selectedFoxpostPoint = {
+        id: String(id || ''),
+        name: String(name || ''),
+        zip: String(apt.zip || apt.zipCode || apt.postcode || ''),
+        city: String(apt.city || ''),
+        address: String(apt.address || apt.street || ''),
+      };
+      if (foxpostSelectedEl) {
+        const p = selectedFoxpostPoint;
+        foxpostSelectedEl.textContent =
+          `✓ ${i18n.foxpostSelectedPrefix || ''}: ${p.name} – ${p.zip} ${p.city}, ${p.address}`;
+        foxpostSelectedEl.classList.remove('hidden');
+      }
+      if (foxpostBtnLabel && i18n.foxpostChange) foxpostBtnLabel.textContent = i18n.foxpostChange;
+      form!.querySelector('[data-error="foxpostPoint"]')?.classList.add('hidden');
+      closeFoxpostModal();
+      renderSummary();
+    }
+
+    function initShipping() {
+      const s = getCartSummary();
+      // Kellék-ág (Foxpost/MPL) CSAK magyar nyelven; minden más nyelven egyeztetett szállítás.
+      const parcelEligible = s.shippable && locale === 'hu';
+      const active = parcelEligible ? shipParcel : shipHighValue;
+      const inactive = parcelEligible ? shipHighValue : shipParcel;
+      if (active) active.hidden = false;
+      if (inactive) {
+        inactive.hidden = true;
+        inactive.querySelectorAll<HTMLInputElement>('input').forEach((i) => {
+          i.disabled = true;
+          i.checked = false;
+        });
+      }
+      // Alapértelmezett: személyes átvétel (ingyenes, nincs extra lépés, on-brand)
+      const def = active?.querySelector<HTMLInputElement>('input[value="personal_pickup"]');
+      if (def) def.checked = true;
+
+      // Fizetési mód: csak a kellék-ágon választható (utánvét / előreutalás).
+      if (paymentSection) {
+        if (parcelEligible) {
+          paymentSection.classList.remove('hidden');
+          const payDef = paymentSection.querySelector<HTMLInputElement>('input[value="transfer"]');
+          if (payDef) payDef.checked = true;
+          paymentSection
+            .querySelectorAll<HTMLInputElement>('input[name="paymentMethod"]')
+            .forEach((r) => r.addEventListener('change', refreshShipOptionStyles));
+        } else {
+          paymentSection.classList.add('hidden');
+          paymentSection.querySelectorAll<HTMLInputElement>('input').forEach((r) => {
+            r.disabled = true;
+            r.checked = false;
+          });
+        }
+      }
+
+      // Kellék-ágon nincs visszahívás → az intro szövegét lecseréljük.
+      if (parcelEligible) applyParcelIntro();
+
+      form!
+        .querySelectorAll<HTMLInputElement>('input[name="shippingMethod"]')
+        .forEach((r) => r.addEventListener('change', onMethodChange));
+      form!.querySelector<HTMLButtonElement>('[data-foxpost-open]')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openFoxpostModal();
+      });
+      foxpostModal?.querySelector('[data-foxpost-close]')?.addEventListener('click', closeFoxpostModal);
+      foxpostModal?.addEventListener('click', (e) => {
+        if (e.target === foxpostModal) closeFoxpostModal();
+      });
+      window.addEventListener('message', onFoxpostMessage);
+      onMethodChange();
+    }
 
     // Turnstile token resolver: prefer the JS callback value, but fall back to
     // the hidden input Turnstile injects into the widget. Closes a race where
@@ -504,11 +809,21 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
           })
           .join('');
       }
+      const fee = currentShippingFee();
       if (summaryTotal) {
         summaryTotal.textContent =
           summary.subtotal > 0
-            ? formatPrice(summary.subtotal, locale) + (summary.hasPriceOnRequest ? ' +' : '')
+            ? formatPrice(summary.subtotal + fee, locale) + (summary.hasPriceOnRequest ? ' +' : '')
             : (i18n.priceOnRequest || '');
+      }
+      // Szállítási sor: csak a kellék-ágon (futár), kiválasztott móddal
+      if (summaryShipRow && summaryShipAmount) {
+        if (summary.shippable && getSelectedMethod()) {
+          summaryShipAmount.textContent = fee > 0 ? formatPrice(fee, locale) : (i18n.shipFree || '');
+          summaryShipRow.classList.remove('hidden');
+        } else {
+          summaryShipRow.classList.add('hidden');
+        }
       }
     }
 
@@ -578,6 +893,16 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         showFieldError('turnstile', i18n.validationError || '');
         hasError = true;
       }
+      // Szállítási mód ellenőrzése
+      const shipMethod = getSelectedMethod();
+      if (!shipMethod) {
+        showFieldError('shippingMethod', i18n.shipMethodRequired || i18n.requiredError || '');
+        hasError = true;
+      }
+      if (shipMethod === 'foxpost' && !selectedFoxpostPoint) {
+        showFieldError('foxpostPoint', i18n.foxpostRequired || '');
+        hasError = true;
+      }
       if (hasError) {
         form!.querySelector('.border-red-400')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -612,6 +937,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         })),
         subtotal: summary.subtotal,
         hasPriceOnRequest: summary.hasPriceOnRequest,
+        shippingMethod: shipMethod || 'personal_pickup',
+        shippingFee: currentShippingFee(),
+        foxpostPoint: shipMethod === 'foxpost' ? selectedFoxpostPoint : null,
+        paymentMethod: getSelectedPayment(),
         formStartTime: Number(startTimeInput?.value || Date.now()),
         website: '',
         turnstileToken: readTurnstileToken(),
@@ -711,6 +1040,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     });
 
     window.addEventListener(CART_EVENTS.updated, renderSummary);
+    initShipping();
     renderSummary();
   }
 

@@ -31,8 +31,8 @@
       "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru toate produsele noastre"
     },
     "slide4": {
-      "title": "Lasere ND:YAG și carbon",
-      "subtitle": "Tratamente faciale premium cu dispozitive premiate și service local"
+      "title": "Îndepărtarea tatuajelor cu laser ND:YAG",
+      "subtitle": "Îndepărtare sigură și eficientă a tatuajelor și a pigmentului cu lasere ND:YAG Q-switched – dispozitive premiate și service local"
     },
     "slide5": {
       "title": "Noul nostru laser Frame YAG a sosit!",
@@ -677,6 +677,8 @@
     "title": "Livrare și plată",
     "description": "Condiții transparente de livrare și opțiuni flexibile de plată pentru echipamentele noastre cosmetice profesionale.",
     "subtitle": "Livrare sigură, documentată și planuri flexibile de plată - tot ce trebuie să știți până la primirea aparatului.",
+    "intlTitle": "Livrare și predare",
+    "intlNote": "Detaliile comenzii dumneavoastră le stabilim întotdeauna personal: colegul nostru vă va contacta pentru a conveni asupra livrării sau a ridicării personale și a modalității de plată. Astfel putem garanta predarea în siguranță și a aparatelor delicate, de valoare ridicată.",
     "professionalTitle": "Livrarea echipamentelor profesionale",
     "professionalDesc": "Majoritatea aparatelor noastre se produc la comandă, în calitate profesională, de aceea termenele de livrare diferă de produsele standard din stoc. După confirmarea comenzii urmărim întregul proces de producție, control al calității și livrare și vă comunicăm termene clare.",
     "deliveryTime": "Timp de livrare",
@@ -778,6 +780,18 @@
     "yourDetails": "Datele dvs.",
     "lastName": "Nume de familie",
     "firstName": "Prenume",
+    "shipping": {
+      "title": "Metodă de livrare",
+      "methodRequired": "Vă rugăm să alegeți o metodă de livrare.",
+      "free": "Gratuit",
+      "summaryLine": "Livrare",
+      "recommended": "Recomandat",
+      "highValueNote": "Vom organiza livrarea comenzii dvs. în mod individual. Colegul nostru vă va contacta pentru a conveni asupra ridicării personale sau a livrării și a modalității de plată.",
+      "pickupCeremony": "Ridicare personală la showroom",
+      "pickupCeremonyDesc": "Predare, instalare și instruire la fața locului - răspundem imediat la toate întrebările dvs. Puteți ridica aparatul și la finalul cursurilor noastre.",
+      "arranged": "Livrare prin înțelegere",
+      "arrangedDesc": "Având în vedere valoarea produsului, organizăm livrarea personal - fie vi-l aducem, fie îl expediem în siguranță. Colegul nostru vă va contacta în privința detaliilor."
+    },
     "email": {
       "subject": "Confirmarea comenzii",
       "greeting": "Stimate/ă {name},",
@@ -787,6 +801,12 @@
       "qty": "buc",
       "priceOnRequest": "Preț la cerere",
       "total": "Total",
+      "shippingTitle": "Livrare",
+      "freeShipping": "Gratuit",
+      "shippingMethods": {
+        "personal_pickup": "Ridicare personală — Skinlab Showroom (Érd)",
+        "arranged": "Livrare prin înțelegere"
+      },
       "whatNextTitle": "Ce urmează?",
       "step1": "V-am trimis deja factura proforma pe e-mail — pe ea este trecută suma de plată.",
       "step2": "Colegul nostru vă va suna în curând pentru a confirma detaliile și modul în care doriți să primiți comanda.",
@@ -858,5 +878,21 @@
     "referenceNote": "Vă rugăm să indicați numărul comenzii la detaliile plății.",
     "successIntro": "Pe baza facturii proforma, puteți transfera suma comenzii în contul bancar de mai jos.",
     "emailIntro": "Suma indicată pe factura proforma o puteți transfera în contul bancar de mai jos."
+  },
+  "blogPost": {
+    "share": "Distribuie articolul:",
+    "shareFacebook": "Distribuie pe Facebook",
+    "shareTwitter": "Distribuie pe X",
+    "shareLinkedin": "Distribuie pe LinkedIn",
+    "related": "Articole similare",
+    "back": "Înapoi la blog"
+  },
+  "trainingDetail": {
+    "farBadge": "Curs înregistrat FAR",
+    "apply": "Mă înscriu la acest curs",
+    "topics": "Tematica cursului",
+    "requirements": "Condiții de participare",
+    "back": "Înapoi la cursuri",
+    "signupHeading": "Înscrie-te: {name}"
   }
 }

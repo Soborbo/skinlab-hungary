@@ -95,9 +95,9 @@ async function getGoogleAccessToken(env: OrderEnv): Promise<string> {
 const ORDER_SHEET_NAME = 'Rendelések';
 
 /**
- * Fejléc sor a "Rendelések" fülhöz - a `processOrder` által írt A:AA
- * oszlopokkal egyezik (18 rendelés-oszlop + 9 attribúció-oszlop). Csak
- * akkor íródik ki, amikor a kód maga hozza létre a hiányzó fület.
+ * Fejléc sor a "Rendelések" fülhöz - a `processOrder` által írt A:AE
+ * oszlopokkal egyezik (18 rendelés-oszlop + 9 attribúció-oszlop + 4
+ * szállítás/fizetés-oszlop). Csak akkor íródik ki, amikor a kód maga hozza létre a fület.
  */
 const ORDER_SHEET_HEADER: string[] = [
   'Dátum', // A
@@ -127,6 +127,10 @@ const ORDER_SHEET_HEADER: string[] = [
   'Facebook Click ID', // Y
   'Referrer', // Z
   'User-Agent', // AA
+  'Szállítási mód', // AB
+  'Foxpost automata', // AC
+  'Szállítási díj (Ft)', // AD
+  'Fizetési mód', // AE
 ];
 
 /** Egy vagy több sor hozzáfűzése a "Rendelések" fül A:AA tartományához. */
@@ -135,11 +139,12 @@ async function appendRows(
   accessToken: string,
   rows: (string | number)[][],
 ): Promise<Response> {
-  // Range A:AA covers the original 18 order columns + 9 attribution columns
+  // Range A:AE covers the original 18 order columns + 9 attribution columns
   // (UTM source/medium/campaign/term/content, gclid, fbclid, referrer,
-  // user-agent).
+  // user-agent) + 4 shipping/payment columns (szállítási mód, Foxpost automata,
+  // szállítási díj, fizetési mód).
   return fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(ORDER_SHEET_NAME)}!A:AA:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(ORDER_SHEET_NAME)}!A:AE:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
     {
       method: 'POST',
       headers: {

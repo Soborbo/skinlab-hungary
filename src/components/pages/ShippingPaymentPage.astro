@@ -30,8 +30,59 @@ const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
       </div>
     </section>
 
-    <!-- Professional Equipment Shipping -->
+    <!-- Szállítás futárral (< 500 000 Ft) -->
     <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {locale !== 'hu' && (
+          <div class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">{t(locale, 'shipping.intlTitle')}</h2>
+            <p class="text-gray-600">{t(locale, 'shipping.intlNote')}</p>
+          </div>
+        )}
+        {locale === 'hu' && (
+        <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">{t(locale, 'shipping.parcelTitle')}</h2>
+        <p class="text-gray-600 mb-6">{t(locale, 'shipping.parcelIntro')}</p>
+
+        <div class="grid sm:grid-cols-3 gap-4 mb-10">
+          <!-- Foxpost -->
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-semibold text-gray-900">{t(locale, 'shipping.parcelFoxpost')}</h3>
+              <span class="text-sm font-bold text-gray-900 whitespace-nowrap">{t(locale, 'shipping.parcelFoxpostPrice')}</span>
+            </div>
+            <p class="text-sm text-gray-600">{t(locale, 'shipping.parcelFoxpostDesc')}</p>
+          </div>
+          <!-- MPL -->
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-semibold text-gray-900">{t(locale, 'shipping.parcelMpl')}</h3>
+              <span class="text-sm font-bold text-gray-900 whitespace-nowrap">{t(locale, 'shipping.parcelMplPrice')}</span>
+            </div>
+            <p class="text-sm text-gray-600">{t(locale, 'shipping.parcelMplDesc')}</p>
+          </div>
+          <!-- Személyes átvétel -->
+          <div class="bg-success-50 rounded-xl p-5 border border-success-200">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-semibold text-gray-900">{t(locale, 'shipping.parcelPickup')}</h3>
+              <span class="text-sm font-bold text-success-700 whitespace-nowrap">{t(locale, 'shipping.parcelPickupPrice')}</span>
+            </div>
+            <p class="text-sm text-gray-600">{t(locale, 'shipping.parcelPickupDesc')}</p>
+          </div>
+        </div>
+
+        <!-- Nagy értékű készülékek átvétele (>= 500 000 Ft) - csak HU -->
+        <div class="bg-primary-50 border border-primary-100 rounded-xl p-6">
+          <h3 class="font-semibold text-gray-900 mb-2">{t(locale, 'shipping.deviceTitle')}</h3>
+          <p class="text-gray-600">{t(locale, 'shipping.deviceNote')}</p>
+        </div>
+        </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Professional Equipment Shipping -->
+    <section class="py-12 lg:py-16 bg-gray-50">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-12">

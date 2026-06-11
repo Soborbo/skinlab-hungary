@@ -31,8 +31,8 @@
       "subtitle": "Bezplatné školení, nepřetržitá technická podpora a 2letá záruka na všechny naše produkty"
     },
     "slide4": {
-      "title": "ND:YAG a karbonové lasery",
-      "subtitle": "Prémiová ošetření obličeje s oceněnými přístroji a místním servisem"
+      "title": "Odstranění tetování laserem ND:YAG",
+      "subtitle": "Bezpečné a účinné odstranění tetování a pigmentu lasery ND:YAG Q-switched – oceněné přístroje a místní servis"
     },
     "slide5": {
       "title": "Náš nový Frame YAG laser je tady!",
@@ -675,6 +675,8 @@
   },
   "shipping": {
     "title": "Doprava a platba",
+    "intlTitle": "Doprava a předání",
+    "intlNote": "Detaily vaší objednávky vždy řešíme osobně: náš kolega vás kontaktuje, abychom se domluvili na doručení nebo osobním odběru a způsobu platby. Díky tomu dokážeme zaručit bezpečné předání i u hodnotných a citlivých přístrojů.",
     "description": "Transparentní dodací podmínky a flexibilní platební možnosti pro naše profesionální kosmetické přístroje.",
     "subtitle": "Spolehlivá, dokumentovaná doprava a flexibilní platební plány - vše, co potřebujete vědět do převzetí stroje.",
     "professionalTitle": "Doprava profesionálních přístrojů",
@@ -778,6 +780,18 @@
     "yourDetails": "Vaše údaje",
     "lastName": "Příjmení",
     "firstName": "Jméno",
+    "shipping": {
+      "title": "Způsob dopravy",
+      "methodRequired": "Vyberte prosím způsob dopravy.",
+      "free": "Zdarma",
+      "summaryLine": "Doprava",
+      "recommended": "Doporučeno",
+      "highValueNote": "Doručení vaší objednávky vyřešíme individuálně. Náš kolega vás kontaktuje, abychom se domluvili na osobním odběru nebo doručení a způsobu platby.",
+      "pickupCeremony": "Osobní odběr v showroomu",
+      "pickupCeremonyDesc": "Předání na místě, instalace a zaškolení — na všechny vaše otázky odpovíme ihned. Přístroj si můžete vyzvednout i na konci našich školení.",
+      "arranged": "Doručení po domluvě",
+      "arrangedDesc": "Vzhledem k hodnotě produktu řešíme doručení osobně — buď vám jej přivezeme, nebo bezpečně zašleme. Náš kolega vás bude kontaktovat ohledně detailů."
+    },
     "email": {
       "subject": "Potvrzení objednávky",
       "greeting": "Vážený/á {name},",
@@ -796,7 +810,13 @@
       "payButton": "Zaplatit / otevřít zálohovou fakturu",
       "questions": "Máte dotaz? Klidně nám zavolejte:",
       "regards": "S pozdravem,",
-      "team": "Tým Skinlab Hungary"
+      "team": "Tým Skinlab Hungary",
+      "shippingTitle": "Doprava",
+      "freeShipping": "Zdarma",
+      "shippingMethods": {
+        "personal_pickup": "Osobní odběr — Skinlab Showroom (Érd)",
+        "arranged": "Doručení po domluvě"
+      }
     },
     "phone": "Telefonní číslo",
     "companyToggle": "Zadat firemní údaje",
@@ -858,5 +878,21 @@
     "referenceNote": "Do zprávy pro příjemce prosím uveďte číslo své objednávky.",
     "successIntro": "Na základě zálohové faktury můžete částku objednávky převést na níže uvedený bankovní účet.",
     "emailIntro": "Částku uvedenou na zálohové faktuře můžete převést na níže uvedený bankovní účet."
+  },
+  "blogPost": {
+    "share": "Sdílet článek:",
+    "shareFacebook": "Sdílet na Facebooku",
+    "shareTwitter": "Sdílet na X",
+    "shareLinkedin": "Sdílet na LinkedInu",
+    "related": "Související články",
+    "back": "Zpět na blog"
+  },
+  "trainingDetail": {
+    "farBadge": "Školení registrované FAR",
+    "apply": "Přihlásit se na toto školení",
+    "topics": "Témata školení",
+    "requirements": "Podmínky účasti",
+    "back": "Zpět na školení",
+    "signupHeading": "Přihlaste se: {name}"
   }
 }

@@ -41,6 +41,11 @@ export async function generateProforma(
   order: OrderEmailInput,
   env: OrderEnv,
 ): Promise<BillingoProformaResult> {
+  if (order.paymentMethod === 'cod') {
+    // Utánvét: a vevő az átvételkor fizet - nincs előzetes díjbekérő/fizetési link.
+    console.info('[billingo] skip BILLINGO-SKIP-COD - utánvét:', order.orderId);
+    return { success: false, skipped: true, reason: 'cod', code: 'BILLINGO-SKIP-COD' };
+  }
   if (order.hasPriceOnRequest) {
     console.info('[billingo] skip BILLINGO-SKIP-001 - price on request:', order.orderId);
     return { success: false, skipped: true, reason: 'price_on_request', code: 'BILLINGO-SKIP-001' };
