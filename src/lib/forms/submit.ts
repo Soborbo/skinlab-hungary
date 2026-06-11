@@ -432,6 +432,8 @@ function generateConfirmationEmailHtml(data: LeadData): string {
  * Generate notification email HTML for team
  */
 function generateNotificationEmailHtml(data: LeadData): string {
+  // Normalized tel: URI — strip spaces/formatting that break the dialer link.
+  const telHref = `tel:${data.phone.replace(/[^\d+]/g, '')}`;
   return `
 <!DOCTYPE html>
 <html>
@@ -456,7 +458,7 @@ function generateNotificationEmailHtml(data: LeadData): string {
     </tr>
     <tr>
       <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Telefon:</strong></td>
-      <td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="tel:${escapeHtml(data.phone)}">${escapeHtml(data.phone)}</a></td>
+      <td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="${telHref}">${escapeHtml(data.phone)}</a></td>
     </tr>
     <tr>
       <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Termék:</strong></td>
@@ -508,11 +510,14 @@ function generateNotificationEmailHtml(data: LeadData): string {
     ` : ''}
   </table>
 
-  <p style="margin-top: 20px;">
-    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: #724890; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
-      Hívás indítása
-    </a>
-  </p>
+  <!-- Bulletproof, centered call button -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 20px auto 0;">
+    <tr>
+      <td align="center" bgcolor="#724890" style="border-radius: 8px;">
+        <a href="${telHref}" style="display: inline-block; padding: 12px 24px; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 8px;">📞 Hívás indítása</a>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
   `.trim();
@@ -855,6 +860,10 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
     ? '<span style="background: #ef4444; color: white; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: bold;">FORRÓ LEAD</span>'
     : '';
 
+  // Normalized tel: URI — strip spaces/formatting that break the dialer link
+  // in Gmail. Keep only digits and a leading "+".
+  const telHref = `tel:${data.phone.replace(/[^\d+]/g, '')}`;
+
   return `
 <!DOCTYPE html>
 <html>
@@ -876,7 +885,7 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
       <tr>
         <td style="padding: 8px 10px; font-weight: bold; color: #6b7280;">Telefon:</td>
         <td style="padding: 8px 10px;">
-          <a href="tel:${escapeHtml(data.phone)}" style="color: #db2777; font-weight: bold; font-size: 18px; text-decoration: none;">${escapeHtml(data.phone)}</a>
+          <a href="${telHref}" style="color: #db2777; font-weight: bold; font-size: 18px; text-decoration: none;">${escapeHtml(data.phone)}</a>
         </td>
       </tr>
       <tr>
@@ -886,11 +895,15 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
     </table>
   </div>
 
-  <p style="margin-bottom: 16px;">
-    <a href="tel:${escapeHtml(data.phone)}" style="display: inline-block; background: linear-gradient(135deg, #ec4899, #f43f5e); color: white; padding: 14px 28px; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 16px;">
-      Hívás indítása
-    </a>
-  </p>
+  <!-- Bulletproof, centered call button (bgcolor fallback for clients that strip gradients) -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto 16px;">
+    <tr>
+      <td align="center" bgcolor="#ec4899" style="border-radius: 12px; background: linear-gradient(135deg, #ec4899, #f43f5e);">
+        <a href="${telHref}" style="display: inline-block; padding: 14px 28px; color: #ffffff; text-decoration: none; font-weight: bold; font-size: 16px; border-radius: 12px;">📞 Hívás indítása</a>
+      </td>
+    </tr>
+  </table>
+  <div style="clear: both; height: 0; line-height: 0;">&nbsp;</div>
 
   <!-- Full details -->
   <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
