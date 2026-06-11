@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     // Rate limit - max 5 feldolgozott beküldés / IP / óra
     if (isFormRateLimited(clientAddress, 'contact')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbálja újra később.',
+        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
         context: { endpoint: '/api/contact', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -62,13 +62,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
           JSON.stringify({
             success: true,
             leadId: generateLeadId(),
-            message: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+            message: 'Köszönjük! Hamarosan felvesszük veled a kapcsolatot.',
           }),
           { status: 200, headers: { 'Content-Type': 'application/json' } }
         );
       }
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
+        userMessage: 'Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
         context: { formId: 'contact' },
       });
@@ -80,7 +80,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezze el újra.',
+        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.',
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'contact' },
       });
@@ -99,7 +99,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     if (!result.success) {
       // Internal error stays server-side only.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: 'Nem sikerült elküldeni az űrlapot. Kérjük, próbálja újra később.',
+        userMessage: 'Nem sikerült elküldeni az űrlapot. Kérjük, próbáld újra később.',
         context: { formId: 'contact', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -109,7 +109,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       JSON.stringify({
         success: true,
         leadId: result.leadId,
-        message: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+        message: 'Köszönjük! Hamarosan felvesszük veled a kapcsolatot.',
       }),
       {
         status: 200,
@@ -121,7 +121,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     console.error('Contact form error:', error);
 
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a kapcsolati űrlap feldolgozása közben. Kérjük, próbálja újra később.',
+      userMessage: 'Váratlan hiba történt a kapcsolati űrlap feldolgozása közben. Kérjük, próbáld újra később.',
       context: { formId: 'contact', errorMessage: message },
     });
   }

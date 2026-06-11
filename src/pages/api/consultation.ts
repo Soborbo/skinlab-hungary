@@ -46,7 +46,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     // Rate limit - max 5 feldolgozott beküldés / IP / óra
     if (isFormRateLimited(clientAddress, 'consultation')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbálja újra később.',
+        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
         context: { endpoint: '/api/consultation', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -78,13 +78,13 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
           JSON.stringify({
             success: true,
             leadId: generateLeadId(),
-            message: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+            message: 'Köszönjük! Hamarosan felvesszük veled a kapcsolatot.',
           }),
           { status: 200, headers: { 'Content-Type': 'application/json' } }
         );
       }
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizze a megadott adatokat - néhány mező hibás vagy hiányzik.',
+        userMessage: 'Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.',
         errors: validation.errors,
         context: { formId: 'consultation' },
       });
@@ -96,7 +96,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezze el újra.',
+        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.',
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'consultation' },
       });
@@ -111,7 +111,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
       // Keep internal error details server-side only - userMessage is generic
       // so we don't leak stack/host/IP info into the browser response.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbálja újra később.',
+        userMessage: 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbáld újra később.',
         context: { formId: 'consultation', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -121,7 +121,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
       JSON.stringify({
         success: true,
         leadId: result.leadId,
-        message: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+        message: 'Köszönjük! Hamarosan felvesszük veled a kapcsolatot.',
       }),
       {
         status: 200,
@@ -134,7 +134,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     // Internal error details stay in the log context - do not echo into userMessage.
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a konzultációs űrlap feldolgozása közben. Kérjük, próbálja újra később.',
+      userMessage: 'Váratlan hiba történt a konzultációs űrlap feldolgozása közben. Kérjük, próbáld újra később.',
       context: { formId: 'consultation', errorMessage: message },
     });
   }

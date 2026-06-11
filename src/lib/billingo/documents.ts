@@ -3,8 +3,10 @@
  *
  * - Tételenként bruttó egységár, fix 27% ÁFA (felhasználói döntés szerint).
  * - 8 nap fizetési határidő.
- * - `payment_method: 'online_bankcard'` - Billingo-ban beállított SimplePay
- *   integráció így kínálja fel a kártyás fizetés gombot a vevőnek.
+ * - `payment_method: 'bank_transfer'` - jelenleg NINCS online kártyás fizetés
+ *   (nincs SimplePay/online szolgáltató a Billingo-fiókban), ezért a díjbekérő
+ *   banki átutalásra szól. Ha később bekötik a kártyás fizetést, állítsd
+ *   vissza `online_bankcard`-ra.
  * - Hozzáfűzi a rendelésszámot a `comment` mezőbe és minden tételhez
  *   `item_comment`-ben a SKU-t, hogy a vevő utánakövethesse.
  */
@@ -134,7 +136,7 @@ export function buildProformaPayload(opts: {
     type: 'proforma',
     fulfillment_date: isoDate(today),
     due_date: addDaysIso(today, PROFORMA_DUE_DAYS),
-    payment_method: 'online_bankcard',
+    payment_method: 'bank_transfer',
     language,
     currency: 'HUF',
     electronic: false,

@@ -102,7 +102,7 @@ export const PAYMENT_METHOD_IDS: PaymentMethodId[] = ['transfer', 'cod'];
 
 /** Magyar fizetési-mód címkék (admin e-mail, Sheets). */
 export const PAYMENT_LABEL_HU: Record<PaymentMethodId, string> = {
-  transfer: 'Előreutalás / bankkártya (díjbekérő e-mailben)',
+  transfer: 'Előre utalás (díjbekérő e-mailben)',
   cod: 'Utánvét (fizetés átvételkor)',
 };
 
@@ -119,13 +119,14 @@ export const SHIPPING_LABEL_HU: Record<ShippingMethodId, string> = {
 };
 
 /**
- * Foxpost térképes csomagautomata-választó widget (apt-finder).
+ * Foxpost térképes csomagautomata-választó widget (apt-finder v1).
  * A vásárló iframe-ben választ automatát; a kiválasztást `postMessage`-dzsel
- * adja vissza. Nem igényel API-kulcsot. Ha a Foxpost a jövőben átteszi a
- * widgetet, csak ezt a konstanst kell frissíteni.
+ * adja vissza (origin: cdn.foxpost.hu). Nem igényel API-kulcsot. Ha a Foxpost
+ * a jövőben átteszi a widgetet (pl. apt-finder-v3), csak ezt a konstanst kell
+ * frissíteni.
  * Dok.: https://cdn.foxpost.hu/apt-finder/v1/documentation/
  */
-export const FOXPOST_WIDGET_URL = 'https://cdn.foxpost.hu/apt-finder/v1/index.html';
+export const FOXPOST_WIDGET_URL = 'https://cdn.foxpost.hu/apt-finder/v1/app/?lang=hu';
 
 /** A Foxpost widget `postMessage` üzeneteit elfogadó origin-ek. */
 export const FOXPOST_WIDGET_ORIGINS = ['https://cdn.foxpost.hu', 'https://foxpost.hu'];

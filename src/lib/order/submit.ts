@@ -217,7 +217,7 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
   console.error('[order] CRITICAL: admin email, sheets AND billingo all failed for', input.orderId);
   return {
     success: false,
-    error: 'A megrendelést nem sikerült rögzíteni. Kérjük, próbálja újra, vagy hívjon minket.',
+    error: 'A megrendelést nem sikerült rögzíteni. Kérjük, próbáld újra, vagy hívj minket.',
     code: 'ORDER-PERSIST-001',
     proforma: proformaResult,
   };

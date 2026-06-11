@@ -335,7 +335,7 @@ async function sendConfirmationEmail(data: LeadData): Promise<void> {
     body: JSON.stringify({
       from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
       to: [data.email],
-      subject: 'Köszönjük megkeresését - Skinlab Hungary',
+      subject: 'Köszönjük a megkeresésed - Skinlab Hungary',
       html: generateConfirmationEmailHtml(data),
     }),
   });
@@ -400,18 +400,18 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 
   <h2 style="color: #333;">Kedves ${escapeHtml(data.name)}!</h2>
 
-  <p>Köszönjük, hogy felkereste a Skinlab Hungary-t!</p>
+  <p>Köszönjük, hogy felkerested a Skinlab Hungary-t!</p>
 
-  <p>Megkaptuk az érdeklődését és hamarosan felvesszük Önnel a kapcsolatot
+  <p>Megkaptuk az érdeklődésed, és hamarosan felvesszük veled a kapcsolatot
   a megadott telefonszámon: <strong>${escapeHtml(data.phone)}</strong></p>
 
   <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-    <h3 style="margin-top: 0; color: #333;">Az Ön által megadott adatok:</h3>
+    <h3 style="margin-top: 0; color: #333;">Az általad megadott adatok:</h3>
     <p><strong>Érdeklődés tárgya:</strong> ${escapeHtml(data.product)}</p>
     ${data.message ? `<p><strong>Üzenet:</strong> ${escapeHtml(data.message)}</p>` : ''}
   </div>
 
-  <p>Amennyiben sürgős kérdése van, hívjon minket bátran:</p>
+  <p>Ha sürgős kérdésed van, hívj minket bátran:</p>
   <p style="font-size: 20px; font-weight: bold; color: #724890;">
     <a href="tel:+3613009280" style="color: #724890; text-decoration: none;">+36 1 300 9280</a>
   </p>
@@ -419,7 +419,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
   <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
 
   <p style="color: #888; font-size: 12px;">
-    Ez az email automatikusan lett küldve. Kérjük, ne válaszoljon rá.<br>
+    Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
     Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
     Hivatkozási szám: ${data.leadId}
   </p>
@@ -710,7 +710,7 @@ async function sendConsultationConfirmationEmail(data: ConsultationLeadData): Pr
     body: JSON.stringify({
       from: 'Skinlab Hungary <noreply@skinlabhungary.hu>',
       to: [data.email],
-      subject: 'Köszönjük konzultáció kérését - Skinlab Hungary',
+      subject: 'Köszönjük a konzultációkérésed - Skinlab Hungary',
       html: generateConsultationConfirmationEmailHtml(data),
     }),
   });
@@ -783,12 +783,12 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
     <h2 style="color: #1f2937; text-align: center; font-size: 20px;">Kedves ${escapeHtml(data.name)}!</h2>
 
     <p style="color: #4b5563; text-align: center; line-height: 1.6;">
-      Köszönjük, hogy érdeklődött a Skinlab Hungary kínálata iránt!<br>
-      <strong>Amint lehetséges, visszahívjuk Önt a megadott telefonszámon.</strong>
+      Köszönjük, hogy érdeklődtél a Skinlab Hungary kínálata iránt!<br>
+      <strong>Amint lehetséges, visszahívunk a megadott telefonszámon.</strong>
     </p>
 
     <div style="background: #fdf2f8; padding: 20px; border-radius: 12px; margin: 24px 0;">
-      <h3 style="margin: 0 0 16px; color: #1f2937; font-size: 16px;">Az Ön által megadott adatok:</h3>
+      <h3 style="margin: 0 0 16px; color: #1f2937; font-size: 16px;">Az általad megadott adatok:</h3>
       <table style="width: 100%; font-size: 14px;">
         <tr>
           <td style="padding: 6px 0; color: #6b7280;">Érdeklődés:</td>
@@ -811,15 +811,15 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 
     <div style="background: #f0fdf4; padding: 16px 20px; border-radius: 12px; margin: 24px 0; border-left: 4px solid #22c55e;">
       <p style="color: #166534; font-size: 14px; margin: 0; line-height: 1.5;">
-        <strong>Tudta?</strong> Az esztétikai lézertechnológia piaca évente átlagosan 15-20%-kal növekszik világszerte.
+        <strong>Tudtad?</strong> Az esztétikai lézertechnológia piaca évente átlagosan 15-20%-kal növekszik világszerte.
         Egyre több szépségszalon ismeri fel, hogy a professzionális lézereszközök nemcsak hatékonyabbak,
-        hanem az ügyfelek is egyre tudatosabban keresik az ilyen kezeléseket. Ön is jó úton jár!
+        hanem az ügyfelek is egyre tudatosabban keresik az ilyen kezeléseket. Te is jó úton jársz!
       </p>
     </div>
 
     <div style="background: #fef3c7; padding: 20px; border-radius: 12px; margin: 24px 0; text-align: center;">
       <p style="color: #92400e; font-size: 14px; margin: 0 0 12px; font-weight: 600;">
-        Ha gyorsabban szüksége van ránk:
+        Ha gyorsabban van ránk szükséged:
       </p>
       <p style="margin: 0 0 8px;">
         <a href="tel:+3613009280" style="color: #db2777; font-size: 20px; font-weight: bold; text-decoration: none;">
@@ -835,7 +835,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
     <hr style="border: none; border-top: 1px solid #f3e8ff; margin: 24px 0;">
 
     <p style="color: #9ca3af; font-size: 11px; text-align: center; line-height: 1.5;">
-      Ez az email automatikusan lett küldve. Kérjük, ne válaszoljon rá.<br>
+      Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
       Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
       Hivatkozási szám: ${data.leadId}
     </p>
