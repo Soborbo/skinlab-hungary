@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { t, getLocaleFromUrl, formatDate, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, formatDate, type Locale } from '../../i18n/ui';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -10,7 +10,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 const blogUrlPrefix = locale === 'hu' ? '/blog' : `/${locale}/blog`;
 
 // Localized privacy link
-const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
+const privacyLink = getLocalizedUrl(locale, '/adatvedelem');
 
 // Only this locale's posts: hu canonical (no prefix) or `{locale}/…` translations.
 const posts = (await getCollection('blog'))
@@ -56,7 +56,7 @@ const posts = (await getCollection('blog'))
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <article class="group">
-                <a href={`${blogUrlPrefix}/${post.id.split('/').pop()}`} class="block">
+                <a href={withTrailingSlash(`${blogUrlPrefix}/${post.id.split('/').pop()}`)} class="block">
                   <!-- Image placeholder -->
                   <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
                     {post.data.image ? (

@@ -15,6 +15,7 @@ import {
   defaultLocale,
   getLocaleFromUrl,
   getLocalizedUrl,
+  withTrailingSlash,
   getHtmlLang,
   type Locale,
 } from '../i18n/ui';
@@ -79,12 +80,10 @@ const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
 
 // Generate canonical URL - absolute URL for SEO.
-// trailingSlash: 'always' — emit a trailing slash so canonical/hreflang match
-// the URL the server actually serves (Cloudflare normalizes to a trailing
-// slash; without this the canonical pointed at a 307-redirecting URL).
-// NB: concatenate the slash (not `${p}/` in a template literal) — a `}/` just
-// before a closing backtick trips the Astro compiler's frontmatter tokenizer.
-const withTrailingSlash = (p: string) => (p.endsWith('/') ? p : p + '/');
+// trailingSlash: 'always' — getLocalizedUrl/withTrailingSlash (i18n/ui.ts) emit
+// a trailing slash so canonical/hreflang match the URL the server actually
+// serves (Cloudflare normalizes to a trailing slash; without this the canonical
+// pointed at a 307-redirecting URL).
 const localizedPath = withTrailingSlash(getLocalizedUrl(currentLocale, currentPath));
 // canonicalOverride (a product's canonicalSlug spin-off target) wins; otherwise
 // the trailing-slashed localized path. Trailing-slash the override too so it

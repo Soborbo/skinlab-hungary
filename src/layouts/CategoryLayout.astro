@@ -9,7 +9,7 @@ import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb, faqSchema as
 import QuickAddButton from '../components/cart/QuickAddButton.astro';
 import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import { getLocaleFromUrl, type Locale } from '../i18n/ui';
+import { getLocaleFromUrl, withTrailingSlash, type Locale } from '../i18n/ui';
 import { getInstallmentInfo } from '@/lib/installment';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
@@ -152,7 +152,7 @@ products.sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity))
 
 const resolvedBenefitsHeading = benefitsHeading || 'Mire figyelj a választásnál?';
 
-const resolvedCtaHref = consultationCtaHref || `/konzultacio?cat=${category.slug}`;
+const resolvedCtaHref = withTrailingSlash(consultationCtaHref || `/konzultacio?cat=${category.slug}`);
 
 // Fold-mód a terméklétszám alapján (lásd docs/CATEGORY-PAGE-HANDBOOK.md §3):
 //  - 1 termék  → 'single'  : a fold MAGA a termék (kép-jobb landing), nincs grid
@@ -191,7 +191,7 @@ const monthlyTeaser = (price?: number | null): number | null => {
   const term = info.months[info.months.length - 1];
   return info.monthly[term];
 };
-const productHref = (p: any) => `/${p.data.categorySlug}/${p.data.slug || p.id}`;
+const productHref = (p: any) => withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug || p.id}`);
 const defaultTrustBadges: TrustBadge[] = [
   { title: '2 év garancia' },
   { title: 'Ingyenes betanítás' },
@@ -258,8 +258,8 @@ const benefitIcons: Record<string, string> = {
 };
 
 // Schema: CollectionPage + Breadcrumb entity graph
-const pageUrl = `${SITE.url}/${category.slug}`;
-const productUrls = products.map((p) => `${SITE.url}/${category.slug}/${p.data.slug || p.id}`);
+const pageUrl = SITE.url + withTrailingSlash(`/${category.slug}`);
+const productUrls = products.map((p) => SITE.url + withTrailingSlash(`/${category.slug}/${p.data.slug || p.id}`));
 const categorySchema = collectionPageSchema(config, pageUrl, category.name, productUrls);
 // Push breadcrumb into the @graph
 categorySchema['@graph'].push(
@@ -560,7 +560,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
             <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
             <a
-              href="/konzultacio"
+              href="/konzultacio/"
               class="inline-flex items-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800"
             >
               Konzultáció kérése
@@ -584,7 +584,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 </div>
 
                 <a
-                  href={`/${product.data.categorySlug}/${product.data.slug || product.id}`}
+                  href={productHref(product)}
                   class="flex flex-col flex-1"
                 >
                   <!-- Image -->
@@ -743,7 +743,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     )}
 
                     <a
-                      href={choice.link}
+                      href={withTrailingSlash(choice.link)}
                       class="inline-flex items-center gap-2 font-semibold px-5 py-3 rounded-xl text-white shadow-sm hover:shadow-md transition-all"
                       style={`background-color: ${accentDark}`}
                     >
@@ -819,7 +819,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     <td class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50 rounded-b-xl' : ''}`}>
                       {product.link ? (
                         <a
-                          href={product.link}
+                          href={withTrailingSlash(product.link)}
                           class={`inline-block font-semibold text-sm px-4 py-2 rounded-lg transition-colors ${
                             product.highlighted
                               ? 'bg-primary-600 text-white hover:bg-primary-700'
@@ -841,7 +841,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="text-center mt-8">
             <p class="text-gray-500 mb-4">Nem tudod eldönteni? Segítünk!</p>
             <a
-              href="/konzultacio"
+              href="/konzultacio/"
               class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -944,7 +944,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/konzultacio"
+            href="/konzultacio/"
             class="font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl bg-primary-700 hover:bg-primary-800"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

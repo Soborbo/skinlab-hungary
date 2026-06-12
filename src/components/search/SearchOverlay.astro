@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../../lib/constants';
-import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
@@ -35,7 +35,7 @@ const searchIndex = [
   ...products.map(p => ({
     name: p.data.name,
     type: 'product' as const,
-    url: `/${p.data.categorySlug}/${p.data.slug}`,
+    url: withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug}`),
     category: categoryMap[p.data.categorySlug] || p.data.categorySlug,
     price: p.data.price,
     image: resolveImageUrl(p.data.image),
@@ -62,7 +62,7 @@ const searchIndex = [
   ...CATEGORIES.filter(c => c.featured).map(c => ({
     name: c.nameShort,
     type: 'category' as const,
-    url: `/${c.slug}`,
+    url: withTrailingSlash(`/${c.slug}`),
     category: t(locale, 'nav.products'),
     price: null,
     image: null,

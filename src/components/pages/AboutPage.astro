@@ -17,7 +17,7 @@ import { aboutPageSchema } from '../../config/schema';
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized contact link
-const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
+const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;

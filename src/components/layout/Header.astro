@@ -81,7 +81,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
             </div>
           ) : (
             <a
-              href={item.href}
+              href={getLocalizedUrl(locale, item.href)}
               class="px-4 py-2 text-sm font-medium text-[#645a59] hover:text-[#ce2252] rounded-lg hover:bg-black/5 transition-colors"
             >
               {t(locale, item.labelKey)}

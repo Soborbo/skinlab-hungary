@@ -14,7 +14,7 @@
  */
 import { CATEGORIES } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
-import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '@/i18n/ui';
 
 interface Props {
   /** Pre-selected product category */
@@ -38,8 +38,8 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 const turnstileSiteKey = getTurnstileSiteKey();
 
 // Localized privacy policy link
-const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
-const thankYouLink = locale === 'hu' ? '/koszonjuk' : `/${locale}/koszonjuk`;
+const privacyLink = getLocalizedUrl(locale, '/adatvedelem');
+const thankYouLink = getLocalizedUrl(locale, '/koszonjuk');
 
 // Product options from constants with translations
 const productOptions: { value: string; label: string }[] = CATEGORIES

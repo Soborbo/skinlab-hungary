@@ -200,6 +200,25 @@ export function getLocalizedPath(locale: Locale, path: string): string {
  * @param path - Current path
  * @returns Relative URL path
  */
+/**
+ * Append a trailing slash to a path so it matches `trailingSlash: 'always'`
+ * (astro.config.mjs). Without it, internal links point at the no-slash form,
+ * which 404s on the dev server and triggers a 307 redirect hop in production.
+ * The slash is inserted before any `#hash`/`?query`, and skipped for the root,
+ * already-slashed paths, and file-like last segments (e.g. `/llm.txt`).
+ */
+export function withTrailingSlash(path: string): string {
+  // Only normalise root-relative internal paths. Leave external/protocol-
+  // relative URLs and bare anchors/queries (`#…`, `?…`, `https://…`, `//…`,
+  // `mailto:`, `tel:`) untouched so this is safe to apply to any href value.
+  if (!path.startsWith('/') || path.startsWith('//')) return path;
+  const [, base = '', suffix = ''] = path.match(/^([^?#]*)([?#].*)?$/) ?? [];
+  if (base === '/') return base + suffix;
+  const lastSegment = base.slice(base.lastIndexOf('/') + 1);
+  if (base.endsWith('/') || lastSegment.includes('.')) return base + suffix;
+  return base + '/' + suffix;
+}
+
 export function getLocalizedUrl(locale: Locale, path: string): string {
   // Remove any existing locale prefix
   const localePattern = new RegExp(`^/(${locales.join('|')})(/|$)`);
@@ -207,14 +226,14 @@ export function getLocalizedUrl(locale: Locale, path: string): string {
 
   // Hungarian (default locale) doesn't have prefix
   if (locale === defaultLocale) {
-    return cleanPath;
+    return withTrailingSlash(cleanPath);
   }
 
   // Other languages have prefix
   if (cleanPath === '/') {
-    return `/${locale}`;
+    return `/${locale}/`;
   }
-  return `/${locale}${cleanPath}`;
+  return withTrailingSlash(`/${locale}${cleanPath}`);
 }
 
 /**

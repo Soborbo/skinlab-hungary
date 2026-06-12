@@ -12,7 +12,7 @@ import { getTurnstileSiteKey } from '../../lib/forms/turnstile';
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized privacy link
-const privacyLink = locale === 'hu' ? '/adatvedelem' : `/${locale}/adatvedelem`;
+const privacyLink = getLocalizedUrl(locale, '/adatvedelem');
 
 // Page URL for schema
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/kapcsolat')}`;

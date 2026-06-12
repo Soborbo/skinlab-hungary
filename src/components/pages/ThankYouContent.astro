@@ -2,7 +2,7 @@
 /**
  * ThankYouContent - Reusable thank you page content with i18n support
  */
-import { t, type Locale } from '@/i18n/ui';
+import { t, getLocalizedUrl, type Locale } from '@/i18n/ui';
 import { CONTACT } from '@/lib/constants';
 
 interface Props {
@@ -13,8 +13,8 @@ interface Props {
 const { locale, leadId = '' } = Astro.props;
 
 // Localized links
-const homeLink = locale === 'hu' ? '/' : `/${locale}`;
-const productsLink = locale === 'hu' ? '/termekek' : `/${locale}/termekek`;
+const homeLink = getLocalizedUrl(locale, '/');
+const productsLink = getLocalizedUrl(locale, '/termekek');
 ---
 
 <section class="py-16 md:py-24">

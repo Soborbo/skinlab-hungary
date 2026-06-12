@@ -185,7 +185,7 @@ const blogSchema = articleSchema(config, pageUrl, {
 
           <div class="grid md:grid-cols-3 gap-8">
             {relatedPosts.map((relatedPost) => (
-              <a href={`${blogBase}/${bareSlug(relatedPost.id)}`} class="group">
+              <a href={getLocalizedUrl(locale, `/blog/${bareSlug(relatedPost.id)}`)} class="group">
                 <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
                   {relatedPost.data.image ? (
                     <img

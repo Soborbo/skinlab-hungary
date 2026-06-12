@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { CONTACT, LOCATIONS } from '../../lib/constants';
-import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Localized contact link
-const contactLink = locale === 'hu' ? '/konzultacio' : `/${locale}/konzultacio`;
+const contactLink = getLocalizedUrl(locale, '/konzultacio');
 ---
 
 <BaseLayout

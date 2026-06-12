@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import { CONTACT } from '../../lib/constants';
 import { ContentImage, CardImage } from '../../components/images';
 import TrainingSignupForm from '../../components/forms/TrainingSignupForm.astro';
-import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, withTrailingSlash, type Locale } from '../../i18n/ui';
 
 const trainingHero = '@assets/training-hero.jpg';
 const kepzesGyakorlat = '@assets/kozmetikai-gepkezelo-kepzes-gyakorlat.jpg';
@@ -327,7 +327,7 @@ const pillarIcons: Record<string, string> = {
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {trainings.map((training) => {
-            const detailUrl = `${trainingUrlPrefix}/${training.id.split('/').pop()}`;
+            const detailUrl = withTrailingSlash(`${trainingUrlPrefix}/${training.id.split('/').pop()}`);
             return (
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-primary-300 transition-all group flex flex-col">
               <!-- Training photo -->

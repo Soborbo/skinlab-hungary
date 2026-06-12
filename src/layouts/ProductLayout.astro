@@ -121,9 +121,8 @@ const categoryName = category?.nameShort || product.categorySlug;
 
 // Page URL (trailing slash to match the served/canonical URL).
 // NB: the slash is concatenated, not placed inside the template literal — a
-// `}/` immediately before a closing backtick trips the Astro compiler's
-// frontmatter tokenizer (it misreads the `/` as a regex start).
-const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`) + '/';
+// getLocalizedUrl now returns the trailing-slash form, so no manual `+ '/'`.
+const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`);
 
 // Canonical override: spin-off/duplicate products (e.g. a limited-edition colour
 // that is also a variant of the canonical product) point to the canonical slug.
@@ -134,7 +133,7 @@ const canonicalOverride = product.canonicalSlug
 // Breadcrumb items for schema
 const breadcrumbItems = [
   { name: t(locale, 'breadcrumb.home'), url: SITE.url + '/' },
-  { name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) + '/' },
+  { name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) },
   { name: displayName }
 ];
 
