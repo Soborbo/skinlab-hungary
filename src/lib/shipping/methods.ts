@@ -119,14 +119,19 @@ export const SHIPPING_LABEL_HU: Record<ShippingMethodId, string> = {
 };
 
 /**
- * Foxpost térképes csomagautomata-választó widget (apt-finder v1).
+ * Foxpost térképes csomagautomata-választó widget (apt-finder v3).
  * A vásárló iframe-ben választ automatát; a kiválasztást `postMessage`-dzsel
- * adja vissza (origin: cdn.foxpost.hu). Nem igényel API-kulcsot. Ha a Foxpost
- * a jövőben átteszi a widgetet (pl. apt-finder-v3), csak ezt a konstanst kell
- * frissíteni.
- * Dok.: https://cdn.foxpost.hu/apt-finder/v1/documentation/
+ * adja vissza (origin: cdn.foxpost.hu, formátum: { place_id, name, zip, city,
+ * address, ... } — azonos a v1-gyel). Nem igényel API-kulcsot.
+ *
+ * v1 → v3 (2026-06): a v1 "app" 1024px alatt egy törött kinézetű mobil
+ * alsó-lap (piros sáv) elrendezésre váltott, és sok helyet pazarolt egy nagy
+ * címsorral + jelmagyarázattal. A v3 kompakt, "térkép-először" elrendezés egy
+ * kereső + "Lista nézet" kapcsolóval; nincs töréspont-szakadás, mobilon is
+ * használható. A kiválasztó üzenet formátuma változatlan, így a handler nem
+ * igényel módosítást.
  */
-export const FOXPOST_WIDGET_URL = 'https://cdn.foxpost.hu/apt-finder/v1/app/?lang=hu';
+export const FOXPOST_WIDGET_URL = 'https://cdn.foxpost.hu/apt-finder-v3/app/?lang=hu';
 
 /** A Foxpost widget `postMessage` üzeneteit elfogadó origin-ek. */
 export const FOXPOST_WIDGET_ORIGINS = ['https://cdn.foxpost.hu', 'https://foxpost.hu'];

@@ -361,20 +361,20 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 </section>
 
 <!-- Foxpost automata-választó modál (a Foxpost térkép-widget iframe-ben) -->
-<div class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-3 sm:p-4" data-foxpost-modal>
-  <!-- A Foxpost widget 1024px alatt a "mobil" alsó-lap (piros sáv) elrendezésre vált;
-       desktopon ≥1024px szélességre van szükség, hogy az oldalsávos lista-nézet jelenjen meg. -->
-  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[92vh] flex flex-col overflow-hidden">
-    <div class="flex items-center justify-between px-5 py-3.5 border-b border-gray-100">
+<div class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/50 p-0 sm:p-4" data-foxpost-modal>
+  <!-- Mobilon teljes képernyős (a térkép-választó minél több helyet kapjon),
+       desktopon nagy, középre igazított modál. A v3 widget kompakt, törésmentes. -->
+  <div class="bg-white sm:rounded-2xl shadow-2xl w-full h-full sm:h-auto sm:max-w-5xl sm:max-h-[92vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between px-4 sm:px-5 py-3 border-b border-gray-100 shrink-0">
       <h3 class="font-bold text-gray-900">{t(locale, 'checkout.shipping.foxpostModalTitle')}</h3>
       <button type="button" class="p-2 -mr-2 text-gray-400 hover:text-gray-700 transition-colors" data-foxpost-close aria-label="Bezárás">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="relative flex-1 min-h-[60vh] bg-gray-50">
+    <div class="relative flex-1 min-h-0 sm:min-h-[60vh] bg-gray-50">
       <iframe data-foxpost-iframe title="Foxpost automata kereső" class="absolute inset-0 w-full h-full border-0"></iframe>
     </div>
-    <p class="px-5 py-2.5 text-xs text-gray-500 border-t border-gray-100">{t(locale, 'checkout.shipping.foxpostLoadHint')}</p>
+    <p class="px-4 sm:px-5 py-2.5 text-xs text-gray-500 border-t border-gray-100 shrink-0">{t(locale, 'checkout.shipping.foxpostLoadHint')}</p>
   </div>
 </div>
 
