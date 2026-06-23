@@ -137,6 +137,12 @@ export async function processFormSubmission(
   const sheetsOk = channels[0];
   const notifyOk = channels[1];
 
+  // CRM lead-webhook — best-effort (kapcsolati + képzés űrlap is). Sosem buktatja a beküldést;
+  // a teljes attribúciót (gclid/fbclid/utm) is továbbítja a CRM konverzió-illesztéséhez.
+  await postLeadToCrm(leadToCrmBody(leadData)).catch((err) =>
+    console.error('[contact] CRM forward failed:', err instanceof Error ? err.message : err),
+  );
+
   if (sheetsOk || notifyOk) {
     return { success: true, leadId };
   }
@@ -601,7 +607,7 @@ export async function processConsultationSubmission(
   // On Cloudflare Workers fire-and-forget fetches can be terminated before the
   // response resolves. If the caller passes ctx.waitUntil, register the promise;
   // otherwise fall back to await so the work isn't dropped.
-  const crmPromise = sendToCrm(leadData).catch((err) => {
+  const crmPromise = postLeadToCrm(leadToCrmBody(leadData)).catch((err) => {
     console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
   });
   if (waitUntil) {
@@ -989,7 +995,8 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
  * Send consultation lead data to CRM via webhook
  * Uses the same schema as the CRM's /api/webhook/lead endpoint
  */
-async function sendToCrm(data: ConsultationLeadData): Promise<void> {
+/** Generic CRM lead-webhook POST. Skips (warns) if not configured; throws on non-2xx. */
+export async function postLeadToCrm(body: Record<string, unknown>): Promise<void> {
   const crmWebhookUrl = readEnv('CRM_WEBHOOK_URL');
   const crmWebhookSecret = readEnv('CRM_WEBHOOK_SECRET');
 
@@ -1000,22 +1007,39 @@ async function sendToCrm(data: ConsultationLeadData): Promise<void> {
 
   const response = await fetch(crmWebhookUrl, {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${crmWebhookSecret}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: data.name,
-      phone: data.phone,
-      email: data.email,
-      need_type: data.product,
-      utm_source: data.utmSource || 'skinlabhungary.hu',
-      marketing_consent: data.gdprConsent,
-    }),
+    headers: { Authorization: `Bearer ${crmWebhookSecret}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`CRM webhook returned ${response.status}: ${error}`);
+    throw new Error(`CRM webhook returned ${response.status}: ${await response.text()}`);
   }
+}
+
+/**
+ * Map a lead (contact / training / consultation) to the CRM `/api/webhook/lead` payload —
+ * the FULL attribution set so the CRM can do Google Ads / Meta offline-conversion matching.
+ */
+export function leadToCrmBody(data: LeadData, sourceType: string = 'form'): Record<string, unknown> {
+  return {
+    name: data.name,
+    phone: data.phone,
+    email: data.email,
+    need_type: data.product,
+    message: data.message,
+    source_type: sourceType,
+    consent_given: data.gdprConsent,
+    marketing_consent: false, // egységes GDPR-checkbox = adatkezelés, nem külön marketing-opt-in
+    attribution: {
+      landing_url: data.sourceUrl,
+      referrer: data.referrer,
+      utm_source: data.utmSource,
+      utm_medium: data.utmMedium,
+      utm_campaign: data.utmCampaign,
+      utm_content: data.utmContent,
+      utm_term: data.utmTerm,
+      gclid: data.gclid,
+      fbclid: data.fbclid,
+    },
+  };
 }

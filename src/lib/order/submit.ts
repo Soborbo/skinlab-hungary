@@ -208,6 +208,45 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
     );
   }
 
+  // CRM lead-webhook — a VÁSÁRLÁS (legmagasabb szándékú lead) is bekerül a CRM-be, teljes
+  // attribúcióval (gclid/fbclid/utm) a Google Ads / Meta offline-konverzió-illesztéshez.
+  // Best-effort: sosem buktatja a rendelést.
+  const crmUrl = getEnvValue(env, 'CRM_WEBHOOK_URL');
+  const crmSecret = getEnvValue(env, 'CRM_WEBHOOK_SECRET');
+  if (crmUrl && crmSecret) {
+    try {
+      const res = await fetch(crmUrl, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${crmSecret}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${input.lastName} ${input.firstName}`.trim(),
+          phone: input.phone,
+          email: input.email,
+          city: input.city,
+          need_type: 'Webshop rendelés',
+          message: `Webshop rendelés – ${input.items.length} tétel, ${input.subtotal} Ft`,
+          source_type: 'form',
+          consent_given: true,
+          marketing_consent: false,
+          attribution: {
+            landing_url: input.sourceUrl,
+            referrer: input.referrer,
+            utm_source: input.utmSource,
+            utm_medium: input.utmMedium,
+            utm_campaign: input.utmCampaign,
+            utm_content: input.utmContent,
+            utm_term: input.utmTerm,
+            gclid: input.gclid,
+            fbclid: input.fbclid,
+          },
+        }),
+      });
+      if (!res.ok) console.error('[order] CRM forward non-2xx:', res.status);
+    } catch (err) {
+      console.error('[order] CRM forward failed:', err instanceof Error ? err.message : err);
+    }
+  }
+
   // Siker, ha legalább egy tartós csatorna működött - Billingo most már az is
   const billingoOk = proformaResult.success;
   if (adminOk || sheetsOk || billingoOk) {
