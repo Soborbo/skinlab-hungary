@@ -68,6 +68,9 @@ export interface OrderEmailInput {
   fbclid?: string;
   gbraid?: string;
   wbraid?: string;
+  msclkid?: string;
+  fbc?: string;
+  fbp?: string;
   referrer?: string;
   userAgent?: string;
 }

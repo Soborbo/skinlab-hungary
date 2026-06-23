@@ -104,6 +104,9 @@ export const orderSchema = z.object({
   fbclid: z.string().max(300).optional().default(''),
   gbraid: z.string().max(300).optional().default(''),
   wbraid: z.string().max(300).optional().default(''),
+  msclkid: z.string().max(300).optional().default(''),
+  fbc: z.string().max(300).optional().default(''),
+  fbp: z.string().max(300).optional().default(''),
   referrer: z.string().max(500).optional().default(''),
 });
 

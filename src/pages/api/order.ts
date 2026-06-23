@@ -224,6 +224,9 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       fbclid: data.fbclid || '',
       gbraid: data.gbraid || '',
       wbraid: data.wbraid || '',
+      msclkid: data.msclkid || '',
+      fbc: data.fbc || '',
+      fbp: data.fbp || '',
       referrer: data.referrer || '',
       userAgent: request.headers.get('user-agent') ?? undefined,
     };

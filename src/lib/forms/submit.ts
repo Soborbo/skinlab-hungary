@@ -56,6 +56,9 @@ interface LeadData {
   fbclid?: string;
   gbraid?: string;
   wbraid?: string;
+  msclkid?: string;
+  fbc?: string;
+  fbp?: string;
   referrer?: string;
   userAgent?: string;
 }
@@ -128,6 +131,9 @@ export async function processFormSubmission(
     fbclid: data.fbclid,
     gbraid: data.gbraid,
     wbraid: data.wbraid,
+    msclkid: data.msclkid,
+    fbc: data.fbc,
+    fbp: data.fbp,
     referrer: data.referrer,
     userAgent,
   };
@@ -594,6 +600,9 @@ export async function processConsultationSubmission(
     fbclid: data.fbclid,
     gbraid: data.gbraid,
     wbraid: data.wbraid,
+    msclkid: data.msclkid,
+    fbc: data.fbc,
+    fbp: data.fbp,
     referrer: data.referrer,
     userAgent,
   };
@@ -1048,6 +1057,9 @@ export function leadToCrmBody(data: LeadData, sourceType: string = 'form'): Reco
       fbclid: data.fbclid,
       gbraid: data.gbraid,
       wbraid: data.wbraid,
+      msclkid: data.msclkid,
+      fbc: data.fbc,
+      fbp: data.fbp,
     },
   };
 }

@@ -22,6 +22,7 @@ export interface TrackingData {
   gbraid?: string;
   wbraid?: string;
   fbclid?: string;
+  msclkid?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -116,7 +117,7 @@ function urlTrackingParams(): Partial<TrackingData> | null {
   const u = new URLSearchParams(window.location.search);
   const p: Partial<TrackingData> = {};
   let any = false;
-  for (const k of ['gclid','gbraid','wbraid','fbclid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'] as const) {
+  for (const k of ['gclid','gbraid','wbraid','fbclid','msclkid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'] as const) {
     const v = u.get(k);
     if (v) { (p as Record<string,string>)[k] = v; any = true; }
   }
@@ -207,6 +208,7 @@ export function getAllTrackingData(): Partial<TrackingData> {
   return {
     gclid: u.get('gclid') || s?.gclid, gbraid: u.get('gbraid') || s?.gbraid,
     wbraid: u.get('wbraid') || s?.wbraid, fbclid: u.get('fbclid') || s?.fbclid,
+    msclkid: u.get('msclkid') || s?.msclkid,
     utm_source: u.get('utm_source') || s?.utm_source, utm_medium: u.get('utm_medium') || s?.utm_medium,
     utm_campaign: u.get('utm_campaign') || s?.utm_campaign, utm_content: u.get('utm_content') || s?.utm_content,
     utm_term: u.get('utm_term') || s?.utm_term,

@@ -968,6 +968,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             fbclid: pick('fbclid'),
             gbraid: pick('gbraid'),
             wbraid: pick('wbraid'),
+            msclkid: pick('msclkid'),
+            fbc: document.cookie.match(/(?:^|; )_fbc=([^;]*)/)?.[1] || '',
+            fbp: document.cookie.match(/(?:^|; )_fbp=([^;]*)/)?.[1] || '',
             referrer: pick('referrer') || document.referrer || '',
           };
         })(),

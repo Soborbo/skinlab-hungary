@@ -240,6 +240,9 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
             fbclid: input.fbclid,
             gbraid: input.gbraid,
             wbraid: input.wbraid,
+            msclkid: input.msclkid,
+            fbc: input.fbc,
+            fbp: input.fbp,
           },
         }),
       });

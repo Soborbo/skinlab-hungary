@@ -77,6 +77,9 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
   <input type="hidden" name="fbclid" data-track="fbclid" />
   <input type="hidden" name="gbraid" data-track="gbraid" />
   <input type="hidden" name="wbraid" data-track="wbraid" />
+  <input type="hidden" name="msclkid" data-track="msclkid" />
+  <input type="hidden" name="fbc" data-track="fbc" />
+  <input type="hidden" name="fbp" data-track="fbp" />
   <input type="hidden" name="referrer" data-track="referrer" />
 
   <!-- Honeypot - hidden from users, bots will fill it -->
@@ -333,6 +336,10 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
       const key = input.getAttribute('data-track');
       if (!key) return;
       let value = urlParams.get(key) || storedTracking[key] || '';
+      if (!value && (key === 'fbc' || key === 'fbp')) {
+        const m = document.cookie.match(new RegExp('(?:^|; )_' + key + '=([^;]*)'));
+        value = m ? decodeURIComponent(m[1]) : '';
+      }
       if (!value && key === 'referrer') {
         value = document.referrer || '';
       }
