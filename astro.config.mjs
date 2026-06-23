@@ -13,6 +13,10 @@ export default defineConfig({
   // hreflang and sitemap URLs equal the actually-served URL instead of
   // pointing at a redirecting one.
   trailingSlash: 'always',
+  // Astro 7 changed the compressHTML default from `true` (HTML-aware) to
+  // `'jsx'` (JSX-style stripping), which can drop spaces between inline
+  // elements. Pin the v6 behaviour to avoid subtle whitespace regressions.
+  compressHTML: true,
   integrations: [
     sitemap({
       // Exclude noindex utility/conversion routes so Google doesn't see

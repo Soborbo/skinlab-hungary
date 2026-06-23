@@ -1,0 +1,74 @@
+---
+/**
+ * AnnouncementBar - site-wide akciós figyelemfelhívó szalag.
+ *
+ * Minden HU oldal tetején megjelenik (a BaseLayout magán az akciós landing
+ * page-en elrejti), és az Olympia akcióra (`/olympia-akcio`) visz. A szalag
+ * munkamenetenként eldobható (X gomb → sessionStorage), így nem tolakodó.
+ *
+ * Csak magyarul jelenik meg - az akció HU-only (lásd olympia-akcio.astro).
+ */
+import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const href = getLocalizedUrl(locale, '/olympia-akcio');
+---
+
+{locale === 'hu' && (
+  <div
+    data-announcement-bar
+    class="relative bg-gradient-to-r from-[#ec3c6e] via-[#ce2252] to-[#a01c42] text-white"
+  >
+    <a href={href} class="block hover:bg-white/5 transition-colors">
+      <div class="max-w-7xl mx-auto px-9 sm:px-12 py-2 flex items-center justify-center gap-2 text-center text-[12.5px] leading-tight sm:text-sm font-semibold">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+        </svg>
+        <span>
+          <span class="hidden sm:inline">AKCIÓ · </span>OLYMPIA 1200W diódalézer
+          <span class="hidden xs:inline"> + </span><span class="underline decoration-white/40 underline-offset-2">ajándék kezelőágy</span>
+        </span>
+        <span class="hidden md:inline font-normal text-white/75">· júl. 31-ig</span>
+        <span class="inline-flex items-center gap-0.5 font-bold whitespace-nowrap">
+          Megnézem
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
+    </a>
+    <button
+      type="button"
+      data-announcement-dismiss
+      aria-label="Szalag bezárása"
+      class="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full text-white/70 hover:text-white hover:bg-white/15 transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+)}
+
+<script is:inline>
+  (function () {
+    var KEY = 'sl_promo_olympia_dismissed';
+    var bar = document.querySelector('[data-announcement-bar]');
+    if (!bar) return;
+    try {
+      if (sessionStorage.getItem(KEY) === '1') {
+        bar.style.display = 'none';
+        return;
+      }
+    } catch (e) {}
+    var btn = bar.querySelector('[data-announcement-dismiss]');
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        bar.style.display = 'none';
+        try { sessionStorage.setItem(KEY, '1'); } catch (err) {}
+      });
+    }
+  })();
+</script>

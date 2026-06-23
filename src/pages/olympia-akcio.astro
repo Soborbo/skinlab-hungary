@@ -1,0 +1,356 @@
+---
+/**
+ * Olympia akciós landing page (/olympia-akcio)
+ *
+ * Önálló kampányoldal: az OLYMPIA 1200W diódalézer megvásárlása mellé
+ * 1 db Apollonia kezelőágy jár ajándékba (csomagban). Az oldal csak az
+ * Olympiát engedi kosárba (AddToCartButton), bemutatja a részletes fizetési
+ * feltételeket (egyösszegű VAGY 50/50 - részletfizetésre NEM él), és a teljes
+ * részvételi szabályzatot. HU-only. Site-wide szalag (AnnouncementBar) hozza ide.
+ *
+ * Akció vége: 2026.07.31. 23:59 - illetve visszavonásig / a készlet erejéig.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AddToCartButton from '../components/cart/AddToCartButton.astro';
+import USPStrip from '../components/product/USPStrip.astro';
+import OptimizedPicture from '../components/images/OptimizedPicture.astro';
+import { getCollection } from 'astro:content';
+import { COMPANY, CONTACT, SITE } from '../lib/constants';
+import { getLocaleFromUrl, getLocalizedUrl, formatPrice, type Locale } from '../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Egyetlen forrás: az Olympia termék adatai a katalógusból (ár/SKU/név sync).
+const products = await getCollection('products');
+const olympia = products.find((p) => p.data.slug === 'olympia')!;
+const o = olympia.data;
+
+const price = o.price ?? 2499990;
+const priceFmt = formatPrice(price, locale);
+const half = Math.round(price / 2);
+const halfFmt = formatPrice(half, locale);
+
+const productUrl = getLocalizedUrl(locale, '/diodalezerek/olympia');
+const consultUrl = getLocalizedUrl(locale, '/konzultacio');
+
+// Akció vége (magyar idő, CEST = UTC+2 nyáron)
+const DEADLINE_ISO = '2026-07-31T23:59:59+02:00';
+const DEADLINE_LABEL = '2026. július 31. 23:59';
+
+// A kreatívról átemelt kiemelt jellemzők
+const highlights = [
+  { t: '1200W kimeneti teljesítmény', s: 'Erőteljes, gyors, kiszámítható kezelések' },
+  { t: '5 állítható spotméret', s: '10×10 · 15×15 · 20×20 · 30×15 · 40×20 mm' },
+  { t: '4 hullámhossz', s: '755 / 808 / 940 / 1064 nm' },
+  { t: 'Digitális kezelőfej', s: 'Precíz, hatékony, okos protokollok' },
+  { t: 'Zafír kontakt hűtés', s: 'Többlépcsős TEC + víz + levegő' },
+  { t: 'Magyar szervizháttér', s: 'Gyors, szakértői támogatás, cseregép' },
+];
+
+const included = [
+  'OLYMPIA 1200W diódalézer készülék',
+  '5 méretben állítható kristály kezelőfej',
+  'Védőszemüveg (kezelő + vendég)',
+  'Gépkezelői oktatás (FAR tanúsítvány)',
+  '2 év teljes körű garancia + cseregép',
+];
+
+const terms = [
+  `Az akció szervezője a ${COMPANY.legalName}`,
+  `Az akció 2026. július 31. napjáig 23:59 óráig, illetve visszavonásig vagy a készlet erejéig érvényes.`,
+  'Az OLYMPIA 1200W diódalézer megvásárlása esetén 1 db Apollonia kezelőágy térítésmentesen jár.',
+  'Az ajánlat kizárólag a két terméket együttesen, csomagban tartalmazó vásárlásra vonatkozik. Az ajándék kezelőágy önállóan nem igényelhető.',
+  'Az ajándék kezelőágy ellenértéke készpénzre nem váltható, más termékre nem cserélhető, valamint utólagos árengedmény vagy jóváírás formájában sem érvényesíthető.',
+  'A kedvezmény kizárólag egyösszegű fizetés esetén, vagy 50% előleg + 50% átvételkori fizetési konstrukció mellett érvényes. Részletfizetésre az akció nem él.',
+  'Az akció más kedvezménnyel nem vonható össze.',
+];
+
+const ogImage = '/og-image.jpg';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'OLYMPIA 1200W diódalézer + ajándék Apollonia kezelőágy',
+  description:
+    'OLYMPIA 1200W professzionális diódalézer megvásárlása mellé 1 db Apollonia kezelőágy ajándékba. Akció 2026. július 31-ig vagy a készlet erejéig.',
+  sku: o.sku,
+  brand: { '@type': 'Brand', name: 'Skinlab' },
+  offers: {
+    '@type': 'Offer',
+    url: `${SITE.url}${getLocalizedUrl(locale, '/olympia-akcio')}`,
+    priceCurrency: 'HUF',
+    price: String(price),
+    priceValidUntil: '2026-07-31',
+    availability: 'https://schema.org/PreOrder',
+    seller: { '@type': 'Organization', name: COMPANY.legalName },
+  },
+};
+---
+
+<BaseLayout
+  title="OLYMPIA 1200W diódalézer akció + ajándék kezelőágy"
+  description="Akció: az OLYMPIA 1200W professzionális diódalézer mellé 1 db Apollonia kezelőágy jár ajándékba. 2026. július 31-ig vagy a készlet erejéig. Egyösszegű vagy 50/50 fizetés."
+  image={ogImage}
+  schema={schema}
+  hideDesktopWidget={true}
+>
+  <!-- ============ HERO ============ -->
+  <section class="bg-gradient-to-b from-primary-100 via-primary-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+
+        <!-- Bal: szöveg -->
+        <div>
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold bg-primary-700 text-white mb-5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+            </svg>
+            AKCIÓ · ajándék kezelőággyal
+          </span>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+            OLYMPIA 1200W diódalézer
+          </h1>
+          <p class="text-lg text-gray-600 mb-6 max-w-xl">
+            A profi 1200W-os diódalézer mellé most <strong class="text-gray-900">1 db Apollonia
+            professzionális kezelőágyat adunk ajándékba</strong> - csomagban, egyetlen vásárlással.
+          </p>
+
+          <!-- Ár + ajándék -->
+          <div class="bg-white rounded-2xl shadow-lg border border-primary-100 p-5 sm:p-6 mb-6">
+            <div class="flex flex-wrap items-end gap-x-3 gap-y-1 mb-1">
+              <span class="text-3xl sm:text-4xl font-bold text-gray-900">{priceFmt}</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">
+              Diódalézer + ajándék professzionális kezelőágy · 2 év garancia
+            </p>
+
+            <div id="rendeles" class="scroll-mt-24">
+              <AddToCartButton
+                locale={locale}
+                slug={o.slug}
+                sku={o.sku}
+                name={o.name}
+                categorySlug={o.categorySlug}
+                image={o.image}
+                price={price}
+              />
+            </div>
+
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 text-sm">
+              <a href={consultUrl} class="inline-flex items-center gap-1.5 font-semibold text-primary-700 hover:text-primary-800">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 3v-3z" /></svg>
+                Ingyenes konzultáció
+              </a>
+              <a href={CONTACT.phoneTel} class="inline-flex items-center gap-1.5 font-semibold text-cta hover:text-cta-hover">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                {CONTACT.phoneFormatted}
+              </a>
+            </div>
+          </div>
+
+          <!-- Visszaszámláló -->
+          <div
+            data-countdown
+            data-deadline={DEADLINE_ISO}
+            class="inline-flex flex-wrap items-center gap-2 text-sm text-gray-700"
+          >
+            <svg class="w-4 h-4 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Az akció <strong class="text-gray-900">{DEADLINE_LABEL}</strong>-ig, illetve a készlet erejéig tart.</span>
+            <span data-countdown-value class="font-bold text-primary-700"></span>
+          </div>
+        </div>
+
+        <!-- Jobb: kép -->
+        <div class="relative">
+          <div class="absolute -inset-4 bg-primary-200/30 rounded-3xl blur-2xl -z-10"></div>
+          <div class="rounded-2xl overflow-hidden bg-white shadow-xl">
+            <OptimizedPicture
+              src="@assets/products/olympia-1.png"
+              alt="OLYMPIA 1200W diódalézer"
+              widths={[480, 640, 828, 1080]}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USP STRIP ============ -->
+  <USPStrip />
+
+  <!-- ============ MIT TARTALMAZ AZ AKCIÓ ============ -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-primary-100 text-primary-700 mb-3">A CSOMAG</span>
+        <h2 class="text-2xl lg:text-3xl font-bold">Egy vásárlás, két készülék</h2>
+        <p class="text-gray-600 mt-3">Az akcióban az OLYMPIA diódalézert és az Apollonia kezelőágyat együtt, csomagban kapod meg.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <!-- Gép -->
+        <div class="rounded-2xl border-2 border-primary-200 bg-primary-50/40 p-6">
+          <div class="text-xs font-bold text-primary-700 mb-2">A KÉSZÜLÉK</div>
+          <h3 class="text-xl font-bold mb-3">OLYMPIA 1200W diódalézer</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            {included.map((item) => (
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 shrink-0 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={productUrl} class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-primary-700 hover:text-primary-800">
+            Részletes termékadatok
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+
+        <!-- Ajándék ágy -->
+        <div class="rounded-2xl border-2 border-dashed border-primary-300 bg-white p-6 relative">
+          <span class="absolute -top-3 left-6 px-3 py-1 rounded-full text-xs font-bold bg-primary-700 text-white">AJÁNDÉK</span>
+          <div class="text-xs font-bold text-primary-700 mb-2 mt-2">A KEZELŐÁGY</div>
+          <h3 class="text-xl font-bold mb-3">Apollonia professzionális kezelőágy</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 shrink-0 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span>Európai (lengyel) gyártmányú, prémium kivitel</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 shrink-0 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span>Fehér színben, kényelmes, professzionális szalonkivitel</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 shrink-0 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <span>A diódalézerrel együtt, csomagban - térítésmentesen</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-400 mt-4">A kezelőágy fotója és pontos méretei hamarosan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KIEMELT JELLEMZŐK ============ -->
+  <section class="py-12 lg:py-16 bg-primary-50/40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-center mb-10">Miért az OLYMPIA?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {highlights.map((h) => (
+          <div class="bg-white rounded-xl p-5 border border-gray-100">
+            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-1">{h.t}</h3>
+            <p class="text-sm text-gray-600">{h.s}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIZETÉSI FELTÉTELEK ============ -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-primary-100 text-primary-700 mb-3">FIZETÉS</span>
+        <h2 class="text-2xl lg:text-3xl font-bold">Fizetési feltételek</h2>
+        <p class="text-gray-600 mt-3">Az akciós ár két konstrukcióban érvényesíthető. A megrendelést követően telefonon egyeztetünk és e-mailben küldjük a fizetési adatokat.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 mb-6">
+        <!-- A: egyösszegű -->
+        <div class="rounded-2xl border border-gray-200 p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-8 h-8 rounded-full bg-cta-light text-cta font-bold flex items-center justify-center text-sm">A</span>
+            <h3 class="text-lg font-bold">Egyösszegű fizetés</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">A teljes vételár egy összegben, banki átutalással a megrendelés visszaigazolása után.</p>
+          <div class="flex items-center justify-between border-t border-gray-100 pt-3 text-sm">
+            <span class="text-gray-500">Fizetendő</span>
+            <strong class="text-gray-900 text-base">{priceFmt}</strong>
+          </div>
+        </div>
+
+        <!-- B: 50/50 -->
+        <div class="rounded-2xl border-2 border-cta/40 bg-cta-light/40 p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-8 h-8 rounded-full bg-cta text-white font-bold flex items-center justify-center text-sm">B</span>
+            <h3 class="text-lg font-bold">50% előleg + 50% átvételkor</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">A vételár 50%-a előleg a megrendeléskor, a fennmaradó 50% a készülék átvételekor / megérkezésekor.</p>
+          <div class="space-y-1.5 text-sm border-t border-cta/20 pt-3">
+            <div class="flex items-center justify-between"><span class="text-gray-500">Előleg (50%)</span><strong class="text-gray-900">{halfFmt}</strong></div>
+            <div class="flex items-center justify-between"><span class="text-gray-500">Átvételkor (50%)</span><strong class="text-gray-900">{halfFmt}</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Részletfizetés kizárása -->
+      <div class="flex items-start gap-3 rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-900">
+        <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <p><strong>Figyelem:</strong> erre az akcióra a részletfizetés (kamatmentes finanszírozás) nem érvényes. Az ajándék kezelőágy kizárólag a fenti két fizetési mód valamelyikével vehető igénybe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RÉSZVÉTELI SZABÁLYZAT ============ -->
+  <section class="py-12 lg:py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-center mb-3">Akciós feltételek és részvételi szabályzat</h2>
+      <p class="text-center text-gray-600 mb-8">Érvényes: <strong class="text-gray-900">{DEADLINE_LABEL}</strong>-ig, illetve visszavonásig vagy a készlet erejéig.</p>
+      <ol class="space-y-3">
+        {terms.map((term, i) => (
+          <li class="flex items-start gap-3 bg-white rounded-xl border border-gray-100 p-4">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-xs font-bold flex items-center justify-center">{i + 1}</span>
+            <span class="text-sm text-gray-700">{term}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="text-xs text-gray-400 mt-6 text-center">
+        A részletes részvételi feltételek a {COMPANY.legalName} által biztosított dokumentumban érhetők el. Kérdés esetén: {CONTACT.email} · {CONTACT.phoneFormatted}
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ZÁRÓ CTA ============ -->
+  <section class="py-14 lg:py-20 bg-gradient-to-r from-[#ec3c6e] via-[#ce2252] to-[#a01c42]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-3">Igényeld az OLYMPIA-t ajándék kezelőággyal</h2>
+      <p class="text-white/85 mb-7">{priceFmt} · diódalézer + ajándék professzionális kezelőágy. Az akció {DEADLINE_LABEL}-ig, vagy a készlet erejéig tart.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#rendeles" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary-700 font-bold rounded-xl hover:bg-primary-50 transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" /></svg>
+          Kosárba teszem
+        </a>
+        <a href={consultUrl} class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl ring-1 ring-white/40 hover:bg-white/20 transition-colors">
+          Ingyenes konzultáció
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var el = document.querySelector('[data-countdown]');
+      if (!el) return;
+      var out = el.querySelector('[data-countdown-value]');
+      var deadline = new Date(el.getAttribute('data-deadline')).getTime();
+      function tick() {
+        var diff = deadline - Date.now();
+        if (diff <= 0) { if (out) out.textContent = ''; return; }
+        var days = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        if (out) out.textContent = days > 0 ? '(még ' + days + ' nap)' : '(még ' + hours + ' óra)';
+      }
+      tick();
+      setInterval(tick, 60000);
+    })();
+  </script>
+</BaseLayout>

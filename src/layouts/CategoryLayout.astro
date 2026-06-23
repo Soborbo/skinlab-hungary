@@ -192,11 +192,18 @@ const monthlyTeaser = (price?: number | null): number | null => {
   return info.monthly[term];
 };
 const productHref = (p: any) => withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug || p.id}`);
+// A "Részletfizetés" ígéretet csak akkor tartjuk a kategória trust-badge-ek
+// között, ha van legalább egy, a részletfizetési küszöb (INSTALLMENT_MIN,
+// ~100 000 Ft) feletti termék a kategóriában. Tisztán küszöb-alatti
+// kategóriákon (pl. kellékek, kezelőanyagok) NEM ajánljuk fel a részletfizetést
+// — ugyanazt a küszöböt alkalmazzuk, mint a kártyák "havi ~" teaserénél és a
+// termékoldali kalkulátornál (közös forrás: lib/installment.ts).
+const categoryHasInstallment = products.some((p) => getInstallmentInfo(p?.data?.price).available);
 const defaultTrustBadges: TrustBadge[] = [
   { title: '2 év garancia' },
   { title: 'Ingyenes betanítás' },
   { title: 'Magyar szerviz' },
-  { title: 'Részletfizetés' },
+  ...(categoryHasInstallment ? [{ title: 'Részletfizetés' }] : []),
 ];
 const resolvedTrustBadges: TrustBadge[] = trustBadges && trustBadges.length > 0 ? trustBadges : defaultTrustBadges;
 

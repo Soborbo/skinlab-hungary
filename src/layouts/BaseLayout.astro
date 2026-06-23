@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
+import AnnouncementBar from '../components/layout/AnnouncementBar.astro';
 import Footer from '../components/layout/Footer.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
@@ -78,6 +79,10 @@ const currentLocale = getLocaleFromUrl(Astro.url);
 const rawPath = Astro.url.pathname;
 const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
+
+// A site-wide akciós szalagot mindenhol mutatjuk, kivéve magán az akciós
+// landing page-en (ott felesleges/önmagára mutatna).
+const isPromoPage = currentPath === '/olympia-akcio';
 
 // Generate canonical URL - absolute URL for SEO.
 // trailingSlash: 'always' — getLocalizedUrl/withTrailingSlash (i18n/ui.ts) emit
@@ -225,11 +230,11 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     })();
   </script>
 
-  <!-- Tracking: GTM + Consent Mode v2.
-       deferGtmMs > 0 delays gtm.js fetch until user interaction or timeout.
-       cookieYesId: build-time env (PUBLIC_COOKIEYES_ID) - enélkül nincs
-       consent banner, így a marketing/analytics tagek sosem kapnak consentet
-       (a GTM konténerben sincs CookieYes tag - 2026-06-10 audit). -->
+  {/* Tracking: GTM + Consent Mode v2. deferGtmMs above 0 delays gtm.js fetch
+      until user interaction/timeout. cookieYesId: build-time env
+      (PUBLIC_COOKIEYES_ID); without it there is no consent banner, so
+      marketing/analytics tags never get consent (no CookieYes tag in the GTM
+      container either - 2026-06-10 audit). */}
   <Tracking
     gtmId="GTM-NW7DKC2D"
     cookieYesId={import.meta.env.PUBLIC_COOKIEYES_ID}
@@ -244,6 +249,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
   <TrackingNoscript gtmId="GTM-NW7DKC2D" />
+  {!isPromoPage && <AnnouncementBar />}
   <Header />
   <main id="main-content" class="flex-1">
     <slot />
