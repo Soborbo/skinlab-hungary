@@ -238,6 +238,8 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
             utm_term: input.utmTerm,
             gclid: input.gclid,
             fbclid: input.fbclid,
+            gbraid: input.gbraid,
+            wbraid: input.wbraid,
           },
         }),
       });

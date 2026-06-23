@@ -222,6 +222,8 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       utmContent: data.utmContent || '',
       gclid: data.gclid || '',
       fbclid: data.fbclid || '',
+      gbraid: data.gbraid || '',
+      wbraid: data.wbraid || '',
       referrer: data.referrer || '',
       userAgent: request.headers.get('user-agent') ?? undefined,
     };

@@ -53,6 +53,8 @@ export const contactSchema = z.object({
   utmContent: z.string().max(200).optional().default(''),
   gclid: z.string().max(300).optional().default(''),
   fbclid: z.string().max(300).optional().default(''),
+  gbraid: z.string().max(300).optional().default(''),
+  wbraid: z.string().max(300).optional().default(''),
   referrer: z.string().max(500).optional().default(''),
 });
 
@@ -121,6 +123,8 @@ export const consultationSchema = z.object({
   utmContent: z.string().max(200).optional().default(''),
   gclid: z.string().max(300).optional().default(''),
   fbclid: z.string().max(300).optional().default(''),
+  gbraid: z.string().max(300).optional().default(''),
+  wbraid: z.string().max(300).optional().default(''),
   referrer: z.string().max(500).optional().default(''),
 });
 

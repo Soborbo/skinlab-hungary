@@ -54,6 +54,8 @@ interface LeadData {
   utmContent?: string;
   gclid?: string;
   fbclid?: string;
+  gbraid?: string;
+  wbraid?: string;
   referrer?: string;
   userAgent?: string;
 }
@@ -124,6 +126,8 @@ export async function processFormSubmission(
     utmContent: data.utmContent,
     gclid: data.gclid,
     fbclid: data.fbclid,
+    gbraid: data.gbraid,
+    wbraid: data.wbraid,
     referrer: data.referrer,
     userAgent,
   };
@@ -588,6 +592,8 @@ export async function processConsultationSubmission(
     utmContent: data.utmContent,
     gclid: data.gclid,
     fbclid: data.fbclid,
+    gbraid: data.gbraid,
+    wbraid: data.wbraid,
     referrer: data.referrer,
     userAgent,
   };
@@ -1040,6 +1046,8 @@ export function leadToCrmBody(data: LeadData, sourceType: string = 'form'): Reco
       utm_term: data.utmTerm,
       gclid: data.gclid,
       fbclid: data.fbclid,
+      gbraid: data.gbraid,
+      wbraid: data.wbraid,
     },
   };
 }
