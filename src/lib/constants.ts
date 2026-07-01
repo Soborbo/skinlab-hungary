@@ -67,12 +67,12 @@ export const LOCATIONS = {
   },
   showroom: {
     name: 'Skinlab SHOWROOM',
-    streetAddress: 'Budai út 28.',
+    streetAddress: 'Bajcsy-Zsilinszky út 156.',
     postalCode: '2030',
     city: 'Érd',
     country: 'HU',
     countryName: 'Magyarország',
-    fullAddress: '2030 Érd, Budai út 28.',
+    fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
     openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
     openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {

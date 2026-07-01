@@ -436,7 +436,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 
   <p style="color: #888; font-size: 12px;">
     Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
-    Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+    Skinlab Beauty Equipment Kft. | 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
     Hivatkozási szám: ${data.leadId}
   </p>
 </body>
@@ -853,7 +853,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
         </a>
       </p>
       <p style="color: #78716c; font-size: 13px; margin: 0;">
-        Skinlab SHOWROOM: 2030 Érd, Budai út 28.<br>
+        Skinlab SHOWROOM: 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
         Email: <a href="mailto:hello@skinlabhungary.hu" style="color: #db2777;">hello@skinlabhungary.hu</a>
       </p>
     </div>
@@ -862,7 +862,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 
     <p style="color: #9ca3af; font-size: 11px; text-align: center; line-height: 1.5;">
       Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
-      Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+      Skinlab Beauty Equipment Kft. | 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
       Hivatkozási szám: ${data.leadId}
     </p>
   </div>
