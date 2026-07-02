@@ -76,10 +76,10 @@ export const LOCATIONS = {
     openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
     openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {
-      latitude: 47.378666588736394,
-      longitude: 18.9253785018499,
+      latitude: 47.40739640410366,
+      longitude: 18.891749712361076,
     },
-    googleMapsUrl: 'https://www.google.com/maps?q=47.378666588736394,18.9253785018499',
+    googleMapsUrl: 'https://www.google.com/maps?q=47.40739640410366,18.891749712361076',
   },
 };
 
