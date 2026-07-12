@@ -622,7 +622,21 @@ export async function processConsultationSubmission(
   // On Cloudflare Workers fire-and-forget fetches can be terminated before the
   // response resolves. If the caller passes ctx.waitUntil, register the promise;
   // otherwise fall back to await so the work isn't dropped.
-  const crmPromise = postLeadToCrm(leadToCrmBody(leadData)).catch((err) => {
+  const crmPromise = postLeadToCrm(
+    leadToCrmBody(leadData, 'form', {
+      form_key: 'skinlab_consult',
+      // A kulcsok 1:1 a CRM skinlab_consult form-configgal; a select-`value`-k (timeline/
+      // businessType/experience) is egyeznek a wizard enumjaival → strukturáltan jelennek
+      // meg a lead alatt (need_type/message marad a gyors pillantáshoz).
+      answers: {
+        product: leadData.product,
+        timeline: leadData.timeline,
+        businessType: leadData.businessType,
+        experience: leadData.experience,
+        ...(leadData.message ? { message: leadData.message } : {}),
+      },
+    }),
+  ).catch((err) => {
     console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
   });
   if (waitUntil) {
@@ -1035,7 +1049,15 @@ export async function postLeadToCrm(body: Record<string, unknown>): Promise<void
  * Map a lead (contact / training / consultation) to the CRM `/api/webhook/lead` payload —
  * the FULL attribution set so the CRM can do Google Ads / Meta offline-conversion matching.
  */
-export function leadToCrmBody(data: LeadData, sourceType: string = 'form'): Record<string, unknown> {
+export function leadToCrmBody(
+  data: LeadData,
+  sourceType: string = 'form',
+  // Opcionális strukturált kvíz-válaszok. Ha megadva, a CRM a kontakt-lead MELLÉ
+  // `lead_submissions` sort is ír (a `form_key` form-config-ja validál/címkéz). Enélkül
+  // a régi viselkedés marad: csak kontakt-lead jön létre. A `form_key` + az `answers`
+  // KULCSAI 1:1 a CRM form-configgal (soborbo-crm: lib/intake/forms/*).
+  intake?: { form_key: string; answers: Record<string, unknown> },
+): Record<string, unknown> {
   return {
     name: data.name,
     phone: data.phone,
@@ -1061,5 +1083,6 @@ export function leadToCrmBody(data: LeadData, sourceType: string = 'form'): Reco
       fbc: data.fbc,
       fbp: data.fbp,
     },
+    ...(intake ? { form_key: intake.form_key, answers: intake.answers } : {}),
   };
 }
