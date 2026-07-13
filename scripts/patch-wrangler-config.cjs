@@ -63,12 +63,17 @@ if (config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL !== GOOGLE_SERVICE_ACCOUNT_EMAIL) {
 // browser's response.json() then throws and the form shows a phantom network
 // error. run_worker_first makes /api/* skip the asset layer regardless of the
 // site's trailingSlash setting.
+// /index.php is forced to the Worker for the same reason: the legacy OpenCart
+// contact URL /index.php?route=information/contact must 301 to /kapcsolat/, but
+// Cloudflare _redirects cannot match query strings. The query-aware branching
+// lives in src/pages/index.php.ts (prerender=false); without run_worker_first
+// the asset layer could answer /index.php before the Worker sees it.
 config.assets = config.assets ?? {};
-const API_ROUTES = ['/api/*'];
+const WORKER_FIRST_ROUTES = ['/api/*', '/index.php'];
 const currentWorkerFirst = Array.isArray(config.assets.run_worker_first)
   ? config.assets.run_worker_first
   : [];
-const missingRoutes = API_ROUTES.filter((r) => !currentWorkerFirst.includes(r));
+const missingRoutes = WORKER_FIRST_ROUTES.filter((r) => !currentWorkerFirst.includes(r));
 if (missingRoutes.length > 0) {
   config.assets.run_worker_first = [...currentWorkerFirst, ...missingRoutes];
   patched.push(`assets.run_worker_first (${config.assets.run_worker_first.join(', ')})`);

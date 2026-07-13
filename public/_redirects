@@ -3,7 +3,11 @@
 # Celok ELO (200) oldalak, zaro perjellel (a perjel nelkuli alak 307-tel arra ugrik).
 # Sorrend: konkret szabalyok elol, /* catch-all-ok a vegen (first-match-wins).
 
-/index.php                                                                       /  301
+# /index.php?route=... is handled in the Worker (src/pages/index.php.ts), NOT here:
+# Cloudflare _redirects (Workers Static Assets) cannot match query strings, so a
+# path-only rule would also send the well-ranking contact URL to the homepage.
+# route=information/contact -> /kapcsolat/, anything else -> /. /index.php is in
+# assets.run_worker_first (scripts/patch-wrangler-config.cjs).
 
 /akcios-termekek-206                                                             /  301
 /babaapolas-209                                                                  /  301

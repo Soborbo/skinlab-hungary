@@ -43,6 +43,19 @@ export default defineConfig({
           sl: 'sl',
         },
       },
+      // @astrojs/sitemap emits one <xhtml:link hreflang> per configured locale
+      // but never an x-default. Add x-default → the Hungarian (defaultLocale)
+      // URL of each page-set, matching the <head> alternate in BaseLayout.astro
+      // so the sitemap and the on-page hreflang annotations agree.
+      serialize(item) {
+        if (item.links?.length) {
+          const hu = item.links.find((l) => l.lang === 'hu');
+          if (hu && !item.links.some((l) => l.lang === 'x-default')) {
+            item.links.push({ lang: 'x-default', url: hu.url });
+          }
+        }
+        return item;
+      },
     }),
   ],
   adapter: cloudflare({
