@@ -7,7 +7,8 @@
 import type { APIRoute } from 'astro';
 import { validateContactForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
-import { processFormSubmission } from '@/lib/forms/submit';
+import { processFormSubmission, type FormTrackingContext } from '@/lib/forms/submit';
+import { readConsentFromCookie } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -94,7 +95,20 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     // Process form submission - capture User-Agent for the Sheets row too
     recordFormSubmission(clientAddress, 'contact');
     const userAgent = request.headers.get('user-agent') ?? undefined;
-    const result = await processFormSubmission(validation.data!, clientAddress, userAgent, sheetName);
+
+    // Gateway server-leg context (browser event_id + CookieYes consent) —
+    // contact_form_submitted is server-ingress-only, this is its only route.
+    const tracking: FormTrackingContext = {
+      eventId: String(data.event_id || '') || crypto.randomUUID(),
+      consent: readConsentFromCookie(request.headers.get('cookie')),
+      clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
+      clientUserAgent: userAgent,
+      eventSourceUrl: request.headers.get('referer') ?? undefined,
+    };
+
+    const result = await processFormSubmission(
+      validation.data!, clientAddress, userAgent, sheetName, tracking,
+    );
 
     if (!result.success) {
       // Internal error stays server-side only.

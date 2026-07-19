@@ -1,7 +1,25 @@
 ---
 /**
- * <TrackedForm /> - Form wrapper with conversion tracking.
- * Handles: validate -> track -> hidden fields -> wait -> submit.
+ * <TrackedForm /> — Form wrapper with conversion tracking (BROWSER leg only).
+ *
+ * Handles: validate → track (dataLayer) → hidden fields → wait → submit.
+ * Re-submits via form.requestSubmit() (guarded against recursion) so OTHER
+ * submit listeners still run and the submitter button is preserved natively.
+ *
+ * THE SERVER LEG IS NOT HERE — and that is load-bearing. Form conversions
+ * (quote_calculator_submitted / contact_form_submitted) are server-ingress-only:
+ * the gateway 403s them on the browser path. The API route that receives this
+ * form's POST MUST dispatch the gateway conversion (server/backend/
+ * gateway-dispatch.ts) REUSING the `event_id` hidden field this component
+ * populates — that is what keeps Meta Pixel↔CAPI dedup intact. A form wired
+ * without the backend dispatch ships leads with NO server-side ad conversion.
+ *
+ * Field mapping: override with props if your form uses non-standard names.
+ *
+ * IMPORTANT: This component assumes classic HTML form submission.
+ * If your form uses fetch/XHR submit, use trackLeadSubmit() directly.
+ * If you have multiple submit buttons with name/value pairs,
+ * the clicked button's name/value is preserved via a hidden field.
  */
 
 interface Props {
@@ -24,7 +42,7 @@ interface Props {
 let formIdCounter = 0;
 const {
   action, method = 'POST', eventType = 'lead', contentName,
-  currency = 'HUF',
+  currency,  // no default → falls back to PUBLIC_TRACKING_CURRENCY via trackLeadSubmit
   emailField = 'email', phoneField = 'phone',
   firstNameField = 'firstName', lastNameField = 'lastName',
   valueField = 'price', formId = `tracked-form-${++formIdCounter}`,
@@ -37,7 +55,7 @@ const {
   data-tracked-form
   data-event-type={eventType}
   data-content-name={contentName || ''}
-  data-currency={currency}
+  data-currency={currency || ''}
   data-form-id={formId}
   data-abandon-timeout={abandonTimeout.toString()}
   data-f-email={emailField}
@@ -73,7 +91,9 @@ const {
       const cfg = {
         eventType: form.dataset.eventType || 'lead',
         contentName: form.dataset.contentName || document.title,
-        currency: form.dataset.currency || 'HUF',
+        // Empty → undefined so trackLeadSubmit applies the market default
+        // (PUBLIC_TRACKING_CURRENCY): HU site → HUF, UK site → GBP.
+        currency: form.dataset.currency || undefined,
         email: form.dataset.fEmail || 'email',
         phone: form.dataset.fPhone || 'phone',
         firstName: form.dataset.fFname || 'firstName',
@@ -81,24 +101,29 @@ const {
         value: form.dataset.fValue || 'price',
       };
 
+      // Abandon tracking — get cleanup function
       const cleanupAbandon = initFormAbandonTracking(
         form,
         form.dataset.formId || 'tracked-form',
         parseInt(form.dataset.abandonTimeout || '60000', 10),
       );
 
+      // Track which submit button was clicked (for multi-button forms)
       let lastSubmitter: HTMLButtonElement | HTMLInputElement | null = null;
       form.addEventListener('click', (e) => {
-        const t = e.target as HTMLElement;
-        if (t.matches('[type="submit"], button:not([type])')) {
-          lastSubmitter = t as HTMLButtonElement;
-        }
+        // closest() so a click on an element INSIDE the button (e.g. <button><span>…)
+        // still resolves to the submitter — otherwise lastSubmitter stays null and the
+        // multi-button name/value is lost.
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[type="submit"], button:not([type])');
+        if (btn) lastSubmitter = btn;
       });
 
+      // Submit guard
       let isSubmitting = false;
 
       form.addEventListener('submit', async (e) => {
-        if (isSubmitting) return;
+        if (isSubmitting) return; // programmatic re-entry → let through
+
         if (!form.reportValidity()) return;
         e.preventDefault();
         isSubmitting = true;
@@ -126,15 +151,24 @@ const {
         populateHiddenFields(form, result);
         await waitForTracking(600);
 
-        if (lastSubmitter?.name) {
-          const h = document.createElement('input');
-          h.type = 'hidden'; h.name = lastSubmitter.name; h.value = lastSubmitter.value || '';
-          form.appendChild(h);
+        // Re-submit. The isSubmitting guard makes the re-fired submit event a
+        // no-op for our handler (no preventDefault), so the native submission
+        // proceeds AND any other submit listeners run. requestSubmit() preserves
+        // the clicked submitter's name/value natively (multi-button forms).
+        if (typeof form.requestSubmit === 'function') {
+          form.requestSubmit(lastSubmitter || undefined);
+        } else {
+          // Legacy fallback: form.submit() bypasses listeners, so re-add the submitter.
+          if (lastSubmitter?.name) {
+            const h = document.createElement('input');
+            h.type = 'hidden'; h.name = lastSubmitter.name; h.value = lastSubmitter.value || '';
+            form.appendChild(h);
+          }
+          form.submit();
         }
-
-        form.submit();
       });
 
+      // Cleanup abandon tracking on Astro route change
       document.addEventListener('astro:before-swap', cleanupAbandon, { once: true });
     });
   }

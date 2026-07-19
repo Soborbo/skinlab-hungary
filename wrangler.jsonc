@@ -1,0 +1,25 @@
+// Site worker config — read by @astrojs/cloudflare at build time and merged
+// into the generated dist/server/wrangler.json (which scripts/
+// patch-wrangler-config.cjs then post-processes; deploy: npm run deploy).
+//
+// `main` points at the custom Worker entry (src/worker.ts): it wraps the Astro
+// SSR handler AND exports the daily synthetic-lead smoke `scheduled()` handler
+// (soborbo-tracking). The GATEWAY service binding is how backend form
+// conversions reach the event-gateway worker — a plain fetch to our own
+// /api/event/* URL is short-circuited by Cloudflare loop protection.
+//
+// After every build, verify dist/server/wrangler.json carries main +
+// triggers.crons + services (the skill's INSTALL.md step 3 hard check).
+{
+  "name": "skinlab-hungary",
+  "main": "./src/worker.ts",
+  "keep_vars": true,
+  "services": [
+    { "binding": "GATEWAY", "service": "event-gateway" }
+  ],
+  "triggers": {
+    // Daily smoke lead at 04:48 UTC — minute staggered per site so the
+    // gateway logs stay readable (painless/beautyflow/lomtalan use others).
+    "crons": ["48 4 * * *"]
+  }
+}

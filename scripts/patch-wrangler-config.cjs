@@ -44,6 +44,17 @@ for (const ns of config.previews?.kv_namespaces ?? []) {
   }
 }
 
+// soborbo-tracking backend dispatch + daily smoke cron (none of these are
+// secrets: SITE_URL is public, the test-lead email is synthetic, and the Meta
+// Test Events code only routes events into the pixel's TEST stream — the CAPI
+// access token itself lives in the gateway worker's KV, never here).
+// TRACKING_GATEWAY_TOKEN is a real secret → Cloudflare dashboard secret only.
+const TRACKING_VARS = {
+  SITE_URL: 'https://skinlabhungary.hu',
+  TRACKING_TEST_LEAD_EMAIL: 'tracking-smoke@skinlabhungary.hu',
+  TRACKING_TEST_EVENT_CODE: 'TEST43137',
+};
+
 config.vars = config.vars ?? {};
 if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
   config.vars.GOOGLE_SHEETS_SPREADSHEET_ID = GOOGLE_SHEETS_SPREADSHEET_ID;
@@ -52,6 +63,12 @@ if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
 if (config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL !== GOOGLE_SERVICE_ACCOUNT_EMAIL) {
   config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL = GOOGLE_SERVICE_ACCOUNT_EMAIL;
   patched.push(`GOOGLE_SERVICE_ACCOUNT_EMAIL (${GOOGLE_SERVICE_ACCOUNT_EMAIL})`);
+}
+for (const [key, value] of Object.entries(TRACKING_VARS)) {
+  if (config.vars[key] !== value) {
+    config.vars[key] = value;
+    patched.push(`${key} (${value})`);
+  }
 }
 
 // Route /api/* to the User (Astro) Worker BEFORE the static-asset layer.

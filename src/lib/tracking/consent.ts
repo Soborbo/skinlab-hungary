@@ -1,9 +1,17 @@
 /**
- * Consent Management - CookieYes
+ * Consent Management — CookieYes
+ *
+ * ┌─────────────────────┬────────────────────────────────────────────┐
+ * │ Consent state       │ What is allowed                           │
+ * ├─────────────────────┼────────────────────────────────────────────┤
+ * │ No consent          │ NOTHING. No storage, no events, no beacon │
+ * │ Analytics           │ GA4 events (scroll, steps, abandon)       │
+ * │ Marketing           │ Meta, Google Ads, localStorage, PII       │
+ * └─────────────────────┴────────────────────────────────────────────┘
  *
  * Every tracking function checks consent before doing anything.
- * If no CMP is detected in production -> deny all (safe default).
- * Dev mode -> allow all for testing convenience.
+ * If no CMP is detected in production → deny all (safe default).
+ * Dev mode → allow all for testing convenience.
  */
 
 declare global {
@@ -45,6 +53,7 @@ export function hasAnalyticsConsent(): boolean {
   return c.analytics === true;
 }
 
+/** Any non-essential tracking allowed? */
 export function hasAnyConsent(): boolean {
   return hasAnalyticsConsent() || hasMarketingConsent();
 }
