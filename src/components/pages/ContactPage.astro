@@ -532,6 +532,15 @@ const sourceUrl = Astro.url.href;
         formData.set('name', `${lastName} ${firstName}`.trim());
         if (turnstileToken) formData.set('cf-turnstile-response', turnstileToken);
 
+        // Browser leg BEFORE the POST (contact_form_submitted); the event_id
+        // travels in the form body so /api/contact sends the gateway leg with
+        // the same id (Meta Pixel↔CAPI dedup).
+        const tracked = trackContactSubmit({
+          email: (formData.get('email') as string) || '',
+          phone: (formData.get('phone') as string) || '',
+        });
+        formData.set('event_id', tracked.eventId);
+
         const response = await fetch('/api/contact', {
           method: 'POST',
           body: formData,
@@ -540,11 +549,6 @@ const sourceUrl = Astro.url.href;
         const result = await readJsonResponse(response);
 
         if (result.success) {
-          trackContactSubmit({
-            email: (formData.get('email') as string) || '',
-            phone: (formData.get('phone') as string) || '',
-          });
-
           form.reset();
           successMessage?.classList.remove('hidden');
           // Reset Turnstile so the user can submit again

@@ -7,9 +7,16 @@
  * picked up correctly (Astro v6 inlines `import.meta.env.X` at build
  * time, which silently broke every integration before this refactor).
  */
+import { env as workerEnv } from 'cloudflare:workers';
 import type { ContactFormData, ConsultationFormData } from './schemas';
 import { generateLeadId, anonymizeIp } from './schemas';
 import { readEnv } from '@/lib/env';
+import {
+  sendGatewayConversion,
+  type ConsentState,
+  type GatewayEnv,
+  type GatewayEventName,
+} from '@/lib/tracking/gateway-dispatch';
 
 /**
  * Escape HTML special characters to prevent XSS in email templates
@@ -23,6 +30,66 @@ function escapeHtml(str: string): string {
     "'": '&#39;',
   };
   return str.replace(/[&<>"']/g, (char) => htmlEscapes[char]);
+}
+
+/**
+ * Per-request tracking context for the gateway (server) leg of form
+ * conversions. Built by the API route from the incoming request:
+ * `eventId` is the BROWSER's event_id (hidden field / payload) so the Meta
+ * Pixel↔CAPI pair dedups; consent is read from the same CookieYes cookie the
+ * browser reads, so the two legs cannot disagree.
+ */
+export interface FormTrackingContext {
+  eventId: string;
+  consent?: ConsentState;
+  clientIpAddress?: string;
+  clientUserAgent?: string;
+  eventSourceUrl?: string;
+}
+
+/**
+ * Gateway (server) leg of a form conversion — server-ingress-only events
+ * (quote_calculator_submitted / contact_form_submitted) never leave the
+ * browser; this is their ONLY route to Meta CAPI / offline Google Ads.
+ * The lead flow NEVER fails because tracking failed: log and move on.
+ */
+async function dispatchGatewayLeadConversion(
+  eventName: GatewayEventName,
+  leadData: Pick<LeadData, 'email' | 'phone' | 'gclid' | 'fbclid' | 'utmSource' | 'utmMedium' | 'utmCampaign'>,
+  crmLeadId: string | undefined,
+  tracking: FormTrackingContext,
+): Promise<void> {
+  try {
+    const result = await sendGatewayConversion(workerEnv as unknown as GatewayEnv, {
+      eventName,
+      eventId: tracking.eventId,
+      leadId: crmLeadId,
+      userData: {
+        email: leadData.email || undefined,
+        phone_number: leadData.phone || undefined,
+      },
+      attribution: {
+        gclid: leadData.gclid || undefined,
+        fbclid: leadData.fbclid || undefined,
+        utm_source: leadData.utmSource || undefined,
+        utm_medium: leadData.utmMedium || undefined,
+        utm_campaign: leadData.utmCampaign || undefined,
+      },
+      consent: tracking.consent,
+      eventSourceUrl: tracking.eventSourceUrl,
+      clientIpAddress: tracking.clientIpAddress,
+      clientUserAgent: tracking.clientUserAgent,
+    });
+    if (!result.ok) {
+      console.error(JSON.stringify({
+        level: 'error', message: 'gateway dispatch failed',
+        event_name: eventName, event_id: tracking.eventId,
+        status: result.status, error: result.error,
+      }));
+    }
+  } catch (err) {
+    console.error('[tracking] gateway dispatch threw:', err instanceof Error ? err.message : err);
+  }
 }
 
 interface SubmissionResult {
@@ -106,6 +173,8 @@ export async function processFormSubmission(
   /** Google Sheets tab to append to. Defaults to "Kapcsolat"; training
    *  signups pass "Képzések". Both tabs share the A–S column layout. */
   sheetName: string = 'Kapcsolat',
+  /** Gateway server-leg context (browser event_id + consent) from the route. */
+  tracking?: FormTrackingContext,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -149,9 +218,21 @@ export async function processFormSubmission(
 
   // CRM lead-webhook — best-effort (kapcsolati + képzés űrlap is). Sosem buktatja a beküldést;
   // a teljes attribúciót (gclid/fbclid/utm) is továbbítja a CRM konverzió-illesztéséhez.
-  await postLeadToCrm(leadToCrmBody(leadData)).catch((err) =>
-    console.error('[contact] CRM forward failed:', err instanceof Error ? err.message : err),
-  );
+  const crm = await postLeadToCrm(leadToCrmBody(leadData)).catch((err) => {
+    console.error('[contact] CRM forward failed:', err instanceof Error ? err.message : err);
+    return { success: false } as CrmForwardResult;
+  });
+
+  // Gateway (server) leg: contact_form_submitted with the browser's event_id;
+  // lead_id ONLY if the CRM returned its record id.
+  if (tracking) {
+    await dispatchGatewayLeadConversion(
+      'contact_form_submitted',
+      leadData,
+      crm.success && crm.id ? crm.id : undefined,
+      tracking,
+    );
+  }
 
   if (sheetsOk || notifyOk) {
     return { success: true, leadId };
@@ -573,6 +654,8 @@ export async function processConsultationSubmission(
   ip: string,
   userAgent?: string,
   waitUntil?: (p: Promise<unknown>) => void,
+  /** Gateway server-leg context (browser event_id + consent) from the route. */
+  tracking?: FormTrackingContext,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -638,11 +721,26 @@ export async function processConsultationSubmission(
     }),
   ).catch((err) => {
     console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
+    return { success: false } as CrmForwardResult;
+  });
+
+  // Gateway (server) leg chained onto the CRM forward so the CRM's record id
+  // can become lead_id — a failed CRM call sends the conversion WITHOUT
+  // lead_id. Runs in the same waitUntil chain: no added user-facing latency.
+  const crmAndTrackPromise = crmPromise.then(async (crm) => {
+    if (tracking) {
+      await dispatchGatewayLeadConversion(
+        'quote_calculator_submitted',
+        leadData,
+        crm.success && crm.id ? crm.id : undefined,
+        tracking,
+      );
+    }
   });
   if (waitUntil) {
-    waitUntil(crmPromise);
+    waitUntil(crmAndTrackPromise);
   } else {
-    await crmPromise;
+    await crmAndTrackPromise;
   }
 
   if (sheetsOk || notifyOk) {
@@ -1024,14 +1122,22 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
  * Send consultation lead data to CRM via webhook
  * Uses the same schema as the CRM's /api/webhook/lead endpoint
  */
-/** Generic CRM lead-webhook POST. Skips (warns) if not configured; throws on non-2xx. */
-export async function postLeadToCrm(body: Record<string, unknown>): Promise<void> {
+export interface CrmForwardResult {
+  success: boolean;
+  /** The CRM's own record id from the webhook response ({success, id}). */
+  id?: string;
+}
+
+/** Generic CRM lead-webhook POST. Skips (warns) if not configured; throws on non-2xx.
+ *  Returns the CRM's record id — that, and ONLY that, may become the tracking
+ *  gateway `lead_id` (a site-minted id is worse than NULL: unjoinable-but-populated). */
+export async function postLeadToCrm(body: Record<string, unknown>): Promise<CrmForwardResult> {
   const crmWebhookUrl = readEnv('CRM_WEBHOOK_URL');
   const crmWebhookSecret = readEnv('CRM_WEBHOOK_SECRET');
 
   if (!crmWebhookUrl || !crmWebhookSecret) {
     console.warn('CRM_WEBHOOK_URL or CRM_WEBHOOK_SECRET not configured, skipping CRM');
-    return;
+    return { success: false };
   }
 
   const response = await fetch(crmWebhookUrl, {
@@ -1043,6 +1149,14 @@ export async function postLeadToCrm(body: Record<string, unknown>): Promise<void
   if (!response.ok) {
     throw new Error(`CRM webhook returned ${response.status}: ${await response.text()}`);
   }
+
+  const parsed = (await response.json().catch(() => null)) as
+    | { success?: boolean; id?: unknown }
+    | null;
+  return {
+    success: parsed?.success === true,
+    id: parsed?.id != null ? String(parsed.id) : undefined,
+  };
 }
 
 /**

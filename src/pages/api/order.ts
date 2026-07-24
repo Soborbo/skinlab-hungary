@@ -17,6 +17,13 @@ import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
+import { env as workerEnv } from 'cloudflare:workers';
+import type { FormTrackingContext } from '@/lib/forms/submit';
+import {
+  sendGatewayConversion,
+  readConsentFromCookie,
+  type GatewayEnv,
+} from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import {
   isCartShippable,
@@ -241,8 +248,59 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 9. Siker - proforma státusz visszaadva, hogy a success page jelezhesse
-    //    a vevőnek, várjon-e külön fizetési e-mailre
+    // 9. Gateway (server) leg: order_request_submitted — lead-style checkout,
+    //    SOHA nem purchase (az árat telefonos egyeztetés véglegesíti). A
+    //    böngésző-leg ugyanezzel az event_id-vel megy (payload event_id mező),
+    //    így a Meta Pixel↔CAPI pár deduplikál. Nincs CRM-továbbítás az order
+    //    ágon → nincs lead_id. A tracking-hiba SOHA nem buktatja a rendelést.
+    {
+      const rawEventId = (body as Record<string, unknown>)?.event_id;
+      const tracking: FormTrackingContext = {
+        eventId: typeof rawEventId === 'string' && rawEventId ? rawEventId : crypto.randomUUID(),
+        consent: readConsentFromCookie(request.headers.get('cookie')),
+        clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
+        clientUserAgent: request.headers.get('user-agent') ?? undefined,
+        eventSourceUrl: request.headers.get('referer') ?? undefined,
+      };
+      try {
+        const trackResult = await sendGatewayConversion(workerEnv as unknown as GatewayEnv, {
+          eventName: 'order_request_submitted',
+          eventId: tracking.eventId,
+          value: subtotal,
+          currency: 'HUF',
+          userData: {
+            email: data.email || undefined,
+            phone_number: data.phone || undefined,
+            first_name: data.firstName || undefined,
+            last_name: data.lastName || undefined,
+          },
+          attribution: {
+            gclid: data.gclid || undefined,
+            fbclid: data.fbclid || undefined,
+            utm_source: data.utmSource || undefined,
+            utm_medium: data.utmMedium || undefined,
+            utm_campaign: data.utmCampaign || undefined,
+          },
+          consent: tracking.consent,
+          eventSourceUrl: tracking.eventSourceUrl,
+          clientIpAddress: tracking.clientIpAddress,
+          clientUserAgent: tracking.clientUserAgent,
+        });
+        if (!trackResult.ok) {
+          console.error(JSON.stringify({
+            level: 'error', message: 'gateway dispatch failed',
+            event_name: 'order_request_submitted', event_id: tracking.eventId,
+            status: trackResult.status, error: trackResult.error,
+          }));
+        }
+      } catch (trackErr) {
+        console.error('[tracking] order gateway dispatch threw:',
+          trackErr instanceof Error ? trackErr.message : trackErr);
+      }
+    }
+
+    // 10. Siker - proforma státusz visszaadva, hogy a success page jelezhesse
+    //     a vevőnek, várjon-e külön fizetési e-mailre
     const proformaStatus = result.proforma?.success
       ? { sent: true as const, number: result.proforma.proformaNumber }
       : { sent: false as const };

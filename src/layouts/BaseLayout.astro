@@ -43,8 +43,6 @@ interface Props {
    * Defaults to all locales.
    */
   availableLocales?: Locale[];
-  /** Defer GTM loading by N milliseconds (0 = load immediately) */
-  deferGtmMs?: number;
 }
 
 const {
@@ -59,7 +57,6 @@ const {
   preloadImageMobile,
   preloadImageType,
   availableLocales,
-  deferGtmMs = 0,
 } = Astro.props;
 
 // Auto-detect preload image MIME type from extension
@@ -230,16 +227,15 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     })();
   </script>
 
-  {/* Tracking: GTM + Consent Mode v2. deferGtmMs above 0 delays gtm.js fetch
-      until user interaction/timeout. cookieYesId: build-time env
-      (PUBLIC_COOKIEYES_ID); without it there is no consent banner, so
-      marketing/analytics tags never get consent (no CookieYes tag in the GTM
-      container either - 2026-06-10 audit). */}
-  <Tracking
-    gtmId="GTM-NW7DKC2D"
-    cookieYesId={import.meta.env.PUBLIC_COOKIEYES_ID}
-    deferMs={deferGtmMs}
-  />
+  {/* Tracking: CookieYes CMP + Consent Mode v2 + GTM (soborbo-tracking).
+      PROD-only: the dev server must never load GTM — `astro dev` sessions were
+      polluting the production GA4 property (localhost:4321 referral). */}
+  {import.meta.env.PROD && (
+    <Tracking
+      gtmId="GTM-NW7DKC2D"
+      cookieYesId="e4277196d46870253c9f1ee61c3f485d"
+    />
+  )}
 
   <!-- Additional head content from pages -->
   <slot name="head" />
@@ -248,7 +244,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="generator" content={Astro.generator} />
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
-  <TrackingNoscript gtmId="GTM-NW7DKC2D" />
+  {import.meta.env.PROD && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
   {!isPromoPage && <AnnouncementBar />}
   <Header />
   <main id="main-content" class="flex-1">

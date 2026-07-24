@@ -251,7 +251,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
-  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import { trackContactSubmit, waitForTracking } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Turnstile callbacks (global)
@@ -358,6 +358,14 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           formData.set('cf-turnstile-response', turnstileTokenTraining);
         }
 
+        // Browser leg BEFORE the POST (contact_form_submitted); event_id rides
+        // in the body so /api/contact dispatches the gateway leg with the same id.
+        const tracked = trackContactSubmit({
+          email: (formData.get('email') as string) || '',
+          phone: (formData.get('phone') as string) || '',
+        });
+        formData.set('event_id', tracked.eventId);
+
         const response = await fetch('/api/contact', {
           method: 'POST',
           body: formData,
@@ -368,15 +376,6 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
         if (result.success) {
           // Show success
           successMessage?.classList.remove('hidden');
-
-          // Unified conversion tracking (dataLayer + /api/track beacon)
-          trackLeadSubmit({
-            email: (formData.get('email') as string) || '',
-            phone: (formData.get('phone') as string) || '',
-            firstName: (formData.get('name') as string) || undefined,
-            contentName: 'kepzesek',
-            currency: 'HUF',
-          });
 
           formEl.reset();
 
