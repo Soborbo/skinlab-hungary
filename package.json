@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/patch-wrangler-config.cjs",
+    "build": "astro build && node scripts/patch-wrangler-config.cjs && node scripts/verify-turnstile-build.cjs",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "astro check",
