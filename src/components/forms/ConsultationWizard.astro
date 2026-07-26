@@ -509,7 +509,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 </style>
 
 <script>
-  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import { trackLeadSubmit, waitForTracking, getAllTrackingData } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   declare global {
@@ -560,10 +560,22 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     } catch {
       /* private mode / quota - ignore */
     }
+    const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
     form.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
       if (!key) return;
-      let value = urlParams.get(key) || storedTracking[key] || '';
+      // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az garantálja,
+      // hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy ki. A nyers
+      // `urlParams || sb_tracking` fallback itt újra bevinné a régi kattintás ID-jét
+      // a rejtett mezőbe — a localStorage későbbi ön-gyógyítása pedig már nem
+      // frissítené a kitöltött inputot, és a FormData mindkettőt elküldené.
+      let value = GOOGLE_CLICK_KEYS.includes(key)
+        ? (sanitized[key] || '')
+        : (urlParams.get(key) || storedTracking[key] || '');
       if (!value && (key === 'fbc' || key === 'fbp')) {
         const m = document.cookie.match(new RegExp('(?:^|; )_' + key + '=([^;]*)'));
         value = m ? decodeURIComponent(m[1]) : '';
