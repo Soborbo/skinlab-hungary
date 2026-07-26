@@ -17,11 +17,17 @@
 declare global {
   interface Window {
     getCkyConsent?: () => {
+      // A CookieYes VALÓDI kategóriakészlete: { necessary, functional, analytics,
+      // performance, advertisement }. Az `advertisement` AZ ads/marketing kategória
+      // (Consent Mode v2: ad_storage / ad_user_data / ad_personalization). A `marketing`
+      // nevet opcionálisan megtartjuk azoknak a CMP-configoknak, amelyek így hívják.
       categories: {
-        analytics: boolean;
-        marketing: boolean;
-        functional: boolean;
-        necessary: boolean;
+        analytics?: boolean;
+        advertisement?: boolean;
+        marketing?: boolean;
+        performance?: boolean;
+        functional?: boolean;
+        necessary?: boolean;
       };
     };
   }
@@ -32,8 +38,19 @@ export type ConsentCategory = 'analytics' | 'marketing' | 'functional' | 'necess
 function getCookieYesConsent(): Record<ConsentCategory, boolean> | null {
   if (typeof window === 'undefined') return null;
   if (typeof window.getCkyConsent !== 'function') return null;
-  try { return window.getCkyConsent().categories; }
-  catch { return null; }
+  try {
+    const cats = window.getCkyConsent().categories as Record<string, boolean | undefined>;
+    return {
+      analytics: cats.analytics === true,
+      // A CookieYes „advertisement" kategóriája AZ marketing-hozzájárulás; a „marketing"
+      // nevet is elfogadjuk. Korábban CSAK ez utóbbit néztük, ezért egy alapértelmezett
+      // (advertisement-es) CMP-confignál a hasMarketingConsent() SOHA nem lett igaz —
+      // a klikk-ID-k és a szerveroldali dispatch némán kimaradtak.
+      marketing: cats.advertisement === true || cats.marketing === true,
+      functional: cats.functional === true,
+      necessary: cats.necessary === true,
+    };
+  } catch { return null; }
 }
 
 function isDevMode(): boolean {
