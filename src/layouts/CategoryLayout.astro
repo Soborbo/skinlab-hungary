@@ -8,6 +8,7 @@ import { config } from '../config/siteConfig';
 import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb, faqSchema as buildFaqSchema } from '../config/schema';
 import QuickAddButton from '../components/cart/QuickAddButton.astro';
 import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
+import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
 import { getLocaleFromUrl, withTrailingSlash, type Locale } from '../i18n/ui';
 import { getInstallmentInfo } from '@/lib/installment';
@@ -659,6 +660,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       </div>
     </section>
     )}
+
+    <!-- Video testimonials (site-wide social proof) -->
+    <VideoTestimonials />
 
     <!-- "Melyiket válaszd?" - rich choices + comparison table (optional) -->
     {showChoicesSection && (

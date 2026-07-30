@@ -34,6 +34,7 @@ import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import VariantDetails from '../components/product/VariantDetails.astro';
 import USPStrip from '../components/product/USPStrip.astro';
+import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import InstallmentCalculator from '../components/product/InstallmentCalculator.astro';
 import { INSTALLMENT_MIN } from '@/lib/installment';
 // Schema components
@@ -299,6 +300,9 @@ const productSchema = product.price ? {
 
     <!-- 1.1. USP STRIP (brand-wide trust promises, above the fold) -->
     <USPStrip />
+
+    <!-- 1.2. VIDEO TESTIMONIALS (site-wide social proof, high placement) -->
+    <VideoTestimonials />
 
     <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
     {product.hasVariants && product.variants.length > 0 && (

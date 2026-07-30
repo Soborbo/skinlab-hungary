@@ -7,7 +7,7 @@ import Stats from '../sections/Stats.astro';
 import WhyUs from '../sections/WhyUs.astro';
 import FeaturedProduct from '../sections/FeaturedProduct.astro';
 import FoundersStory from '../sections/FoundersStory.astro';
-import Testimonials from '../sections/Testimonials.astro';
+import VideoTestimonials from '../sections/VideoTestimonials.astro';
 import TrainingGallery from '../sections/TrainingGallery.astro';
 import HowItWorks from '../sections/HowItWorks.astro';
 import FinalCTA from '../sections/FinalCTA.astro';
@@ -29,13 +29,13 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
   <div>
     <HeroCarousel />
     <Categories />
+    <VideoTestimonials />
     <BrandMarquee />
     <Stats />
     <WhyUs />
     <TrainingGallery />
     <FeaturedProduct />
     <FoundersStory />
-    <Testimonials />
     <HowItWorks />
     <FinalCTA />
   </div>
