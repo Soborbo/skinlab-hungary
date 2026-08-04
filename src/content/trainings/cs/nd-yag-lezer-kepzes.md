@@ -96,4 +96,4 @@ Uč se tak, jak pracují ti nejlepší odborníci – a dosahuj takových výsle
 
 ## Místo konání
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

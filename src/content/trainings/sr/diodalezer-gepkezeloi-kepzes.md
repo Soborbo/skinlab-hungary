@@ -121,4 +121,4 @@ Tokom obuke pokazaćemo vam one praktične tehnike i podešavanja sa kojima mož
 
 ## Lokacija
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

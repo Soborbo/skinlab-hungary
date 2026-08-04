@@ -1085,7 +1085,7 @@ Astro 5 SSR-rel mobile/desktop HTML ekvivalens — kompatibilis. A leaf PLP telj
 
 ### 10.7 Helyi SEO Skinlab-specifikum
 
-- **Egyetlen telephely** (Érd, Budai út 28.) → `LocalBusiness` schema a `/kapcsolat` és `/rolunk` oldalakon, **NEM** a kategória oldalakon.
+- **Egyetlen telephely** (Érd, Bajcsy-Zsilinszky út 156.) → `LocalBusiness` schema a `/kapcsolat` és `/rolunk` oldalakon, **NEM** a kategória oldalakon.
 - **Magyar nyelvi target**: `lang="hu"` HTML attribútum kötelező (BaseLayout-ban).
 - **Hreflang**: jelenleg HU primary; ha jövőben aktivizáljuk az SK/RO areaServed-et (lásd `COMPANY.areaServed`), `hreflang` szülő-attribútumokat kell hozzáadni.
 
