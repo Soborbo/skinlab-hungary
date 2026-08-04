@@ -58,28 +58,28 @@ export const BANK = {
 export const LOCATIONS = {
   headquarters: {
     name: 'Székhely',
-    streetAddress: 'János utca 14.',
+    streetAddress: 'Bajcsy-Zsilinszky út 156.',
     postalCode: '2030',
     city: 'Érd',
     country: 'HU',
     countryName: 'Magyarország',
-    fullAddress: '2030 Érd, János utca 14.',
+    fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
   },
   showroom: {
     name: 'Skinlab SHOWROOM',
-    streetAddress: 'Budai út 28.',
+    streetAddress: 'Bajcsy-Zsilinszky út 156.',
     postalCode: '2030',
     city: 'Érd',
     country: 'HU',
     countryName: 'Magyarország',
-    fullAddress: '2030 Érd, Budai út 28.',
+    fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
     openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
     openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {
-      latitude: 47.378666588736394,
-      longitude: 18.9253785018499,
+      latitude: 47.4074715,
+      longitude: 18.8915312,
     },
-    googleMapsUrl: 'https://www.google.com/maps?q=47.378666588736394,18.9253785018499',
+    googleMapsUrl: 'https://www.google.com/maps?q=47.4074715,18.8915312',
   },
 };
 
