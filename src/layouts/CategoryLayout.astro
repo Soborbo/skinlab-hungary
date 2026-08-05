@@ -115,6 +115,16 @@ interface Props {
    */
   heroChooser?: { label: string; target: string }[];
   /**
+   * Opt-in: a termékrács csoportokra bontása nagy kategóriáknál.
+   * Egy 15+ termékes kategóriában az egyenszilárdságú rács nehezen navigálható;
+   * a csoportok termékvonal/protokoll szerint rendezik a listát.
+   * A `slugs` sorrendje adja a csoporton belüli sorrendet (felülírja az ár szerinti
+   * rendezést) — így pl. egy kezelési protokoll a valós lépéssorrendben mutatható.
+   * A fel nem sorolt termékek egy záró blokkba kerülnek, tehát nem tűnhet el termék.
+   * Ha nincs megadva, a rács a jelenlegi egyetlen, ár szerint rendezett lista marad.
+   */
+  productGroups?: { title: string; subtitle?: string; slugs: string[] }[];
+  /**
    * Opt-in: a benefits-szekció címe.
    * Default: 'Mire figyelj a választásnál?' — döntés-támogató keret (NEM "miért
    * válaszd a kategóriát", mert a látogató már a kategórián belül van).
@@ -143,6 +153,7 @@ const {
   consultationCtaHref,
   consultationSocialProof,
   heroChooser,
+  productGroups = [],
   benefitsHeading,
 } = Astro.props;
 
@@ -171,6 +182,31 @@ const heroProduct = heroMode === 'single' ? products[0] : null;
 // A különálló terméknégyzet-grid csak classic módban kell — single/decision
 // módban a fold már megmutatja a termékeket, a duplikáció zavaró lenne.
 const showStandaloneGrid = heroMode === 'classic';
+
+// Termékrács szekciói. `productGroups` nélkül egyetlen, ár szerint rendezett rács
+// (a korábbi viselkedés). Csoportokkal a `slugs` sorrendje dönt a csoporton belül,
+// és a fel nem sorolt termékek egy záró blokkba kerülnek — így egy termék sem eshet ki.
+const productKey = (p: any) => p.data.slug || p.id;
+const gridSections: { title: string | null; subtitle?: string; items: any[] }[] = (() => {
+  if (productGroups.length === 0) return [{ title: null, items: products }];
+  const used = new Set<string>();
+  const sections = productGroups
+    .map((g) => {
+      const items = g.slugs
+        .map((s) => products.find((p) => productKey(p) === s))
+        .filter((p): p is any => Boolean(p));
+      items.forEach((p) => used.add(productKey(p)));
+      return { title: g.title, subtitle: g.subtitle, items };
+    })
+    .filter((s) => s.items.length > 0);
+  const rest = products.filter((p) => !used.has(productKey(p)));
+  if (rest.length > 0) sections.push({ title: 'További kezelőanyagok', subtitle: undefined, items: rest });
+  return sections;
+})();
+// A lazy/eager határ a TELJES rácsra értendő, ezért szekciónkénti eltolást számolunk;
+// a csoporton belüli index önmagában újraindulna, és feleslegesen sok eager kép lenne.
+const sectionOffsets: number[] = [];
+gridSections.reduce((acc, s, i) => { sectionOffsets[i] = acc; return acc + s.items.length; }, 0);
 // Founder (visszahívás) szekció a hero alatt minden gép-kategória oldalon.
 // Alapértelmezett: Horváth László (alapító) - oldalanként felülírható az `expert` proppal.
 const defaultExpert: Expert = {
@@ -570,8 +606,19 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             </a>
           </div>
         ) : (
+          <div class="space-y-12">
+          {gridSections.map((section, si) => (
+          <div>
+            {section.title && (
+              <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">{section.title}</h2>
+                {section.subtitle && (
+                  <p class="text-gray-600 mt-1 max-w-3xl">{section.subtitle}</p>
+                )}
+              </div>
+            )}
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product, index) => (
+            {section.items.map((product, i) => { const index = sectionOffsets[si] + i; return (
               <div
                 class="prod-card group bg-white rounded-2xl overflow-hidden relative flex flex-col"
                 style={`--card-accent: ${accentColor}; --card-accent-dark: ${accentDark}`}
@@ -580,7 +627,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
                   {product.data.hasVariants && (
                     <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      {product.data.variants.length} szín
+                      {product.data.variants.length} változat
                     </span>
                   )}
                 </div>
@@ -654,7 +701,10 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   />
                 </div>
               </div>
-            ))}
+            ); })}
+          </div>
+          </div>
+          ))}
           </div>
         )}
       </div>

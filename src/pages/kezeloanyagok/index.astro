@@ -6,8 +6,8 @@ const category = {
   name: 'Kezelőanyagok és hatóanyagok',
   nameShort: 'Kezelőanyagok',
   slug: 'kezeloanyagok',
-  description: 'Hydrofacial oldatok, OxyGenX podok és hatóanyagok kozmetikai kezelésekhez.',
-  heroDescription: 'Professzionális hydrofacial liquidek, OxyGenX podok és hatóanyagok minden kezeléshez. Hivatalos forgalmazó, eredeti termékek, gyors szállítás.',
+  description: "M'ONDUNIQ professzionális kozmetikumok, hydrofacial oldatok, OxyGenX podok és hatóanyagok.",
+  heroDescription: "M'ONDUNIQ professzionális kozmetikumok, aqua-peeling kezelőfolyadékok, hatóanyag-koktélok és exoszómás készítmények. A géphez a hozzá való kezelőanyag — hivatalos forgalmazó, eredeti termékek.",
   badge: 'Új kategória',
   color: 'kezeloanyagok',
 };
@@ -16,6 +16,52 @@ const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'kezeloanyagok' && !data.draft;
 });
 
+// A rács csoportosítása termékvonal szerint. A LaserIQ blokk sorrendje szándékosan
+// NEM ár szerinti, hanem a kezelési protokoll valós lépéssorrendje: bőrelőkészítés →
+// kezelés → azonnali regeneráció → otthon folytatható ápolás. Így a kozmetikus a saját
+// munkafolyamatában látja, mi hiányzik neki.
+const productGroups = [
+  {
+    title: "M'ONDUNIQ LaserIQ – carbon peeling és lézeres protokoll",
+    subtitle:
+      'A kezelési protokoll lépéssorrendjében: bőrelőkészítés, a carbon peeling kezelés, az azonnali regeneráció, végül az otthon folytatható ápolás.',
+    slugs: [
+      'monduniq-laseriq-enzym-peeling',
+      'monduniq-mandelic-prep-foam',
+      'monduniq-carbon-gel',
+      'monduniq-laseriq-calm-recovery-cocktail',
+      'monduniq-laseriq-biocell-maszk',
+      'monduniq-laseriq-carbon-cleanse-por',
+      'monduniq-nyugtato-erfalerosito-krem',
+      'monduniq-laseriq-anti-age-spf50',
+    ],
+  },
+  {
+    title: 'Készülékhez kötött kezelőfolyadékok és pod-szettek',
+    subtitle:
+      'Hidrodermabráziós és aqua-peeling gépekbe töltendő oldatok, valamint az OxyGenX kezelőcsomagok. Az AquametiQ a hatóanyagos protokollrendszer, a HydraLiquid a nagy kiszerelésű, gazdaságos munkafolyadék.',
+    slugs: [
+      'monduniq-aquametiq-hydra-prime',
+      'hydraliquid_peeling',
+      'oxygenx-pod-szett-glam-pod',
+    ],
+  },
+  {
+    title: 'Hatóanyag-koktélok, szérumok és maszkok',
+    subtitle:
+      'Mikrotűs mezoterápiához, nano kezelésekhez, elektroporációhoz, oxigéninfúzióhoz és hidegplazmás protokollokhoz.',
+    slugs: [
+      'monduniq-genexem-lsev-100-szerum',
+      'monduniq-genexem-exobiocell-maszk',
+      'monduniq-botopax-peptid-koktel',
+      'monduniq-vitaminkoktel-kaviarral',
+      'monduniq-dragon-blood-szerum',
+      'monduniq-sebobalance-pro-ampulla',
+      'monduniq-dermoaktiv-stabilizalo-krem',
+    ],
+  },
+];
+
 const benefits = [
   {
     icon: 'check-circle',
@@ -23,21 +69,26 @@ const benefits = [
     description: 'Közvetlen forgalmazás a gyártóktól. Garantált minőség, eredetiség igazolás minden tételhez.',
   },
   {
+    icon: 'sparkles',
+    title: 'Teljes protokollok, nem külön tételek',
+    description: 'A bőrelőkészítéstől az otthoni fenntartásig minden lépéshez van készítmény, egymásra épülő rendszerben.',
+  },
+  {
     icon: 'package',
-    title: 'Csomagajánlatok',
-    description: 'A kezeléseihez illő szettek és mennyiségi kedvezmények, hogy mindig készleten legyen az alapanyag.',
+    title: 'A készülékeidhez illesztve',
+    description: 'Carbon peeling, hidrodermabrázió, mikrotűs RF, hidegplazma, mezoterápia — a kezelőanyag-ellátás egy helyen.',
   },
   {
     icon: 'truck',
-    title: 'Gyors szállítás',
-    description: 'Magyarországi raktárból, 1-3 munkanapos kiszállítás. Sürgős esetekben átvétel az érdi showroomban.',
-  },
-  {
-    icon: 'sparkles',
-    title: 'Minden kezeléstípushoz',
-    description: 'Hidratáló, lifting, peeling, feltöltő, élénkítő - a teljes hydrofacial protokoll mind készleten.',
+    title: 'Kényelmes átvétel',
+    description: 'Foxpost automatába vagy MPL-lel házhoz, illetve személyes átvétel az érdi showroomban.',
   },
 ];
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} />
+<CategoryLayout
+  category={category}
+  products={products}
+  productGroups={productGroups}
+  benefits={benefits}
+/>

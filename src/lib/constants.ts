@@ -238,7 +238,7 @@ export const CATEGORIES = [
     icon: 'snowflake',
     image: '/images/opt/products/the-frost-coldplasma-by-skinlab-1-480w.webp',
     featured: true,
-    productCount: 2,
+    productCount: 1,
     color: 'coldplasma' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -318,11 +318,11 @@ export const CATEGORIES = [
     name: 'Kezelőanyagok',
     nameShort: 'Kezelőanyagok',
     slug: 'kezeloanyagok',
-    description: 'Hydrofacial oldatok, OxyGenX podok és hatóanyagok kozmetikai kezelésekhez.',
+    description: "M'ONDUNIQ professzionális kozmetikumok, hydrofacial oldatok, OxyGenX podok és hatóanyagok.",
     icon: 'droplet',
     image: '/images/opt/products/hydraliquid-oldatok-1-480w.webp',
     featured: true,
-    productCount: 2,
+    productCount: 18,
     color: 'kezeloanyagok' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
@@ -405,7 +405,7 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
-        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 2, descriptionKey: 'megaMenu.coldplasmaDesc' },
+        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 1, descriptionKey: 'megaMenu.coldplasmaDesc' },
       ],
     },
     {
@@ -421,7 +421,7 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
-        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 2, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 18, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],
