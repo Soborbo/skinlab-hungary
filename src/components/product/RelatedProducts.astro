@@ -19,9 +19,14 @@ interface Props {
   currentSlug: string;
   categorySlug: string;
   maxProducts?: number;
+  /**
+   * Alcím felülírása. Az alapértelmezett i18n szöveg "a többi professzionális
+   * készülékünket" alakú, ami kezelőanyag/kellék kategóriában félrevezető.
+   */
+  subtitle?: string;
 }
 
-const { locale, currentSlug, categorySlug, maxProducts = 4 } = Astro.props;
+const { locale, currentSlug, categorySlug, maxProducts = 4, subtitle } = Astro.props;
 
 // Get category info
 const category = CATEGORIES.find(c => c.slug === categorySlug);
@@ -58,7 +63,7 @@ const displayPrice = (price: number | null) => {
           {t(locale, 'product.relatedTitle', { categoryName })}
         </h2>
         <p class="text-gray-600">
-          {t(locale, 'product.relatedSubtitle')}
+          {subtitle || t(locale, 'product.relatedSubtitle')}
         </p>
       </div>
 
