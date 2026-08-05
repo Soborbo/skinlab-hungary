@@ -9,18 +9,19 @@ Jelölések: 🔴 blokkoló · 🟠 fontos, nem blokkoló · 🟡 ráér
 
 ---
 
-## 🔴 1. Hiányzó ár — GENEXEM LSEV 100 exoszómás szérum
+## ✅ 1. Hiányzó ár — GENEXEM LSEV 100 exoszómás szérum — **MEGOLDVA (2026-08-05)**
 
-A gyártói doksi a „Használata" szakasz után **levágódik**: nincs benne sem ár, sem kiszerelés.
-Ugyanitt a „Professzionális felhasználási javaslat" alcím alatt sem áll semmi.
+A gyártói doksi a „Használata" szakasz után **levágódott**: nem volt benne sem ár, sem kiszerelés.
+(A „Professzionális felhasználási javaslat" alcím alatt továbbra sem áll semmi — lásd 4. pont.)
 
 - Oldal: `/kezeloanyagok/monduniq-genexem-lsev-100-szerum/`
-- Jelenlegi állapot: `price: null` → **„Ár egyeztetés alatt"**, `availability: "preorder"`.
-- **Mellékhatás:** az árazatlan tétel a kosárban kikapcsolja az automatikus futárszállítást
-  (`isCartShippable` minden tételnél számot vár, lásd [methods.ts](../src/lib/shipping/methods.ts)).
-  Ha valaki ezt a szérumot kosárba teszi, **az egész kosárra megszűnik a Foxpost/MPL opció**.
-- A promóképen (`GENEXEM_Előrendelési akció.png`) `5 × 8 ml` szerepel, de **nem írtuk be**, mert
-  kampányanyag, nem adatlap. Megerősítés után beírható.
+- **Ár: 39 990 Ft** — a forgalmazótól pótolva.
+- **Kiszerelés: 5 × 8 ml steril ampulla** — a termékdoboz felirata (`5 x 8 ml / 0 1.14 fl.oz. e.`) és
+  az előrendelési banner (`5 x 8ml / 5 x 0.238 fl.oz`) alapján, megerősítve.
+- `availability` **`preorder`** maradt, mert az előrendelési kampány 2026.08.06-tól fut.
+  Ha raktárra érkezik, `in_stock`-ra állítandó.
+- Ezzel megszűnt a korábbi mellékhatás is: az árazatlan tétel kikapcsolta volna az automatikus
+  futárszállítást az egész kosárra (`isCartShippable`, lásd [methods.ts](../src/lib/shipping/methods.ts)).
 
 ## 🔴 2. Hiányzó fehér hátterű termékfotó — 8 termék
 
@@ -34,6 +35,8 @@ A kategóriakártyák és a mega-menü fehér hátterű packshotot várnak; ezek
 | Nyugtató és érfalerősítő hidratáló krém | `monduniq-nyugtato-erfalerosito-krem` | mindössze 1 |
 | LASER-IQ Anti-Age SPF 50 | `monduniq-laseriq-anti-age-spf50` | mindössze 1 |
 | GENEXEM LSEV 100 szérum | `monduniq-genexem-lsev-100-szerum` | 2 |
+
+Az „Ár egyeztetés alatt" tételek száma **0** — az árak rendben, ez a pont már csak fotóhiány.
 
 Az 1 képes termékeknél a termékoldal `featureRows` blokkja is csak **egy** sort tud renderelni
 (kép nélküli sor üres placeholder-dobozt mutatna), tehát a fotóhiány közvetlenül rontja az oldalt.
