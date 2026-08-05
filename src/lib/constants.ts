@@ -335,7 +335,11 @@ export const CATEGORIES = [
 export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   diodalezerek: '/images/opt/products/helios-1600w-diodalezer-1-828w.avif',
   hydrafacial: '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
-  coldplasma: '/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1-828w.avif',
+  // coldplasma: nincs override. Az AURA archiválása (draft) óta a fallback adja a
+  // helyes képet: THE FROST fehér hátterű packshotja. (Megjegyzés: a két termék
+  // UGYANAZT a FROSTCOLD.webp fájlt használta, és a manifest az ábécében előbb
+  // álló AURA-ról nevezte el - ezért hívják a legenerált fájlokat máig
+  // "aura-by-skinlab-*"-nak. Vizuálisan mindig THE FROST volt.)
   mezoterapia: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-1-640w.avif',
   testkezeles: '/images/opt/products/freeze-me-slim-cryolipolysis-3-640w.avif',
   sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',

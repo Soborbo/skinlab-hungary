@@ -164,7 +164,20 @@ száz szavas leírás, amit senki nem lát. A M'ONDUNIQ termékeknél ezért a g
 renderelő mezőkbe (`featureRows`, `functionCards`, `buyerChecklist`, `faq`, `specs`) tettük.
 Érdemes eldönteni, hogy a régi termékeknél is átvigyük-e, vagy a layout kapjon egy leírás-blokkot.
 
-## 🟡 12. `_summary.json` elavult
+## 🟡 12. Képmanifest: archivált termék tartja a slugot (nem M'ONDUNIQ-ügy)
+
+A `scripts/generate-optimized-images.cjs` a slugot **az első hivatkozó termékről** nevezi el, és
+**nem szűri a draftokat**. Ha két termék ugyanazt a képfájlt használja, az ábécében előbb álló nyer.
+
+Konkrét eset: az AURA (`hidegplazma.json`, archivált) és a THE FROST ugyanazt a `FROSTCOLD.webp`-et
+használja, ezért THE FROST élő oldalán a képek `/images/opt/products/aura-by-skinlab-*` URL-en
+mennek ki, helyenként `alt="AURA by skinlab. hideg-plazma készülék"` szöveggel.
+
+**Nem javítottuk**, mert a triviális megoldás (draft-szűrő a `buildImageMapping`-be + újragenerálás)
+**átnevezné a képURL-eket**, ami minden olyan fájlt érint, amit elsőként egy draft termék hivatkozik —
+a már indexelt kép-URL-ek elvesznének. Ha hozzányúlunk, redirect-terv kell hozzá.
+
+## 🟡 13. `_summary.json` elavult
 
 A `src/content/products/_summary.json` 49 terméket és 2026-01-05-ös dátumot tartalmaz. **Semmi nem
 használja** (a `content.config.ts` glob mintája `**/[!_]*.json`, tehát a kollekcióból is kimarad; a
