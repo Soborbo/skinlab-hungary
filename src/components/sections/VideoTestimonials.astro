@@ -8,6 +8,17 @@
  */
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
+interface Props {
+  /**
+   * Cím felülírása. Az alapértelmezett "Ők már Skinlab géppel dolgoznak"
+   * gépoldalra készült; kezelőanyag-/kellékoldalon félrevezető, mert a
+   * videók márkaszintű bizonyítékok, nem az adott készítményről szólnak.
+   */
+  title?: string;
+}
+
+const { title } = Astro.props;
+
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 const testimonials = [
@@ -54,7 +65,7 @@ const videoSchemas = testimonials.map((item) => ({
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10 lg:mb-14">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-        {t(locale, 'videoTestimonials.title')}
+        {title || t(locale, 'videoTestimonials.title')}
       </h2>
       <p class="text-gray-600">
         {t(locale, 'videoTestimonials.subtitle')}

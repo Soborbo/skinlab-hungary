@@ -145,6 +145,21 @@ const firstVideoUrl = product.youtubeVideos?.[0] || '';
 // Installment calculator: HU only, and only above the installment minimum
 const showInstallment = locale === 'hu' && !!product.price && product.price > INSTALLMENT_MIN;
 
+/**
+ * Fogyóeszköz-kategóriák: kezelőanyagok és kellékek.
+ *
+ * A termékoldal sablonja gépekre készült, és több szekciója értelmetlen vagy
+ * kifejezetten félrevezető egy 7 000 Ft-os tisztítóporon:
+ *  - megtérülés-kalkulátor: a kezelőanyag nem termel kezelésenkénti bevételt,
+ *    a "hány kezelés alatt térül meg" kérdés fel sem merül
+ *  - garancia/szerviz: cseregép, eredeti alkatrész, sorozatszám - nincs értelmük
+ *  - a gépre utaló feliratok ("…a {termék} gépről", "a többi készülékünket")
+ *
+ * A gépoldalak viselkedése változatlan marad.
+ */
+const CONSUMABLE_CATEGORIES = ['kezeloanyagok', 'kellekek'];
+const isConsumable = CONSUMABLE_CATEGORIES.includes(product.categorySlug);
+
 // FAQ questions for schema (if available)
 const faqQuestions = resolvedFaq.map(item => ({
   question: item.question,
@@ -299,10 +314,12 @@ const productSchema = product.price ? {
     />
 
     <!-- 1.1. USP STRIP (brand-wide trust promises, above the fold) -->
-    <USPStrip />
+    <USPStrip consumable={isConsumable} />
 
     <!-- 1.2. VIDEO TESTIMONIALS (site-wide social proof, high placement) -->
-    <VideoTestimonials />
+    <VideoTestimonials
+      title={isConsumable && locale === 'hu' ? 'Ők már Skinlabbal dolgoznak' : undefined}
+    />
 
     <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
     {product.hasVariants && product.variants.length > 0 && (
@@ -314,12 +331,14 @@ const productSchema = product.price ? {
     )}
 
     <!-- 3. ROI CALCULATOR -->
-    <ROICalculator
-      locale={locale}
-      productPrice={product.price}
-      productName={displayName}
-      defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
-    />
+    {!isConsumable && (
+      <ROICalculator
+        locale={locale}
+        productPrice={product.price}
+        productName={displayName}
+        defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+      />
+    )}
 
     <!-- 3.5. INSTALLMENT CALCULATOR (HU, above installment minimum) -->
     {showInstallment && product.price && (
@@ -330,7 +349,9 @@ const productSchema = product.price ? {
     <FounderConsult
       ctaHref="/konzultacio"
       eventPrefix="product"
-      heading={{ pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő gép', post: 'a szalonodnak?' }}
+      heading={isConsumable
+        ? { pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő készítmény', post: 'a kezeléseidhez?' }
+        : { pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő gép', post: 'a szalonodnak?' }}
     />
 
     <!-- 4. VIDEO + DESCRIPTION -->
@@ -419,6 +440,10 @@ const productSchema = product.price ? {
         locale={locale}
         specs={resolvedSpecs}
         productName={displayName}
+        title={isConsumable && locale === 'hu' ? 'Termékadatok' : undefined}
+        subtitle={isConsumable && locale === 'hu'
+          ? `A ${displayName} részletes adatai`
+          : undefined}
       />
     )}
 
@@ -436,6 +461,9 @@ const productSchema = product.price ? {
         locale={locale}
         faq={resolvedFaq}
         productName={displayName}
+        subtitle={isConsumable && locale === 'hu'
+          ? `Minden, amit a ${displayName} készítményről tudni érdemes`
+          : undefined}
       />
     )}
 
@@ -455,11 +483,16 @@ const productSchema = product.price ? {
         locale={locale}
         items={resolvedWhatsIncluded}
         productName={displayName}
+        showWarrantyBadge={!isConsumable}
+        title={isConsumable && locale === 'hu' ? 'Mit tartalmaz a csomag?' : undefined}
+        subtitle={isConsumable && locale === 'hu' ? 'A kiszerelés pontos tartalma' : undefined}
       />
     )}
 
     <!-- 15. WARRANTY -->
-    <WarrantyService locale={locale} productName={displayName} />
+    {!isConsumable && (
+      <WarrantyService locale={locale} productName={displayName} />
+    )}
 
     <!-- 16. CTA SECTION -->
     <ProductCTA
@@ -477,6 +510,9 @@ const productSchema = product.price ? {
       locale={locale}
       currentSlug={product.slug}
       categorySlug={product.categorySlug}
+      subtitle={isConsumable && locale === 'hu'
+        ? 'Nézd meg a kategória további kezelőanyagait'
+        : undefined}
     />
 
   </div>

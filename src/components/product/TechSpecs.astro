@@ -13,9 +13,15 @@ interface Props {
   locale: Locale;
   specs: Record<string, string>;
   productName: string;
+  /**
+   * Cím/alcím felülírása. Az alapértelmezett "Műszaki adatok" gépre való;
+   * egy krémnél vagy ampullánál nincsenek műszaki adatok, csak termékadatok.
+   */
+  title?: string;
+  subtitle?: string;
 }
 
-const { locale, specs, productName } = Astro.props;
+const { locale, specs, productName, title, subtitle } = Astro.props;
 
 const specEntries = Object.entries(specs);
 ---
@@ -26,10 +32,10 @@ const specEntries = Object.entries(specs);
       <!-- Header -->
       <div class="text-center mb-10">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-          {t(locale, 'product.specs')}
+          {title || t(locale, 'product.specs')}
         </h2>
         <p class="text-gray-600">
-          {t(locale, 'product.specsSubtitle', { productName })}
+          {subtitle || t(locale, 'product.specsSubtitle', { productName })}
         </p>
       </div>
 
