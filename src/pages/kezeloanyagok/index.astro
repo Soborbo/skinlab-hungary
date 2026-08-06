@@ -1,6 +1,7 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import monduniqStand from '../../assets/monduniq-professzionalis-kozmetikumok.jpg';
 
 const category = {
   name: 'Kezelőanyagok és hatóanyagok',
@@ -62,6 +63,16 @@ const productGroups = [
   },
 ];
 
+// A layout alapértelmezett bizalmi jelvényei gépígéretek ("2 év garancia",
+// "Ingyenes betanítás", "Magyar szerviz") - egy krémre vagy ampullára egyik sem
+// igaz. Csak ellenőrizhető állítás kerül ide; szállítási határidő szándékosan nem,
+// arra nincs vállalásunk.
+const trustBadges = [
+  { title: 'Eredeti, hivatalos termékek' },
+  { title: 'Foxpost vagy MPL szállítás' },
+  { title: 'Személyes átvétel Érden' },
+];
+
 const benefits = [
   {
     icon: 'check-circle',
@@ -91,4 +102,7 @@ const benefits = [
   products={products}
   productGroups={productGroups}
   benefits={benefits}
+  trustBadges={trustBadges}
+  heroImage={monduniqStand}
+  heroImageAlt="A Skinlab csapata a M'ONDUNIQ professzionális kozmetikumok standján"
 />

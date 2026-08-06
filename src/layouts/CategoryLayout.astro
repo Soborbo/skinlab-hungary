@@ -77,6 +77,14 @@ interface Props {
    */
   benefitsImage?: ImageMetadata;
   benefitsImageAlt?: string;
+  /**
+   * Opt-in: a hero jobb oszlopának főképe "classic" módban (5+ termék).
+   * Enélkül ott egy üres "Kategória kép / Videó" placeholder áll.
+   * Astro:assets ImageMetadata (import a src/assets-ből) - a `benefitsImage`-hez
+   * hasonlóan. Ha `expert` is meg van adva, a lead-capture kártya nyer.
+   */
+  heroImage?: ImageMetadata;
+  heroImageAlt?: string;
   comparison?: {
     features: string[];
     products: ComparisonProduct[];
@@ -142,6 +150,8 @@ const {
   benefits = [],
   benefitsImage,
   benefitsImageAlt,
+  heroImage,
+  heroImageAlt,
   comparison,
   choices = [],
   choicesHeading,
@@ -536,7 +546,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 ))}
               </div>
             ) : (
-              <div class="hidden lg:block">
+              <div class={heroImage && !expert ? 'mt-8 lg:mt-0' : 'hidden lg:block'}>
                 {expert ? (
                   <CategoryConsultationCard
                     expert={expert}
@@ -546,6 +556,17 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     accentDark={accentDark}
                     accentLight={catColor.accentLight}
                   />
+                ) : heroImage ? (
+                  <div class="relative rounded-2xl aspect-square overflow-hidden shadow-lg">
+                    <Image
+                      src={heroImage}
+                      alt={heroImageAlt || `${category.nameShort} - Skinlab`}
+                      widths={[480, 640, 800, 1000]}
+                      sizes="(min-width: 1024px) 45vw, 90vw"
+                      class="w-full h-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
                 ) : (
                   <div class="bg-white/10 backdrop-blur rounded-2xl aspect-video flex items-center justify-center">
                     <div class="text-center p-8">

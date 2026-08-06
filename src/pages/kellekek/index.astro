@@ -58,6 +58,14 @@ const faq = [
   },
 ];
 
+// A layout alapértelmezett bizalmi jelvényei gépígéretek ("2 év garancia",
+// "Ingyenes betanítás", "Magyar szerviz") - egy tűmodulra nem értelmezhetők.
+const trustBadges = [
+  { title: 'Eredeti, hivatalos termékek' },
+  { title: 'Foxpost vagy MPL szállítás' },
+  { title: 'Személyes átvétel Érden' },
+];
+
 const comparison = {
   features: ['Típus', 'Felhasználás', 'Kiszerelés', 'Kompatibilitás'],
   products: [
@@ -101,4 +109,11 @@ const comparison = {
 };
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} comparison={comparison} />
+<CategoryLayout
+  category={category}
+  products={products}
+  benefits={benefits}
+  faq={faq}
+  comparison={comparison}
+  trustBadges={trustBadges}
+/>
