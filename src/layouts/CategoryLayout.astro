@@ -193,6 +193,11 @@ const heroProduct = heroMode === 'single' ? products[0] : null;
 // módban a fold már megmutatja a termékeket, a duplikáció zavaró lenne.
 const showStandaloneGrid = heroMode === 'classic';
 
+// Fogyóeszköz-kategóriák (kezelőanyagok, kellékek) - ugyanaz a lista, mint a
+// ProductLayout-ban. A gépre utaló, márkaszintű feliratok itt is félrevezetőek:
+// a videós vélemények nem "Skinlab géppel dolgoznak" bizonyítékok egy krém mellé.
+const isConsumableCategory = ['kezeloanyagok', 'kellekek'].includes(category.slug);
+
 // Termékrács szekciói. `productGroups` nélkül egyetlen, ár szerint rendezett rács
 // (a korábbi viselkedés). Csoportokkal a `slugs` sorrendje dönt a csoporton belül,
 // és a fel nem sorolt termékek egy záró blokkba kerülnek — így egy termék sem eshet ki.
@@ -733,7 +738,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
     )}
 
     <!-- Video testimonials (site-wide social proof) -->
-    <VideoTestimonials />
+    <VideoTestimonials
+      title={isConsumableCategory && pageLocale === 'hu' ? 'Ők már Skinlabbal dolgoznak' : undefined}
+    />
 
     <!-- "Melyiket válaszd?" - rich choices + comparison table (optional) -->
     {showChoicesSection && (

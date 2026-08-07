@@ -7,6 +7,16 @@
 
 Jelölések: 🔴 blokkoló · 🟠 fontos, nem blokkoló · 🟡 ráér
 
+> **2026-08-06 — a kategória kizárólagosan M'ONDUNIQ lett.**
+> A Farmona HydraLiquid oldatok és az OxyGenX pod-szettek archiválva (üzleti döntés: a
+> Farmonát sokan árulják, könnyen hozzáférhető, folyamatos alávágás az áraiban).
+> A kategória megjelenített neve **„M'ONDUNIQ professzionális kozmetikumok"**, a menü- és
+> breadcrumb-címke mind a 9 nyelven **„M'ONDUNIQ"** (márkanevet nem fordítunk).
+> Az URL szándékosan maradt `/kezeloanyagok/`: 20+ redirect célozza, mind a 9 nyelven
+> felépült, és a „kezelőanyag" valós magyar keresőkifejezés.
+> A termékoldalak főképe a gyártó szatén hátterű életstílus-fotója; a menü- és
+> kategóriakártya-kép fehér hátterű packshot maradt (a menü fehér navigációs sávon áll).
+
 ---
 
 ## ✅ 1. Hiányzó ár — GENEXEM LSEV 100 exoszómás szérum — **MEGOLDVA (2026-08-05)**
