@@ -315,14 +315,18 @@ export const CATEGORIES = [
   },
   {
     id: 'kezeloanyagok',
-    name: 'Kezelőanyagok',
-    nameShort: 'Kezelőanyagok',
+    // A kategoria 2026-08-06-tol kizarolag M'ONDUNIQ (a Farmona HydraLiquid es az
+    // OxyGenX pod-szettek archivalva). Az URL szandekosan marad /kezeloanyagok/:
+    // 20+ redirect celozza, mind a 9 nyelven felepult, es a "kezeloanyag" valos
+    // magyar keresokifejezes - a markanev a megjelenitett nevben van.
+    name: "M'ONDUNIQ professzionális kozmetikumok",
+    nameShort: "M'ONDUNIQ",
     slug: 'kezeloanyagok',
-    description: "M'ONDUNIQ professzionális kozmetikumok, hydrofacial oldatok, OxyGenX podok és hatóanyagok.",
+    description: "M'ONDUNIQ professzionális kezelőanyagok: hydra-liquidek, hatóanyag-koktélok és exoszómás készítmények.",
     icon: 'droplet',
-    image: '/images/opt/products/hydraliquid-oldatok-1-480w.webp',
+    image: '/images/opt/products/monduniq-botopax-peptid-koktel-feher-szarvasgombaval-2-480w.webp',
     featured: true,
-    productCount: 18,
+    productCount: 16,
     color: 'kezeloanyagok' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
@@ -344,7 +348,9 @@ export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   testkezeles: '/images/opt/products/freeze-me-slim-cryolipolysis-3-640w.avif',
   sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
   kellekek: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
-  kezeloanyagok: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-800w.avif',
+  // A "-2" a BOTOPAX FEHER hattéru packshotja (a "-1" a szaten eletstilus-foto,
+  // ami a termekoldalak fokepe). Ez a map fehér hatteru kepeket ker.
+  kezeloanyagok: '/images/opt/products/monduniq-botopax-peptid-koktel-feher-szarvasgombaval-2-800w.avif',
 };
 
 export const TRUST_BADGES = [
@@ -425,7 +431,7 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
-        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 18, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 16, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],
@@ -443,7 +449,7 @@ export const CATEGORY_MENU_IMAGE: Record<string, string> = {
   hydrafacial: '@assets/products/HydraSCANPRO2.webp',
   testkezeles: '@assets/products/freeze-me-slim-3.png',
   kellekek: '@assets/products/ocheart.webp',
-  kezeloanyagok: '@assets/products/Glam-Pods-Oxy-Genx.webp',
+  kezeloanyagok: '@assets/products/monduniq-botopax-peptid-koktel-1.webp',
 };
 
 // Simple navigation for header

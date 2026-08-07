@@ -66,6 +66,10 @@ const trustBadges = [
   { title: 'Személyes átvétel Érden' },
 ];
 
+// Az OxyGenX pod-szettek és a HydraLiquid oldatok sorai kivéve: mindkét termék
+// archivalva (2026-08-06), a linkjeik amugy sem letezo slugra mutattak. A Mast
+// tumodul linkje is hibas volt ("...-tumodulok"), javitva a valos slugra.
+// Marad a ket tumodul-csalad osszehasonlitasa - ez a valodi dontesi kerdes.
 const comparison = {
   features: ['Típus', 'Felhasználás', 'Kiszerelés', 'Kompatibilitás'],
   products: [
@@ -73,7 +77,7 @@ const comparison = {
       name: 'Mast Oceanheart tűmodulok',
       tag: '7 méret',
       tagColor: 'blue',
-      link: '/kellekek/mast-oceanheart-tumodulok',
+      link: '/kellekek/mast-oceanheart-tumodul-030mm-1rl',
       specs: {
         'Típus': 'Tűmodul',
         'Felhasználás': 'Sminktetoválás',
@@ -82,27 +86,15 @@ const comparison = {
       },
     },
     {
-      name: 'OxyGenX Pod szettek',
-      tag: '7 típus',
-      tagColor: 'green',
-      link: '/kellekek/oxygenx-podok',
-      specs: {
-        'Típus': 'Kezelőanyag kapszula',
-        'Felhasználás': 'OxyGenX kezelés',
-        'Kiszerelés': 'Szett',
-        'Kompatibilitás': 'OxyGenX gép',
-      },
-    },
-    {
-      name: 'HydraLiquid oldatok',
-      tag: '6 típus',
+      name: 'WJX tűmodulok',
+      tag: '4 méret',
       tagColor: 'purple',
-      link: '/kellekek/hydraliquid-oldatok',
+      link: '/kellekek/wjxtumodul',
       specs: {
-        'Típus': 'Hydrofacial oldat',
-        'Felhasználás': 'Hydrofacial kezelés',
-        'Kiszerelés': '500ml',
-        'Kompatibilitás': 'Hydrofacial gépek',
+        'Típus': 'Tűmodul',
+        'Felhasználás': 'Sminktetoválás',
+        'Kiszerelés': '20 db/doboz',
+        'Kompatibilitás': 'Szabványos patronos gépek',
       },
     },
   ],
