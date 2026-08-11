@@ -23,8 +23,10 @@ export default defineConfig({
       // duplicate-content / thank-you / cart pages in the sitemap.
       // `blog` is excluded while the section is drafted off (see
       // src/config/features.ts → BLOG_ENABLED); remove it when re-publishing.
+      // `merchant-feed.xml` is a Merchant Center product feed, not a page.
       filter: (page) =>
-        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
+        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page) &&
+        !/\/merchant-feed\.xml$/i.test(page),
       i18n: {
         defaultLocale: 'hu',
         // Language-only hreflang codes to match the <head> alternate links

@@ -44,6 +44,8 @@ import { SITE, CATEGORIES } from '../lib/constants';
 import { getLocaleFromUrl, t, getLocalizedUrl } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
 import { getOgImagePath } from '@/lib/resolve-image';
+import { courierOptionsForPrice } from '@/lib/shipping/methods';
+import { resolveBrand } from '@/lib/merchant/brand';
 import type { ProductContentFAQItem } from '@/lib/types/product-content';
 
 interface Variant {
@@ -73,6 +75,8 @@ interface Props {
   product: {
     name: string;
     sku: string;
+    /** Kézzel felülírt márkanév; hiányában a névből derül ki (lib/merchant/brand.ts). */
+    brand?: string;
     slug: string;
     categorySlug: string;
     description: string;
@@ -204,6 +208,55 @@ const reviewSchema = ratedTestimonials.map((tm) => {
 // Offer price validity end of next year.
 const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
 
+/**
+ * Szállítási adat a strukturált ajánlathoz.
+ *
+ * Korábban itt fixen "0 HUF" díj és 10-20 NAPOS kézbesítés szerepelt minden
+ * terméken - egyik sem igaz: a kellék-ágon 1 490 / 3 490 Ft a díj, a
+ * kézbesítés pedig munkanapokban mérhető. A Merchant Center a feedet ÖSSZEVETI
+ * az oldal strukturált adatával, tehát a hamis 0 Ft ott is elutasítást hozna.
+ *
+ * Nagy értékű gépeknél (>= SHIPPING_THRESHOLD) nincs automatizált futár - ott a
+ * `shippingDetails` teljesen kimarad, mert a kiszállítás egyedi egyeztetés
+ * alapján történik, díja előre nem állítható. (A Merchant Center feed ilyenkor
+ * az ingyenes személyes átvételt adja meg; lásd lib/merchant/feed.ts.)
+ */
+const offerPrice = product.salePrice || product.price;
+const shippingDetails = courierOptionsForPrice(offerPrice).map((option) => ({
+  "@type": "OfferShippingDetails",
+  "shippingRate": {
+    "@type": "MonetaryAmount",
+    "value": String(option.fee),
+    "currency": "HUF"
+  },
+  "shippingDestination": {
+    "@type": "DefinedRegion",
+    "addressCountry": "HU"
+  },
+  "deliveryTime": {
+    "@type": "ShippingDeliveryTime",
+    "handlingTime": {
+      "@type": "QuantitativeValue",
+      "minValue": option.handling.min,
+      "maxValue": option.handling.max,
+      "unitCode": "DAY"
+    },
+    "transitTime": {
+      "@type": "QuantitativeValue",
+      "minValue": option.transit.min,
+      "maxValue": option.transit.max,
+      "unitCode": "DAY"
+    }
+  }
+}));
+
+// A galéria képei is bekerülnek a schema-ba (a Google több képet is felhasznál
+// a rich resulthoz), abszolút URL-re oldva, duplikáció nélkül.
+const schemaImages = [...new Set([ogImage, ...(product.gallery ?? []).map(getOgImagePath)])]
+  .filter(Boolean)
+  .slice(0, 6)
+  .map((path) => new URL(path, SITE.url).href);
+
 // Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
@@ -212,8 +265,8 @@ const productSchema = product.price ? {
   "name": displayName,
   "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
-  "brand": { "@type": "Brand", "name": "Skinlab" },
-  "image": [new URL(ogImage, SITE.url).href],
+  "brand": { "@type": "Brand", "name": resolveBrand(product.name, product.brand) },
+  "image": schemaImages,
   "offers": {
     "@type": "Offer",
     "url": pageUrl,
@@ -228,37 +281,12 @@ const productSchema = product.price ? {
     "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "Skinlab Hungary" },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
+      "applicableCountry": "HU",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 14,
       "returnMethod": "https://schema.org/ReturnByMail"
     },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "HUF"
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "HU"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 1,
-          "maxValue": 3,
-          "unitCode": "DAY"
-        },
-        "transitTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 10,
-          "maxValue": 20,
-          "unitCode": "DAY"
-        }
-      }
-    }
+    ...(shippingDetails.length > 0 ? { "shippingDetails": shippingDetails } : {})
   },
   ...(aggregateRating ? { "aggregateRating": aggregateRating, "review": reviewSchema } : {})
 } : null;

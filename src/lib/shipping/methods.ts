@@ -62,6 +62,53 @@ export function shippingFeeFor(method: ShippingMethodId): number {
   return SHIPPING_METHODS[method]?.fee ?? 0;
 }
 
+// ============================================
+// STRUKTURÁLT SZÁLLÍTÁSI ADAT (schema.org + Merchant Center feed)
+// ============================================
+
+/**
+ * Feldolgozási idő (munkanap) a rendelés leadása és a futárnak átadás között.
+ *
+ * A handling + transit összege a szállítási oldalon ígért "jellemzően 1-4
+ * munkanap" sávba kell essen (i18n: `shipping.parcelIntro`), különben a
+ * strukturált adat mást mond, mint az oldal szövege.
+ */
+export const HANDLING_DAYS = { min: 1, max: 2 } as const;
+
+/** Kézbesítési idő (munkanap) a feladástól, futáros módonként. */
+export const TRANSIT_DAYS: Record<'foxpost' | 'mpl', { min: number; max: number }> = {
+  foxpost: { min: 1, max: 2 },
+  // "következő munkanapos kézbesítés" - lásd SHIPPING_LABEL_HU.mpl
+  mpl: { min: 1, max: 1 },
+};
+
+export interface CourierOption {
+  id: 'foxpost' | 'mpl';
+  fee: number;
+  handling: { min: number; max: number };
+  transit: { min: number; max: number };
+}
+
+/**
+ * Egy TERMÉK futáros szállítási opciói az ára alapján.
+ *
+ * A kosárszintű `isCartShippable()` termékszintű megfelelője: egyetlen tétel
+ * ára dönt. Üres tömb = nincs automatizált futár (nagy értékű gép vagy "ár
+ * egyeztetés alatt"), ilyenkor személyes átvétel / egyeztetett kiszállítás van.
+ *
+ * A termékoldal JSON-LD-je és a Merchant Center feed EBBŐL a függvényből
+ * dolgozik, hogy a strukturált adat ne mondhasson mást, mint a pénztár.
+ */
+export function courierOptionsForPrice(price: number | null | undefined): CourierOption[] {
+  if (typeof price !== 'number' || price >= SHIPPING_THRESHOLD) return [];
+  return (['foxpost', 'mpl'] as const).map((id) => ({
+    id,
+    fee: SHIPPING_METHODS[id].fee,
+    handling: { ...HANDLING_DAYS },
+    transit: { ...TRANSIT_DAYS[id] },
+  }));
+}
+
 /**
  * Az automatikus futáros szállítás (Foxpost/MPL) CSAK magyar nyelvű
  * rendelésnél érhető el. Minden más nyelven kizárólag egyeztetett ("visszahívós")

@@ -13,6 +13,8 @@ const variantSchema = z.object({
   name: z.string(),
   value: z.string(),
   price: z.number().nullable(),
+  /** Vonalkód, ha van. A Merchant Center feed variánssoraiba kerül. */
+  gtin: z.string().optional(),
   image: z.string().optional(),
   images: z.array(z.string()).optional(),
   available: z.boolean().optional(),
@@ -34,6 +36,18 @@ const productSchema = z.object({
   draft: z.boolean().default(false),
   sku: z.string(),
   name: z.string(),
+  // --- Merchant Center / schema.org termékazonosítás -------------------------
+  // Mindhárom opcionális. `brand` hiányában a terméknévből dől el
+  // (lib/merchant/brand.ts), `gtin` hiányában a feed `identifier_exists: no`-t
+  // küld, `googleProductCategory` hiányában a kategória-alapértelmezés
+  // érvényes (lib/merchant/categories.ts).
+  brand: z.string().optional(),
+  /** EAN/UPC vonalkód. Importált gépeken jellemzően nincs. */
+  gtin: z.string().optional(),
+  /** Gyártói cikkszám, ha eltér a saját SKU-tól. */
+  mpn: z.string().optional(),
+  /** Google product taxonomy numerikus ID - csak felülíráshoz. */
+  googleProductCategory: z.number().int().optional(),
   categorySlug: z.string(),
   shortDescription: z.string().default(''),
   description: z.string().default(''),

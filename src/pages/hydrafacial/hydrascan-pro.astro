@@ -35,6 +35,8 @@ import { getCollection } from 'astro:content';
 import { SITE, CONTACT, CATEGORIES } from '../../lib/constants';
 import { getLocaleFromUrl, t, getLocalizedUrl, formatPrice as i18nFormatPrice } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
+import { courierOptionsForPrice } from '@/lib/shipping/methods';
+import { resolveBrand } from '@/lib/merchant/brand';
 
 // Determine locale from URL
 const locale = getLocaleFromUrl(Astro.url);
@@ -52,6 +54,7 @@ const productEntry = products[0];
 const product = {
   name: productEntry.data.name,
   sku: productEntry.data.sku,
+  brand: productEntry.data.brand,
   slug: productEntry.data.slug,
   categorySlug: productEntry.data.categorySlug,
   description: productEntry.data.description,
@@ -143,6 +146,24 @@ const reviewSchema = _ratedTestimonials.map((tm) => {
   };
 });
 
+/**
+ * Szállítási adat a strukturált ajánlathoz - ugyanaz a forrás, mint a közös
+ * ProductLayout-ban (lib/shipping/methods.ts). A korábbi fix "0 HUF / 10-20 nap"
+ * egyik terméknél sem volt igaz, és a Merchant Center feed árellenőrzésén is
+ * elbukna. A HYDRASCAN PRO a nagy értékű ágba esik, ezért a `shippingDetails`
+ * kimarad: a kiszállítás egyedi egyeztetés alapján történik.
+ */
+const shippingDetails = courierOptionsForPrice(product.price).map((option) => ({
+  "@type": "OfferShippingDetails",
+  "shippingRate": { "@type": "MonetaryAmount", "value": String(option.fee), "currency": "HUF" },
+  "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "HU" },
+  "deliveryTime": {
+    "@type": "ShippingDeliveryTime",
+    "handlingTime": { "@type": "QuantitativeValue", "minValue": option.handling.min, "maxValue": option.handling.max, "unitCode": "DAY" },
+    "transitTime": { "@type": "QuantitativeValue", "minValue": option.transit.min, "maxValue": option.transit.max, "unitCode": "DAY" }
+  }
+}));
+
 // Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
@@ -151,7 +172,7 @@ const productSchema = product.price ? {
   "name": displayName,
   "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
-  "brand": { "@type": "Brand", "name": "Skinlab" },
+  "brand": { "@type": "Brand", "name": resolveBrand(product.name, product.brand) },
   "image": product.image ? [`${SITE.url}/${product.image.replace('@assets/', 'assets/')}`] : [],
   "offers": {
     "@type": "Offer",
@@ -166,20 +187,12 @@ const productSchema = product.price ? {
     "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "Skinlab Hungary" },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
+      "applicableCountry": "HU",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 14,
       "returnMethod": "https://schema.org/ReturnByMail"
     },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "HUF" },
-      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "HU" },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
-        "transitTime": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 20, "unitCode": "DAY" }
-      }
-    }
+    ...(shippingDetails.length > 0 ? { "shippingDetails": shippingDetails } : {})
   },
   ...(aggregateRating ? { "aggregateRating": aggregateRating, "review": reviewSchema } : {})
 } : null;
