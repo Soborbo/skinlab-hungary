@@ -110,6 +110,7 @@ const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
                   data-variant={variant.sku}
                   data-variant-value={variant.value}
                   data-variant-image={variant.image}
+                  data-variant-price={displayPrice(variant.price ?? price)}
                 >
                   {variant.name}
                 </button>
@@ -124,11 +125,11 @@ const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
             <>
               {salePrice ? (
                 <div class="flex items-baseline gap-3">
-                  <div class="text-3xl font-bold text-red-600">{displayPrice(salePrice)}</div>
+                  <div class="text-3xl font-bold text-red-600" data-price-display>{displayPrice(salePrice)}</div>
                   <div class="text-xl text-gray-400 line-through">{displayPrice(price)}</div>
                 </div>
               ) : (
-                <div class="text-3xl font-bold text-gray-900">{displayPrice(price)}</div>
+                <div class="text-3xl font-bold text-gray-900" data-price-display>{displayPrice(price)}</div>
               )}
               <div class="text-sm text-gray-500 mt-1">{t(locale, 'product.grossPrice')}</div>
             </>
@@ -194,24 +195,61 @@ const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
 </section>
 
 <script>
-  // Variant selection functionality
-  document.querySelectorAll('[data-variant]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update active state
-      document.querySelectorAll('[data-variant]').forEach(b => {
-        b.classList.remove('border-primary-600', 'bg-primary-50', 'text-primary-700');
-        b.classList.add('border-gray-200', 'text-gray-700');
-      });
-      btn.classList.remove('border-gray-200', 'text-gray-700');
-      btn.classList.add('border-primary-600', 'bg-primary-50', 'text-primary-700');
-
-      // Dispatch variant-change event for gallery switching
-      const variantValue = (btn as HTMLElement).getAttribute('data-variant-value');
-      if (variantValue) {
-        document.dispatchEvent(new CustomEvent('variant-change', {
-          detail: { value: variantValue }
-        }));
-      }
+  /**
+   * Variánsválasztás.
+   *
+   * A megjelenített ár is követi a választást: az AddToCartButton eddig is a
+   * variáns árát tette a kosárba, a hero viszont mindig az alaptermék árát
+   * mutatta - eltérő árú variánsoknál (pl. 50 ml / 150 ml) ez azt jelentette,
+   * hogy a vevő 12 990 Ft-ot látott, és 20 990 Ft került a kosárba. Ez a
+   * Merchant Center feed variánssorainál is azonnali "ár eltérés" elutasítás
+   * lenne, mert a Google a feed árát a landoló oldalon látható árral veti össze.
+   *
+   * A `?v=<sku>` query paraméter előre kiválasztja a variánst - a feed
+   * variánssorai erre a formára mutatnak.
+   */
+  function selectVariant(btn: Element) {
+    document.querySelectorAll('[data-variant]').forEach(b => {
+      b.classList.remove('border-primary-600', 'bg-primary-50', 'text-primary-700');
+      b.classList.add('border-gray-200', 'text-gray-700');
     });
-  });
+    btn.classList.remove('border-gray-200', 'text-gray-700');
+    btn.classList.add('border-primary-600', 'bg-primary-50', 'text-primary-700');
+
+    // Ár frissítése (csak ha a variánshoz tartozik kiírható ár)
+    const priceLabel = btn.getAttribute('data-variant-price');
+    const priceEl = document.querySelector<HTMLElement>('[data-price-display]');
+    if (priceLabel && priceEl) priceEl.textContent = priceLabel;
+
+    // Galéria- és kosárváltás
+    const variantValue = btn.getAttribute('data-variant-value');
+    if (variantValue) {
+      document.dispatchEvent(new CustomEvent('variant-change', {
+        detail: { value: variantValue }
+      }));
+    }
+  }
+
+  function initVariants() {
+    const buttons = document.querySelectorAll('[data-variant]');
+    if (buttons.length === 0) return;
+
+    buttons.forEach(btn => btn.addEventListener('click', () => selectVariant(btn)));
+
+    // Mélylinkelt variáns (?v=SKU). Az elsőt nem kell újraválasztani, az már
+    // szerveroldalon aktív.
+    const wanted = new URLSearchParams(window.location.search).get('v');
+    if (!wanted) return;
+    const target = document.querySelector(`[data-variant="${CSS.escape(wanted)}"]`);
+    if (target && target !== buttons[0]) selectVariant(target);
+  }
+
+  // A galéria és a kosár gomb ugyanígy modul-scriptben köti be a
+  // `variant-change` figyelőjét; a modulok a DOMContentLoaded ELŐTT futnak le,
+  // így itt már biztosan hallják az induló eseményt.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVariants, { once: true });
+  } else {
+    initVariants();
+  }
 </script>
