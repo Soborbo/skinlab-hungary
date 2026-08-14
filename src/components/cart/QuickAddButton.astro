@@ -60,6 +60,7 @@ const cartImage = resolveCartImage(image);
 
 <script>
   import { addToCart } from '@/lib/cart/store';
+  import { trackAddToCart } from '@/lib/tracking';
 
   function initQuickAdd() {
     // Eseménydelegálás - egy listener kezeli az oldal összes gombját
@@ -84,6 +85,20 @@ const cartImage = resolveCartImage(image);
         price: priceAttr ? Number(priceAttr) : null,
         qty: 1,
       });
+
+      // Meta AddToCart + GA4 add_to_cart (lásd AddToCartButton). Ár nélküli
+      // ("ár kérésre") tételnél kimarad — a 0 value torzítaná az optimalizálást.
+      const quickPrice = priceAttr ? Number(priceAttr) : 0;
+      if (quickPrice > 0) {
+        trackAddToCart({
+          item_id: btn.dataset.sku || '',
+          item_name: btn.dataset.name || '',
+          item_category: btn.dataset.category || '',
+          price: quickPrice,
+          quantity: 1,
+          currency: 'HUF',
+        });
+      }
 
       const label = btn.querySelector<HTMLElement>('[data-quick-add-label]');
       if (label) {

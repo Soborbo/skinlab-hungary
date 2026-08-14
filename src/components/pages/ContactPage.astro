@@ -73,9 +73,25 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="sourceUrl" value={sourceUrl} />
               <input type="hidden" name="formStartTime" data-form-start />
               <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
-              <input type="hidden" name="utmSource" data-utm="utm_source" />
-              <input type="hidden" name="utmMedium" data-utm="utm_medium" />
-              <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
+              <!-- Teljes attribúciós stack — UGYANAZ, mint ContactForm.astro-ban.
+                   Korábban csak a 3 UTM mező volt itt, ezért a főoldali kapcsolati
+                   űrlap leadjei klikk-ID nélkül (gclid/fbclid/fbc/fbp) mentek a
+                   Metának és a Google-nek — vagyis a fizetett kattintáshoz nem
+                   lehetett őket párosítani. -->
+              <input type="hidden" name="utmSource" data-track="utm_source" />
+              <input type="hidden" name="utmMedium" data-track="utm_medium" />
+              <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
+              <input type="hidden" name="utmTerm" data-track="utm_term" />
+              <input type="hidden" name="utmContent" data-track="utm_content" />
+              <input type="hidden" name="gclid" data-track="gclid" />
+              <input type="hidden" name="fbclid" data-track="fbclid" />
+              <input type="hidden" name="gbraid" data-track="gbraid" />
+              <input type="hidden" name="wbraid" data-track="wbraid" />
+              <input type="hidden" name="msclkid" data-track="msclkid" />
+              <input type="hidden" name="fbc" data-track="fbc" />
+              <input type="hidden" name="fbp" data-track="fbp" />
+              <input type="hidden" name="external_id" data-track="external_id" />
+              <input type="hidden" name="referrer" data-track="referrer" />
 
               <!-- Combined name (composed from the two fields below on submit) -->
               <input type="hidden" id="name" name="name" />
@@ -453,7 +469,9 @@ const sourceUrl = Astro.url.href;
 </BaseLayout>
 
 <script>
-  import { trackContactSubmit } from '@/lib/tracking';
+  import {
+    trackContactSubmit, getAllTrackingData, getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+  } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Keep the hero exactly one fold tall: feed the sticky header's REAL height
@@ -492,11 +510,35 @@ const sourceUrl = Astro.url.href;
     const startTimeInput = form.querySelector<HTMLInputElement>('[data-form-start]');
     if (startTimeInput) startTimeInput.value = Date.now().toString();
 
-    // Capture UTM params from URL into hidden fields
+    // Teljes attribúció a rejtett mezőkbe (URL → `sb_tracking` → fallback).
+    // Ugyanaz a logika, mint ContactForm.astro-ban: a Google klikk-ID-k csak a
+    // szanitizált accessorból jöhetnek (egyszerre EGY mehet ki), a Meta
+    // paraméterek pedig a tracking-lib accessorain át — a `getFbc()` a `_fbc`
+    // süti hiányában a tárolt fbclid-ből újraépíti a click ID-t.
     const urlParams = new URLSearchParams(window.location.search);
-    form.querySelectorAll<HTMLInputElement>('[data-utm]').forEach((input) => {
-      const utmParam = input.getAttribute('data-utm');
-      if (utmParam) input.value = urlParams.get(utmParam) || '';
+    let storedTracking: Record<string, string | undefined> = {};
+    try {
+      const raw = localStorage.getItem('sb_tracking');
+      if (raw) storedTracking = JSON.parse(raw);
+    } catch {
+      /* private mode / quota - ignore */
+    }
+    const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
+    form.querySelectorAll<HTMLInputElement>('[data-track]').forEach((input) => {
+      const key = input.getAttribute('data-track');
+      if (!key) return;
+      let value = GOOGLE_CLICK_KEYS.includes(key)
+        ? (sanitized[key] || '')
+        : (urlParams.get(key) || storedTracking[key] || '');
+      if (key === 'fbc') value = getFbc() || '';
+      else if (key === 'fbp') value = getFbp() || '';
+      else if (key === 'external_id') value = getExternalId() || '';
+      else if (!value && key === 'referrer') value = document.referrer || '';
+      input.value = value;
     });
 
     // Stamp GDPR-consent timestamp on checkbox tick
@@ -525,6 +567,9 @@ const sourceUrl = Astro.url.href;
       if (buttonText) buttonText.textContent = 'Küldés...';
 
       try {
+        // A Pixel a `_fbp`/`_fbc` sütit a consent UTÁN írja — a betöltéskori
+        // kitöltés még üresen hagyhatta. Beküldés előtt újraolvassuk.
+        refreshMetaMatchKeys(form);
         const formData = new FormData(form);
         // Compose the full name in Hungarian order: Vezetéknév Keresztnév
         const lastName = (form.querySelector<HTMLInputElement>('#lastName')?.value || '').trim();

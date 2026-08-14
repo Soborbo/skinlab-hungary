@@ -21,6 +21,7 @@
  */
 
 import { hasAnalyticsConsent, hasMarketingConsent } from './consent';
+import { getFbp, getFbc, getExternalId } from './persistence';
 import { generateUUID } from './uuid';
 import { report } from './observability';
 import { BROWSER_GATEWAY_EVENTS, SERVER_INGRESS_ONLY_EVENTS } from './event-contract';
@@ -343,13 +344,21 @@ export async function sendToWorker(payload: ConversionPayload): Promise<boolean>
     return false;
   }
 
-  const fbp = getCookie('_fbp');
-  const fbc = getCookie('_fbc');
+  // `getFbp`/`getFbc` read the Pixel cookies first and — for fbc — fall back to
+  // rebuilding `fb.1.<click_ts>.<fbclid>` from stored attribution. The raw
+  // `_fbc` cookie only exists after the Pixel ran post-consent, so a plain
+  // cookie read left every consent-race conversion without a Meta click ID.
+  const fbp = getFbp() || undefined;
+  const fbc = getFbc() || undefined;
+  const externalId = payload.user_data?.external_id || getExternalId() || undefined;
   const clientId = extractGAClientId(getCookie('_ga'));
   const sessionId = extractGASessionId();
 
   const body = JSON.stringify({
     ...payload,
+    ...(externalId
+      ? { user_data: { ...(payload.user_data || {}), external_id: externalId } }
+      : {}),
     fbp,
     fbc,
     client_id: clientId,

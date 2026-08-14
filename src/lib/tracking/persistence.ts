@@ -13,6 +13,7 @@ import { trackingConfig, type Market } from './config';
 const TRACKING_KEY = 'sb_tracking';
 const FIRST_TOUCH_KEY = 'sb_first_touch';
 const SESSION_KEY = 'sb_session';
+const EXTERNAL_ID_KEY = 'sb_uid';
 const EXPIRY_DAYS = 90;
 const SESSION_TIMEOUT_MS = 30 * 60 * 1000;
 
@@ -371,6 +372,34 @@ export function getFbc(): string | null {
   return `fb.1.${stored.fbclidAt}.${stored.fbclid}`;
 }
 
+/**
+ * Stable first-party visitor id — Meta `external_id` (and any other platform that
+ * accepts a hashed pseudonymous id).
+ *
+ * Why: `_fbp`/`_fbc` are Meta's own cookies and die with every browser cookie
+ * purge (ITP caps them at 7 days on Safari). A first-party id we mint ourselves
+ * survives longer and joins a visitor's events together, which is exactly what
+ * Meta's EMQ diagnostic asks for. The gateway hashes it before it leaves for
+ * Meta — the raw value never reaches a vendor.
+ *
+ * GDPR: this IS an advertising identifier, so it is minted ONLY after marketing
+ * consent (same gate as `persistTrackingParams`). An already-stored id is still
+ * READ without re-checking — the gateway's own consent gate decides whether it
+ * may be forwarded, and dropping it here would just orphan the events of a user
+ * who consented earlier in the session.
+ */
+export function getExternalId(): string | null {
+  const existing = lsGet(EXTERNAL_ID_KEY);
+  if (existing) return existing;
+  if (!hasMarketingConsent()) return null;
+  const id =
+    typeof crypto !== 'undefined' && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `uid_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+  lsSet(EXTERNAL_ID_KEY, id);
+  return id;
+}
+
 export function getPageUrl(): string {
   return window.location.origin + window.location.pathname;
 }
@@ -381,6 +410,6 @@ export function getDevice(): 'mobile'|'tablet'|'desktop' {
 }
 
 export function clearTrackingData(): void {
-  lsRm(TRACKING_KEY); lsRm(FIRST_TOUCH_KEY); ssRm(SESSION_KEY);
+  lsRm(TRACKING_KEY); lsRm(FIRST_TOUCH_KEY); lsRm(EXTERNAL_ID_KEY); ssRm(SESSION_KEY);
   memorySession = null;
 }

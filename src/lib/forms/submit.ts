@@ -55,7 +55,11 @@ export interface FormTrackingContext {
  */
 async function dispatchGatewayLeadConversion(
   eventName: GatewayEventName,
-  leadData: Pick<LeadData, 'email' | 'phone' | 'gclid' | 'fbclid' | 'utmSource' | 'utmMedium' | 'utmCampaign'>,
+  leadData: Pick<
+    LeadData,
+    | 'email' | 'phone' | 'gclid' | 'fbclid' | 'utmSource' | 'utmMedium' | 'utmCampaign'
+    | 'fbc' | 'fbp' | 'externalId'
+  >,
   crmLeadId: string | undefined,
   tracking: FormTrackingContext,
 ): Promise<void> {
@@ -67,7 +71,13 @@ async function dispatchGatewayLeadConversion(
       userData: {
         email: leadData.email || undefined,
         phone_number: leadData.phone || undefined,
+        external_id: leadData.externalId || undefined,
       },
+      // Meta Browser/Click ID — the form's hidden fields. Without these the
+      // server leg reaches Meta with email+phone only (EMQ: "your server is not
+      // sending fbc/fbp through Conversions API").
+      fbp: leadData.fbp || undefined,
+      fbc: leadData.fbc || undefined,
       attribution: {
         gclid: leadData.gclid || undefined,
         fbclid: leadData.fbclid || undefined,
@@ -126,6 +136,8 @@ interface LeadData {
   msclkid?: string;
   fbc?: string;
   fbp?: string;
+  /** First-party visitor id → Meta `external_id` (hashed by the gateway). */
+  externalId?: string;
   referrer?: string;
   userAgent?: string;
 }
@@ -203,6 +215,7 @@ export async function processFormSubmission(
     msclkid: data.msclkid,
     fbc: data.fbc,
     fbp: data.fbp,
+    externalId: data.external_id,
     referrer: data.referrer,
     userAgent,
   };
@@ -226,8 +239,12 @@ export async function processFormSubmission(
   // Gateway (server) leg: contact_form_submitted with the browser's event_id;
   // lead_id ONLY if the CRM returned its record id.
   if (tracking) {
+    // A képzés-jelentkezés SAJÁT konverzió (Meta CompleteRegistration) — ugyanaz
+    // a `leadType === 'training'` elágazás dönti el, mint a Sheets-fület. Korábban
+    // mindkettő `contact_form_submitted`-et küldött, ezért a Metában a képzés és a
+    // kapcsolati űrlap egyetlen Contact-vödörbe folyt össze.
     await dispatchGatewayLeadConversion(
-      'contact_form_submitted',
+      sheetName === 'Képzések' ? 'training_signup_submitted' : 'contact_form_submitted',
       leadData,
       crm.success && crm.id ? crm.id : undefined,
       tracking,
@@ -686,6 +703,7 @@ export async function processConsultationSubmission(
     msclkid: data.msclkid,
     fbc: data.fbc,
     fbp: data.fbp,
+    externalId: data.external_id,
     referrer: data.referrer,
     userAgent,
   };
@@ -729,8 +747,11 @@ export async function processConsultationSubmission(
   // lead_id. Runs in the same waitUntil chain: no added user-facing latency.
   const crmAndTrackPromise = crmPromise.then(async (crm) => {
     if (tracking) {
+      // Konzultáció-kérés = SAJÁT konverzió (Meta Schedule). A korábbi
+      // `quote_calculator_submitted` a többi Soborbo-site fő lead-eseménye, Meta
+      // Lead-re képezve — ott hagyva a konzultáció nem lett volna külön mérhető.
       await dispatchGatewayLeadConversion(
-        'quote_calculator_submitted',
+        'consultation_request_submitted',
         leadData,
         crm.success && crm.id ? crm.id : undefined,
         tracking,

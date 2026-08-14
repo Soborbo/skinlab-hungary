@@ -26,6 +26,7 @@
 export { hasMarketingConsent, hasAnalyticsConsent, hasAnyConsent, onConsentChange, waitForConsent, type ConsentCategory } from './consent';
 export {
   persistTrackingParams, captureUrlParams, getGclid, getFbclid, getFbp, getFbc,
+  getExternalId,
   getAllTrackingData, getStoredData, getAttribution, getSourceType,
   getSessionId, getDevice, getPageUrl, clearTrackingData,
   normalizeEmail, normalizePhone, sanitizeName,
@@ -37,6 +38,7 @@ export {
   trackEmailClick, trackWhatsappClick, setUserDataForEC, clearUserDataForEC,
   initScrollTracking, initFormAbandonTracking, enableDebug,
   generateEventId, pushLeadConversion, pushContactConversion,
+  pushConsultationConversion, pushTrainingSignupConversion,
   type ConversionData,
 } from './events';
 // Browser-path gateway dispatch — also available for direct use (guarded).
@@ -53,10 +55,12 @@ import { hasMarketingConsent, hasAnalyticsConsent, onConsentChange } from './con
 import {
   persistTrackingParams, captureUrlParams,
   getGclid, getFbclid, getSessionId, getSourceType, getAttribution, getAllTrackingData,
+  getFbc, getFbp, getExternalId,
   normalizePhone,
 } from './persistence';
 import {
   generateEventId, pushLeadConversion, pushContactConversion, enableDebug,
+  pushConsultationConversion, pushTrainingSignupConversion,
   trackPhoneClick, trackCallbackClick, trackEmailClick, trackWhatsappClick,
   hasClickFired, markClickFired,
 } from './events';
@@ -165,6 +169,38 @@ export function trackContactSubmit(
   if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
 
   pushContactConversion({ email: params.email, phone: params.phone, eventId, gclid: gclid || undefined });
+  return { success: true, consentBlocked: false, eventId, gclid, fbclid };
+}
+
+/**
+ * Konzultáció-kérés (varázsló) → BROWSER LEG. Meta `Schedule`.
+ * `consultation_request_submitted` server-ingress-only: a szerver-leget az
+ * /api/consultation küldi UGYANEZZEL az event_id-vel (rejtett mező) → dedup.
+ */
+export function trackConsultationSubmit(params: LeadSubmitParams): LeadSubmitResult {
+  const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
+  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+
+  pushConsultationConversion({
+    email: params.email, phone: params.phone,
+    firstName: params.firstName, lastName: params.lastName,
+    value: params.value, currency: params.currency || trackingConfig.currency,
+    eventId, gclid: gclid || undefined,
+  });
+  return { success: true, consentBlocked: false, eventId, gclid, fbclid };
+}
+
+/**
+ * Képzésre jelentkezés → BROWSER LEG. Meta `CompleteRegistration`.
+ * A szerver-leget az /api/contact küldi (`leadType === 'training'` ág).
+ */
+export function trackTrainingSignupSubmit(
+  params: Pick<LeadSubmitParams, 'email' | 'phone'>,
+): LeadSubmitResult {
+  const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
+  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+
+  pushTrainingSignupConversion({ email: params.email, phone: params.phone, eventId, gclid: gclid || undefined });
   return { success: true, consentBlocked: false, eventId, gclid, fbclid };
 }
 
@@ -288,6 +324,30 @@ function writeHiddenFields(form: HTMLFormElement, fields: Record<string, string 
     if (!input) { input = document.createElement('input'); input.type = 'hidden'; input.name = name; form.appendChild(input); }
     input.value = value || '';
   }
+}
+
+/**
+ * Re-reads the Meta match keys into a form's hidden inputs at SUBMIT time.
+ *
+ * MUST be called immediately before `new FormData(form)`. The hidden fields are
+ * filled once on page load, but the Meta Pixel writes `_fbp` (and `_fbc`) only
+ * AFTER the CMP grants marketing consent — measured on production that lands
+ * ~8s after load, i.e. long after the fill. The form therefore POSTed an empty
+ * `fbp` even for a visitor who had a perfectly good one by the time they hit
+ * send, and the CAPI leg lost the Browser ID.
+ *
+ * Only overwrites when we actually have a value — never blanks a field that was
+ * already populated.
+ */
+export function refreshMetaMatchKeys(form: HTMLFormElement): void {
+  const set = (name: string, value: string | null): void => {
+    if (!value) return;
+    const el = form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+    if (el) el.value = value;
+  };
+  set('fbc', getFbc());
+  set('fbp', getFbp());
+  set('external_id', getExternalId());
 }
 
 export function populateHiddenFields(form: HTMLFormElement, result: LeadSubmitResult): void {

@@ -116,6 +116,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <input type="hidden" name="msclkid" data-track="msclkid" />
             <input type="hidden" name="fbc" data-track="fbc" />
             <input type="hidden" name="fbp" data-track="fbp" />
+            <input type="hidden" name="external_id" data-track="external_id" />
             <input type="hidden" name="referrer" data-track="referrer" />
 
             <!-- Honeypot -->
@@ -251,7 +252,10 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
-  import { trackContactSubmit, waitForTracking, getAllTrackingData } from '@/lib/tracking';
+  import {
+    trackTrainingSignupSubmit, waitForTracking, getAllTrackingData,
+    getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+  } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Turnstile callbacks (global)
@@ -308,10 +312,11 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
       let value = GOOGLE_CLICK_KEYS.includes(key)
         ? (sanitized[key] || '')
         : (urlParams.get(key) || storedTracking[key] || '');
-      if (!value && (key === 'fbc' || key === 'fbp')) {
-        const m = document.cookie.match(new RegExp('(?:^|; )_' + key + '=([^;]*)'));
-        value = m ? decodeURIComponent(m[1]) : '';
-      }
+      // Meta paraméterek KIZÁRÓLAG a tracking-lib accessorain át (lásd ContactForm):
+      // a `getFbc()` a `_fbc` süti hiányában a tárolt fbclid-ből újraépíti a click ID-t.
+      if (key === 'fbc') value = getFbc() || '';
+      else if (key === 'fbp') value = getFbp() || '';
+      else if (key === 'external_id') value = getExternalId() || '';
       if (!value && key === 'referrer') {
         value = document.referrer || '';
       }
@@ -363,6 +368,9 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           gdprTimestamp.value = new Date().toISOString();
         }
 
+        // A Pixel a `_fbp`/`_fbc` sütit a consent UTÁN írja — a betöltéskori
+        // kitöltés még üresen hagyhatta. Beküldés előtt újraolvassuk.
+        refreshMetaMatchKeys(formEl);
         const formData = new FormData(formEl);
 
         // Add turnstile token
@@ -372,7 +380,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
         // Browser leg BEFORE the POST (contact_form_submitted); event_id rides
         // in the body so /api/contact dispatches the gateway leg with the same id.
-        const tracked = trackContactSubmit({
+        const tracked = trackTrainingSignupSubmit({
           email: (formData.get('email') as string) || '',
           phone: (formData.get('phone') as string) || '',
         });

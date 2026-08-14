@@ -104,14 +104,25 @@ export function trackAddToCart(item: EcommerceItem): void {
   });
 }
 
-/** Begin checkout */
-export function trackBeginCheckout(items: EcommerceItem[], value: number, currency = 'HUF'): void {
+/**
+ * Begin checkout — a pénztároldal megnyitása (Meta `InitiateCheckout`).
+ *
+ * `eventId`: a hívó ugyanezt az id-t adja a gateway-lábnak is (`trackServerEvent`),
+ * különben a Pixel és a CAPI két külön InitiateCheckout-ot jelentene ugyanarról a
+ * megnyitásról — a Meta a (event_name, event_id) páron deduplikál.
+ */
+export function trackBeginCheckout(
+  items: EcommerceItem[],
+  value: number,
+  currency = 'HUF',
+  eventId?: string,
+): void {
   if (!hasAnalyticsConsent()) return;
   pushEcommerceEvent('begin_checkout', {
     currency,
     value,
     items: items.map(item => ({ ...item, currency: item.currency || currency, quantity: item.quantity || 1 })),
-  });
+  }, eventId ? { event_id: eventId } : undefined);
 }
 
 /** Lead generation funnel signal for a specific product (GA4 standard event) */

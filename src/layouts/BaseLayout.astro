@@ -117,6 +117,14 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Meta (Facebook) domain verification — Business Manager → Brand Safety →
+       Domains, skinlabhungary.hu (ID 2396213767535382). STATIKUSAN kell a
+       <head>-ben lennie: a Meta scraper nem futtat JS-t, tehát GTM-ből vagy
+       bármilyen kliens-oldali injektálásból NEM találná meg. A domain-hitelesítés
+       az Aggregated Event Measurement (iOS) esemény-prioritás beállításának
+       előfeltétele — enélkül a pixel eseményeit nem tudod rangsorolni. -->
+  <meta name="facebook-domain-verification" content="trcafooh8sqiq07z9wt02tc0n6gw7g" />
+
   <!-- SEO -->
   <title>{fullTitle}</title>
   <meta name="description" content={description} />

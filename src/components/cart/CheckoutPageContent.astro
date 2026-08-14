@@ -438,7 +438,11 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
 <script>
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
-  import { trackOrderRequestSubmit, generateEventId, waitForTracking, getAllTrackingData, type EcommerceItem } from '@/lib/tracking';
+  import {
+    trackOrderRequestSubmit, generateEventId, waitForTracking, getAllTrackingData,
+    trackBeginCheckout, trackServerEvent,
+    getFbc, getFbp, getExternalId, type EcommerceItem,
+  } from '@/lib/tracking';
   import {
     shippingFeeFor,
     FOXPOST_WIDGET_URL,
@@ -976,8 +980,13 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             gbraid: sanitized.gbraid || '',
             wbraid: sanitized.wbraid || '',
             msclkid: pick('msclkid'),
-            fbc: document.cookie.match(/(?:^|; )_fbc=([^;]*)/)?.[1] || '',
-            fbp: document.cookie.match(/(?:^|; )_fbp=([^;]*)/)?.[1] || '',
+            // A tracking-lib accessorai: a `getFbc()` a `_fbc` süti hiányában a
+            // tárolt fbclid-ből újraépíti a Meta click ID-t (a Pixel csak a
+            // marketing-consent után írja a sütit — enélkül a szerver-leg
+            // click ID nélkül ment a Metának).
+            fbc: getFbc() || '',
+            fbp: getFbp() || '',
+            external_id: getExternalId() || '',
             referrer: pick('referrer') || document.referrer || '',
           };
         })(),
@@ -1012,10 +1021,11 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             index: idx,
           }));
 
-          // Lead-style checkout (model A): shipping + final price are confirmed
-          // on a phone consultation, so this is order_request_submitted (Meta
-          // Lead) — NEVER purchase. Browser leg only; /api/order sent the
-          // gateway leg with the same event_id from the payload.
+          // Model A checkout: a szállítás/véglegesítés telefonon zárul, de a
+          // kosárérték RÖGZÍTETT — ezért az `order_request_submitted` a Metában
+          // `Purchase` (value-alapú optimalizálás). Böngésző-leg; az /api/order a
+          // payload event_id-jével küldte a gateway-leget → dedup.
+          // A pénztár MEGNYITÁSA külön esemény (begin_checkout → InitiateCheckout).
           trackOrderRequestSubmit({
             orderId: result.orderId,
             items: ecomItems,
@@ -1064,6 +1074,46 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     window.addEventListener(CART_EVENTS.updated, renderSummary);
     initShipping();
     renderSummary();
+    fireBeginCheckout();
+  }
+
+  /**
+   * A pénztároldal megnyitása → `begin_checkout` (Meta `InitiateCheckout`).
+   *
+   * KÉT láb, EGY event_id-vel: a dataLayer-push (GTM → Pixel/GA4) analytics
+   * consenthez, a gateway-dispatch (Meta CAPI) marketing consenthez kötött — a
+   * közös id nélkül a Meta két külön InitiateCheckout-ot látna ugyanarról a
+   * megnyitásról. A `begin_checkout` böngésző-úton is engedélyezett esemény
+   * (BROWSER_GATEWAY_EVENTS), tehát nem kell hozzá szerver-leg.
+   *
+   * Oldalanként egyszer fut: az astro:page-load újra hívja az initCheckout-ot,
+   * a modul-szintű flag pedig megakadályozza a duplikált eseményt egy SPA-szerű
+   * visszanavigálásnál.
+   */
+  let beginCheckoutFired = false;
+  function fireBeginCheckout() {
+    if (beginCheckoutFired) return;
+    const summary = getCartSummary();
+    if (!summary.items.length) return; // üres kosárral nincs mit jelenteni
+    beginCheckoutFired = true;
+
+    const items: EcommerceItem[] = summary.items.map((i, idx) => ({
+      item_id: i.sku || i.slug,
+      item_name: i.name,
+      item_category: i.categorySlug || undefined,
+      item_variant: i.variantName || undefined,
+      price: typeof i.price === 'number' ? i.price : 0,
+      quantity: i.qty,
+      currency: 'HUF',
+      index: idx,
+    }));
+
+    const eventId = generateEventId();
+    trackBeginCheckout(items, summary.subtotal, 'HUF', eventId);
+    trackServerEvent('begin_checkout', {
+      eventId,
+      ...(summary.subtotal > 0 && { value: summary.subtotal, currency: 'HUF' }),
+    });
   }
 
   initCheckout();
