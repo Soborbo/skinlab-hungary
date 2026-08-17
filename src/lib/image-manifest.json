@@ -682,6 +682,21 @@
     ],
     "basePath": "/images/opt/products/athena-1000w-diodalezer-6"
   },
+  "@assets/products/AURA.webp": {
+    "seoSlug": "aura-by-skinlab-hideg-plazma-keszulek-1",
+    "alt": "AURA by skinlab. hideg-plazma készülék",
+    "width": 900,
+    "height": 900,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      900
+    ],
+    "basePath": "/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1"
+  },
   "@assets/products/biopen1.png": {
     "seoSlug": "bio-pen-q2-ems-mikrotus-pen-1",
     "alt": "Bio Pen Q2 EMS mikrotűs pen",
@@ -1676,9 +1691,76 @@
     ],
     "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-4"
   },
+  "@assets/products/FROSTCOLD-kezeles-1.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-5",
+    "alt": "Hidegplazma arckezelés a THE FROST készülékkel",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-5"
+  },
+  "@assets/products/FROSTCOLD-kezeles-2.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-6",
+    "alt": "Bőr közvetlenül a THE FROST hidegplazma kezelés után",
+    "width": 1024,
+    "height": 1536,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1024
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-6"
+  },
+  "@assets/products/FROSTCOLD-oktatas-1.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-3",
+    "alt": "THE FROST gépkezelői oktatás – gyakorlati kezelés modellen",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-3"
+  },
+  "@assets/products/FROSTCOLD-oktatas-2.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-4",
+    "alt": "THE FROST gépkezelői oktatás a skinlab. showroomban",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-4"
+  },
   "@assets/products/FROSTCOLD.webp": {
-    "seoSlug": "aura-by-skinlab-hideg-plazma-keszulek-1",
-    "alt": "AURA by skinlab. hideg-plazma készülék",
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-1",
+    "alt": "THE FROST Cold plasma by skinlab.",
     "width": 900,
     "height": 900,
     "widths": [
@@ -1689,7 +1771,7 @@
       828,
       900
     ],
-    "basePath": "/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1"
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-1"
   },
   "@assets/products/FROSTCOLD2.png": {
     "seoSlug": "the-frost-coldplasma-by-skinlab-1",
@@ -1765,6 +1847,23 @@
       900
     ],
     "basePath": "/images/opt/products/the-frost-coldplasma-by-skinlab-5"
+  },
+  "@assets/products/FROSTCOLD7.png": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-2",
+    "alt": "THE FROST Cold plasma érintőkijelző – 9 az 1-ben plazma üzemmód menü",
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1086
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-2"
   },
   "@assets/products/Geneo-Oxypods-sheet.webp": {
     "seoSlug": "oxygenx-pod-szett-detox-pod-2",
@@ -6208,33 +6307,91 @@
     ],
     "basePath": "/images/opt/products/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-1"
   },
-  "@assets/products/skinetic.webp": {
-    "seoSlug": "skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-1",
-    "alt": "Skitenic AI mesterséges intelligencia bőranalízis-készülék",
-    "width": 800,
-    "height": 800,
+  "@assets/products/skinetic-ai-plus-allvany.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-4",
+    "alt": "SKINETIC AI+ bőrdiagnosztikai rendszer gurulós állványon a kézi mikroszkóppal",
+    "width": 1023,
+    "height": 1537,
     "widths": [
       160,
       320,
       480,
       640,
-      800
+      828,
+      960,
+      1023
     ],
-    "basePath": "/images/opt/products/skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-1"
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-4"
   },
-  "@assets/products/skineticc.webp": {
-    "seoSlug": "skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-2",
-    "alt": "Skitenic AI mesterséges intelligencia bőranalízis-készülék - 2. kép",
-    "width": 800,
-    "height": 800,
+  "@assets/products/skinetic-ai-plus-main.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1",
+    "alt": "SKINETIC AI+ AI bőrdiagnosztikai készülék 15,6 hüvelykes érintőkijelzővel, magyar nyelvű szoftverrel",
+    "width": 1447,
+    "height": 1087,
     "widths": [
       160,
       320,
       480,
       640,
-      800
+      828,
+      960,
+      1080,
+      1200,
+      1447
     ],
-    "basePath": "/images/opt/products/skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-2"
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1"
+  },
+  "@assets/products/skinetic-ai-plus-mikroszkop.png": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-3",
+    "alt": "SKINETIC AI+ készülék a tartozék scalp- és arcmikroszkóppal, magyar nyelvű menüvel",
+    "width": 1385,
+    "height": 1136,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1385
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-3"
+  },
+  "@assets/products/skinetic-ai-plus-oldalnezet.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-2",
+    "alt": "SKINETIC AI+ bőranalizáló készülék oldalnézetből, fényárnyékolt vizsgálati térrel és érintőképernyős tablettel",
+    "width": 1493,
+    "height": 1053,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1493
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-2"
+  },
+  "@assets/products/skinetic-ai-plus-showroom.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-5",
+    "alt": "SKINETIC AI+ bőranalizáló a Skinlab érdi showroomjában kezelőággyal",
+    "width": 1024,
+    "height": 1536,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1024
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-5"
   },
   "@assets/products/the-shaper-1.png": {
     "seoSlug": "the-shaper-contoursystem-1",
