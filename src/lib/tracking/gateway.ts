@@ -21,6 +21,7 @@
  */
 
 import { hasAnalyticsConsent, hasMarketingConsent } from './consent';
+import { getEntryLandingUrl, getEntryReferrer } from './entry-attribution';
 import { generateUUID } from './uuid';
 import { report } from './observability';
 import { BROWSER_GATEWAY_EVENTS, SERVER_INGRESS_ONLY_EVENTS } from './event-contract';
@@ -285,9 +286,19 @@ export function collectAttribution(): AttributionParams {
   // ID also EVICTS its stored siblings (see dropStaleGoogleClickIds).
   const merged: AttributionParams = { ...dropStaleGoogleClickIds(stored, fresh), ...fresh };
 
-  // First-touch landing context (don't overwrite if already present).
-  if (!merged.landing_page) merged.landing_page = window.location.href;
-  if (!merged.referrer && document.referrer) merged.referrer = document.referrer;
+  // First-touch landing context. A FORRÁS az `entry-attribution` modul, nem a
+  // `window.location` — az tartja a first-touch szabályt akkor is, ha a store
+  // consent hiányában üres (a jel ilyenkor az URL-ben utazik), és ez ugyanaz az
+  // érték, ami a CRM-be megy: a két lábnak nem szabad mást mondania.
+  if (!merged.landing_page) merged.landing_page = getEntryLandingUrl();
+
+  // A hivatkozónál viszont NEM elég a „ha még nincs" ág. A korábbi kód nyers
+  // `document.referrer`-t írt ide, ami a 2. oldaltól a SAJÁT előző oldalunk —
+  // élesben 95 sorból 86 ilyen belső érték keletkezett. Ezeket a blobokat egy
+  // olvasáskor meggyógyítjuk: ami nem külső hivatkozó, az nem hivatkozó.
+  const entryReferrer = getEntryReferrer();
+  if (entryReferrer) merged.referrer = entryReferrer;
+  else delete merged.referrer;
 
   if (adGranted) {
     writeStoredAttribution(merged);

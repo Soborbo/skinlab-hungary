@@ -76,6 +76,9 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="utmSource" data-utm="utm_source" />
               <input type="hidden" name="utmMedium" data-utm="utm_medium" />
               <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
+              <!-- KÜLSŐ hivatkozó. Kliensoldalon töltődik; ha nincs külső
+                   hivatkozó, üresen marad — belső sosem kerül bele. -->
+              <input type="hidden" name="referrer" />
 
               <!-- Combined name (composed from the two fields below on submit) -->
               <input type="hidden" id="name" name="name" />
@@ -453,7 +456,7 @@ const sourceUrl = Astro.url.href;
 </BaseLayout>
 
 <script>
-  import { trackContactSubmit } from '@/lib/tracking';
+  import { trackContactSubmit, applyEntryAttributionToForm } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Keep the hero exactly one fold tall: feed the sticky header's REAL height
@@ -498,6 +501,12 @@ const sourceUrl = Astro.url.href;
       const utmParam = input.getAttribute('data-utm');
       if (utmParam) input.value = urlParams.get(utmParam) || '';
     });
+
+    // BELÉPÉSI JELEK. A `sourceUrl` szerveroldalon a SUBMIT-oldal URL-je —
+    // vagyis mindig `/kapcsolat/`, ami semmit nem mond a lead forrásáról. A
+    // first-touch belépési oldal írja felül, a `referrer` mezőbe pedig KÜLSŐ
+    // hivatkozó kerül (belső sosem).
+    applyEntryAttributionToForm(form);
 
     // Stamp GDPR-consent timestamp on checkbox tick
     const gdprCheckbox = form.querySelector<HTMLInputElement>('[data-gdpr-checkbox]');
