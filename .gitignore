@@ -36,4 +36,8 @@ npm-debug.log*
 # Developer reference material (not part of production build)
 references/
 homepage-redesign-mockup.html
-package-lock.json
+# package-lock.json: NEM ignoralt tobbe. A Cloudflare Workers Builds
+# `npm clean-install`-lal telepit, aminek KELL a lockfile; enelkul a build
+# az install lepesnel hal meg. A lockot Linuxon kell generalni
+# (.github/workflows/lockfile.yml) — Windowson az npm kipucolja a
+# Linux-only opcionalis agakat.
