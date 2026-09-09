@@ -64,6 +64,30 @@ export function hasMarketingConsent(): boolean {
   return c.marketing === true;
 }
 
+/**
+ * A marketing-döntés HÁROM állapota. A `hasMarketingConsent()` boolean-je
+ * összemossa a „még nem döntött"-et a „visszavonta"-val, pedig a kettő
+ * ellentétes viselkedést kíván:
+ *
+ *   UNKNOWN → a CMP még nem töltött be (boot-verseny minden korai
+ *             oldalbetöltésen). Eszközre nem írunk, de a KORÁBBI hozzájárulás
+ *             alatt kiírt tárolót sem dobjuk el és olvassuk vissza — a
+ *             „nem tudom"-ot elutasításként kezelve egy hozzájárult látogató
+ *             tárolt attribúcióját törölnénk a CMP inicializálása előtt.
+ *   GRANTED → írhatunk és olvashatunk.
+ *   DENIED  → a visszavonás nyugalmi állapotban is érvényes: nem elég nem írni
+ *             többet, a már kiírtat sem olvassuk vissza.
+ */
+export type MarketingConsentState = 'GRANTED' | 'DENIED' | 'UNKNOWN';
+
+export function getMarketingConsentState(): MarketingConsentState {
+  const c = getCookieYesConsent();
+  // CMP nélkül dev módban a fejlesztői kényelem a `hasMarketingConsent()`-tel
+  // egyezik; élesben a hiányzó CMP nem elutasítás, hanem ismeretlen állapot.
+  if (!c) return isDevMode() ? 'GRANTED' : 'UNKNOWN';
+  return c.marketing === true ? 'GRANTED' : 'DENIED';
+}
+
 export function hasAnalyticsConsent(): boolean {
   const c = getCookieYesConsent();
   if (!c) return isDevMode();

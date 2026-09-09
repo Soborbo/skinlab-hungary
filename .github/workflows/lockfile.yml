@@ -1,0 +1,39 @@
+name: Lockfile (Linux-on generalva)
+
+# MIERT KULON WORKFLOW. Egy WINDOWSON generalt lock nem tudja beletenni a
+# Linux-only agak beagyazott `@emnapi` / `@esbuild/linux-*` bejegyzeseit, ezert a
+# Cloudflare Linux buildjen az `npm ci` konzisztencia-ellenorzese elhasal
+# (`Missing: @emnapi/runtime@... from lock file`). A megoldas: a lockot LINUXON
+# kell generalni. Ez a workflow pontosan azt teszi, es artifactkent adja vissza.
+#
+# HASZNALAT: futtasd, ha valtozott a package.json; toltsd le az artifactot, tedd
+# a repoba, commitold. Windowson az `npm install` UTANA is kipucolja a Linux-only
+# agakat — ezert a lock-frissites NEM lokalis muvelet.
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  generate:
+    name: lockfile generalas + ellenorzes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # `--package-lock-only`: nem telepit, csak a fat oldja fel es irja a lockot.
+      - name: Lockfile generalasa
+        run: npm install --package-lock-only --no-audit --no-fund
+
+      # A generalas ONMAGABAN nem bizonyitek. Az `npm ci` proba az.
+      - name: npm ci proba (amin a CF build elhasalt)
+        run: npm ci --no-audit --no-fund
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+          if-no-files-found: error

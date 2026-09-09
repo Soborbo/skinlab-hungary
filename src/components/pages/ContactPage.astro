@@ -73,9 +73,30 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="sourceUrl" value={sourceUrl} />
               <input type="hidden" name="formStartTime" data-form-start />
               <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
-              <input type="hidden" name="utmSource" data-utm="utm_source" />
-              <input type="hidden" name="utmMedium" data-utm="utm_medium" />
-              <input type="hidden" name="utmCampaign" data-utm="utm_campaign" />
+              <!-- TELJES attribúciós stack — UGYANAZ a mezőkészlet és ugyanaz a
+                   `data-track` konvenció, mint a `ContactForm.astro`-ban.
+                   Korábban CSAK ez a három UTM-mező volt itt, klikk-azonosító
+                   egy sem: a kapcsolat-oldalról érkező lead nem volt
+                   párosítható a fizetett kattintáshoz sem a Google-nél, sem a
+                   Metánál. A `contactSchema` mindegyik mezőt már eddig is
+                   elfogadta — csak nem küldte őket senki. -->
+              <input type="hidden" name="utmSource" data-track="utm_source" />
+              <input type="hidden" name="utmMedium" data-track="utm_medium" />
+              <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
+              <input type="hidden" name="utmTerm" data-track="utm_term" />
+              <input type="hidden" name="utmContent" data-track="utm_content" />
+              <input type="hidden" name="gclid" data-track="gclid" />
+              <input type="hidden" name="fbclid" data-track="fbclid" />
+              <input type="hidden" name="gbraid" data-track="gbraid" />
+              <input type="hidden" name="wbraid" data-track="wbraid" />
+              <input type="hidden" name="msclkid" data-track="msclkid" />
+              <input type="hidden" name="fbc" data-track="fbc" />
+              <input type="hidden" name="fbp" data-track="fbp" />
+              <!-- KÜLSŐ hivatkozó. NINCS `data-track`-je: nem a lenti hurokból
+                   jön, hanem a first-touch belépési modulból — a hurok
+                   `document.referrer` visszaesése pont azt a belső értéket
+                   adná, amit ki akarunk zárni. -->
+              <input type="hidden" name="referrer" />
 
               <!-- Combined name (composed from the two fields below on submit) -->
               <input type="hidden" id="name" name="name" />
@@ -453,7 +474,9 @@ const sourceUrl = Astro.url.href;
 </BaseLayout>
 
 <script>
-  import { trackContactSubmit } from '@/lib/tracking';
+  import {
+    trackContactSubmit, applyEntryAttributionToForm, getAllTrackingData,
+  } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Keep the hero exactly one fold tall: feed the sticky header's REAL height
@@ -492,12 +515,45 @@ const sourceUrl = Astro.url.href;
     const startTimeInput = form.querySelector<HTMLInputElement>('[data-form-start]');
     if (startTimeInput) startTimeInput.value = Date.now().toString();
 
-    // Capture UTM params from URL into hidden fields
+    // Attribúció a rejtett mezőkbe: URL-paraméter → `sb_tracking` tároló.
+    // BETŰRE ugyanaz a logika, mint a `ContactForm.astro`-ban — a két
+    // kapcsolati felület nem mondhat mást ugyanarról a látogatóról.
     const urlParams = new URLSearchParams(window.location.search);
-    form.querySelectorAll<HTMLInputElement>('[data-utm]').forEach((input) => {
-      const utmParam = input.getAttribute('data-utm');
-      if (utmParam) input.value = urlParams.get(utmParam) || '';
+    let storedTracking: Record<string, string | undefined> = {};
+    try {
+      const raw = localStorage.getItem('sb_tracking');
+      if (raw) storedTracking = JSON.parse(raw);
+    } catch {
+      /* private mode / quota - ignore */
+    }
+    const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az
+    // garantálja, hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy
+    // ki. A nyers `urlParams || sb_tracking` fallback itt újra bevinné a régi
+    // kattintás ID-jét a rejtett mezőbe, és a FormData mindkettőt elküldené —
+    // az offline konverzió-feltöltés az ilyen sort elutasítja.
+    const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
+    form.querySelectorAll<HTMLInputElement>('[data-track]').forEach((input) => {
+      const key = input.getAttribute('data-track');
+      if (!key) return;
+      let value = GOOGLE_CLICK_KEYS.includes(key)
+        ? (sanitized[key] || '')
+        : (urlParams.get(key) || storedTracking[key] || '');
+      if (!value && (key === 'fbc' || key === 'fbp')) {
+        const m = document.cookie.match(new RegExp('(?:^|; )_' + key + '=([^;]*)'));
+        value = m ? decodeURIComponent(m[1]) : '';
+      }
+      input.value = value;
     });
+
+    // BELÉPÉSI JELEK. A `sourceUrl` szerveroldalon a SUBMIT-oldal URL-je —
+    // vagyis mindig `/kapcsolat/`, ami semmit nem mond a lead forrásáról. A
+    // first-touch belépési oldal írja felül, a `referrer` mezőbe pedig KÜLSŐ
+    // hivatkozó kerül (belső sosem).
+    applyEntryAttributionToForm(form);
 
     // Stamp GDPR-consent timestamp on checkbox tick
     const gdprCheckbox = form.querySelector<HTMLInputElement>('[data-gdpr-checkbox]');
