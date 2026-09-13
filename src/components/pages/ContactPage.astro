@@ -73,11 +73,13 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="sourceUrl" value={sourceUrl} />
               <input type="hidden" name="formStartTime" data-form-start />
               <input type="hidden" name="gdprTimestamp" data-gdpr-timestamp />
-              <!-- Teljes attribúciós stack — UGYANAZ, mint ContactForm.astro-ban.
-                   Korábban csak a 3 UTM mező volt itt, ezért a főoldali kapcsolati
-                   űrlap leadjei klikk-ID nélkül (gclid/fbclid/fbc/fbp) mentek a
-                   Metának és a Google-nek — vagyis a fizetett kattintáshoz nem
-                   lehetett őket párosítani. -->
+              <!-- TELJES attribúciós stack — UGYANAZ a mezőkészlet és ugyanaz a
+                   `data-track` konvenció, mint a `ContactForm.astro`-ban.
+                   Korábban CSAK ez a három UTM-mező volt itt, klikk-azonosító
+                   egy sem: a kapcsolat-oldalról érkező lead nem volt
+                   párosítható a fizetett kattintáshoz sem a Google-nél, sem a
+                   Metánál. A `contactSchema` mindegyik mezőt már eddig is
+                   elfogadta — csak nem küldte őket senki. -->
               <input type="hidden" name="utmSource" data-track="utm_source" />
               <input type="hidden" name="utmMedium" data-track="utm_medium" />
               <input type="hidden" name="utmCampaign" data-track="utm_campaign" />
@@ -91,7 +93,11 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="fbc" data-track="fbc" />
               <input type="hidden" name="fbp" data-track="fbp" />
               <input type="hidden" name="external_id" data-track="external_id" />
-              <input type="hidden" name="referrer" data-track="referrer" />
+              <!-- KÜLSŐ hivatkozó. NINCS `data-track`-je: nem a lenti hurokból
+                   jön, hanem a first-touch belépési modulból — a hurok
+                   `document.referrer` visszaesése pont azt a belső értéket
+                   adná, amit ki akarunk zárni. -->
+              <input type="hidden" name="referrer" />
 
               <!-- Combined name (composed from the two fields below on submit) -->
               <input type="hidden" id="name" name="name" />
@@ -471,6 +477,7 @@ const sourceUrl = Astro.url.href;
 <script>
   import {
     trackContactSubmit, getAllTrackingData, getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    applyEntryAttributionToForm,
   } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
@@ -524,6 +531,11 @@ const sourceUrl = Astro.url.href;
       /* private mode / quota - ignore */
     }
     const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az
+    // garantálja, hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy
+    // ki. A nyers `urlParams || sb_tracking` fallback itt újra bevinné a régi
+    // kattintás ID-jét a rejtett mezőbe, és a FormData mindkettőt elküldené —
+    // az offline konverzió-feltöltés az ilyen sort elutasítja.
     const sanitizedSrc = getAllTrackingData();
     const sanitized: Record<string, string | undefined> = {
       gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
@@ -537,9 +549,14 @@ const sourceUrl = Astro.url.href;
       if (key === 'fbc') value = getFbc() || '';
       else if (key === 'fbp') value = getFbp() || '';
       else if (key === 'external_id') value = getExternalId() || '';
-      else if (!value && key === 'referrer') value = document.referrer || '';
       input.value = value;
     });
+
+    // BELÉPÉSI JELEK. A `sourceUrl` szerveroldalon a SUBMIT-oldal URL-je —
+    // vagyis mindig `/kapcsolat/`, ami semmit nem mond a lead forrásáról. A
+    // first-touch belépési oldal írja felül, a `referrer` mezőbe pedig KÜLSŐ
+    // hivatkozó kerül (belső sosem).
+    applyEntryAttributionToForm(form);
 
     // Stamp GDPR-consent timestamp on checkbox tick
     const gdprCheckbox = form.querySelector<HTMLInputElement>('[data-gdpr-checkbox]');

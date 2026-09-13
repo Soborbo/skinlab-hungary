@@ -80,6 +80,36 @@ function itemsSummary(items: OrderEmailInput['items']): string {
 }
 
 /**
+ * A CRM `attribution` blokkja a rendelésből.
+ *
+ * KÜLÖN, TISZTA FÜGGVÉNY, hogy tesztelhető legyen. A zod `z.object()` némán
+ * ledobja az ismeretlen kulcsokat, és ez a mapping ugyanígy némán hagy ki egy
+ * mezőt, ha valaki elfelejti felvenni — a hiány csak hónapokkal később, egy
+ * üres CRM-oszlopon látszana. Lásd `attribution-no-drop.test.ts`.
+ *
+ * A `landing_url` a BELÉPÉSI oldal (a kliens az `entry-attribution` modulból
+ * tölti), nem a pénztár URL-je.
+ */
+export function orderToCrmAttribution(input: OrderEmailInput): Record<string, string | undefined> {
+  return {
+    landing_url: input.sourceUrl,
+    referrer: input.referrer,
+    utm_source: input.utmSource,
+    utm_medium: input.utmMedium,
+    utm_campaign: input.utmCampaign,
+    utm_content: input.utmContent,
+    utm_term: input.utmTerm,
+    gclid: input.gclid,
+    fbclid: input.fbclid,
+    gbraid: input.gbraid,
+    wbraid: input.wbraid,
+    msclkid: input.msclkid,
+    fbc: input.fbc,
+    fbp: input.fbp,
+  };
+}
+
+/**
  * Megrendelés feldolgozása: e-mailek + Google Sheets.
  */
 export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promise<OrderResult> {
@@ -228,22 +258,7 @@ export async function processOrder(input: OrderEmailInput, env: OrderEnv): Promi
           source_type: 'form',
           consent_given: true,
           marketing_consent: false,
-          attribution: {
-            landing_url: input.sourceUrl,
-            referrer: input.referrer,
-            utm_source: input.utmSource,
-            utm_medium: input.utmMedium,
-            utm_campaign: input.utmCampaign,
-            utm_content: input.utmContent,
-            utm_term: input.utmTerm,
-            gclid: input.gclid,
-            fbclid: input.fbclid,
-            gbraid: input.gbraid,
-            wbraid: input.wbraid,
-            msclkid: input.msclkid,
-            fbc: input.fbc,
-            fbp: input.fbp,
-          },
+          attribution: orderToCrmAttribution(input),
         }),
       });
       if (!res.ok) console.error('[order] CRM forward non-2xx:', res.status);

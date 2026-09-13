@@ -23,7 +23,18 @@
  * a client-side token gate once silently dropped two weeks of click conversions).
  */
 
-export { hasMarketingConsent, hasAnalyticsConsent, hasAnyConsent, onConsentChange, waitForConsent, type ConsentCategory } from './consent';
+export {
+  hasMarketingConsent, hasAnalyticsConsent, hasAnyConsent, onConsentChange, waitForConsent,
+  getMarketingConsentState, type ConsentCategory, type MarketingConsentState,
+} from './consent';
+// Belépési jelek — a látogató ELSŐ oldala nálunk + a KÜLSŐ hivatkozó. Az űrlapok
+// `sourceUrl`/`referrer` mezője innen töltődik, nem a submit-oldal saját URL-jéből.
+export {
+  initEntryAttribution, captureEntrySignals, externalReferrer,
+  getEntryLandingPath, getEntryLandingUrl, getEntryReferrer,
+  entryParamsForNavigation, applyEntryAttributionToForm,
+  LANDING_PARAM, REFERRER_PARAM, ENTRY_CARRY_SEGMENTS,
+} from './entry-attribution';
 export {
   persistTrackingParams, captureUrlParams, getGclid, getFbclid, getFbp, getFbc,
   getExternalId,
@@ -65,6 +76,7 @@ import {
   hasClickFired, markClickFired,
 } from './events';
 import { sendToWorker } from './gateway';
+import { initEntryAttribution } from './entry-attribution';
 import { trackingConfig } from './config';
 
 // ── Init ───────────────────────────────────────────────────────────
@@ -77,6 +89,10 @@ let consentListenerBound = false;
 
 export function initTracking(): void {
   if (window.location.search.includes('debugTracking=1')) enableDebug();
+  // A BELÉPÉSI JELEK a consent-elágazás ELŐTT és a URL-capture előtt: a first
+  // touch minden állapotban rögzül, és az URL-ben átvitt jelet még azelőtt
+  // olvassuk ki, hogy a címsorból kitakarítanánk.
+  initEntryAttribution();
   captureUrlParams();
   if (!consentListenerBound) {
     consentListenerBound = true;

@@ -255,6 +255,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
   import {
     trackTrainingSignupSubmit, waitForTracking, getAllTrackingData,
     getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    applyEntryAttributionToForm,
   } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
@@ -317,11 +318,15 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
       if (key === 'fbc') value = getFbc() || '';
       else if (key === 'fbp') value = getFbp() || '';
       else if (key === 'external_id') value = getExternalId() || '';
-      if (!value && key === 'referrer') {
-        value = document.referrer || '';
-      }
       (input as HTMLInputElement).value = value;
     });
+
+    // A BELÉPÉSI JELEK nem a fenti hurokból jönnek. A `referrer` korábban
+    // `document.referrer`-re esett vissza, ami a 2. oldaltól a SAJÁT előző
+    // oldalunk — a CRM-ben 95 sorból 86 ilyen belső érték keletkezett, 0 külső.
+    // A `sourceUrl` pedig szerveroldalon a SUBMIT-oldal URL-je. Mindkettő a
+    // first-touch belépési modulból töltődik felül.
+    applyEntryAttributionToForm(formEl);
 
     // GDPR timestamp on checkbox change
     const gdprCheckbox = formEl.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;

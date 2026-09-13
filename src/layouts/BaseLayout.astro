@@ -235,6 +235,18 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     })();
   </script>
 
+  {/* Belépési jelek (belépési oldal + KÜLSŐ hivatkozó) — SZÁNDÉKOSAN a
+      PROD-kapun KÍVÜL, minden környezetben. Nem hirdetési kód: nem tölt be
+      külső scriptet, nem küld kérést, és semmit nem ír az eszközre marketing-
+      hozzájárulás nélkül. Ha a `<Tracking />` mögé kerülne, a jelet átvivő
+      kattintás-figyelő dev alatt egyáltalán nem létezne, és a funkció csak
+      élesben lenne kipróbálható — pont a legdrágább helyen. */}
+  <script>
+    import { initEntryAttribution } from '@/lib/tracking/entry-attribution';
+    initEntryAttribution();
+    document.addEventListener('astro:page-load', initEntryAttribution);
+  </script>
+
   {/* Tracking: CookieYes CMP + Consent Mode v2 + GTM (soborbo-tracking).
       PROD-only: the dev server must never load GTM — `astro dev` sessions were
       polluting the production GA4 property (localhost:4321 referral). */}

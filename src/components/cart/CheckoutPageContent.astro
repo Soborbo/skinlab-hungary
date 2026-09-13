@@ -441,7 +441,8 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
   import {
     trackOrderRequestSubmit, generateEventId, waitForTracking, getAllTrackingData,
     trackBeginCheckout, trackServerEvent,
-    getFbc, getFbp, getExternalId, type EcommerceItem,
+    getFbc, getFbp, getExternalId,
+    getEntryLandingUrl, getEntryReferrer, type EcommerceItem,
   } from '@/lib/tracking';
   import {
     shippingFeeFor,
@@ -950,8 +951,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         formStartTime: Number(startTimeInput?.value || Date.now()),
         website: '',
         turnstileToken: readTurnstileToken(),
-        sourceUrl: window.location.href,
-        // Attribution stack - URL params → persisted tracking → document.referrer
+        // A BELÉPÉSI OLDAL, nem a pénztár URL-je. A `window.location.href` itt
+        // mindig `/megrendeles/` volt — a CRM-ben 131/134 sor pont ezt kapta.
+        sourceUrl: getEntryLandingUrl(),
+        // Attribution stack - URL params → persisted tracking
         ...(() => {
           const urlParams = new URLSearchParams(window.location.search);
           let stored: Record<string, string | undefined> = {};
@@ -987,7 +990,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             fbc: getFbc() || '',
             fbp: getFbp() || '',
             external_id: getExternalId() || '',
-            referrer: pick('referrer') || document.referrer || '',
+            // KÜLSŐ hivatkozó. A `document.referrer` visszaesés a pénztárnál
+            // garantáltan a saját kosár-oldalunk lett volna.
+            referrer: getEntryReferrer() || '',
           };
         })(),
       };
