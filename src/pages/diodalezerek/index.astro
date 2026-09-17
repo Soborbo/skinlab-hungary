@@ -39,6 +39,7 @@ const consultationSocialProof = '150+ szalon választott minket 2024 óta';
 const heroChooser = [
   { label: 'Kezdő / kiegészítő szolgáltatás?', target: 'ATHENA' },
   { label: 'Tempó kontrollal?', target: 'OLYMPIA' },
+  { label: 'Diagnosztika + digitális vendégkarton?', target: 'EMPIRE' },
   { label: 'Klinika, nagy forgalom?', target: 'HELIOS' },
 ];
 
@@ -121,6 +122,20 @@ const comparison = {
       },
     },
     {
+      name: 'EMPIRE',
+      tag: 'Intelligens rendszer',
+      tagColor: 'purple',
+      link: '/diodalezerek/empire',
+      specs: {
+        'Ár': '2 999 990 Ft',
+        'Hullámhosszak': '4 (755+808+940+1064nm)',
+        'Teljesítmény': '1200W',
+        'Spotméret': '3 cserélhető méret',
+        'Hűtés': 'Víz + levegő, félvezető zafír bőrhűtés',
+        'Ajánlott': 'Diagnosztika, dokumentáció, digitális vendégkarton',
+      },
+    },
+    {
       name: 'HELIOS',
       tag: 'Felső kategória',
       tagColor: 'blue',
@@ -137,9 +152,9 @@ const comparison = {
   ],
 };
 
-const choicesIntro = 'Nem három gép. Három különböző szemlélet. Mindhárom ugyanarra készült: valódi, reális és észlelhető eredményt adni - válaszd azt az erőt, ami hozzád illik.';
+const choicesIntro = 'Nem négy gép. Négy különböző szemlélet. Mind ugyanarra készült: valódi, reális és észlelhető eredményt adni - válaszd azt az erőt, ami hozzád illik.';
 
-const choicesClosing = 'Mi a közös bennük? Mindhárom valódi, nyomon követhető teljesítmény - nem üres marketing. Nem egy gépet választasz, hanem egy szemléletet.';
+const choicesClosing = 'Mi a közös bennük? Mind a négy valódi, nyomon követhető teljesítmény - nem üres marketing. Nem egy gépet választasz, hanem egy szemléletet.';
 
 const choices = [
   {
@@ -214,6 +229,37 @@ const choices = [
     closing: '„Μολὼν λαβέ" - Gyere és vedd el! /Leonidász/',
     link: '/diodalezerek/olympia',
     ctaLabel: 'OLYMPIA részletei',
+  },
+  {
+    name: 'EMPIRE',
+    subtitle: 'az intelligens rendszer',
+    tagline: 'Nem egyszerűen erősebb - intelligensebb.',
+    image: '@assets/products/empire-1.png',
+    imageAlt: 'EMPIRE 4WAVE 1200W diódalézer',
+    intro: 'Az EMPIRE 4WAVE a nagy, 1200W-os kimeneti teljesítményt és a négy hullámhosszt egy intelligens kezeléstámogató rendszerrel egyesíti. Az Android-alapú kezelőfelületen digitális vendégkarton, kezelési előzmények és előtte–utána fotók vannak, a mikrokamerás diagnosztikai fej pedig nagyított szőr- és bőrvizsgálatot ad - a rendszer ezek alapján ajánl paramétereket.',
+    pillars: [
+      'mikrokamerás szőr- és bőrdiagnosztika',
+      'digitális vendégkarton, előtte–utána fotók',
+      '3 kezelési mód: SHR STACK, SHR, HR',
+    ],
+    whenTitle: 'Mikor válaszd az EMPIRE-t?',
+    when: [
+      {
+        title: 'Ha dokumentálnád a kezeléseket',
+        description: 'A vendég előzményei és előtte–utána fotói egy profilban, közvetlenül a készüléken.',
+      },
+      {
+        title: 'Ha a vizsgálatra építenéd a kezelést',
+        description: 'A mikrokamerás fej nagyított képet ad a szőrről és a bőrről, így megalapozottabb a paraméterezés.',
+      },
+      {
+        title: 'Ha rétegzett impulzusokkal dolgoznál',
+        description: 'Az SHR STACK mód a vendég neme, testrésze és bőrtípusa alapján határozza meg a rétegzett impulzusokat.',
+      },
+    ],
+    closing: '„Nem egyszerűen egy erősebb diódalézer - egy intelligensebb rendszer a professzionális szőrtelenítéshez.”',
+    link: '/diodalezerek/empire',
+    ctaLabel: 'EMPIRE részletei',
   },
   {
     name: 'HELIOS',

@@ -202,7 +202,7 @@ export const CATEGORIES = [
     icon: 'laser',
     image: '/images/opt/products/helios-1600w-diodalezer-1-480w.webp',
     featured: true,
-    productCount: 3,
+    productCount: 4,
     color: 'diodalezerek' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -406,7 +406,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.lasers',
       items: [
-        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 3, descriptionKey: 'megaMenu.diodeDesc' },
+        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 4, descriptionKey: 'megaMenu.diodeDesc' },
         { labelKey: 'categories.nd-yag-lezerek', href: '/nd-yag-lezerek', count: 2, descriptionKey: 'megaMenu.ndyagDesc' },
       ],
     },
