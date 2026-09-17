@@ -28,9 +28,29 @@
     "Lézertípus": "Dióda lézer",
     "Hullámhossz": "755 / 808 / 940 / 1064 nm",
     "Teljesítmény": "1000W (kimeneti)",
+    "Kezelőfej": "Nagyméretű, ergonomikus, zafír kontakthűtéssel",
     "Hűtési rendszer": "Többlépcsős TEC + víz + levegő",
-    "Hűtési hőmérséklet": "Zafír kontakt hűtés",
+    "Bőrhűtés": "Zafír kontakt hűtés",
+    "Kijelző": "Nagyméretű színes érintőképernyő",
     "Kezelőrendszer": "Okos szoftver - automata bőr- és szőrtípus felismerés",
+    "Világítás": "Rózsaszín LED hangulatvilágítás",
+    "Tápellátás": "110V / 220V",
     "Szállítási idő": "2-6 hét"
+  },
+  "designImages": [
+    "@assets/products/athena-design-1.jpg",
+    "@assets/products/athena-design-2.jpg",
+    "@assets/products/athena-design-3.jpg"
+  ],
+  "imageAlts": {
+    "athena-1.png": "ATHENA 1000W diódalézer készülék a kezelési paraméterekkel a kijelzőn",
+    "athena-2.png": "ATHENA diódalézer oldalnézetben, kezelőfej-tartóval",
+    "athena-3.png": "ATHENA diódalézer kezelőfeje kézben, saját kijelzővel",
+    "athena-4.png": "ATHENA diódalézer érintőképernyője a kezelési menüvel",
+    "athena-5.png": "ATHENA diódalézer kezelőfeje a zafír kontakthűtéses kilépőablakkal",
+    "athena-6.png": "ATHENA 1000W diódalézer készülék a testtájankénti kezelési menüvel",
+    "athena-design-1.jpg": "ATHENA 1000W diódalézer készülék szalonkörnyezetben",
+    "athena-design-2.jpg": "ATHENA diódalézer kezelőfeje a beállított frekvenciával és energiaszinttel",
+    "athena-design-3.jpg": "ATHENA diódalézer kezelőfeje közelről, arany zafírablakkal"
   }
 }

@@ -15,9 +15,21 @@ interface Props {
   productPrice?: number | null;
   productName?: string;
   defaultTreatmentPrice?: number;
+  /**
+   * Beágyazott mód (FinanceSection fülén belül): nincs saját szekció, fejléc
+   * és CTA; márka-rózsaszín paletta és világos eredménypanel. Önálló módban a
+   * korábbi (lila) megjelenés marad.
+   */
+  embedded?: boolean;
 }
 
-const { locale, productPrice, defaultTreatmentPrice = 15000 } = Astro.props;
+const { locale, productPrice, defaultTreatmentPrice = 15000, embedded = false } = Astro.props;
+
+// Óvatos alapértékek: a látogató úgyis átállítja, de az első szám legyen hihető.
+const DEFAULT_DAILY_CLIENTS = 2;
+const DEFAULT_MARGIN = 60;
+
+const Wrapper = embedded ? 'div' : 'section';
 
 const hasPrice = productPrice && productPrice > 0;
 
@@ -27,9 +39,9 @@ const formatPriceDisplay = (price: number) => {
 };
 ---
 
-<section class="roi-revert py-10 lg:py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50">
-  <div class="calc-shell mx-auto px-2 sm:px-6 lg:px-8">
-    <!-- Header -->
+<Wrapper class:list={[embedded ? 'roi-embedded' : 'roi-revert py-10 lg:py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-indigo-50']}>
+  <div class:list={[!embedded && 'calc-shell mx-auto px-2 sm:px-6 lg:px-8']}>
+    {!embedded && (
     <div class="text-center mb-6 lg:mb-8">
       <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,6 +56,7 @@ const formatPriceDisplay = (price: number) => {
         {t(locale, 'roi.subtitle')}
       </p>
     </div>
+    )}
 
     <!-- Calculator Card -->
     <div class="bg-white rounded-3xl shadow-2xl overflow-hidden" id="roi-calculator" data-locale={locale}>
@@ -111,11 +124,11 @@ const formatPriceDisplay = (price: number) => {
                     id="daily-clients"
                     min="1"
                     max="15"
-                    value="3"
+                    value={DEFAULT_DAILY_CLIENTS}
                     class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
                   />
                   <div class="w-16 text-center">
-                    <span id="clients-value" class="text-2xl font-bold text-primary-600">3</span>
+                    <span id="clients-value" class="text-2xl font-bold text-primary-600">{DEFAULT_DAILY_CLIENTS}</span>
                     <span class="text-sm text-gray-500 block">{t(locale, 'roi.persons')}</span>
                   </div>
                 </div>
@@ -157,11 +170,11 @@ const formatPriceDisplay = (price: number) => {
                   id="profit-margin"
                   min="30"
                   max="90"
-                  value="70"
+                  value={DEFAULT_MARGIN}
                   class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
                 />
                 <div class="w-20 text-center">
-                  <span id="margin-value" class="text-2xl font-bold text-primary-600">70</span>
+                  <span id="margin-value" class="text-2xl font-bold text-primary-600">{DEFAULT_MARGIN}</span>
                   <span class="text-xl font-bold text-primary-600">%</span>
                 </div>
               </div>
@@ -170,7 +183,7 @@ const formatPriceDisplay = (price: number) => {
         </div>
 
         <!-- Results Side -->
-        <div class="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-800 p-5 lg:p-8 text-white flex flex-col justify-center relative overflow-hidden">
+        <div class:list={['bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-800 p-5 lg:p-8 text-white flex flex-col justify-center relative overflow-hidden', embedded && 'roi-light']}>
           <!-- Background decoration -->
           <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
           <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -215,7 +228,7 @@ const formatPriceDisplay = (price: number) => {
       </div>
     </div>
 
-    <!-- CTA below -->
+    {!embedded && (
     <div class="mt-6 text-center">
       <a
         href={getLocalizedUrl(locale, '/konzultacio')}
@@ -227,8 +240,9 @@ const formatPriceDisplay = (price: number) => {
         </svg>
       </a>
     </div>
+    )}
   </div>
-</section>
+</Wrapper>
 
 <script>
   function initROICalculator() {
@@ -336,6 +350,36 @@ const formatPriceDisplay = (price: number) => {
     --color-primary-800: #4a2d60;
     --color-primary-900: #3d2450;
     --color-primary-950: #271538;
+  }
+
+  /* Beágyazott mód: világos, márka-rózsaszín eredménypanel (a Tailwind
+     utility-k @layer-ben vannak, ezért ezek a rétegen kívüli szabályok nyernek). */
+  .roi-light {
+    background-image: none;
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-950);
+  }
+  .roi-light .bg-white\/5 { display: none; }
+  .roi-light .bg-white\/10 { background-color: #fff; }
+  .roi-light .text-primary-200,
+  .roi-light .text-primary-300 { color: var(--color-primary-800); }
+  .roi-light #roi-months { color: var(--color-primary-700); }
+  .roi-light .from-green-500\/30 {
+    background-image: none;
+    background-color: #fff;
+    border-color: var(--color-primary-200);
+  }
+  .roi-light .text-green-200 { color: var(--color-primary-800); }
+  .roi-light .text-green-300 { color: var(--color-primary-700); }
+  .roi-light .via-white\/30 { --tw-gradient-via: var(--color-primary-300); }
+
+  .roi-embedded input[type="range"]::-webkit-slider-thumb {
+    background: var(--color-primary-700);
+    box-shadow: 0 2px 8px rgba(206, 34, 82, 0.35);
+  }
+  .roi-embedded input[type="range"]::-moz-range-thumb {
+    background: var(--color-primary-700);
+    box-shadow: 0 2px 8px rgba(206, 34, 82, 0.35);
   }
 
   /* Mobilon a kalkulátor közel teljes szélességű (csak ~8px oldalpadding),

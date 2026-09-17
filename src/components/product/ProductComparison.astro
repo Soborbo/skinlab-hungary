@@ -1,0 +1,78 @@
+---
+/**
+ * ProductComparison - az aktuális termék és kategória-testvérei egymás mellett.
+ *
+ * Az adatot a layout számolja (lib/product-comparison.ts → buildComparison),
+ * így ott dől el az is, kell-e mellé a RelatedProducts blokk.
+ */
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import type { ComparisonTable } from '@/lib/product-comparison';
+
+interface Props {
+  locale: Locale;
+  table: ComparisonTable;
+}
+
+const { locale, table } = Astro.props;
+const { columns, rows } = table;
+const cellTone = (isCurrent: boolean) => (isCurrent ? 'bg-primary-50 border-primary-100' : 'border-gray-100');
+---
+
+<section class="py-12 lg:py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{t(locale, 'productComparison.title')}</h2>
+      <p class="text-gray-600">{t(locale, 'productComparison.subtitle')}</p>
+    </div>
+
+    <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+      <table class="w-full min-w-[640px] table-fixed border-separate border-spacing-0 rounded-2xl border border-gray-200 bg-white text-left">
+        <thead>
+          <tr>
+            <td class="w-40 lg:w-52"></td>
+            {columns.map((col) => (
+              <th scope="col" class:list={['p-4 lg:p-6 align-top text-center font-normal', col.isCurrent && 'bg-primary-50 border-t-4 border-primary-500']}>
+                <a href={col.href} class="group flex flex-col items-center gap-3" aria-current={col.isCurrent ? 'page' : undefined}>
+                  <OptimizedPicture
+                    src={col.image}
+                    alt={col.name}
+                    widths={[160, 320]}
+                    sizes="140px"
+                    class="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+                    loading="lazy"
+                  />
+                  <span class="font-bold text-gray-900 leading-tight group-hover:text-primary-700">{col.name}</span>
+                  {col.isCurrent ? (
+                    <span class="text-xs font-bold text-primary-700">{t(locale, 'productComparison.current')}</span>
+                  ) : (
+                    <span class="text-sm font-semibold text-primary-700">{t(locale, 'productComparison.view')} →</span>
+                  )}
+                </a>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="border-t border-gray-100 p-4 lg:px-6 text-sm font-medium text-gray-600">{t(locale, 'productComparison.price')}</th>
+            {columns.map((col) => (
+              <td class:list={['border-t p-4 lg:px-6 text-center font-extrabold text-gray-900', cellTone(col.isCurrent)]}>{col.price}</td>
+            ))}
+          </tr>
+          {rows.map((row) => (
+            <tr>
+              <th scope="row" class="border-t border-gray-100 p-4 lg:px-6 text-sm font-medium text-gray-600">{row.key}</th>
+              {row.values.map((value, i) => (
+                <td class:list={['border-t p-4 lg:px-6 text-center text-sm text-gray-900', cellTone(columns[i].isCurrent)]}>
+                  {value || '–'}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

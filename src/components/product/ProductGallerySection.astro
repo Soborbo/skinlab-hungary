@@ -10,16 +10,28 @@
  */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { getImageEntry, hasImage } from '@/lib/resolve-image';
+import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
 
 interface Props {
   images: string[];
   productName: string;
   headline?: string;
+  /**
+   * Ennyi csempe látszik; a többi kép csak a lightboxban lapozható, az utolsó
+   * csempén "+N fotó" overlay-jel. 0 = mind látszik.
+   */
+  maxTiles?: number;
 }
 
-const { images, productName, headline = 'Termékképek közelről' } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const { images, productName, headline = t(locale, 'product.galleryTitle'), maxTiles = 0 } = Astro.props;
 
-const resolved = images.filter((img) => img && hasImage(img));
+const resolved = [...new Set(images)].filter((img) => img && hasImage(img));
+const tileCount = maxTiles > 0 ? Math.min(maxTiles, resolved.length) : resolved.length;
+const hiddenCount = resolved.length - tileCount;
+
+// A termékfotók (fehér háttér) egészben, a hangulat-/showroomfotók kitöltve.
+const isProductShot = (img: string) => img.startsWith('@assets/products/') && !/design|oktatas/i.test(img);
 
 function altFor(img: string, i: number): string {
   const entry = getImageEntry(img);
@@ -38,21 +50,32 @@ const lightboxSizes = '100vw';
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">{headline}</h2>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
-        {resolved.map((img, i) => (
+        {resolved.slice(0, tileCount).map((img, i) => (
           <button
             type="button"
-            class="group relative aspect-square rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-cta"
+            class:list={[
+              'group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-cta',
+              isProductShot(img) ? 'bg-white' : 'bg-gray-100',
+            ]}
             data-pgallery-open={i}
-            aria-label={`${altFor(img, i)} – nagyítás`}
+            aria-label={t(locale, 'product.zoomImage', { alt: altFor(img, i) })}
           >
             <OptimizedPicture
               src={img}
               alt={altFor(img, i)}
               widths={thumbWidths}
               sizes={thumbSizes}
-              class="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+              class:list={[
+                'w-full h-full transition-transform duration-300 group-hover:scale-105',
+                isProductShot(img) ? 'object-contain p-3' : 'object-cover',
+              ]}
               loading="lazy"
             />
+            {hiddenCount > 0 && i === tileCount - 1 && (
+              <span class="absolute inset-0 flex items-center justify-center bg-gray-900/60 text-white text-lg lg:text-xl font-bold pointer-events-none">
+                {t(locale, 'product.moreImages', { count: hiddenCount })}
+              </span>
+            )}
             <span class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity pointer-events-none">
               <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
@@ -63,8 +86,8 @@ const lightboxSizes = '100vw';
       </div>
 
       <!-- Lightbox -->
-      <div class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm" data-pgallery-lightbox role="dialog" aria-modal="true" aria-label="Képnagyító">
-        <button type="button" class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-close aria-label="Bezárás">
+      <div class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-sm" data-pgallery-lightbox role="dialog" aria-modal="true" aria-label={t(locale, 'product.imageViewer')}>
+        <button type="button" class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-close aria-label={t(locale, 'common.close')}>
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -72,12 +95,12 @@ const lightboxSizes = '100vw';
 
         {resolved.length > 1 && (
           <>
-            <button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-prev aria-label="Előző kép">
+            <button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-prev aria-label={t(locale, 'product.prevImage')}>
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-next aria-label="Következő kép">
+            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors" data-pgallery-next aria-label={t(locale, 'product.nextImage')}>
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>

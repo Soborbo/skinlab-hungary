@@ -17,13 +17,24 @@ interface Props {
   slug: string;
   /** Optional caption shown above the grid. */
   eyebrow?: string;
+  /** Asset-mappa prefixe a slug ELŐTT. Alap: showroom fotók. A tulajdonosi
+   *  átadás-galéria ugyanezt a rácsot/lightboxot használja más forrásmappával. */
+  assetRoot?: string;
+  /** aria-label a szekcióhoz (a forrásmappához illő megfogalmazás). */
+  label?: string;
+  /**
+   * 'masonry' = natív képarányok, mobilon vízszintes sor (alap).
+   * 'grid' = egységes 2 oszlopos rács, 4:3 cellák (a fekvő fotókhoz).
+   */
+  layout?: 'masonry' | 'grid';
 }
 
-const { slug, eyebrow } = Astro.props;
+const { slug, eyebrow, assetRoot = 'showroom', label = 'Showroom képek', layout = 'masonry' } = Astro.props;
+const isGrid = layout === 'grid';
 
 const manifestData = manifest as Record<string, { seoSlug: string; alt: string; basePath: string; width: number; height: number; widths: number[] }>;
 
-const SHOWROOM_PREFIX = `@assets/showroom/${slug}/`;
+const SHOWROOM_PREFIX = `@assets/${assetRoot}/${slug}/`;
 const SHOWROOM_KEYS = Object.keys(manifestData)
   .filter(k => k.startsWith(SHOWROOM_PREFIX))
   .sort();
@@ -52,7 +63,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
 {tiles.length > 0 && (
   <section
     class="showroom-gallery mt-8"
-    aria-label="Showroom képek"
+    aria-label={label}
     data-gallery-count={tiles.length}
   >
     {eyebrow && (
@@ -62,30 +73,33 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
     )}
 
     <div
-      class="showroom-grid relative gap-2 sm:gap-3
-             flex md:block
-             md:columns-2 lg:columns-3 xl:columns-4
-             snap-x snap-mandatory overflow-x-auto md:overflow-visible
-             -mx-4 sm:mx-0 px-4 sm:px-0 pb-2 md:pb-0"
+      class:list={[
+        'showroom-grid relative gap-2 sm:gap-3',
+        isGrid
+          ? 'grid grid-cols-1 sm:grid-cols-2 lg:gap-5'
+          : 'flex md:block md:columns-2 lg:columns-3 xl:columns-4 snap-x snap-mandatory overflow-x-auto md:overflow-visible -mx-4 sm:mx-0 px-4 sm:px-0 pb-2 md:pb-0',
+      ]}
     >
       {tiles.map(({ key, entry, aspectRatio, tilt, delay, index }) => (
         <button
           type="button"
-          class="showroom-tile group relative overflow-hidden rounded-xl bg-gray-200 outline-none
-                 shrink-0 snap-start w-[45%] md:w-full
-                 md:block md:break-inside-avoid md:mb-2 lg:mb-3
-                 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+          class:list={[
+            'showroom-tile group relative overflow-hidden rounded-xl bg-gray-200 outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+            isGrid
+              ? 'block w-full aspect-[4/3]'
+              : 'shrink-0 snap-start w-[45%] md:w-full md:block md:break-inside-avoid md:mb-2 lg:mb-3',
+          ]}
           data-index={index}
           data-fullsrc={`${entry.basePath}-${entry.widths[entry.widths.length - 1]}w.jpg`}
           data-alt={entry.alt}
-          style={`--tilt-x:${tilt[0]}deg; --tilt-y:${tilt[1]}deg; --reveal-delay:${delay}ms; aspect-ratio:${aspectRatio};`}
+          style={`--tilt-x:${tilt[0]}deg; --tilt-y:${tilt[1]}deg; --reveal-delay:${delay}ms;${isGrid ? '' : ` aspect-ratio:${aspectRatio};`}`}
           aria-label={`${entry.alt} – nagyítás`}
         >
           <OptimizedPicture
             src={key}
             alt={entry.alt}
             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 80vw"
-            class="showroom-tile__img absolute inset-0 w-full h-full object-cover"
+            class:list={['showroom-tile__img absolute inset-0 w-full h-full object-cover', isGrid && 'object-[center_30%]']}
             loading="lazy"
           />
 
@@ -126,7 +140,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
     </div>
 
     <!-- Mobile hint -->
-    <p class="md:hidden mt-3 text-center text-xs text-gray-500">
+    <p class:list={['md:hidden mt-3 text-center text-xs text-gray-500', isGrid && 'hidden']}>
       <span class="inline-flex items-center gap-1.5">
         <svg class="showroom-hint-arrow w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7M3 12h18" />

@@ -171,6 +171,28 @@ export function pushContactConversion(data: ConversionData): void {
   push({ event: 'contact_form_submitted', ...buildConversionPayload(data) });
 }
 
+/**
+ * Konzultáció-kérés (többlépéses varázsló) — SAJÁT kanonikus esemény, Meta `Schedule`.
+ *
+ * Miért nem a `quote_calculator_submitted`: azt a többi Soborbo-site (lomtalan,
+ * painless, olcsokontenerhaz) fő lead-eseményként használja, Meta `Lead`-re
+ * képezve, és a gateway `mapEventName`-jének NINCS site-onkénti felülírása — a
+ * térkép átírása mind az 5 site-ot átállítaná.
+ */
+export function pushConsultationConversion(data: ConversionData): void {
+  push({ event: 'consultation_request_submitted', ...buildConversionPayload(data) });
+}
+
+/**
+ * Képzésre jelentkezés — SAJÁT kanonikus esemény, Meta `CompleteRegistration`.
+ * Korábban ez is `contact_form_submitted`-ként ment, ezért a Metában
+ * megkülönböztethetetlen volt a kapcsolati űrlaptól (a Sheets-ben viszont külön
+ * fülre került — a két rendszer szétcsúszott).
+ */
+export function pushTrainingSignupConversion(data: ConversionData): void {
+  push({ event: 'training_signup_submitted', ...buildConversionPayload(data) });
+}
+
 // ── Clicks — durable session dedup ─────────────────────────────────
 
 const memoryClickSet = new Set<string>();

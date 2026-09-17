@@ -14,7 +14,6 @@
   "images": [
     "@assets/products/olympia-1.png",
     "@assets/products/olympia-2.png",
-    "@assets/products/olympia-3.jpeg",
     "@assets/products/olympia-4.png",
     "@assets/products/olympia-5.png",
     "@assets/products/olympia-6.png",
@@ -31,9 +30,29 @@
     "Hullámhossz": "755 / 808 / 940 / 1064 nm",
     "Teljesítmény": "1200W (kimeneti)",
     "Spot méret": "5 méretben állítható kristály kezelőfej",
+    "Kijelző": "Színes érintőképernyő",
     "Hűtési rendszer": "Többlépcsős TEC + víz + levegő",
-    "Hűtési hőmérséklet": "Zafír kontakt hűtés",
+    "Bőrhűtés": "Zafír kontakt hűtés",
     "Kezelőrendszer": "Okos beépített protokollok",
+    "Tápellátás": "110V / 220V",
     "Szállítási idő": "2-6 hét"
+  },
+  "designImages": [
+    "@assets/products/olympia-design-1.jpg",
+    "@assets/products/olympia-design-2.jpg",
+    "@assets/products/olympia-design-3.jpg",
+    "@assets/products/olympia-3.jpeg"
+  ],
+  "trainingImages": [
+    "@assets/products/olympia-oktatas-1.jpg",
+    "@assets/products/olympia-oktatas-2.jpg"
+  ],
+  "imageAlts": {
+    "olympia-design-1.jpg": "OLYMPIA 1200W diódalézer készülék antik oszlopos, stilizált környezetben",
+    "olympia-design-2.jpg": "OLYMPIA diódalézer kezelőfeje saját kijelzővel",
+    "olympia-design-3.jpg": "OLYMPIA diódalézer cserélhető spotméret-feltétei díszdobozban",
+    "olympia-3.jpeg": "OLYMPIA diódalézer stilizált, oszlopcsarnokos környezetben",
+    "olympia-oktatas-1.jpg": "OLYMPIA gépkezelői oktatás – diódalézeres kezelés modellen",
+    "olympia-oktatas-2.jpg": "OLYMPIA diódalézer kezelőfeje kezelés közben, a háttérben az érintőképernyővel"
   }
 }

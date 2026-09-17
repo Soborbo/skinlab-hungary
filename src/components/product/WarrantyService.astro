@@ -15,13 +15,16 @@ interface Props {
   productName?: string;
   warrantyYears?: number;
   showExtendedWarranty?: boolean;
+  /** Összefoglaló kártya a 4 ígérettel + link a /garancia/ oldalra. */
+  compact?: boolean;
 }
 
 const {
   locale,
   productName,
   warrantyYears = 2,
-  showExtendedWarranty = false
+  showExtendedWarranty = false,
+  compact = false,
 } = Astro.props;
 
 // Warranty features - labels from i18n
@@ -70,6 +73,35 @@ const icons: Record<string, string> = {
 };
 ---
 
+{compact && (
+<section class="py-12 lg:py-16 bg-white" id="garancia">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8 lg:p-10">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between mb-6">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900">{t(locale, 'warranty.title')}</h2>
+        <a href={getLocalizedUrl(locale, '/garancia')} class="font-semibold text-primary-700 hover:text-primary-800 whitespace-nowrap">
+          {t(locale, 'warranty.readMore')} →
+        </a>
+      </div>
+      <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+        {warrantyFeatures.map((feature) => (
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
+              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[feature.icon]} />
+            </span>
+            <span>
+              <span class="block font-semibold text-gray-900">{feature.title}</span>
+              <span class="block text-sm text-gray-600 leading-snug">{feature.description}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+)}
+
+{!compact && (
 <section class="py-16 bg-gradient-to-b from-gray-50 to-white" id="garancia">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
@@ -322,6 +354,7 @@ const icons: Record<string, string> = {
     </div>
   </div>
 </section>
+)}
 
 <style>
   /* Hide scrollbar for carousel */

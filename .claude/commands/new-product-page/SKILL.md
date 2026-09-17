@@ -77,7 +77,7 @@ Ellenőrizd, hogy `src/pages/{categorySlug}/[slug].astro` létezik. Ha nincs, ho
 - Minden szekciót tölts ki tartalommal — egy teljes oldal a cél
 - `<mark>` tag-gel jelöld a testimonials legfontosabb részét
 - FAQ: minimum 5-7 kérdés, válaszok 2-3 mondat
-- WhatsIncluded: mindig zárd "2 év teljes körű garancia" és "Cseregép javítás idejére" sorokkal
+- WhatsIncluded: mindig zárd "2 év teljes körű garancia" és "Cseregép-program hosszabb javítás esetére" sorokkal (a cseregép feltételes vállalás — 10 munkanapot meghaladó javításnál, készlet függvényében, lásd ÁSZF 7.6–7.11 —, ezért SOHA ne írj feltétel nélküli "cseregépet biztosítunk/küldünk" ígéretet)
 - ExpertQuote: általában Horváth László, Technikai szakértő
 - Használd a meglévő content JSON-öket mintának (lásd references/patterns.md)
 - A featureRows description mezőben HTML használható (checklistek, grid-ek)

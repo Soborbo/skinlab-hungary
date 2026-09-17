@@ -139,7 +139,17 @@
     "videoPlaceholder": "Video demonstrativ în curând",
     "videoPlayLabel": "Redă video: demonstrație {title}",
     "trainingTitle": "Curs de operare",
-    "trainingContent": "Cursul include:"
+    "trainingContent": "Cursul include:",
+    "galleryTitle": "Galerie",
+    "allPhotos": "Toate cele {count} fotografii",
+    "moreImages": "+{count} fotografii",
+    "zoomImage": "{alt} – mărire",
+    "imageViewer": "Vizualizator imagini",
+    "prevImage": "Imaginea anterioară",
+    "nextImage": "Imaginea următoare",
+    "installmentLinePre": "În rate:",
+    "installmentLine": "{down} avans + {months} × {monthly}",
+    "installmentCalc": "Calculează ↓"
   },
   "form": {
     "name": "Nume",
@@ -272,7 +282,7 @@
     "foundersTitle": "Fondatori",
     "founder": {
       "technical": "Expert tehnic",
-      "technicalBio": "Încă din adolescență am reparat și tunat mașini – lumea aparatelor mi-a fost întotdeauna apropiată. Această abordare practică, inginerească îmi definește și munca la Skinlab: responsabilitatea mea este ca fiecare aparat să ajungă la clienții noștri în stare tehnică impecabilă. Dacă apare o problemă, o rezolvăm intern, rapid și profesional – cu un aparat de schimb pe durata reparației. Tehnologia laser a devenit specialitatea mea de-a lungul anilor și pot spune cu certitudine că nu există defecțiune pe care să nu o fi întâlnit. Această experiență le oferă clienților noștri o liniște reală, pentru că știu că aparatul lor este pe mâini bune.",
+      "technicalBio": "Încă din adolescență am reparat și tunat mașini – lumea aparatelor mi-a fost întotdeauna apropiată. Această abordare practică, inginerească îmi definește și munca la Skinlab: responsabilitatea mea este ca fiecare aparat să ajungă la clienții noștri în stare tehnică impecabilă. Dacă apare o problemă, o rezolvăm intern, rapid și profesional – la reparații mai lungi, cu un aparat de schimb. Tehnologia laser a devenit specialitatea mea de-a lungul anilor și pot spune cu certitudine că nu există defecțiune pe care să nu o fi întâlnit. Această experiență le oferă clienților noștri o liniște reală, pentru că știu că aparatul lor este pe mâini bune.",
       "treatment": "Expert in tratamente",
       "treatmentBio": "Provin dintr-o familie de medici și industria frumuseții m-a atras încă de la o vârstă fragedă. Mediul medical m-a învățat însă un lucru important: tratamentele trebuie să se bazeze pe fundamente profesionale la fel de riguroase ca medicina. Nu este suficient ca ceva să funcționeze – trebuie să fie și sigur. Pentru mine, cel mai important lucru este ca rezultatele să fie nu doar frumoase, ci și sănătoase, și să nu depășim niciodată limitele competenței profesionale. Această filozofie o aducem în fiecare consultație și recomandare de produs, deoarece oferim doar ceea ce susținem cu toată convingerea."
     },
@@ -354,7 +364,7 @@
     "features": {
       "fullWarranty": "Acoperă toate piesele și manopera – dublul standardului industriei.",
       "replacementDevice": "Program echipament de rezervă",
-      "replacementDeviceDesc": "Pe durata reparației, oferim gratuit un echipament de rezervă ca afacerea ta să nu se oprească.",
+      "replacementDeviceDesc": "Dacă reparația va dura estimat mai mult de 10 zile lucrătoare, oferim pe durata reparației un echipament de rezervă (în funcție de disponibilitate), ca afacerea ta să nu se oprească.",
       "ownWorkshop": "Atelier de service propriu",
       "ownWorkshopDesc": "Reparații în Ungaria – nu mai aștepți luni de zile pentru service străin.",
       "fastRepair": "Reparație rapidă",
@@ -390,13 +400,13 @@
     "whatIsWarrantyDesc1": "Garanția este angajamentul obligatoriu al producătorului și al distribuitorului că dispozitivul funcționează fără defecțiuni, în condiții normale de utilizare, pe durata perioadei de garanție. În cazul defectelor de fabricație sau de material, reparația, schimbul piesei și - în cazuri întemeiate - schimbul aparatului și manopera sunt gratuite.",
     "whatIsWarrantyDesc2": "Pentru fiecare aparat nou oferim 12-24 luni de garanție (termenul exact este indicat în fișa produsului), conform decretelor guvernamentale maghiare 151/2003. (IX. 22.) și 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Angajamentul Skinlab",
-    "commitmentDesc1": "Echipa noastră proprie de tehnicieni instruiți din Ungaria și atelierul propriu vă asigură că nu trebuie să așteptați luni întregi o reparație în străinătate. Lucrăm cu piese originale de fabrică și oferim un aparat de schimb pe durata reparației, astfel încât afacerea dumneavoastră să nu se oprească.",
+    "commitmentDesc1": "Echipa noastră proprie de tehnicieni instruiți din Ungaria și atelierul propriu vă asigură că nu trebuie să așteptați luni întregi o reparație în străinătate. Lucrăm cu piese originale de fabrică și, pentru reparații de peste 10 zile lucrătoare, oferim un aparat de schimb, astfel încât afacerea dumneavoastră să nu se oprească.",
     "commitmentDesc2": "Suntem alături de dumneavoastră și după achiziție: diagnostic la distanță, suport telefonic și, dacă este nevoie, deplasare la fața locului asigură o funcționare continuă.",
     "contentTitle": "Ce acoperă garanția?",
     "contentDesc": "Garanția producătorului cuprinde următoarele situații, cu condiția ca defectul să fi apărut în timpul utilizării normale, cu respectarea manualului de utilizare:",
     "point1": "Reparație completă a defectelor de fabricație și de material.",
     "point2": "Înlocuirea pieselor originale de fabrică, inclusiv manopera, gratuit.",
-    "point3": "Program de aparat de schimb - oferim un aparat gratuit pe durata reparației.",
+    "point3": "Program de aparat de schimb - pentru reparații de peste 10 zile lucrătoare oferim un aparat de schimb pe durata reparației, în funcție de disponibilitate.",
     "point4": "Diagnostic la distanță și suport telefonic de specialitate pentru depanare.",
     "point5": "La nevoie, deplasare a tehnicianului la fața locului, pe bază de acord individual.",
     "exclusionsTitle": "Ce nu acoperă garanția?",
@@ -423,7 +433,8 @@
     "claimInfo4": "Numele și datele de contact ale persoanei de contact.",
     "importantNote": "Nu încercați să reparați sau să demontați singur aparatul - intervenția neautorizată duce la pierderea garanției. La apariția unui defect, deconectați aparatul și contactați-ne.",
     "ctaTitle": "Aveți întrebări despre garanție?",
-    "ctaSubtitle": "Echipa noastră de specialiști vă ajută cu plăcere - sunați sau trimiteți un e-mail."
+    "ctaSubtitle": "Echipa noastră de specialiști vă ajută cu plăcere - sunați sau trimiteți un e-mail.",
+    "readMore": "Toate detaliile despre garanție"
   },
   "faq": {
     "title": "Întrebări frecvente",
@@ -453,7 +464,7 @@
       "q2": "Cât durează o reparație?",
       "a2": "Timpul de rezolvare pentru defecte minore este 3–7 zile lucrătoare, iar pentru schimbarea unor piese mai mari, 10–20 zile lucrătoare. Timpul exact este confirmat după inspecție. Reparațiile sunt efectuate de tehnicienii noștri interni instruiți, cu piese originale.",
       "q3": "Primesc aparat de schimb pe perioada reparației?",
-      "a3": "Da, la cerere punem la dispoziție un aparat de schimb - gratuit în perioada de garanție sau la tarif redus în afara garanției - astfel încât activitatea să continue fără întreruperi.",
+      "a3": "Dacă, pe baza evaluării preliminare, reparația va dura probabil mai mult de 10 zile lucrătoare, punem la dispoziție un aparat de schimb pe durata reparației (în funcție de disponibilitate) - gratuit în perioada de garanție sau în condiții preferențiale în afara garanției. Aparatul de schimb nu este neapărat același model, dar permite continuarea tratamentelor.",
       "q4": "Ce fac dacă aparatul afișează o eroare sau nu pornește?",
       "a4": "Mai întâi oprește-l, scoate-l din priză, lasă-l să se răcească și repornește. Dacă problema persistă, contactează-ne la {phone} sau {email} - diagnosticarea la distanță rezolvă majoritatea situațiilor."
     },
@@ -577,7 +588,12 @@
     "role2": "trainer PMU, cosmetician",
     "role3": "cosmetician",
     "role4": "artist PMU, cosmetician",
-    "playLabel": "Redă videoclipul"
+    "playLabel": "Redă videoclipul",
+    "quote1": "Cea mai mare recomandare din partea mea este că lucrez cu ei de ani de zile și, dacă ar trebui să-mi refac azi parcul de aparate, tot Skinlab aș alege.",
+    "quote2": "Cred că firma pe care o reprezintă este unică în Ungaria și chiar îi pot recomanda din toată inima.",
+    "quote3": "Pentru mine, Skinlab este sinonim cu calitatea și încrederea. E bine să lucrezi cu un partener care crede în calitate la fel de mult ca mine.",
+    "quote4": "Nu s-a întâmplat niciodată să nu mă poată ajuta cu ceva. Ori de câte ori am avut o întrebare, i-am putut contacta oricând.",
+    "watchFull": "Vezi videoclipul complet ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -903,5 +919,49 @@
     "requirements": "Condiții de participare",
     "back": "Înapoi la cursuri",
     "signupHeading": "Înscrie-te: {name}"
+  },
+  "founderConsult": {
+    "badge": "Ajutor personal",
+    "expertRole": "Fondator Skinlab, expert tehnic",
+    "heading": {
+      "category": {
+        "pre": "Nu știi",
+        "highlight": "ce aparat",
+        "post": "ți se potrivește?"
+      },
+      "machine": {
+        "pre": "Nu ești sigur că",
+        "highlight": "acesta este aparatul potrivit",
+        "post": "pentru salonul tău?"
+      },
+      "consumable": {
+        "pre": "Nu ești sigur că",
+        "highlight": "acesta este produsul potrivit",
+        "post": "pentru tratamentele tale?"
+      }
+    },
+    "scenario1": "Nu știi pe care să-l alegi",
+    "scenario2": "Vrei informații exacte despre aparate",
+    "scenario3": "Ai discuta detaliile achiziției",
+    "scenario4": "Ai nevoie doar de un sfat bun",
+    "bodyPre": "Oricare ar fi situația ta –",
+    "bodyStrong": "te ajutăm cu drag.",
+    "bodyPost": "Sună-ne sau solicită o consultație gratuită și te contactăm.",
+    "cta": "Solicită o consultație gratuită",
+    "phone": "Sună-ne: {phone}",
+    "responseTime": "De obicei revenim cu un apel în 1 zi lucrătoare."
+  },
+  "finance": {
+    "title": "Merită? Hai să calculăm.",
+    "subtitle": "Calculează cu datele tale când se amortizează aparatul și cât ar fi rata lunară.",
+    "tabRoi": "Amortizare",
+    "tabInstallment": "Rată lunară"
+  },
+  "productComparison": {
+    "title": "Compară aparatele noastre similare",
+    "subtitle": "Cele mai importante diferențe dintr-o privire.",
+    "current": "Vizualizezi acum",
+    "price": "Preț (cu TVA)",
+    "view": "Vezi"
   }
 }

@@ -273,7 +273,18 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
             phone_number: data.phone || undefined,
             first_name: data.firstName || undefined,
             last_name: data.lastName || undefined,
+            city: data.city || undefined,
+            postal_code: data.postcode || undefined,
+            // `country` SZÁNDÉKOSAN kimarad: a checkout mezője szabadszöveges
+            // országNÉV ("Magyarország"), a Meta viszont 2-betűs ISO kódot vár —
+            // a névből képzett hash sosem illeszkedne. Az ország a gateway
+            // KV site-configjából megy (ott már 100% a lefedettség).
+            external_id: data.external_id || undefined,
           },
+          // Meta Browser/Click ID a checkout rejtett mezőiből — enélkül a
+          // szerver-leg csak email+telefon párosítást tud adni a Metának.
+          fbp: data.fbp || undefined,
+          fbc: data.fbc || undefined,
           attribution: {
             gclid: data.gclid || undefined,
             fbclid: data.fbclid || undefined,

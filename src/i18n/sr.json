@@ -63,7 +63,7 @@
     "training": "FAR sertifikat",
     "trainingDesc": "Zvanicna obuka operatera",
     "service": "Sopstveni servis",
-    "serviceDesc": "Trenutna popravka, zamenska oprema"
+    "serviceDesc": "Brza popravka, program zamenske opreme"
   },
   "brands": {
     "title": "Naši brendovi",
@@ -111,7 +111,7 @@
     "relatedProducts": "Srodni proizvodi",
     "whatsIncluded": "Sta je ukljuceno?",
     "warranty": "Garancija i servis",
-    "warrantyInfo": "2 godine potpune garancije, zamenska oprema tokom popravke",
+    "warrantyInfo": "2 godine potpune garancije + program zamenske opreme",
     "videoDemo": "Video demonstracija",
     "specsTitle": "Tehničke specifikacije",
     "specsSubtitle": "Detaljni tehnički podaci za {productName}",
@@ -139,7 +139,17 @@
     "videoPlaceholder": "Demo video uskoro",
     "videoPlayLabel": "Pokreni video: {title} demonstracija",
     "trainingTitle": "Obuka operatera",
-    "trainingContent": "Obuka uključuje:"
+    "trainingContent": "Obuka uključuje:",
+    "galleryTitle": "Galerija",
+    "allPhotos": "Svih {count} fotografija",
+    "moreImages": "+{count} fotografija",
+    "zoomImage": "{alt} – uvećaj",
+    "imageViewer": "Pregledač slika",
+    "prevImage": "Prethodna slika",
+    "nextImage": "Sledeća slika",
+    "installmentLinePre": "Na rate:",
+    "installmentLine": "{down} avans + {months} × {monthly}",
+    "installmentCalc": "Izračunajte ↓"
   },
   "form": {
     "name": "Ime",
@@ -286,7 +296,7 @@
     "benefit4Title": "Besplatna obuka",
     "benefit4Desc": "4-6 sati licne obuke + FAR sertifikat ukljuceni u cenu.",
     "benefit5Title": "Sopstveni servis",
-    "benefit5Desc": "Lokalni servisni centar, zamenska oprema tokom popravke.",
+    "benefit5Desc": "Lokalni servisni centar, program zamenske opreme kod dužih popravki.",
     "benefit6Title": "Trajna podrska",
     "benefit6Desc": "Ne ostavljamo vas same nakon kupovine. Pozovite nas bilo kada.",
     "companyInfoTitle": "Podaci o firmi",
@@ -354,7 +364,7 @@
     "features": {
       "fullWarranty": "Pokriva sve delove i rad – dvostruko više od industrijskog standarda.",
       "replacementDevice": "Program zamenske opreme",
-      "replacementDeviceDesc": "Tokom popravke obezbeđujemo besplatnu zamensku opremu kako vaš posao ne bi stao.",
+      "replacementDeviceDesc": "Ako će popravka prema proceni trajati duže od 10 radnih dana, za vreme popravke obezbeđujemo zamensku opremu (u zavisnosti od raspoloživosti), kako vaš posao ne bi stao.",
       "ownWorkshop": "Sopstvena servisna radionica",
       "ownWorkshopDesc": "Popravke u Mađarskoj – ne morate čekati mesecima na inostrani servis.",
       "fastRepair": "Brza popravka",
@@ -365,7 +375,7 @@
       "step1Title": "Prijava kvara",
       "step1Desc": "Pozovite nas ili pošaljite e-mail sa opisom kvara.",
       "step2Title": "Zamenska oprema",
-      "step2Desc": "Kurirskom službom šaljemo zamensku opremu i preuzimamo neispravnu.",
+      "step2Desc": "Ako popravka traje duže od 10 radnih dana, za vreme popravke obezbeđujemo zamensku opremu.",
       "step3Title": "Popravka",
       "step3Desc": "Uređaj popravljamo u našoj sopstvenoj radionici.",
       "step4Title": "Povrat",
@@ -390,13 +400,13 @@
     "whatIsWarrantyDesc1": "Garancija je obavezujuća izjava proizvođača i distributera da će uređaj pri namenskoj upotrebi raditi bez kvarova tokom garancionog perioda. U slučaju proizvodnih ili materijalnih nedostataka, popravka, zamena dela i - u opravdanim slučajevima - zamena uređaja te rad su besplatni.",
     "whatIsWarrantyDesc2": "Za svaki novi uređaj dajemo 12-24 meseca garancije (tačan rok naveden je na listu proizvoda), u skladu s mađarskim vladinim uredbama 151/2003. (IX. 22.) i 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Naš Skinlab zavet",
-    "commitmentDesc1": "Sopstveni obučeni mađarski tim tehničara i radionica obezbeđuju da u slučaju kvara ne morate čekati mesecima na servis u inostranstvu. Radimo s originalnim fabričkim delovima i za vreme popravke obezbeđujemo zamenski uređaj, kako vaš posao ne bi stao.",
+    "commitmentDesc1": "Sopstveni obučeni mađarski tim tehničara i radionica obezbeđuju da u slučaju kvara ne morate čekati mesecima na servis u inostranstvu. Radimo s originalnim fabričkim delovima i kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj, kako vaš posao ne bi stao.",
     "commitmentDesc2": "Uz vas smo i nakon kupovine: daljinska dijagnostika, telefonska podrška i po potrebi izlazak na teren obezbeđuju neprekidan rad.",
     "contentTitle": "Šta garancija pokriva?",
     "contentDesc": "Fabrička garancija obuhvata sledeće slučajeve, pod uslovom da je kvar nastao pri redovnoj upotrebi uz poštovanje uputstva za upotrebu:",
     "point1": "Potpuna popravka proizvodnih i materijalnih kvarova.",
     "point2": "Zamena originalnih fabričkih delova uključujući rad, besplatno.",
-    "point3": "Program zamenskog uređaja - za vreme popravke obezbeđujemo besplatan zamenski uređaj.",
+    "point3": "Program zamenskog uređaja - kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj za vreme popravke, u zavisnosti od raspoloživosti.",
     "point4": "Daljinska dijagnostika i stručna telefonska podrška za otklanjanje kvarova.",
     "point5": "Po potrebi izlazak tehničara, prema pojedinačnom dogovoru.",
     "exclusionsTitle": "Šta garancija ne pokriva?",
@@ -423,7 +433,8 @@
     "claimInfo4": "Ime i kontakt osobe za kontakt.",
     "importantNote": "Ne pokušavajte sami da popravljate ni da rastavljate uređaj - neovlašćeni zahvat vodi gubitku garancije. Pri kvaru uređaj isključite iz mreže i kontaktirajte nas.",
     "ctaTitle": "Imate pitanja o garanciji?",
-    "ctaSubtitle": "Naš stručni tim rado pomaže - pozovite ili pošaljite e-mail."
+    "ctaSubtitle": "Naš stručni tim rado pomaže - pozovite ili pošaljite e-mail.",
+    "readMore": "Sve pojedinosti o garanciji"
   },
   "faq": {
     "title": "Često postavljana pitanja",
@@ -453,7 +464,7 @@
       "q2": "Koliko traje popravka?",
       "a2": "Manje kvarove rešavamo za 3–7 radnih dana, kod većih zamena delova 10–20 radnih dana. Tačno vreme potvrđujemo nakon pregleda. Popravke obavljaju naši interno obučeni tehničari s originalnim delovima.",
       "q3": "Da li dobijam zamenski uređaj tokom popravke?",
-      "a3": "Da, na zahtev obezbeđujemo zamenski uređaj - u garantnom roku besplatno, izvan garancije po povoljnoj ceni - kako bi vaš posao nesmetano tekao tokom servisa.",
+      "a3": "Ako će popravka prema prethodnoj proceni verovatno trajati duže od 10 radnih dana, za vreme popravke obezbeđujemo zamenski uređaj (u zavisnosti od raspoloživosti) - u garantnom roku besplatno, izvan garancije pod povoljnim uslovima. Zamenski uređaj nije nužno isti model, ali je pogodan za nastavak tretmana.",
       "q4": "Šta da radim ako uređaj prijavi grešku ili se ne uključuje?",
       "a4": "Prvo ga isključite, izvucite iz struje, pustite da se ohladi i ponovo uključite. Ako se kvar nastavi, pozovite nas na {phone} ili pišite na {email} - daljinska dijagnostika rešava većinu problema."
     },
@@ -500,7 +511,7 @@
     "training": "Kompletna obuka",
     "trainingDesc": "4-6 sati licne obuke + FAR sertifikat + video materijali. Ne pustamo vas dok ne koristite uredaj sa poverenjem.",
     "warranty": "2 godine garancije, lokalni servis",
-    "warrantyDesc": "Nema nedelja cekanja na inostrani servis. Reagujemo u roku od 24 sata i po potrebi obezbedjujemo zamenski uredaj.",
+    "warrantyDesc": "Nema nedelja cekanja na inostrani servis. Reagujemo u roku od 24 sata i kod popravki duzih od 10 radnih dana obezbedjujemo zamenski uredjaj.",
     "financing": "Finansiranje, lizing",
     "financingDesc": "Od ~250 EUR/mesecno. Ne morate platiti sve odjednom - prihodi od uredaja placaju rate.",
     "consulting": "Poslovno savetovanje",
@@ -577,7 +588,12 @@
     "role2": "PMU edukatorka, kozmetičarka",
     "role3": "kozmetičarka",
     "role4": "PMU majstorica, kozmetičarka",
-    "playLabel": "Pokreni video"
+    "playLabel": "Pokreni video",
+    "quote1": "Moja najveća preporuka je to što sa njima radim godinama, i kada bih danas morala ponovo da složim svoj park uređaja, opet bih izabrala Skinlab.",
+    "quote2": "Mislim da je firma koju predstavljaju jedinstvena u Mađarskoj i iskreno ih mogu toplo preporučiti.",
+    "quote3": "Skinlab je za mene sinonim za kvalitet i pouzdanost. Lepo je raditi sa partnerom koji veruje u kvalitet isto koliko i ja.",
+    "quote4": "Nikada se nije desilo da mi u nečemu nisu mogli pomoći. Kada sam imala pitanje, uvek sam mogla da ih dobijem.",
+    "watchFull": "Pogledajte ceo video ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -903,5 +919,49 @@
     "requirements": "Uslovi za učešće",
     "back": "Nazad na obuke",
     "signupHeading": "Prijavite se: {name}"
+  },
+  "founderConsult": {
+    "badge": "Lična pomoć",
+    "expertRole": "Osnivač Skinlaba, tehnički stručnjak",
+    "heading": {
+      "category": {
+        "pre": "Ne znate",
+        "highlight": "koji uređaj",
+        "post": "vam odgovara?"
+      },
+      "machine": {
+        "pre": "Niste sigurni da li je",
+        "highlight": "ovo pravi uređaj",
+        "post": "za vaš salon?"
+      },
+      "consumable": {
+        "pre": "Niste sigurni da li je",
+        "highlight": "ovo pravi proizvod",
+        "post": "za vaše tretmane?"
+      }
+    },
+    "scenario1": "Ne znate koji da izaberete",
+    "scenario2": "Želite tačne informacije o uređajima",
+    "scenario3": "Želeli biste da razgovarate o kupovini",
+    "scenario4": "Treba vam samo dobar savet",
+    "bodyPre": "Šta god od toga važilo –",
+    "bodyStrong": "rado ćemo pomoći.",
+    "bodyPost": "Pozovite nas ili zatražite besplatnu konsultaciju i javićemo vam se.",
+    "cta": "Zatražite besplatnu konsultaciju",
+    "phone": "Pozovite: {phone}",
+    "responseTime": "Obično vas pozovemo u roku od 1 radnog dana."
+  },
+  "finance": {
+    "title": "Da li se isplati? Hajde da izračunamo.",
+    "subtitle": "Izračunajte sa svojim podacima kada se uređaj isplati i kolika bi bila mesečna rata.",
+    "tabRoi": "Povrat ulaganja",
+    "tabInstallment": "Mesečna rata"
+  },
+  "productComparison": {
+    "title": "Uporedite naše slične uređaje",
+    "subtitle": "Najvažnije razlike na prvi pogled.",
+    "current": "Upravo gledate",
+    "price": "Cena (sa PDV-om)",
+    "view": "Pogledaj"
   }
 }

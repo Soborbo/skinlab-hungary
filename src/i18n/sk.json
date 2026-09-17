@@ -63,7 +63,7 @@
     "training": "FAR certifikát",
     "trainingDesc": "Oficiálne školenie operátorov",
     "service": "Vlastný servis",
-    "serviceDesc": "Okamžitá oprava, náhradné zariadenie"
+    "serviceDesc": "Rýchla oprava, program náhradného zariadenia"
   },
   "brands": {
     "title": "Naše značky",
@@ -111,7 +111,7 @@
     "relatedProducts": "Súvisiace produkty",
     "whatsIncluded": "Čo je v balení?",
     "warranty": "Záruka a servis",
-    "warrantyInfo": "2-ročná plná záruka, náhradné zariadenie počas opravy",
+    "warrantyInfo": "2-ročná plná záruka + program náhradného zariadenia",
     "videoDemo": "Video ukážka",
     "specsTitle": "Technické špecifikácie",
     "specsSubtitle": "Podrobné technické údaje {productName}",
@@ -139,7 +139,17 @@
     "videoPlaceholder": "Ukážkové video čoskoro",
     "videoPlayLabel": "Prehrať video: ukážka {title}",
     "trainingTitle": "Školenie obsluhy",
-    "trainingContent": "Obsah školenia:"
+    "trainingContent": "Obsah školenia:",
+    "galleryTitle": "Galéria",
+    "allPhotos": "Všetkých {count} fotiek",
+    "moreImages": "+{count} fotiek",
+    "zoomImage": "{alt} – zväčšiť",
+    "imageViewer": "Prehliadač obrázkov",
+    "prevImage": "Predchádzajúci obrázok",
+    "nextImage": "Ďalší obrázok",
+    "installmentLinePre": "Na splátky:",
+    "installmentLine": "{down} záloha + {months} × {monthly}",
+    "installmentCalc": "Vypočítajte ↓"
   },
   "form": {
     "name": "Meno",
@@ -245,7 +255,7 @@
     "foundersTitle": "Zakladatelia",
     "founder": {
       "technical": "Technický expert",
-      "technicalBio": "Už od dospievania som opravoval a tuningoval autá – svet strojov mi bol vždy blízky. Tento praktický, technický prístup určuje aj moju prácu v Skinlabe: mám na starosti, aby každý prístroj dorazil k našim zákazníkom v bezchybnom technickom stave. Ak sa vyskytne problém, riešime ho interne, rýchlo a profesionálne – s náhradným prístrojom na dobu opravy. Laserová technológia sa v priebehu rokov stala mojou špecializáciou a môžem s istotou povedať, že neexistuje porucha, s ktorou by som sa doteraz nestretol. Táto skúsenosť dáva našim zákazníkom skutočný pokoj, pretože vedia, že ich prístroj je v dobrých rukách.",
+      "technicalBio": "Už od dospievania som opravoval a tuningoval autá – svet strojov mi bol vždy blízky. Tento praktický, technický prístup určuje aj moju prácu v Skinlabe: mám na starosti, aby každý prístroj dorazil k našim zákazníkom v bezchybnom technickom stave. Ak sa vyskytne problém, riešime ho interne, rýchlo a profesionálne – pri dlhších opravách s náhradným prístrojom. Laserová technológia sa v priebehu rokov stala mojou špecializáciou a môžem s istotou povedať, že neexistuje porucha, s ktorou by som sa doteraz nestretol. Táto skúsenosť dáva našim zákazníkom skutočný pokoj, pretože vedia, že ich prístroj je v dobrých rukách.",
       "treatment": "Expert na ošetrenia",
       "treatmentBio": "Pochádzam z lekárskej rodiny a kozmetický priemysel ma priťahoval odmalička. Lekárske prostredie ma však naučilo dôležitú vec: ošetrenia musia stáť na rovnako prísnych odborných základoch ako medicína. Nestačí, aby niečo fungovalo – musí to byť aj bezpečné. Pre mňa je najdôležitejšie, aby vznikali nielen krásne, ale aj zdravé výsledky, a aby sme nikdy neprekročili hranice odbornej kompetencie. Túto filozofiu vnášame do každej konzultácie aj odporúčania produktov, pretože ponúkame len to, za čím si plne stojíme."
     },
@@ -259,7 +269,7 @@
     "benefit4Title": "Bezplatné školenie",
     "benefit4Desc": "4-6 hodín osobného školenia + FAR certifikát zahrnuté v cene.",
     "benefit5Title": "Vlastný servis",
-    "benefit5Desc": "Miestne servisné stredisko, náhradné zariadenie počas opravy.",
+    "benefit5Desc": "Miestne servisné stredisko, program náhradného zariadenia pri dlhších opravách.",
     "benefit6Title": "Priebežná podpora",
     "benefit6Desc": "Po nákupe vás nenecháme osamote. Zavolajte nám kedykoľvek.",
     "companyInfoTitle": "Informácie o spoločnosti",
@@ -327,7 +337,7 @@
     "features": {
       "fullWarranty": "Pokrýva všetky diely a prácu – dvojnásobok priemyselného štandardu.",
       "replacementDevice": "Program náhradného zariadenia",
-      "replacementDeviceDesc": "Počas opravy poskytujeme bezplatné náhradné zariadenie, aby vaša práca nestála.",
+      "replacementDeviceDesc": "Ak oprava podľa odhadu potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie (podľa dostupnosti), aby vaša práca nestála.",
       "ownWorkshop": "Vlastná servisná dielňa",
       "ownWorkshopDesc": "Opravy v Maďarsku – nemusíte čakať mesiace na zahraničný servis.",
       "fastRepair": "Rýchla oprava",
@@ -338,7 +348,7 @@
       "step1Title": "Nahlásenie poruchy",
       "step1Desc": "Zavolajte nám alebo pošlite e-mail s popisom poruchy.",
       "step2Title": "Náhradné zariadenie",
-      "step2Desc": "Kuriérom pošleme náhradné zariadenie a prevezmeme poškodené.",
+      "step2Desc": "Ak oprava potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie.",
       "step3Title": "Oprava",
       "step3Desc": "Zariadenie opravíme v našej vlastnej dielni.",
       "step4Title": "Vrátenie",
@@ -363,13 +373,13 @@
     "whatIsWarrantyDesc1": "Záruka je záväzok výrobcu a distribútora, že zariadenie bude počas záručnej doby pri bežnom používaní pracovať bez poruchy. V prípade výrobných alebo materiálových chýb sú oprava, výmena dielu a - v odôvodnených prípadoch - výmena a pracovný náklad bezplatné.",
     "whatIsWarrantyDesc2": "Na každý nový prístroj poskytujeme 12-24 mesiacov záruky (presný čas je uvedený v liste produktu), v súlade s maďarskými vládnymi nariadeniami 151/2003. (IX. 22.) a 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Náš Skinlab záväzok",
-    "commitmentDesc1": "Vlastný vyškolený maďarský technický tím a servisná dielňa zaručujú, že v prípade poruchy nebudete musieť čakať mesiace na opravu v zahraničí. Pracujeme s originálnymi továrenskými dielmi a počas opravy poskytujeme zápožičný stroj, aby vaše podnikanie nestagnovalo.",
+    "commitmentDesc1": "Vlastný vyškolený maďarský technický tím a servisná dielňa zaručujú, že v prípade poruchy nebudete musieť čakať mesiace na opravu v zahraničí. Pracujeme s originálnymi továrenskými dielmi a pri opravách dlhších ako 10 pracovných dní poskytujeme zápožičný stroj, aby vaše podnikanie nestagnovalo.",
     "commitmentDesc2": "Sme pri vás aj po nákupe: diaľková diagnostika, telefonická podpora a v prípade potreby výjazd na miesto zabezpečujú nepretržitú prevádzku.",
     "contentTitle": "Čo záruka pokrýva?",
     "contentDesc": "Záruka výrobcu zahŕňa nasledujúce prípady, ak k závade došlo pri bežnom používaní a pri dodržaní návodu na obsluhu:",
     "point1": "Úplná oprava výrobných a materiálových chýb.",
     "point2": "Výmena originálnych továrenských dielov vrátane pracovného nákladu, bezplatne.",
-    "point3": "Program zápožičného stroja - počas opravy poskytujeme bezplatný náhradný stroj.",
+    "point3": "Program zápožičného stroja - pri opravách dlhších ako 10 pracovných dní poskytujeme na čas opravy náhradný stroj, podľa dostupnosti.",
     "point4": "Diaľková diagnostika a odborná telefonická podpora pri riešení problémov.",
     "point5": "V prípade potreby výjazd technika na miesto, po individuálnej dohode.",
     "exclusionsTitle": "Čo záruka nepokrýva?",
@@ -396,7 +406,8 @@
     "claimInfo4": "Meno a kontaktné údaje kontaktnej osoby.",
     "importantNote": "Nepokúšajte sa prístroj opravovať ani rozoberať - neoprávnený zásah vedie k strate záruky. Pri zistení poruchy zariadenie odpojte od elektriny a kontaktujte nás.",
     "ctaTitle": "Máte otázky k záruke?",
-    "ctaSubtitle": "Náš odborný tím rád pomôže - zavolajte alebo napíšte e-mail."
+    "ctaSubtitle": "Náš odborný tím rád pomôže - zavolajte alebo napíšte e-mail.",
+    "readMore": "Všetky podrobnosti o záruke"
   },
   "faq": {
     "title": "Často kladené otázky",
@@ -426,7 +437,7 @@
       "q2": "Ako dlho trvá oprava?",
       "a2": "Drobné poruchy opravíme za 3–7 pracovných dní, pri väčších výmenách dielov 10–20 pracovných dní. Presný čas určíme po diagnostike. Opravy vykonávajú naši interní školení technici s originálnymi dielmi.",
       "q3": "Dostanem náhradné zariadenie počas opravy?",
-      "a3": "Áno, na vyžiadanie poskytujeme náhradné zariadenie - v rámci záruky bezplatne, mimo záruky za zvýhodnenú cenu - aby vaše podnikanie počas servisu bežalo ďalej.",
+      "a3": "Ak podľa vstupnej diagnostiky oprava pravdepodobne potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie (podľa dostupnosti) - v rámci záruky bezplatne, mimo záruky za zvýhodnených podmienok. Náhradné zariadenie nemusí byť rovnaký model, ale umožní pokračovať v ošetreniach.",
       "q4": "Čo mám robiť, ak zariadenie hlási chybu alebo sa nezapne?",
       "a4": "Najprv ho vypnite, odpojte od napájania, nechajte vychladnúť a znovu zapnite. Ak chyba pretrváva, kontaktujte nás na {phone} alebo {email} - diaľková diagnostika rieši väčšinu problémov."
     },
@@ -532,7 +543,7 @@
     "training": "Kompletné školenie",
     "trainingDesc": "4-6 hodín osobného školenia + FAR certifikát + video materiály. Nepustíme vás, kým nebudete zariadenie používať s istotou.",
     "warranty": "2-ročná záruka, miestny servis",
-    "warrantyDesc": "Žiadne týždne čakania na zahraničný servis. Reagujeme do 24 hodín a v prípade potreby poskytneme náhradné zariadenie.",
+    "warrantyDesc": "Žiadne týždne čakania na zahraničný servis. Reagujeme do 24 hodín a pri opravách dlhších ako 10 pracovných dní poskytneme náhradné zariadenie.",
     "financing": "Financovanie, lízing",
     "financingDesc": "Od ~250 €/mesiac. Nemusíte platiť všetko naraz – príjmy zo zariadenia platia splátky.",
     "consulting": "Obchodné poradenstvo",
@@ -577,7 +588,12 @@
     "role2": "PMU školiteľka, kozmetička",
     "role3": "kozmetička",
     "role4": "PMU artistka, kozmetička",
-    "playLabel": "Prehrať video"
+    "playLabel": "Prehrať video",
+    "quote1": "Najväčším odporúčaním je, že s nimi spolupracujem roky, a keby som dnes musela znova vybudovať svoj strojový park, opäť by som si vybrala Skinlab.",
+    "quote2": "Myslím si, že firma, ktorú zastupujú, je v Maďarsku jedinečná, a úprimne ich môžem vrelo odporučiť.",
+    "quote3": "Skinlab je pre mňa synonymom kvality a spoľahlivosti. Je dobré pracovať s partnerom, ktorý verí v kvalitu rovnako ako ja.",
+    "quote4": "Nikdy sa nestalo, že by mi s niečím nevedeli pomôcť. Keď som mala otázku, vždy som sa im dovolala.",
+    "watchFull": "Pozrite si celé video ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -903,5 +919,49 @@
     "requirements": "Podmienky účasti",
     "back": "Späť na školenia",
     "signupHeading": "Prihláste sa: {name}"
+  },
+  "founderConsult": {
+    "badge": "Osobná pomoc",
+    "expertRole": "Zakladateľ Skinlab, technický expert",
+    "heading": {
+      "category": {
+        "pre": "Neviete,",
+        "highlight": "ktorý prístroj",
+        "post": "je pre vás?"
+      },
+      "machine": {
+        "pre": "Nie ste si istí, či je",
+        "highlight": "toto správny prístroj",
+        "post": "pre váš salón?"
+      },
+      "consumable": {
+        "pre": "Nie ste si istí, či je",
+        "highlight": "toto správny prípravok",
+        "post": "pre vaše ošetrenia?"
+      }
+    },
+    "scenario1": "Neviete sa rozhodnúť",
+    "scenario2": "Chcete presné informácie o prístrojoch",
+    "scenario3": "Chcete prebrať podrobnosti nákupu",
+    "scenario4": "Potrebujete len dobrú radu",
+    "bodyPre": "Nech platí čokoľvek –",
+    "bodyStrong": "radi vám pomôžeme.",
+    "bodyPost": "Zavolajte nám alebo si vyžiadajte bezplatnú konzultáciu a ozveme sa vám.",
+    "cta": "Vyžiadajte si bezplatnú konzultáciu",
+    "phone": "Zavolajte: {phone}",
+    "responseTime": "Zvyčajne sa ozveme do 1 pracovného dňa."
+  },
+  "finance": {
+    "title": "Oplatí sa to? Poďme to spočítať.",
+    "subtitle": "Vypočítajte si z vlastných údajov, kedy sa prístroj vráti a aká by bola mesačná splátka.",
+    "tabRoi": "Návratnosť",
+    "tabInstallment": "Mesačná splátka"
+  },
+  "productComparison": {
+    "title": "Porovnajte naše podobné prístroje",
+    "subtitle": "Najdôležitejšie rozdiely na prvý pohľad.",
+    "current": "Práve si prezeráte",
+    "price": "Cena (s DPH)",
+    "view": "Pozrieť"
   }
 }

@@ -2,11 +2,15 @@
 /**
  * ProductLayout - Unified product page layout
  *
- * Section order:
- * Breadcrumb → Hero → Stats → ROI → VideoDescription → CTA(light) →
- * FeatureRows → CTA(accent) → Training → Testimonials → Expert →
- * TechSpecs → FunctionCards → FAQ → BuyerChecklist →
- * WhatsIncluded → Warranty → CTA(primary) → Related
+ * Section order (előbb a gép, utána bizonyíték, pénz, támogatás, összehasonlítás):
+ * Breadcrumb → Hero → USP → VariantDetails → Intro (VideoDescription) →
+ * VideoQuote#1 → FeatureRows → Gallery → Finance (ROI + részlet) → VideoQuote#2 →
+ * Training → VideoQuote#3 → OwnerStory → FounderConsult (+expert quote) →
+ * TechSpecs → Comparison → FunctionCards → WhatsIncluded → Warranty (compact) →
+ * VideoQuote#4 → Testimonials → FAQ → BuyerChecklist → CTA(primary) → Related
+ *
+ * Fogyóeszközök (kezelőanyag, kellék): nincs pénzügy, garancia és
+ * összehasonlítás; a 4 videós véleményből csak #1 és #4.
  *
  * All sections are standalone components - zero inline HTML.
  * i18n-aware: uses loadProductContent for locale-specific content,
@@ -18,13 +22,13 @@ import Breadcrumb from '../components/product/Breadcrumb.astro';
 import ProductHero from '../components/product/ProductHero.astro';
 import ProductGallerySection from '../components/product/ProductGallerySection.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import ROICalculator from '../components/product/ROICalculator.astro';
+import FinanceSection from '../components/product/FinanceSection.astro';
 import VideoDescription from '../components/product/VideoDescription.astro';
 import ProductCTA from '../components/product/ProductCTA.astro';
 import FeatureRows from '../components/product/FeatureRows.astro';
 import TrainingCard from '../components/product/TrainingCard.astro';
 import Testimonials from '../components/product/Testimonials.astro';
-import ExpertQuote from '../components/product/ExpertQuote.astro';
+import OwnerStory from '../components/product/OwnerStory.astro';
 import TechSpecs from '../components/product/TechSpecs.astro';
 import FunctionCards from '../components/product/FunctionCards.astro';
 import WhatsIncluded from '../components/product/WhatsIncluded.astro';
@@ -34,9 +38,11 @@ import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import VariantDetails from '../components/product/VariantDetails.astro';
 import USPStrip from '../components/product/USPStrip.astro';
-import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
-import InstallmentCalculator from '../components/product/InstallmentCalculator.astro';
-import { INSTALLMENT_MIN } from '@/lib/installment';
+import ProductComparison from '../components/product/ProductComparison.astro';
+import VideoQuote from '../components/video/VideoQuote.astro';
+import { getInstallmentInfo } from '@/lib/installment';
+import { getCategorySiblings, buildComparison, COMPARISON_SIBLINGS } from '@/lib/product-comparison';
+import manifest from '@/lib/image-manifest.json';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
@@ -47,58 +53,11 @@ import { getOgImagePath } from '@/lib/resolve-image';
 import { courierOptionsForPrice } from '@/lib/shipping/methods';
 import { resolveBrand } from '@/lib/merchant/brand';
 import type { ProductContentFAQItem } from '@/lib/types/product-content';
-
-interface Variant {
-  sku: string;
-  name: string;
-  value: string;
-  price: number | null;
-  image?: string;
-  images?: string[];
-  description?: string;
-  specs?: Record<string, string>;
-}
-
-interface Stat {
-  value: string;
-  unit?: string;
-  label: string;
-  icon?: string;
-}
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+import type { ProductData } from '@/lib/product-data';
 
 interface Props {
-  product: {
-    name: string;
-    sku: string;
-    /** Kézzel felülírt márkanév; hiányában a névből derül ki (lib/merchant/brand.ts). */
-    brand?: string;
-    slug: string;
-    categorySlug: string;
-    description: string;
-    shortDescription: string;
-    price: number | null;
-    salePrice?: number | null;
-    image: string;
-    gallery: string[];
-    extraImages?: string[];
-    canonicalSlug?: string;
-    youtubeVideos?: string[];
-    availability: 'in_stock' | 'preorder' | 'out_of_stock';
-    hasVariants: boolean;
-    variants: Variant[];
-    featured?: boolean;
-    metaTitle?: string;
-    metaDescription?: string;
-    stats?: Stat[];
-    faq?: FAQItem[];
-    whatsIncluded?: string[];
-    specs?: Record<string, string>;
-  };
+  /** A route-ok `buildProductData(entry)`-vel állítják elő (lib/product-data.ts). */
+  product: ProductData;
 }
 
 const { product } = Astro.props;
@@ -146,8 +105,6 @@ const breadcrumbItems = [
 const firstVideoUrl = product.youtubeVideos?.[0] || '';
 
 
-// Installment calculator: HU only, and only above the installment minimum
-const showInstallment = locale === 'hu' && !!product.price && product.price > INSTALLMENT_MIN;
 
 /**
  * Fogyóeszköz-kategóriák: kezelőanyagok és kellékek.
@@ -163,6 +120,39 @@ const showInstallment = locale === 'hu' && !!product.price && product.price > IN
  */
 const CONSUMABLE_CATEGORIES = ['kezeloanyagok', 'kellekek'];
 const isConsumable = CONSUMABLE_CATEGORIES.includes(product.categorySlug);
+
+// Részletfizetés: csak HU, gépeknél, a minimum felett. Ugyanez a feltétel adja
+// a hero részlet-sorát és a "Havi részlet" fület, így a #kalkulator anchor sosem lóg.
+const offerPriceForInstallment = product.salePrice ?? product.price;
+const installmentInfo = getInstallmentInfo(offerPriceForInstallment ?? 0);
+const showInstallment = locale === 'hu' && !isConsumable && installmentInfo.available;
+const longestTerm = installmentInfo.months[installmentInfo.months.length - 1];
+const heroInstallment = showInstallment && longestTerm
+  ? { downPayment: installmentInfo.downPayment, months: longestTerm, monthly: installmentInfo.monthly[longestTerm] }
+  : undefined;
+
+// Képek: a hero egyetlen nagy képet mutat (design fotó elöl, ha van); a Galéria
+// szekció az összes fotót (design + termék + extra + showroom) rácsban adja.
+const showroomKeys = Object.keys(manifest)
+  .filter((key) => key.startsWith(`@assets/showroom/${product.slug}/`))
+  .sort();
+const galleryImages = [...new Set([
+  ...product.designImages,
+  product.image,
+  ...product.gallery,
+  ...product.extraImages,
+  ...showroomKeys,
+])].filter(Boolean);
+const heroFirstImage = product.designImages[0] ?? product.image;
+const introImage = product.designImages[1]
+  ?? product.gallery.find((img) => img !== heroFirstImage)
+  ?? product.image;
+
+// Kategória-testvérek: összehasonlító tábla (gépek) + RelatedProducts csak ha
+// maradt olyan testvér, ami nem fért a táblába.
+const { current: currentEntry, siblings } = await getCategorySiblings(product.slug, product.categorySlug);
+const comparison = !isConsumable && currentEntry ? buildComparison(locale, currentEntry, siblings) : null;
+const showRelated = siblings.length > (comparison ? COMPARISON_SIBLINGS : 0);
 
 // FAQ questions for schema (if available)
 const faqQuestions = resolvedFaq.map(item => ({
@@ -321,7 +311,7 @@ const productSchema = product.price ? {
       productName={displayName}
     />
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO (egy nagy kép + "Mind a N fotó", ár alatt részlet-sor) -->
     <ProductHero
       locale={locale}
       slug={product.slug}
@@ -333,23 +323,20 @@ const productSchema = product.price ? {
       salePrice={product.salePrice}
       image={product.image}
       gallery={product.gallery}
+      designImages={product.designImages}
       availability={product.availability}
       hasVariants={product.hasVariants}
       variants={product.variants}
       featured={product.featured}
       categorySlug={product.categorySlug}
       variantImageSets={variantImageSets}
+      installment={heroInstallment}
     />
 
-    <!-- 1.1. USP STRIP (brand-wide trust promises, above the fold) -->
+    <!-- 2. USP STRIP -->
     <USPStrip consumable={isConsumable} />
 
-    <!-- 1.2. VIDEO TESTIMONIALS (site-wide social proof, high placement) -->
-    <VideoTestimonials
-      title={isConsumable && locale === 'hu' ? 'Ők már Skinlabbal dolgoznak' : undefined}
-    />
-
-    <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
+    <!-- 3. VARIANT DETAILS -->
     {product.hasVariants && product.variants.length > 0 && (
       <VariantDetails
         locale={locale}
@@ -358,59 +345,20 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 3. ROI CALCULATOR -->
-    {!isConsumable && (
-      <ROICalculator
-        locale={locale}
-        productPrice={product.price}
-        productName={displayName}
-        defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
-      />
-    )}
-
-    <!-- 3.5. INSTALLMENT CALCULATOR (HU, above installment minimum) -->
-    {showInstallment && product.price && (
-      <InstallmentCalculator price={product.price} productName={displayName} />
-    )}
-
-    <!-- 3.7. FOUNDER CONSULT (személyes segítség - tanácsadói hang) -->
-    <FounderConsult
-      ctaHref="/konzultacio"
-      eventPrefix="product"
-      heading={isConsumable
-        ? { pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő készítmény', post: 'a kezeléseidhez?' }
-        : { pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő gép', post: 'a szalonodnak?' }}
-    />
-
-    <!-- 4. VIDEO + DESCRIPTION -->
+    <!-- 4. INTRO: mi ez a gép (videó, vagy nagy fotó + kulcsszámok) -->
     {content.videoDescription && (
       <VideoDescription
         locale={locale}
         videoUrl={firstVideoUrl}
         productName={displayName}
         content={content.videoDescription}
+        fallbackImage={introImage}
+        stats={content.stats}
       />
     )}
 
-    <!-- 5. CTA: after video -->
-    <ProductCTA
-      locale={locale}
-      productName={displayName}
-      variant="light"
-      headline={content.cta?.afterVideo?.text}
-      buttonLabel={content.cta?.afterVideo?.buttonLabel}
-      phoneLabel={content.cta?.afterVideo?.phoneLabel}
-      showPhone={true}
-    />
-
-    <!-- 5.5. GALLERY SECTION (secondary product images, deeper in the page) -->
-    {product.extraImages && product.extraImages.length > 0 && (
-      <ProductGallerySection
-        images={product.extraImages}
-        productName={displayName}
-        headline="Galéria"
-      />
-    )}
+    <!-- 5. VÉLEMÉNY #1 -->
+    <VideoQuote testimonial="anna" videoSide="left" />
 
     <!-- 6. FEATURE ROWS -->
     {content.featureRows && (
@@ -420,54 +368,66 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 7. CTA: after features (showroom invite + per-product gallery) -->
-    {content.featureRows && (
-      <ProductCTA
-        locale={locale}
+    <!-- 7. GALÉRIA (minden fotó; a hero csak egyet mutat) -->
+    {galleryImages.length > 1 && (
+      <ProductGallerySection
+        images={galleryImages}
         productName={displayName}
-        variant="accent"
-        headline={content.cta?.afterFeatures?.headline}
-        subtitle={content.cta?.afterFeatures?.subtitle}
-        buttonLabel={content.cta?.afterFeatures?.buttonLabel}
-        showPhone={true}
-        productSlug={locale === 'hu' ? product.slug : undefined}
+        maxTiles={8}
       />
     )}
 
-    <!-- 8. TRAINING SECTION -->
+    {!isConsumable && (
+      <>
+        {/* 8. MEGÉRI? (megtérülés + havi részlet) */}
+        <FinanceSection
+          locale={locale}
+          price={offerPriceForInstallment}
+          defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+          showInstallment={showInstallment}
+        />
+
+        {/* 9. VÉLEMÉNY #2 */}
+        <VideoQuote testimonial="adri" videoSide="right" />
+      </>
+    )}
+
+    <!-- 10. TRAINING -->
     {content.training && (
       <TrainingCard
         locale={locale}
         content={content.training}
+        images={product.trainingImages}
       />
     )}
 
-    <!-- 9. TESTIMONIALS -->
-    {resolvedTestimonials.length > 0 && (
-      <Testimonials
-        locale={locale}
-        testimonials={resolvedTestimonials}
-        productName={displayName}
-      />
-    )}
+    <!-- 11. VÉLEMÉNY #3 -->
+    {!isConsumable && <VideoQuote testimonial="hajnalka" videoSide="left" />}
 
-    <!-- 10. EXPERT QUOTE -->
-    {resolvedExpertQuote && (
-      <ExpertQuote
-        locale={locale}
-        quote={resolvedExpertQuote.quote}
-        author={resolvedExpertQuote.author}
-        role={resolvedExpertQuote.role}
-        image={resolvedExpertQuote.image}
-      />
-    )}
+    <!-- 12. OWNER STORY (átadás + betanítás fotók egy valódi vevőnél; mappa-vezérelt) -->
+    <OwnerStory
+      locale={locale}
+      slug={product.slug}
+      productName={displayName}
+      ownerName={content.ownerStory?.ownerName}
+      intro={content.ownerStory?.intro}
+    />
 
-    <!-- 11. TECH SPECS -->
+    <!-- 13. SZEMÉLYES SEGÍTSÉG (a termék szakértői idézetével) -->
+    <FounderConsult
+      eventPrefix="product"
+      heading={isConsumable ? 'consumable' : 'machine'}
+      tone="dark"
+      quote={resolvedExpertQuote}
+    />
+
+    <!-- 14. TECH SPECS -->
     {Object.keys(resolvedSpecs).length > 0 && (
       <TechSpecs
         locale={locale}
         specs={resolvedSpecs}
         productName={displayName}
+        datasheet={product.datasheet}
         title={isConsumable && locale === 'hu' ? 'Termékadatok' : undefined}
         subtitle={isConsumable && locale === 'hu'
           ? `A ${displayName} részletes adatai`
@@ -475,7 +435,10 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 12. FUNCTION CARDS -->
+    <!-- 15. ÖSSZEHASONLÍTÁS a kategória többi gépével -->
+    {comparison && <ProductComparison locale={locale} table={comparison} />}
+
+    <!-- 16. FUNCTION CARDS -->
     {resolvedFunctionCards.length > 0 && (
       <FunctionCards
         locale={locale}
@@ -483,29 +446,7 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 13. FAQ -->
-    {resolvedFaq.length > 0 && (
-      <ProductFAQ
-        locale={locale}
-        faq={resolvedFaq}
-        productName={displayName}
-        subtitle={isConsumable && locale === 'hu'
-          ? `Minden, amit a ${displayName} készítményről tudni érdemes`
-          : undefined}
-      />
-    )}
-
-    <!-- 13.5 BUYER CHECKLIST -->
-    {content.buyerChecklist && content.buyerChecklist.items.length > 0 && (
-      <BuyerChecklist
-        locale={locale}
-        headline={content.buyerChecklist.headline}
-        subtitle={content.buyerChecklist.subtitle}
-        items={content.buyerChecklist.items}
-      />
-    )}
-
-    <!-- 14. WHATS INCLUDED -->
+    <!-- 17. WHATS INCLUDED -->
     {resolvedWhatsIncluded.length > 0 && (
       <WhatsIncluded
         locale={locale}
@@ -517,12 +458,47 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 15. WARRANTY -->
+    <!-- 18. WARRANTY (összefoglaló + link a /garancia/ oldalra) -->
     {!isConsumable && (
-      <WarrantyService locale={locale} productName={displayName} />
+      <WarrantyService locale={locale} productName={displayName} compact />
     )}
 
-    <!-- 16. CTA SECTION -->
+    <!-- 19. VÉLEMÉNY #4 -->
+    <VideoQuote testimonial="dori" videoSide="right" />
+
+    <!-- 20. TESTIMONIALS (szöveges; a Product schema review-jai ezekből épülnek,
+         ezért láthatónak kell maradniuk) -->
+    {resolvedTestimonials.length > 0 && (
+      <Testimonials
+        locale={locale}
+        testimonials={resolvedTestimonials}
+        productName={displayName}
+      />
+    )}
+
+    <!-- 21. FAQ -->
+    {resolvedFaq.length > 0 && (
+      <ProductFAQ
+        locale={locale}
+        faq={resolvedFaq}
+        productName={displayName}
+        subtitle={isConsumable && locale === 'hu'
+          ? `Minden, amit a ${displayName} készítményről tudni érdemes`
+          : undefined}
+      />
+    )}
+
+    <!-- 22. BUYER CHECKLIST -->
+    {content.buyerChecklist && content.buyerChecklist.items.length > 0 && (
+      <BuyerChecklist
+        locale={locale}
+        headline={content.buyerChecklist.headline}
+        subtitle={content.buyerChecklist.subtitle}
+        items={content.buyerChecklist.items}
+      />
+    )}
+
+    <!-- 23. CTA SECTION -->
     <ProductCTA
       locale={locale}
       productName={displayName}
@@ -533,15 +509,17 @@ const productSchema = product.price ? {
       showPhone={true}
     />
 
-    <!-- 17. RELATED PRODUCTS -->
-    <RelatedProducts
-      locale={locale}
-      currentSlug={product.slug}
-      categorySlug={product.categorySlug}
-      subtitle={isConsumable && locale === 'hu'
-        ? 'Nézd meg a kategória további kezelőanyagait'
-        : undefined}
-    />
+    <!-- 24. RELATED PRODUCTS (csak ha maradt testvér az összehasonlításon kívül) -->
+    {showRelated && (
+      <RelatedProducts
+        locale={locale}
+        currentSlug={product.slug}
+        categorySlug={product.categorySlug}
+        subtitle={isConsumable && locale === 'hu'
+          ? 'Nézd meg a kategória további kezelőanyagait'
+          : undefined}
+      />
+    )}
 
   </div>
 

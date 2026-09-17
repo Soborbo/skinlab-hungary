@@ -581,7 +581,7 @@
   },
   "@assets/products/athena-1.png": {
     "seoSlug": "athena-1000w-diodalezer-1",
-    "alt": "ATHENA 1000W diódalézer",
+    "alt": "ATHENA 1000W diódalézer készülék a kezelési paraméterekkel a kijelzőn",
     "width": 1123,
     "height": 1401,
     "widths": [
@@ -598,7 +598,7 @@
   },
   "@assets/products/athena-2.png": {
     "seoSlug": "athena-1000w-diodalezer-2",
-    "alt": "ATHENA 1000W diódalézer - 2. kép",
+    "alt": "ATHENA diódalézer oldalnézetben, kezelőfej-tartóval",
     "width": 1086,
     "height": 1448,
     "widths": [
@@ -615,7 +615,7 @@
   },
   "@assets/products/athena-3.png": {
     "seoSlug": "athena-1000w-diodalezer-3",
-    "alt": "ATHENA 1000W diódalézer - 3. kép",
+    "alt": "ATHENA diódalézer kezelőfeje kézben, saját kijelzővel",
     "width": 1086,
     "height": 1448,
     "widths": [
@@ -632,7 +632,7 @@
   },
   "@assets/products/athena-4.png": {
     "seoSlug": "athena-1000w-diodalezer-4",
-    "alt": "ATHENA 1000W diódalézer - 4. kép",
+    "alt": "ATHENA diódalézer érintőképernyője a kezelési menüvel",
     "width": 1233,
     "height": 1276,
     "widths": [
@@ -650,7 +650,7 @@
   },
   "@assets/products/athena-5.png": {
     "seoSlug": "athena-1000w-diodalezer-5",
-    "alt": "ATHENA 1000W diódalézer - 5. kép",
+    "alt": "ATHENA diódalézer kezelőfeje a zafír kontakthűtéses kilépőablakkal",
     "width": 1099,
     "height": 1431,
     "widths": [
@@ -667,7 +667,7 @@
   },
   "@assets/products/athena-6.png": {
     "seoSlug": "athena-1000w-diodalezer-6",
-    "alt": "ATHENA 1000W diódalézer - 6. kép",
+    "alt": "ATHENA 1000W diódalézer készülék a testtájankénti kezelési menüvel",
     "width": 1086,
     "height": 1448,
     "widths": [
@@ -681,6 +681,75 @@
       1086
     ],
     "basePath": "/images/opt/products/athena-1000w-diodalezer-6"
+  },
+  "@assets/products/athena-design-1.jpg": {
+    "seoSlug": "athena-1000w-diodalezer-7",
+    "alt": "ATHENA 1000W diódalézer készülék szalonkörnyezetben",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/athena-1000w-diodalezer-7"
+  },
+  "@assets/products/athena-design-2.jpg": {
+    "seoSlug": "athena-1000w-diodalezer-8",
+    "alt": "ATHENA diódalézer kezelőfeje a beállított frekvenciával és energiaszinttel",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/athena-1000w-diodalezer-8"
+  },
+  "@assets/products/athena-design-3.jpg": {
+    "seoSlug": "athena-1000w-diodalezer-9",
+    "alt": "ATHENA diódalézer kezelőfeje közelről, arany zafírablakkal",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/athena-1000w-diodalezer-9"
+  },
+  "@assets/products/AURA.webp": {
+    "seoSlug": "aura-by-skinlab-hideg-plazma-keszulek-1",
+    "alt": "AURA by skinlab. hideg-plazma készülék",
+    "width": 900,
+    "height": 900,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      900
+    ],
+    "basePath": "/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1"
   },
   "@assets/products/biopen1.png": {
     "seoSlug": "bio-pen-q2-ems-mikrotus-pen-1",
@@ -1676,9 +1745,76 @@
     ],
     "basePath": "/images/opt/products/freeze-me-slim-cryolipolysis-4"
   },
+  "@assets/products/FROSTCOLD-kezeles-1.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-5",
+    "alt": "Hidegplazma arckezelés a THE FROST készülékkel",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-5"
+  },
+  "@assets/products/FROSTCOLD-kezeles-2.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-6",
+    "alt": "Bőr közvetlenül a THE FROST hidegplazma kezelés után",
+    "width": 1024,
+    "height": 1536,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1024
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-6"
+  },
+  "@assets/products/FROSTCOLD-oktatas-1.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-3",
+    "alt": "THE FROST gépkezelői oktatás – gyakorlati kezelés modellen",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-3"
+  },
+  "@assets/products/FROSTCOLD-oktatas-2.jpg": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-4",
+    "alt": "THE FROST gépkezelői oktatás a skinlab. showroomban",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-4"
+  },
   "@assets/products/FROSTCOLD.webp": {
-    "seoSlug": "aura-by-skinlab-hideg-plazma-keszulek-1",
-    "alt": "AURA by skinlab. hideg-plazma készülék",
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-1",
+    "alt": "THE FROST Cold plasma by skinlab.",
     "width": 900,
     "height": 900,
     "widths": [
@@ -1689,7 +1825,7 @@
       828,
       900
     ],
-    "basePath": "/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1"
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-1"
   },
   "@assets/products/FROSTCOLD2.png": {
     "seoSlug": "the-frost-coldplasma-by-skinlab-1",
@@ -1765,6 +1901,23 @@
       900
     ],
     "basePath": "/images/opt/products/the-frost-coldplasma-by-skinlab-5"
+  },
+  "@assets/products/FROSTCOLD7.png": {
+    "seoSlug": "the-frost-cold-plasma-by-skinlab-2",
+    "alt": "THE FROST Cold plasma érintőkijelző – 9 az 1-ben plazma üzemmód menü",
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1086
+    ],
+    "basePath": "/images/opt/products/the-frost-cold-plasma-by-skinlab-2"
   },
   "@assets/products/Geneo-Oxypods-sheet.webp": {
     "seoSlug": "oxygenx-pod-szett-detox-pod-2",
@@ -5468,8 +5621,8 @@
     "basePath": "/images/opt/products/olympia-1200w-diodalezer-2"
   },
   "@assets/products/olympia-3.jpeg": {
-    "seoSlug": "olympia-1200w-diodalezer-3",
-    "alt": "OLYMPIA 1200W diódalézer - 3. kép",
+    "seoSlug": "olympia-1200w-diodalezer-11",
+    "alt": "OLYMPIA diódalézer stilizált, oszlopcsarnokos környezetben",
     "width": 1179,
     "height": 758,
     "widths": [
@@ -5482,9 +5635,26 @@
       1080,
       1179
     ],
-    "basePath": "/images/opt/products/olympia-1200w-diodalezer-3"
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-11"
   },
   "@assets/products/olympia-4.png": {
+    "seoSlug": "olympia-1200w-diodalezer-3",
+    "alt": "OLYMPIA 1200W diódalézer - 3. kép",
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1086
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-3"
+  },
+  "@assets/products/olympia-5.png": {
     "seoSlug": "olympia-1200w-diodalezer-4",
     "alt": "OLYMPIA 1200W diódalézer - 4. kép",
     "width": 1086,
@@ -5501,7 +5671,7 @@
     ],
     "basePath": "/images/opt/products/olympia-1200w-diodalezer-4"
   },
-  "@assets/products/olympia-5.png": {
+  "@assets/products/olympia-6.png": {
     "seoSlug": "olympia-1200w-diodalezer-5",
     "alt": "OLYMPIA 1200W diódalézer - 5. kép",
     "width": 1086,
@@ -5518,26 +5688,9 @@
     ],
     "basePath": "/images/opt/products/olympia-1200w-diodalezer-5"
   },
-  "@assets/products/olympia-6.png": {
+  "@assets/products/olympia-7.png": {
     "seoSlug": "olympia-1200w-diodalezer-6",
     "alt": "OLYMPIA 1200W diódalézer - 6. kép",
-    "width": 1086,
-    "height": 1448,
-    "widths": [
-      160,
-      320,
-      480,
-      640,
-      828,
-      960,
-      1080,
-      1086
-    ],
-    "basePath": "/images/opt/products/olympia-1200w-diodalezer-6"
-  },
-  "@assets/products/olympia-7.png": {
-    "seoSlug": "olympia-1200w-diodalezer-7",
-    "alt": "OLYMPIA 1200W diódalézer - 7. kép",
     "width": 1448,
     "height": 1086,
     "widths": [
@@ -5551,11 +5704,11 @@
       1200,
       1448
     ],
-    "basePath": "/images/opt/products/olympia-1200w-diodalezer-7"
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-6"
   },
   "@assets/products/olympia-8.png": {
-    "seoSlug": "olympia-1200w-diodalezer-8",
-    "alt": "OLYMPIA 1200W diódalézer - 8. kép",
+    "seoSlug": "olympia-1200w-diodalezer-7",
+    "alt": "OLYMPIA 1200W diódalézer - 7. kép",
     "width": 1086,
     "height": 1448,
     "widths": [
@@ -5567,6 +5720,24 @@
       960,
       1080,
       1086
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-7"
+  },
+  "@assets/products/olympia-design-1.jpg": {
+    "seoSlug": "olympia-1200w-diodalezer-8",
+    "alt": "OLYMPIA 1200W diódalézer készülék antik oszlopos, stilizált környezetben",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
     ],
     "basePath": "/images/opt/products/olympia-1200w-diodalezer-8"
   },
@@ -5591,6 +5762,24 @@
     ],
     "basePath": "/images/opt/products/olympia-design-1"
   },
+  "@assets/products/olympia-design-2.jpg": {
+    "seoSlug": "olympia-1200w-diodalezer-9",
+    "alt": "OLYMPIA diódalézer kezelőfeje saját kijelzővel",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-9"
+  },
   "@assets/products/olympia-design-2.png": {
     "seoSlug": "olympia-design-2",
     "alt": "olympia design 2",
@@ -5611,6 +5800,57 @@
       3684
     ],
     "basePath": "/images/opt/products/olympia-design-2"
+  },
+  "@assets/products/olympia-design-3.jpg": {
+    "seoSlug": "olympia-1200w-diodalezer-10",
+    "alt": "OLYMPIA diódalézer cserélhető spotméret-feltétei díszdobozban",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-10"
+  },
+  "@assets/products/olympia-oktatas-1.jpg": {
+    "seoSlug": "olympia-1200w-diodalezer-12",
+    "alt": "OLYMPIA gépkezelői oktatás – diódalézeres kezelés modellen",
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1086
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-12"
+  },
+  "@assets/products/olympia-oktatas-2.jpg": {
+    "seoSlug": "olympia-1200w-diodalezer-13",
+    "alt": "OLYMPIA diódalézer kezelőfeje kezelés közben, a háttérben az érintőképernyővel",
+    "width": 995,
+    "height": 1581,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      995
+    ],
+    "basePath": "/images/opt/products/olympia-1200w-diodalezer-13"
   },
   "@assets/products/OnyxGold1.webp": {
     "seoSlug": "onyxgold1",
@@ -6208,33 +6448,91 @@
     ],
     "basePath": "/images/opt/products/medilux-pro-professzionalis-4-hullamhosszon-operalo-diodalezer-keszulek-1"
   },
-  "@assets/products/skinetic.webp": {
-    "seoSlug": "skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-1",
-    "alt": "Skitenic AI mesterséges intelligencia bőranalízis-készülék",
-    "width": 800,
-    "height": 800,
+  "@assets/products/skinetic-ai-plus-allvany.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-4",
+    "alt": "SKINETIC AI+ bőrdiagnosztikai rendszer gurulós állványon a kézi mikroszkóppal",
+    "width": 1023,
+    "height": 1537,
     "widths": [
       160,
       320,
       480,
       640,
-      800
+      828,
+      960,
+      1023
     ],
-    "basePath": "/images/opt/products/skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-1"
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-4"
   },
-  "@assets/products/skineticc.webp": {
-    "seoSlug": "skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-2",
-    "alt": "Skitenic AI mesterséges intelligencia bőranalízis-készülék - 2. kép",
-    "width": 800,
-    "height": 800,
+  "@assets/products/skinetic-ai-plus-main.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1",
+    "alt": "SKINETIC AI+ AI bőrdiagnosztikai készülék 15,6 hüvelykes érintőkijelzővel, magyar nyelvű szoftverrel",
+    "width": 1447,
+    "height": 1087,
     "widths": [
       160,
       320,
       480,
       640,
-      800
+      828,
+      960,
+      1080,
+      1200,
+      1447
     ],
-    "basePath": "/images/opt/products/skitenic-ai-mesterseges-intelligencia-boranalizis-keszulek-2"
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1"
+  },
+  "@assets/products/skinetic-ai-plus-mikroszkop.png": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-3",
+    "alt": "SKINETIC AI+ készülék a tartozék scalp- és arcmikroszkóppal, magyar nyelvű menüvel",
+    "width": 1385,
+    "height": 1136,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1385
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-3"
+  },
+  "@assets/products/skinetic-ai-plus-oldalnezet.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-2",
+    "alt": "SKINETIC AI+ bőranalizáló készülék oldalnézetből, fényárnyékolt vizsgálati térrel és érintőképernyős tablettel",
+    "width": 1493,
+    "height": 1053,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1493
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-2"
+  },
+  "@assets/products/skinetic-ai-plus-showroom.jpg": {
+    "seoSlug": "skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-5",
+    "alt": "SKINETIC AI+ bőranalizáló a Skinlab érdi showroomjában kezelőággyal",
+    "width": 1024,
+    "height": 1536,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1024
+    ],
+    "basePath": "/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-5"
   },
   "@assets/products/the-shaper-1.png": {
     "seoSlug": "the-shaper-contoursystem-1",
@@ -7203,6 +7501,78 @@
       4284
     ],
     "basePath": "/images/opt/showroom/olympia/skinlab-showroom-olympia-12"
+  },
+  "@assets/tulajdonosok/athena/miladerma-1.jpg": {
+    "seoSlug": "skinlab-athena-atadas-1",
+    "alt": "ATHENA átadás és gépkezelői betanítás – 1. fotó",
+    "width": 1241,
+    "height": 1268,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1241
+    ],
+    "basePath": "/images/opt/tulajdonosok/athena/skinlab-athena-atadas-1"
+  },
+  "@assets/tulajdonosok/athena/miladerma-2.jpg": {
+    "seoSlug": "skinlab-athena-atadas-2",
+    "alt": "ATHENA átadás és gépkezelői betanítás – 2. fotó",
+    "width": 1535,
+    "height": 1024,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1535
+    ],
+    "basePath": "/images/opt/tulajdonosok/athena/skinlab-athena-atadas-2"
+  },
+  "@assets/tulajdonosok/athena/miladerma-3.jpg": {
+    "seoSlug": "skinlab-athena-atadas-3",
+    "alt": "ATHENA átadás és gépkezelői betanítás – 3. fotó",
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1536
+    ],
+    "basePath": "/images/opt/tulajdonosok/athena/skinlab-athena-atadas-3"
+  },
+  "@assets/tulajdonosok/athena/miladerma-4.jpg": {
+    "seoSlug": "skinlab-athena-atadas-4",
+    "alt": "ATHENA átadás és gépkezelői betanítás – 4. fotó",
+    "width": 1402,
+    "height": 1122,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1402
+    ],
+    "basePath": "/images/opt/tulajdonosok/athena/skinlab-athena-atadas-4"
   },
   "@assets/diodalezer-kezeles.jpg": {
     "seoSlug": "diodalezer-kezeles",

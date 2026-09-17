@@ -40,12 +40,19 @@ interface Props {
   salePrice?: number | null;
   image: string;
   gallery: string[];
+  designImages?: string[];
   availability: 'in_stock' | 'preorder' | 'out_of_stock';
   hasVariants: boolean;
   variants: Variant[];
   featured?: boolean;
   categorySlug: string;
   variantImageSets?: VariantImageSet[];
+  /**
+   * Részletfizetési sor az ár alatt (előleg + futamidő × havi összeg), linkkel
+   * a pénzügyi kalkulátorra (#kalkulator). A layout csak akkor adja át, ha a
+   * kalkulátor is megjelenik, így az anchor sosem lóg.
+   */
+  installment?: { downPayment: number; months: number; monthly: number };
 }
 
 const {
@@ -59,11 +66,13 @@ const {
   salePrice,
   image,
   gallery,
+  designImages,
   hasVariants,
   variants,
   featured,
   categorySlug,
   variantImageSets,
+  installment,
 } = Astro.props;
 
 // Format price with locale
@@ -72,10 +81,14 @@ const displayPrice = (p: number | null) => {
   return formatPrice(p, locale);
 };
 
-// Hero gallery: main image + all gallery images (deduped) → carousel with
-// thumbnails. Variant products keep per-variant switching via variantImageSets
-// (ProductGallery ignores `images` in variant mode).
-const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
+// Hero gallery: design photos FIRST, then the main image + gallery (deduped) →
+// carousel with thumbnails. Variant products keep per-variant switching via
+// variantImageSets (ProductGallery ignores `images` in variant mode).
+//
+// A design fotók szándékosan NEM a `image` mezőből jönnek: a főkép fehér
+// hátteres marad (mega-menü thumbnail szabály + Merchant Center feed), csak a
+// galéria ELEJÉN előzik meg. Ezért a megjelenési sorrend eltér a slug-sorrendtől.
+const heroImages = [...new Set([...(designImages ?? []), image, ...(gallery ?? [])])].filter(Boolean);
 ---
 
 <section class="bg-white py-6 lg:py-8">
@@ -132,6 +145,18 @@ const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
                 <div class="text-3xl font-bold text-gray-900" data-price-display>{displayPrice(price)}</div>
               )}
               <div class="text-sm text-gray-500 mt-1">{t(locale, 'product.grossPrice')}</div>
+              {installment && (
+                <div class="mt-3 text-base text-gray-900">
+                  {t(locale, 'product.installmentLinePre')}{' '}
+                  <strong>{t(locale, 'product.installmentLine', {
+                    down: formatPrice(installment.downPayment, locale),
+                    months: installment.months,
+                    monthly: formatPrice(installment.monthly, locale),
+                  })}</strong>
+                  {' · '}
+                  <a href="#kalkulator" data-open-installment class="font-semibold text-primary-700 hover:text-primary-800 underline-offset-2 hover:underline">{t(locale, 'product.installmentCalc')}</a>
+                </div>
+              )}
             </>
           ) : (
             <div class="text-2xl font-bold text-primary-600">{t(locale, 'product.priceOnRequest')}</div>
@@ -188,6 +213,7 @@ const heroImages = [...new Set([image, ...(gallery ?? [])])].filter(Boolean);
             variantCount: hasVariants ? variants.length : undefined
           }}
           variantImageSets={variantImageSets}
+          thumbnails={false}
         />
       </div>
     </div>

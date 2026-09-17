@@ -394,7 +394,7 @@ A jelenlegi `nd-yag-lezerek` (9 SKU, B-csoport) → **#1 lead-capture kártya** 
 │ │                                 │ │ │                                  │ ││
 │ │ Trust badges (specifikussá!):   │ │ │ ┌────────────────────────────┐  │ ││
 │ │ ✓ 2 év teljes körű garancia +   │ │ │ │ Időpont foglalása →        │  │ ││ ← teal CTA
-│ │   24h cseregép Budapesten        │ │ │ └────────────────────────────┘  │ ││
+│ │   cseregép-program (10+ nap)     │ │ │ └────────────────────────────┘  │ ││
 │ │ ✓ 8h helyszíni betanítás +      │ │ │                                  │ ││
 │ │   6 hó follow-up                 │ │ │ ⭐ 4,9 · 12 ND:YAG szalon       │ ││
 │ │ ✓ 100% magyar szerviz +         │ │ │   választott minket             │ ││
@@ -642,7 +642,7 @@ A high-ticket B2B vásárlói pszichológia szerint a vásárló nem terméket v
 - *Csere mátrix*:
   | Jelenlegi vague | Specifikus változat |
   |---|---|
-  | „2 év garancia" | „2 év teljes körű garancia + 24h cseregép Budapesten" |
+  | „2 év garancia" | „2 év teljes körű garancia + cseregép-program" (a cseregép feltételes: 10+ munkanapos javításnál, készlet függvényében — ne ígérj 24h cserét) |
   | „Ingyenes betanítás" | „8 órás helyszíni betanítás + 6 hónap follow-up" |
   | „Magyar szerviz" | „100% magyar szerviz + 48h kiszállás Budapesten" |
   | „Részletfizetés" | „0% THM, 24 hónap, előleg nélkül" |

@@ -77,6 +77,8 @@ export type GatewayEventName =
   | 'quote_calculator_submitted'
   | 'callback_request_submitted'
   | 'contact_form_submitted'
+  | 'training_signup_submitted'
+  | 'consultation_request_submitted'
   | 'order_request_submitted'
   | 'purchase'
   | 'phone_number_clicked'
@@ -93,6 +95,9 @@ export interface GatewayUserData {
   city?: string;
   postal_code?: string;
   country?: string;
+  /** Stable first-party visitor id (Meta `external_id`). The gateway hashes it —
+   *  pass the RAW value, the same one the browser leg sends. */
+  external_id?: string;
 }
 
 export interface GatewayConversionInput {
@@ -113,6 +118,11 @@ export interface GatewayConversionInput {
    * conversion to our own Worker's egress IP/UA (wrong geo, worse Meta EMQ). */
   clientIpAddress?: string;
   clientUserAgent?: string;
+  /** Meta Browser ID — the `_fbp` cookie, verbatim (`fb.1.<ts>.<rand>`). */
+  fbp?: string;
+  /** Meta Click ID — the `_fbc` cookie, or a reconstruction from `fbclid`
+   *  (`fb.1.<click_ts_ms>.<fbclid>`). See `resolveFbc`. */
+  fbc?: string;
   testEventCode?: string;
 }
 
@@ -204,6 +214,52 @@ export function resolveTestEventCode(env: GatewayEnv, email?: string): string | 
   return email.trim().toLowerCase() === marker ? code : undefined;
 }
 
+// ── Meta Browser/Click ID (fbp / fbc) ───────────────────────────────────────
+// Both are plain first-party cookie values the FORM POST carries in hidden
+// fields; the gateway forwards them to Meta CAPI unhashed. They are the two
+// parameters Meta's Event Match Quality panel flags hardest (fbc alone is worth
+// a ~55% median lift in reported conversions), and until this module carried
+// them the whole server leg shipped NEITHER — every server_ingress_only
+// conversion (contact/consultation/order) reached Meta with email+phone only.
+//
+// Format is validated, not trusted: a malformed value is worse than a missing
+// one (Meta drops the event's match instead of the field, and a garbage `fbc`
+// can be attributed to the wrong click).
+const FBP_RE = /^fb\.\d\.\d+\.\d+$/;
+const FBC_RE = /^fb\.\d\.\d+\.[A-Za-z0-9_-]+$/;
+const FBCLID_RE = /^[A-Za-z0-9_-]{1,500}$/;
+
+export function normalizeFbp(fbp?: string): string | undefined {
+  const v = fbp?.trim();
+  return v && FBP_RE.test(v) ? v : undefined;
+}
+
+/**
+ * Canonical `_fbc` when the Pixel set one, otherwise a reconstruction from the
+ * raw `fbclid`.
+ *
+ * Why reconstruct: Meta's `_fbc` cookie is only written by the Pixel AFTER the
+ * CMP grants marketing consent. A visitor who lands on `?fbclid=…`, accepts
+ * cookies on the next page and converts on the third has NO `_fbc` cookie — but
+ * we still hold the click id in `sb_tracking`. Rebuilding it here is exactly
+ * what Meta's own "parameter builder" SDK add-on does, without loading their SDK.
+ *
+ * `clickTimeMs` should be the ORIGINAL click timestamp (the browser sends it in
+ * the reconstructed `fbc`); `Date.now()` is only a last resort — a wrong-but-close
+ * timestamp still matches, a missing fbc does not.
+ */
+export function resolveFbc(
+  fbc?: string,
+  fbclid?: string,
+  clickTimeMs: number = Date.now(),
+): string | undefined {
+  const v = fbc?.trim();
+  if (v && FBC_RE.test(v)) return v;
+  const id = fbclid?.trim();
+  if (id && FBCLID_RE.test(id)) return `fb.1.${clickTimeMs}.${id}`;
+  return undefined;
+}
+
 /** Drops undefined/empty entries so we never ship blank PII fields. */
 function compact(obj: object): Record<string, unknown> {
   const out: Record<string, unknown> = {};
@@ -238,6 +294,13 @@ export function buildGatewayPayload(input: GatewayConversionInput): Record<strin
     event_source_url: input.eventSourceUrl,
     client_ip_address: input.clientIpAddress,
     client_user_agent: input.clientUserAgent,
+    // Top-level, exactly like the browser leg (lib/gateway.ts `sendToWorker`) —
+    // the gateway reads `fbp`/`fbc` from the payload root, not from user_data.
+    fbp: normalizeFbp(input.fbp),
+    // Falls back to rebuilding from the click id the form already carries, so a
+    // consent-race visitor (fbclid in storage, no `_fbc` cookie yet) still gets
+    // a click-matched conversion.
+    fbc: resolveFbc(input.fbc, input.attribution?.fbclid),
     test_event_code: input.testEventCode,
     // NOTE: no `turnstile_token`. There is no browser in this call path; the
     // per-site X-Admin-Token is what authorises us.

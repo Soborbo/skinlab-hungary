@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
-import AnnouncementBar from '../components/layout/AnnouncementBar.astro';
 import Footer from '../components/layout/Footer.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
@@ -77,10 +76,6 @@ const rawPath = Astro.url.pathname;
 const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
 
-// A site-wide akciós szalagot mindenhol mutatjuk, kivéve magán az akciós
-// landing page-en (ott felesleges/önmagára mutatna).
-const isPromoPage = currentPath === '/olympia-akcio';
-
 // Generate canonical URL - absolute URL for SEO.
 // trailingSlash: 'always' — getLocalizedUrl/withTrailingSlash (i18n/ui.ts) emit
 // a trailing slash so canonical/hreflang match the URL the server actually
@@ -116,6 +111,14 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta (Facebook) domain verification — Business Manager → Brand Safety →
+       Domains, skinlabhungary.hu (ID 2396213767535382). STATIKUSAN kell a
+       <head>-ben lennie: a Meta scraper nem futtat JS-t, tehát GTM-ből vagy
+       bármilyen kliens-oldali injektálásból NEM találná meg. A domain-hitelesítés
+       az Aggregated Event Measurement (iOS) esemény-prioritás beállításának
+       előfeltétele — enélkül a pixel eseményeit nem tudod rangsorolni. -->
+  <meta name="facebook-domain-verification" content="trcafooh8sqiq07z9wt02tc0n6gw7g" />
 
   <!-- SEO -->
   <title>{fullTitle}</title>
@@ -257,7 +260,6 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
   {import.meta.env.PROD && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
-  {!isPromoPage && <AnnouncementBar />}
   <Header />
   <main id="main-content" class="flex-1">
     <slot />

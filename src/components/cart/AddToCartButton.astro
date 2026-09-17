@@ -116,6 +116,7 @@ const variantMap =
 
 <script>
   import { addToCart } from '@/lib/cart/store';
+  import { trackAddToCart } from '@/lib/tracking';
 
   function initAddToCart() {
     const root = document.querySelector<HTMLElement>('[data-add-to-cart]');
@@ -179,6 +180,21 @@ const variantMap =
         price: typeof price === 'number' ? price : null,
         qty,
       });
+
+      // Meta AddToCart + GA4 add_to_cart. A `trackAddToCart` eddig LÉTEZETT, de
+      // sehol nem hívtuk meg — a kosár→pénztár szakasz teljesen vak volt
+      // (nincs kosárelhagyó remarketing, a Meta nem lát a vásárlás elé).
+      // Ár nélküli ("ár kérésre") tételnél a value 0 lenne, ezért kihagyjuk.
+      if (typeof price === 'number' && price > 0) {
+        trackAddToCart({
+          item_id: sku,
+          item_name: variantName ? `${root.dataset.name || ''} – ${variantName}` : root.dataset.name || '',
+          item_category: root.dataset.category || '',
+          price,
+          quantity: qty,
+          currency: 'HUF',
+        });
+      }
 
       // Rövid visszajelzés a gombon
       if (btnLabel && addBtn) {

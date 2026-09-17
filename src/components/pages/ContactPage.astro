@@ -92,6 +92,7 @@ const sourceUrl = Astro.url.href;
               <input type="hidden" name="msclkid" data-track="msclkid" />
               <input type="hidden" name="fbc" data-track="fbc" />
               <input type="hidden" name="fbp" data-track="fbp" />
+              <input type="hidden" name="external_id" data-track="external_id" />
               <!-- KÜLSŐ hivatkozó. NINCS `data-track`-je: nem a lenti hurokból
                    jön, hanem a first-touch belépési modulból — a hurok
                    `document.referrer` visszaesése pont azt a belső értéket
@@ -475,7 +476,8 @@ const sourceUrl = Astro.url.href;
 
 <script>
   import {
-    trackContactSubmit, applyEntryAttributionToForm, getAllTrackingData,
+    trackContactSubmit, getAllTrackingData, getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    applyEntryAttributionToForm,
   } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
@@ -515,9 +517,11 @@ const sourceUrl = Astro.url.href;
     const startTimeInput = form.querySelector<HTMLInputElement>('[data-form-start]');
     if (startTimeInput) startTimeInput.value = Date.now().toString();
 
-    // Attribúció a rejtett mezőkbe: URL-paraméter → `sb_tracking` tároló.
-    // BETŰRE ugyanaz a logika, mint a `ContactForm.astro`-ban — a két
-    // kapcsolati felület nem mondhat mást ugyanarról a látogatóról.
+    // Teljes attribúció a rejtett mezőkbe (URL → `sb_tracking` → fallback).
+    // Ugyanaz a logika, mint ContactForm.astro-ban: a Google klikk-ID-k csak a
+    // szanitizált accessorból jöhetnek (egyszerre EGY mehet ki), a Meta
+    // paraméterek pedig a tracking-lib accessorain át — a `getFbc()` a `_fbc`
+    // süti hiányában a tárolt fbclid-ből újraépíti a click ID-t.
     const urlParams = new URLSearchParams(window.location.search);
     let storedTracking: Record<string, string | undefined> = {};
     try {
@@ -542,10 +546,9 @@ const sourceUrl = Astro.url.href;
       let value = GOOGLE_CLICK_KEYS.includes(key)
         ? (sanitized[key] || '')
         : (urlParams.get(key) || storedTracking[key] || '');
-      if (!value && (key === 'fbc' || key === 'fbp')) {
-        const m = document.cookie.match(new RegExp('(?:^|; )_' + key + '=([^;]*)'));
-        value = m ? decodeURIComponent(m[1]) : '';
-      }
+      if (key === 'fbc') value = getFbc() || '';
+      else if (key === 'fbp') value = getFbp() || '';
+      else if (key === 'external_id') value = getExternalId() || '';
       input.value = value;
     });
 
@@ -581,6 +584,9 @@ const sourceUrl = Astro.url.href;
       if (buttonText) buttonText.textContent = 'Küldés...';
 
       try {
+        // A Pixel a `_fbp`/`_fbc` sütit a consent UTÁN írja — a betöltéskori
+        // kitöltés még üresen hagyhatta. Beküldés előtt újraolvassuk.
+        refreshMetaMatchKeys(form);
         const formData = new FormData(form);
         // Compose the full name in Hungarian order: Vezetéknév Keresztnév
         const lastName = (form.querySelector<HTMLInputElement>('#lastName')?.value || '').trim();

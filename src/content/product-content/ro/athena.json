@@ -61,24 +61,24 @@
       {
         "title": "Putere stabilă 1000W – nivel profesional",
         "description": "1000W putere de ieșire este mai mult decât suficient pentru a lucra la nivel profesional și a obține rezultate impresionante. Majoritatea laserelor cu diodă medii funcționează în jur de 600W - 1000W este deja un nivel mai sus, ceea ce înseamnă o muncă mai rapidă și mai eficientă.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Ce înseamnă acest lucru:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Muncă mai rapidă</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Eficiență mai mare</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Funcționare mai stabilă</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Tratamente mai confortabile</div>\n</div>",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-1.png"
       },
       {
         "title": "4 lungimi de undă – pentru fiecare tip de piele",
         "description": "Combinația celor patru lungimi de undă diferite (755 / 808 / 940 / 1064 nm) asigură o flexibilitate largă a tratamentelor cu un singur dispozitiv - eficientă pe orice tip de fir și orice ten al pielii.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-5.png"
       },
       {
         "title": "Software inteligent – zeița înțelepciunii",
         "description": "Nu trebuie să stabilești tu ce tip de piele și fir poate fi tratat cu ce setare. Software-ul inteligent al ATHENA recunoaște și optimizează automat parametrii. Este ca și cum o zeiță te-ar ține de mână în timpul muncii.",
         "highlight": "Cunoașterea este putere - mai ales când este automată.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-4.png"
       },
       {
         "title": "Investiție eficientă, inteligentă",
         "description": "ATHENA este o mașină care nu este exagerată, ci o investiție construită inteligent. Alegerea perfectă dacă o integrezi alături de un alt serviciu (ca cosmeticiană, ca o completare la îngrijirea pielii), sau dacă ești un jucător prudent și dorești un sistem care funcționează previzibil.",
         "highlight": "Strategie, nu risc.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-6.png"
       }
     ]
   },
@@ -166,6 +166,30 @@
     {
       "question": "Ce este inclus în preț?",
       "answer": "Prețul include instruirea completă pentru operare, certificatul FAR, garanție de 2 ani și manualul de utilizare în limba maghiară. Termenul de livrare este de 2-6 săptămâni. Pentru prețul exact, solicită o consultanță."
+    },
+    {
+      "question": "De câte ședințe este nevoie pentru un rezultat de durată?",
+      "answer": "Numărul de ședințe diferă de la o clientă la alta: contează tipul de păr și de piele, zona tratată și ciclul de creștere a părului. Laserul acționează asupra foliculilor aflați în faza de creștere, de aceea sunt necesare mai multe ședințe pentru ca fiecare folicul să fie atins. În cazul pilozității excesive de cauză hormonală pot fi necesare ulterior ședințe de întreținere ocazionale – merită clarificat dinainte cu clientele, pentru că aici apar cele mai multe neînțelegeri."
+    },
+    {
+      "question": "De ce alimentare electrică are nevoie ATHENA?",
+      "answer": "Aparatul funcționează atât la 110V, cât și la 220V, deci se poate conecta la rețeaua obișnuită a salonului. Instalarea și conectarea le parcurgem împreună la predare și la instruirea de la fața locului."
+    },
+    {
+      "question": "De ce este mai confortabil capul de tratament cu răcire prin contact cu safir?",
+      "answer": "În capul de tratament un cristal de safir real răcește direct suprafața pielii în timpul tratamentului, iar în spate lucrează o răcire în trei trepte: semiconductor TEC, apă și aer. Acest lucru reduce senzația de căldură, face transferul de energie mai uniform și menține aparatul stabil chiar și în serii mai lungi de tratamente – mai puține pauze forțate, lucru mai rapid."
+    },
+    {
+      "question": "Cât durează livrarea și de când pot lucra cu aparatul?",
+      "answer": "Termenul estimat de livrare este de 2–6 săptămâni. Instruirea operatorului este inclusă în prețul aparatului și este legată de predare: după cursul intensiv de o zi eliberăm un certificat FAR. Instruirea nu este așadar un pas separat, pe care să trebuiască să îl organizați."
+    },
+    {
+      "question": "Ce se întâmplă dacă aparatul se defectează?",
+      "answer": "Reparația este efectuată de atelierul nostru propriu, cu piese originale – nu este nevoie să așteptați săptămâni un service din străinătate. Aparatul beneficiază de garanție completă de 2 ani. Dacă din verificarea prealabilă reiese că reparația va dura probabil mai mult de 10 zile lucrătoare, punem la dispoziție un aparat de schimb pe durata reparației, în funcție de disponibilitate, pentru ca activitatea dumneavoastră să nu se oprească."
+    },
+    {
+      "question": "Poate fi folosit pe orice tip de piele?",
+      "answer": "ATHENA lucrează pe patru lungimi de undă (755 / 808 / 940 / 1064 nm), iar combinația lor permite tratarea foliculilor aflați la adâncimi diferite, precum și a tipurilor de piele mai deschise și mai închise. Care este setarea potrivită pentru o anumită clientă – și când nu se tratează deloc – discutăm în detaliu la instruirea operatorului: contraindicațiile și selecția clientelor fac parte din programa cursului."
     }
   ],
   "whatsIncluded": [
