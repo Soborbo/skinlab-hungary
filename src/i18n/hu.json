@@ -67,7 +67,7 @@
     "training": "FAR tanúsítvány",
     "trainingDesc": "Hivatalos gépkezelői képzés",
     "service": "Saját szerviz",
-    "serviceDesc": "Azonnali javítás, cseregép"
+    "serviceDesc": "Gyors javítás, cseregép-program"
   },
   "brands": {
     "title": "Márkáink",
@@ -138,12 +138,22 @@
     "buyerChecklistTitle": "Mire figyelj vásárlás előtt?",
     "buyerChecklistNote": "Szakértőink segítenek eligazodni a részletekben – kérj ingyenes konzultációt, és személyre szabott tanácsot adunk.",
     "warranty": "Garancia és szerviz",
-    "warrantyInfo": "2 év teljes körű garancia, cseregép javítás idejére",
+    "warrantyInfo": "2 év teljes körű garancia + cseregép-program",
     "videoDemo": "Videó bemutató",
     "videoPlaceholder": "Bemutató videó hamarosan",
     "videoPlayLabel": "Videó lejátszása: {title} bemutató",
     "trainingTitle": "Gépkezelői képzés",
-    "trainingContent": "A képzés tartalma:"
+    "trainingContent": "A képzés tartalma:",
+    "galleryTitle": "Galéria",
+    "allPhotos": "Mind a {count} fotó",
+    "moreImages": "+{count} fotó",
+    "zoomImage": "{alt} – nagyítás",
+    "imageViewer": "Képnagyító",
+    "prevImage": "Előző kép",
+    "nextImage": "Következő kép",
+    "installmentLinePre": "Részletben:",
+    "installmentLine": "{down} előleg + {months} × {monthly}",
+    "installmentCalc": "Számold ki ↓"
   },
   "form": {
     "name": "Név",
@@ -291,7 +301,7 @@
     "foundersTitle": "Alapítók",
     "founder": {
       "technical": "Skinlab alapító, technikai szakértő",
-      "technicalBio": "Kamaszkórom óta autókat szereltem és tuningoltam, úgyhogy a gépek világa mindig is közel állt hozzám. Ez a gyakorlatias, mérnöki szemlélet határozza meg a munkámat a Skinlabnál is: az én felelősségem, hogy minden készülék műszakilag kifogástalan állapotban kerüljön az ügyfeleinkhez. Ha bármi probléma adódik, házon belül oldjuk meg, gyorsan és szakszerűen, cseregéppel a javítás idejére. A lézertechnológia az évek során a specialitásommá vált, és bátran mondhatom, hogy nincs olyan meghibásodás, amivel ne találkoztam volna. Ez az a fajta tapasztalat, ami igazi nyugalmat ad ügyfeleinknek, mert tudják, hogy a gépük jó kezekben van.",
+      "technicalBio": "Kamaszkórom óta autókat szereltem és tuningoltam, úgyhogy a gépek világa mindig is közel állt hozzám. Ez a gyakorlatias, mérnöki szemlélet határozza meg a munkámat a Skinlabnál is: az én felelősségem, hogy minden készülék műszakilag kifogástalan állapotban kerüljön az ügyfeleinkhez. Ha bármi probléma adódik, házon belül oldjuk meg, gyorsan és szakszerűen – hosszabb javítás esetén cseregéppel. A lézertechnológia az évek során a specialitásommá vált, és bátran mondhatom, hogy nincs olyan meghibásodás, amivel ne találkoztam volna. Ez az a fajta tapasztalat, ami igazi nyugalmat ad ügyfeleinknek, mert tudják, hogy a gépük jó kezekben van.",
       "treatment": "Skinlab alapító, kezelési szakértő",
       "treatmentBio": "Orvoscsaládból származom, és egészen fiatal korom óta vonz a szépségipar. Az orvosi háttér viszont egy fontos dolgot belém nevelt: a kezeléseknek ugyanolyan szigorú szakmai alapokon kell állniuk, mint az orvostudománynak. Nem elég, ha valami működik, biztonságosnak is kell lennie. Számomra az a legfontosabb, hogy ne csak szép, hanem egészséges eredmények szülessenek, és soha ne lépjük át a szakmai kompetencia határait. Ezt a szemléletet visszük bele minden konzultációba és minden termékajánlásba is, mert csak olyat kínálunk, ami mögött teljes meggyőződéssel állunk."
     },
@@ -305,7 +315,7 @@
     "benefit4Title": "Ingyenes betanítás",
     "benefit4Desc": "4-6 órás személyes oktatás + FAR tanúsítvány a gép árában.",
     "benefit5Title": "Saját szerviz",
-    "benefit5Desc": "Magyar szervizháttér, cseregép javítás idejére.",
+    "benefit5Desc": "Magyar szervizháttér, cseregép-program hosszabb javítás esetére.",
     "benefit6Title": "Folyamatos támogatás",
     "benefit6Desc": "Nem hagyunk magadra a vásárlás után sem. Bármikor hívhatsz.",
     "companyInfoTitle": "Cégadatok",
@@ -381,7 +391,7 @@
     "features": {
       "fullWarranty": "Minden alkatrészre és munkadíjra, az iparági standard duplája.",
       "replacementDevice": "Cseregép program",
-      "replacementDeviceDesc": "Javítás idejére ingyenes cseregépet biztosítunk, hogy ne álljon a munkád.",
+      "replacementDeviceDesc": "Ha a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében, hogy ne álljon a munkád.",
       "ownWorkshop": "Saját szervizműhely",
       "ownWorkshopDesc": "Magyarországi javítás, nem kell hónapokat várni külföldi szervizre.",
       "fastRepair": "Gyors javítás",
@@ -392,7 +402,7 @@
       "step1Title": "Hibabejelentés",
       "step1Desc": "Hívj minket vagy írj emailt a hiba leírásával.",
       "step2Title": "Cseregép",
-      "step2Desc": "Futárral küldünk cseregépet, viszik a hibásat.",
+      "step2Desc": "Ha a javítás várhatóan 10 munkanapnál tovább tart, cseregépet biztosítunk a javítás idejére.",
       "step3Title": "Javítás",
       "step3Desc": "Saját műhelyünkben megjavítjuk a készüléked.",
       "step4Title": "Visszaküldés",
@@ -417,13 +427,13 @@
     "whatIsWarrantyDesc1": "A jótállás a gyártó és a forgalmazó kötelező vállalása arra, hogy a készülék a rendeltetésszerű használat során meghibásodás nélkül működik a garanciális időszakban. Gyártási hiba vagy anyaghiba esetén a javítás, alkatrészcsere, illetve indokolt esetben a csere és a munkadíj is térítésmentes.",
     "whatIsWarrantyDesc2": "Minden új készülékünkre 12-24 hónap jótállást biztosítunk (a pontos időtartam a termék adatlapján található), a 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján.",
     "commitmentTitle": "Skinlab vállalásunk",
-    "commitmentDesc1": "Saját, képzett magyar technikusi csapatunk és szervizműhelyünk biztosítja, hogy meghibásodás esetén ne kelljen hónapokat várni külföldi javításra. Eredeti gyári alkatrészekkel dolgozunk, és cseregépet biztosítunk a javítás idejére, hogy a vállalkozásod működése ne akadjon meg.",
+    "commitmentDesc1": "Saját, képzett magyar technikusi csapatunk és szervizműhelyünk biztosítja, hogy meghibásodás esetén ne kelljen hónapokat várni külföldi javításra. Eredeti gyári alkatrészekkel dolgozunk, és 10 munkanapot meghaladó javítás esetén cseregépet biztosítunk, hogy a vállalkozásod működése ne akadjon meg.",
     "commitmentDesc2": "A vásárlás után is mellettetek állunk: távdiagnosztikával, telefonos támogatással és szükség esetén helyszíni kiszállással gondoskodunk a folyamatos működésről.",
     "contentTitle": "Mit fed le a garancia?",
     "contentDesc": "A gyártói jótállás az alábbi eseteket foglalja magában, feltéve hogy a meghibásodás a rendeltetésszerű használat során, a kezelési útmutató betartása mellett következett be:",
     "point1": "Gyártási hibák és anyaghibák teljes körű javítása.",
     "point2": "Eredeti gyári alkatrészek cseréje, a munkadíjjal együtt díjmentesen.",
-    "point3": "Cseregép program - a javítás idejére ingyenes cseregépet biztosítunk.",
+    "point3": "Cseregép program - 10 munkanapot meghaladó javítás esetén cseregépet biztosítunk a javítás idejére, a cseregép-állomány függvényében.",
     "point4": "Távdiagnosztika és telefonos szakértői támogatás hibaelhárításhoz.",
     "point5": "Szükség esetén helyszíni szerviz kiszállás, egyedi egyeztetés alapján.",
     "exclusionsTitle": "Mit nem fed le a garancia?",
@@ -450,7 +460,8 @@
     "claimInfo4": "Kapcsolattartó személy nevét és elérhetőségét.",
     "importantNote": "Ne próbáld magad javítani vagy szétszerelni a készüléket - az illetéktelen beavatkozás a garancia elvesztésével jár. Hiba észlelésekor áramtalanítsd a gépet, és vedd fel velünk a kapcsolatot.",
     "ctaTitle": "Kérdésed van a garanciával kapcsolatban?",
-    "ctaSubtitle": "Szakértő munkatársaink készséggel segítenek - hívj minket vagy írj emailt."
+    "ctaSubtitle": "Szakértő munkatársaink készséggel segítenek - hívj minket vagy írj emailt.",
+    "readMore": "Minden részlet a garanciáról"
   },
   "shipping": {
     "title": "Szállítás és fizetés",
@@ -568,7 +579,7 @@
       "q2": "Mennyi időt vesz igénybe egy javítás?",
       "a2": "Kisebb hiba esetén a javítás átfutási ideje 3–7 munkanap, komolyabb alkatrészcsere esetén 10–20 munkanap. A pontos időt minden esetben a bevizsgálás után adjuk meg. A javításokat saját, képzett technikusainkból álló műhelyünk végzi, eredeti alkatrészekkel.",
       "q3": "Kapok cseregépet a javítás idejére?",
-      "a3": "Igen, kérésre cseregépet biztosítunk, amely garanciális ügynél díjmentes, egyéb esetben pedig kedvezményes áron érhető el. Így a vállalkozásod folyamatos működése biztosított a szerviz ideje alatt is.",
+      "a3": "Ha az előzetes bevizsgálás alapján a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében – garanciális ügynél díjmentesen, egyéb esetben kedvezményes feltételekkel. A cseregép nem feltétlenül azonos típusú, de a kezelések folytatására alkalmas, így a vállalkozásod működése a szerviz alatt is biztosított.",
       "q4": "Mit tegyek, ha a gép hibát jelez vagy nem kapcsol be?",
       "a4": "Első lépésként kapcsold ki a gépet, áramtalanítsd, hagyd lehűlni, majd indítsd újra. Ha a hiba továbbra is fennáll, keress minket a {phone} telefonszámon vagy a {email} címen – a távdiagnosztika sok esetben megoldja a problémát."
     },
@@ -615,7 +626,7 @@
     "training": "Gyakorlatorientált, mély szakmai tudás",
     "trainingDesc": "Nem egy gyors „összeszerelős” oktatás: megtanítunk magabiztosan paraméterezni, felismerni a hibafaktorokat, és felkészítünk minden eshetőségre. Képzéseink FAR-jegyzettek, B-számos tanúsítvánnyal.",
     "warranty": "2 év garancia, saját magyar szerviz",
-    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és a javítás idejére cserekészüléket adunk.",
+    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és 10 munkanapot meghaladó javítás esetén cserekészüléket biztosítunk.",
     "financing": "Jogi és üzleti szemlélet",
     "financingDesc": "Átbeszéljük a géphasználat jogi kereteit és a dokumentációs elvárásokat, marketing- és üzleti modullal segítünk árazni, kommunikálni és fenntartható vállalkozást építeni.",
     "consulting": "Nem engedjük el a kezed",
@@ -705,7 +716,12 @@
     "role2": "sminktetováló oktató, kozmetikus",
     "role3": "kozmetikus",
     "role4": "sminktetováló, kozmetikus",
-    "playLabel": "Videó lejátszása"
+    "playLabel": "Videó lejátszása",
+    "quote1": "Tőlem az a legnagyobb ajánlás, hogy évek óta velük dolgozom, és ha ma újra kéne építeni a géparkomat, akkor is a Skinlabot választanám.",
+    "quote2": "Szerintem a cég, amit képvisel, egyedülálló Magyarországon, és tényleg meleg szívvel tudom ajánlani őket.",
+    "quote3": "A Skinlab számomra a minőség és a megbízhatóság szinonimája. Jó érzés olyan partnerrel dolgozni, akik ugyanúgy hisznek a minőségben, mint én.",
+    "quote4": "Még soha nem volt olyan, hogy valamiben nem tudtak volna nekem segíteni. Hogyha kérdésem volt, akkor bármikor elérem őket.",
+    "watchFull": "Nézd meg a teljes videót ({duration})"
   },
   "featuredProduct": {
     "badge": "Zászlóshajó modellünk",
@@ -1002,5 +1018,49 @@
     "requirements": "Részvételi feltételek",
     "back": "Vissza a képzésekhez",
     "signupHeading": "Jelentkezz: {name}"
+  },
+  "founderConsult": {
+    "badge": "Személyes segítség",
+    "expertRole": "Skinlab alapító, technikai szakértő",
+    "heading": {
+      "category": {
+        "pre": "Nem tudod,",
+        "highlight": "melyik gép",
+        "post": "való neked?"
+      },
+      "machine": {
+        "pre": "Nem biztos, hogy",
+        "highlight": "ez a megfelelő gép",
+        "post": "a szalonodnak?"
+      },
+      "consumable": {
+        "pre": "Nem biztos, hogy",
+        "highlight": "ez a megfelelő készítmény",
+        "post": "a kezeléseidhez?"
+      }
+    },
+    "scenario1": "Nem tudod, melyiket válaszd",
+    "scenario2": "Pontos infót kérsz a gépekről",
+    "scenario3": "Megbeszélnéd a vásárlás részleteit",
+    "scenario4": "Csak egy jó tanácsra van szükséged",
+    "bodyPre": "Bármelyik is igaz rád –",
+    "bodyStrong": "szeretettel segítünk.",
+    "bodyPost": "Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.",
+    "cta": "Kérj ingyenes konzultációt",
+    "phone": "Hívj fel: {phone}",
+    "responseTime": "Általában 1 munkanapon belül visszahívjuk."
+  },
+  "finance": {
+    "title": "Megéri? Számoljuk ki.",
+    "subtitle": "Számold ki a saját adataiddal, mikor térül meg a gép és mennyi lenne a havi részlet.",
+    "tabRoi": "Megtérülés",
+    "tabInstallment": "Havi részlet"
+  },
+  "productComparison": {
+    "title": "Hasonlítsd össze a hasonló gépeinket",
+    "subtitle": "A legfontosabb különbségek egy pillantásra.",
+    "current": "Ezt nézed most",
+    "price": "Ár (bruttó)",
+    "view": "Megnézem"
   }
 }

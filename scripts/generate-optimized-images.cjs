@@ -100,6 +100,30 @@ function buildImageMapping() {
       }
     }
 
+    // Stylizált design fotók (hero galéria eleje). SZÁNDÉKOSAN az `images` UTÁN
+    // regisztráljuk: az imageIndex a felvétel sorrendjéből jön, így a már élő
+    // termékfotók slugja (…-1 … -6) változatlan marad, a design fotók pedig a
+    // sor végére kapják az indexüket. Megjelenési sorrend != slug sorrend.
+    if (product.designImages && product.designImages.length > 0) {
+      for (const imgPath of product.designImages) {
+        const fn = imgPath.split('/').pop();
+        if (!allImageEntries.some(e => e.filename === fn)) {
+          allImageEntries.push({ filename: fn, context: 'gallery' });
+        }
+      }
+    }
+
+    // Gépkezelői oktatás blokk fotói (TrainingCard) - szintén a sor végén,
+    // hogy a meglévő slugok ne tolódjanak el.
+    if (product.trainingImages && product.trainingImages.length > 0) {
+      for (const imgPath of product.trainingImages) {
+        const fn = imgPath.split('/').pop();
+        if (!allImageEntries.some(e => e.filename === fn)) {
+          allImageEntries.push({ filename: fn, context: 'gallery' });
+        }
+      }
+    }
+
     // Variant images
     if (product.variants) {
       for (const variant of product.variants) {
@@ -121,6 +145,18 @@ function buildImageMapping() {
       }
     }
 
+    // Optional per-file alt overrides: { "filename.jpg": "custom alt" }.
+    // Astro's zod schema strips this key, so it only affects this script.
+    // Files listed here are also registered for mapping even when the product
+    // JSON itself doesn't reference them (e.g. images used only from the
+    // product-content feature rows).
+    const altOverrides = product.imageAlts || {};
+    for (const fn of Object.keys(altOverrides)) {
+      if (!allImageEntries.some(e => e.filename === fn)) {
+        allImageEntries.push({ filename: fn, context: 'gallery' });
+      }
+    }
+
     // Assign SEO slug and alt to each image
     let imageIndex = 1;
     for (const entry of allImageEntries) {
@@ -138,6 +174,9 @@ function buildImageMapping() {
         alt = imageIndex === 1
           ? productName
           : `${productName} - ${imageIndex}. kép`;
+      }
+      if (altOverrides[entry.filename]) {
+        alt = altOverrides[entry.filename];
       }
 
       mapping[entry.filename] = {
@@ -221,6 +260,32 @@ function buildNonProductMapping() {
           alt: `Skinlab showroom – ${productSlug.toUpperCase()} – ${idx}. fotó`,
           subfolder: `showroom/${productSlug}`,
           srcSubdir: `showroom/${productSlug}`,
+        };
+        idx++;
+      }
+    }
+  }
+
+  // Tulajdonosok — per-termék átadás/betanítás fotók: src/assets/tulajdonosok/{slug}/{file}
+  // Ugyanaz a mappa-vezérelt minta, mint a showroomnál: a szekció attól jelenik
+  // meg, hogy a mappában van fotó — nincs hozzá termék-JSON szerkesztés.
+  const ownersDir = path.join(SRC_DIR, 'tulajdonosok');
+  if (fs.existsSync(ownersDir)) {
+    const productDirs = fs.readdirSync(ownersDir)
+      .filter(d => fs.statSync(path.join(ownersDir, d)).isDirectory())
+      .sort();
+    for (const productSlug of productDirs) {
+      const productPath = path.join(ownersDir, productSlug);
+      const files = fs.readdirSync(productPath)
+        .filter(f => /\.(jpe?g|png|webp|avif)$/i.test(f))
+        .sort();
+      let idx = 1;
+      for (const file of files) {
+        mapping[`tulajdonosok/${productSlug}/${file}`] = {
+          seoSlug: `skinlab-${productSlug}-atadas-${idx}`,
+          alt: `${productSlug.toUpperCase()} átadás és gépkezelői betanítás – ${idx}. fotó`,
+          subfolder: `tulajdonosok/${productSlug}`,
+          srcSubdir: `tulajdonosok/${productSlug}`,
         };
         idx++;
       }

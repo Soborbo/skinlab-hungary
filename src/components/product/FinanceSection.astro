@@ -1,0 +1,72 @@
+---
+/**
+ * FinanceSection - "Megéri? Számoljuk ki." blokk (#kalkulator).
+ *
+ * A megtérülés-kalkulátor és a részletfizetés-kalkulátor egy szekcióban,
+ * két fülön. A fülek JS nélkül működnek (radio + Tailwind peer-checked); ha a
+ * részletfizetés nem elérhető (nem HU / ár a minimum alatt), csak a ROI látszik.
+ * A hero részlet-sora ide linkel.
+ */
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+import ROICalculator from './ROICalculator.astro';
+import InstallmentCalculator from './InstallmentCalculator.astro';
+
+interface Props {
+  locale: Locale;
+  price: number | null;
+  defaultTreatmentPrice?: number;
+  /** Megjelenjen-e a "Havi részlet" fül. */
+  showInstallment: boolean;
+}
+
+const { locale, price, defaultTreatmentPrice, showInstallment } = Astro.props;
+const withTabs = showInstallment && !!price;
+---
+
+<section id="kalkulator" class="scroll-mt-24 py-12 lg:py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="text-center mb-6 lg:mb-8 px-2">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{t(locale, 'finance.title')}</h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">{t(locale, 'finance.subtitle')}</p>
+    </div>
+
+    {withTabs ? (
+      <div class="flex flex-wrap justify-center">
+        <input type="radio" name="finance-tab" id="finance-tab-roi" class="peer/roi sr-only" checked />
+        <label
+          for="finance-tab-roi"
+          class="cursor-pointer rounded-l-xl border border-gray-200 bg-gray-100 px-5 py-3 text-sm sm:text-base font-semibold text-gray-600 transition-colors peer-checked/roi:bg-white peer-checked/roi:text-gray-900 peer-checked/roi:shadow-sm peer-focus-visible/roi:ring-2 peer-focus-visible/roi:ring-primary-500"
+        >
+          {t(locale, 'finance.tabRoi')}
+        </label>
+        <input type="radio" name="finance-tab" id="finance-tab-installment" class="peer/inst sr-only" />
+        <label
+          for="finance-tab-installment"
+          class="cursor-pointer rounded-r-xl border border-l-0 border-gray-200 bg-gray-100 px-5 py-3 text-sm sm:text-base font-semibold text-gray-600 transition-colors peer-checked/inst:bg-white peer-checked/inst:text-gray-900 peer-checked/inst:shadow-sm peer-focus-visible/inst:ring-2 peer-focus-visible/inst:ring-primary-500"
+        >
+          {t(locale, 'finance.tabInstallment')}
+        </label>
+
+        <div class="hidden basis-full mt-6 peer-checked/roi:block">
+          <ROICalculator locale={locale} productPrice={price} defaultTreatmentPrice={defaultTreatmentPrice} embedded />
+        </div>
+        <div class="hidden basis-full mt-6 peer-checked/inst:block">
+          <InstallmentCalculator price={price!} />
+        </div>
+      </div>
+    ) : (
+      <ROICalculator locale={locale} productPrice={price} defaultTreatmentPrice={defaultTreatmentPrice} embedded />
+    )}
+  </div>
+</section>
+
+<script>
+  // A hero "Részletben … · Számold ki" linkje a Havi részlet fület nyissa meg.
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement).closest('[data-open-installment]');
+    if (!link) return;
+    const tab = document.getElementById('finance-tab-installment') as HTMLInputElement | null;
+    if (tab) tab.checked = true;
+  });
+</script>

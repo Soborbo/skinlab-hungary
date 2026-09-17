@@ -41,3 +41,8 @@ homepage-redesign-mockup.html
 # az install lepesnel hal meg. A lockot Linuxon kell generalni
 # (.github/workflows/lockfile.yml) — Windowson az npm kipucolja a
 # Linux-only opcionalis agakat.
+
+# pnpm: csak lokalis fejlesztoi telepiteshez hasznaljuk (kozos store D:/.pnpm-store).
+# A CI es a Cloudflare Workers Builds tovabbra is npm + package-lock.json alapon fut,
+# ezert a pnpm lockfile NEM mehet a repoba.
+pnpm-lock.yaml

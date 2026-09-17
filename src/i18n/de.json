@@ -139,7 +139,17 @@
     "videoPlaceholder": "Demo-Video in Kürze",
     "videoPlayLabel": "Video abspielen: {title} Demo",
     "trainingTitle": "Bedienerschulung",
-    "trainingContent": "Schulungsinhalte:"
+    "trainingContent": "Schulungsinhalte:",
+    "galleryTitle": "Galerie",
+    "allPhotos": "Alle {count} Fotos",
+    "moreImages": "+{count} Fotos",
+    "zoomImage": "{alt} – vergrößern",
+    "imageViewer": "Bildbetrachter",
+    "prevImage": "Vorheriges Bild",
+    "nextImage": "Nächstes Bild",
+    "installmentLinePre": "In Raten:",
+    "installmentLine": "{down} Anzahlung + {months} × {monthly}",
+    "installmentCalc": "Berechnen ↓"
   },
   "form": {
     "name": "Name",
@@ -272,7 +282,7 @@
     "foundersTitle": "Grunder",
     "founder": {
       "technical": "Technischer Experte",
-      "technicalBio": "Schon als Jugendlicher habe ich Autos repariert und getuned – die Welt der Maschinen war mir immer nah. Diese praktische, technische Denkweise bestimmt auch meine Arbeit bei Skinlab: Ich bin dafür verantwortlich, dass jedes Gerät in einwandfreiem technischen Zustand bei unseren Kunden ankommt. Wenn ein Problem auftritt, lösen wir es hausintern, schnell und professionell – mit einem Ersatzgerät für die Dauer der Reparatur. Die Lasertechnologie ist im Laufe der Jahre zu meiner Spezialität geworden, und ich kann mit Sicherheit sagen, dass es keinen Defekt gibt, dem ich noch nicht begegnet wäre. Diese Erfahrung gibt unseren Kunden echte Sicherheit, denn sie wissen, dass ihr Gerät in guten Händen ist.",
+      "technicalBio": "Schon als Jugendlicher habe ich Autos repariert und getuned – die Welt der Maschinen war mir immer nah. Diese praktische, technische Denkweise bestimmt auch meine Arbeit bei Skinlab: Ich bin dafür verantwortlich, dass jedes Gerät in einwandfreiem technischen Zustand bei unseren Kunden ankommt. Wenn ein Problem auftritt, lösen wir es hausintern, schnell und professionell – bei längeren Reparaturen mit einem Ersatzgerät. Die Lasertechnologie ist im Laufe der Jahre zu meiner Spezialität geworden, und ich kann mit Sicherheit sagen, dass es keinen Defekt gibt, dem ich noch nicht begegnet wäre. Diese Erfahrung gibt unseren Kunden echte Sicherheit, denn sie wissen, dass ihr Gerät in guten Händen ist.",
       "treatment": "Behandlungsexpertin",
       "treatmentBio": "Ich stamme aus einer Ärztefamilie und die Schönheitsbranche hat mich schon von klein auf angezogen. Der medizinische Hintergrund hat mir jedoch etwas Wichtiges beigebracht: Behandlungen müssen auf ebenso strengen fachlichen Grundlagen basieren wie die Medizin selbst. Es reicht nicht, wenn etwas funktioniert – es muss auch sicher sein. Für mich ist es am wichtigsten, dass nicht nur schöne, sondern auch gesunde Ergebnisse entstehen, und wir nie die Grenzen der fachlichen Kompetenz überschreiten. Diese Philosophie bringen wir in jede Beratung und Produktempfehlung ein, denn wir bieten nur an, wovon wir vollkommen überzeugt sind."
     },
@@ -354,7 +364,7 @@
     "features": {
       "fullWarranty": "Deckt alle Teile und Arbeitskosten ab – das Doppelte des Branchenstandards.",
       "replacementDevice": "Ersatzgeräteprogramm",
-      "replacementDeviceDesc": "Wir stellen während der Reparatur ein kostenloses Leihgerät bereit, damit Ihr Geschäft weiterläuft.",
+      "replacementDeviceDesc": "Dauert die Reparatur voraussichtlich länger als 10 Werktage, stellen wir für die Reparaturdauer ein Leihgerät bereit (je nach Verfügbarkeit), damit Ihr Geschäft weiterläuft.",
       "ownWorkshop": "Eigene Servicewerkstatt",
       "ownWorkshopDesc": "Reparaturen in Ungarn – kein monatelanges Warten auf ausländischen Service.",
       "fastRepair": "Schnelle Reparatur",
@@ -365,7 +375,7 @@
       "step1Title": "Fehlermeldung",
       "step1Desc": "Rufen Sie uns an oder senden Sie eine E-Mail mit der Fehlerbeschreibung.",
       "step2Title": "Ersatzgerät",
-      "step2Desc": "Wir senden per Kurier ein Ersatzgerät und holen das defekte ab.",
+      "step2Desc": "Dauert die Reparatur voraussichtlich länger als 10 Werktage, stellen wir für die Reparaturdauer ein Leihgerät bereit.",
       "step3Title": "Reparatur",
       "step3Desc": "Wir reparieren Ihr Gerät in unserer eigenen Werkstatt.",
       "step4Title": "Rücksendung",
@@ -390,13 +400,13 @@
     "whatIsWarrantyDesc1": "Die Garantie ist eine verbindliche Zusage des Herstellers und Vertriebs, dass das Gerät während der Garantielaufzeit bei bestimmungsgemäßem Gebrauch störungsfrei arbeitet. Bei Fertigungs- oder Materialfehlern sind Reparatur, Teiltausch und - bei gerechtfertigtem Anlass - Austausch und Arbeitslohn kostenfrei.",
     "whatIsWarrantyDesc2": "Für jedes neue Gerät gewähren wir 12-24 Monate Garantie (die genaue Laufzeit steht auf dem Produktdatenblatt), gemäß den ungarischen Regierungsverordnungen 151/2003. (IX. 22.) und 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Unser Skinlab-Versprechen",
-    "commitmentDesc1": "Unser eigenes, ausgebildetes ungarisches Technikerteam und unsere Werkstatt sorgen dafür, dass Sie im Störungsfall nicht monatelang auf eine ausländische Reparatur warten müssen. Wir arbeiten mit Original-Ersatzteilen und stellen für die Reparaturdauer ein Ersatzgerät, damit Ihr Geschäft nicht stillsteht.",
+    "commitmentDesc1": "Unser eigenes, ausgebildetes ungarisches Technikerteam und unsere Werkstatt sorgen dafür, dass Sie im Störungsfall nicht monatelang auf eine ausländische Reparatur warten müssen. Wir arbeiten mit Original-Ersatzteilen und stellen bei Reparaturen über 10 Werktagen ein Ersatzgerät bereit, damit Ihr Geschäft nicht stillsteht.",
     "commitmentDesc2": "Auch nach dem Kauf sind wir an Ihrer Seite: Ferndiagnose, Telefonunterstützung und bei Bedarf Vor-Ort-Besuch sorgen für den dauerhaften Betrieb.",
     "contentTitle": "Was deckt die Garantie ab?",
     "contentDesc": "Die Herstellergarantie umfasst die folgenden Fälle, sofern der Defekt bei bestimmungsgemäßer Nutzung und unter Einhaltung der Bedienungsanleitung aufgetreten ist:",
     "point1": "Vollständige Reparatur von Fertigungs- und Materialfehlern.",
     "point2": "Austausch von Original-Werksteilen, einschließlich Arbeitslohn, kostenfrei.",
-    "point3": "Ersatzgeräteprogramm - während der Reparatur stellen wir ein kostenloses Ersatzgerät.",
+    "point3": "Ersatzgeräteprogramm - bei Reparaturen über 10 Werktagen stellen wir für die Reparaturdauer ein Leihgerät bereit, je nach Verfügbarkeit.",
     "point4": "Ferndiagnose und fachlicher Telefon-Support zur Fehlerbehebung.",
     "point5": "Vor-Ort-Service nach Bedarf, auf individuelle Vereinbarung.",
     "exclusionsTitle": "Was deckt die Garantie nicht ab?",
@@ -423,7 +433,8 @@
     "claimInfo4": "Name und Kontaktdaten der Ansprechperson.",
     "importantNote": "Versuchen Sie nicht, das Gerät selbst zu reparieren oder zu zerlegen - unbefugte Eingriffe führen zum Erlöschen der Garantie. Nehmen Sie das Gerät bei Fehlern vom Strom und kontaktieren Sie uns.",
     "ctaTitle": "Fragen zur Garantie?",
-    "ctaSubtitle": "Unser Expertenteam hilft gerne - rufen Sie uns an oder schreiben Sie eine E-Mail."
+    "ctaSubtitle": "Unser Expertenteam hilft gerne - rufen Sie uns an oder schreiben Sie eine E-Mail.",
+    "readMore": "Alle Details zur Garantie"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
@@ -453,7 +464,7 @@
       "q2": "Wie lange dauert eine Reparatur?",
       "a2": "Kleinere Defekte sind in 3–7 Werktagen behoben, größere Teiletausche dauern 10–20 Werktage. Die genaue Zeit bestätigen wir nach der Prüfung. Reparaturen führen unsere geschulten hauseigenen Techniker mit Originalteilen aus.",
       "q3": "Erhalte ich ein Ersatzgerät während der Reparatur?",
-      "a3": "Ja, auf Anfrage stellen wir ein Leihgerät zur Verfügung - innerhalb der Garantie kostenlos, sonst zu vergünstigten Konditionen - damit Ihr Betrieb während des Service weiterläuft.",
+      "a3": "Wenn die Reparatur laut Erstprüfung voraussichtlich länger als 10 Werktage dauert, stellen wir für die Reparaturdauer ein Leihgerät bereit (je nach Verfügbarkeit) - innerhalb der Garantie kostenlos, sonst zu vergünstigten Konditionen. Das Leihgerät ist nicht unbedingt dasselbe Modell, eignet sich aber zur Fortführung der Behandlungen.",
       "q4": "Was soll ich tun, wenn das Gerät einen Fehler anzeigt oder nicht startet?",
       "a4": "Zuerst ausschalten, vom Netz trennen, abkühlen lassen und neu starten. Bleibt der Fehler bestehen, erreichen Sie uns unter {phone} oder {email} - Ferndiagnose löst die meisten Probleme."
     },
@@ -577,7 +588,12 @@
     "role2": "PMU-Ausbilderin, Kosmetikerin",
     "role3": "Kosmetikerin",
     "role4": "PMU-Stylistin, Kosmetikerin",
-    "playLabel": "Video abspielen"
+    "playLabel": "Video abspielen",
+    "quote1": "Meine größte Empfehlung ist, dass ich seit Jahren mit ihnen arbeite – und wenn ich meinen Gerätepark heute neu aufbauen müsste, würde ich wieder Skinlab wählen.",
+    "quote2": "Ich finde, das Unternehmen, das sie vertreten, ist in Ungarn einzigartig, und ich kann sie wirklich von Herzen empfehlen.",
+    "quote3": "Skinlab steht für mich für Qualität und Zuverlässigkeit. Es ist ein gutes Gefühl, mit einem Partner zu arbeiten, der genauso an Qualität glaubt wie ich.",
+    "quote4": "Es gab noch nie etwas, bei dem sie mir nicht helfen konnten. Wenn ich eine Frage hatte, habe ich sie jederzeit erreicht.",
+    "watchFull": "Ganzes Video ansehen ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -903,5 +919,49 @@
     "requirements": "Teilnahmevoraussetzungen",
     "back": "Zurück zu den Schulungen",
     "signupHeading": "Jetzt anmelden: {name}"
+  },
+  "founderConsult": {
+    "badge": "Persönliche Hilfe",
+    "expertRole": "Skinlab-Gründer, technischer Experte",
+    "heading": {
+      "category": {
+        "pre": "Du weißt nicht,",
+        "highlight": "welches Gerät",
+        "post": "zu dir passt?"
+      },
+      "machine": {
+        "pre": "Nicht sicher, ob",
+        "highlight": "das das richtige Gerät",
+        "post": "für deinen Salon ist?"
+      },
+      "consumable": {
+        "pre": "Nicht sicher, ob",
+        "highlight": "das das richtige Produkt",
+        "post": "für deine Behandlungen ist?"
+      }
+    },
+    "scenario1": "Du kannst dich nicht entscheiden",
+    "scenario2": "Du möchtest genaue Infos zu den Geräten",
+    "scenario3": "Du möchtest die Kaufdetails besprechen",
+    "scenario4": "Du brauchst einfach einen guten Rat",
+    "bodyPre": "Was auch immer zutrifft –",
+    "bodyStrong": "wir helfen dir gerne.",
+    "bodyPost": "Ruf uns an oder fordere eine kostenlose Beratung an, und wir melden uns bei dir.",
+    "cta": "Kostenlose Beratung anfordern",
+    "phone": "Ruf uns an: {phone}",
+    "responseTime": "Wir rufen in der Regel innerhalb von 1 Werktag zurück."
+  },
+  "finance": {
+    "title": "Lohnt es sich? Rechnen wir nach.",
+    "subtitle": "Berechne mit deinen eigenen Zahlen, wann sich das Gerät amortisiert und wie hoch die Monatsrate wäre.",
+    "tabRoi": "Amortisation",
+    "tabInstallment": "Monatsrate"
+  },
+  "productComparison": {
+    "title": "Vergleiche unsere ähnlichen Geräte",
+    "subtitle": "Die wichtigsten Unterschiede auf einen Blick.",
+    "current": "Du siehst gerade",
+    "price": "Preis (brutto)",
+    "view": "Ansehen"
   }
 }

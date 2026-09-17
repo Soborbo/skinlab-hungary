@@ -61,24 +61,24 @@
       {
         "title": "Stabilna 1000W moč – profesionalna raven",
         "description": "1000W izhodne moči je popolnoma dovolj, da delate na profesionalni ravni in dosegate impresivne rezultate. Večina povprečnih diodnih laserjev deluje okoli 600W - 1000W je že raven višje, kar pomeni hitrejše in učinkovitejše delo.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Kaj to pomeni:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hitrejše delo</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Večja učinkovitost</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilnejše delovanje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Udobnejši tretmaji</div>\n</div>",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-1.png"
       },
       {
         "title": "4 valovne dolžine – za vsak tip kože",
         "description": "Kombinacija štirih različnih valovnih dolžin (755 / 808 / 940 / 1064 nm) z eno samo napravo zagotavlja široko prilagodljivost tretmajev - učinkovita pri vsakem tipu dlak in vsakem tonu kože.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-5.png"
       },
       {
         "title": "Pametna programska oprema – boginja modrosti",
         "description": "Ni vam treba ugotavljati, kateri tip kože in dlak se lahko obravnava s katero nastavitvijo. Pametna programska oprema ATHENA samodejno prepozna in optimizira parametre. Kot bi vas boginja držala za roko med delom.",
         "highlight": "Znanje je moč - še posebej, ko je samodejno.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-4.png"
       },
       {
         "title": "Stroškovno učinkovita, pametna naložba",
         "description": "ATHENA je stroj, ki ni pretiran, ampak pametno zgrajena naložba. Popolna izbira, če jo vključujete poleg druge storitve (kot kozmetičarka, kot dopolnilo nege kože), ali če ste varnostni igralec in želite predvidljivo delujoč sistem.",
         "highlight": "Strategija, ne tveganje.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-6.png"
       }
     ]
   },
@@ -166,6 +166,30 @@
     {
       "question": "Kaj je vključeno v ceno?",
       "answer": "Cena vključuje celovito usposabljanje upravljavca naprave, certifikat FAR, 2-letno garancijo in madžarsko navodilo za uporabo. Dobavni rok je 2-6 tednov. Za točno ceno zahtevajte posvet."
+    },
+    {
+      "question": "Koliko tretmajev je potrebnih za trajen rezultat?",
+      "answer": "Število tretmajev se razlikuje od stranke do stranke: odvisno je od tipa dlak in kože, od obravnavanega področja in od cikla rasti dlak. Laser deluje na folikle v fazi rasti, zato je potrebnih več obiskov, da je zajet vsak folikel. Pri povečani rasti dlak hormonskega izvora so lahko pozneje potrebni občasni vzdrževalni tretmaji – to se splača s strankami razjasniti vnaprej, saj tu nastane največ nesporazumov."
+    },
+    {
+      "question": "Kakšno napajanje potrebuje ATHENA?",
+      "answer": "Naprava deluje pri 110V in 220V, zato jo je mogoče priključiti na običajno salonsko omrežje. Namestitev in priklop pregledamo skupaj ob predaji in usposabljanju na kraju samem."
+    },
+    {
+      "question": "Zakaj je ročnik s safirnim kontaktnim hlajenjem udobnejši?",
+      "answer": "V ročniku pravi safirni kristal med tretmajem neposredno hladi površino kože, za njim pa deluje trostopenjsko hlajenje: TEC polprevodnik, voda in zrak. To zmanjša občutek toplote, poskrbi za enakomernejši prenos energije in ohranja napravo stabilno tudi med daljšimi serijami tretmajev – manj prisilnih premorov, hitrejše delo."
+    },
+    {
+      "question": "Kako dolgo traja dobava in od kdaj lahko z napravo delam?",
+      "answer": "Pričakovani dobavni rok je 2–6 tednov. Usposabljanje za upravljanje je vključeno v ceno naprave in je vezano na predajo: po enodnevnem intenzivnem tečaju izdamo potrdilo FAR. Usposabljanje torej ni ločen korak, ki bi ga morali organizirati sami."
+    },
+    {
+      "question": "Kaj se zgodi, če se naprava pokvari?",
+      "answer": "Popravilo opravi naša lastna servisna delavnica z originalnimi deli – ni treba tedne čakati na servis v tujini. Za napravo velja polna dveletna garancija. Če se pri predhodnem pregledu izkaže, da bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, odvisno od razpoložljivosti, da se vaše delo ne ustavi."
+    },
+    {
+      "question": "Ali je primerna za vse tipe kože?",
+      "answer": "ATHENA deluje na štirih valovnih dolžinah (755 / 808 / 940 / 1064 nm), njihova kombinacija pa omogoča obravnavo foliklov na različnih globinah ter svetlejših in temnejših tipov kože. Katera nastavitev je pri posamezni stranki prava – in kdaj se ne sme obravnavati – podrobno predelamo na usposabljanju za upravljanje: kontraindikacije in izbor strank so del programa tečaja."
     }
   ],
   "whatsIncluded": [

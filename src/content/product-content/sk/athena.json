@@ -61,24 +61,24 @@
       {
         "title": "Stabilný 1000W výkon – profesionálna úroveň",
         "description": "1000W výstupného výkonu je úplne dostatočné na to, aby ste pracovali na profesionálnej úrovni a dosahovali pôsobivé výsledky. Väčšina priemerných diódových laserov pracuje okolo 600W - 1000W je už o úroveň vyššie, znamená rýchlejšiu a efektívnejšiu prácu.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Čo to znamená:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rýchlejšia práca</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vyššia efektivita</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilnejšia prevádzka</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pohodlnejšie ošetrenia</div>\n</div>",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-1.png"
       },
       {
         "title": "4 vlnové dĺžky – pre každý typ pleti",
         "description": "Kombinácia štyroch rôznych vlnových dĺžok (755 / 808 / 940 / 1064 nm) zabezpečuje v jedinom prístroji širokú flexibilitu ošetrení - efektívna pre každý typ chĺpkov a každý tón pleti.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-5.png"
       },
       {
         "title": "Inteligentný softvér – bohyňa múdrosti",
         "description": "Nemusíte zisťovať, aký typ pleti a chĺpkov je možné ošetriť akým nastavením. Inteligentný softvér ATHENA automaticky rozpozná a optimalizuje parametre. Je to ako keby vás bohyňa držala za ruku počas práce.",
         "highlight": "Vedenie je moc - najmä keď je automatické.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-4.png"
       },
       {
         "title": "Nákladovo efektívna, chytrá investícia",
         "description": "ATHENA je stroj, ktorý nie je prehnaný, ale chytro vybudovaná investícia. Perfektná voľba, ak ju zaraďujete popri inej službe (ako kozmetička, ako doplnok starostlivosti o pleť), alebo ak ste opatrní hráči a chcete predvídateľne fungujúci systém.",
         "highlight": "Stratégia, nie riziko.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-6.png"
       }
     ]
   },
@@ -166,6 +166,30 @@
     {
       "question": "Čo je v cene?",
       "answer": "Cena zahŕňa kompletné školenie obsluhy prístroja, certifikát FAR, 2-ročnú záruku a maďarský návod na použitie. Dodacia lehota je 2-6 týždňov. Pre presnú cenu si vyžiadajte konzultáciu."
+    },
+    {
+      "question": "Koľko ošetrení je potrebných na trvalý výsledok?",
+      "answer": "Počet ošetrení je u každej klientky iný: závisí od typu chĺpkov a pokožky, od ošetrovanej oblasti a od cyklu rastu chĺpkov. Laser pôsobí na folikuly v rastovej fáze, preto je potrebných viac sedení, aby sa dostalo na každý folikul. Pri zvýšenom raste chĺpkov hormonálneho pôvodu môžu byť neskôr potrebné občasné udržiavacie ošetrenia – oplatí sa to s klientkami vyjasniť vopred, pretože práve tu vzniká najviac nedorozumení."
+    },
+    {
+      "question": "Aké napájanie potrebuje ATHENA?",
+      "answer": "Prístroj pracuje so 110V aj 220V, takže sa dá pripojiť na bežnú salónnu sieť. Inštaláciu a pripojenie prejdeme spoločne pri odovzdaní a zaškolení na mieste."
+    },
+    {
+      "question": "Čím je rukoväť so zafírovým kontaktným chladením pohodlnejšia?",
+      "answer": "V rukoväti chladí skutočný zafírový kryštál priamo povrch pokožky počas ošetrenia, za ním pracuje trojstupňové chladenie: TEC polovodič, voda a vzduch. Znižuje to pocit tepla u klientky, robí odovzdávanie energie rovnomernejším a udržuje prístroj stabilný aj pri dlhších sériách ošetrení – menej nútených prestávok, rýchlejšia práca."
+    },
+    {
+      "question": "Ako dlho trvá dodanie a odkedy s prístrojom môžem pracovať?",
+      "answer": "Predpokladaná dodacia lehota je 2–6 týždňov. Školenie obsluhy je súčasťou ceny prístroja a viaže sa na odovzdanie: po jednodňovom intenzívnom kurze vystavíme certifikát FAR. Zaškolenie teda nie je samostatný krok, ktorý by ste museli organizovať."
+    },
+    {
+      "question": "Čo sa stane, ak sa prístroj pokazí?",
+      "answer": "Opravu vykonáva naša vlastná servisná dielňa v Maďarsku s originálnymi dielmi – nie je potrebné týždne čakať na vzdialený servis. Na prístroj sa vzťahuje plná 2-ročná záruka. Ak z predbežnej kontroly vyplynie, že oprava bude pravdepodobne trvať dlhšie ako 10 pracovných dní, na čas opravy poskytneme náhradný prístroj v závislosti od dostupnosti, aby sa vaša práca nezastavila."
+    },
+    {
+      "question": "Dá sa použiť na každý typ pokožky?",
+      "answer": "ATHENA pracuje so štyrmi vlnovými dĺžkami (755 / 808 / 940 / 1064 nm) a ich kombinácia umožňuje ošetrenie folikulov v rôznych hĺbkach, ako aj svetlejších a tmavších typov pokožky. Ktoré nastavenie je pri konkrétnej klientke správne – a kedy sa ošetrovať nesmie – podrobne preberáme na školení obsluhy: kontraindikácie a výber klientok sú súčasťou osnovy kurzu."
     }
   ],
   "whatsIncluded": [

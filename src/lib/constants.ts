@@ -372,7 +372,7 @@ export const TRUST_BADGES = [
   {
     icon: 'wrench',
     title: 'Saját szerviz',
-    description: 'Azonnali javítás, cseregép',
+    description: 'Gyors javítás, cseregép-program',
   },
 ];
 

@@ -3,21 +3,29 @@
  * VideoDescription - YouTube video + description side-by-side section
  *
  * Two-column layout: YouTube facade (left) + heading + paragraphs (right).
- * Reuses the shared .video-facade click-to-load pattern from VideoDemo.astro.
+ * The video uses the shared click-to-load VideoFacade.
  */
 
 import type { Locale } from '@/i18n';
 import { t } from '@/i18n';
-import type { ProductContentVideoDescription } from '@/lib/types/product-content';
+import type { ProductContentVideoDescription, ProductContentStat } from '@/lib/types/product-content';
+import VideoFacade from '../video/VideoFacade.astro';
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import { hasImage } from '@/lib/resolve-image';
 
 interface Props {
   locale: Locale;
   videoUrl?: string;
   productName: string;
   content: ProductContentVideoDescription;
+  /** Videó hiányában ez a fotó jelenik meg a "videó hamarosan" doboz helyett. */
+  fallbackImage?: string;
+  /** Kulcsszámok a szöveg alatt (max. 3 jelenik meg). */
+  stats?: ProductContentStat[];
 }
 
-const { locale, videoUrl, productName, content } = Astro.props;
+const { locale, videoUrl, productName, content, fallbackImage, stats = [] } = Astro.props;
+const shownStats = stats.slice(0, 3);
 
 // Extract YouTube video ID
 const getVideoId = (url: string): string | null => {
@@ -33,37 +41,36 @@ const getVideoId = (url: string): string | null => {
 };
 
 const videoId = videoUrl ? getVideoId(videoUrl) : null;
+const photo = !videoId && fallbackImage && hasImage(fallbackImage) ? fallbackImage : null;
 ---
 
 <section class="py-12 lg:py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <!-- Left: Video -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg bg-gray-900 aspect-video">
-        {videoId ? (
-          <div
-            class="video-facade relative w-full h-full cursor-pointer group"
-            data-video-id={videoId}
-            data-video-title={`${productName} ${t(locale, 'product.videoDemo')}`}
-            role="button"
-            tabindex="0"
-            aria-label={t(locale, 'product.videoPlayLabel', { title: productName })}
-          >
-            <img
-              src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-              alt={t(locale, 'product.videoPlayLabel', { title: productName })}
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700">
-                <svg class="w-8 h-8 lg:w-10 lg:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-          </div>
+      <div class:list={[
+        'relative rounded-2xl overflow-hidden shadow-lg',
+        photo ? 'aspect-square bg-gray-100' : 'aspect-video bg-gray-900',
+      ]}>
+        {photo ? (
+          <OptimizedPicture
+            src={photo}
+            alt={productName}
+            widths={[480, 640, 828, 1080]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : videoId ? (
+          <VideoFacade
+            videoId={videoId}
+            title={`${productName} ${t(locale, 'product.videoDemo')}`}
+            alt={t(locale, 'product.videoPlayLabel', { title: productName })}
+            playLabel={t(locale, 'product.videoPlayLabel', { title: productName })}
+            poster="landscape"
+            playSize="lg"
+            class="w-full h-full"
+          />
         ) : (
           <div class="w-full h-full bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
             <div class="text-center p-8">
@@ -86,6 +93,19 @@ const videoId = videoUrl ? getVideoId(videoUrl) : null;
             <p>{paragraph}</p>
           ))}
         </div>
+        {shownStats.length > 0 && (
+          <dl class="mt-8 grid grid-cols-3 gap-4">
+            {shownStats.map((stat) => (
+              <div class="border-t-2 border-primary-500 pt-3">
+                <dt class="sr-only">{stat.label}</dt>
+                <dd class="text-2xl lg:text-3xl font-extrabold text-gray-900 leading-none">
+                  {stat.value}{stat.unit && <span class="text-lg lg:text-xl font-bold">{stat.unit}</span>}
+                </dd>
+                <dd class="mt-1.5 text-sm text-gray-600 leading-snug" aria-hidden="true">{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </div>
     </div>
   </div>

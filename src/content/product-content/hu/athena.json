@@ -62,12 +62,12 @@
       {
         "title": "Stabil 1000W teljesítmény – professzionális szint",
         "description": "Az 1000W kimeneti teljesítmény bőven elegendő ahhoz, hogy professzionális szinten dolgozz és látványos eredményeket érj el. Az átlag diódalézerek többsége 600W körül működik - a 1000W már egy szinttel feljebb van, gyorsabb és hatékonyabb munkavégzést jelent.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Mit jelent ez:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Gyorsabb munkavégzés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Nagyobb hatékonyság</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilabb működés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kényelmesebb kezelések</div>\n</div>",
-        "image": "@assets/products/athena-2.png"
+        "image": "@assets/products/athena-1.png"
       },
       {
         "title": "4 hullámhossz – minden bőrtípusra",
         "description": "A négy különböző hullámhossz (755 / 808 / 940 / 1064 nm) kombinációja egyetlen készülékkel biztosít széles körű kezelési rugalmasságot - minden szőrtípuson és minden bőrtónuson hatékony.",
-        "image": "@assets/products/athena-3.png"
+        "image": "@assets/products/athena-5.png"
       },
       {
         "title": "Okos szoftver – a bölcsesség istennője",
@@ -79,7 +79,7 @@
         "title": "Költséghatékony, okos befektetés",
         "description": "Az ATHENA olyan gép, ami nem túlzás, hanem okosan felépített befektetés. Tökéletes választás, ha más szolgáltatás mellé építed be (kozmetikusként, bőrápolás kiegészítőjeként), vagy ha biztonsági játékos vagy és kiszámíthatóan működő rendszert szeretnél.",
         "highlight": "Stratégia, nem kockázat.",
-        "image": "@assets/products/athena-5.png"
+        "image": "@assets/products/athena-6.png"
       }
     ]
   },
@@ -167,6 +167,34 @@
     {
       "question": "Mi van benne az árban?",
       "answer": "Az ár tartalmazza a teljes körű gépkezelői oktatást, FAR tanúsítványt, 2 év garanciát, és a magyar nyelvű használati útmutatót. A szállítási idő 2-6 hét. A pontos árért kérj konzultációt."
+    },
+    {
+      "question": "Hány kezelés kell a tartós eredményhez?",
+      "answer": "A kezelésszám vendégenként eltér: befolyásolja a szőr- és bőrtípus, a kezelt terület és a szőrnövekedési ciklus. A lézer a növekedési fázisban lévő szőrtüszőkre hat, ezért több alkalom kell ahhoz, hogy minden tüsző sorra kerüljön. Hormonális eredetű fokozott szőrnövekedésnél később időszakos fenntartó kezelés is szükséges lehet – ezt érdemes a vendégekkel előre tisztázni, mert ebből származik a legtöbb félreértés."
+    },
+    {
+      "question": "Milyen áramellátás kell az ATHENA-hoz?",
+      "answer": "A készülék 110V és 220V tápfeszültséggel is üzemel, így a szokásos szalonhálózatra köthető. A telepítést és a csatlakoztatást az átadáskor, a helyszíni betanítás során közösen nézzük át."
+    },
+    {
+      "question": "Mitől kényelmesebb a zafír kontakthűtéses kezelőfej?",
+      "answer": "A kezelőfejben valódi zafírkristály hűti közvetlenül a bőrfelszínt kezelés közben, mögötte pedig háromlépcsős hűtés dolgozik: TEC félvezető, víz és levegő. Ez csökkenti a hőérzetet a vendégnél, egyenletesebbé teszi az energiaátadást, és hosszabb kezeléssorozat alatt is stabilan tartja a gépet – kevesebb kényszerszünet, gyorsabb munkavégzés."
+    },
+    {
+      "question": "Lehet részletre venni az ATHENA-t?",
+      "answer": "Igen. Vásárláskor 50% előleget kell fizetni, a fennmaradó összeget pedig 3 vagy 6 hónapra oszthatod el – 1 és 3 millió forint közötti gépértéknél ez a két futamidő érhető el. Ha több gépet veszel egyszerre, hosszabb futamidő is szóba jöhet. A pontos előleget és havi részletet a terméklapon lévő kalkulátorban ki tudod számolni."
+    },
+    {
+      "question": "Mennyi idő, amíg megérkezik a gép, és mikortól tudok vele dolgozni?",
+      "answer": "A várható szállítási idő 2–6 hét. A gépkezelői oktatás a készülék árában van, és az átadáshoz kapcsolódik: az egynapos intenzív képzés után FAR tanúsítványt állítunk ki. A betanítás tehát nem egy külön megszervezendő plusz lépés, hanem a folyamat része."
+    },
+    {
+      "question": "Mi történik, ha meghibásodik a gép?",
+      "answer": "A javítást saját, magyarországi szervizműhelyünk végzi, eredeti alkatrészekkel – nem kell külföldi szervizre hetekig várni. A készülékre 2 év teljes körű garancia vonatkozik. Ha az előzetes bevizsgálás alapján a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében, hogy ne álljon a munkád."
+    },
+    {
+      "question": "Minden bőrtípuson használható?",
+      "answer": "Az ATHENA négy hullámhosszon dolgozik (755 / 808 / 940 / 1064 nm), és ezek kombinációja különböző mélységben lévő szőrtüszők, valamint világosabb és sötétebb bőrtípusok kezelését is lehetővé teszi. Hogy adott vendégnél melyik beállítás a helyes – és mikor nem szabad kezelni –, azt a gépkezelői oktatáson részletesen átvesszük: a kontraindikációk és a vendégkiválasztás a képzés tematikájának része."
     }
   ],
   "whatsIncluded": [
@@ -176,6 +204,10 @@
     "Magyar nyelvű használati útmutató",
     "Gépkezelői oktatás (FAR tanúsítvány)",
     "2 év teljes körű garancia",
-    "Cseregép javítás idejére"
-  ]
+    "Cseregép-program hosszabb javítás esetére"
+  ],
+  "ownerStory": {
+    "ownerName": "Mila Derma",
+    "intro": "A Mila Derma stúdióban nem a kiszállítással ért véget a munka: a készüléket a helyszínen állítottuk össze, és ott tartottuk meg a gépkezelői betanítást is – a paraméterezéstől a karbantartásig. Az alábbi képek erről az átadásról készültek."
+  }
 }

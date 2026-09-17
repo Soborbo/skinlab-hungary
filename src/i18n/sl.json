@@ -63,7 +63,7 @@
     "training": "FAR certifikat",
     "trainingDesc": "Uradno usposabljanje operaterjev",
     "service": "Lasten servis",
-    "serviceDesc": "Takojsnje popravilo, nadomestna naprava"
+    "serviceDesc": "Hitro popravilo, program nadomestne naprave"
   },
   "brands": {
     "title": "Naše blagovne znamke",
@@ -111,7 +111,7 @@
     "relatedProducts": "Sorodni izdelki",
     "whatsIncluded": "Kaj je vkljuceno?",
     "warranty": "Garancija in servis",
-    "warrantyInfo": "2-letna polna garancija, nadomestna naprava med popravilom",
+    "warrantyInfo": "2-letna polna garancija + program nadomestne naprave",
     "videoDemo": "Video predstavitev",
     "specsTitle": "Tehnične specifikacije",
     "specsSubtitle": "Podrobni tehnični podatki za {productName}",
@@ -139,7 +139,17 @@
     "videoPlaceholder": "Demo video kmalu",
     "videoPlayLabel": "Predvajaj video: {title} predstavitev",
     "trainingTitle": "Usposabljanje operaterjev",
-    "trainingContent": "Usposabljanje vključuje:"
+    "trainingContent": "Usposabljanje vključuje:",
+    "galleryTitle": "Galerija",
+    "allPhotos": "Vseh {count} fotografij",
+    "moreImages": "+{count} fotografij",
+    "zoomImage": "{alt} – povečaj",
+    "imageViewer": "Pregledovalnik slik",
+    "prevImage": "Prejšnja slika",
+    "nextImage": "Naslednja slika",
+    "installmentLinePre": "Na obroke:",
+    "installmentLine": "{down} predplačilo + {months} × {monthly}",
+    "installmentCalc": "Izračunajte ↓"
   },
   "form": {
     "name": "Ime",
@@ -272,7 +282,7 @@
     "foundersTitle": "Ustanovitelji",
     "founder": {
       "technical": "Tehnični strokovnjak",
-      "technicalBio": "Že od najstniških let sem popravljal in tuniral avtomobile – svet strojev mi je bil vedno blizu. Ta praktični, inženirski pristop opredeljuje tudi moje delo pri Skinlabu: moja odgovornost je, da vsaka naprava prispe do naših strank v brezhibnem tehničnem stanju. Če se pojavi težava, jo rešimo interno, hitro in strokovno – z nadomestno napravo za čas popravila. Laserska tehnologija je v teh letih postala moja specialnost in z gotovostjo lahko rečem, da ni okvare, s katero se še ne bi srečal. Ta izkušnja daje našim strankam pravi mir, saj vedo, da je njihova naprava v dobrih rokah.",
+      "technicalBio": "Že od najstniških let sem popravljal in tuniral avtomobile – svet strojev mi je bil vedno blizu. Ta praktični, inženirski pristop opredeljuje tudi moje delo pri Skinlabu: moja odgovornost je, da vsaka naprava prispe do naših strank v brezhibnem tehničnem stanju. Če se pojavi težava, jo rešimo interno, hitro in strokovno – pri daljših popravilih z nadomestno napravo. Laserska tehnologija je v teh letih postala moja specialnost in z gotovostjo lahko rečem, da ni okvare, s katero se še ne bi srečal. Ta izkušnja daje našim strankam pravi mir, saj vedo, da je njihova naprava v dobrih rokah.",
       "treatment": "Strokovnjakinja za tretmaje",
       "treatmentBio": "Prihajam iz zdravniške družine in lepotna industrija me je privlačila že od malega. Medicinsko okolje me je naučilo pomembno stvar: tretmaji morajo temeljiti na enako strogih strokovnih temeljih kot medicina. Ni dovolj, da nekaj deluje – biti mora tudi varno. Zame je najpomembnejše, da nastajajo ne le lepi, temveč tudi zdravi rezultati, in da nikoli ne prekoračimo meja strokovne kompetence. To filozofijo vnašamo v vsako posvetovanje in priporočilo izdelkov, saj ponujamo le tisto, za čimer v celoti stojimo."
     },
@@ -286,7 +296,7 @@
     "benefit4Title": "Brezplacno usposabljanje",
     "benefit4Desc": "4-6 ur osebnega usposabljanja + FAR certifikat vkljucena v ceno.",
     "benefit5Title": "Lasten servis",
-    "benefit5Desc": "Lokalni servisni center, nadomestna naprava med popravilom.",
+    "benefit5Desc": "Lokalni servisni center, program nadomestne naprave pri daljših popravilih.",
     "benefit6Title": "Trajna podpora",
     "benefit6Desc": "Po nakupu vas ne pustimo samih. Poklicite nas kadarkoli.",
     "companyInfoTitle": "Podatki o podjetju",
@@ -354,7 +364,7 @@
     "features": {
       "fullWarranty": "Pokriva vse dele in delo – dvakratnik industrijskega standarda.",
       "replacementDevice": "Program nadomestne naprave",
-      "replacementDeviceDesc": "Med popravilom zagotavljamo brezplačno nadomestno napravo, da vaš posel ne stoji.",
+      "replacementDeviceDesc": "Če bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo (glede na razpoložljivost), da vaš posel ne stoji.",
       "ownWorkshop": "Lastna servisna delavnica",
       "ownWorkshopDesc": "Popravila na Madžarskem – ni treba čakati mesecev na tuji servis.",
       "fastRepair": "Hitro popravilo",
@@ -365,7 +375,7 @@
       "step1Title": "Prijava okvare",
       "step1Desc": "Pokličite nas ali pošljite e-pošto z opisom okvare.",
       "step2Title": "Nadomestna naprava",
-      "step2Desc": "S kurirjem pošljemo nadomestno napravo in prevzamemo okvarjeno.",
+      "step2Desc": "Če bo popravilo trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo.",
       "step3Title": "Popravilo",
       "step3Desc": "Napravo popravimo v naši lastni delavnici.",
       "step4Title": "Vračilo",
@@ -390,13 +400,13 @@
     "whatIsWarrantyDesc1": "Garancija je zavezujoča izjava proizvajalca in distributerja, da bo naprava pri namenski uporabi med garancijskim obdobjem delovala brez napak. V primeru proizvodnih ali materialnih napak so popravilo, zamenjava dela in - v upravičenih primerih - zamenjava naprave ter delo brezplačni.",
     "whatIsWarrantyDesc2": "Za vsako novo napravo nudimo 12-24 mesecev garancije (natančen rok je naveden na listu izdelka), v skladu z madžarskima vladnima uredbama 151/2003. (IX. 22.) in 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Naša Skinlab zaveza",
-    "commitmentDesc1": "Lastna, usposobljena madžarska ekipa tehnikov in delavnica zagotavljata, da vam v primeru okvare ni treba mesece čakati na popravilo v tujini. Delamo z originalnimi tovarniškimi deli in med popravilom zagotavljamo nadomestno napravo, da vaše poslovanje ne zastane.",
+    "commitmentDesc1": "Lastna, usposobljena madžarska ekipa tehnikov in delavnica zagotavljata, da vam v primeru okvare ni treba mesece čakati na popravilo v tujini. Delamo z originalnimi tovarniškimi deli in pri popravilih, daljših od 10 delovnih dni, zagotovimo nadomestno napravo, da vaše poslovanje ne zastane.",
     "commitmentDesc2": "Z vami smo tudi po nakupu: diagnostika na daljavo, telefonska podpora in po potrebi obisk na terenu zagotavljajo neprekinjeno delovanje.",
     "contentTitle": "Kaj krije garancija?",
     "contentDesc": "Proizvajalska garancija zajema naslednje primere, pod pogojem, da je napaka nastala pri običajni uporabi in ob upoštevanju navodil za uporabo:",
     "point1": "Popolno popravilo proizvodnih in materialnih napak.",
     "point2": "Zamenjava originalnih tovarniških delov vključno z delom, brezplačno.",
-    "point3": "Program nadomestne naprave - med popravilom zagotovimo brezplačno nadomestno napravo.",
+    "point3": "Program nadomestne naprave - pri popravilih, daljših od 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, glede na razpoložljivost.",
     "point4": "Diagnostika na daljavo in strokovna telefonska podpora za odpravljanje napak.",
     "point5": "Po potrebi obisk tehnika na terenu, po individualnem dogovoru.",
     "exclusionsTitle": "Česa garancija ne krije?",
@@ -423,7 +433,8 @@
     "claimInfo4": "Ime in kontaktni podatki kontaktne osebe.",
     "importantNote": "Naprave ne poskušajte sami popravljati ali razstaviti - nepooblaščen poseg pomeni izgubo garancije. Ob zaznani napaki napravo izklopite iz omrežja in nas kontaktirajte.",
     "ctaTitle": "Imate vprašanja o garanciji?",
-    "ctaSubtitle": "Naša strokovna ekipa z veseljem pomaga - pokličite ali pošljite e-pošto."
+    "ctaSubtitle": "Naša strokovna ekipa z veseljem pomaga - pokličite ali pošljite e-pošto.",
+    "readMore": "Vse podrobnosti o garanciji"
   },
   "faq": {
     "title": "Pogosto zastavljena vprašanja",
@@ -453,7 +464,7 @@
       "q2": "Kako dolgo traja popravilo?",
       "a2": "Manjše napake odpravimo v 3–7 delovnih dneh, pri večji zamenjavi delov 10–20 delovnih dni. Natančen čas potrdimo po pregledu. Popravila izvedejo naši interno usposobljeni tehniki z originalnimi deli.",
       "q3": "Ali dobim nadomestno napravo med popravilom?",
-      "a3": "Da, na zahtevo zagotovimo nadomestno napravo - v garancijskem roku brezplačno, izven garancije po ugodnih pogojih - da vaše poslovanje med servisom poteka neprekinjeno.",
+      "a3": "Če bo popravilo po predhodnem pregledu predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo (glede na razpoložljivost) - v garancijskem roku brezplačno, izven garancije pod ugodnimi pogoji. Nadomestna naprava ni nujno isti model, je pa primerna za nadaljevanje tretmajev.",
       "q4": "Kaj naj storim, če naprava javi napako ali se ne vklopi?",
       "a4": "Najprej jo izklopite, izključite iz omrežja, pustite ohladiti in ponovno vklopite. Če napaka ostaja, nas pokličite na {phone} ali nam pišite na {email} - oddaljena diagnostika reši večino težav."
     },
@@ -500,7 +511,7 @@
     "training": "Popolno usposabljanje",
     "trainingDesc": "4-6 ur osebnega usposabljanja + FAR certifikat + video materiali. Ne pustimo vas, dokler naprave ne uporabljate samozavestno.",
     "warranty": "2 leti garancije, lokalni servis",
-    "warrantyDesc": "Ni tednov cakanja na tuj servis. Odzovemo se v 24 urah in po potrebi zagotovimo nadomestno napravo.",
+    "warrantyDesc": "Ni tednov cakanja na tuj servis. Odzovemo se v 24 urah in pri popravilih, daljših od 10 delovnih dni, zagotovimo nadomestno napravo.",
     "financing": "Financiranje, lizing",
     "financingDesc": "Od ~250 EUR/mesec. Ni vam treba placati vsega naenkrat - prihodki naprave placajo obroke.",
     "consulting": "Poslovno svetovanje",
@@ -577,7 +588,12 @@
     "role2": "PMU predavateljica, kozmetičarka",
     "role3": "kozmetičarka",
     "role4": "PMU mojstrica, kozmetičarka",
-    "playLabel": "Predvajaj video"
+    "playLabel": "Predvajaj video",
+    "quote1": "Moje največje priporočilo je, da z njimi delam že leta, in če bi morala danes na novo sestaviti svoj nabor naprav, bi spet izbrala Skinlab.",
+    "quote2": "Mislim, da je podjetje, ki ga zastopajo, na Madžarskem edinstveno, in iskreno jih lahko toplo priporočim.",
+    "quote3": "Skinlab je zame sinonim za kakovost in zanesljivost. Lepo je delati s partnerjem, ki verjame v kakovost enako kot jaz.",
+    "quote4": "Še nikoli se ni zgodilo, da mi pri čem ne bi mogli pomagati. Ko sem imela vprašanje, sem jih vedno lahko dosegla.",
+    "watchFull": "Oglejte si celoten video ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -903,5 +919,49 @@
     "requirements": "Pogoji za udeležbo",
     "back": "Nazaj na usposabljanja",
     "signupHeading": "Prijavite se: {name}"
+  },
+  "founderConsult": {
+    "badge": "Osebna pomoč",
+    "expertRole": "Ustanovitelj Skinlaba, tehnični strokovnjak",
+    "heading": {
+      "category": {
+        "pre": "Ne veste,",
+        "highlight": "katera naprava",
+        "post": "je prava za vas?"
+      },
+      "machine": {
+        "pre": "Niste prepričani, ali je",
+        "highlight": "to prava naprava",
+        "post": "za vaš salon?"
+      },
+      "consumable": {
+        "pre": "Niste prepričani, ali je",
+        "highlight": "to pravi izdelek",
+        "post": "za vaše tretmaje?"
+      }
+    },
+    "scenario1": "Ne veste, katero izbrati",
+    "scenario2": "Želite natančne informacije o napravah",
+    "scenario3": "Radi bi se pogovorili o nakupu",
+    "scenario4": "Potrebujete le dober nasvet",
+    "bodyPre": "Karkoli od tega velja –",
+    "bodyStrong": "z veseljem vam pomagamo.",
+    "bodyPost": "Pokličite nas ali zaprosite za brezplačen posvet in oglasili se vam bomo.",
+    "cta": "Zaprosite za brezplačen posvet",
+    "phone": "Pokličite: {phone}",
+    "responseTime": "Običajno vas pokličemo v 1 delovnem dnevu."
+  },
+  "finance": {
+    "title": "Se splača? Izračunajmo.",
+    "subtitle": "Izračunajte s svojimi podatki, kdaj se naprava povrne in koliko bi znašal mesečni obrok.",
+    "tabRoi": "Povračilo naložbe",
+    "tabInstallment": "Mesečni obrok"
+  },
+  "productComparison": {
+    "title": "Primerjajte naše podobne naprave",
+    "subtitle": "Najpomembnejše razlike na prvi pogled.",
+    "current": "Pravkar si ogledujete",
+    "price": "Cena (z DDV)",
+    "view": "Poglej"
   }
 }

@@ -52,7 +52,7 @@ for (const ns of config.previews?.kv_namespaces ?? []) {
 const TRACKING_VARS = {
   SITE_URL: 'https://skinlabhungary.hu',
   TRACKING_TEST_LEAD_EMAIL: 'tracking-smoke@skinlabhungary.hu',
-  TRACKING_TEST_EVENT_CODE: 'TEST43137',
+  TRACKING_TEST_EVENT_CODE: 'TEST25273',
 };
 
 config.vars = config.vars ?? {};

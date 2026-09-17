@@ -91,6 +91,16 @@ export interface ProductContentVideoDescription {
   paragraphs: string[];
 }
 
+/**
+ * Az átadás/betanítás fotógaléria kísérőszövege. A fotók MAGUK mappa-vezéreltek
+ * (`src/assets/tulajdonosok/{slug}/`); ez a blokk csak a nevet és a bevezetőt
+ * adja hozzá. `ownerName` CSAK akkor kerüljön ki, ha a vevő hozzájárult.
+ */
+export interface ProductContentOwnerStory {
+  ownerName?: string;
+  intro?: string;
+}
+
 export interface ProductContent {
   name: string;
   shortDescription: string;
@@ -105,6 +115,7 @@ export interface ProductContent {
   training?: ProductContentTraining;
   testimonials?: ProductContentTestimonial[];
   expertQuote?: ProductContentExpertQuote;
+  ownerStory?: ProductContentOwnerStory;
   specs?: Record<string, string>;
   functionCards?: ProductContentFunctionCard[];
   faq?: ProductContentFAQItem[];

@@ -61,24 +61,24 @@
       {
         "title": "Stabile 1000W Leistung – professionelles Niveau",
         "description": "1000W Ausgangsleistung sind absolut ausreichend, um auf professionellem Niveau zu arbeiten und beeindruckende Ergebnisse zu erzielen. Die meisten durchschnittlichen Diodenlaser arbeiten mit ca. 600W - 1000W ist bereits eine Stufe höher und bedeutet schnelleres und effizienteres Arbeiten.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Was das bedeutet:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Schnelleres Arbeiten</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Höhere Effizienz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilerer Betrieb</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Komfortablere Behandlungen</div>\n</div>",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-1.png"
       },
       {
         "title": "4 Wellenlängen – für jeden Hauttyp",
         "description": "Die Kombination der vier verschiedenen Wellenlängen (755 / 808 / 940 / 1064 nm) bietet in einem einzigen Gerät umfassende Behandlungsflexibilität - effektiv bei jedem Haartyp und jedem Hautton.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-5.png"
       },
       {
         "title": "Intelligente Software – die Göttin der Weisheit",
         "description": "Sie müssen nicht selbst feststellen, welcher Haut- und Haartyp mit welcher Einstellung behandelt werden kann. Die intelligente Software von ATHENA erkennt und optimiert die Parameter automatisch. Es ist, als würde eine Göttin Ihre Hand während der Arbeit halten.",
         "highlight": "Wissen ist Macht - besonders wenn es automatisch ist.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-4.png"
       },
       {
         "title": "Kosteneffizient, kluge Investition",
         "description": "ATHENA ist ein Gerät, das nicht übertrieben ist, sondern eine clever aufgebaute Investition. Eine perfekte Wahl, wenn Sie es neben anderen Dienstleistungen einsetzen (als Kosmetikerin, als Ergänzung zur Hautpflege), oder wenn Sie auf Sicherheit setzen und ein vorhersehbar funktionierendes System wünschen.",
         "highlight": "Strategie, kein Risiko.",
-        "image": "/images/placeholder.jpg"
+        "image": "@assets/products/athena-6.png"
       }
     ]
   },
@@ -166,6 +166,30 @@
     {
       "question": "Was ist im Preis enthalten?",
       "answer": "Im Preis sind die umfassende Bedienerschulung, das FAR-Zertifikat, 2 Jahre Garantie und das ungarische Benutzerhandbuch enthalten. Die Lieferzeit beträgt 2-6 Wochen. Für den genauen Preis fordern Sie eine Beratung an."
+    },
+    {
+      "question": "Wie viele Behandlungen sind für ein dauerhaftes Ergebnis nötig?",
+      "answer": "Die Anzahl der Behandlungen ist von Kundin zu Kundin verschieden: Haar- und Hauttyp, die behandelte Zone und der Haarwachstumszyklus spielen hinein. Der Laser wirkt auf Follikel in der Wachstumsphase, deshalb sind mehrere Sitzungen nötig, damit jeder Follikel erfasst wird. Bei hormonell bedingtem verstärktem Haarwuchs können später gelegentliche Erhaltungsbehandlungen nötig sein – das sollte mit den Kundinnen vorab geklärt werden, denn hier entstehen die meisten Missverständnisse."
+    },
+    {
+      "question": "Welche Stromversorgung benötigt die ATHENA?",
+      "answer": "Das Gerät arbeitet mit 110V und 220V und lässt sich damit an das übliche Salonnetz anschließen. Installation und Anschluss gehen wir bei der Übergabe und der Einschulung vor Ort gemeinsam durch."
+    },
+    {
+      "question": "Warum ist der Handgriff mit Saphir-Kontaktkühlung angenehmer?",
+      "answer": "Im Handgriff kühlt ein echter Saphirkristall die Hautoberfläche direkt während der Behandlung, dahinter arbeitet eine dreistufige Kühlung: TEC-Halbleiter, Wasser und Luft. Das senkt das Wärmeempfinden, macht die Energieabgabe gleichmäßiger und hält das Gerät auch bei längeren Behandlungsserien stabil – weniger Zwangspausen, schnelleres Arbeiten."
+    },
+    {
+      "question": "Wie lange dauert die Lieferung, und ab wann kann ich damit arbeiten?",
+      "answer": "Die voraussichtliche Lieferzeit beträgt 2–6 Wochen. Die Geräteschulung ist im Preis enthalten und an die Übergabe gekoppelt: Nach dem eintägigen Intensivkurs stellen wir ein FAR-Zertifikat aus. Die Einschulung ist damit Teil des Ablaufs und kein separat zu organisierender Schritt."
+    },
+    {
+      "question": "Was passiert, wenn das Gerät ausfällt?",
+      "answer": "Die Reparatur übernimmt unsere eigene Werkstatt in Ungarn mit Originalteilen – kein wochenlanges Warten auf einen Servicepartner im Ausland. Für das Gerät gilt eine volle Garantie von 2 Jahren. Wenn die Vorprüfung ergibt, dass die Reparatur voraussichtlich länger als 10 Arbeitstage dauert, stellen wir für die Dauer der Reparatur ein Ersatzgerät bereit, abhängig vom verfügbaren Bestand, damit Ihre Arbeit nicht stillsteht."
+    },
+    {
+      "question": "Ist es für jeden Hauttyp geeignet?",
+      "answer": "Die ATHENA arbeitet mit vier Wellenlängen (755 / 808 / 940 / 1064 nm); deren Kombination ermöglicht die Behandlung unterschiedlich tief liegender Follikel sowie hellerer und dunklerer Hauttypen. Welche Einstellung bei welcher Kundin richtig ist – und wann nicht behandelt werden darf –, wird in der Geräteschulung ausführlich besprochen: Kontraindikationen und Kundenauswahl sind Teil des Lehrplans."
     }
   ],
   "whatsIncluded": [

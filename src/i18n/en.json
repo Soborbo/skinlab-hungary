@@ -63,7 +63,7 @@
     "training": "FAR Certificate",
     "trainingDesc": "Official operator training",
     "service": "In-house Service",
-    "serviceDesc": "Immediate repair, loaner device"
+    "serviceDesc": "Fast repair, replacement device program"
   },
   "brands": {
     "title": "Our Brands",
@@ -111,7 +111,7 @@
     "relatedProducts": "Related Products",
     "whatsIncluded": "What's Included?",
     "warranty": "Warranty & Service",
-    "warrantyInfo": "2-year full warranty, loaner device during repairs",
+    "warrantyInfo": "2-year full warranty + replacement device program",
     "videoDemo": "Video Demo",
     "specsTitle": "Technical Specifications",
     "specsSubtitle": "Detailed technical data of the {productName}",
@@ -139,7 +139,17 @@
     "videoPlaceholder": "Demo video coming soon",
     "videoPlayLabel": "Play video: {title} demo",
     "trainingTitle": "Operator Training",
-    "trainingContent": "Training includes:"
+    "trainingContent": "Training includes:",
+    "galleryTitle": "Gallery",
+    "allPhotos": "All {count} photos",
+    "moreImages": "+{count} photos",
+    "zoomImage": "{alt} – zoom",
+    "imageViewer": "Image viewer",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "installmentLinePre": "In instalments:",
+    "installmentLine": "{down} deposit + {months} × {monthly}",
+    "installmentCalc": "Calculate ↓"
   },
   "form": {
     "name": "Name",
@@ -272,7 +282,7 @@
     "foundersTitle": "Founders",
     "founder": {
       "technical": "Technical Lead, Service",
-      "technicalBio": "I've been taking apart and tuning cars since I was a teenager, so the world of machines has always been second nature to me. That hands-on, engineering mindset defines my work at Skinlab too: I'm responsible for making sure every device reaches our clients in flawless technical condition. If any issue comes up, we handle it in-house, quickly and professionally, with a loaner device for the duration of the repair. Laser technology has become my specialty over the years, and I can confidently say there's no malfunction I haven't encountered before. That kind of experience gives our clients real peace of mind, because they know their equipment is in safe hands.",
+      "technicalBio": "I've been taking apart and tuning cars since I was a teenager, so the world of machines has always been second nature to me. That hands-on, engineering mindset defines my work at Skinlab too: I'm responsible for making sure every device reaches our clients in flawless technical condition. If any issue comes up, we handle it in-house, quickly and professionally, with a loaner device for longer repairs. Laser technology has become my specialty over the years, and I can confidently say there's no malfunction I haven't encountered before. That kind of experience gives our clients real peace of mind, because they know their equipment is in safe hands.",
       "treatment": "Treatment Expert, Co-founder",
       "treatmentBio": "I come from a medical family, and the beauty industry has fascinated me since I was very young. My medical background, however, taught me something essential: treatments must meet the same rigorous standards as medicine itself. It's not enough for something to work, it has to be safe. What matters most to me is that results are not only beautiful but also healthy, and that we never cross the boundaries of professional competence. We bring this philosophy into every consultation and product recommendation, because we only offer what we can stand behind with full confidence."
     },
@@ -286,7 +296,7 @@
     "benefit4Title": "Free Training",
     "benefit4Desc": "4-6 hours of personal training + FAR certificate included in the price.",
     "benefit5Title": "In-house Service",
-    "benefit5Desc": "Local service center, loaner device during repairs.",
+    "benefit5Desc": "Local service center, replacement device program for longer repairs.",
     "benefit6Title": "Ongoing Support",
     "benefit6Desc": "We don't leave you alone after purchase. Call us anytime.",
     "companyInfoTitle": "Company Information",
@@ -354,7 +364,7 @@
     "features": {
       "fullWarranty": "Covers all parts and labor – double the industry standard.",
       "replacementDevice": "Replacement Device Program",
-      "replacementDeviceDesc": "We provide a free loaner device during repairs so your business keeps running.",
+      "replacementDeviceDesc": "If the repair is expected to take more than 10 business days, we provide a loaner device for the duration of the repair, subject to availability, so your business keeps running.",
       "ownWorkshop": "In-house Service Workshop",
       "ownWorkshopDesc": "Repairs in Hungary – no waiting months for foreign service.",
       "fastRepair": "Fast Repair",
@@ -365,7 +375,7 @@
       "step1Title": "Report Issue",
       "step1Desc": "Call us or send an email describing the problem.",
       "step2Title": "Replacement Device",
-      "step2Desc": "We send a replacement via courier and collect the faulty one.",
+      "step2Desc": "If the repair is expected to take more than 10 business days, we provide a loaner device for the duration of the repair.",
       "step3Title": "Repair",
       "step3Desc": "We fix your device in our own workshop.",
       "step4Title": "Return",
@@ -390,13 +400,13 @@
     "whatIsWarrantyDesc1": "A warranty is a binding commitment by the manufacturer and distributor that the device will operate without failure under intended use during the warranty period. In case of manufacturing or material defects, repair, part replacement and - where justified - replacement and labor are free of charge.",
     "whatIsWarrantyDesc2": "We provide 12-24 months of warranty on every new device (exact duration is on the product sheet), in line with Hungarian government decrees 151/2003. (IX. 22.) and 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Our Skinlab commitment",
-    "commitmentDesc1": "Our own trained Hungarian technician team and workshop ensures that you do not have to wait months for foreign repair in case of a fault. We work with original factory parts and provide a replacement device for the duration of the repair so your business never stops.",
+    "commitmentDesc1": "Our own trained Hungarian technician team and workshop ensures that you do not have to wait months for foreign repair in case of a fault. We work with original factory parts and, for repairs exceeding 10 business days, provide a replacement device so your business never stops.",
     "commitmentDesc2": "We stay by your side after the purchase as well: remote diagnostics, phone support and - if necessary - on-site visits keep your operation running continuously.",
     "contentTitle": "What does the warranty cover?",
     "contentDesc": "The manufacturer warranty includes the following cases, provided the fault occurred during normal use and with the user manual followed:",
     "point1": "Full repair of manufacturing and material defects.",
     "point2": "Replacement of original factory parts, including labor costs, free of charge.",
-    "point3": "Replacement device program - we provide a free replacement machine during repair.",
+    "point3": "Replacement device program - for repairs exceeding 10 business days we provide a loaner device for the duration of the repair, subject to availability.",
     "point4": "Remote diagnostics and expert phone support for troubleshooting.",
     "point5": "On-site service visit where needed, by individual agreement.",
     "exclusionsTitle": "What is not covered?",
@@ -423,7 +433,8 @@
     "claimInfo4": "Name and contact details of the point-of-contact person.",
     "importantNote": "Do not attempt to repair or disassemble the device yourself - unauthorized intervention voids the warranty. When you notice a fault, disconnect the machine and contact us.",
     "ctaTitle": "Questions about the warranty?",
-    "ctaSubtitle": "Our expert team is happy to help - call us or send an email."
+    "ctaSubtitle": "Our expert team is happy to help - call us or send an email.",
+    "readMore": "Full warranty details"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -453,7 +464,7 @@
       "q2": "How long does a repair take?",
       "a2": "Turnaround for minor faults is 3–7 working days; for larger part replacements it's 10–20 working days. The precise time is confirmed after inspection. Repairs are carried out by our in-house trained technicians using original parts.",
       "q3": "Do I get a replacement machine during repair?",
-      "a3": "Yes, on request we provide a loaner machine - free of charge under warranty, or at a reduced rate outside of warranty - so your business keeps running during service.",
+      "a3": "If the preliminary assessment shows the repair is likely to take more than 10 business days, we provide a loaner device for the duration of the repair, subject to availability - free of charge under warranty, or on preferential terms outside of warranty. The loaner may not be the exact same model, but it is suitable for continuing treatments.",
       "q4": "What should I do if the machine shows an error or doesn't turn on?",
       "a4": "First, switch it off, disconnect power, let it cool and restart. If the fault persists, reach us at {phone} or {email} - remote diagnostics solve most issues."
     },
@@ -500,7 +511,7 @@
     "training": "Complete Training",
     "trainingDesc": "4-6 hours of personal training + FAR certificate + video materials. We won't let you go until you use the machine confidently.",
     "warranty": "2-Year Warranty, Local Service",
-    "warrantyDesc": "No waiting weeks for foreign service. We respond within 24 hours, and if needed, we provide a replacement device.",
+    "warrantyDesc": "No waiting weeks for foreign service. We respond within 24 hours, and for repairs exceeding 10 business days we provide a replacement device.",
     "financing": "Financing, Leasing",
     "financingDesc": "From ~€250/month. No need to pay all at once – the machine's revenue pays the installments.",
     "consulting": "Business Consulting",
@@ -577,7 +588,12 @@
     "role2": "PMU trainer, cosmetologist",
     "role3": "cosmetologist",
     "role4": "PMU artist, cosmetologist",
-    "playLabel": "Play video"
+    "playLabel": "Play video",
+    "quote1": "The biggest recommendation I can give is that I’ve worked with them for years, and if I had to rebuild my machine line-up today, I would still choose Skinlab.",
+    "quote2": "I think the company they represent is unique in Hungary, and I can honestly recommend them wholeheartedly.",
+    "quote3": "For me, Skinlab is synonymous with quality and reliability. It feels good to work with a partner who believes in quality just as much as I do.",
+    "quote4": "There has never been a time they couldn’t help me with something. Whenever I had a question, I could always reach them.",
+    "watchFull": "Watch the full video ({duration})"
   },
   "featuredProduct": {
     "badge": "#1 Bestseller 2026",
@@ -909,5 +925,49 @@
     "requirements": "Requirements",
     "back": "Back to trainings",
     "signupHeading": "Apply: {name}"
+  },
+  "founderConsult": {
+    "badge": "Personal help",
+    "expertRole": "Skinlab founder, technical expert",
+    "heading": {
+      "category": {
+        "pre": "Not sure",
+        "highlight": "which machine",
+        "post": "is right for you?"
+      },
+      "machine": {
+        "pre": "Not sure",
+        "highlight": "this is the right machine",
+        "post": "for your salon?"
+      },
+      "consumable": {
+        "pre": "Not sure",
+        "highlight": "this is the right product",
+        "post": "for your treatments?"
+      }
+    },
+    "scenario1": "You can’t decide which one to choose",
+    "scenario2": "You want accurate details about the machines",
+    "scenario3": "You’d like to discuss the purchase",
+    "scenario4": "You just need some good advice",
+    "bodyPre": "Whichever applies to you –",
+    "bodyStrong": "we’re happy to help.",
+    "bodyPost": "Call us or request a free consultation and we’ll get in touch.",
+    "cta": "Request a free consultation",
+    "phone": "Call us: {phone}",
+    "responseTime": "We usually call back within 1 business day."
+  },
+  "finance": {
+    "title": "Is it worth it? Let’s do the math.",
+    "subtitle": "Use your own numbers to see when the machine pays for itself and what the monthly instalment would be.",
+    "tabRoi": "Payback",
+    "tabInstallment": "Monthly instalment"
+  },
+  "productComparison": {
+    "title": "Compare our similar machines",
+    "subtitle": "The key differences at a glance.",
+    "current": "You are viewing",
+    "price": "Price (gross)",
+    "view": "View"
   }
 }

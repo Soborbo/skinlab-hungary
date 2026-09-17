@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
-import AnnouncementBar from '../components/layout/AnnouncementBar.astro';
 import Footer from '../components/layout/Footer.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
@@ -76,10 +75,6 @@ const currentLocale = getLocaleFromUrl(Astro.url);
 const rawPath = Astro.url.pathname;
 const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
-
-// A site-wide akciós szalagot mindenhol mutatjuk, kivéve magán az akciós
-// landing page-en (ott felesleges/önmagára mutatna).
-const isPromoPage = currentPath === '/olympia-akcio';
 
 // Generate canonical URL - absolute URL for SEO.
 // trailingSlash: 'always' — getLocalizedUrl/withTrailingSlash (i18n/ui.ts) emit
@@ -265,7 +260,6 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
   {import.meta.env.PROD && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
-  {!isPromoPage && <AnnouncementBar />}
   <Header />
   <main id="main-content" class="flex-1">
     <slot />

@@ -61,6 +61,19 @@ const productSchema = z.object({
   // Secondary images shown in a dedicated gallery section deeper in the page
   // (separate from the hero gallery built from `image` + `images`).
   extraImages: z.array(z.string()).default([]),
+  // Stylizált "design" fotók (életkép-háttér, stylingolt beállítás). Ezek a HERO
+  // GALÉRIA ELEJÉRE kerülnek, de NEM lehetnek főképek: a főkép és a mega-menü
+  // thumbnail fehér hátteres termékfotó marad, és a Merchant Center feed is a
+  // `image` + `images` mezőkből épül - így a vízjeles/stylingolt fotók eleve nem
+  // kerülnek be a feedbe (a Google a promóciós overlayes főképet elutasítja).
+  designImages: z.array(z.string()).default([]),
+  // A gépkezelői oktatás blokk (TrainingCard) saját fotói: [0] = bal oldali
+  // gyakorlati kép, [1] = jobb oldali kép az árkártya felett. Ha nincs megadva,
+  // az általános Skinlab oktatás-fotók maradnak. Nem kerül a hero galériába/feedbe.
+  trainingImages: z.array(z.string()).max(2).default([]),
+  // Letölthető termékadatlap (PDF), pl. "/datasheets/olympia.pdf". Ha nincs,
+  // a Műszaki adatok blokk letöltés-gombja nem jelenik meg.
+  datasheet: z.string().optional(),
   // If set, this product's page emits <link rel="canonical"> pointing to the
   // product with this slug (same category). Used for duplicate/variant spin-off
   // products (e.g. a limited-edition colour that also exists as a variant of the
