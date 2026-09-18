@@ -36,6 +36,7 @@ A `generateProforma()` átugorja a kiállítást a következő esetekben:
 | Feltétel                              | Kód                | Indok                                    |
 |---------------------------------------|--------------------|------------------------------------------|
 | `hasPriceOnRequest === true`          | `BILLINGO-SKIP-001`| Ár egyeztetés alatt - nincs mit fizetni  |
+| `hasBackorder === true`               | `BILLINGO-SKIP-BACKORDER`| Nincs raktáron (előrendelés) - előbb egyeztetünk, a díjbekérő kézzel megy |
 | `subtotal <= 0`                       | `BILLINGO-SKIP-002`| Billingo nem ad ki 0 Ft-os bizonylatot   |
 | `BILLINGO_*` env hiányzik             | `BILLINGO-CFG-*`   | Config incomplete                        |
 
@@ -108,6 +109,7 @@ Ellenőrzendő tesztesetek (release előtt):
 | 5 | Magánszemély (`taxNumber` üres)                | partner `taxcode` nélkül                      |
 | 6 | `hasPriceOnRequest=true`                       | skip, `BILLINGO-SKIP-001`                     |
 | 7 | `subtotal=0`                                   | skip, `BILLINGO-SKIP-002`                     |
+| 7b| készlethiányos tétel (`hasBackorder=true`)     | skip, `BILLINGO-SKIP-BACKORDER`               |
 | 8 | Hiányzó `BILLINGO_API_KEY`                     | skip, `BILLINGO-CFG-001`                      |
 | 9 | Hibás `BILLINGO_API_KEY`                       | `BILLINGO-AUTH-001`                           |
 | 10| Több tételes rendelés                          | minden tétel külön sor a proformán, 27% ÁFA   |

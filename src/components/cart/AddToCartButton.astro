@@ -6,15 +6,22 @@
  * figyeli a `variant-change` eseményt, és a kiválasztott variáns
  * SKU-ját / árát teszi a kosárba. Ár nélküli ("priceOnRequest")
  * terméknél is működik - ekkor "ár egyeztetés alatt" tételként kerül be.
+ *
+ * Készlethiányos ("rendelésre") terméknél/variánsnál (lásd `lib/stock`) a gomb
+ * "Előrendelés" feliratot kap, fölötte figyelmeztető sáv jelenik meg, és a
+ * kosártétel `backorder` jelzőt kap - így a kosárban és a pénztárban is látszik,
+ * hogy a tétel most nincs raktáron.
  */
 import { t, type Locale } from '@/i18n/ui';
 import { resolveCartImage } from '@/lib/cart/image';
+import { isBackorder } from '@/lib/stock';
 
 interface Variant {
   sku: string;
   name: string;
   value: string;
   price: number | null;
+  available?: boolean;
 }
 
 interface Props {
@@ -25,6 +32,7 @@ interface Props {
   categorySlug: string;
   image: string;
   price: number | null;
+  availability?: 'in_stock' | 'preorder' | 'out_of_stock';
   hasVariants?: boolean;
   variants?: Variant[];
 }
@@ -37,13 +45,14 @@ const {
   categorySlug,
   image,
   price,
+  availability = 'in_stock',
   hasVariants = false,
   variants = [],
 } = Astro.props;
 
 const cartImage = resolveCartImage(image);
 
-// Variáns lookup a kliens scripthez: value → { sku, name, price }
+// Variáns lookup a kliens scripthez: value → { sku, name, price, backorder }
 const variantMap =
   hasVariants && variants.length > 0
     ? variants.map((v) => ({
@@ -51,12 +60,18 @@ const variantMap =
         sku: v.sku,
         name: v.name,
         price: typeof v.price === 'number' ? v.price : price,
+        backorder: isBackorder({ availability }, v),
       }))
     : [];
+
+// Induló állapot: az első (szerveroldalon aktív) variáns, vagy maga a termék.
+const initialBackorder = variantMap.length > 0 ? variantMap[0].backorder : isBackorder({ availability });
+const labelDefault = t(locale, 'cart.addToCart');
+const labelBackorder = t(locale, 'cart.preorder');
 ---
 
 <div
-  class="flex flex-col sm:flex-row gap-3"
+  class="flex flex-col gap-3"
   data-add-to-cart
   data-slug={slug}
   data-sku={sku}
@@ -64,7 +79,22 @@ const variantMap =
   data-category={categorySlug}
   data-image={cartImage}
   data-price={price === null ? '' : String(price)}
+  data-backorder={initialBackorder ? '1' : ''}
 >
+  <!-- Készlethiány: "rendelésre" figyelmeztetés (variánsváltáskor a script kapcsolja) -->
+  <div
+    class="flex items-start gap-2.5 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-sm text-amber-900"
+    data-backorder-notice
+    role="status"
+    hidden={!initialBackorder}
+  >
+    <svg class="w-5 h-5 shrink-0 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <p><strong>{t(locale, 'product.backorderLabel')}</strong> - {t(locale, 'product.backorderNote')}</p>
+  </div>
+
+  <div class="flex flex-col sm:flex-row gap-3">
   <!-- Mennyiség -->
   <div class="flex w-full sm:w-auto items-center border-2 border-gray-200 rounded-xl overflow-hidden shrink-0">
     <button
@@ -96,14 +126,16 @@ const variantMap =
     type="button"
     class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#ce2252] text-white font-semibold rounded-xl hover:bg-[#a01c42] transition-colors shadow-lg disabled:opacity-60"
     data-add-to-cart-btn
-    data-label-default={t(locale, 'cart.addToCart')}
+    data-label-default={labelDefault}
+    data-label-backorder={labelBackorder}
     data-label-added={t(locale, 'cart.added')}
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-cart-btn-icon>
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
     </svg>
-    <span data-cart-btn-label>{t(locale, 'cart.addToCart')}</span>
+    <span data-cart-btn-label>{initialBackorder ? labelBackorder : labelDefault}</span>
   </button>
+  </div>
 </div>
 
 {variantMap.length > 0 && (
@@ -128,19 +160,33 @@ const variantMap =
     const plusBtn = root.querySelector<HTMLButtonElement>('[data-qty-plus]');
     const addBtn = root.querySelector<HTMLButtonElement>('[data-add-to-cart-btn]');
     const btnLabel = root.querySelector<HTMLElement>('[data-cart-btn-label]');
+    const notice = root.querySelector<HTMLElement>('[data-backorder-notice]');
 
     // Variáns adatok (ha vannak)
     const variantsEl = document.querySelector('[data-add-to-cart-variants]');
-    type V = { value: string; sku: string; name: string; price: number | null };
+    type V = { value: string; sku: string; name: string; price: number | null; backorder: boolean };
     const variants: V[] = variantsEl ? JSON.parse(variantsEl.textContent || '[]') : [];
     let currentVariant: V | null = variants.length > 0 ? variants[0] : null;
+
+    const isBackorderNow = () => (currentVariant ? currentVariant.backorder : root.dataset.backorder === '1');
+    const currentLabel = () =>
+      (isBackorderNow() ? addBtn?.dataset.labelBackorder : addBtn?.dataset.labelDefault) || '';
+
+    function applyStockState() {
+      if (notice) notice.hidden = !isBackorderNow();
+      // "Kosárba téve" visszajelzés alatt nem írjuk felül; a timeout frissít.
+      if (btnLabel && !addBtn?.disabled) btnLabel.textContent = currentLabel();
+    }
 
     // ProductHero variáns-gomb választás követése
     if (variants.length > 0) {
       document.addEventListener('variant-change', (e) => {
         const value = (e as CustomEvent).detail?.value;
         const found = variants.find((v) => v.value === value);
-        if (found) currentVariant = found;
+        if (found) {
+          currentVariant = found;
+          applyStockState();
+        }
       });
     }
 
@@ -179,6 +225,7 @@ const variantMap =
         image: root.dataset.image || '',
         price: typeof price === 'number' ? price : null,
         qty,
+        backorder: isBackorderNow() || undefined,
       });
 
       // Meta AddToCart + GA4 add_to_cart. A `trackAddToCart` eddig LÉTEZETT, de
@@ -198,13 +245,12 @@ const variantMap =
 
       // Rövid visszajelzés a gombon
       if (btnLabel && addBtn) {
-        const added = addBtn.dataset.labelAdded || '';
-        const def = addBtn.dataset.labelDefault || '';
-        btnLabel.textContent = added;
+        btnLabel.textContent = addBtn.dataset.labelAdded || '';
         addBtn.disabled = true;
         setTimeout(() => {
-          btnLabel.textContent = def;
           addBtn.disabled = false;
+          // A közben esetleg váltott variáns felirata (Kosárba / Előrendelés)
+          btnLabel.textContent = currentLabel();
         }, 1600);
       }
     });

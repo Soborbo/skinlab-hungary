@@ -27,6 +27,7 @@ interface Variant {
   price: number | null;
   image?: string;
   images?: string[];
+  available?: boolean;
 }
 
 interface Props {
@@ -67,6 +68,7 @@ const {
   image,
   gallery,
   designImages,
+  availability,
   hasVariants,
   variants,
   featured,
@@ -173,6 +175,7 @@ const heroImages = [...new Set([...(designImages ?? []), image, ...(gallery ?? [
             categorySlug={categorySlug}
             image={image}
             price={salePrice ?? price}
+            availability={availability}
             hasVariants={hasVariants}
             variants={variants}
           />

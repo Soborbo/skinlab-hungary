@@ -55,6 +55,20 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
       <!-- Bal: űrlap -->
       <div class="lg:col-span-2 space-y-6">
 
+        <!-- Készlethiányos (rendelésre) tétel a kosárban: a rendelés elküldése
+             ELŐTT jelezzük, hogy ez előrendelés. A renderSummary kapcsolja. -->
+        <div class="hidden bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5" data-backorder-banner role="status">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p class="font-semibold text-amber-900">{t(locale, 'checkout.backorderTitle')}</p>
+              <p class="text-sm text-amber-900/90 mt-0.5" data-backorder-text></p>
+            </div>
+          </div>
+        </div>
+
         <!-- "Most nem kell fizetnie" sáv -->
         <div class="bg-success-50 border border-success-200 rounded-2xl p-4 sm:p-5">
           <div class="flex items-start gap-3">
@@ -410,6 +424,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     locale,
     successUrl,
     priceOnRequest: t(locale, 'cart.priceOnRequest'),
+    backorderItem: t(locale, 'cart.backorderItem'),
+    // A `{items}` helyére a kliens a készlethiányos tételek nevét írja.
+    backorderNote: t(locale, 'checkout.backorderNote'),
     quantity: t(locale, 'checkout.email.qty'),
     submitLabel: t(locale, 'checkout.submit'),
     submittingLabel: t(locale, 'checkout.submitting'),
@@ -634,8 +651,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         }
       }
 
-      // Kellék-ágon nincs visszahívás → az intro szövegét lecseréljük.
-      if (parcelEligible) applyParcelIntro();
+      // Kellék-ágon nincs visszahívás → az intro szövegét lecseréljük. Kivétel a
+      // készlethiányos (előrendelt) tétel: ott NEM megy automatikus díjbekérő
+      // (lásd lib/billingo), előbb egyeztetünk - erre a visszahívós lépések illenek.
+      if (parcelEligible && !getCartSummary().hasBackorder) applyParcelIntro();
 
       form!
         .querySelectorAll<HTMLInputElement>('input[name="shippingMethod"]')
@@ -805,16 +824,29 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             const variant = item.variantName
               ? `<span class="text-gray-400"> · ${escapeHtml(item.variantName)}</span>`
               : '';
+            const backorder = item.backorder
+              ? `<span class="mt-1 flex items-start gap-1.5 text-xs font-medium text-amber-800"><svg class="w-3.5 h-3.5 shrink-0 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>${escapeHtml(i18n.backorderItem || '')}</span></span>`
+              : '';
             return `
               <div class="flex justify-between gap-3 text-sm">
                 <span class="text-gray-700 min-w-0">
                   <span class="font-medium">${escapeHtml(item.name)}</span>${variant}
                   <span class="text-gray-400"> × ${item.qty}</span>
+                  ${backorder}
                 </span>
                 <span class="font-semibold text-gray-900 whitespace-nowrap">${line}</span>
               </div>`;
           })
           .join('');
+      }
+      const backorderBanner = document.querySelector<HTMLElement>('[data-backorder-banner]');
+      if (backorderBanner) {
+        const names = summary.items
+          .filter((i) => i.backorder)
+          .map((i) => (i.variantName ? `${i.name} (${i.variantName})` : i.name));
+        backorderBanner.classList.toggle('hidden', names.length === 0);
+        const textEl = backorderBanner.querySelector<HTMLElement>('[data-backorder-text]');
+        if (textEl) textEl.textContent = String(i18n.backorderNote || '').replace('{items}', names.join(', '));
       }
       const fee = currentShippingFee();
       if (summaryTotal) {
@@ -1047,7 +1079,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
           await waitForTracking(600);
 
           clearCart();
-          window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}`;
+          // `pre=1`: a sikeroldal az előrendelés lépéseit mutatja (a szerver dönti el).
+          const pre = result.backorder ? '&pre=1' : '';
+          window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}${pre}`;
           return;
         }
 

@@ -153,7 +153,9 @@
     "nextImage": "Next image",
     "installmentLinePre": "In instalments:",
     "installmentLine": "{down} deposit + {months} × {monthly}",
-    "installmentCalc": "Calculate ↓"
+    "installmentCalc": "Calculate ↓",
+    "backorderLabel": "Pre-order",
+    "backorderNote": "This product is currently out of stock, so for now it can only be pre-ordered. We'll confirm the expected arrival date with you after you place your order."
   },
   "form": {
     "name": "Name",
@@ -799,7 +801,9 @@
     "drawerTitle": "Your cart",
     "drawerEmpty": "Your cart is still empty.",
     "priceNote": "We'll confirm the shipping cost and final price during a phone consultation.",
-    "close": "Close"
+    "close": "Close",
+    "preorder": "Pre-order",
+    "backorderItem": "Pre-order - currently out of stock, pre-order only"
   },
   "checkout": {
     "title": "Checkout",
@@ -845,7 +849,11 @@
       "payButton": "Pay now / open proforma",
       "questions": "Have a question? Feel free to call us:",
       "regards": "Best regards,",
-      "team": "The Skinlab Hungary team"
+      "team": "The Skinlab Hungary team",
+      "backorderNote": "Your order includes an item that is currently out of stock, so we have recorded it as a pre-order. You don't need to pay now: our team will contact you shortly about the expected arrival date, and we'll only send the payment request after that.",
+      "backorderStep1": "We have recorded your order as a pre-order - you don't need to pay now.",
+      "backorderStep2": "Our team will contact you shortly and let you know when the product is expected to arrive.",
+      "backorderStep3": "Once the product arrives, we'll arrange payment and deliver it by your chosen method."
     },
     "phone": "Phone number",
     "companyToggle": "Add company details",
@@ -900,7 +908,9 @@
       "foundersNote": "We, the founders of Skinlab, personally make sure your order goes smoothly. If you have any questions, don't hesitate to reach out!",
       "backToHome": "Back to home",
       "browseProducts": "More products"
-    }
+    },
+    "backorderTitle": "Pre-order",
+    "backorderNote": "Your cart contains an item that is currently out of stock: {items}. For now it can only be pre-ordered. In this case we won't send a payment request straight away and you don't need to pay now: our team will contact you about the expected arrival date, and we'll only ask for payment after that."
   },
   "bank": {
     "title": "Bank transfer details",

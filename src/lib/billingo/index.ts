@@ -7,6 +7,8 @@
  *
  * Skip szabályok:
  *   - `hasPriceOnRequest === true` - nem tudunk árazott díjbekérőt kiállítani.
+ *   - `hasBackorder === true` - nincs raktáron (előrendelés): előbb egyeztetünk
+ *     a várható érkezésről, a díjbekérőt a csapat utána állítja ki kézzel.
  *   - `subtotal <= 0` - Billingo nem ad ki 0 Ft-os bizonylatot.
  *   - Config hiányzik - BILLINGO-CFG-* skipként visszaadjuk.
  *
@@ -49,6 +51,10 @@ export async function generateProforma(
   if (order.hasPriceOnRequest) {
     console.info('[billingo] skip BILLINGO-SKIP-001 - price on request:', order.orderId);
     return { success: false, skipped: true, reason: 'price_on_request', code: 'BILLINGO-SKIP-001' };
+  }
+  if (order.hasBackorder) {
+    console.info('[billingo] skip BILLINGO-SKIP-BACKORDER - előrendelés:', order.orderId);
+    return { success: false, skipped: true, reason: 'backorder', code: 'BILLINGO-SKIP-BACKORDER' };
   }
   if (order.subtotal <= 0) {
     console.info('[billingo] skip BILLINGO-SKIP-002 - zero subtotal:', order.orderId);

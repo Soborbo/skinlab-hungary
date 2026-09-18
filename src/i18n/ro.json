@@ -153,7 +153,9 @@
     "nextImage": "Imaginea următoare",
     "installmentLinePre": "În rate:",
     "installmentLine": "{down} avans + {months} × {monthly}",
-    "installmentCalc": "Calculează ↓"
+    "installmentCalc": "Calculează ↓",
+    "backorderLabel": "La comandă",
+    "backorderNote": "Acest produs nu este momentan în stoc, așa că deocamdată poate fi doar precomandat. Data estimată de sosire o stabilim împreună după plasarea comenzii."
   },
   "form": {
     "name": "Nume",
@@ -799,7 +801,9 @@
     "drawerTitle": "Coșul dvs.",
     "drawerEmpty": "Coșul dvs. este încă gol.",
     "priceNote": "Costul de livrare și prețul final le confirmăm în cadrul unei consultații telefonice.",
-    "close": "Închideți"
+    "close": "Închideți",
+    "preorder": "Precomandă",
+    "backorderItem": "La comandă - momentan nu este în stoc, doar precomandă"
   },
   "checkout": {
     "title": "Comandă",
@@ -845,7 +849,11 @@
       "payButton": "Plătește / deschide proforma",
       "questions": "Aveți o întrebare? Sunați-ne cu încredere:",
       "regards": "Cu stimă,",
-      "team": "Echipa Skinlab Hungary"
+      "team": "Echipa Skinlab Hungary",
+      "backorderNote": "Comanda dumneavoastră include un produs care nu este momentan în stoc, așa că am înregistrat-o ca precomandă. Nu trebuie să plătiți acum: colegii noștri vă vor contacta în curând cu privire la data estimată de sosire și abia după aceea vă vom trimite cererea de plată.",
+      "backorderStep1": "Am înregistrat comanda dumneavoastră ca precomandă - nu trebuie să plătiți acum.",
+      "backorderStep2": "Colegii noștri vă vor contacta în curând și vă vor informa despre data estimată de sosire a produsului.",
+      "backorderStep3": "Când produsul sosește, stabilim plata și vi-l livrăm prin metoda aleasă."
     },
     "phone": "Număr de telefon",
     "companyToggle": "Adăugați datele firmei",
@@ -894,7 +902,9 @@
       "emailNote": "Confirmarea comenzii a fost trimisă la adresa dvs. de email.",
       "backToHome": "Înapoi la pagina principală",
       "browseProducts": "Mai multe produse"
-    }
+    },
+    "backorderTitle": "Precomandă",
+    "backorderNote": "Coșul dumneavoastră conține un produs care nu este momentan în stoc: {items}. Deocamdată acesta poate fi doar precomandat. În acest caz nu vă trimitem imediat o cerere de plată și nu trebuie să plătiți acum: colegii noștri vă vor contacta cu privire la data estimată de sosire și abia după aceea vă vom solicita plata."
   },
   "bank": {
     "title": "Date pentru transfer bancar",

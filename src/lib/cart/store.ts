@@ -37,6 +37,12 @@ export interface CartItem {
   price: number | null;
   /** Darabszám */
   qty: number;
+  /**
+   * Készlethiányos ("rendelésre") tétel: most nincs raktáron, csak
+   * előrendelhető (lásd `lib/stock`). Csak megjelenítésre - a szerver a
+   * termék-kollekcióból újraszámolja.
+   */
+  backorder?: boolean;
 }
 
 export interface CartSummary {
@@ -49,6 +55,8 @@ export interface CartSummary {
   subtotal: number;
   /** Van-e a kosárban "ár egyeztetés alatt" tétel */
   hasPriceOnRequest: boolean;
+  /** Van-e a kosárban készlethiányos ("rendelésre", előrendelt) tétel */
+  hasBackorder: boolean;
   /**
    * Futárral szállítható-e a kosár? Igaz, ha minden tétel árazott és a
    * 500 000 Ft-os tételhatár alatt van (lásd `lib/shipping/methods`). Hamis
@@ -98,6 +106,7 @@ function normalizeItem(raw: unknown): CartItem | null {
     image: typeof r.image === 'string' ? r.image : '',
     price: typeof r.price === 'number' ? r.price : null,
     qty,
+    backorder: r.backorder === true ? true : undefined,
   };
 }
 
@@ -160,6 +169,7 @@ export function addToCart(
       image: data.image,
       price: data.price,
       qty,
+      backorder: data.backorder || undefined,
     };
     items.push(result);
   }
@@ -206,6 +216,7 @@ export function getCartSummary(): CartSummary {
     0,
   );
   const hasPriceOnRequest = items.some((i) => typeof i.price !== 'number');
+  const hasBackorder = items.some((i) => i.backorder === true);
 
   return {
     items,
@@ -213,6 +224,7 @@ export function getCartSummary(): CartSummary {
     totalQty,
     subtotal,
     hasPriceOnRequest,
+    hasBackorder,
     shippable: isCartShippable(items),
     grandTotal: subtotal,
   };

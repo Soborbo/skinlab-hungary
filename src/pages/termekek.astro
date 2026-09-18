@@ -81,6 +81,8 @@ const productsByCategory = CATEGORIES.map(cat => ({
                     categorySlug={category.slug}
                     image={product.data.image}
                     price={product.data.price}
+                    availability={product.data.availability}
+                    variants={product.data.variants}
                     class="w-full"
                   />
                 </div>
