@@ -154,7 +154,9 @@
     "nextImage": "Következő kép",
     "installmentLinePre": "Részletben:",
     "installmentLine": "{down} előleg + {months} × {monthly}",
-    "installmentCalc": "Számold ki ↓"
+    "installmentCalc": "Számold ki ↓",
+    "backorderLabel": "Rendelésre",
+    "backorderNote": "Ez a termék jelenleg nincs raktáron, ezért most csak előrendelhető. A várható érkezésről a rendelés után egyeztetünk veled."
   },
   "form": {
     "name": "Név",
@@ -851,7 +853,9 @@
     "drawerTitle": "A kosarad",
     "drawerEmpty": "A kosarad még üres.",
     "priceNote": "A szállítási költséget és a végleges árat telefonos egyeztetéskor pontosítjuk.",
-    "close": "Bezárás"
+    "close": "Bezárás",
+    "preorder": "Előrendelés",
+    "backorderItem": "Rendelésre - jelenleg nincs raktáron, csak előrendelhető"
   },
   "checkout": {
     "title": "Megrendelés",
@@ -897,7 +901,11 @@
         "mpl": "MPL házhozszállítás (következő munkanap)",
         "personal_pickup": "Személyes átvétel – Skinlab Showroom (Érd)",
         "arranged": "Kiszállítás egyeztetés alapján"
-      }
+      },
+      "backorderNote": "A rendelésedben jelenleg nem raktáron lévő termék is szerepel, ezért előrendelésként rögzítettük. Most nem kell fizetned: munkatársunk hamarosan felveszi veled a kapcsolatot a várható érkezésről, és csak ezután küldjük a díjbekérőt.",
+      "backorderStep1": "Előrendelésként rögzítettük a megrendelésed - most nem kell fizetned.",
+      "backorderStep2": "Munkatársunk hamarosan felveszi veled a kapcsolatot, és tájékoztat a termék várható érkezéséről.",
+      "backorderStep3": "A termék beérkezésekor egyeztetjük a fizetést, és a választott módon eljuttatjuk hozzád."
     },
     "phone": "Telefonszám",
     "companyToggle": "Céges adatok megadása",
@@ -992,7 +1000,9 @@
     "parcelStep3Title": "Kiszállítjuk / átveheted",
     "parcelStep3Desc": "Foxpost automatába vagy MPL-lel küldjük, vagy személyesen átveheted.",
     "parcelNoPaymentNote": "Nincs azonnali online fizetés: a díjbekérőt e-mailben kapod, vagy utánvéttel fizetsz az átvételkor.",
-    "parcelTrustShipping": "Foxpost / MPL szállítás"
+    "parcelTrustShipping": "Foxpost / MPL szállítás",
+    "backorderTitle": "Előrendelés",
+    "backorderNote": "A kosaradban jelenleg nem raktáron lévő termék van: {items}. Ezt most csak előrendelni tudod. Ilyenkor nem küldünk azonnal díjbekérőt, és most nem kell fizetned: munkatársunk felveszi veled a kapcsolatot a várható érkezésről, és csak ezután kérjük a fizetést."
   },
   "bank": {
     "title": "Banki átutalás adatai",

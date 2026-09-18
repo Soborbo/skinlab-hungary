@@ -150,7 +150,9 @@
     "nextImage": "Nächstes Bild",
     "installmentLinePre": "In Raten:",
     "installmentLine": "{down} Anzahlung + {months} × {monthly}",
-    "installmentCalc": "Berechnen ↓"
+    "installmentCalc": "Berechnen ↓",
+    "backorderLabel": "Vorbestellung",
+    "backorderNote": "Dieses Produkt ist derzeit nicht auf Lager und kann momentan nur vorbestellt werden. Den voraussichtlichen Liefertermin stimmen wir nach Ihrer Bestellung mit Ihnen ab."
   },
   "form": {
     "name": "Name",
@@ -805,7 +807,9 @@
     "drawerTitle": "Ihr Warenkorb",
     "drawerEmpty": "Ihr Warenkorb ist noch leer.",
     "priceNote": "Die Versandkosten und den Endpreis bestätigen wir in einem telefonischen Gespräch.",
-    "close": "Schließen"
+    "close": "Schließen",
+    "preorder": "Vorbestellen",
+    "backorderItem": "Vorbestellung - derzeit nicht auf Lager, nur vorbestellbar"
   },
   "checkout": {
     "title": "Bestellung",
@@ -851,7 +855,11 @@
       "payButton": "Jetzt bezahlen / Proforma öffnen",
       "questions": "Haben Sie Fragen? Rufen Sie uns gerne an:",
       "regards": "Mit freundlichen Grüßen,",
-      "team": "Ihr Skinlab Hungary Team"
+      "team": "Ihr Skinlab Hungary Team",
+      "backorderNote": "Ihre Bestellung enthält einen Artikel, der derzeit nicht auf Lager ist, daher haben wir sie als Vorbestellung erfasst. Sie müssen jetzt nicht bezahlen: Unser Team meldet sich in Kürze bei Ihnen zum voraussichtlichen Liefertermin, erst danach senden wir Ihnen die Zahlungsaufforderung.",
+      "backorderStep1": "Wir haben Ihre Bestellung als Vorbestellung erfasst - Sie müssen jetzt nicht bezahlen.",
+      "backorderStep2": "Unser Team meldet sich in Kürze bei Ihnen und informiert Sie über den voraussichtlichen Liefertermin des Produkts.",
+      "backorderStep3": "Sobald das Produkt eingetroffen ist, stimmen wir die Zahlung ab und liefern es auf dem von Ihnen gewählten Weg."
     },
     "phone": "Telefonnummer",
     "companyToggle": "Firmendaten angeben",
@@ -900,7 +908,9 @@
       "emailNote": "Die Bestellbestätigung haben wir an Ihre E-Mail-Adresse gesendet.",
       "backToHome": "Zurück zur Startseite",
       "browseProducts": "Weitere Produkte"
-    }
+    },
+    "backorderTitle": "Vorbestellung",
+    "backorderNote": "Ihr Warenkorb enthält einen Artikel, der derzeit nicht auf Lager ist: {items}. Dieser kann momentan nur vorbestellt werden. In diesem Fall senden wir Ihnen nicht sofort eine Zahlungsaufforderung, und Sie müssen jetzt nicht bezahlen: Unser Team meldet sich bei Ihnen zum voraussichtlichen Liefertermin, erst danach bitten wir um die Zahlung."
   },
   "bank": {
     "title": "Banküberweisungsdaten",

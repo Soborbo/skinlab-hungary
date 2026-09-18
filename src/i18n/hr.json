@@ -150,7 +150,9 @@
     "nextImage": "Sljedeća slika",
     "installmentLinePre": "Na rate:",
     "installmentLine": "{down} predujam + {months} × {monthly}",
-    "installmentCalc": "Izračunajte ↓"
+    "installmentCalc": "Izračunajte ↓",
+    "backorderLabel": "Po narudžbi",
+    "backorderNote": "Ovaj proizvod trenutačno nije na zalihi pa ga zasad možete samo prednaručiti. Očekivani datum dolaska dogovorit ćemo s vama nakon narudžbe."
   },
   "form": {
     "name": "Ime",
@@ -805,7 +807,9 @@
     "drawerTitle": "Vaša košarica",
     "drawerEmpty": "Vaša košarica je još prazna.",
     "priceNote": "Troškove dostave i konačnu cijenu potvrđujemo tijekom telefonske konzultacije.",
-    "close": "Zatvori"
+    "close": "Zatvori",
+    "preorder": "Prednarudžba",
+    "backorderItem": "Po narudžbi - trenutačno nije na zalihi, samo prednarudžba"
   },
   "checkout": {
     "title": "Narudžba",
@@ -851,7 +855,11 @@
       "payButton": "Plati / otvori predračun",
       "questions": "Imate pitanje? Slobodno nas nazovite:",
       "regards": "S poštovanjem,",
-      "team": "Tim Skinlab Hungary"
+      "team": "Tim Skinlab Hungary",
+      "backorderNote": "Vaša narudžba sadrži proizvod koji trenutačno nije na zalihi, pa smo je zabilježili kao prednarudžbu. Sada ne morate platiti: naš djelatnik uskoro će vam se javiti u vezi s očekivanim datumom dolaska, a tek nakon toga poslat ćemo vam zahtjev za plaćanje.",
+      "backorderStep1": "Vašu narudžbu zabilježili smo kao prednarudžbu - sada ne morate platiti.",
+      "backorderStep2": "Naš djelatnik uskoro će vam se javiti i obavijestiti vas o očekivanom datumu dolaska proizvoda.",
+      "backorderStep3": "Kad proizvod stigne, dogovorit ćemo plaćanje i dostaviti vam ga odabranim načinom."
     },
     "phone": "Broj telefona",
     "companyToggle": "Unesi podatke tvrtke",
@@ -900,7 +908,9 @@
       "emailNote": "Potvrdu narudžbe poslali smo na vašu e-mail adresu.",
       "backToHome": "Natrag na početnu",
       "browseProducts": "Više proizvoda"
-    }
+    },
+    "backorderTitle": "Prednarudžba",
+    "backorderNote": "Vaša košarica sadrži proizvod koji trenutačno nije na zalihi: {items}. Zasad ga možete samo prednaručiti. U tom slučaju ne šaljemo odmah zahtjev za plaćanje i sada ne morate platiti: naš djelatnik javit će vam se u vezi s očekivanim datumom dolaska, a tek nakon toga zatražit ćemo plaćanje."
   },
   "bank": {
     "title": "Podaci za bankovnu uplatu",

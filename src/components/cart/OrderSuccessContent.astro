@@ -54,10 +54,25 @@ const founders = [
         <span class="font-mono font-bold text-[#ce2252]" data-order-id></span>
       </div>
 
+      <!-- Előrendelés (`?pre=1`, a szerver jelzi): nincs automatikus díjbekérő,
+           ezért a díjbekérős lépések és a banki doboz helyett ez látszik. -->
+      <div class="hidden text-left bg-amber-50 border border-amber-200 rounded-xl p-5 sm:p-6 mb-8" data-backorder-box>
+        <p class="font-semibold text-amber-900">{t(locale, 'checkout.backorderTitle')}</p>
+        <p class="text-sm text-amber-900/90 mt-1">{t(locale, 'checkout.email.backorderNote')}</p>
+      </div>
+
       <!-- Mi történik most -->
       <div class="text-left bg-gray-50 rounded-xl p-5 sm:p-6 mb-8">
         <h2 class="text-base font-bold text-gray-900 mb-4">{t(locale, 'checkout.success.whatNext')}</h2>
-        <ol class="space-y-4">
+        <ol class="hidden space-y-4" data-steps-backorder>
+          {[1, 2, 3].map((n) => (
+            <li class="flex gap-3">
+              <span class="w-7 h-7 rounded-full bg-[#ce2252] text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
+              <p class="text-sm text-gray-700 pt-1">{t(locale, `checkout.email.backorderStep${n}`)}</p>
+            </li>
+          ))}
+        </ol>
+        <ol class="space-y-4" data-steps-default>
           {[1, 2, 3].map((n) => (
             <li class="flex gap-3">
               <span class="w-7 h-7 rounded-full bg-[#ce2252] text-white text-sm font-bold flex items-center justify-center shrink-0">{n}</span>
@@ -71,7 +86,7 @@ const founders = [
       </div>
 
       <!-- Banki átutalás adatai - kiemelt doboz -->
-      <div class="text-left bg-[#fff0f4] border-2 border-[#ce2252] rounded-xl p-5 sm:p-6 mb-8">
+      <div class="text-left bg-[#fff0f4] border-2 border-[#ce2252] rounded-xl p-5 sm:p-6 mb-8" data-bank-box>
         <div class="flex items-center gap-2 mb-3">
           <svg class="w-5 h-5 text-[#ce2252] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 10l9-6 9 6M4 10v8a1 1 0 001 1h14a1 1 0 001-1v-8M8 14v3m4-3v3m4-3v3" />
@@ -155,6 +170,15 @@ const founders = [
     if (!box || !idEl) return;
 
     const params = new URLSearchParams(window.location.search);
+
+    // Előrendelés: előrendelés-lépések a díjbekérős lépések és a banki doboz helyett
+    if (params.get('pre') === '1') {
+      document.querySelector('[data-backorder-box]')?.classList.remove('hidden');
+      document.querySelector('[data-steps-backorder]')?.classList.remove('hidden');
+      document.querySelector('[data-steps-default]')?.classList.add('hidden');
+      document.querySelector('[data-bank-box]')?.classList.add('hidden');
+    }
+
     const id = params.get('id');
     if (id) {
       // Csak biztonságos karakterek

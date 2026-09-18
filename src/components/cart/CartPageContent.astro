@@ -85,6 +85,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
     remove: t(locale, 'cart.remove'),
     priceOnRequest: t(locale, 'cart.priceOnRequest'),
     quantity: t(locale, 'cart.quantity'),
+    backorderItem: t(locale, 'cart.backorderItem'),
   })}
 ></script>
 
@@ -121,6 +122,9 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
       const variant = item.variantName
         ? `<p class="text-sm text-gray-400">${escapeHtml(item.variantName)}</p>`
         : '';
+      const backorder = item.backorder
+        ? `<p class="mt-2 inline-flex items-start gap-1.5 text-xs font-medium text-amber-900 bg-amber-50 border border-amber-200 rounded-lg px-2 py-1.5"><svg class="w-3.5 h-3.5 shrink-0 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>${escapeHtml(i18n.backorderItem || '')}</span></p>`
+        : '';
       const img = item.image
         ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" width="96" height="96" loading="lazy" decoding="async" class="w-20 h-20 sm:w-24 sm:h-24 object-contain p-1.5 rounded-xl border border-gray-100 bg-white shrink-0" />`
         : `<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-gray-100 shrink-0" aria-hidden="true"></div>`;
@@ -133,6 +137,7 @@ const productsUrl = getLocalizedUrl(locale, '/termekek');
                 <h3 class="font-semibold text-gray-900 leading-tight">${escapeHtml(item.name)}</h3>
                 ${variant}
                 <p class="text-sm text-gray-500 mt-1">${i18n.unitPrice || ''}: <span class="font-medium text-gray-700">${unit}</span></p>
+                ${backorder}
               </div>
               <button type="button" class="p-1.5 -mt-1 -mr-1 text-gray-300 hover:text-red-500 transition-colors shrink-0" data-row-remove="${item.id}" aria-label="${escapeHtml(i18n.remove || '')}">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>

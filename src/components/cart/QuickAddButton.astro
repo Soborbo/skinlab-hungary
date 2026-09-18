@@ -7,9 +7,13 @@
  * a termékoldalon lehet pontos variánst választani; itt az alap termék
  * (alapár) kerül a kosárba. Több példány is lehet egy oldalon - a
  * kliens script eseménydelegálással kezeli az összeset.
+ *
+ * Készlethiányos ("rendelésre") tételnél "Előrendelés" a felirat, és a
+ * kosártétel `backorder` jelzőt kap (lásd `lib/stock`).
  */
 import { t, type Locale } from '@/i18n/ui';
 import { resolveCartImage } from '@/lib/cart/image';
+import { isBackorder } from '@/lib/stock';
 
 interface Props {
   locale: Locale;
@@ -19,6 +23,9 @@ interface Props {
   categorySlug: string;
   image: string;
   price: number | null;
+  availability?: 'in_stock' | 'preorder' | 'out_of_stock';
+  /** Variánsos terméknél a `sku`-hoz tartozó variáns készlete dönt. */
+  variants?: Array<{ sku: string; available?: boolean }>;
   class?: string;
 }
 
@@ -30,10 +37,14 @@ const {
   categorySlug,
   image,
   price,
+  availability = 'in_stock',
+  variants = [],
   class: className = '',
 } = Astro.props;
 
 const cartImage = resolveCartImage(image);
+const backorder = isBackorder({ availability }, variants.find((v) => v.sku === sku));
+const label = t(locale, backorder ? 'cart.preorder' : 'cart.addToCart');
 ---
 
 <button
@@ -49,13 +60,14 @@ const cartImage = resolveCartImage(image);
   data-category={categorySlug}
   data-image={cartImage}
   data-price={price === null ? '' : String(price)}
-  data-label-default={t(locale, 'cart.addToCart')}
+  data-backorder={backorder ? '1' : undefined}
+  data-label-default={label}
   data-label-added={t(locale, 'cart.added')}
 >
   <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
   </svg>
-  <span data-quick-add-label>{t(locale, 'cart.addToCart')}</span>
+  <span data-quick-add-label>{label}</span>
 </button>
 
 <script>
@@ -84,6 +96,7 @@ const cartImage = resolveCartImage(image);
         image: btn.dataset.image || '',
         price: priceAttr ? Number(priceAttr) : null,
         qty: 1,
+        backorder: btn.dataset.backorder === '1' || undefined,
       });
 
       // Meta AddToCart + GA4 add_to_cart (lásd AddToCartButton). Ár nélküli

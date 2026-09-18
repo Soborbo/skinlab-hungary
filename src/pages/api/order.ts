@@ -34,6 +34,7 @@ import {
   type PaymentMethodId,
 } from '@/lib/shipping/methods';
 import type { Locale } from '@/i18n/ui';
+import { isBackorder } from '@/lib/stock';
 
 export const prerender = false;
 
@@ -132,10 +133,13 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       let variantName = item.variantName || '';
       let sku = item.sku;
       let unitPrice: number | null = null;
+      let backorder = false;
 
       if (product) {
         name = product.data.name;
         const variant = product.data.variants?.find((v) => v.sku === item.sku);
+        // Készlethiány a kollekcióból (a kosár `backorder` jelzője csak megjelenítés).
+        backorder = isBackorder(product.data, variant);
         if (variant) {
           variantName = variant.name;
           sku = variant.sku;
@@ -159,11 +163,13 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
         qty: item.qty,
         unitPrice,
         lineTotal: unitPrice === null ? null : unitPrice * item.qty,
+        backorder,
       };
     });
 
     const subtotal = items.reduce((sum, i) => sum + (i.lineTotal || 0), 0);
     const hasPriceOnRequest = items.some((i) => i.unitPrice === null);
+    const hasBackorder = items.some((i) => i.backorder);
 
     // 7b. Szállítási + fizetési mód szerveroldali ellenőrzése és újraszámolása.
     //    "Kellék-ág" (parcel tier) = SZERVEROLDALI árak per-tétel < 100k, mind
@@ -215,6 +221,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       items,
       subtotal,
       hasPriceOnRequest,
+      hasBackorder,
       shippingMethod,
       shippingFee,
       foxpostPoint,
@@ -317,7 +324,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       : { sent: false as const };
 
     return new Response(
-      JSON.stringify({ success: true, orderId, proforma: proformaStatus }),
+      JSON.stringify({ success: true, orderId, proforma: proformaStatus, backorder: hasBackorder }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
