@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Odstranjevanje tetovaž z laserjem ND:YAG",
-      "subtitle": "Varno in učinkovito odstranjevanje tetovaž in pigmenta z Q-switched ND:YAG laserji – nagrajene naprave in lokalni servis"
+      "subtitle": "Varno in učinkovito odstranjevanje tetovaž in pigmenta s Q-switched laserjem ND:YAG, s servisno podporo na Madžarskem"
     },
     "slide5": {
       "title": "Naš novi Frame YAG laser je prispel!",
@@ -57,7 +57,12 @@
     "kellekek": "Pribor",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "ColdPlasma",
-    "productCount": "izdelkov"
+    "productCount": "izdelkov",
+    "homeTitle": "Kateri tretma želite ponujati?",
+    "homeSubtitle": "Izberite področje in pokazali vam bomo naprave zanj, ki ustrezajo vašemu salonu.",
+    "suppliesTitle": "Pribor in pripravki za tretmaje",
+    "showAll": "Vse kategorije ({count})",
+    "showLess": "Manj kategorij"
   },
   "trust": {
     "warranty": "2-letna garancija",
@@ -67,19 +72,11 @@
     "training": "FAR certifikat",
     "trainingDesc": "Uradno usposabljanje operaterjev",
     "service": "Lasten servis",
-    "serviceDesc": "Hitro popravilo, program nadomestne naprave"
+    "serviceDesc": "Hitro popravilo, program nadomestnih naprav"
   },
   "brands": {
     "title": "Naše blagovne znamke",
-    "subtitle": "Ekskluzivni distributer premium kozmetičnih blagovnih znamk na Madžarskem"
-  },
-  "stats": {
-    "soldUnits": "Prodanih enot Novalight",
-    "warranty": "Garancija",
-    "deliveryTime": "Cas dostave",
-    "hungarianService": "Madžarski servis",
-    "yearsSuffix": "let",
-    "weeksSuffix": "tednov"
+    "subtitle": "S temi blagovnimi znamkami sodelujemo, od naprav do pripravkov za tretmaje."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -220,7 +217,8 @@
     "noObligation": "Brez obveznosti",
     "inPersonOrOnline": "Osebno ali online",
     "roiCalculation": "Izracun donosnosti",
-    "orCallDirectly": "Ali poklicite neposredno:"
+    "orCallDirectly": "Ali poklicite neposredno:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Laserji",
@@ -324,7 +322,21 @@
     "included": "Vkljuceno v ceno",
     "duration": "Trajanje",
     "location": "Lokacija",
-    "register": "Registracija"
+    "register": "Registracija",
+    "galleryTitle": "Poleg naprave dobite tudi znanje",
+    "gallerySubtitle": "Praktično usposabljanje v resničnem salonskem okolju, v majhnih skupinah.",
+    "galleryAlt1": "Vadba hidrodermabrazije na usposabljanju",
+    "galleryAlt2": "Prikaz karbonskega laserskega tretmaja obraza med usposabljanjem",
+    "galleryAlt3": "Praktično usposabljanje za tretma z diodnim laserjem",
+    "galleryAlt4": "Skupinsko praktično usposabljanje v salonskem okolju",
+    "galleryAlt5": "Certifikati usposabljanja, vpisanega v register FAR",
+    "galleryAlt6": "Udeleženci usposabljanja Skinlab za upravljanje naprav",
+    "fact1Title": "Usposabljanje, vpisano v register FAR",
+    "fact1Desc": "S certifikatom z madžarsko registrsko številko B in praktičnim usposabljanjem.",
+    "fact2Title": "Zagon na lokaciji",
+    "fact2Desc": "Napravo nastavimo v vašem salonu in vas tam naučimo, kako jo uporabljati.",
+    "fact3Title": "Lasten servis, program nadomestnih naprav",
+    "fact3Desc": "Pri popravilih, daljših od 10 delovnih dni, zagotovimo nadomestno napravo, odvisno od zaloge."
   },
   "comparison": {
     "title": "Primerjava",
@@ -517,14 +529,11 @@
     "training": "Popolno usposabljanje",
     "trainingDesc": "4-6 ur osebnega usposabljanja + FAR certifikat + video materiali. Ne pustimo vas, dokler naprave ne uporabljate samozavestno.",
     "warranty": "2 leti garancije, lokalni servis",
-    "warrantyDesc": "Ni tednov cakanja na tuj servis. Odzovemo se v 24 urah in pri popravilih, daljših od 10 delovnih dni, zagotovimo nadomestno napravo.",
+    "warrantyDesc": "Ni tednov čakanja na tuj servis. Popravljamo hitro, v lastnem servisu, pri popravilih, daljših od 10 delovnih dni, pa zagotovimo nadomestno napravo, odvisno od zaloge.",
     "financing": "Financiranje, lizing",
     "financingDesc": "Od ~250 EUR/mesec. Ni vam treba placati vsega naenkrat - prihodki naprave placajo obroke.",
     "consulting": "Poslovno svetovanje",
-    "consultingDesc": "Pomagamo pri oblikovanju cen in marketingu. Delimo, kaj pocnejo uspesni saloni.",
-    "testimonialTitle": "Zadovoljen partner",
-    "testimonialText": "Usposabljanje je bilo odlicno in lahko jih poklicen kadarkoli imam vprasanje.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Pomagamo pri oblikovanju cen in marketingu. Delimo, kaj pocnejo uspesni saloni."
   },
   "search": {
     "placeholder": "Iskanje izdelkov po imenu...",
@@ -566,7 +575,7 @@
     "step2Title": "Izbira",
     "step2Desc": "Pomagamo vam izbrati najboljso napravo za vas salon",
     "step3Title": "Namestitev + Usposabljanje",
-    "step3Desc": "Namestitev na kraju samem in 4-6 ur usposabljanja",
+    "step3Desc": "Zagon na lokaciji in usposabljanje za upravljanje naprave",
     "step4Title": "Zacetek!",
     "step4Desc": "Trajna podpora, servis in poslovno svetovanje"
   },
@@ -602,19 +611,16 @@
     "watchFull": "Oglejte si celoten video ({duration})"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Profesionalna odstranitev dlak s 4 valovnimi dolzinami",
-    "wavelength": "Valovna dolzina",
+    "badge": "Pravkar prispelo",
+    "tagline": "Diagnostika dlak in kože z mikrokamero, digitalni karton stranke in priporočilo parametrov v eni napravi.",
     "power": "Moc",
-    "cooling": "Safirno hlajenje",
     "warranty": "Garancija",
     "grossPrice": "Bruto cena",
-    "orMonthly": "ali mesecno",
     "viewDetails": "Oglej si podrobnosti",
     "requestDemo": "Zahtevaj predstavitev",
-    "productPlaceholder": "foto izdelka",
     "warrantyValue": "2 leti",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 valovne dolžine",
+    "skinTypes": "Za vse tipe kože"
   },
   "ctaSection": {
     "title": "Imate vprasanja? Tukaj smo, da pomagamo!",
@@ -977,5 +983,43 @@
     "current": "Pravkar si ogledujete",
     "price": "Cena (z DDV)",
     "view": "Poglej"
+  },
+  "homeHero": {
+    "prev": "Prejšnji diapozitiv",
+    "next": "Naslednji diapozitiv",
+    "goTo": "Diapozitiv {n}",
+    "upNext": "Naslednje:",
+    "slides": {
+      "empire": "Diodni laser EMPIRE",
+      "olympia": "Diodni laser OLYMPIA",
+      "ndyag": "Laser ND:YAG",
+      "training": "Usposabljanje in servis"
+    }
+  },
+  "homeComparison": {
+    "title": "Kateri diodni laser je pravi za vaš salon?",
+    "subtitle": "Vse naprave ({count}) imajo 4 valovne dolžine. Razlika je v moči, ročniku in programski opremi za upravljanje.",
+    "specHeader": "Lastnost",
+    "details": "Podrobnosti",
+    "scrollHint": "Povlecite vstran za primerjavo",
+    "showAll": "Vse specifikacije (še {count})",
+    "showLess": "Manj specifikacij"
+  },
+  "mobileCta": {
+    "call": "Klic",
+    "consult": "Posvet"
+  },
+  "foundersHome": {
+    "badge": "Ustanovitelja",
+    "title": "Srečanje dveh svetov - to sva midva",
+    "intro": "Skinlab sva ustanovila skupaj: Szimonetta je prišla iz lepotne industrije, z ozadjem v zdravstvu, László pa iz sveta tehnike in naprav. Spodbudil naju je tretma v tujini: videla sva, s kakšnimi napravami delajo na Zahodu, in se odločila, da to kakovost - in znanje, ki stoji za njo - prineseva tudi madžarskim salonom.",
+    "quote": "Ne želimo prodajati naprav, temveč ponuditi uporabno strokovno znanje, varnost in človeško podporo. Prodajamo samo naprave, ki jih tudi sami poznamo, imamo radi in jih z mirno vestjo priporočamo - in tudi po nakupu svojih partnerjev ne pustimo samih.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Ustanoviteljica Skinlaba",
+    "simonettaSpec": "Strokovnjakinja za tretmaje",
+    "laszloName": "Horváth László",
+    "laszloRole": "Ustanovitelj Skinlaba",
+    "laszloSpec": "Tehnični strokovnjak",
+    "cta": "Spoznajte vso našo zgodbo"
   }
 }

@@ -16,10 +16,17 @@ const galleryImages = [
 
 // Duplikált készlet a folyamatos, varratmentes (loop) görgetéshez
 const carouselImages = [...galleryImages, ...galleryImages];
+
+// Ellenőrzött állítások (whyUs / howItWorks / ÁSZF 7.6-7.11 cseregép-feltétel).
+const facts = [
+  { titleKey: 'training.fact1Title', descKey: 'training.fact1Desc' },
+  { titleKey: 'training.fact2Title', descKey: 'training.fact2Desc' },
+  { titleKey: 'training.fact3Title', descKey: 'training.fact3Desc' },
+];
 ---
 
 <!-- Képforgató: pillanatképek a képzésekről -->
-<section class="py-12 lg:py-16 bg-white">
+<section class="py-12 lg:py-16 bg-primary-50" id="kepzes">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{t(locale, 'training.galleryTitle')}</h2>
@@ -63,6 +70,15 @@ const carouselImages = [...galleryImages, ...galleryImages];
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-3 sm:gap-4 mt-8">
+      {facts.map((fact) => (
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-5 py-4">
+          <h3 class="font-bold text-gray-900 mb-1">{t(locale, fact.titleKey)}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">{t(locale, fact.descKey)}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -1,108 +1,119 @@
 ---
+/**
+ * FeaturedProduct - a főoldal kiemelt gépe (jelenleg az új EMPIRE 4WAVE).
+ *
+ * A havi részlet a webshop valós részletfizetési szabályából jön
+ * (`lib/installment.ts`: 50% előleg, a leghosszabb elérhető futamidő), és
+ * csak magyarul jelenik meg, mint a termékoldali kalkulátor.
+ * Promóciós "bestseller" címke tilos; a "Most érkezett" tényállítás.
+ */
 import { getCollection } from 'astro:content';
 import { ContentImage } from '../images';
 import { hasImage, getImageAlt } from '@/lib/resolve-image';
-import { t, getLocaleFromUrl, getLocalizedUrl, formatPrice as i18nFormatPrice, type Locale } from '../../i18n/ui';
+import { getInstallmentInfo } from '@/lib/installment';
+import { loadProductContent } from '@/lib/load-product-content';
+import { t, getLocaleFromUrl, getLocalizedUrl, formatPrice, type Locale } from '../../i18n/ui';
 
-// Get locale from URL
+interface Props {
+  slug?: string;
+}
+
+const { slug = 'empire' } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-
-// Localized contact link
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
-// Fetch the featured product (HELIOS - flagship 1600W diódalézer)
-const allProducts = await getCollection('products', ({ data }) => !data.draft);
-const featuredProduct = allProducts.find(p => p.data.slug === 'helios');
+const products = await getCollection('products', ({ data }) => !data.draft && data.slug === slug);
+const product = products[0];
+// Ha a kiemelt gép kikerül (draft), a szekció egyszerűen nem jelenik meg.
+const d = product?.data;
+const name = d ? (loadProductContent(locale, d.slug, d.categorySlug).content.name || d.name) : '';
+const price = d ? (d.salePrice ?? d.price) : null;
+const productLink = d ? getLocalizedUrl(locale, `/${d.categorySlug}/${d.slug}`) : '';
 
-const productImagePath = featuredProduct?.data.image || '';
-const hasProductImage = productImagePath && hasImage(productImagePath);
+const installment = getInstallmentInfo(price);
+const longest = installment.available ? Math.max(...installment.months) as 3 | 6 | 12 : null;
+const showInstallment = locale === 'hu' && longest !== null;
 
-const product = {
-  name: featuredProduct?.data.name || 'HELIOS 1600W diódalézer',
-  tagline: t(locale, 'featuredProduct.tagline'),
-  badge: t(locale, 'featuredProduct.badge'),
-  price: featuredProduct?.data.price ? i18nFormatPrice(featuredProduct.data.price, locale) : t(locale, 'product.priceOnRequest'),
-  monthlyPrice: t(locale, 'featuredProduct.monthlyPrice'),
-  specs: [
-    { value: '4', labelKey: 'featuredProduct.wavelength' },
-    { value: '1600W', labelKey: 'featuredProduct.power' },
-    { value: '-16°C', labelKey: 'featuredProduct.cooling' },
-    { value: t(locale, 'featuredProduct.warrantyValue'), labelKey: 'featuredProduct.warranty' },
-  ],
-  link: featuredProduct
-    ? getLocalizedUrl(locale, `/${featuredProduct.data.categorySlug}/${featuredProduct.data.slug}`)
-    : getLocalizedUrl(locale, '/diodalezerek/helios'),
-};
+// Az EMPIRE ellenőrzött adatai (src/content/products/empire.json specs).
+const specs = [
+  { value: t(locale, 'featuredProduct.wavelengthsValue'), label: '755 / 808 / 940 / 1064 nm' },
+  { value: '1200W', label: t(locale, 'featuredProduct.power') },
+  { value: 'Fitzpatrick I-VI', label: t(locale, 'featuredProduct.skinTypes') },
+  { value: t(locale, 'featuredProduct.warrantyValue'), label: t(locale, 'featuredProduct.warranty') },
+];
 ---
 
-<section class="bg-gradient-to-br from-primary-100 via-primary-50 to-white py-16 lg:py-20 relative overflow-hidden">
-  <!-- Subtle decorative accents -->
-  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-100/40 blur-3xl" aria-hidden="true"></div>
-  <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-primary-200/40 blur-3xl" aria-hidden="true"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-      <!-- Left: Product image -->
-      <div class="bg-white rounded-2xl aspect-square flex items-center justify-center order-1 lg:order-1 overflow-hidden shadow-sm border border-primary-100/60">
-        {hasProductImage ? (
+{d && (
+<section class="bg-gradient-to-br from-primary-100 via-primary-50 to-white py-14 lg:py-20 relative overflow-hidden" id="kiemelt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-[5fr_6fr] gap-8 lg:gap-14 items-center">
+      <a
+        href={productLink}
+        class="group bg-white rounded-2xl aspect-[4/3] lg:aspect-square flex items-center justify-center overflow-hidden shadow-sm border border-primary-100/60"
+        data-event="home_featured_image_click"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        {d.image && hasImage(d.image) && (
           <ContentImage
-            src={productImagePath}
-            alt={getImageAlt(productImagePath, product.name)}
-            class="w-full h-full object-contain p-4"
+            src={d.image}
+            alt={getImageAlt(d.image, name)}
+            class="w-full h-full object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
           />
-        ) : (
-          <div class="text-center p-8">
-            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary-50 flex items-center justify-center">
-              <svg class="w-10 h-10 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <p class="text-gray-400 font-medium">HELIOS {t(locale, 'featuredProduct.productPlaceholder')}</p>
-          </div>
         )}
-      </div>
+      </a>
 
-      <!-- Right: Product info -->
-      <div class="text-gray-800 order-2 lg:order-2">
-        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-          {product.badge}
-        </div>
+      <div>
+        <span class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+          <span class="relative flex w-2 h-2" aria-hidden="true">
+            <span class="featured-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-60"></span>
+            <span class="relative inline-flex rounded-full w-2 h-2 bg-primary-700"></span>
+          </span>
+          {t(locale, 'featuredProduct.badge')}
+        </span>
 
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-gray-900">{product.name}</h2>
-        <p class="text-lg lg:text-xl text-primary-600 mb-6">{product.tagline}</p>
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-gray-900">{name}</h2>
+        <p class="text-lg text-primary-700 mb-6">{t(locale, 'featuredProduct.tagline')}</p>
 
-        <div class="grid grid-cols-2 gap-3 mb-6">
-          {product.specs.map((spec) => (
+        <dl class="grid grid-cols-2 gap-3 mb-6">
+          {specs.map((spec) => (
             <div class="bg-white rounded-xl p-3 lg:p-4 border border-gray-100 shadow-sm">
-              <div class="text-xl lg:text-2xl font-bold text-gray-900">{spec.value}</div>
-              <div class="text-gray-500 text-sm">{t(locale, spec.labelKey)}</div>
+              <dt class="sr-only">{spec.label}</dt>
+              <dd class="text-lg lg:text-xl font-bold text-gray-900">{spec.value}</dd>
+              <dd class="text-gray-500 text-sm">{spec.label}</dd>
             </div>
           ))}
-        </div>
+        </dl>
 
-        <div class="flex items-end gap-4 mb-6">
-          <div>
-            <div class="text-gray-500 text-sm">{t(locale, 'featuredProduct.grossPrice')}</div>
-            <div class="text-3xl lg:text-4xl font-bold text-gray-900">{product.price}</div>
+        {price && (
+          <div class="flex flex-wrap items-end gap-x-5 gap-y-1 mb-6">
+            <div>
+              <div class="text-gray-500 text-sm">{t(locale, 'featuredProduct.grossPrice')}</div>
+              <div class="text-3xl lg:text-4xl font-bold text-gray-900">{formatPrice(price, locale)}</div>
+            </div>
+            {showInstallment && longest && (
+              <p class="pb-1.5 text-gray-600">
+                {t(locale, 'featuredProduct.installmentLine', {
+                  monthly: formatPrice(installment.monthly[longest], locale),
+                  months: longest,
+                })}
+              </p>
+            )}
           </div>
-          <div class="text-gray-500">
-            {t(locale, 'featuredProduct.orMonthly')} {product.monthlyPrice}
-          </div>
-        </div>
+        )}
 
         <div class="flex flex-col sm:flex-row gap-3">
           <a
             href={contactLink}
-            class="bg-primary-700 hover:bg-primary-800 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-center transition-colors shadow-lg"
+            data-event="home_featured_demo_click"
+            class="bg-primary-700 hover:bg-primary-800 active:scale-[0.98] text-white font-bold py-3.5 px-7 rounded-xl text-center transition-all shadow-lg"
           >
             {t(locale, 'featuredProduct.requestDemo')}
           </a>
           <a
-            href={product.link}
-            class="bg-white text-gray-800 font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-center border-2 border-gray-200 hover:border-cta/40 hover:text-cta transition-colors"
+            href={productLink}
+            data-event="home_featured_details_click"
+            class="bg-white text-primary-700 font-bold py-3.5 px-7 rounded-xl text-center border-2 border-primary-700/30 hover:border-primary-700/60 hover:bg-primary-50 active:scale-[0.98] transition-all"
           >
             {t(locale, 'featuredProduct.viewDetails')}
           </a>
@@ -111,3 +122,16 @@ const product = {
     </div>
   </div>
 </section>
+)}
+
+<style>
+  .featured-ping {
+    animation: featured-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes featured-ping {
+    75%, 100% { transform: scale(2.2); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .featured-ping { animation: none; }
+  }
+</style>

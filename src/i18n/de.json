@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Tattooentfernung mit ND:YAG-Laser",
-      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Lasern – preisgekrönte Geräte und lokaler Service"
+      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Laser, mit Service vor Ort in Ungarn"
     },
     "slide5": {
       "title": "Unser neuer Frame YAG Laser ist da!",
@@ -57,7 +57,12 @@
     "kellekek": "Zubehor",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "Kaltplasma",
-    "productCount": "Produkte"
+    "productCount": "Produkte",
+    "homeTitle": "Welche Behandlung möchten Sie anbieten?",
+    "homeSubtitle": "Wählen Sie den Bereich, und wir zeigen Ihnen die passenden Geräte für Ihren Salon.",
+    "suppliesTitle": "Zubehör und Behandlungsprodukte",
+    "showAll": "Alle {count} Kategorien",
+    "showLess": "Weniger Kategorien"
   },
   "trust": {
     "warranty": "2 Jahre Garantie",
@@ -67,19 +72,11 @@
     "training": "FAR-Zertifikat",
     "trainingDesc": "Offizielle Bediener-Schulung",
     "service": "Eigener Service",
-    "serviceDesc": "Sofortige Reparatur, Leihgerat"
+    "serviceDesc": "Schnelle Reparatur, Ersatzgeräte-Programm"
   },
   "brands": {
     "title": "Unsere Marken",
-    "subtitle": "Exklusivvertrieb von Premium-Kosmetikmarken in Ungarn"
-  },
-  "stats": {
-    "soldUnits": "Verkaufte Novalight",
-    "warranty": "Garantie",
-    "deliveryTime": "Lieferzeit",
-    "hungarianService": "Ungarischer Service",
-    "yearsSuffix": "Jahre",
-    "weeksSuffix": "Wochen"
+    "subtitle": "Mit diesen Marken arbeiten wir, von den Geräten bis zu den Behandlungsprodukten."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -220,7 +217,8 @@
     "noObligation": "Unverbindlich",
     "inPersonOrOnline": "Personlich oder online",
     "roiCalculation": "ROI-Berechnung",
-    "orCallDirectly": "Oder rufen Sie direkt an:"
+    "orCallDirectly": "Oder rufen Sie direkt an:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Laser",
@@ -324,7 +322,21 @@
     "included": "Im Preis enthalten",
     "duration": "Dauer",
     "location": "Standort",
-    "register": "Anmelden"
+    "register": "Anmelden",
+    "galleryTitle": "Zum Gerät bekommen Sie auch das Know-how",
+    "gallerySubtitle": "Praxisschulung in echter Salonumgebung, in kleinen Gruppen.",
+    "galleryAlt1": "Üben einer Hydrodermabrasion-Behandlung in der Schulung",
+    "galleryAlt2": "Vorführung einer Carbon-Laser-Gesichtsbehandlung in der Schulung",
+    "galleryAlt3": "Praxisschulung zur Diodenlaser-Behandlung",
+    "galleryAlt4": "Praktische Gruppenschulung in Salonumgebung",
+    "galleryAlt5": "Zertifikate der FAR-registrierten Schulung",
+    "galleryAlt6": "Teilnehmende an der Skinlab-Geräteschulung",
+    "fact1Title": "FAR-registrierte Schulung",
+    "fact1Desc": "Mit Zertifikat mit B-Nummer und praktischer Ausbildung.",
+    "fact2Title": "Inbetriebnahme vor Ort",
+    "fact2Desc": "Wir richten das Gerät in Ihrem Salon ein und schulen Sie direkt dort in der Anwendung.",
+    "fact3Title": "Eigener Service, Ersatzgeräte-Programm",
+    "fact3Desc": "Bei Reparaturen von mehr als 10 Werktagen stellen wir ein Ersatzgerät zur Verfügung, je nach Lagerverfügbarkeit."
   },
   "comparison": {
     "title": "Vergleich",
@@ -517,14 +529,11 @@
     "training": "Vollstandige Schulung",
     "trainingDesc": "4-6 Stunden personliche Schulung + FAR-Zertifikat + Videomaterial. Wir lassen Sie nicht gehen, bis Sie das Gerat sicher bedienen.",
     "warranty": "2 Jahre Garantie, lokaler Service",
-    "warrantyDesc": "Kein wochenlanges Warten auf auslandischen Service. Wir reagieren innerhalb von 24 Stunden und stellen bei Bedarf ein Ersatzgerat.",
+    "warrantyDesc": "Kein wochenlanges Warten auf einen Service im Ausland. Wir reparieren schnell im eigenen Haus und stellen bei Reparaturen von mehr als 10 Werktagen ein Ersatzgerät zur Verfügung, je nach Lagerverfügbarkeit.",
     "financing": "Finanzierung, Leasing",
     "financingDesc": "Ab ~250 EUR/Monat. Kein Einmalbetrag notig - die Einnahmen des Gerats zahlen die Raten.",
     "consulting": "Geschaftsberatung",
-    "consultingDesc": "Wir helfen bei Preisgestaltung und Marketing. Wir teilen, was erfolgreiche Salons machen.",
-    "testimonialTitle": "Zufriedener Partner",
-    "testimonialText": "Die Schulung war groBartig, und ich kann sie jederzeit anrufen, wenn ich eine Frage habe.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Wir helfen bei Preisgestaltung und Marketing. Wir teilen, was erfolgreiche Salons machen."
   },
   "search": {
     "placeholder": "Produkte nach Name suchen...",
@@ -566,7 +575,7 @@
     "step2Title": "Auswahl",
     "step2Desc": "Wir helfen Ihnen, das beste Gerat fur Ihren Salon auszuwahlen",
     "step3Title": "Installation + Schulung",
-    "step3Desc": "Vor-Ort-Installation und 4-6 Stunden Schulung",
+    "step3Desc": "Inbetriebnahme vor Ort und Geräteschulung",
     "step4Title": "Start!",
     "step4Desc": "Laufende Unterstutzung, Service und Geschaftsberatung"
   },
@@ -602,19 +611,16 @@
     "watchFull": "Ganzes Video ansehen ({duration})"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Professionelle Haarentfernung mit 4 Wellenlangen",
-    "wavelength": "Wellenlange",
+    "badge": "Neu eingetroffen",
+    "tagline": "Haar- und Hautdiagnostik per Mikrokamera, digitale Kundenkartei und Parameterempfehlung in einem Gerät.",
     "power": "Leistung",
-    "cooling": "Saphir-Kuhlung",
     "warranty": "Garantie",
     "grossPrice": "Bruttopreis",
-    "orMonthly": "oder monatlich",
     "viewDetails": "Details ansehen",
     "requestDemo": "Demo anfordern",
-    "productPlaceholder": "Produktfoto",
     "warrantyValue": "2 Jahre",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 Wellenlängen",
+    "skinTypes": "Für alle Hauttypen"
   },
   "ctaSection": {
     "title": "Haben Sie Fragen? Wir helfen gerne!",
@@ -977,5 +983,43 @@
     "current": "Du siehst gerade",
     "price": "Preis (brutto)",
     "view": "Ansehen"
+  },
+  "homeHero": {
+    "prev": "Vorherige Folie",
+    "next": "Nächste Folie",
+    "goTo": "Folie {n}",
+    "upNext": "Als Nächstes:",
+    "slides": {
+      "empire": "EMPIRE Diodenlaser",
+      "olympia": "OLYMPIA Diodenlaser",
+      "ndyag": "ND:YAG-Laser",
+      "training": "Schulung und Service"
+    }
+  },
+  "homeComparison": {
+    "title": "Welcher Diodenlaser passt zu Ihrem Salon?",
+    "subtitle": "Alle {count} Geräte haben 4 Wellenlängen. Der Unterschied liegt in der Leistung, im Handstück und in der Behandlungssoftware.",
+    "specHeader": "Merkmal",
+    "details": "Details",
+    "scrollHint": "Zum Vergleichen seitlich wischen",
+    "showAll": "Alle Merkmale ({count} weitere)",
+    "showLess": "Weniger Merkmale"
+  },
+  "mobileCta": {
+    "call": "Anrufen",
+    "consult": "Beratung"
+  },
+  "foundersHome": {
+    "badge": "Die Gründer",
+    "title": "Wo zwei Welten sich treffen - das sind wir",
+    "intro": "Wir haben Skinlab zu zweit gegründet: Szimonetta kam aus der Beauty-Branche mit medizinischem Hintergrund, László aus der Welt der Technik und der Geräte. Den Anstoß gab eine Behandlung im Ausland: Wir sahen, mit welchen Geräten man im Westen arbeitet, und beschlossen, diese Qualität - und das Wissen dahinter - auch in die ungarischen Salons zu bringen.",
+    "quote": "Wir wollen keine Geräte verkaufen, sondern anwendbares Fachwissen, Sicherheit und menschliche Unterstützung bieten. Wir vertreiben nur Geräte, die wir selbst kennen, mögen und guten Gewissens empfehlen - und auch nach dem Kauf lassen wir unsere Partner nicht allein.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Skinlab-Gründerin",
+    "simonettaSpec": "Behandlungsexpertin",
+    "laszloName": "Horváth László",
+    "laszloRole": "Skinlab-Gründer",
+    "laszloSpec": "Technischer Experte",
+    "cta": "Lernen Sie unsere ganze Geschichte kennen"
   }
 }

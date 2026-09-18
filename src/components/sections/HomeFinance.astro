@@ -1,0 +1,76 @@
+---
+/**
+ * HomeFinance - rövid finanszírozási blokk a főoldalon (csak magyarul).
+ *
+ * A számok a webshop valós részletfizetési szabályából jönnek
+ * (lib/installment.ts: 50% előleg, 3/6/12 hónap ársávtól függően), a
+ * feltételek a /finanszirozas/ oldal szövegével egyeznek (0% THM, nincs
+ * kezelési díj). Más nyelven nincs részletfizetés, ezért ott nem jelenik meg.
+ */
+import { getCollection } from 'astro:content';
+import { getInstallmentInfo } from '@/lib/installment';
+import { t, getLocaleFromUrl, getLocalizedUrl, formatPrice, type Locale } from '../../i18n/ui';
+
+interface Props {
+  exampleSlug?: string;
+}
+
+const { exampleSlug = 'empire' } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+const [example] = await getCollection('products', ({ data }) => !data.draft && data.slug === exampleSlug);
+const price = example ? (example.data.salePrice ?? example.data.price) : null;
+const info = getInstallmentInfo(price);
+const longest = info.available ? Math.max(...info.months) : null;
+---
+
+{locale === 'hu' && example && price && info.available && (
+  <section class="py-12 lg:py-16 bg-[#fbf8f8]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1fr_24rem] gap-8 lg:gap-14 items-center">
+      <div>
+        <span class="inline-flex bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+          {t(locale, 'homeFinance.badge')}
+        </span>
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{t(locale, 'homeFinance.title')}</h2>
+        <p class="text-gray-600 leading-relaxed mb-5">{t(locale, 'homeFinance.body')}</p>
+        <ul class="space-y-2 mb-7 text-gray-700">
+          {['homeFinance.tier1', 'homeFinance.tier2', 'homeFinance.tier3'].map((key) => (
+            <li class="flex gap-2.5">
+              <svg class="w-5 h-5 mt-0.5 shrink-0 text-cta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              <span>{t(locale, key)}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href={getLocalizedUrl(locale, '/finanszirozas')}
+          data-event="home_finance_click"
+          class="inline-flex items-center gap-2 px-6 py-3.5 bg-cta hover:bg-cta-hover active:scale-[0.98] text-white font-semibold rounded-xl transition-all shadow-md"
+        >
+          {t(locale, 'homeFinance.cta')}
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div class="text-sm font-semibold text-gray-500 mb-4">
+          {t(locale, 'homeFinance.example', { name: example.data.name })} · {formatPrice(price, locale)}
+        </div>
+        <dl class="text-gray-800">
+          <div class="flex justify-between py-2.5 border-b border-gray-100">
+            <dt>{t(locale, 'homeFinance.downPayment')}</dt>
+            <dd class="font-bold">{formatPrice(info.downPayment, locale)}</dd>
+          </div>
+          {info.months.map((m) => (
+            <div class:list={['flex justify-between py-2.5 px-3 -mx-3 rounded-lg', m === longest ? 'bg-primary-50' : 'border-b border-gray-100']}>
+              <dt>{t(locale, 'homeFinance.term', { months: m })}</dt>
+              <dd class:list={['font-bold', m === longest && 'text-primary-700']}>
+                {t(locale, 'homeFinance.perMonth', { amount: formatPrice(info.monthly[m], locale) })}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p class="mt-4 text-sm text-gray-500">{t(locale, 'homeFinance.note')}</p>
+      </div>
+    </div>
+  </section>
+)}

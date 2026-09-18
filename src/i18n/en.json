@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Tattoo Removal with ND:YAG Lasers",
-      "subtitle": "Safe, effective tattoo and pigment removal with Q-switched ND:YAG lasers – award-winning devices and local service"
+      "subtitle": "Safe, effective tattoo and pigment removal with a Q-switched ND:YAG laser, backed by local service in Hungary"
     },
     "slide5": {
       "title": "Our new Frame YAG laser has arrived!",
@@ -57,7 +57,12 @@
     "kellekek": "Accessories",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "ColdPlasma",
-    "productCount": "products"
+    "productCount": "products",
+    "homeTitle": "Which treatment would you like to offer?",
+    "homeSubtitle": "Pick an area and we'll show you the machines that suit your salon.",
+    "suppliesTitle": "Accessories and treatment products",
+    "showAll": "All {count} categories",
+    "showLess": "Fewer categories"
   },
   "trust": {
     "warranty": "2-Year Warranty",
@@ -71,15 +76,7 @@
   },
   "brands": {
     "title": "Our Brands",
-    "subtitle": "Exclusive distributor of premium cosmetic brands in Hungary"
-  },
-  "stats": {
-    "soldUnits": "Novalight Units Sold",
-    "warranty": "Warranty",
-    "deliveryTime": "Delivery Time",
-    "hungarianService": "Hungarian Service",
-    "yearsSuffix": "years",
-    "weeksSuffix": "weeks"
+    "subtitle": "These are the brands we work with, from machines to treatment products."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -220,7 +217,8 @@
     "noObligation": "No obligation",
     "inPersonOrOnline": "In-person or online",
     "roiCalculation": "ROI calculation",
-    "orCallDirectly": "Or call directly:"
+    "orCallDirectly": "Or call directly:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lasers",
@@ -324,7 +322,21 @@
     "included": "Included in price",
     "duration": "Duration",
     "location": "Location",
-    "register": "Register"
+    "register": "Register",
+    "galleryTitle": "You get know-how along with the machine",
+    "gallerySubtitle": "Hands-on training in a real salon environment, in small groups.",
+    "galleryAlt1": "Practising a hydrodermabrasion treatment during the training",
+    "galleryAlt2": "Carbon laser facial demonstrated during training",
+    "galleryAlt3": "Hands-on training in diode laser treatment",
+    "galleryAlt4": "Hands-on group training in a salon environment",
+    "galleryAlt5": "Certificates of the FAR-registered training",
+    "galleryAlt6": "Participants at the Skinlab machine operator training",
+    "fact1Title": "FAR-registered training",
+    "fact1Desc": "With a B-number certificate and hands-on training.",
+    "fact2Title": "On-site installation",
+    "fact2Desc": "We set up the machine in your salon and train you to use it right there.",
+    "fact3Title": "In-house service, replacement device program",
+    "fact3Desc": "For repairs exceeding 10 business days we provide a replacement device, subject to stock availability."
   },
   "comparison": {
     "title": "Comparison",
@@ -517,14 +529,11 @@
     "training": "Complete Training",
     "trainingDesc": "4-6 hours of personal training + FAR certificate + video materials. We won't let you go until you use the machine confidently.",
     "warranty": "2-Year Warranty, Local Service",
-    "warrantyDesc": "No waiting weeks for foreign service. We respond within 24 hours, and for repairs exceeding 10 business days we provide a replacement device.",
+    "warrantyDesc": "No waiting weeks for service abroad. We repair quickly, in-house, and for repairs exceeding 10 business days we provide a replacement device, subject to stock availability.",
     "financing": "Financing, Leasing",
     "financingDesc": "From ~€250/month. No need to pay all at once – the machine's revenue pays the installments.",
     "consulting": "Business Consulting",
-    "consultingDesc": "We help with pricing and marketing. We share what successful salons do.",
-    "testimonialTitle": "Satisfied Partner",
-    "testimonialText": "The training was great, and I can call them anytime I have a question.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "We help with pricing and marketing. We share what successful salons do."
   },
   "search": {
     "placeholder": "Search products by name...",
@@ -566,7 +575,7 @@
     "step2Title": "Selection",
     "step2Desc": "We help you choose the best machine for your salon",
     "step3Title": "Installation + Training",
-    "step3Desc": "On-site setup and 4-6 hours of training",
+    "step3Desc": "On-site installation and operator training",
     "step4Title": "Launch!",
     "step4Desc": "Ongoing support, service and business consulting"
   },
@@ -602,19 +611,16 @@
     "watchFull": "Watch the full video ({duration})"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "4-wavelength professional hair removal",
-    "wavelength": "Wavelength",
+    "badge": "Just arrived",
+    "tagline": "Micro-camera hair and skin diagnostics, digital client records and parameter recommendations in one machine.",
     "power": "Power",
-    "cooling": "Sapphire cooling",
     "warranty": "Warranty",
     "grossPrice": "Gross price",
-    "orMonthly": "or monthly",
     "viewDetails": "View Details",
     "requestDemo": "Request Demo",
-    "productPlaceholder": "product photo",
     "warrantyValue": "2 years",
-    "monthlyPrice": "~€250"
+    "wavelengthsValue": "4 wavelengths",
+    "skinTypes": "For all skin types"
   },
   "ctaSection": {
     "title": "Have Questions? We're Here to Help!",
@@ -983,5 +989,43 @@
     "current": "You are viewing",
     "price": "Price (gross)",
     "view": "View"
+  },
+  "homeHero": {
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "goTo": "Slide {n}",
+    "upNext": "Up next:",
+    "slides": {
+      "empire": "EMPIRE diode laser",
+      "olympia": "OLYMPIA diode laser",
+      "ndyag": "ND:YAG laser",
+      "training": "Training and service"
+    }
+  },
+  "homeComparison": {
+    "title": "Which diode laser is right for your salon?",
+    "subtitle": "All {count} machines have 4 wavelengths. The difference is in the power, the handpiece and the treatment software.",
+    "specHeader": "Feature",
+    "details": "Details",
+    "scrollHint": "Swipe sideways to compare",
+    "showAll": "All specifications ({count} more)",
+    "showLess": "Fewer specifications"
+  },
+  "mobileCta": {
+    "call": "Call",
+    "consult": "Consultation"
+  },
+  "foundersHome": {
+    "badge": "The founders",
+    "title": "Where two worlds meet - this is who we are",
+    "intro": "The two of us founded Skinlab: Szimonetta came from the beauty industry with a healthcare background, László from the world of technology and machines. A treatment abroad set us on our way: we saw the level of devices they work with in the West, and we decided to bring this quality - and the know-how behind it - to Hungarian salons too.",
+    "quote": "We don't want to sell machines; we want to provide usable expertise, safety and human support. We only sell devices that we know ourselves, like and recommend wholeheartedly - and we don't let go of our partners' hands after the purchase either.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Skinlab founder",
+    "simonettaSpec": "Treatment expert",
+    "laszloName": "Horváth László",
+    "laszloRole": "Skinlab founder",
+    "laszloSpec": "Technical expert",
+    "cta": "Read our full story"
   }
 }

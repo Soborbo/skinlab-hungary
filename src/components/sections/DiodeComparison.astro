@@ -1,0 +1,38 @@
+---
+/**
+ * DiodeComparison - a főoldali "Melyik diódalézer való a szalonodba?" tábla.
+ *
+ * Nem külön táblakomponens: a termékoldali ProductComparison-t használja, az
+ * automatikus spec-sorokkal (lib/product-comparison.ts), a kiemelt géppel az
+ * első oszlopban és a kategória összes élő gépével mellette.
+ */
+import ProductComparison from '../product/ProductComparison.astro';
+import { getCategorySiblings, buildComparison } from '@/lib/product-comparison';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+
+interface Props {
+  highlight?: string;
+  categorySlug?: string;
+}
+
+const { highlight = 'empire', categorySlug = 'diodalezerek' } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+const { current, siblings } = await getCategorySiblings(highlight, categorySlug);
+const table = current ? buildComparison(locale, current, siblings, siblings.length) : null;
+---
+
+{table && (
+  <ProductComparison
+    locale={locale}
+    table={table}
+    title={t(locale, 'homeComparison.title')}
+    subtitle={t(locale, 'homeComparison.subtitle', { count: table.columns.length })}
+    highlightLabel={t(locale, 'featuredProduct.badge')}
+    scrollHint={t(locale, 'homeComparison.scrollHint')}
+    sectionClass="py-12 lg:py-16 bg-white"
+    maxRows={4}
+    showAllLabel={t(locale, 'homeComparison.showAll', { count: Math.max(0, table.rows.length - 4) })}
+    showLessLabel={t(locale, 'homeComparison.showLess')}
+  />
+)}

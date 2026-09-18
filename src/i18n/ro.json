@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Îndepărtarea tatuajelor cu laser ND:YAG",
-      "subtitle": "Îndepărtare sigură și eficientă a tatuajelor și a pigmentului cu lasere ND:YAG Q-switched – dispozitive premiate și service local"
+      "subtitle": "Îndepărtarea sigură și eficientă a tatuajelor și pigmenților cu laser ND:YAG Q-switched, cu service local în Ungaria"
     },
     "slide5": {
       "title": "Noul nostru laser Frame YAG a sosit!",
@@ -57,7 +57,12 @@
     "kellekek": "Accesorii",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "ColdPlasma",
-    "productCount": "produse"
+    "productCount": "produse",
+    "homeTitle": "Ce tratament vrei să oferi?",
+    "homeSubtitle": "Alege domeniul și îți arătăm aparatele potrivite pentru salonul tău.",
+    "suppliesTitle": "Accesorii și produse pentru tratamente",
+    "showAll": "Toate cele {count} categorii",
+    "showLess": "Mai puține categorii"
   },
   "trust": {
     "warranty": "Garantie 2 ani",
@@ -67,19 +72,11 @@
     "training": "Certificat FAR",
     "trainingDesc": "Curs oficial de operator",
     "service": "Service propriu",
-    "serviceDesc": "Reparatie imediata, aparat de rezerva"
+    "serviceDesc": "Reparație rapidă, program de aparat de înlocuire"
   },
   "brands": {
     "title": "Brandurile noastre",
-    "subtitle": "Distribuitor exclusiv de branduri cosmetice premium în Ungaria"
-  },
-  "stats": {
-    "soldUnits": "Unitati Novalight vandute",
-    "warranty": "Garantie",
-    "deliveryTime": "Timp de livrare",
-    "hungarianService": "Service maghiar",
-    "yearsSuffix": "ani",
-    "weeksSuffix": "săptămâni"
+    "subtitle": "Acestea sunt brandurile cu care lucrăm, de la aparate până la produsele pentru tratamente."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -220,7 +217,8 @@
     "noObligation": "Fara obligatii",
     "inPersonOrOnline": "Personal sau online",
     "roiCalculation": "Calcul rentabilitate",
-    "orCallDirectly": "Sau suna direct:"
+    "orCallDirectly": "Sau suna direct:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lasere",
@@ -324,7 +322,21 @@
     "included": "Inclus in pret",
     "duration": "Durata",
     "location": "Locatie",
-    "register": "Inregistrare"
+    "register": "Inregistrare",
+    "galleryTitle": "Pe lângă aparat primești și know-how",
+    "gallerySubtitle": "Instruire practică într-un mediu real de salon, în grupuri mici.",
+    "galleryAlt1": "Exersarea unui tratament de hidrodermabraziune la curs",
+    "galleryAlt2": "Demonstrație de tratament facial cu laser carbon în timpul cursului",
+    "galleryAlt3": "Instruire practică pentru tratamentul cu laser cu diodă",
+    "galleryAlt4": "Instruire practică de grup într-un mediu de salon",
+    "galleryAlt5": "Certificatele cursului înregistrat în FAR",
+    "galleryAlt6": "Participanți la cursul Skinlab pentru operatori de aparate",
+    "fact1Title": "Curs înregistrat în FAR",
+    "fact1Desc": "Cu certificat cu număr de înregistrare B și instruire practică.",
+    "fact2Title": "Punere în funcțiune la fața locului",
+    "fact2Desc": "Configurăm aparatul în salonul tău și te instruim acolo cum să-l folosești.",
+    "fact3Title": "Service propriu, program de aparat de înlocuire",
+    "fact3Desc": "Pentru reparațiile care depășesc 10 zile lucrătoare oferim un aparat de înlocuire, în funcție de stoc."
   },
   "comparison": {
     "title": "Comparatie",
@@ -517,14 +529,11 @@
     "training": "Instruire completa",
     "trainingDesc": "4-6 ore de training personal + certificat FAR + materiale video. Nu te lasam pana nu folosesti echipamentul cu incredere.",
     "warranty": "2 ani garantie, service local",
-    "warrantyDesc": "Nu trebuie sa astepti saptamani pentru service strain. Raspundem in 24 de ore si, daca e nevoie, oferim echipament de inlocuire.",
+    "warrantyDesc": "Nu trebuie să aștepți săptămâni pentru un service în străinătate. Reparăm rapid, în regie proprie, iar pentru reparațiile care depășesc 10 zile lucrătoare oferim un aparat de înlocuire, în funcție de stoc.",
     "financing": "Finantare, leasing",
     "financingDesc": "De la ~250 EUR/luna. Nu trebuie sa platesti totul odata - veniturile echipamentului platesc ratele.",
     "consulting": "Consultanta de afaceri",
-    "consultingDesc": "Te ajutam cu stabilirea preturilor si marketingul. Impartasim ce fac saloanele de succes.",
-    "testimonialTitle": "Partener multumit",
-    "testimonialText": "Instruirea a fost grozava si pot sa-i sun oricand am o intrebare.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Te ajutam cu stabilirea preturilor si marketingul. Impartasim ce fac saloanele de succes."
   },
   "search": {
     "placeholder": "Căutați produse după nume...",
@@ -566,7 +575,7 @@
     "step2Title": "Selectie",
     "step2Desc": "Te ajutam sa alegi cel mai potrivit echipament pentru salonul tau",
     "step3Title": "Instalare + Instruire",
-    "step3Desc": "Instalare la fata locului si 4-6 ore de training",
+    "step3Desc": "Punere în funcțiune la fața locului și instruirea operatorului",
     "step4Title": "Lansare!",
     "step4Desc": "Suport continuu, service si consultanta de afaceri"
   },
@@ -602,19 +611,16 @@
     "watchFull": "Vezi videoclipul complet ({duration})"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Epilare profesionala cu 4 lungimi de unda",
-    "wavelength": "Lungime de unda",
+    "badge": "Tocmai a sosit",
+    "tagline": "Diagnostic al firului de păr și al pielii cu microcameră, fișă digitală a clientului și recomandare de parametri într-un singur aparat.",
     "power": "Putere",
-    "cooling": "Racire cu safir",
     "warranty": "Garantie",
     "grossPrice": "Pret brut",
-    "orMonthly": "sau lunar",
     "viewDetails": "Vezi detalii",
     "requestDemo": "Solicita demonstratie",
-    "productPlaceholder": "foto produs",
     "warrantyValue": "2 ani",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 lungimi de undă",
+    "skinTypes": "Pentru toate tipurile de piele"
   },
   "ctaSection": {
     "title": "Ai intrebari? Suntem aici sa ajutam!",
@@ -977,5 +983,43 @@
     "current": "Vizualizezi acum",
     "price": "Preț (cu TVA)",
     "view": "Vezi"
+  },
+  "homeHero": {
+    "prev": "Slide-ul anterior",
+    "next": "Slide-ul următor",
+    "goTo": "Slide-ul {n}",
+    "upNext": "Urmează:",
+    "slides": {
+      "empire": "Laser cu diodă EMPIRE",
+      "olympia": "Laser cu diodă OLYMPIA",
+      "ndyag": "Laser ND:YAG",
+      "training": "Training și service"
+    }
+  },
+  "homeComparison": {
+    "title": "Ce laser cu diodă i se potrivește salonului tău?",
+    "subtitle": "Toate cele {count} aparate au 4 lungimi de undă. Diferența constă în putere, în piesa de mână și în software-ul de tratament.",
+    "specHeader": "Caracteristică",
+    "details": "Detalii",
+    "scrollHint": "Glisează lateral pentru comparație",
+    "showAll": "Toate specificațiile (încă {count})",
+    "showLess": "Mai puține specificații"
+  },
+  "mobileCta": {
+    "call": "Sună",
+    "consult": "Consultație"
+  },
+  "foundersHome": {
+    "badge": "Fondatorii",
+    "title": "Întâlnirea a două lumi - aceștia suntem noi",
+    "intro": "Am fondat Skinlab în doi: Szimonetta a venit din industria frumuseții, cu experiență în domeniul sănătății, iar László din lumea tehnicii și a aparatelor. Totul a pornit de la un tratament în străinătate: am văzut cu ce nivel de aparate se lucrează în Vest și am hotărât să aducem această calitate - și cunoștințele din spatele ei - și în saloanele din Ungaria.",
+    "quote": "Nu vrem să vindem aparate, ci să oferim cunoștințe de specialitate utile, siguranță și sprijin uman. Comercializăm doar aparate pe care le cunoaștem, le îndrăgim și le recomandăm cu încredere - și nu ne lăsăm partenerii singuri nici după cumpărare.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Fondatoare Skinlab",
+    "simonettaSpec": "Expertă în tratamente",
+    "laszloName": "Horváth László",
+    "laszloRole": "Fondator Skinlab",
+    "laszloSpec": "Expert tehnic",
+    "cta": "Descoperă povestea noastră completă"
   }
 }

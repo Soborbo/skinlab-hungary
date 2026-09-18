@@ -1,14 +1,25 @@
 ---
+/**
+ * Főoldal - CRO-alapú sorrend (2026-09-18, mockup:
+ * https://claude.ai/artifact/EaTK8Ebts9eRQ3fTQXcJkM).
+ *
+ * Tájékozódás → bizonyíték → a friss ajánlat → döntés és finanszírozás →
+ * ki áll mögötte → mi történik, ha jelentkezem → záró CTA.
+ * A régi Stats-sáv kikerült (igazolatlan számok, duplikálta az USP-sávot).
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroCarousel from '../sections/HeroCarousel.astro';
 import Categories from '../sections/Categories.astro';
-import BrandMarquee from '../sections/BrandMarquee.astro';
-import Stats from '../sections/Stats.astro';
-import WhyUs from '../sections/WhyUs.astro';
+import VideoQuote from '../video/VideoQuote.astro';
 import FeaturedProduct from '../sections/FeaturedProduct.astro';
-import FoundersStory from '../sections/FoundersStory.astro';
-import VideoTestimonials from '../sections/VideoTestimonials.astro';
+import DiodeComparison from '../sections/DiodeComparison.astro';
+import HomeFinance from '../sections/HomeFinance.astro';
+import WhyUs from '../sections/WhyUs.astro';
 import TrainingGallery from '../sections/TrainingGallery.astro';
+import VideoTestimonials from '../sections/VideoTestimonials.astro';
+import BrandMarquee from '../sections/BrandMarquee.astro';
+import FoundersStory from '../sections/FoundersStory.astro';
+import FounderConsult from '../cta/FounderConsult.astro';
 import HowItWorks from '../sections/HowItWorks.astro';
 import FinalCTA from '../sections/FinalCTA.astro';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
@@ -22,21 +33,38 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
   title={t(locale, 'home.title')}
   description={t(locale, 'home.description')}
   image="/og-home.jpg"
-  preloadImage="/hero/hero-aios-multifunkcios-kozmetikai-gep.avif"
-  preloadImageMobile="/hero/hero-aios-multifunkcios-kozmetikai-gep-mobile.avif"
+  preloadImage="/hero/hero-empire-4wave-diodalezer-foto.avif"
+  preloadImageMobile="/hero/hero-empire-4wave-diodalezer-mobile.avif"
+  preloadBreakpoint={768}
   schema={homepageSchema(config)}
 >
   <div>
+    {/* 1. Hova kerültem, mi az új? */}
     <HeroCarousel />
+    {/* 2. Nekem való terület van itt? */}
     <Categories />
-    <VideoTestimonials />
-    <BrandMarquee />
-    <Stats />
+    {/* 3. Kik dolgoznak ezzel tényleg? */}
+    <VideoQuote testimonial="adri" videoSide="right" />
+    {/* 4. Mi az újdonság, megéri? */}
+    <FeaturedProduct slug="empire" />
+    {/* 5. Melyiket válasszam? */}
+    <DiodeComparison highlight="empire" categorySlug="diodalezerek" />
+    {/* 6. Ki tudom fizetni? (csak HU, ott van részletfizetés) */}
+    <HomeFinance exampleSlug="empire" />
+    {/* 7. Mi van, ha elromlik vagy elakadok? */}
     <WhyUs />
+    {/* 8. Meg tudom majd használni? */}
     <TrainingGallery />
-    <FeaturedProduct />
+    {/* 9. Mások tapasztalata (a fenti Adri-videó nélkül) */}
+    <VideoTestimonials exclude={['adri']} quotes />
+    {/* 10. Kitől van a gép és az anyag? */}
+    <BrandMarquee />
+    {/* 11. Kivel fogok beszélni? */}
     <FoundersStory />
+    <FounderConsult tone="dark" heading="category" eventPrefix="home" sectionClass="bg-white py-12 lg:py-16" />
+    {/* 12. Mi történik, ha jelentkezem? */}
     <HowItWorks />
+    {/* 13. Záró CTA */}
     <FinalCTA />
   </div>
 </BaseLayout>
