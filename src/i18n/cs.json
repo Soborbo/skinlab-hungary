@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Odstranění tetování laserem ND:YAG",
-      "subtitle": "Bezpečné a účinné odstranění tetování a pigmentu lasery ND:YAG Q-switched – oceněné přístroje a místní servis"
+      "subtitle": "Bezpečné a účinné odstraňování tetování a pigmentu Q-switched laserem ND:YAG, se servisním zázemím v Maďarsku"
     },
     "slide5": {
       "title": "Náš nový Frame YAG laser je tady!",
@@ -57,7 +57,12 @@
     "kellekek": "Prislusenstvi",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "ColdPlasma",
-    "productCount": "produktů"
+    "productCount": "produktů",
+    "homeTitle": "Jaké ošetření chcete nabízet?",
+    "homeSubtitle": "Vyberte oblast a ukážeme vám k ní přístroje vhodné pro váš salon.",
+    "suppliesTitle": "Příslušenství a přípravky pro ošetření",
+    "showAll": "Všechny kategorie ({count})",
+    "showLess": "Méně kategorií"
   },
   "trust": {
     "warranty": "2leta zaruka",
@@ -67,19 +72,11 @@
     "training": "FAR certifikat",
     "trainingDesc": "Oficialni skoleni operatoru",
     "service": "Vlastni servis",
-    "serviceDesc": "Okamzita oprava, nahradni zarizeni"
+    "serviceDesc": "Rychlá oprava, program náhradních přístrojů"
   },
   "brands": {
     "title": "Naše značky",
-    "subtitle": "Exkluzivní distributor prémiových kosmetických značek v Maďarsku"
-  },
-  "stats": {
-    "soldUnits": "Prodanych jednotek Novalight",
-    "warranty": "Zaruka",
-    "deliveryTime": "Doba dodani",
-    "hungarianService": "Maďarský servis",
-    "yearsSuffix": "let",
-    "weeksSuffix": "týdnů"
+    "subtitle": "S těmito značkami pracujeme, od přístrojů po přípravky pro ošetření."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -218,7 +215,8 @@
     "noObligation": "Bez zavazku",
     "inPersonOrOnline": "Osobne nebo online",
     "roiCalculation": "Vypocet navratnosti",
-    "orCallDirectly": "Nebo zavolejte primo:"
+    "orCallDirectly": "Nebo zavolejte primo:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lasery",
@@ -322,7 +320,21 @@
     "included": "Zahrnuto v cene",
     "duration": "Delka",
     "location": "Misto",
-    "register": "Registrovat"
+    "register": "Registrovat",
+    "galleryTitle": "Spolu s přístrojem získáte i znalosti",
+    "gallerySubtitle": "Praktická výuka ve skutečném salonním prostředí, v malých skupinách.",
+    "galleryAlt1": "Nácvik hydrodermabraze na školení",
+    "galleryAlt2": "Ukázka karbonového laserového ošetření obličeje během výuky",
+    "galleryAlt3": "Praktická výuka ošetření diodovým laserem",
+    "galleryAlt4": "Skupinová praktická výuka v salonním prostředí",
+    "galleryAlt5": "Certifikáty ze školení registrovaného ve FAR",
+    "galleryAlt6": "Účastníci školení obsluhy přístrojů Skinlab",
+    "fact1Title": "Školení registrované ve FAR",
+    "fact1Desc": "S certifikátem s maďarským registračním B-číslem a praktickou výukou.",
+    "fact2Title": "Uvedení do provozu na místě",
+    "fact2Desc": "Přístroj nastavíme přímo ve vašem salonu a tam vás naučíme s ním pracovat.",
+    "fact3Title": "Vlastní servis, program náhradních přístrojů",
+    "fact3Desc": "Pokud oprava trvá déle než 10 pracovních dnů, poskytneme náhradní přístroj podle dostupnosti na skladě."
   },
   "comparison": {
     "title": "Srovnani",
@@ -515,14 +527,11 @@
     "training": "Kompletni skoleni",
     "trainingDesc": "4-6 hodin osobniho skoleni + FAR certifikat + video materialy. Nepustume vas, dokud zarizeni neovladate s jistotou.",
     "warranty": "2 roky zaruky, mistni servis",
-    "warrantyDesc": "Zadne tydny cekani na zahranicni servis. Reagujeme do 24 hodin a v pripade potreby poskytneme nahradni zarizeni.",
+    "warrantyDesc": "Žádné týdny čekání na zahraniční servis. Opravujeme rychle ve vlastním servisu, a pokud oprava trvá déle než 10 pracovních dnů, poskytneme náhradní přístroj podle dostupnosti na skladě.",
     "financing": "Financovani, leasing",
     "financingDesc": "Od ~250 EUR/mesic. Nemusite platit vse najednou - prijmy ze zarizeni plati splatky.",
     "consulting": "Obchodni poradenstvi",
-    "consultingDesc": "Pomahame s cenotvorbou a marketingem. Sdilime, co delaji uspesne salony.",
-    "testimonialTitle": "Spokojeny partner",
-    "testimonialText": "Skoleni bylo skvele a mohu jim kdykoliv zavolat, kdyz mam dotaz.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Pomahame s cenotvorbou a marketingem. Sdilime, co delaji uspesne salony."
   },
   "search": {
     "placeholder": "Hledat produkty podle názvu...",
@@ -564,7 +573,7 @@
     "step2Title": "Vyber",
     "step2Desc": "Pomuzeme vam vybrat nejlepsi zarizeni pro vas salon",
     "step3Title": "Instalace + Skoleni",
-    "step3Desc": "Instalace na miste a 4-6 hodin skoleni",
+    "step3Desc": "Uvedení do provozu na místě a zaškolení obsluhy",
     "step4Title": "Start!",
     "step4Desc": "Prubezna podpora, servis a obchodni poradenstvi"
   },
@@ -600,19 +609,16 @@
     "watchFull": "Podívejte se na celé video ({duration})"
   },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Profesionalni epilace se 4 vlnovymi delkami",
-    "wavelength": "Vlnova delka",
+    "badge": "Novinka",
+    "tagline": "Diagnostika chloupků a pleti mikrokamerou, digitální karta klienta a doporučení parametrů v jednom přístroji.",
     "power": "Vykon",
-    "cooling": "Safirove chlazeni",
     "warranty": "Zaruka",
     "grossPrice": "Cena s DPH",
-    "orMonthly": "nebo mesicne",
     "viewDetails": "Zobrazit detaily",
     "requestDemo": "Zadat o demo",
-    "productPlaceholder": "foto produktu",
     "warrantyValue": "2 roky",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 vlnové délky",
+    "skinTypes": "Pro všechny typy pleti"
   },
   "ctaSection": {
     "title": "Mate otazky? Jsme tu, abychom pomohli!",
@@ -967,5 +973,43 @@
     "current": "Právě si prohlížíte",
     "price": "Cena (s DPH)",
     "view": "Zobrazit"
+  },
+  "homeHero": {
+    "prev": "Předchozí snímek",
+    "next": "Další snímek",
+    "goTo": "Snímek {n}",
+    "upNext": "Další:",
+    "slides": {
+      "empire": "Diodový laser EMPIRE",
+      "olympia": "Diodový laser OLYMPIA",
+      "ndyag": "Laser ND:YAG",
+      "training": "Školení a servis"
+    }
+  },
+  "homeComparison": {
+    "title": "Který diodový laser se hodí do vašeho salonu?",
+    "subtitle": "Všechny přístroje (celkem {count}) mají 4 vlnové délky. Liší se výkonem, ošetřující hlavicí a ovládacím softwarem.",
+    "specHeader": "Parametr",
+    "details": "Detaily",
+    "scrollHint": "Pro porovnání posuňte do strany",
+    "showAll": "Všechny parametry (další: {count})",
+    "showLess": "Méně parametrů"
+  },
+  "mobileCta": {
+    "call": "Zavolat",
+    "consult": "Konzultace"
+  },
+  "foundersHome": {
+    "badge": "Zakladatelé",
+    "title": "Setkání dvou světů - to jsme my",
+    "intro": "Skinlab jsme založili ve dvou: Szimonetta přišla z kosmetického průmyslu se zdravotnickým zázemím, László ze světa techniky a přístrojů. Vše začalo jedním ošetřením v zahraničí: viděli jsme, s jak kvalitními přístroji se pracuje na Západě, a rozhodli jsme se tuto kvalitu - i znalosti, které za ní stojí - přinést také do maďarských salonů.",
+    "quote": "Nechceme prodávat přístroje, ale předávat použitelné odborné znalosti, bezpečí a lidskou podporu. Nabízíme jen přístroje, které sami známe, máme rádi a s čistým svědomím doporučujeme - a ani po nákupu své partnery nenecháme samotné.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Zakladatelka Skinlab",
+    "simonettaSpec": "Odbornice na ošetření",
+    "laszloName": "Horváth László",
+    "laszloRole": "Zakladatel Skinlab",
+    "laszloSpec": "Technický expert",
+    "cta": "Poznejte celý náš příběh"
   }
 }

@@ -10,7 +10,7 @@ import QuickAddButton from '../components/cart/QuickAddButton.astro';
 import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
 import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import { getLocaleFromUrl, withTrailingSlash, type Locale } from '../i18n/ui';
+import { getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../i18n/ui';
 import { getInstallmentInfo } from '@/lib/installment';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
@@ -625,7 +625,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
             <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
             <a
-              href="/konzultacio/"
+              href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800"
             >
               Konzultáció kérése
@@ -924,7 +924,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="text-center mt-8">
             <p class="text-gray-500 mb-4">Nem tudod eldönteni? Segítünk!</p>
             <a
-              href="/konzultacio/"
+              href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1027,7 +1027,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/konzultacio/"
+            href={getLocalizedUrl(pageLocale, '/konzultacio')}
             class="font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl bg-primary-700 hover:bg-primary-800"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,4 +1,5 @@
 ---
+import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 /**
  * ComparisonTable - Termek osszehasonlitas versenytarsakkal
  *
@@ -20,6 +21,7 @@ interface Props {
 }
 
 const { productName, category, customComparison, competitorName = 'Versenytars' } = Astro.props;
+const consultHref = getLocalizedUrl(getLocaleFromUrl(Astro.url) as Locale, '/konzultacio');
 
 // Category-specific comparison data (shortened versions with 5-7 rows)
 const categoryComparisons: Record<string, ComparisonRow[]> = {
@@ -255,7 +257,7 @@ const showComparison = comparisonData && comparisonData.length > 0;
           Kerdesed van? Szivesen segitunk a dontesben!
         </p>
         <a
-          href="/konzultacio/"
+          href={consultHref}
           class="inline-flex items-center gap-2 px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors"
         >
           Kerj szemelyre szabott ajanlatot

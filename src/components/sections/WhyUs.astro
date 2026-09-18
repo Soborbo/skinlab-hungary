@@ -65,7 +65,7 @@ const icons: Record<string, string> = {
         </div>
       </div>
 
-      <!-- Right: Training/Education Image with floating card -->
+      <!-- Right: Training/Education Image -->
       <div class="relative">
         <div class="rounded-2xl aspect-square overflow-hidden">
           <ContentImage
@@ -73,19 +73,6 @@ const icons: Record<string, string> = {
             alt={t(locale, 'whyUs.training')}
             class="w-full h-full object-cover"
           />
-        </div>
-        <!-- Floating testimonial card -->
-        <div class="absolute -bottom-4 -left-4 lg:-left-6 bg-white rounded-xl p-4 lg:p-5 shadow-xl border border-gray-100 max-w-xs hidden sm:block">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <span class="font-bold text-gray-900 text-sm">{t(locale, 'whyUs.testimonialTitle')}</span>
-          </div>
-          <p class="text-gray-600 text-sm italic">"{t(locale, 'whyUs.testimonialText')}"</p>
-          <p class="text-gray-400 text-xs mt-2">– {t(locale, 'whyUs.testimonialAuthor')}</p>
         </div>
       </div>
     </div>

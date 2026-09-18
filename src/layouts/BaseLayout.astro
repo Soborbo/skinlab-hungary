@@ -34,6 +34,8 @@ interface Props {
   preloadImage?: string;
   /** URL of the LCP hero image to preload on mobile viewports (< 640px) */
   preloadImageMobile?: string;
+  /** Viewport width (px) where the desktop preload takes over from the mobile one. */
+  preloadBreakpoint?: number;
   /** MIME type for preload (auto-detected from extension if omitted) */
   preloadImageType?: string;
   /**
@@ -54,6 +56,7 @@ const {
   hideDesktopWidget = false,
   preloadImage,
   preloadImageMobile,
+  preloadBreakpoint = 640,
   preloadImageType,
   availableLocales,
 } = Astro.props;
@@ -174,8 +177,8 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   )}
   {preloadImage && preloadImageMobile && (
     <>
-      <link rel="preload" href={preloadImageMobile} as="image" type={getImageMimeType(preloadImageMobile)} media="(max-width: 639px)" fetchpriority="high" />
-      <link rel="preload" href={preloadImage} as="image" type={resolvedPreloadType} media="(min-width: 640px)" fetchpriority="high" />
+      <link rel="preload" href={preloadImageMobile} as="image" type={getImageMimeType(preloadImageMobile)} media={`(max-width: ${preloadBreakpoint - 1}px)`} fetchpriority="high" />
+      <link rel="preload" href={preloadImage} as="image" type={resolvedPreloadType} media={`(min-width: ${preloadBreakpoint}px)`} fetchpriority="high" />
     </>
   )}
   

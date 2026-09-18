@@ -32,7 +32,7 @@
     },
     "slide4": {
       "title": "Tetováláseltávolítás ND:YAG lézerrel",
-      "subtitle": "Biztonságos, hatékony tetoválás- és pigmenteltávolítás Q‑kapcsolt ND:YAG lézerrel – díjnyertes készülékekkel és hazai szervizzel"
+      "subtitle": "Biztonságos, hatékony tetoválás- és pigmenteltávolítás Q-kapcsolt ND:YAG lézerrel, hazai szervizháttérrel"
     },
     "slide5": {
       "title": "Hozd ki a maximumot a carbon peelingből",
@@ -61,7 +61,12 @@
     "kellekek": "Kellékek",
     "kezeloanyagok": "M'ONDUNIQ",
     "coldplasma": "Hidegplazma",
-    "productCount": "termék"
+    "productCount": "termék",
+    "homeTitle": "Milyen kezelést szeretnél kínálni?",
+    "homeSubtitle": "Válaszd ki a területet, és megmutatjuk hozzá a szalonodba illő gépeket.",
+    "suppliesTitle": "Kellékek és kezelőanyagok",
+    "showAll": "Mind a {count} kategória",
+    "showLess": "Kevesebb kategória"
   },
   "trust": {
     "warranty": "2 év garancia",
@@ -75,15 +80,7 @@
   },
   "brands": {
     "title": "Márkáink",
-    "subtitle": "Prémium kozmetikai márkák kizárólagos forgalmazója Magyarországon"
-  },
-  "stats": {
-    "soldUnits": "Eladott Novalight",
-    "warranty": "Garancia",
-    "deliveryTime": "Szállítási idő",
-    "hungarianService": "Magyar szerviz",
-    "yearsSuffix": "év",
-    "weeksSuffix": "hét"
+    "subtitle": "Ezekkel a márkákkal dolgozunk, a gépektől a kezelőanyagokig."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -222,7 +219,8 @@
     "noObligation": "Kötelezettségmentes",
     "inPersonOrOnline": "Személyes vagy online",
     "roiCalculation": "Megtérülés kalkuláció",
-    "orCallDirectly": "Vagy hívj közvetlenül:"
+    "orCallDirectly": "Vagy hívj közvetlenül:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lézerek",
@@ -342,14 +340,20 @@
     "duration": "Időtartam",
     "location": "Helyszín",
     "register": "Jelentkezés",
-    "galleryTitle": "Pillanatképek a képzéseinkről",
+    "galleryTitle": "A gép mellé tudást is kapsz",
     "gallerySubtitle": "Gyakorlati oktatás valódi szalonkörnyezetben, kis létszámú csoportokban.",
     "galleryAlt1": "Hidrodermabráziós kezelés gyakorlása a képzésen",
     "galleryAlt2": "Karbonlézeres arckezelés bemutatása oktatás közben",
     "galleryAlt3": "Diódalézeres kezelés gyakorlati oktatása",
     "galleryAlt4": "Csoportos gyakorlati oktatás szalonkörnyezetben",
     "galleryAlt5": "FAR-jegyzett képzés tanúsítványai",
-    "galleryAlt6": "Résztvevők a Skinlab gépkezelői képzésén"
+    "galleryAlt6": "Résztvevők a Skinlab gépkezelői képzésén",
+    "fact1Title": "FAR-jegyzett képzés",
+    "fact1Desc": "B-számos tanúsítvánnyal, gyakorlati oktatással.",
+    "fact2Title": "Helyszíni üzembe helyezés",
+    "fact2Desc": "A gépet a szalonodban állítjuk be, és ott tanítunk be a használatára.",
+    "fact3Title": "Saját szerviz, cseregép-program",
+    "fact3Desc": "10 munkanapot meghaladó javítás esetén cseregépet biztosítunk, készlet függvényében."
   },
   "comparison": {
     "title": "Összehasonlítás",
@@ -630,20 +634,17 @@
     "training": "Gyakorlatorientált, mély szakmai tudás",
     "trainingDesc": "Nem egy gyors „összeszerelős” oktatás: megtanítunk magabiztosan paraméterezni, felismerni a hibafaktorokat, és felkészítünk minden eshetőségre. Képzéseink FAR-jegyzettek, B-számos tanúsítvánnyal.",
     "warranty": "2 év garancia, saját magyar szerviz",
-    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és 10 munkanapot meghaladó javítás esetén cserekészüléket biztosítunk.",
+    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és 10 munkanapot meghaladó javítás esetén cserekészüléket biztosítunk, készlet függvényében.",
     "financing": "Jogi és üzleti szemlélet",
     "financingDesc": "Átbeszéljük a géphasználat jogi kereteit és a dokumentációs elvárásokat, marketing- és üzleti modullal segítünk árazni, kommunikálni és fenntartható vállalkozást építeni.",
     "consulting": "Nem engedjük el a kezed",
-    "consultingDesc": "A vásárlás után sem hagyunk magadra: az utókövetés nálunk azt jelenti, hogy segítünk a használatban, a beállításokban és a mindennapi munkában.",
-    "testimonialTitle": "Elégedett partner",
-    "testimonialText": "A betanítás szuper volt, és bármikor felhívhatom őket ha kérdésem van.",
-    "testimonialAuthor": "Nagy Éva, Skin Studio"
+    "consultingDesc": "A vásárlás után sem hagyunk magadra: az utókövetés nálunk azt jelenti, hogy segítünk a használatban, a beállításokban és a mindennapi munkában."
   },
   "foundersHome": {
     "badge": "Az alapítók",
-    "title": "Két világ találkozása – ez vagyunk mi",
-    "intro": "A Skinlabot ketten alapítottuk: Szimonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget – és a mögötte lévő tudást – elhozzuk a magyar szalonoknak is.",
-    "quote": "Nem gépeket akarunk eladni, hanem használható szaktudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk – és a vásárlás után sem engedjük el a partnereink kezét.",
+    "title": "Két világ találkozása - ez vagyunk mi",
+    "intro": "A Skinlabot ketten alapítottuk: Szimonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget - és a mögötte lévő tudást - elhozzuk a magyar szalonoknak is.",
+    "quote": "Nem gépeket akarunk eladni, hanem használható szaktudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk - és a vásárlás után sem engedjük el a partnereink kezét.",
     "simonettaName": "Gaszler Szimonetta",
     "simonettaRole": "Skinlab alapító",
     "simonettaSpec": "Kezelési szakértő",
@@ -692,7 +693,7 @@
     "step2Title": "Kiválasztás",
     "step2Desc": "Segítünk a szalonodnak legmegfelelőbb gépet kiválasztani",
     "step3Title": "Telepítés + oktatás",
-    "step3Desc": "Helyszíni üzembe helyezés és 4-6 órás betanítás",
+    "step3Desc": "Helyszíni üzembe helyezés és gépkezelői betanítás",
     "step4Title": "Indulás!",
     "step4Desc": "Folyamatos support, szerviz és üzleti tanácsadás"
   },
@@ -728,19 +729,17 @@
     "watchFull": "Nézd meg a teljes videót ({duration})"
   },
   "featuredProduct": {
-    "badge": "Zászlóshajó modellünk",
-    "tagline": "4 hullámhosszú professzionális szőrtelenítő",
-    "wavelength": "Hullámhossz",
+    "badge": "Most érkezett",
+    "tagline": "Mikrokamerás szőr- és bőrdiagnosztika, digitális vendégkarton és paraméterajánlás egy gépben.",
     "power": "Teljesítmény",
-    "cooling": "Zafír hűtés",
     "warranty": "Garancia",
     "warrantyValue": "2 év",
     "grossPrice": "Bruttó ár",
-    "orMonthly": "vagy havi",
-    "monthlyPrice": "~89.000 Ft",
     "viewDetails": "Részletek megtekintése",
     "requestDemo": "Bemutatót kérek",
-    "productPlaceholder": "termékfotó"
+    "wavelengthsValue": "4 hullámhossz",
+    "skinTypes": "Minden bőrtípusra",
+    "installmentLine": "vagy 50% előleg után {monthly}/hó, {months} hónapon át"
   },
   "ctaSection": {
     "title": "Kérdésed van? Segítünk!",
@@ -1066,5 +1065,44 @@
     "current": "Ezt nézed most",
     "price": "Ár (bruttó)",
     "view": "Megnézem"
+  },
+  "homeHero": {
+    "prev": "Előző dia",
+    "next": "Következő dia",
+    "goTo": "{n}. dia",
+    "upNext": "Következő:",
+    "slides": {
+      "empire": "EMPIRE diódalézer",
+      "olympia": "OLYMPIA diódalézer",
+      "ndyag": "ND:YAG lézer",
+      "training": "Képzés és szerviz"
+    }
+  },
+  "homeComparison": {
+    "title": "Melyik diódalézer való a szalonodba?",
+    "subtitle": "Mind a {count} gép 4 hullámhosszú. A különbség a teljesítményben, a kezelőfejben és a kezelőszoftverben van.",
+    "specHeader": "Jellemző",
+    "details": "Részletek",
+    "scrollHint": "Húzd oldalra az összehasonlításhoz",
+    "showAll": "Összes jellemző (még {count})",
+    "showLess": "Kevesebb jellemző"
+  },
+  "mobileCta": {
+    "call": "Hívás",
+    "consult": "Konzultáció"
+  },
+  "homeFinance": {
+    "badge": "Finanszírozás",
+    "title": "Nem kell egy összegben kifizetned",
+    "body": "Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3, 6 vagy 12 havi részletben, a gép árától függően. Nincs kezelési díj és nincs rejtett költség.",
+    "tier1": "3 hónap 100 000 Ft felett",
+    "tier2": "3 vagy 6 hónap 1 000 000 Ft felett",
+    "tier3": "3, 6 vagy 12 hónap 3 000 000 Ft felett, vagy két gép együttes vásárlásakor",
+    "cta": "Részletek és kalkulátor",
+    "example": "Példa: {name}",
+    "downPayment": "Előleg (50%)",
+    "term": "{months} hónap",
+    "perMonth": "{amount}/hó",
+    "note": "Pontos ajánlatot a konzultáción adunk."
   }
 }

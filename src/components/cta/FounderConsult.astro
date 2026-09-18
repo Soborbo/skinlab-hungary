@@ -133,15 +133,15 @@ const scenarios = [
             <!-- scenario chips -->
             <div class="grid sm:grid-cols-2 gap-2.5 mb-6">
               {scenarios.map((item) => (
-                <div class="flex items-center gap-2.5 rounded-lg border border-gray-200 bg-gray-50/70 px-3 py-2.5 transition-all hover:border-primary-200 hover:bg-primary-50/60">
-                  <svg class="w-5 h-5 flex-shrink-0 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.d}/></svg>
-                  <span class="text-sm text-gray-700 leading-snug">{t(locale, item.key)}</span>
+                <div class:list={['flex items-center gap-2.5 rounded-lg border px-3 py-2.5 transition-all', dark ? 'border-white/15 bg-white/5 hover:border-primary-300/50 hover:bg-white/10' : 'border-gray-200 bg-gray-50/70 hover:border-primary-200 hover:bg-primary-50/60']}>
+                  <svg class:list={['w-5 h-5 flex-shrink-0', dark ? 'text-primary-300' : 'text-primary-500']} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.d}/></svg>
+                  <span class:list={['text-sm leading-snug', dark ? 'text-gray-100' : 'text-gray-700']}>{t(locale, item.key)}</span>
                 </div>
               ))}
             </div>
 
-            <p class="text-gray-600 mb-6">
-              {t(locale, 'founderConsult.bodyPre')} <strong class="text-gray-900">{t(locale, 'founderConsult.bodyStrong')}</strong> {t(locale, 'founderConsult.bodyPost')}
+            <p class:list={['mb-6', dark ? 'text-gray-300' : 'text-gray-600']}>
+              {t(locale, 'founderConsult.bodyPre')} <strong class:list={[dark ? 'text-white' : 'text-gray-900']}>{t(locale, 'founderConsult.bodyStrong')}</strong> {t(locale, 'founderConsult.bodyPost')}
             </p>
           </>
         )}

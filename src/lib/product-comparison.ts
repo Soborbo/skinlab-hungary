@@ -41,8 +41,10 @@ export function buildComparison(
   locale: Locale,
   current: CollectionEntry<'products'>,
   siblings: CollectionEntry<'products'>[],
+  /** Hány testvér kerüljön az aktuális mellé (a főoldalon a teljes kategória). */
+  siblingLimit: number = COMPARISON_SIBLINGS,
 ): ComparisonTable | null {
-  const entries = [current, ...siblings.slice(0, COMPARISON_SIBLINGS)];
+  const entries = [current, ...siblings.slice(0, siblingLimit)];
   if (entries.length < 2) return null;
 
   const specsByColumn: Record<string, string>[] = [];
@@ -65,7 +67,10 @@ export function buildComparison(
     .map((key) => ({ key, values: specsByColumn.map((s) => s[key]?.trim() || '') }))
     .filter(({ values }) => {
       const present = values.filter(Boolean);
-      return present.length >= 2 && new Set(present).size > 1;
+      // A csak zárójeles megjegyzésben eltérő értékek (pl. "... nm (4WAVE)")
+      // nem valódi különbségek.
+      const core = present.map((v) => v.replace(/\s*\([^)]*\)\s*/g, ' ').trim().toLowerCase());
+      return present.length >= 2 && new Set(core).size > 1;
     });
 
   return rows.length > 0 ? { columns, rows } : null;
