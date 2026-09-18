@@ -156,11 +156,15 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(image, SITE.url)} />
   
-  {/* Favicon: SVG for modern browsers, .ico fallback for older crawlers/UAs.
-      TODO: add a designed 180x180 public/apple-touch-icon.png and re-add an
-      apple-touch-icon link (the previous one was removed because it 404'd). */}
+  {/* Favicon: "s." a márka-pinken (2026-09-18; előtte az Astro alap-ikonja ment
+      ki). SVG a modern böngészőknek, .ico (16/32/48) és PNG a régieknek és a
+      keresőknek, apple-touch-icon az iOS kezdőképernyőhöz. */}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#ce2252" />
   
   <!-- Fonts: self-hosted, preload the primary `latin` subsets (these render the
        bulk of visible above-the-fold text). The heavier `latin-ext` subset
