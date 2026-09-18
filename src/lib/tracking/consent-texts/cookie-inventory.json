@@ -1,0 +1,274 @@
+{
+  "_comment": "A KOZZETEENDO suti-/tarolo-tabla kanonikus forrasa (GDPR Art 13(1)(e), PECR reg. 6, NAIH). MIERT ITT: a jogi kotelezettseg az, hogy amit KIIRUNK, azt le is irjuk, es amit a visszavonaskor IGERUNK torolni, azt torolju is. Ezt a ket allitast a `tests/cookie-inventory-parity.test.ts` KETIRANYBAN meri a `lib/persistence.ts` VALODI purge-kodjahoz kepest — a tabla igy nem tud elcsuszni a kodtol. Kezzel irt suti-tabla mindig elcsuszik; ez a fajl a kod parja.",
+  "version": "2026-09-d",
+  "_fields": {
+    "name": "A suti/kulcs neve. `match: prefix` eseten nev-elotag (a per-property utotag miatt).",
+    "storage": "cookie | localStorage | sessionStorage",
+    "category": "necessary | analytics | marketing",
+    "issuer": "first_party | a harmadik fel neve",
+    "lifetime": "Ember által olvasható élettartam, KÉT NYELVEN (`{hu, en}`). Az angol tábla korábban a magyar sztringet jelenítette meg. AMI A KÓDBÓL JÖN, AZT A `tests/cookie-inventory-parity.test.ts` MÉRI: a saját `sb_*` kulcsokra az élettartamnak egyeznie kell a `lib/persistence.ts` tényleges lejárati logikájával.",
+    "transfer": "Harmadik orszagba tortenő tovabbitas (null = nincs).",
+    "purged_on_withdrawal": "true = a visszavonas torli. false ESETEN a `why_not_purged` KOTELEZO es nem lehet ures — egy nem torolt suti lehet vedheto, de NEM lehet kimondatlan.",
+    "provider": "Melyik CMP alatt letezik a bejegyzes: `any` (provider-fuggetlen) | `sbo` | `cookieyes`. A `<CookiePolicy provider=\"...\" />` ez alapjan szur. MIERT KELL: a hozzajarulas-kezelo SAJAT sutije provider-specifikus, es 2026-09-13-i eles meres szerint a flottan MINDEN site CookieYes-en fut — az `sbo_consent`-et felsorolo tabla tehat ma nem letezo sutit hirdetne, a valodi `cookieyes-consent`-et pedig elhallgatna.",
+    "vendor": "OPCIONALIS. Egy site-onkent bekapcsolt harmadik feles eszkoz (`clarity` | `hotjar`). Hianyzik = minden site-on letezik. A `<CookiePolicy vendors={[...]} />` csak a site altal felsorolt vendorok sorait mutatja. MIERT KELL: a purge-kod MINDEN site-on torli ezeket a sutiket (ahol nincsenek, ott no-op), de a kozzetett tabla csak ott sorolhatja fel oket, ahol tenyleg futnak — kulonben nem letezo sutit hirdetne (Art 13(1)(e))."
+  },
+  "entries": [
+    {
+      "name": "sbo_consent",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "necessary",
+      "issuer": "first_party",
+      "lifetime": {
+        "hu": "180 nap",
+        "en": "180 days"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": false,
+      "why_not_purged": "Ez MAGA a hozzajarulasi dontes bizonyiteka (GDPR Art 7(1)). A torlese epp a visszavonas tenyet vinne el, es a bannert azonnal ujra feldobna — vagyis a latogato dontese nem ervenyesulne.",
+      "provider": "sbo",
+      "purpose": {
+        "hu": "A sütikre vonatkozó döntésének tárolása (kategóriánként), hogy ne kérdezzük újra minden oldalbetöltéskor, és hogy a döntés bizonyítható legyen.",
+        "en": "Stores your cookie choice per category so we do not ask again on every page load, and so the choice is provable."
+      }
+    },
+    {
+      "name": "cookieyes-consent",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "necessary",
+      "issuer": "CookieYes Limited",
+      "lifetime": {
+        "hu": "12 hónap",
+        "en": "12 months"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": false,
+      "why_not_purged": "Ez maga a hozzájárulás-kezelő döntés-sütije: ha a visszavonáskor törölnénk, a következő oldalbetöltéskor újra megkérdeznénk, és a visszavonás ténye sem lenne bizonyítható. A süti a visszavont állapotot tárolja.",
+      "provider": "cookieyes",
+      "purpose": {
+        "hu": "A CookieYes hozzájárulás-kezelő tárolja benne a sütikre vonatkozó döntését kategóriánként, hogy ne kérdezzük újra minden oldalbetöltéskor, és hogy a döntés bizonyítható legyen.",
+        "en": "The CookieYes consent manager stores your cookie choice per category, so we do not ask again on every page load and so the choice is provable."
+      }
+    },
+    {
+      "name": "sb_session",
+      "match": "exact",
+      "storage": "sessionStorage",
+      "category": "analytics",
+      "issuer": "first_party",
+      "lifetime": {
+        "hu": "a böngészőlap bezárásáig",
+        "en": "until you close the browser tab"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Munkamenet-azonosító, hogy az egy látogatáshoz tartozó események összetartozzanak a mérésben.",
+        "en": "Session identifier so that events from one visit belong together in measurement."
+      }
+    },
+    {
+      "name": "_ga",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "analytics",
+      "issuer": "Google Ireland Ltd. / Google LLC",
+      "lifetime": {
+        "hu": "2 év",
+        "en": "2 years"
+      },
+      "transfer": "USA (Google LLC), EU-U.S. Data Privacy Framework / SCC",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Google Analytics 4 látogató-azonosító: megkülönbözteti az egyes látogatókat a forgalmi statisztikában.",
+        "en": "Google Analytics 4 visitor identifier: distinguishes visitors in traffic statistics."
+      }
+    },
+    {
+      "name": "_ga_",
+      "match": "prefix",
+      "storage": "cookie",
+      "category": "analytics",
+      "issuer": "Google Ireland Ltd. / Google LLC",
+      "lifetime": {
+        "hu": "2 év",
+        "en": "2 years"
+      },
+      "transfer": "USA (Google LLC), EU-U.S. Data Privacy Framework / SCC",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Google Analytics 4 munkamenet-állapot az adott mérési adatfolyamhoz (`_ga_<STREAM>`).",
+        "en": "Google Analytics 4 session state for the given measurement stream (`_ga_<STREAM>`)."
+      }
+    },
+    {
+      "name": "_clck",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "analytics",
+      "issuer": "Microsoft Corporation (Clarity)",
+      "lifetime": {
+        "hu": "1 év",
+        "en": "1 year"
+      },
+      "transfer": "USA (Microsoft Corporation), EU-U.S. Data Privacy Framework",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "vendor": "clarity",
+      "purpose": {
+        "hu": "Microsoft Clarity látogató-azonosító: összeköti ugyanannak a látogatónak a munkameneteit a használati elemzéshez.",
+        "en": "Microsoft Clarity visitor identifier: links the same visitor's sessions for usage analysis."
+      }
+    },
+    {
+      "name": "_clsk",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "analytics",
+      "issuer": "Microsoft Corporation (Clarity)",
+      "lifetime": {
+        "hu": "1 nap",
+        "en": "1 day"
+      },
+      "transfer": "USA (Microsoft Corporation), EU-U.S. Data Privacy Framework",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "vendor": "clarity",
+      "purpose": {
+        "hu": "Microsoft Clarity munkamenet-süti: egy látogatás oldalmegtekintéseit egy felvételbe fűzi.",
+        "en": "Microsoft Clarity session cookie: joins the page views of one visit into a single recording."
+      }
+    },
+    {
+      "name": "_hj",
+      "match": "prefix",
+      "storage": "cookie",
+      "category": "analytics",
+      "issuer": "Hotjar Ltd. (Málta)",
+      "lifetime": {
+        "hu": "30 perc – 1 év",
+        "en": "30 minutes – 1 year"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "vendor": "hotjar",
+      "purpose": {
+        "hu": "Hotjar sütik (`_hjSessionUser_…` 1 év, `_hjSession_…` 30 perc): a látogató és a munkamenet felismerése a használati elemzéshez.",
+        "en": "Hotjar cookies (`_hjSessionUser_…` 1 year, `_hjSession_…` 30 minutes): recognise the visitor and the session for usage analysis."
+      }
+    },
+    {
+      "name": "sb_tracking",
+      "match": "exact",
+      "storage": "localStorage",
+      "category": "marketing",
+      "issuer": "first_party",
+      "lifetime": {
+        "hu": "90 nap",
+        "en": "90 days"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "A hirdetési attribúcióhoz szükséges adatok tárolása (pl. kattintás-azonosító), hogy a később leadott űrlap a helyes hirdetéshez kötődjön.",
+        "en": "Temporary storage of advertising attribution data (e.g. click identifier) so a later form submission is tied to the correct ad."
+      }
+    },
+    {
+      "name": "sb_first_touch",
+      "match": "exact",
+      "storage": "localStorage",
+      "category": "marketing",
+      "issuer": "first_party",
+      "lifetime": {
+        "hu": "a hozzájárulás visszavonásáig (nincs időalapú lejárat)",
+        "en": "until you withdraw consent (no time-based expiry)"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Az első látogatás forrása (kampány, kulcsszó), hogy a konverzió ne csak az utolsó kattintáshoz számítson.",
+        "en": "The source of the first visit (campaign, keyword) so a conversion is not credited to the last click only."
+      }
+    },
+    {
+      "name": "__sb_attribution",
+      "match": "exact",
+      "storage": "localStorage",
+      "category": "marketing",
+      "issuer": "first_party",
+      "lifetime": {
+        "hu": "a hozzájárulás visszavonásáig (nincs időalapú lejárat)",
+        "en": "until you withdraw consent (no time-based expiry)"
+      },
+      "transfer": null,
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Az attribúciós rekord (első és utolsó érintés egyben), a hirdetési mérés pontosságához.",
+        "en": "The attribution record (first and last touch together) for advertising measurement accuracy."
+      }
+    },
+    {
+      "name": "_fbp",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "marketing",
+      "issuer": "Meta Platforms Ireland Ltd.",
+      "lifetime": {
+        "hu": "90 nap",
+        "en": "90 days"
+      },
+      "transfer": "USA (Meta Platforms Inc.), SCC",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Meta (Facebook/Instagram) böngésző-azonosító a hirdetések méréséhez és a duplikált konverziók kiszűréséhez.",
+        "en": "Meta (Facebook/Instagram) browser identifier for ad measurement and de-duplication of conversions."
+      }
+    },
+    {
+      "name": "_fbc",
+      "match": "exact",
+      "storage": "cookie",
+      "category": "marketing",
+      "issuer": "Meta Platforms Ireland Ltd.",
+      "lifetime": {
+        "hu": "90 nap",
+        "en": "90 days"
+      },
+      "transfer": "USA (Meta Platforms Inc.), SCC",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "A Meta-hirdetésre történt kattintás azonosítója, hogy a későbbi konverzió ahhoz a hirdetéshez kötődjön.",
+        "en": "Identifier of the click on a Meta ad, so a later conversion is tied to that ad."
+      }
+    },
+    {
+      "name": "_gcl_",
+      "match": "prefix",
+      "storage": "cookie",
+      "category": "marketing",
+      "issuer": "Google Ireland Ltd. / Google LLC",
+      "lifetime": {
+        "hu": "90 nap",
+        "en": "90 days"
+      },
+      "transfer": "USA (Google LLC), EU-U.S. Data Privacy Framework / SCC",
+      "purged_on_withdrawal": true,
+      "provider": "any",
+      "purpose": {
+        "hu": "Google Ads konverzió-összekapcsoló (`_gcl_au`, `_gcl_aw`, `_gcl_dc`, `_gcl_gb`): a hirdetésre történt kattintást köti össze a későbbi konverzióval.",
+        "en": "Google Ads conversion linker (`_gcl_au`, `_gcl_aw`, `_gcl_dc`, `_gcl_gb`): links the ad click to a later conversion."
+      }
+    }
+  ]
+}

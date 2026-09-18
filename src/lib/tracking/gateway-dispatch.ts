@@ -40,6 +40,8 @@
  */
 
 /** Minimal shape of the Cloudflare service binding to the gateway Worker. */
+import { isSboConsentProvider, trackingConfig } from './config';
+
 export interface GatewayFetcher {
   fetch: (input: string, init?: RequestInit) => Promise<Response>;
 }
@@ -124,6 +126,11 @@ export interface GatewayConversionInput {
    *  (`fb.1.<click_ts_ms>.<fbclid>`). See `resolveFbc`. */
   fbc?: string;
   testEventCode?: string;
+  /**
+   * Saját CMP: a döntés-lánc azonosítója (`readSboConsentCookieHeader(...)
+   * .consentId`) → consent_receipts.consent_id. CookieYes alatt nincs.
+   */
+  consentId?: string;
 }
 
 export interface GatewayResult {
@@ -159,8 +166,26 @@ export function isGatewayConfigured(env: GatewayEnv): boolean {
  * NOT guess. The gateway then applies `require_consent` and fails closed, which is
  * the correct GDPR posture.
  */
-export function readConsentFromCookie(cookieHeader: string | null): ConsentState | undefined {
+export function readConsentFromCookie(
+  cookieHeader: string | null,
+  opts: SboCookieReadOptions = {},
+): ConsentState | undefined {
   if (!cookieHeader) return undefined;
+
+  // Saját CMP (sbo, 2026-09-18 óta): ha a kérésen ott a `sbo_consent`, az a
+  // döntés forrása. sbo alatt a CookieYes-sütire NEM esünk vissza — egy régi,
+  // korábbi CookieYes-döntés nem hozzájárulás a mostani tájékoztatóhoz.
+  const sbo = readSboConsentCookieHeader(cookieHeader, opts);
+  if (sbo) {
+    const s = (yes: boolean): ConsentSignal => (yes ? 'GRANTED' : 'DENIED');
+    return {
+      ad_user_data: s(sbo.marketing),
+      ad_personalization: s(sbo.marketing),
+      ad_storage: s(sbo.marketing),
+      analytics_storage: s(sbo.analytics),
+    };
+  }
+  if (isSboConsentProvider()) return undefined;
 
   let raw: string | undefined;
   for (const part of cookieHeader.split(';')) {
@@ -291,6 +316,7 @@ export function buildGatewayPayload(input: GatewayConversionInput): Record<strin
     user_data: userData && Object.keys(userData).length > 0 ? userData : undefined,
     attribution: attribution && Object.keys(attribution).length > 0 ? attribution : undefined,
     consent: input.consent,
+    consent_id: input.consentId,
     event_source_url: input.eventSourceUrl,
     client_ip_address: input.clientIpAddress,
     client_user_agent: input.clientUserAgent,
@@ -379,4 +405,87 @@ export async function sendGatewayConversion(
   }
 
   return { ok: false, status: lastStatus, error: lastError, retriable: true, attempts };
+}
+
+// ── Saját CMP (sbo) — a `sbo_consent` süti szerveroldali olvasata ─────────────
+//
+// A kit 6.9.0 `readSboConsentCookieHeader` párja (a böngésző-lib
+// consent-sbo-state.ts parserével azonos szabályok: v2 formátum, policy-verzió
+// egyezés, 180 napos lejárat, decision↔kategória konzisztencia). Bármely hiba →
+// null: consentet nem találunk ki, a gateway a require_consent-re esik (fail closed).
+
+export interface SboCookieConsent {
+  consentId: string;
+  analytics: boolean;
+  marketing: boolean;
+  revision: number;
+  decidedAtSec: number;
+  policyVersion: string;
+}
+
+/** 180 nap — a böngésző-lib SBO_CONSENT_MAX_AGE_S tükre. */
+export const SBO_CONSENT_MAX_AGE_S = 180 * 24 * 60 * 60;
+
+export interface SboCookieReadOptions {
+  /**
+   * A süti policy-verziójának egyeznie kell vele, különben null. Alapból a
+   * közös build-config (`PUBLIC_TRACKING_POLICY_VERSION`) — ugyanaz az érték,
+   * amivel a böngésző-láb kapuz, tehát a két láb nem gondolhat mást.
+   */
+  expectedPolicyVersion?: string;
+  nowSec?: number;
+}
+
+function safeDecodeCookieValue(value: string): string | undefined {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return undefined;
+  }
+}
+
+export function readSboConsentCookieHeader(
+  cookieHeader: string | null | undefined,
+  opts: SboCookieReadOptions = {}
+): SboCookieConsent | null {
+  if (!cookieHeader) return null;
+  let raw: string | undefined;
+  for (const part of cookieHeader.split(';')) {
+    const idx = part.indexOf('=');
+    if (idx < 0) continue;
+    if (part.slice(0, idx).trim() === 'sbo_consent') {
+      raw = safeDecodeCookieValue(part.slice(idx + 1).trim());
+      break;
+    }
+  }
+  if (!raw) return null;
+  const p = raw.split('.');
+  if (p.length !== 8 || p[0] !== 'v2') return null;
+  if ((p[1] !== '0' && p[1] !== '1') || (p[2] !== '0' && p[2] !== '1')) return null;
+  const revision = parseInt(p[3], 10);
+  if (!Number.isInteger(revision) || revision < 1 || revision > 10_000 || String(revision) !== p[3]) {
+    return null;
+  }
+  if (!['accept_all', 'reject_all', 'custom', 'withdrawn'].includes(p[4])) return null;
+  if (!/^[A-Za-z0-9_:-]{8,64}$/.test(p[5])) return null;
+  const decidedAtSec = parseInt(p[6], 10);
+  if (!Number.isInteger(decidedAtSec) || decidedAtSec <= 0 || String(decidedAtSec) !== p[6]) {
+    return null;
+  }
+  if (!/^[A-Za-z0-9_:-]{1,64}$/.test(p[7])) return null;
+  const policyVersion = p[7];
+  const expected = opts.expectedPolicyVersion ?? trackingConfig.policyVersion;
+  if (policyVersion !== expected) return null;
+  const now = opts.nowSec ?? Math.floor(Date.now() / 1000);
+  if (now - decidedAtSec > SBO_CONSENT_MAX_AGE_S) return null;
+  const analytics = p[1] === '1';
+  const marketing = p[2] === '1';
+  const matches =
+    p[4] === 'accept_all'
+      ? analytics && marketing
+      : p[4] === 'custom'
+        ? analytics !== marketing
+        : !analytics && !marketing;
+  if (!matches) return null;
+  return { consentId: p[5], analytics, marketing, revision, decidedAtSec, policyVersion };
 }

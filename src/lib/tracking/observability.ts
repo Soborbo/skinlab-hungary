@@ -28,6 +28,11 @@ export const TRACKING_CODES = {
   GATEWAY_REJECTED:        { code: 'TRK-1006', severity: 'error', message: 'Gateway rejected the dispatch (non-2xx HTTP status) — the conversion did NOT land' },
   // 3xxx — data integrity
   PII_IN_DATALAYER:        { code: 'TRK-3001', severity: 'error', message: 'PII-shaped key blocked from a dataLayer push' },
+  // 4xxx — saját CMP (sbo) consent-rögzítés (kit 6.9.0)
+  CONSENT_STORED:          { code: 'TRK-4000', severity: 'info',  message: 'Consent decision stored by the gateway (204)' },
+  CONSENT_POST_RETRYABLE:  { code: 'TRK-4001', severity: 'warn',  message: 'Consent POST not stored (429/5xx/network) — decision kept pending, resent later with the SAME consent_event_id' },
+  CONSENT_POST_REJECTED:   { code: 'TRK-4002', severity: 'error', message: 'Consent POST rejected (4xx) — dropped from the pending queue; the cookie state still applies locally' },
+  CONSENT_DEV_FALLBACK_ALLOW: { code: 'TRK-4003', severity: 'warn', message: 'Unknown consent ALLOWED by the explicit dev fallback (PUBLIC_TRACKING_DEV_CONSENT_ALLOW=1) — must never happen in production' },
 } as const satisfies Record<string, CodeDef>;
 
 export type TrackingCodeKey = keyof typeof TRACKING_CODES;

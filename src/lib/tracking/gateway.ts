@@ -21,6 +21,8 @@
  */
 
 import { hasAnalyticsConsent, hasMarketingConsent } from './consent';
+import { isSboConsentProvider, trackingConfig } from './config';
+import { readSboConsent } from './consent-sbo-state';
 import { getFbp, getFbc, getExternalId } from './persistence';
 import { getEntryLandingUrl, getEntryReferrer } from './entry-attribution';
 import { generateUUID } from './uuid';
@@ -111,6 +113,21 @@ function getConsentState(): ConsentState | undefined {
 
   const override = (window as unknown as { __trackingConsent?: ConsentState }).__trackingConsent;
   if (override && typeof override === 'object') return override;
+
+  // CMP Fázis 2: provider='sbo' alatt a jelek a SAJÁT sütiből épülnek — ugyanaz
+  // az egy forrás, amiből a dispatch-kapuk is olvasnak. Nincs döntés → undefined
+  // → a Worker a require_consent szabálya szerint dönt (fail closed).
+  if (isSboConsentProvider()) {
+    const s = readSboConsent(trackingConfig.policyVersion);
+    if (!s) return undefined;
+    const sbo = (yes: boolean): ConsentSignal => (yes ? 'GRANTED' : 'DENIED');
+    return {
+      ad_user_data: sbo(s.marketing),
+      ad_personalization: sbo(s.marketing),
+      ad_storage: sbo(s.marketing),
+      analytics_storage: sbo(s.analytics)
+    };
+  }
 
   const raw = getCookie('cookieyes-consent');
   if (!raw) return undefined;

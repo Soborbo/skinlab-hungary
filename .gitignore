@@ -11,6 +11,8 @@ dist/
 .env
 .env.*
 !.env.example
+# Nem titok: a produkciós build PUBLIC_* értékei (tracking-piac, CMP) — commitolva.
+!.env.production
 
 # IDE
 .vscode/

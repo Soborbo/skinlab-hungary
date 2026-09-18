@@ -8,6 +8,8 @@ import CartDrawer from '../components/cart/CartDrawer.astro';
 import { LCPTracker } from '../components/images';
 import Tracking from '../components/tracking/Tracking.astro';
 import TrackingNoscript from '../components/tracking/TrackingNoscript.astro';
+import ConsentBanner from '../components/tracking/ConsentBanner.astro';
+import { isSboConsentProvider } from '@/lib/tracking/config';
 import { SITE, SEO_DEFAULTS } from '../lib/constants';
 import {
   locales,
@@ -249,15 +251,13 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     document.addEventListener('astro:page-load', initEntryAttribution);
   </script>
 
-  {/* Tracking: CookieYes CMP + Consent Mode v2 + GTM (soborbo-tracking).
+  {/* Tracking: saját CMP (sbo) + Consent Mode v2 + GTM (soborbo-tracking).
+      2026-09-18 óta a CookieYes helyett a saját CMP fut (a CookieYes bannert a
+      csomag oldalmegtekintési limitje letiltotta). sbo alatt a GTM CSAK pozitív
+      döntés után töltődik; a provider a .env.production-ből jön.
       PROD-only: the dev server must never load GTM — `astro dev` sessions were
       polluting the production GA4 property (localhost:4321 referral). */}
-  {import.meta.env.PROD && (
-    <Tracking
-      gtmId="GTM-NW7DKC2D"
-      cookieYesId="e4277196d46870253c9f1ee61c3f485d"
-    />
-  )}
+  {import.meta.env.PROD && <Tracking gtmId="GTM-NW7DKC2D" />}
 
   <!-- Additional head content from pages -->
   <slot name="head" />
@@ -266,7 +266,9 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="generator" content={Astro.generator} />
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
-  {import.meta.env.PROD && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
+  {/* sbo alatt NINCS noscript GTM: JS nélkül consent-döntés sincs, a GTM-iframe
+      hozzájárulás előtt futna. */}
+  {import.meta.env.PROD && !isSboConsentProvider() && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
   <Header />
   <main id="main-content" class="flex-1">
     <slot />
@@ -275,6 +277,14 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <MobileStickyCta />
   {!hideDesktopWidget && <DesktopContactWidget />}
   <CartDrawer />
+  {/* Saját CMP bannere + panelje (a footer „Süti beállítások” linkje nyitja újra).
+      Magyar oldalon magyar, minden más nyelven angol a kit szövege. */}
+  {import.meta.env.PROD && isSboConsentProvider() && (
+    <ConsentBanner
+      policyHref={getLocalizedUrl(currentLocale, '/adatvedelem')}
+      lang={currentLocale === 'hu' ? 'hu' : 'en'}
+    />
+  )}
 <LCPTracker />
 <slot name="body-end" />
 </body>
