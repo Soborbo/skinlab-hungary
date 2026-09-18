@@ -413,3 +413,58 @@ export function clearTrackingData(): void {
   lsRm(TRACKING_KEY); lsRm(FIRST_TOUCH_KEY); lsRm(EXTERNAL_ID_KEY); ssRm(SESSION_KEY);
   memorySession = null;
 }
+
+// ── Visszavonás: a NYUGVÓ adat törlése (saját CMP, kit 6.9.0) ──────────────
+//
+// A `consent-sbo.ts` hívja, amikor egy korábban engedett kategóriát a látogató
+// visszavon. Nem elég nem írni többet: a már tárolt azonosítók és sütik is
+// mennek. A skinlab saját kulcsai: sb_tracking, sb_first_touch, sb_uid,
+// __sb_attribution (gateway.ts + entry-attribution.ts közös kulcsa), sb_session.
+
+/** A GTM-ből futó gyártói sütik (kit 6.9.0 VENDOR_COOKIES). */
+const VENDOR_COOKIES = {
+  analytics: { exact: ['_ga', '_clck', '_clsk'], prefixes: ['_ga_', '_hj'] },
+  marketing: { exact: [] as string[], prefixes: ['_gcl_'] },
+} as const;
+
+function expireCookie(name: string): void {
+  if (typeof document === 'undefined') return;
+  const past = 'Thu, 01 Jan 1970 00:00:00 GMT';
+  const host = typeof location !== 'undefined' ? location.hostname : '';
+  // Minden szülő-utótag (≥2 címke): az apexre írt _fbp/_fbc/_ga is elérhető.
+  const labels = host ? host.split('.') : [];
+  const domains: Array<string | undefined> = [undefined, host, `.${host}`];
+  for (let i = 1; i <= labels.length - 2; i++) domains.push(`.${labels.slice(i).join('.')}`);
+  for (const d of domains) {
+    if (d === '' || d === '.') continue;
+    try {
+      document.cookie = `${name}=; path=/; expires=${past}; SameSite=Lax${d ? `; domain=${d}` : ''}`;
+    } catch { /* */ }
+  }
+}
+
+function matchingCookieNames(match: { readonly exact: readonly string[]; readonly prefixes: readonly string[] }): string[] {
+  if (typeof document === 'undefined') return [];
+  const names = new Set<string>();
+  for (const part of document.cookie.split(';')) {
+    const name = part.split('=')[0].trim();
+    if (!name) continue;
+    if (match.exact.includes(name) || match.prefixes.some((p) => name.startsWith(p))) names.add(name);
+  }
+  return [...names];
+}
+
+/** Marketing-hozzájárulás visszavonása: klikk-ID-k, attribúció, Meta/Google sütik. */
+export function purgeMarketingStorage(): void {
+  lsRm(TRACKING_KEY); lsRm(FIRST_TOUCH_KEY); lsRm(EXTERNAL_ID_KEY); lsRm('__sb_attribution');
+  expireCookie('_fbp');
+  expireCookie('_fbc');
+  for (const name of matchingCookieNames(VENDOR_COOKIES.marketing)) expireCookie(name);
+}
+
+/** Statisztika-hozzájárulás visszavonása: munkamenet + GA4 sütik. */
+export function purgeAnalyticsStorage(): void {
+  ssRm(SESSION_KEY);
+  memorySession = null;
+  for (const name of matchingCookieNames(VENDOR_COOKIES.analytics)) expireCookie(name);
+}

@@ -42,6 +42,8 @@ function escapeHtml(str: string): string {
 export interface FormTrackingContext {
   eventId: string;
   consent?: ConsentState;
+  /** Saját CMP döntés-lánc azonosító (sbo_consent) → consent_receipts.consent_id. */
+  consentId?: string;
   clientIpAddress?: string;
   clientUserAgent?: string;
   eventSourceUrl?: string;
@@ -86,6 +88,7 @@ async function dispatchGatewayLeadConversion(
         utm_campaign: leadData.utmCampaign || undefined,
       },
       consent: tracking.consent,
+      consentId: tracking.consentId,
       eventSourceUrl: tracking.eventSourceUrl,
       clientIpAddress: tracking.clientIpAddress,
       clientUserAgent: tracking.clientUserAgent,

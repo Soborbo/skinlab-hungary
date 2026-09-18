@@ -1,0 +1,193 @@
+---
+/**
+ * <CookiePolicy /> — a KÖZZÉTEENDŐ süti-/tároló-tábla, a kanonikus
+ * `consent-texts/cookie-inventory.json`-ből renderelve.
+ *
+ * MIÉRT KOMPONENS, ÉS MIÉRT NEM BEÍRT SZÖVEG A SITE OLDALÁN. A 2026-08-25-i
+ * jogi átvilágítás szerint 6 site banner-linkje a cookieyes.com TERMÉKOLDALÁRA
+ * vitt, egy site adatvédelmi oldala pedig 404-et adott — vagyis a kötelező
+ * tájékoztatás (GDPR Art 13(1)(e), PECR reg. 6) sehol nem volt meg. Egy
+ * site-onként kézzel írt tábla ugyanezt termelné újra, csak lassabban: a kód
+ * változik, a szöveg marad.
+ *
+ * Ez a komponens EGY forrásból renderel, azt a forrást pedig a
+ * `tests/cookie-inventory-parity.test.ts` kétirányban a VALÓDI purge-kódhoz
+ * méri. Ha a kód új sütit ír vagy töröl, a CI szól, mielőtt a tájékoztató
+ * hazudna.
+ *
+ * HASZNÁLAT (a site adatkezelési tájékoztatójában):
+ *   <CookiePolicy lang="hu" />                 ← a provider az env-ből jön
+ *   <CookiePolicy lang="en" provider="sbo" />  ← vagy kézzel felülírva
+ *   <CookiePolicy lang="en" vendors={['clarity']} />  ← a site-on futó Clarity sorai is
+ *
+ * A VISSZAVONÁS ÚTJA PROVIDER-FÜGGŐ, és a tábla alá KELL egy link:
+ *   - provider='sbo':       <a href="#" data-sb-consent-open>Süti beállítások</a>
+ *   - provider='cookieyes': a CookieYes saját újranyitó eleme
+ *                           (<a href="#" class="cky-banner-element">Süti beállítások</a>)
+ * Rossz provider alatt a `data-sb-consent-open` link NÉMÁN nem csinál semmit —
+ * a látogató nem tudja visszavonni a hozzájárulását, miközben a tájékoztató azt
+ * ígéri, hogy tudja.
+ *
+ * A komponens SZÁNDÉKOSAN nem ír jogi bevezetőt: az adatkezelő neve, a jogalap
+ * és a jogorvoslat site-onként más. Ez a tábla, nem a teljes tájékoztató.
+ */
+import inventory from '@/lib/tracking/consent-texts/cookie-inventory.json';
+import { trackingConfig, type ConsentProvider } from '@/lib/tracking/config';
+import { inventoryVendorsFor } from '@/lib/tracking/consent-vendors';
+
+interface Props {
+  /** A tábla nyelve. Alapértelmezés: magyar. */
+  lang?: 'hu' | 'en';
+  /**
+   * Melyik CMP fut a site-on. Alapértelmezés a `PUBLIC_TRACKING_CONSENT_PROVIDER`
+   * env — ugyanaz a forrás, amiből a <Tracking /> dolgozik, tehát a tábla és a
+   * banner nem tud szétcsúszni egy elfelejtett propon.
+   */
+  provider?: ConsentProvider;
+  /**
+   * A site-on (GTM-ből) ténylegesen futó, site-onként választott eszközök:
+   * `clarity` | `hotjar`. Alapértelmezés: a PUBLIC_TRACKING_VENDORS-ból (ugyanaz a
+   * lista, amiből a banner szövege épül). A `vendor` mezős
+   * bejegyzések CSAK akkor látszanak, ha itt fel vannak sorolva — különben a
+   * tábla olyan sütit hirdetne, ami az adott site-on nem létezik.
+   */
+  vendors?: readonly string[];
+  /** Extra osztály a külső wrapperre (a site tipográfiájához). */
+  class?: string;
+}
+
+const {
+  lang = 'hu',
+  provider = trackingConfig.consentProvider,
+  vendors = inventoryVendorsFor(trackingConfig.vendors),
+  class: className,
+} = Astro.props;
+
+const T = {
+  hu: {
+    caption: 'Sütik és böngészőben tárolt adatok',
+    name: 'Név',
+    purpose: 'Cél',
+    issuer: 'Kiállító',
+    lifetime: 'Élettartam',
+    transfer: 'Továbbítás harmadik országba',
+    storage: 'Tárolás',
+    none: 'nincs',
+    prefix: 'névelőtag',
+    categories: {
+      necessary: 'Feltétlenül szükséges',
+      analytics: 'Analitikai',
+      marketing: 'Marketing',
+    },
+    withdrawalYes: 'A hozzájárulás visszavonásakor törlődik.',
+    withdrawalNo: 'A visszavonás NEM törli:',
+    storageNames: { cookie: 'süti', localStorage: 'localStorage', sessionStorage: 'sessionStorage' },
+  },
+  en: {
+    caption: 'Cookies and data stored in your browser',
+    name: 'Name',
+    purpose: 'Purpose',
+    issuer: 'Issued by',
+    lifetime: 'Lifetime',
+    transfer: 'Transfer to a third country',
+    storage: 'Storage',
+    none: 'none',
+    prefix: 'name prefix',
+    categories: {
+      necessary: 'Strictly necessary',
+      analytics: 'Analytics',
+      marketing: 'Marketing',
+    },
+    withdrawalYes: 'Deleted when you withdraw consent.',
+    withdrawalNo: 'Withdrawing consent does NOT delete this:',
+    storageNames: { cookie: 'cookie', localStorage: 'localStorage', sessionStorage: 'sessionStorage' },
+  },
+}[lang];
+
+type Entry = (typeof inventory.entries)[number];
+const ORDER = ['necessary', 'analytics', 'marketing'] as const;
+// A CMP SAJAT sutije provider-specifikus: `sbo_consent` CSAK sbo alatt letezik,
+// `cookieyes-consent` CSAK CookieYes alatt. A rossz provider tablaja egyszerre
+// hirdetne nem letezo sutit ES hallgatna el egy valodit — mindketto Art 13(1)(e)
+// hiba. Minden mas bejegyzes `provider: 'any'`.
+// Ugyanez a logika a site-onkent valasztott eszkozokre (`vendor`): a Clarity
+// sorai csak ott latszanak, ahol a site a `vendors` propban jelzi, hogy fut.
+const visible = inventory.entries.filter(
+  (e: Entry) =>
+    (e.provider === 'any' || e.provider === provider) &&
+    (!('vendor' in e) || vendors.includes((e as { vendor: string }).vendor))
+);
+const groups = ORDER.map((category) => ({
+  category,
+  entries: visible.filter((e: Entry) => e.category === category),
+})).filter((g) => g.entries.length > 0);
+---
+
+<div class:list={['sb-cookie-policy', className]} data-inventory-version={inventory.version} data-consent-provider={provider}>
+  {groups.map((group) => (
+    <section class="sb-cp-group">
+      <h3>{T.categories[group.category]}</h3>
+      {/* A táblázat SAJÁT vízszintes görgetőt kap: telefonon egy 6 oszlopos
+          tábla különben az egész oldalt oldalra tolná. */}
+      <div class="sb-cp-scroll" tabindex="0" role="region" aria-label={T.caption}>
+        <table>
+          <caption class="sb-cp-sr">{T.caption} — {T.categories[group.category]}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{T.name}</th>
+              <th scope="col">{T.storage}</th>
+              <th scope="col">{T.purpose}</th>
+              <th scope="col">{T.issuer}</th>
+              <th scope="col">{T.lifetime}</th>
+              <th scope="col">{T.transfer}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {group.entries.map((e: Entry) => (
+              <tr>
+                <td>
+                  <code>{e.name}{e.match === 'prefix' ? '…' : ''}</code>
+                  {e.match === 'prefix' && <span class="sb-cp-note"> ({T.prefix})</span>}
+                </td>
+                <td>{T.storageNames[e.storage as keyof typeof T.storageNames]}</td>
+                <td>
+                  {e.purpose[lang]}
+                  <span class="sb-cp-note">
+                    {' '}
+                    {e.purged_on_withdrawal
+                      ? T.withdrawalYes
+                      : `${T.withdrawalNo} ${e.why_not_purged ?? ''}`}
+                  </span>
+                </td>
+                <td>{e.issuer === 'first_party' ? (lang === 'hu' ? 'mi magunk' : 'us') : e.issuer}</td>
+                {/* Az elettartam KET nyelvu: korabban a `lifetime` egyetlen sztring
+                    volt, ezert az ANGOL tabla a magyar szoveget jelenitette meg. */}
+                <td>{e.lifetime[lang]}</td>
+                <td>{e.transfer ?? T.none}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+</div>
+
+<style>
+  .sb-cookie-policy { font-size: 0.95rem; line-height: 1.5; }
+  .sb-cp-group { margin: 1.5rem 0; }
+  .sb-cp-group h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+  /* A görgetőt a táblázat KAPJA, nem a body — különben mobilon az egész oldal
+     oldalra csúszik. A `tabindex` billentyűzettel is görgethetővé teszi. */
+  .sb-cp-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sb-cookie-policy table { border-collapse: collapse; width: 100%; min-width: 44rem; }
+  .sb-cookie-policy th,
+  .sb-cookie-policy td { text-align: left; vertical-align: top; padding: 0.5rem 0.6rem; border-bottom: 1px solid rgba(0,0,0,0.12); }
+  .sb-cookie-policy th { font-weight: 600; white-space: nowrap; }
+  .sb-cookie-policy code { font-size: 0.9em; word-break: break-all; }
+  .sb-cp-note { display: block; margin-top: 0.25rem; opacity: 0.75; font-size: 0.85em; }
+  .sb-cp-sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+</style>

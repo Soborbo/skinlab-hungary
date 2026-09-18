@@ -12,6 +12,11 @@
  * Every tracking function checks consent before doing anything.
  * If no CMP is detected in production → deny all (safe default).
  * Dev mode → allow all for testing convenience.
+ *
+ * CMP Fázis 2 (2026-09-18): `provider='sbo'` alatt (a skinlab ezen fut) a kapuk
+ * a SAJÁT `sbo_consent` sütiből olvasnak, SZINKRONBAN — nincs CMP-betöltési
+ * verseny (lásd a korábbi view_item-elvesztést), mert nincs mire várni. A
+ * CookieYes-ág változatlan, csak rollbackre maradt meg.
  */
 
 declare global {
@@ -33,6 +38,10 @@ declare global {
   }
 }
 
+import { isSboConsentProvider, trackingConfig } from './config';
+import { readSboConsent, SBO_CONSENT_EVENT } from './consent-sbo-state';
+import { report } from './observability';
+
 export type ConsentCategory = 'analytics' | 'marketing' | 'functional' | 'necessary';
 
 function getCookieYesConsent(): Record<ConsentCategory, boolean> | null {
@@ -53,14 +62,40 @@ function getCookieYesConsent(): Record<ConsentCategory, boolean> | null {
   } catch { return null; }
 }
 
+/**
+ * A saját CMP állapota ugyanabban a kategória-alakban, amit a CookieYes-hívók
+ * ismernek. KAPUZÓ olvasás: a policy-verzió eltérése = nincs érvényes döntés.
+ */
+function getSboConsent(): Record<ConsentCategory, boolean> | null {
+  const s = readSboConsent(trackingConfig.policyVersion);
+  if (!s) return null;
+  return { analytics: s.analytics, marketing: s.marketing, functional: false, necessary: true };
+}
+
+function getProviderConsent(): Record<ConsentCategory, boolean> | null {
+  return isSboConsentProvider() ? getSboConsent() : getCookieYesConsent();
+}
+
 function isDevMode(): boolean {
   try { return typeof import.meta !== 'undefined' && !!import.meta.env?.DEV; }
   catch { return false; }
 }
 
+/**
+ * Ismeretlen consent (nincs döntés / nincs CMP). A sbo-ágon a kit 6.9.0 szigorú
+ * szabálya él: csak explicit dev-opt-innel enged, és azt is hangosan (TRK-4003).
+ * A CookieYes-ág a régi, puszta `isDevMode()` viselkedést tartja.
+ */
+function allowOnUnknownConsent(category: 'analytics' | 'marketing'): boolean {
+  if (!isSboConsentProvider()) return isDevMode();
+  const allow = isDevMode() && trackingConfig.devConsentAllow;
+  if (allow) report('CONSENT_DEV_FALLBACK_ALLOW', { category });
+  return allow;
+}
+
 export function hasMarketingConsent(): boolean {
-  const c = getCookieYesConsent();
-  if (!c) return isDevMode();
+  const c = getProviderConsent();
+  if (!c) return allowOnUnknownConsent('marketing');
   return c.marketing === true;
 }
 
@@ -81,16 +116,17 @@ export function hasMarketingConsent(): boolean {
 export type MarketingConsentState = 'GRANTED' | 'DENIED' | 'UNKNOWN';
 
 export function getMarketingConsentState(): MarketingConsentState {
-  const c = getCookieYesConsent();
-  // CMP nélkül dev módban a fejlesztői kényelem a `hasMarketingConsent()`-tel
-  // egyezik; élesben a hiányzó CMP nem elutasítás, hanem ismeretlen állapot.
-  if (!c) return isDevMode() ? 'GRANTED' : 'UNKNOWN';
+  const c = getProviderConsent();
+  // Döntés/CMP nélkül dev módban a fejlesztői kényelem a `hasMarketingConsent()`-tel
+  // egyezik; élesben a hiány nem elutasítás, hanem ismeretlen állapot (sbo alatt:
+  // a látogató még nem döntött, vagy a tájékoztató verziója változott).
+  if (!c) return allowOnUnknownConsent('marketing') ? 'GRANTED' : 'UNKNOWN';
   return c.marketing === true ? 'GRANTED' : 'DENIED';
 }
 
 export function hasAnalyticsConsent(): boolean {
-  const c = getCookieYesConsent();
-  if (!c) return isDevMode();
+  const c = getProviderConsent();
+  if (!c) return allowOnUnknownConsent('analytics');
   return c.analytics === true;
 }
 
@@ -99,11 +135,16 @@ export function hasAnyConsent(): boolean {
   return hasAnalyticsConsent() || hasMarketingConsent();
 }
 
+/** A provider-helyes change-event neve. */
+function consentUpdateEventName(): string {
+  return isSboConsentProvider() ? SBO_CONSENT_EVENT : 'cookieyes_consent_update';
+}
+
 export function onConsentChange(
   callback: (consent: Record<ConsentCategory, boolean>) => void,
 ): void {
-  document.addEventListener('cookieyes_consent_update', () => {
-    const c = getCookieYesConsent();
+  document.addEventListener(consentUpdateEventName(), () => {
+    const c = getProviderConsent();
     if (c) callback(c);
   });
 }
@@ -113,17 +154,18 @@ export function waitForConsent(
   timeoutMs = 5_000,
 ): Promise<boolean> {
   return new Promise((resolve) => {
-    const c = getCookieYesConsent();
+    const eventName = consentUpdateEventName();
+    const c = getProviderConsent();
     if (c?.[category]) { resolve(true); return; }
     const handler = () => {
-      if (getCookieYesConsent()?.[category]) {
-        document.removeEventListener('cookieyes_consent_update', handler);
+      if (getProviderConsent()?.[category]) {
+        document.removeEventListener(eventName, handler);
         resolve(true);
       }
     };
-    document.addEventListener('cookieyes_consent_update', handler);
+    document.addEventListener(eventName, handler);
     setTimeout(() => {
-      document.removeEventListener('cookieyes_consent_update', handler);
+      document.removeEventListener(eventName, handler);
       resolve(false);
     }, timeoutMs);
   });

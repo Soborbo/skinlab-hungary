@@ -8,7 +8,7 @@ import type { APIRoute } from 'astro';
 import { validateConsultationForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { processConsultationSubmission, type FormTrackingContext } from '@/lib/forms/submit';
-import { readConsentFromCookie } from '@/lib/tracking/gateway-dispatch';
+import { readConsentFromCookie, readSboConsentCookieHeader } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -113,6 +113,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     const tracking: FormTrackingContext = {
       eventId: String(data.event_id || '') || crypto.randomUUID(),
       consent: readConsentFromCookie(request.headers.get('cookie')),
+      consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
       clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
       clientUserAgent: userAgent,
       eventSourceUrl: request.headers.get('referer') ?? undefined,

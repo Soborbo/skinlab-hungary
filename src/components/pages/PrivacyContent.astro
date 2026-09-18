@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+import CookiePolicy from '../tracking/CookiePolicy.astro';
 ---
 
 <div>
@@ -196,6 +197,14 @@ const { locale } = Astro.props;
         <p>{t(locale, 'privacy.section9_2Text')}</p>
         <p>
           Google Analytics: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">https://policies.google.com/privacy</a>
+        </p>
+
+        {/* A saját CMP (soborbo-tracking) kanonikus süti-táblája: a GTM-ben futó
+            eszközök (PUBLIC_TRACKING_VENDORS) szerint szűrve, a törlési
+            viselkedéssel együtt. Alatta a visszavonás útja. */}
+        <CookiePolicy lang={locale === 'hu' ? 'hu' : 'en'} class="not-prose my-6" />
+        <p>
+          <a href="#" data-sb-consent-open class="text-primary-600 hover:underline font-semibold">{t(locale, 'footer.cookieSettings')}</a>
         </p>
 
         <h2>{t(locale, 'privacy.section10Title')}</h2>

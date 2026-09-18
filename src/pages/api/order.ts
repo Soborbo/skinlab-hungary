@@ -22,6 +22,7 @@ import type { FormTrackingContext } from '@/lib/forms/submit';
 import {
   sendGatewayConversion,
   readConsentFromCookie,
+  readSboConsentCookieHeader,
   type GatewayEnv,
 } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
@@ -265,6 +266,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       const tracking: FormTrackingContext = {
         eventId: typeof rawEventId === 'string' && rawEventId ? rawEventId : crypto.randomUUID(),
         consent: readConsentFromCookie(request.headers.get('cookie')),
+        consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
         clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
         clientUserAgent: request.headers.get('user-agent') ?? undefined,
         eventSourceUrl: request.headers.get('referer') ?? undefined,
@@ -300,6 +302,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
             utm_campaign: data.utmCampaign || undefined,
           },
           consent: tracking.consent,
+          consentId: tracking.consentId,
           eventSourceUrl: tracking.eventSourceUrl,
           clientIpAddress: tracking.clientIpAddress,
           clientUserAgent: tracking.clientUserAgent,
