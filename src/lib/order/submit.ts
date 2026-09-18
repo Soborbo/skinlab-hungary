@@ -74,7 +74,8 @@ function itemsSummary(items: OrderEmailInput['items']): string {
   return items
     .map((i) => {
       const variant = i.variantName ? ` (${i.variantName})` : '';
-      return `${i.name}${variant} ×${i.qty}`;
+      const backorder = i.backorder ? ' [ELŐRENDELÉS - nincs raktáron]' : '';
+      return `${i.name}${variant} ×${i.qty}${backorder}`;
     })
     .join(' | ');
 }

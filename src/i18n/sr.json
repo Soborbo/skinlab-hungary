@@ -153,7 +153,9 @@
     "nextImage": "Sledeća slika",
     "installmentLinePre": "Na rate:",
     "installmentLine": "{down} avans + {months} × {monthly}",
-    "installmentCalc": "Izračunajte ↓"
+    "installmentCalc": "Izračunajte ↓",
+    "backorderLabel": "Po porudžbini",
+    "backorderNote": "Ovaj proizvod trenutno nije na stanju, pa ga zasad možete samo poručiti unapred. Očekivani datum dolaska dogovorićemo sa vama nakon porudžbine."
   },
   "form": {
     "name": "Ime",
@@ -799,7 +801,9 @@
     "drawerTitle": "Vaša korpa",
     "drawerEmpty": "Vaša korpa je još prazna.",
     "priceNote": "Troškove dostave i konačnu cenu potvrđujemo tokom telefonske konsultacije.",
-    "close": "Zatvori"
+    "close": "Zatvori",
+    "preorder": "Pretporudžbina",
+    "backorderItem": "Po porudžbini - trenutno nije na stanju, samo pretporudžbina"
   },
   "checkout": {
     "title": "Porudžbina",
@@ -845,7 +849,11 @@
       "shippingMethods": {
         "personal_pickup": "Lično preuzimanje — Skinlab Showroom (Érd)",
         "arranged": "Isporuka po dogovoru"
-      }
+      },
+      "backorderNote": "Vaša porudžbina sadrži proizvod koji trenutno nije na stanju, pa smo je evidentirali kao pretporudžbinu. Sada ne morate da platite: naš saradnik će vas uskoro kontaktirati u vezi sa očekivanim datumom dolaska, a tek nakon toga ćemo vam poslati zahtev za plaćanje.",
+      "backorderStep1": "Vašu porudžbinu smo evidentirali kao pretporudžbinu - sada ne morate da platite.",
+      "backorderStep2": "Naš saradnik će vas uskoro kontaktirati i obavestiti o očekivanom datumu dolaska proizvoda.",
+      "backorderStep3": "Kada proizvod stigne, dogovorićemo plaćanje i dostaviti vam ga izabranim načinom."
     },
     "phone": "Broj telefona",
     "companyToggle": "Unesi podatke firme",
@@ -894,7 +902,9 @@
       "emailNote": "Potvrdu porudžbine poslali smo na vašu e-mail adresu.",
       "backToHome": "Nazad na početnu",
       "browseProducts": "Više proizvoda"
-    }
+    },
+    "backorderTitle": "Pretporudžbina",
+    "backorderNote": "Vaša korpa sadrži proizvod koji trenutno nije na stanju: {items}. Zasad ga možete samo poručiti unapred. U tom slučaju ne šaljemo odmah zahtev za plaćanje i sada ne morate da platite: naš saradnik će vas kontaktirati u vezi sa očekivanim datumom dolaska, a tek nakon toga ćemo zatražiti plaćanje."
   },
   "bank": {
     "title": "Podaci za bankovni transfer",

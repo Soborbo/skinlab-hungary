@@ -153,7 +153,9 @@
     "nextImage": "Další obrázek",
     "installmentLinePre": "Na splátky:",
     "installmentLine": "{down} záloha + {months} × {monthly}",
-    "installmentCalc": "Spočítejte ↓"
+    "installmentCalc": "Spočítejte ↓",
+    "backorderLabel": "Na objednávku",
+    "backorderNote": "Tento produkt momentálně není skladem, proto si ho nyní můžete pouze předobjednat. Předpokládaný termín dodání s vámi domluvíme po objednávce."
   },
   "form": {
     "name": "Jmeno",
@@ -799,7 +801,9 @@
     "drawerTitle": "Váš košík",
     "drawerEmpty": "Váš košík je zatím prázdný.",
     "priceNote": "Náklady na dopravu a konečnou cenu potvrdíme během telefonické konzultace.",
-    "close": "Zavřít"
+    "close": "Zavřít",
+    "preorder": "Předobjednat",
+    "backorderItem": "Na objednávku - momentálně není skladem, pouze předobjednávka"
   },
   "checkout": {
     "title": "Objednávka",
@@ -845,7 +849,11 @@
       "shippingMethods": {
         "personal_pickup": "Osobní odběr — Skinlab Showroom (Érd)",
         "arranged": "Doručení po domluvě"
-      }
+      },
+      "backorderNote": "Vaše objednávka obsahuje produkt, který momentálně není skladem, proto jsme ji zaevidovali jako předobjednávku. Nyní nemusíte platit: náš kolega vás brzy bude kontaktovat ohledně předpokládaného termínu dodání a teprve poté vám pošleme výzvu k platbě.",
+      "backorderStep1": "Vaši objednávku jsme zaevidovali jako předobjednávku - nyní nemusíte platit.",
+      "backorderStep2": "Náš kolega vás brzy bude kontaktovat a informuje vás o předpokládaném termínu dodání produktu.",
+      "backorderStep3": "Jakmile produkt dorazí, domluvíme platbu a doručíme vám ho zvoleným způsobem."
     },
     "phone": "Telefonní číslo",
     "companyToggle": "Zadat firemní údaje",
@@ -894,7 +902,9 @@
       "emailNote": "Potvrzení objednávky jsme odeslali na vaši e-mailovou adresu.",
       "backToHome": "Zpět na úvod",
       "browseProducts": "Další produkty"
-    }
+    },
+    "backorderTitle": "Předobjednávka",
+    "backorderNote": "Váš košík obsahuje produkt, který momentálně není skladem: {items}. Ten si nyní můžete pouze předobjednat. V takovém případě vám hned neposíláme výzvu k platbě a nyní nemusíte platit: náš kolega vás bude kontaktovat ohledně předpokládaného termínu dodání a teprve poté vás požádáme o platbu."
   },
   "bank": {
     "title": "Údaje pro bankovní převod",

@@ -153,7 +153,9 @@
     "nextImage": "Ďalší obrázok",
     "installmentLinePre": "Na splátky:",
     "installmentLine": "{down} záloha + {months} × {monthly}",
-    "installmentCalc": "Vypočítajte ↓"
+    "installmentCalc": "Vypočítajte ↓",
+    "backorderLabel": "Na objednávku",
+    "backorderNote": "Tento produkt momentálne nie je na sklade, preto si ho teraz môžete iba predobjednať. Predpokladaný termín dodania s vami dohodneme po objednávke."
   },
   "form": {
     "name": "Meno",
@@ -799,7 +801,9 @@
     "drawerTitle": "Váš košík",
     "drawerEmpty": "Váš košík je zatiaľ prázdny.",
     "priceNote": "Náklady na dopravu a konečnú cenu potvrdíme počas telefonickej konzultácie.",
-    "close": "Zavrieť"
+    "close": "Zavrieť",
+    "preorder": "Predobjednať",
+    "backorderItem": "Na objednávku - momentálne nie je na sklade, iba predobjednávka"
   },
   "checkout": {
     "title": "Objednávka",
@@ -845,7 +849,11 @@
       "payButton": "Zaplatiť / otvoriť zálohovú faktúru",
       "questions": "Máte otázku? Pokojne nám zavolajte:",
       "regards": "S pozdravom,",
-      "team": "Tím Skinlab Hungary"
+      "team": "Tím Skinlab Hungary",
+      "backorderNote": "Vaša objednávka obsahuje produkt, ktorý momentálne nie je na sklade, preto sme ju zaevidovali ako predobjednávku. Teraz nemusíte platiť: náš kolega vás čoskoro bude kontaktovať ohľadom predpokladaného termínu dodania a až potom vám pošleme výzvu na platbu.",
+      "backorderStep1": "Vašu objednávku sme zaevidovali ako predobjednávku - teraz nemusíte platiť.",
+      "backorderStep2": "Náš kolega vás čoskoro bude kontaktovať a informuje vás o predpokladanom termíne dodania produktu.",
+      "backorderStep3": "Keď produkt dorazí, dohodneme platbu a doručíme vám ho zvoleným spôsobom."
     },
     "phone": "Telefónne číslo",
     "companyToggle": "Zadať firemné údaje",
@@ -894,7 +902,9 @@
       "emailNote": "Potvrdenie objednávky sme odoslali na vašu e-mailovú adresu.",
       "backToHome": "Späť na úvod",
       "browseProducts": "Ďalšie produkty"
-    }
+    },
+    "backorderTitle": "Predobjednávka",
+    "backorderNote": "Váš košík obsahuje produkt, ktorý momentálne nie je na sklade: {items}. Ten si teraz môžete iba predobjednať. V takom prípade vám hneď neposielame výzvu na platbu a teraz nemusíte platiť: náš kolega vás bude kontaktovať ohľadom predpokladaného termínu dodania a až potom vás požiadame o platbu."
   },
   "bank": {
     "title": "Údaje pre bankový prevod",

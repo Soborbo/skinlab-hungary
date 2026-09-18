@@ -27,6 +27,8 @@ export interface OrderEmailItem {
   unitPrice: number | null;
   /** Sorösszeg - null, ha az egységár ismeretlen */
   lineTotal: number | null;
+  /** Készlethiányos ("rendelésre") tétel - előrendelés, lásd `lib/stock` */
+  backorder?: boolean;
 }
 
 export interface OrderEmailInput {
@@ -46,6 +48,11 @@ export interface OrderEmailInput {
   items: OrderEmailItem[];
   subtotal: number;
   hasPriceOnRequest: boolean;
+  /**
+   * Van-e készlethiányos (előrendelt) tétel. Ilyenkor nem megy automatikus
+   * díjbekérő (lib/billingo), és a vevő az előrendelés lépéseit kapja.
+   */
+  hasBackorder?: boolean;
   /** Választott szállítási mód (lásd lib/shipping/methods). */
   shippingMethod: ShippingMethodId;
   /** Szállítási díj Ft-ban (0 = ingyenes / egyeztetés alatt). */
@@ -83,6 +90,10 @@ function escapeHtml(str: string): string {
 
 const ACCENT = '#ce2252';
 const ACCENT_DARK = '#a01c42';
+// Készlethiány (előrendelés) jelzése - a site amber-50/200/900 árnyalatai
+const AMBER_BG = '#fffbeb';
+const AMBER_BORDER = '#fcd34d';
+const AMBER_TEXT = '#78350f';
 
 /** A teljes név a nyelvi konvenció szerint összerakva */
 function fullName(input: { lastName: string; firstName: string; locale: Locale }): string {
@@ -118,11 +129,14 @@ export function buildCustomerEmail(
           : `${item.qty} ${tr('qty')} × ${formatPrice(item.unitPrice || 0, locale)}`;
       const lineText =
         item.lineTotal === null ? tr('priceOnRequest') : formatPrice(item.lineTotal, locale);
+      const backorder = item.backorder
+        ? `<br /><span style="display:inline-block;margin-top:4px;color:${AMBER_TEXT};font-size:12px;font-weight:bold;">${escapeHtml(t(locale, 'cart.backorderItem'))}</span>`
+        : '';
       return `
         <tr>
           <td style="padding:12px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;">
             <strong>${escapeHtml(item.name)}</strong>${variant}
-            <br /><span style="color:#999;font-size:13px;">${escapeHtml(priceText)}</span>
+            <br /><span style="color:#999;font-size:13px;">${escapeHtml(priceText)}</span>${backorder}
           </td>
           <td style="padding:12px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;text-align:right;white-space:nowrap;vertical-align:top;">
             ${escapeHtml(lineText)}
@@ -164,9 +178,11 @@ export function buildCustomerEmail(
     </table>
     ${foxpostLine}`;
 
-  // Tier-függő "mi történik most" lépések: önkiszolgáló utánvét / önkiszolgáló
-  // előreutalás / egyeztetett (visszahívós).
-  const stepPrefix = isCod ? 'codStep' : isParcel ? 'parcelStep' : 'step';
+  // Tier-függő "mi történik most" lépések: előrendelés / önkiszolgáló utánvét /
+  // önkiszolgáló előreutalás / egyeztetett (visszahívós). Előrendelésnél nincs
+  // automatikus díjbekérő, ezért a díjbekérős lépések ott nem igazak.
+  const isBackorder = input.hasBackorder === true;
+  const stepPrefix = isBackorder ? 'backorderStep' : isCod ? 'codStep' : isParcel ? 'parcelStep' : 'step';
   const steps = [tr(`${stepPrefix}1`), tr(`${stepPrefix}2`), tr(`${stepPrefix}3`)]
     .map(
       (s, i) => `
@@ -212,6 +228,13 @@ export function buildCustomerEmail(
       <p style="margin:12px 0 0;font-size:12px;color:#999;">${escapeHtml(t(locale, 'bank.referenceNote'))}</p>
     </div>`;
 
+  // Előrendelés: a rendelés elején jelezzük, hogy a tétel most nincs raktáron.
+  const backorderBlock = `
+    <div style="border:2px solid ${AMBER_BORDER};background:${AMBER_BG};border-radius:10px;padding:18px 20px;margin:0 0 24px;">
+      <p style="margin:0;font-size:15px;font-weight:bold;color:${AMBER_TEXT};">${escapeHtml(t(locale, 'checkout.backorderTitle'))}</p>
+      <p style="margin:8px 0 0;font-size:14px;color:${AMBER_TEXT};line-height:1.6;">${escapeHtml(tr('backorderNote'))}</p>
+    </div>`;
+
   // Utánvét esetén nincs banki/utalási blokk - helyette rövid utánvét-tájékoztató.
   const codBlock = `
     <div style="border:2px solid ${ACCENT};background:#fff0f4;border-radius:10px;padding:18px 20px;margin:0 0 24px;">
@@ -236,6 +259,8 @@ export function buildCustomerEmail(
     <p style="margin:0 0 16px;font-size:15px;">${escapeHtml(tr('greeting', { name }))}</p>
     <p style="margin:0 0 20px;font-size:15px;line-height:1.7;">${escapeHtml(tr('intro'))}</p>
 
+    ${isBackorder ? backorderBlock : ''}
+
     <div style="background:#fff0f4;border-left:3px solid ${ACCENT};padding:12px 16px;border-radius:0 6px 6px 0;margin:0 0 22px;">
       <p style="margin:0 0 2px;font-size:12px;color:#888;">${escapeHtml(tr('orderNumber'))}</p>
       <p style="margin:0;font-family:'Courier New',monospace;font-size:16px;color:${ACCENT_DARK};font-weight:bold;">${escapeHtml(orderId)}</p>
@@ -257,7 +282,7 @@ export function buildCustomerEmail(
 
     ${payBlock}
 
-    ${isCod ? codBlock : bankBlock}
+    ${isBackorder ? '' : isCod ? codBlock : bankBlock}
 
     ${isParcel ? '' : `<p style="margin:0 0 18px;font-size:13px;color:#999;font-style:italic;">${escapeHtml(tr('priceDisclaimer'))}</p>`}
 
@@ -309,11 +334,14 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
       const variant = item.variantName ? ` <span style="color:#888;">(${escapeHtml(item.variantName)})</span>` : '';
       const line =
         item.lineTotal === null ? 'Ár egyeztetés alatt' : formatPrice(item.lineTotal, 'hu');
+      const backorder = item.backorder
+        ? `<br /><span style="display:inline-block;margin-top:4px;background:${AMBER_BG};border:1px solid ${AMBER_BORDER};color:${AMBER_TEXT};font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">ELŐRENDELÉS - NINCS RAKTÁRON</span>`
+        : '';
       return `
         <tr>
           <td style="padding:10px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;">
             <strong>${escapeHtml(item.name)}</strong>${variant}<br />
-            <span style="color:#888;font-size:13px;">${escapeHtml(item.sku)} - ${item.qty} db</span>
+            <span style="color:#888;font-size:13px;">${escapeHtml(item.sku)} - ${item.qty} db</span>${backorder}
           </td>
           <td style="padding:10px 0;border-top:1px solid #f0f0f0;font-family:Arial,sans-serif;font-size:14px;color:#333;text-align:right;white-space:nowrap;vertical-align:top;">${escapeHtml(line)}</td>
         </tr>`;
@@ -328,7 +356,16 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
         </tr>`
       : '';
 
-  const subject = `🛒 Új megrendelés: ${name} – ${input.orderId}`;
+  const subject = input.hasBackorder
+    ? `⏳ ELŐRENDELÉS: ${name} – ${input.orderId}`
+    : `🛒 Új megrendelés: ${name} – ${input.orderId}`;
+
+  const backorderAlert = input.hasBackorder
+    ? `<p style="margin:0 0 20px;padding:12px 15px;background:${AMBER_BG};border-left:3px solid ${AMBER_BORDER};border-radius:0 4px 4px 0;font-size:14px;color:${AMBER_TEXT};line-height:1.6;">
+        <strong>Előrendelés - nem raktári tétel van a rendelésben.</strong><br />
+        Díjbekérő NEM ment ki automatikusan. Hívd vissza a vevőt a várható érkezéssel, és a díjbekérőt kézzel állítsd ki a Billingóban.
+      </p>`
+    : '';
 
   const html = `<!DOCTYPE html>
 <html lang="hu">
@@ -349,6 +386,8 @@ export function buildAdminEmail(input: OrderEmailInput): { subject: string; html
 
       <h1 style="margin:14px 0 4px;font-size:19px;color:#333;font-family:Arial,sans-serif;">Új megrendelés: ${escapeHtml(name)}</h1>
       <p style="margin:0 0 18px;font-size:13px;color:#999;">Rendelésszám: <strong style="color:${ACCENT_DARK};font-family:'Courier New',monospace;">${escapeHtml(input.orderId)}</strong></p>
+
+      ${backorderAlert}
 
       <p style="margin:0 0 20px;padding:12px 15px;background:#fff0f4;border-left:3px solid ${ACCENT};border-radius:0 4px 4px 0;font-size:14px;color:${ACCENT_DARK};">
         Végösszeg: <strong style="font-size:18px;">${escapeHtml(totalText)}</strong>
