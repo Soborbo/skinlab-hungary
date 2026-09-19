@@ -11,6 +11,7 @@
  */
 import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
 import manifest from '@/lib/image-manifest.json';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 interface Props {
   /** Product slug - determines which subfolder of @assets/showroom/ is loaded. */
@@ -76,8 +77,8 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
       class:list={[
         'showroom-grid relative gap-2 sm:gap-3',
         isGrid
-          ? 'grid grid-cols-1 sm:grid-cols-2 lg:gap-5'
-          : 'flex md:block md:columns-2 lg:columns-3 xl:columns-4 snap-x snap-mandatory overflow-x-auto md:overflow-visible -mx-4 sm:mx-0 px-4 sm:px-0 pb-2 md:pb-0',
+          ? ['grid grid-cols-1 sm:grid-cols-2 lg:gap-5', MOBILE_MEDIA_BLEED]
+          : 'flex md:block md:columns-2 lg:columns-3 xl:columns-4 snap-x snap-mandatory overflow-x-auto md:overflow-visible -mx-4 sm:mx-0 px-3 sm:px-0 scroll-px-3 sm:scroll-px-0 pb-2 md:pb-0',
       ]}
     >
       {tiles.map(({ key, entry, aspectRatio, tilt, delay, index }) => (

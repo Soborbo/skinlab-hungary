@@ -11,6 +11,7 @@
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { getImageEntry, hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 interface Props {
   images: string[];
@@ -49,7 +50,7 @@ const lightboxSizes = '100vw';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">{headline}</h2>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+      <div class:list={['grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4', MOBILE_MEDIA_BLEED]}>
         {resolved.slice(0, tileCount).map((img, i) => (
           <button
             type="button"

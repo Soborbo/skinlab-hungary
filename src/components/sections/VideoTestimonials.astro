@@ -41,7 +41,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
     </div>
 
     <!-- Mobilon vízszintes scroll-snap sor, md-től 4 oszlopos grid -->
-    <div class:list={['flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-4 md:grid md:gap-6 md:overflow-visible md:mx-0 md:px-0 md:pb-0', gridCols]}>
+    <div class:list={['flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-3 scroll-px-3 pb-4 md:grid md:gap-6 md:overflow-visible md:mx-0 md:px-0 md:scroll-px-0 md:pb-0', gridCols]}>
       {items.map((item) => (
         <div class="snap-center shrink-0 w-[68%] sm:w-[45%] md:w-auto">
           <VideoFacade

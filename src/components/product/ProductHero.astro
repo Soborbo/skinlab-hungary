@@ -10,6 +10,7 @@
  * installment info in the InstallmentCalculator section.
  */
 import ProductGallery from './ProductGallery.astro';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import AddToCartButton from '../cart/AddToCartButton.astro';
 import { CONTACT } from '@/lib/constants';
 import type { Locale } from '@/i18n';
@@ -210,7 +211,7 @@ const heroImages = [...new Set([...(designImages ?? []), image, ...(gallery ?? [
       </div>
 
       <!-- Image gallery (left on desktop, top on mobile) -->
-      <div class="order-1">
+      <div class:list={['order-1', MOBILE_MEDIA_BLEED]}>
         <ProductGallery
           images={heroImages}
           productName={name}
