@@ -11,6 +11,7 @@ import type { Locale } from '@/i18n';
 import { t } from '@/i18n';
 import { getLocalizedUrl } from '@/i18n/ui';
 import type { ProductContentTraining } from '@/lib/types/product-content';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 interface Props {
   locale: Locale;
@@ -65,7 +66,7 @@ const heroImage = images[1];
              On lg the <picture> is absolutely positioned so the image takes exactly
              the leftover column height (flush with the price-card column), instead of
              forcing the column taller via its intrinsic height. -->
-        <div class="mt-8 rounded-2xl overflow-hidden shadow-lg lg:flex-1 lg:min-h-0 lg:relative [&>picture]:block lg:[&>picture]:absolute lg:[&>picture]:inset-0">
+        <div class:list={['mt-8 rounded-2xl overflow-hidden shadow-lg lg:flex-1 lg:min-h-0 lg:relative [&>picture]:block lg:[&>picture]:absolute lg:[&>picture]:inset-0', MOBILE_MEDIA_BLEED]}>
           <OptimizedPicture
             src={practiceImage ?? '@assets/gepkezeloi-oktatas-gyakorlat.jpg'}
             alt={practiceImage ? undefined : 'Gépkezelői oktatás gyakorlatban – Skinlab'}
@@ -79,7 +80,7 @@ const heroImage = images[1];
 
       <!-- RIGHT column: hero image + price card -->
       <div class="space-y-6">
-        <div class="rounded-2xl overflow-hidden shadow-lg">
+        <div class:list={['rounded-2xl overflow-hidden shadow-lg', MOBILE_MEDIA_BLEED]}>
           <OptimizedPicture
             src={heroImage ?? '@assets/training-image.jpg'}
             alt={heroImage ? undefined : t(locale, 'product.trainingTitle')}

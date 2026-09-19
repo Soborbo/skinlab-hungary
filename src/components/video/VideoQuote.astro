@@ -10,6 +10,7 @@
  */
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 import VideoFacade from './VideoFacade.astro';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import { getVideoTestimonial, videoObjectSchema, type VideoTestimonial } from '../../data/video-testimonials';
 
 interface Props {
@@ -47,7 +48,7 @@ const role = `${t(locale, item.roleKey)} · ${item.business}`;
         </figcaption>
       </figure>
 
-      <div class="order-3 lg:order-none relative w-full max-w-sm mx-auto lg:mx-0 lg:w-[300px] lg:flex-shrink-0">
+      <div class:list={['order-3 lg:order-none relative w-full max-w-sm mx-auto lg:mx-0 lg:w-[300px] lg:flex-shrink-0', MOBILE_MEDIA_BLEED]}>
         <VideoFacade
           videoId={item.videoId}
           title={`${item.name} (${item.business})`}

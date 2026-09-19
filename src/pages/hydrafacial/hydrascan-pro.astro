@@ -37,6 +37,7 @@ import { getLocaleFromUrl, t, getLocalizedUrl, formatPrice as i18nFormatPrice } 
 import { loadProductContent } from '@/lib/load-product-content';
 import { courierOptionsForPrice } from '@/lib/shipping/methods';
 import { resolveBrand } from '@/lib/merchant/brand';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 // Determine locale from URL
 const locale = getLocaleFromUrl(Astro.url);
@@ -262,11 +263,13 @@ const resolvedFunctionCards = content.functionCards || [];
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
-          <ProductGallery
-            images={allImages}
-            productName={displayName}
-            badges={{ featured: product.featured, variantCount: product.hasVariants ? product.variants.length : undefined }}
-          />
+          <div class:list={[MOBILE_MEDIA_BLEED]}>
+            <ProductGallery
+              images={allImages}
+              productName={displayName}
+              badges={{ featured: product.featured, variantCount: product.hasVariants ? product.variants.length : undefined }}
+            />
+          </div>
 
           <div>
             <!-- Availability -->

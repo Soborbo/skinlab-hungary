@@ -11,6 +11,7 @@ import { t } from '@/i18n';
 import type { ProductContentVideoDescription, ProductContentStat } from '@/lib/types/product-content';
 import VideoFacade from '../video/VideoFacade.astro';
 import LoopVideo from '../video/LoopVideo.astro';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { hasImage } from '@/lib/resolve-image';
 
@@ -53,18 +54,19 @@ const photo = !videoId && !loop && fallbackImage && hasImage(fallbackImage) ? fa
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <!-- Left: Video -->
       {loop ? (
-        <div class="flex justify-center">
+        <div class:list={['flex justify-center', MOBILE_MEDIA_BLEED]}>
           <LoopVideo
             locale={locale}
             src={loop.src}
             poster={loop.poster}
             label={`${productName} ${t(locale, 'product.videoDemo')}`}
-            class="aspect-[9/16] w-full max-w-[360px] rounded-2xl shadow-lg"
+            class="aspect-[9/16] w-full max-w-[360px] max-sm:max-w-none rounded-2xl shadow-lg"
           />
         </div>
       ) : (
       <div class:list={[
         'relative rounded-2xl overflow-hidden shadow-lg',
+        MOBILE_MEDIA_BLEED,
         photo ? 'aspect-square bg-gray-100' : 'aspect-video bg-gray-900',
       ]}>
         {photo ? (
