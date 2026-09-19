@@ -4,40 +4,61 @@
   "name": "THE FROST Cold plasma by skinlab.",
   "categorySlug": "coldplasma",
   "shortDescription": "A THE FROST Cold plasma by skinlab. a 2026-os professzionális hidegplazma készülék, amely hidegplazma, melegplazma és ózonplazma technológiát egyesít egyetlen rendszerben. 9 az 1-ben kezelőrendszer, kizárólag kozmetikai és esztétikai felhasználásra.",
-  "description": "A THE FROST Cold plasma by skinlab. a 2026-os modellévre fejlesztett professzionális elektrokozmetikai készülék, amely hidegplazma, melegplazma és ózonplazma technológiát egyesít egyetlen eszközben. Célja a bőr állapotának látványos javítása sebzés, vérzés és hosszú regenerációs idő nélkül, kizárólag kozmetikai és esztétikai felhasználásra tervezve. A készülék nem orvostechnikai eszköz, használata kozmetikai környezetben történik. Teljes mértékben kozmetikus kompetencia-körbe sorolható, minden készülékhez teljes körű jogi dokumentáció tartozik.",
+  "description": "A THE FROST Cold plasma by skinlab. a 2026-os modellévre fejlesztett professzionális elektrokozmetikai készülék, amely hidegplazma, melegplazma és ózonplazma technológiát egyesít egyetlen eszközben. A plazmát nagy tisztaságú argongázból állítja elő. Célja a bőr állapotának látványos javítása sebzés és vérzés nélkül, kizárólag kozmetikai és esztétikai felhasználásra tervezve. A készülék nem orvostechnikai eszköz. A hidegplazma kezelések kozmetikus kompetencia-körbe sorolhatók; a mélyebb hatású melegplazma funkciók alkalmazása megfelelő szakmai kompetenciát igényel. Minden készülékhez teljes körű jogi dokumentáció tartozik.",
   "metaTitle": "THE FROST Cold plasma 2026 | 9 az 1-ben professzionális hidegplazma | Skinlab Hungary",
   "metaDescription": "THE FROST Cold plasma 2026: 9 funkció egyetlen eszközben. Hidegplazma, termoplazma, ózonplazma technológia. Akné, anti-aging, bőrmegújítás. 2 év garancia, FAR képzés.",
   "price": 1499990,
-  "image": "@assets/products/FROSTCOLD.webp",
+  "image": "@assets/products/thefrost-1.png",
   "youtubeVideos": [],
+  "introVideo": {
+    "src": "/videos/thefrost/thefrost-bemutato.mp4",
+    "poster": "/videos/thefrost/thefrost-bemutato.jpg"
+  },
+  "theme": "frost",
+  "hero": {
+    "fill": true,
+    "autoplayMs": 3000
+  },
   "availability": "preorder",
   "hasVariants": false,
   "variants": [],
   "featured": false,
   "images": [
-    "@assets/products/FROSTCOLD.webp",
-    "@assets/products/FROSTCOLD7.png",
-    "@assets/products/FROSTCOLD2.png",
-    "@assets/products/FROSTCOLD3.png",
-    "@assets/products/FROSTCOLD5.png",
-    "@assets/products/FROSTCOLD6.png",
-    "@assets/products/FROSTCOLD4.png"
+    "@assets/products/thefrost-1.png",
+    "@assets/products/thefrost-2.png",
+    "@assets/products/thefrost-4.png",
+    "@assets/products/thefrost-5.png",
+    "@assets/products/thefrost-3.png"
   ],
   "extraImages": [
     "@assets/products/FROSTCOLD-oktatas-1.jpg",
     "@assets/products/FROSTCOLD-oktatas-2.jpg"
   ],
   "imageAlts": {
-    "FROSTCOLD7.png": "THE FROST Cold plasma érintőkijelző – 9 az 1-ben plazma üzemmód menü",
+    "thefrost-1.png": "THE FROST Cold plasma by skinlab. hidegplazma készülék kezelőfejjel",
+    "thefrost-2.png": "THE FROST Cold plasma érintőkijelző – 9 az 1-ben plazma üzemmód menü",
+    "thefrost-3.png": "THE FROST Cold plasma készülék kezelőkocsira szerelve",
+    "thefrost-4.png": "THE FROST plazma kezelőfej saját kijelzővel",
+    "thefrost-5.png": "THE FROST cserélhető plazma kezelőfej-feltétek",
+    "thefrost-design-1.jpg": "THE FROST Cold plasma by skinlab. hidegplazma készülék stilizált környezetben",
+    "thefrost-design-2.jpg": "THE FROST cserélhető plazma kezelőfej-feltétek közelről",
+    "thefrost-design-3.jpg": "THE FROST plazma kezelőfej kézben, a háttérben a skinlab. logóval",
+    "thefrost-design-4.jpg": "Argonplazma-nyaláb a THE FROST kezelőfejéből, amely nem égeti meg az ujjat",
+    "thefrost-oktatas-1.jpg": "THE FROST gépkezelői oktatás – az oktató kezelést mutat be, a résztvevő videóra rögzíti",
+    "thefrost-oktatas-2.jpg": "Látható hidegplazma-csóva a THE FROST kezelőfejéből homlokkezelés közben",
+    "FROSTCOLD-oktatas-1.jpg": "THE FROST gépkezelői oktatás – gyakorlati kezelés modellen",
+    "FROSTCOLD-oktatas-2.jpg": "THE FROST gépkezelői oktatás a skinlab. showroomban",
     "FROSTCOLD-kezeles-1.jpg": "Hidegplazma arckezelés a THE FROST készülékkel",
     "FROSTCOLD-kezeles-2.jpg": "Bőr közvetlenül a THE FROST hidegplazma kezelés után",
-    "FROSTCOLD-oktatas-1.jpg": "THE FROST gépkezelői oktatás – gyakorlati kezelés modellen",
-    "FROSTCOLD-oktatas-2.jpg": "THE FROST gépkezelői oktatás a skinlab. showroomban"
+    "thefrost-kezeles-3.jpg": "Hidegplazma arckezelés a THE FROST Stamp Plasma kezelőfejével"
   },
   "specs": {
     "Készülék típusa": "Professzionális elektrokozmetikai plazma készülék",
     "Technológia": "Hidegplazma, melegplazma (termoplazma), ózonplazma",
     "Funkciók száma": "9 az 1-ben",
+    "Plazmagáz": "Nagy tisztaságú argon (legalább 99,6%)",
+    "Működési frekvencia": "Kb. 40 kHz (kezelőfej)",
+    "Hidegplazma-nyaláb hőmérséklete": "Kb. 30–40 °C",
     "Felhasználási terület": "Arc, nyak, fejbőr, lokális pontkezelések",
     "Kezelőfejek": "Többféle: arckezeléshez, pontkezeléshez és fejbőrhöz",
     "Energiaszabályozás": "Digitális, százalékosan szabályozható",
@@ -45,8 +66,18 @@
     "Kijelző": "10,4\" színes érintőkijelző",
     "Indítás": "Kézi vezérlés és lábpedálos indítás",
     "Működés": "Nem invazív, vérzésmentes",
-    "Regenerációs idő": "Nincs vagy minimális (kezeléstípustól függően)",
+    "Gyógyulási idő": "Hidegplazma: nincs; melegplazma: gyógyulási idővel jár",
     "Felhasználás": "Kizárólag kozmetikai és esztétikai célokra",
     "Minősítés": "CE tanúsítvánnyal rendelkező készülék"
-  }
+  },
+  "designImages": [
+    "@assets/products/thefrost-design-1.jpg",
+    "@assets/products/thefrost-design-3.jpg",
+    "@assets/products/thefrost-design-4.jpg",
+    "@assets/products/thefrost-design-2.jpg"
+  ],
+  "trainingImages": [
+    "@assets/products/thefrost-oktatas-1.jpg",
+    "@assets/products/thefrost-oktatas-2.jpg"
+  ]
 }

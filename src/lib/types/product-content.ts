@@ -17,6 +17,10 @@ export interface ProductContentFeature {
   description: string;
   highlight?: string;
   image?: string;
+  /** Álló, néma loop-videó a kép helyett (pl. "/videos/thefrost/x.mp4"). */
+  video?: string;
+  /** A videó poszterképe. */
+  poster?: string;
 }
 
 export interface ProductContentReview {
@@ -112,6 +116,9 @@ export interface ProductContent {
   videoDescription?: ProductContentVideoDescription;
   cta?: ProductContentCTA;
   featureRows?: ProductContentFeatureRows;
+  /** "Hogyan működik?" - a technológia közérthető magyarázata, a FeatureRows
+   *  sorformátumában. Csak ott jelenik meg, ahol a termék tartalma megadja. */
+  science?: ProductContentFeatureRows;
   training?: ProductContentTraining;
   testimonials?: ProductContentTestimonial[];
   expertQuote?: ProductContentExpertQuote;

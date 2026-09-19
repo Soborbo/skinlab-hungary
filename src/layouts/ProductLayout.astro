@@ -4,7 +4,7 @@
  *
  * Section order (előbb a gép, utána bizonyíték, pénz, támogatás, összehasonlítás):
  * Breadcrumb → Hero → USP → VariantDetails → Intro (VideoDescription) →
- * VideoQuote#1 → FeatureRows → Gallery → Finance (ROI + részlet) → VideoQuote#2 →
+ * VideoQuote#1 → FeatureRows → Gallery → Science (ha van) → Finance (ROI + részlet) → VideoQuote#2 →
  * Training → VideoQuote#3 → OwnerStory → FounderConsult (+expert quote) →
  * TechSpecs → Comparison → FunctionCards → WhatsIncluded → Warranty (compact) →
  * VideoQuote#4 → Testimonials → FAQ → BuyerChecklist → CTA(primary) → Related
@@ -301,7 +301,8 @@ const productSchema = product.price ? {
   <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
   {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
 
-  <div>
+  <!-- Termék-szintű akcentus-téma (global.css [data-product-theme]); nélküle márkarózsaszín. -->
+  <div data-product-theme={product.theme}>
 
     <!-- 0. BREADCRUMB -->
     <Breadcrumb
@@ -331,6 +332,7 @@ const productSchema = product.price ? {
       categorySlug={product.categorySlug}
       variantImageSets={variantImageSets}
       installment={heroInstallment}
+      hero={product.hero}
     />
 
     <!-- 2. USP STRIP -->
@@ -353,6 +355,7 @@ const productSchema = product.price ? {
         productName={displayName}
         content={content.videoDescription}
         fallbackImage={introImage}
+        localVideo={product.introVideo}
         stats={content.stats}
       />
     )}
@@ -361,7 +364,7 @@ const productSchema = product.price ? {
     <VideoQuote testimonial="anna" videoSide="left" />
 
     <!-- 6. FEATURE ROWS -->
-    {content.featureRows && (
+    {content.featureRows && content.featureRows.features.length > 0 && (
       <FeatureRows
         locale={locale}
         content={content.featureRows}
@@ -374,6 +377,16 @@ const productSchema = product.price ? {
         images={galleryImages}
         productName={displayName}
         maxTiles={8}
+      />
+    )}
+
+    <!-- 7b. HOGYAN MŰKÖDIK? (csak ha a termék tartalma megadja) -->
+    {content.science && content.science.features.length > 0 && (
+      <FeatureRows
+        locale={locale}
+        content={content.science}
+        id="hogyan-mukodik"
+        tone="tint"
       />
     )}
 

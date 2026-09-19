@@ -90,6 +90,25 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Termék-szintű akcentus-téma. A ProductLayout a tartalom-wrapperre teszi a
+   `data-product-theme` attribútumot (termék JSON `theme`); ezen belül a primary
+   skála cserélődik, a globális fejléc/lábléc marad márkarózsaszín.
+   frost: THE FROST design-fotóinak neonlila színe (#7830c2 körül). A 700-as
+   fehér szöveggel 8.4:1, a 600-as 6.5:1 kontrasztú. */
+[data-product-theme='frost'] {
+  --color-primary-50: #f7f1fe;
+  --color-primary-100: #efe3fd;
+  --color-primary-200: #dfc8fb;
+  --color-primary-300: #c9a2f7;
+  --color-primary-400: #ae73f0;
+  --color-primary-500: #9447e6;
+  --color-primary-600: #7f30cf;
+  --color-primary-700: #6a24b0;
+  --color-primary-800: #561d8d;
+  --color-primary-900: #461a72;
+  --color-primary-950: #2b0a4c;
+}
+
 /* Custom base styles */
 @layer base {
   html {
@@ -97,7 +116,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #ce2252;
+    color: var(--color-primary-700);
   }
 
   body {

@@ -112,7 +112,7 @@ const lightboxSizes = '100vw';
           {resolved.map((img, i) => (
             <div
               class:list={[
-                'pgallery-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                'pgallery-slide absolute inset-0 flex items-center justify-center p-4 pb-14 sm:p-8 sm:pb-16 transition-opacity duration-300 [&>picture]:flex [&>picture]:h-full [&>picture]:w-full [&>picture]:items-center [&>picture]:justify-center [&>picture]:pointer-events-none',
                 i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
               ]}
               data-pgallery-slide={i}
@@ -122,7 +122,7 @@ const lightboxSizes = '100vw';
                 alt={altFor(img, i)}
                 widths={lightboxWidths}
                 sizes={lightboxSizes}
-                class="max-w-full max-h-full object-contain"
+                class="max-w-full max-h-full w-auto h-auto object-contain pointer-events-auto"
                 loading="lazy"
               />
             </div>
