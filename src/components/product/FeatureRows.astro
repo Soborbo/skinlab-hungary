@@ -73,7 +73,10 @@ const { locale, content, id = 'funkciok', tone = 'white' } = Astro.props;
         <div class="grid lg:grid-cols-2 items-center">
           {/* Mobilon a forrás-sorrend miatt mindig: KÉP felül, SZÖVEG alul.
               Desktopon váltakozik: páros sor = szöveg balra / kép jobbra,
-              páratlan sor = kép balra / szöveg jobbra. */}
+              páratlan sor = kép balra / szöveg jobbra.
+              Mobilon a kép a saját arányában, teljes szélességben jelenik meg
+              (a 4:3-as doboz a négyzetes/álló fotókat 56-75%-ra szűkítené),
+              csak a nagyon magas képeket fogja vissza 2:3-ra. */}
           <!-- Image Placeholder -->
           <div class:list={[
             "relative",
@@ -96,7 +99,7 @@ const { locale, content, id = 'funkciok', tone = 'white' } = Astro.props;
                 alt={getImageAlt(feature.image, feature.title)}
                 widths={[400, 600, 800]}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                class="w-full aspect-[4/3] object-contain"
+                class="w-full aspect-[4/3] object-contain max-sm:aspect-auto max-sm:h-auto max-sm:max-h-[150vw]"
                 loading="lazy"
               />
             ) : (

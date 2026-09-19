@@ -113,6 +113,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Nincs sötét téma - a böngésző se kényszerítsen rá (lásd BaseLayout meta). */
+    color-scheme: only light;
   }
 
   h1, h2, h3, h4, h5, h6 {
