@@ -236,7 +236,7 @@ export const CATEGORIES = [
     slug: 'coldplasma',
     description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
     icon: 'snowflake',
-    image: '/images/opt/products/the-frost-coldplasma-by-skinlab-1-480w.webp',
+    image: '/images/opt/products/the-frost-cold-plasma-by-skinlab-1-480w.webp',
     featured: true,
     productCount: 1,
     color: 'coldplasma' as keyof typeof CATEGORY_COLORS,

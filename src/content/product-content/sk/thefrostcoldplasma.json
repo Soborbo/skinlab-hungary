@@ -1,41 +1,197 @@
 {
   "name": "THE FROST Cold plasma by skinlab. (2026)",
   "shortDescription": "THE FROST Cold plasma by skinlab. je profesionálne zariadenie so studenou plazmou pre rok 2026, ktoré spája technológiu studenej plazmy, teplej plazmy a ozónovej plazmy v jednom systéme. Ošetrovací systém 9 v 1, výhradne na kozmetické a estetické použitie.",
-  "description": "THE FROST Cold plasma by skinlab. je profesionálne elektrokozmetické zariadenie vyvinuté pre modelový rok 2026, spájajúce technológiu studenej plazmy, teplej plazmy a ozónovej plazmy v jednom zariadení.\n\nCieľom je viditeľné zlepšenie stavu pokožky bez rezov, krvácania a dlhej doby rekonvalescencie, výhradne na kozmetické a estetické použitie.\n\nZariadenie nie je zdravotnícky prostriedok; používa sa v kozmetickom prostredí. Plne spadá do kompetencie kozmetičiek, kompletná právna dokumentácia je súčasťou.",
+  "description": "THE FROST Cold plasma by skinlab. je profesionálne elektrokozmetické zariadenie vyvinuté pre modelový rok 2026, spájajúce technológiu studenej plazmy, teplej plazmy a ozónovej plazmy v jednom zariadení. Plazmu vytvára z vysoko čistého argónu.\n\nCieľom je viditeľné zlepšenie stavu pokožky bez rezov a krvácania, výhradne na kozmetické a estetické použitie.\n\nZariadenie nie je zdravotnícky prostriedok. Ošetrenia studenou plazmou spadajú do kompetencie kozmetičiek; použitie hlbšie pôsobiacich funkcií teplej plazmy si vyžaduje zodpovedajúcu odbornú spôsobilosť. Kompletná právna dokumentácia je súčasťou každého zariadenia.",
   "metaTitle": "THE FROST Cold plasma 2026 | Profesionálne zariadenie 9 v 1 so studenou plazmou | Skinlab Hungary",
   "metaDescription": "THE FROST Cold plasma 2026: 9 funkcií v jednom. Studená plazma, termoplazma, ozónová plazma. Akné, anti-aging, obnova pleti. 2 roky záruky.",
   "stats": [
-    { "value": "9", "unit": "v 1", "label": "Funkcií", "icon": "layers" },
-    { "value": "3", "label": "Plazmové technológie", "icon": "zap" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Doba rekonvalescencie", "icon": "clock" }
+    {
+      "value": "9",
+      "unit": "v 1",
+      "label": "Funkcií",
+      "icon": "layers"
+    },
+    {
+      "value": "3",
+      "label": "Plazmové technológie",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Doba hojenia – studená plazma",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 22000 },
-  "cta": {
-    "afterVideo": { "text": "Máte otázky k THE FROST 2026? Radi vám pomôžeme!", "buttonLabel": "Žiadosť o konzultáciu", "phoneLabel": "Zavolajte nám" },
-    "afterFeatures": { "headline": "Chcete vidieť THE FROST 2026 naživo?", "subtitle": "Navštívte náš showroom a vyskúšajte si ho osobne!", "buttonLabel": "Rezervovať termín" },
-    "final": { "headline": "Máte záujem o THE FROST Cold plasma 2026?", "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa.", "buttonLabel": "Žiadosť o konzultáciu" }
+  "roi": {
+    "defaultTreatmentPrice": 22000
   },
-  "featureRows": { "headline": "Prečo je THE FROST 2026 prvou voľbou odborníkov?", "subtitle": "9 funkcií, 3 plazmové technológie, neobmedzené možnosti ošetrenia", "features": [] },
+  "cta": {
+    "afterVideo": {
+      "text": "Máte otázky k THE FROST 2026? Radi vám pomôžeme!",
+      "buttonLabel": "Žiadosť o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete vidieť THE FROST 2026 naživo?",
+      "subtitle": "Navštívte náš showroom a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervovať termín"
+    },
+    "final": {
+      "headline": "Máte záujem o THE FROST Cold plasma 2026?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa.",
+      "buttonLabel": "Žiadosť o konzultáciu"
+    }
+  },
+  "featureRows": {
+    "headline": "Prečo je THE FROST 2026 prvou voľbou odborníkov?",
+    "subtitle": "9 funkcií, 3 plazmové technológie, neobmedzené možnosti ošetrenia",
+    "features": []
+  },
+  "science": {
+    "headline": "Ako funguje studená plazma?",
+    "subtitle": "Čo sa deje v ošetrovacej hlavici a na pokožke – zrozumiteľne, aby ste to vedeli vysvetliť aj svojim klientom.",
+    "features": [
+      {
+        "title": "Plazma z argónu – a prečo nepáli?",
+        "description": "V ošetrovacej hlavici THE FROST vzniká vysokofrekvenčné elektrické pole s frekvenciou cca 40 kHz, ktorým preteká regulované množstvo vysoko čistého argónu. Urýchlené elektróny narážajú do atómov argónu a „vyrážajú“ z nich elektróny. Tak vzniká plazma: čiastočne ionizovaný plyn, ktorý obsahuje kladné ióny, voľné elektróny, excitované atómy a reaktívne molekuly.\n<p class=\"mt-4\">Prečo nie je horúca? Energiu nesú takmer výlučne elektróny s nepatrnou hmotnosťou, ťažké častice plynu sa takmer nezohrievajú. Ide o takzvanú nerovnovážnu plazmu: lúč má teplotu len cca 30–40 °C, preto je biologicky aktívny, a predsa nespôsobuje tepelné poškodenie.</p>\n<div class=\"flex flex-wrap items-center gap-3 mt-4 mb-1\"><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>cca 40 kHz</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>argón, min. 99,6 %</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>lúč cca 30–40 °C</span></div>",
+        "image": "@assets/products/thefrost-design-4.jpg"
+      },
+      {
+        "title": "Čo robí plazma s pokožkou?",
+        "description": "Prácu nerobí teplo, ale chémia a biofyzika. Keď plazmový lúč vystúpi z ošetrovacej hlavice, z molekúl kyslíka a dusíka vo vzduchu vznikajú reaktívne formy kyslíka a dusíka (ROS a RNS). V primeranej dávke sú to zároveň vlastné signálne molekuly organizmu – práve ony zabezpečujú väčšinu biologického účinku studenej plazmy:\n<div class=\"grid grid-cols-1 gap-y-2 mt-3\">\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Dezinfekcia</strong> – poškodzuje bunkovú stenu a bielkoviny baktérií, a tým znižuje napríklad množstvo baktérie akné (Cutibacterium acnes) a húb</span></div>\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Protizápalový účinok</strong> – zmierňuje začervenanie, preto ju možno dobre použiť po akné a – pri vhodných parametroch – aj na citlivej pokožke</span></div>\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Aktivácia buniek</strong> – látková výmena existujúcich buniek aj ich vzájomná komunikácia sa stávajú efektívnejšími</span></div>\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Regenerácia</strong> – podporuje činnosť fibroblastov a tvorbu kolagénu; zariadenie kolagén „nevyrába“, ale aktivuje vlastné procesy pokožky</span></div>\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Mikrocirkulácia</strong> – vďaka účinku oxidu dusnatého, ktorý rozširuje cievy, sa môže zlepšiť miestny krvný obeh a zásobenie kyslíkom</span></div>\n  <div class=\"flex items-start gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0 mt-1\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><span><strong>Prienik účinných látok</strong> – dočasne sa zvyšuje priepustnosť pokožky, takže séra na vodnej báze sa lepšie využijú (miera závisí od zloženia prípravku a stavu pokožky)</span></div>\n</div>",
+        "video": "/videos/thefrost/thefrost-plazma-kozeli.mp4",
+        "poster": "/videos/thefrost/thefrost-plazma-kozeli.jpg"
+      },
+      {
+        "title": "Prečo argón, a nie vzduch?",
+        "description": "Niektoré plazmové systémy jednoducho ionizujú okolitý vzduch. Zloženie vzduchu sa však neustále mení (ovplyvňuje ho vlhkosť, teplota aj nečistoty), a preto je aj plazma z neho vytvorená menej rovnomerná. Argón je inertný vzácny plyn: má nemenné zloženie, sám osebe s pokožkou nereaguje a dá sa predvídateľne ionizovať. Preto THE FROST pri každom ošetrení vytvára takmer rovnakú plazmu.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stabilnejší plazmový oblúk</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rovnomernejší prenos energie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Presnejšie regulovateľné ošetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Menej nežiaducich vedľajších produktov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Reprodukovateľné výsledky ošetrenia</div>\n</div>\n<div class=\"mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700 leading-relaxed\">Výrobca odporúča používať <strong>argón s čistotou najmenej 99,6 %</strong> – priemyselný plyn nižšej čistoty môže zhoršiť stabilitu plazmy aj fungovanie zariadenia.</div>",
+        "image": "@assets/products/thefrost-4.png"
+      }
+    ]
+  },
   "functionCards": [
-    { "icon": "snowflake", "name": "Derma Plasma", "description": "Obnova pokožky, čistenie pórov studenou plazmou" },
-    { "icon": "zap", "name": "Stamp Plasma", "description": "Mikrostimulácia, zlepšenie textúry pokožky" },
-    { "icon": "bolt", "name": "Hyper Plasma", "description": "Intenzívny antibakteriálny účinok" },
-    { "icon": "sparkles", "name": "Scalp Plasma", "description": "Aktivácia pokožky hlavy, stimulácia vlasových folikulov" },
-    { "icon": "spray", "name": "Jet Plasma", "description": "Vpravovanie účinných látok, osviežujúce ošetrenie" },
-    { "icon": "sun", "name": "Warm Plasma", "description": "Spevnenie pokožky, stimulácia kolagénu termoplazmou" },
-    { "icon": "bolt", "name": "Flash Plasma", "description": "Intenzívna aktivácia pokožky, rejuvenácia" },
-    { "icon": "eye", "name": "Diamond Plasma", "description": "Zjemnenie povrchu pokožky, liftingový efekt" },
-    { "icon": "bubbles", "name": "Ozónová plazma", "description": "Prirodzená antibakteriálna dezinfekcia ozónom" }
+    {
+      "icon": "snowflake",
+      "name": "Derma Plasma",
+      "description": "Obnova pokožky, čistenie pórov studenou plazmou"
+    },
+    {
+      "icon": "zap",
+      "name": "Stamp Plasma",
+      "description": "Mikrostimulácia, zlepšenie textúry pokožky"
+    },
+    {
+      "icon": "bolt",
+      "name": "Hyper Plasma",
+      "description": "Intenzívny antibakteriálny účinok"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Scalp Plasma",
+      "description": "Aktivácia pokožky hlavy, stimulácia vlasových folikulov"
+    },
+    {
+      "icon": "spray",
+      "name": "Jet Plasma",
+      "description": "Vpravovanie účinných látok, osviežujúce ošetrenie"
+    },
+    {
+      "icon": "sun",
+      "name": "Warm Plasma",
+      "description": "Spevnenie pokožky, stimulácia kolagénu termoplazmou"
+    },
+    {
+      "icon": "bolt",
+      "name": "Flash Plasma",
+      "description": "Intenzívna aktivácia pokožky, rejuvenácia"
+    },
+    {
+      "icon": "eye",
+      "name": "Diamond Plasma",
+      "description": "Zjemnenie povrchu pokožky, liftingový efekt"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Ozónová plazma",
+      "description": "Prirodzená antibakteriálna dezinfekcia ozónom"
+    }
   ],
   "faq": [
-    { "question": "Aký je rozdiel medzi THE FROST 2026 a skorším modelom?", "answer": "Model 2026 má vylepšenú reguláciu energie a zdokonalené ošetrovacie hlavice pre ešte presnejšie ošetrenia. Základných 9 funkcií a tri plazmové technológie zostávajú, ale zážitok z ošetrenia a účinnosť sa ďalej zlepšili." },
-    { "question": "Môžem zariadenie ako kozmetička legálne používať?", "answer": "Áno! THE FROST 2026 je oficiálne zaradené do kompetencie kozmetičiek. Kompletná právna dokumentácia je súčasťou každého zariadenia." },
-    { "question": "Na aké kožné problémy je vhodný?", "answer": "Široko použiteľný: akné, jemné vrásky, kožné nepravidelnosti, ochabnutá pokožka, matná tvár, problémy s pokožkou hlavy." },
-    { "question": "Je ošetrenie bolestivé?", "answer": "Ošetrenie studenou plazmou je úplne bezbolestné. Pri termoplazme môže byť citeľný mierny pocit tepla. Žiadne znecitlivenie nie je nutné." },
-    { "question": "Ako rýchlo sa THE FROST 2026 vráti?", "answer": "Ceny ošetrenia studenou plazmou sa pohybujú od 18 000 do 35 000 Ft. Pri 3-5 klientoch denne sa zariadenie vráti za 2-4 mesiace." }
+    {
+      "question": "Aký je rozdiel medzi THE FROST 2026 a skorším modelom?",
+      "answer": "Model 2026 má vylepšenú reguláciu energie a zdokonalené ošetrovacie hlavice pre ešte presnejšie ošetrenia. Základných 9 funkcií a tri plazmové technológie zostávajú, ale zážitok z ošetrenia a účinnosť sa ďalej zlepšili."
+    },
+    {
+      "question": "Môžem zariadenie ako kozmetička legálne používať?",
+      "answer": "Ošetrenia studenou plazmou áno: spadajú do kompetencie kozmetičiek a ku každému zariadeniu zakúpenému u nás dodávame kompletnú právnu dokumentáciu. Funkcie teplej plazmy (termoplazmy) sú však hlbšie pôsobiace ošetrenia s tepelným účinkom, ktoré v Maďarsku nespadajú jednoznačne do kompetencie kozmetičiek – odporúča sa vykonávať ich predovšetkým v prostredí estetickej medicíny, s príslušnou kvalifikáciou."
+    },
+    {
+      "question": "Aký je rozdiel medzi studenou a teplou plazmou?",
+      "answer": "Studená plazma pokožku nezohrieva a pôsobí len na jej povrchu a v horných vrstvách: je bezbolestná, nevznikajú rany, chrasty ani olupovanie a nevyžaduje žiadnu dobu hojenia. Odporúča sa pre pleť s akné, zapálenú a citlivú pleť, na upokojenie pokožky, na regeneráciu a na vpravovanie účinných látok. Teplá plazma pôsobením tepla stimuluje hlbšie vrstvy: po ošetrení treba počítať s dobou hojenia (môže sa objaviť začervenanie, olupovanie, tvorba chrást) a je potrebná následná starostlivosť a zvýšená ochrana pred slnkom."
+    },
+    {
+      "question": "Na aké kožné problémy je vhodný?",
+      "answer": "Studená plazma je mimoriadne účinná pri pleti s akné a zapálenej pleti, na upokojenie citlivej a problematickej pokožky, na zlepšenie jaziev a nerovností pokožky, pri pleti s pigmentovými škvrnami, ako doplnok anti-aging ošetrení a tiež na podporu lepšieho vstrebávania účinných látok. Hlavicu Scalp Plasma možno použiť aj na ošetrenie pokožky hlavy. Ozónová plazma je ideálna pri zápalových stavoch pokožky, termoplazma predovšetkým na spevnenie a na anti-aging."
+    },
+    {
+      "question": "Má studená plazma anti-aging účinok?",
+      "answer": "Áno, nejde však o spevnenie na báze tepla, ale o účinok, ktorý zlepšuje kvalitu pokožky a regeneruje ju: zlepšuje zásobenie pokožky kyslíkom, podporuje obnovu buniek, zjemňuje povrch pokožky a nepriamo podporuje kolagénové procesy v pokožke. Na anti-aging sú najdôležitejšie hlavice Derma Plasma (obnova pokožky, zjemnenie pórov) a Stamp Plasma (textúra pokožky, pevnosť), Jet Plasma potom účinok posilňuje vpravovaním sér, peptidov a vitamínov. Ideálna kombinácia: Derma alebo Stamp Plasma + Jet Plasma."
+    },
+    {
+      "question": "Je ošetrenie bolestivé?",
+      "answer": "Ošetrenie studenou plazmou je bezbolestné: väčšina klientov pociťuje len mierne teplo, mravčenie alebo osviežujúci pocit, a to aj na citlivej pokožke, a znecitlivenie nie je potrebné. Termoplazma pracuje s tepelným účinkom, preto sa pri nej môže objaviť silnejší pocit tepla."
+    },
+    {
+      "question": "Vyžaduje ošetrenie dobu hojenia?",
+      "answer": "Po studenej plazme nie: klient sa môže ihneď vrátiť k bežným činnostiam, olupovanie, rany ani krvácanie nie sú typické. Pri ošetreniach teplou plazmou však treba počítať s dobou hojenia (môže sa objaviť začervenanie, olupovanie, tvorba chrást) a je potrebná následná starostlivosť a zvýšená ochrana pred slnkom."
+    },
+    {
+      "question": "Ako rýchlo sú viditeľné výsledky a koľko ošetrení je potrebných?",
+      "answer": "Mnohí klienti pozorujú sviežejšiu a čistejšiu pokožku už po prvom ošetrení. Na trvalý výsledok sa v závislosti od stavu pokožky odporúča séria ošetrení; na udržanie a osvieženie pokožky ho možno absolvovať aj príležitostne."
+    },
+    {
+      "question": "Dá sa ošetrenie kombinovať s inými kozmetickými ošetreniami?",
+      "answer": "Áno, dokonca sa to odporúča: studená plazma dobre dopĺňa ošetrenia pleti, vpravovanie účinných látok aj anti-aging protokoly, pretože dezinfikuje, upokojuje a pomáha lepšiemu využitiu účinných látok. Preto sa oplatí naniesť sérum hneď po plazmovom ošetrení."
+    },
+    {
+      "question": "Je ošetrenie vhodné pre všetky typy pleti?",
+      "answer": "Pri väčšine typov pleti áno. Pred prvým ošetrením je vždy vhodné urobiť krátku konzultáciu, pri ktorej posúdite stav pokožky a zvolíte vhodný spôsob ošetrenia. Kontraindikácie a bezpečnostné pravidlá podrobne preberáme na školení obsluhy zariadenia."
+    },
+    {
+      "question": "S akým plynom zariadenie pracuje?",
+      "answer": "THE FROST vytvára plazmu z vysoko čistého argónu. Výrobca odporúča používať argón s čistotou najmenej 99,6 %: priemyselné plyny nižšej čistoty môžu obsahovať viac kyslíka, dusíka alebo iných nečistôt, čo zhoršuje stabilitu plazmy aj fungovanie zariadenia."
+    },
+    {
+      "question": "Ako rýchlo sa THE FROST 2026 vráti?",
+      "answer": "Ceny ošetrenia studenou plazmou sa pohybujú od 18 000 do 35 000 Ft. Pri 3-5 klientoch denne sa zariadenie vráti za 2-4 mesiace."
+    },
+    {
+      "question": "Aké školenie patrí k zariadeniu?",
+      "answer": "Jednodňové intenzívne školenie obsluhy zariadenia v rámci oficiálneho vzdelávacieho programu, ktoré je pri kúpe zariadenia zdarma. Školenie pokrýva všetkých 9 funkcií a ošetrovacie protokoly a zahŕňa aj praktické ošetrenie. Na záver vystavíme oficiálny certifikát."
+    }
   ],
   "whatsIncluded": [
-    "THE FROST Cold plasma 2026 zariadenie", "Derma Plasma ošetrovacia hlavica", "Stamp Plasma ošetrovacia hlavica", "Hyper Plasma ošetrovacia hlavica", "Scalp Plasma ošetrovacia hlavica", "Jet Plasma ošetrovacia hlavica", "Warm Plasma ošetrovacia hlavica", "Flash Plasma ošetrovacia hlavica", "Diamond Plasma ošetrovacia hlavica", "Ozónová plazma ošetrovacia hlavica", "Nožný pedál", "Používateľský manuál", "Právna dokumentácia", "2 roky plnej záruky", "Náhradné zariadenie počas opravy"
+    "THE FROST Cold plasma 2026 zariadenie",
+    "Derma Plasma ošetrovacia hlavica",
+    "Stamp Plasma ošetrovacia hlavica",
+    "Hyper Plasma ošetrovacia hlavica",
+    "Scalp Plasma ošetrovacia hlavica",
+    "Jet Plasma ošetrovacia hlavica",
+    "Warm Plasma ošetrovacia hlavica",
+    "Flash Plasma ošetrovacia hlavica",
+    "Diamond Plasma ošetrovacia hlavica",
+    "Ozónová plazma ošetrovacia hlavica",
+    "Nožný pedál",
+    "Používateľský manuál",
+    "Právna dokumentácia",
+    "2 roky plnej záruky",
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

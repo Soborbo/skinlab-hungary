@@ -7,6 +7,7 @@
  */
 
 import OptimizedPicture from '../images/OptimizedPicture.astro';
+import LoopVideo from '../video/LoopVideo.astro';
 import { hasImage, getImageAlt } from '@/lib/resolve-image';
 import type { Locale } from '@/i18n';
 import type { ProductContentFeatureRows } from '@/lib/types/product-content';
@@ -14,12 +15,16 @@ import type { ProductContentFeatureRows } from '@/lib/types/product-content';
 interface Props {
   locale: Locale;
   content: ProductContentFeatureRows;
+  /** Szekció-horgony. Ha egy oldalon több FeatureRows van, mindegyik saját id-t kap. */
+  id?: string;
+  /** `tint`: halvány primary-színű sáv, hogy az egymás közelében álló blokkok elváljanak. */
+  tone?: 'white' | 'tint';
 }
 
-const { content } = Astro.props;
+const { locale, content, id = 'funkciok', tone = 'white' } = Astro.props;
 ---
 
-<section class="py-16 lg:py-24 bg-white" id="funkciok">
+<section class:list={['py-16 lg:py-24', tone === 'tint' ? 'bg-primary-50' : 'bg-white']} id={id}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16 lg:mb-20">
@@ -73,7 +78,17 @@ const { content } = Astro.props;
             "relative",
             index % 2 === 0 ? "lg:order-2" : "lg:order-1"
           ]}>
-            {feature.image && hasImage(feature.image) ? (
+            {feature.video && feature.poster ? (
+              <div class="px-6 pt-8 lg:py-10 flex justify-center">
+                <LoopVideo
+                  locale={locale}
+                  src={feature.video}
+                  poster={feature.poster}
+                  label={feature.title}
+                  class="aspect-[9/16] w-full max-w-[340px] rounded-2xl shadow-lg"
+                />
+              </div>
+            ) : feature.image && hasImage(feature.image) ? (
               <OptimizedPicture
                 src={feature.image}
                 alt={getImageAlt(feature.image, feature.title)}

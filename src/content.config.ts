@@ -80,6 +80,18 @@ const productSchema = z.object({
   // canonical product). Hreflang is suppressed on canonicalized pages.
   canonicalSlug: z.string().optional(),
   youtubeVideos: z.array(z.string()).default([]),
+  // Saját tárhelyes, néma loop-videó a bevezető (VideoDescription) szekcióba,
+  // ha nincs YouTube-videó. Nyelvfüggetlen, ezért a termék JSON-ban van.
+  introVideo: z.object({ src: z.string(), poster: z.string() }).optional(),
+  // Termék-szintű akcentus-téma: a tartalom-wrapperen belül a primary skálát
+  // cseréli (global.css `[data-product-theme]`). Fejléc/lábléc nem változik.
+  theme: z.enum(['frost']).optional(),
+  // Hero galéria: `fill` = a kép kitölti a négyzetes keretet (nincs belső margó,
+  // nincs 50vh-s korlát); `autoplayMs` = automatikus lapozás ennyi ms-onként.
+  hero: z.object({
+    fill: z.boolean().default(false),
+    autoplayMs: z.number().int().min(2000).optional(),
+  }).optional(),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
   hasVariants: z.boolean().default(false),
   variants: z.array(variantSchema).default([]),

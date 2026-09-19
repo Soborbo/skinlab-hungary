@@ -37,9 +37,17 @@ interface Props {
    * a lightboxot (a nyilak és a swipe megmaradnak).
    */
   thumbnails?: boolean;
+  /**
+   * A kép kitölti a négyzetes keretet: nincs belső margó és 50vh-s korlát
+   * (a négyzetes design-fotók teljes felületen, a fehér packshotok fehér mezőben).
+   * Csak az alap (nem variánsos) módban.
+   */
+  fill?: boolean;
+  /** Automatikus lapozás ennyi ms-onként (0/hiány = nincs). Csak alap módban. */
+  autoplayMs?: number;
 }
 
-const { images, productName, badges, variantImageSets, thumbnails = true } = Astro.props;
+const { images, productName, badges, variantImageSets, thumbnails = true, fill = false, autoplayMs = 0 } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Filter to images that exist in manifest
@@ -79,7 +87,12 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
 }
 ---
 
-<div class="product-gallery" data-gallery data-has-variants={useVariantMode ? 'true' : undefined}>
+<div
+  class="product-gallery"
+  data-gallery
+  data-has-variants={useVariantMode ? 'true' : undefined}
+  data-autoplay-ms={!useVariantMode && autoplayMs > 0 ? String(autoplayMs) : undefined}
+>
 
   {useVariantMode ? (
     <>
@@ -251,7 +264,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
               {set.images.map((img, i) => (
                 <div
                   class:list={[
-                    'lightbox-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                    'lightbox-slide absolute inset-0 flex items-center justify-center p-4 pb-14 sm:p-8 sm:pb-16 transition-opacity duration-300 [&>picture]:flex [&>picture]:h-full [&>picture]:w-full [&>picture]:items-center [&>picture]:justify-center [&>picture]:pointer-events-none',
                     i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
                   ]}
                   data-slide={i}
@@ -261,7 +274,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                     alt={getAlt(img, i, set.images.length)}
                     widths={lightboxWidths}
                     sizes={lightboxSizes}
-                    class="max-w-full max-h-full object-contain"
+                    class="max-w-full max-h-full w-auto h-auto object-contain pointer-events-auto"
                     loading="lazy"
                   />
                 </div>
@@ -308,7 +321,13 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
   ) : (
     <>
       {/* === DEFAULT MODE: Single image set (no variants) === */}
-      <div class="group relative aspect-[4/3] max-h-[50vh] bg-white rounded-2xl overflow-hidden mb-4">
+      <div
+        class:list={[
+          'group relative bg-white rounded-2xl overflow-hidden mb-4',
+          fill ? 'aspect-square' : 'aspect-[4/3] max-h-[50vh]',
+        ]}
+        data-gallery-frame
+      >
         {resolvedImages.length > 0 ? (
           <button
             type="button"
@@ -324,7 +343,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                     alt={getAlt(img, i, resolvedImages.length)}
                     widths={mainWidths}
                     sizes={mainSizes}
-                    class="w-full h-full object-contain p-4"
+                    class={fill ? 'w-full h-full object-contain' : 'w-full h-full object-contain p-4'}
                     loading={i === 0 ? 'eager' : 'lazy'}
                     fetchpriority={i === 0 ? 'high' : 'low'}
                   />
@@ -378,6 +397,21 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
               </svg>
             </button>
           </>
+        )}
+
+        {/* Automatikus lapozás szünet/lejátszás (WCAG 2.2.2) */}
+        {autoplayMs > 0 && resolvedImages.length > 1 && (
+          <button
+            type="button"
+            class="absolute top-3 right-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-lg border border-gray-200 backdrop-blur-sm hover:bg-white hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            data-autoplay-toggle
+            data-label-pause={t(locale, 'product.pauseMotion')}
+            data-label-play={t(locale, 'product.resumeMotion')}
+            aria-label={t(locale, 'product.pauseMotion')}
+          >
+            <svg class="h-4 w-4" data-icon-pause viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+            <svg class="h-4 w-4 translate-x-px hidden" data-icon-play viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.9-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z" /></svg>
+          </button>
         )}
 
         {/* Zoom indicator */}
@@ -484,7 +518,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
           {resolvedImages.map((img, i) => (
             <div
               class:list={[
-                'lightbox-slide absolute inset-0 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300',
+                'lightbox-slide absolute inset-0 flex items-center justify-center p-4 pb-14 sm:p-8 sm:pb-16 transition-opacity duration-300 [&>picture]:flex [&>picture]:h-full [&>picture]:w-full [&>picture]:items-center [&>picture]:justify-center [&>picture]:pointer-events-none',
                 i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
               ]}
               data-slide={i}
@@ -494,7 +528,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                 alt={getAlt(img, i, resolvedImages.length)}
                 widths={lightboxWidths}
                 sizes={lightboxSizes}
-                class="max-w-full max-h-full object-contain"
+                class="max-w-full max-h-full w-auto h-auto object-contain pointer-events-auto"
                 loading="lazy"
               />
             </div>
@@ -820,6 +854,66 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
             dragMoved = false;
           }
         }, true);
+      }
+
+      // Hero automatikus lapozás (a termék kéri: data-autoplay-ms a gyökéren).
+      // Nem lapoz, ha: egér a képen, fókusz benne, lightbox nyitva, a galéria
+      // nem látszik, a fül rejtett, vagy a gombbal leállították. Kézi lapozás
+      // (nyíl, swipe) után a számláló újraindul. Csökkentett mozgásnál nem indul
+      // magától, a gombbal indítható.
+      const autoplayMs = Number(gallery.getAttribute('data-autoplay-ms')) || 0;
+      const frame = group.querySelector('[data-gallery-frame]') as HTMLElement | null;
+      if (autoplayMs > 0 && totalImages > 1 && galleryTrack && frame) {
+        const autoToggle = frame.querySelector('[data-autoplay-toggle]') as HTMLButtonElement | null;
+        let stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let hover = false;
+        let focusIn = false;
+        let inView = true;
+        let timer = 0;
+
+        const canAdvance = () =>
+          !stopped && !hover && !focusIn && inView && !document.hidden &&
+          !!lightbox && lightbox.classList.contains('hidden');
+
+        const schedule = () => {
+          window.clearTimeout(timer);
+          if (stopped) return;
+          timer = window.setTimeout(() => {
+            if (canAdvance()) galleryNext();
+            schedule();
+          }, autoplayMs);
+        };
+
+        const renderToggle = () => {
+          if (!autoToggle) return;
+          autoToggle.querySelector('[data-icon-pause]')?.classList.toggle('hidden', stopped);
+          autoToggle.querySelector('[data-icon-play]')?.classList.toggle('hidden', !stopped);
+          autoToggle.setAttribute('aria-label', (stopped ? autoToggle.dataset.labelPlay : autoToggle.dataset.labelPause) || '');
+        };
+
+        frame.addEventListener('mouseenter', () => { hover = true; });
+        frame.addEventListener('mouseleave', () => { hover = false; });
+        frame.addEventListener('focusin', (e) => { focusIn = (e.target as Element).matches(':focus-visible'); });
+        frame.addEventListener('focusout', () => { focusIn = false; });
+        galleryPrevBtn?.addEventListener('click', schedule);
+        galleryNextBtn?.addEventListener('click', schedule);
+        mainImageContainer?.addEventListener('touchend', schedule);
+
+        autoToggle?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stopped = !stopped;
+          renderToggle();
+          schedule();
+        });
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            inView = entries[0]?.isIntersecting ?? true;
+          }, { threshold: 0.4 }).observe(frame);
+        }
+
+        renderToggle();
+        schedule();
       }
 
       return { reset };
