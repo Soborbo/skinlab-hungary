@@ -1,5 +1,6 @@
 ---
 import { ContentImage } from '../images';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 const trainingImage = '@assets/training-image.jpg';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
@@ -67,7 +68,7 @@ const icons: Record<string, string> = {
 
       <!-- Right: Training/Education Image -->
       <div class="relative">
-        <div class="rounded-2xl aspect-square overflow-hidden">
+        <div class:list={['rounded-2xl aspect-square overflow-hidden', MOBILE_MEDIA_BLEED]}>
           <ContentImage
             src={trainingImage}
             alt={t(locale, 'whyUs.training')}

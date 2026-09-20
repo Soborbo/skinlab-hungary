@@ -11,6 +11,7 @@ import CategoryConsultationCard from '../components/cta/CategoryConsultationCard
 import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
 import { getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../i18n/ui';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import { getInstallmentInfo } from '@/lib/installment';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
@@ -562,7 +563,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     accentLight={catColor.accentLight}
                   />
                 ) : heroImage ? (
-                  <div class="relative rounded-2xl aspect-square overflow-hidden shadow-lg">
+                  <div class:list={['relative rounded-2xl aspect-square overflow-hidden shadow-lg', MOBILE_MEDIA_BLEED]}>
                     <Image
                       src={heroImage}
                       alt={heroImageAlt || `${category.nameShort} - Skinlab`}
@@ -968,7 +969,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               </div>
             </div>
             {benefitsImage ? (
-              <div class="relative rounded-2xl aspect-square overflow-hidden shadow-sm">
+              <div class:list={['relative rounded-2xl aspect-square overflow-hidden shadow-sm', MOBILE_MEDIA_BLEED]}>
                 <Image
                   src={benefitsImage}
                   alt={benefitsImageAlt || `${category.nameShort} használat közben`}
