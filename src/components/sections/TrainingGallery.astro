@@ -1,6 +1,7 @@
 ---
 import { ThirdImage } from '../images';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
@@ -34,7 +35,7 @@ const facts = [
     </div>
 
     <div class="relative" data-training-carousel>
-      <div class="flex items-center gap-4 lg:gap-5 overflow-x-auto pb-2 training-gallery-track" data-track>
+      <div class:list={['flex items-center gap-4 lg:gap-5 overflow-x-auto pb-2 training-gallery-track', MOBILE_MEDIA_BLEED]} data-track>
         {carouselImages.map((img, i) => (
           <div
             class="shrink-0 h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50"

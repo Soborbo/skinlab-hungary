@@ -13,6 +13,7 @@ import { SITE, COMPANY, FOUNDERS, CONTACT } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { aboutPageSchema } from '../../config/schema';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -314,7 +315,7 @@ const whyUs = [
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Mobile only: image goes ABOVE the "Küldetésünk" eyebrow. -->
-        <div class="lg:hidden mb-10 rounded-2xl overflow-hidden shadow-lg">
+        <div class:list={['lg:hidden mb-10 rounded-2xl overflow-hidden shadow-lg', MOBILE_MEDIA_BLEED]}>
           <Image
             src={rolunk7}
             alt="Gaszler Simonetta egy szakmai bemutatón a Skinlab készülékeiről"
