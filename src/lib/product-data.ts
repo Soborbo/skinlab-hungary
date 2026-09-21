@@ -6,7 +6,7 @@ import type { CollectionEntry } from 'astro:content';
  *
  * Korábban mind a 22 route kézzel másolta ezt az objektumot, és a mezők
  * elcsúsztak: a `designImages`/`trainingImages` csak a diódalézereknél, az
- * `extraImages` csak a coldplasma/sminktetovalas ágon ért el a layoutig.
+ * `extraImages` csak a hidegplazma/sminktetovalas ágon ért el a layoutig.
  * Egy helyen tartva minden kategória ugyanazt kapja.
  */
 export function buildProductData(entry: CollectionEntry<'products'>) {

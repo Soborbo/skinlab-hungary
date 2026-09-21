@@ -62,9 +62,10 @@ A 14 kategória SKU-szám alapján három csoportra osztható, és **mindegyikre
 
 | Csoport | SKU | Kategóriák | PLP-stratégia |
 |---|---|---|---|
-| **A (Showcase)** | 1–3 | anti-aging, arckezelo-rendszerek, mezoterapia, pico-lezerek, coldplasma, testkezeles, tetovalogepek | **Egyetlen hero-termék-oldal** stílusban; szűrő felesleges; comparison ha van 2+; choices szekció dominál |
+| **A (Showcase)** | 1–3 | anti-aging, arckezelo-rendszerek, mezoterapia, pico-lezerek, testkezeles, tetovalogepek | **Egyetlen hero-termék-oldal** stílusban; szűrő felesleges; comparison ha van 2+; choices szekció dominál |
 | **B (Comparison)** | 4–9 | nd-yag-lezerek (9), hydrafacial (8), hiemt (4), kellekek (5), anti-aging (5) | **Comparison-vezérelt** layout: a 2–3 fő termék vs egymás; choices szekció hosszabb; spec-comparison table prominens |
 | **C (Catalog)** | 10+ | diodalezerek (24), sminktetovalas (15), kezeloanyagok (13) | **Klasszikus szűrhető rács**; itt értelmes a NemesVent-típusú filter (csak itt!); spec-as-filter pattern |
+> **2026-09-21 - hidegplazma kivétel:** a `/hidegplazma/` URL-en nem kategórialista, hanem MAGA a THE FROST termékoldal áll (egyetlen plazma termék marad). Lásd `src/lib/product-url.ts` → `CATEGORY_AS_PRODUCT` és `src/pages/hidegplazma/index.astro`.
 
 Ez **kritikus a kézikönyv hátralévő részében**: minden szekciónál külön kibontjuk, hogy az adott best practice mely csoportra (A/B/C) érvényes.
 

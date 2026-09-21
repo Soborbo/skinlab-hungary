@@ -1,19 +1,34 @@
 ---
+/**
+ * /hidegplazma/ - a kategória URL-jén MAGA a termékoldal áll.
+ *
+ * Tulajdonosi döntés (2026-09-21): "nem lesz több plazma termék, csak ez az
+ * egy", ezért a kategórialista és a THE FROST termékoldal egyetlen URL-re
+ * olvadt össze. A korábbi /coldplasma/ és /coldplasma/thefrostcoldplasma/
+ * 301-gyel ide mutat (public/_redirects).
+ *
+ * A linképítés forrása: lib/product-url.ts `CATEGORY_AS_PRODUCT`.
+ * Ha ide mégis kerülne egy második élő termék, ez a route visszaesik a
+ * kategórialistára - olyankor a `CATEGORY_AS_PRODUCT` sort is vedd ki, és
+ * állítsd vissza a `[slug].astro`-t (git history: 2026-09-21 előtt).
+ */
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ProductLayout from '../../layouts/ProductLayout.astro';
 import { getCollection } from 'astro:content';
+import { buildProductData } from '../../lib/product-data';
 
 const category = {
-  name: 'ColdPlasma készülékek',
-  nameShort: 'ColdPlasma',
-  slug: 'coldplasma',
+  name: 'Hidegplazma készülékek',
+  nameShort: 'Hidegplazma',
+  slug: 'hidegplazma',
   description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
   heroDescription: 'Professzionális hidegplazma készülékek bőrmegújításhoz, anti-aging kezelésekhez és aknékezeléshez. Fájdalommentes, nem invazív technológia, nincs regenerációs idő.',
   badge: 'Innovatív technológia',
-  color: 'coldplasma',
+  color: 'hidegplazma',
 };
 
 const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'coldplasma' && !data.draft;
+  return data.categorySlug === 'hidegplazma' && !data.draft;
 });
 
 const benefits = [
@@ -54,8 +69,12 @@ const faq = [
   },
 ];
 
-// Osszehasonlito tablazat: az AURA archivalasa (draft) ota egyetlen termek van a
-// kategoriaban, egy oszlopos tabla nem mond semmit -> nincs comparison prop.
+// Egyetlen élő termék = a termékoldal áll a kategória URL-jén.
+const soleProduct = products.length === 1 ? products[0] : undefined;
 ---
 
-<CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} benefits={benefits} faq={faq} />
+)}

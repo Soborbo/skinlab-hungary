@@ -134,7 +134,7 @@ export const CATEGORY_COLORS = {
     gradient: 'from-[#a9c9c4] to-[#8fb4ae]',
     gradientHero: 'from-[#e8f3f1] via-[#f1f9f7] to-white',
   },
-  coldplasma: {
+  hidegplazma: {
     accent: '#a9bcc9',       // powder blue
     accentLight: '#e8eff3',   // ice mist
     accentDark: '#6a8494',    // steel blue
@@ -230,16 +230,16 @@ export const CATEGORIES = [
     color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
   },
   {
-    id: 'coldplasma',
+    id: 'hidegplazma',
     name: 'Hidegplazma készülékek',
     nameShort: 'Hidegplazma',
-    slug: 'coldplasma',
+    slug: 'hidegplazma',
     description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
     icon: 'snowflake',
     image: '/images/opt/products/the-frost-cold-plasma-by-skinlab-1-480w.webp',
     featured: true,
     productCount: 1,
-    color: 'coldplasma' as keyof typeof CATEGORY_COLORS,
+    color: 'hidegplazma' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'anti-aging',
@@ -339,7 +339,7 @@ export const CATEGORIES = [
 export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   diodalezerek: '/images/opt/products/helios-1600w-diodalezer-1-828w.avif',
   hydrafacial: '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
-  // coldplasma: nincs override. Az AURA archiválása (draft) óta a fallback adja a
+  // hidegplazma: nincs override. Az AURA archiválása (draft) óta a fallback adja a
   // helyes képet: THE FROST fehér hátterű packshotja. (Megjegyzés: a két termék
   // UGYANAZT a FROSTCOLD.webp fájlt használta, és a manifest az ábécében előbb
   // álló AURA-ról nevezte el - ezért hívják a legenerált fájlokat máig
@@ -415,7 +415,7 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
-        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 1, descriptionKey: 'megaMenu.coldplasmaDesc' },
+        { labelKey: 'categories.hidegplazma', href: '/hidegplazma', count: 1, descriptionKey: 'megaMenu.hidegplazmaDesc' },
       ],
     },
     {

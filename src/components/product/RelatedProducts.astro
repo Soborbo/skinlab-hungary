@@ -13,6 +13,7 @@ import type { Locale } from '@/i18n';
 import { t } from '@/i18n';
 import { getLocalizedUrl, formatPrice } from '@/i18n/ui';
 import { CATEGORIES } from '../../lib/constants';
+import { productPath } from '@/lib/product-url';
 
 interface Props {
   locale: Locale;
@@ -70,7 +71,7 @@ const displayPrice = (price: number | null) => {
       <!-- Products Grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((product) => {
-          const productUrl = getLocalizedUrl(locale, `/${product.data.categorySlug}/${product.data.slug}`);
+          const productUrl = getLocalizedUrl(locale, productPath(product.data.categorySlug, product.data.slug));
           const imgExists = hasImage(product.data.image);
 
           return (
