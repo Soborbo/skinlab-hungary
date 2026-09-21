@@ -2,6 +2,10 @@
 # A teljes GSC indexelt + Coverage URL-halmazbol, draft=megszunt->kategoria policy szerint.
 # Celok ELO (200) oldalak, zaro perjellel (a perjel nelkuli alak 307-tel arra ugrik).
 # Sorrend: konkret szabalyok elol, /* catch-all-ok a vegen (first-match-wins).
+# FIGYELEM (2026-09-21, ezen bukott el egy deploy): a Cloudflare parsere az
+# ELSO wildcard/placeholder szabaly utan MINDEN tovabbi sort dinamikusnak szamol
+# (canCreateStaticRule egyszer valik false-ra), a dinamikus limit pedig 100.
+# Ezert wildcard szabaly KIZAROLAG a fajl legvegere kerulhet.
 
 # /index.php?route=... is handled in the Worker (src/pages/index.php.ts), NOT here:
 # Cloudflare _redirects (Workers Static Assets) cannot match query strings, so a
@@ -83,16 +87,6 @@
 /sl/hidegplazma/thefrostcoldplasma                                               /sl/hidegplazma/  301
 /sl/hidegplazma/thefrostcoldplasma/                                              /sl/hidegplazma/  301
 
-# Biztonsagi halo: barmely megmaradt /coldplasma/... alcim is ide megy.
-/coldplasma/*                                                                    /hidegplazma/  301
-/en/coldplasma/*                                                                 /en/hidegplazma/  301
-/sk/coldplasma/*                                                                 /sk/hidegplazma/  301
-/ro/coldplasma/*                                                                 /ro/hidegplazma/  301
-/de/coldplasma/*                                                                 /de/hidegplazma/  301
-/cs/coldplasma/*                                                                 /cs/hidegplazma/  301
-/hr/coldplasma/*                                                                 /hr/hidegplazma/  301
-/sr/coldplasma/*                                                                 /sr/hidegplazma/  301
-/sl/coldplasma/*                                                                 /sl/hidegplazma/  301
 
 # --- Olympia akcio lejart 2026-07-31, LP levéve 2026-09-17 -> Olympia termekoldal ---
 /olympia-akcio                                                                   /diodalezerek/olympia/  301
@@ -254,6 +248,17 @@
 /evosculpt-venus-hiemt-intim-pad                                                 /testkezeles/  301
 
 # --- HydraScan Pro+ alias ---
+
+# --- /coldplasma/ -> /hidegplazma/ biztonsagi halo (2026-09-21) ---
+/coldplasma/*                                                                    /hidegplazma/  301
+/en/coldplasma/*                                                                 /en/hidegplazma/  301
+/sk/coldplasma/*                                                                 /sk/hidegplazma/  301
+/ro/coldplasma/*                                                                 /ro/hidegplazma/  301
+/de/coldplasma/*                                                                 /de/hidegplazma/  301
+/cs/coldplasma/*                                                                 /cs/hidegplazma/  301
+/hr/coldplasma/*                                                                 /hr/hidegplazma/  301
+/sr/coldplasma/*                                                                 /sr/hidegplazma/  301
+/sl/coldplasma/*                                                                 /sl/hidegplazma/  301
 
 # --- Regi kategoriak catch-all (a GSC-mintaban nem szereplo mely URL-ekre) ---
 /hydra-facial-245/*                                                              /hydrafacial/  301
