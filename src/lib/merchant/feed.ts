@@ -23,6 +23,7 @@ import { courierOptionsForPrice, SHIPPING_LABEL_HU } from '@/lib/shipping/method
 import { loadProductContent } from '@/lib/load-product-content';
 import { resolveBrand } from '@/lib/merchant/brand';
 import { googleProductCategoryFor } from '@/lib/merchant/categories';
+import { productPath } from '@/lib/product-url';
 
 type Product = CollectionEntry<'products'>['data'];
 
@@ -209,7 +210,7 @@ export function buildFeedItems(entries: CollectionEntry<'products'>[]): FeedItem
       toPlainText(content.shortDescription || product.shortDescription) ||
       toPlainText(content.description || product.description);
 
-    const path = getLocalizedUrl(FEED_LOCALE, `/${product.categorySlug}/${product.slug}`);
+    const path = getLocalizedUrl(FEED_LOCALE, productPath(product.categorySlug, product.slug));
     const link = SITE.url + path;
     const availability = AVAILABILITY[product.availability];
     const gallery = [...(product.images ?? []), ...(product.gallery ?? [])];

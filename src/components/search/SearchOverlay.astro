@@ -6,6 +6,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 import { getImageEntry } from '@/lib/resolve-image';
+import { productPath } from '@/lib/product-url';
 
 function resolveImageUrl(imagePath: string): string | null {
   if (!imagePath) return null;
@@ -35,7 +36,7 @@ const searchIndex = [
   ...products.map(p => ({
     name: p.data.name,
     type: 'product' as const,
-    url: withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug}`),
+    url: withTrailingSlash(productPath(p.data.categorySlug, p.data.slug)),
     category: categoryMap[p.data.categorySlug] || p.data.categorySlug,
     price: p.data.price,
     image: resolveImageUrl(p.data.image),

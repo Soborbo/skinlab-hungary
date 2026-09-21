@@ -13,6 +13,7 @@ import FounderConsult from '../components/cta/FounderConsult.astro';
 import { getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../i18n/ui';
 import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import { getInstallmentInfo } from '@/lib/installment';
+import { productPath } from '@/lib/product-url';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
 
@@ -244,7 +245,7 @@ const monthlyTeaser = (price?: number | null): number | null => {
   const term = info.months[info.months.length - 1];
   return info.monthly[term];
 };
-const productHref = (p: any) => withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug || p.id}`);
+const productHref = (p: any) => withTrailingSlash(productPath(p.data.categorySlug, p.data.slug || p.id));
 // A "Részletfizetés" ígéretet csak akkor tartjuk a kategória trust-badge-ek
 // között, ha van legalább egy, a részletfizetési küszöb (INSTALLMENT_MIN,
 // ~100 000 Ft) feletti termék a kategóriában. Tisztán küszöb-alatti

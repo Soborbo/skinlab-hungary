@@ -13,6 +13,7 @@ import { hasImage, getImageAlt } from '@/lib/resolve-image';
 import { getInstallmentInfo } from '@/lib/installment';
 import { loadProductContent } from '@/lib/load-product-content';
 import { t, getLocaleFromUrl, getLocalizedUrl, formatPrice, type Locale } from '../../i18n/ui';
+import { productPath } from '@/lib/product-url';
 
 interface Props {
   slug?: string;
@@ -28,7 +29,7 @@ const product = products[0];
 const d = product?.data;
 const name = d ? (loadProductContent(locale, d.slug, d.categorySlug).content.name || d.name) : '';
 const price = d ? (d.salePrice ?? d.price) : null;
-const productLink = d ? getLocalizedUrl(locale, `/${d.categorySlug}/${d.slug}`) : '';
+const productLink = d ? getLocalizedUrl(locale, productPath(d.categorySlug, d.slug)) : '';
 
 const installment = getInstallmentInfo(price);
 const longest = installment.available ? Math.max(...installment.months) as 3 | 6 | 12 : null;

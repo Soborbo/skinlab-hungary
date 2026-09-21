@@ -54,6 +54,7 @@ import { courierOptionsForPrice } from '@/lib/shipping/methods';
 import { resolveBrand } from '@/lib/merchant/brand';
 import type { ProductContentFAQItem } from '@/lib/types/product-content';
 import type { ProductData } from '@/lib/product-data';
+import { productPath, isCategoryAsProduct } from '@/lib/product-url';
 
 interface Props {
   /** A route-ok `buildProductData(entry)`-vel állítják elő (lib/product-data.ts). */
@@ -86,18 +87,24 @@ const categoryName = category?.nameShort || product.categorySlug;
 // Page URL (trailing slash to match the served/canonical URL).
 // NB: the slash is concatenated, not placed inside the template literal — a
 // getLocalizedUrl now returns the trailing-slash form, so no manual `+ '/'`.
-const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`);
+const pageUrl = SITE.url + getLocalizedUrl(locale, productPath(product.categorySlug, product.slug));
 
 // Canonical override: spin-off/duplicate products (e.g. a limited-edition colour
 // that is also a variant of the canonical product) point to the canonical slug.
 const canonicalOverride = product.canonicalSlug
-  ? `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.canonicalSlug}`)}`
+  ? `${SITE.url}${getLocalizedUrl(locale, productPath(product.categorySlug, product.canonicalSlug))}`
   : undefined;
+
+// Egytermékes kategóriában a kategória URL-je MAGA ez az oldal (pl. /hidegplazma/),
+// ezért a morzsából kimarad a kategória-szint: nem mutatna önmagára.
+const isCategoryPage = isCategoryAsProduct(product.categorySlug, product.slug);
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
   { name: t(locale, 'breadcrumb.home'), url: SITE.url + '/' },
-  { name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) },
+  ...(isCategoryPage
+    ? []
+    : [{ name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) }]),
   { name: displayName }
 ];
 
@@ -310,6 +317,7 @@ const productSchema = product.price ? {
       categorySlug={product.categorySlug}
       categoryName={categoryName}
       productName={displayName}
+      hideCategory={isCategoryPage}
     />
 
     <!-- 1. HERO (egy nagy kép + "Mind a N fotó", ár alatt részlet-sor) -->

@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { t, formatPrice, getLocalizedUrl, type Locale } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
+import { productPath } from '@/lib/product-url';
 
 export interface ComparisonColumn {
   isCurrent: boolean;
@@ -57,7 +58,7 @@ export function buildComparison(
       isCurrent: entry === current,
       name: content.name || d.name,
       image: d.image,
-      href: getLocalizedUrl(locale, `/${d.categorySlug}/${d.slug}`),
+      href: getLocalizedUrl(locale, productPath(d.categorySlug, d.slug)),
       price: price ? formatPrice(price, locale) : t(locale, 'product.priceOnRequest'),
     };
   });
