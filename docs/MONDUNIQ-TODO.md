@@ -17,6 +17,18 @@ Jelölések: 🔴 blokkoló · 🟠 fontos, nem blokkoló · 🟡 ráér
 > A termékoldalak főképe a gyártó szatén hátterű életstílus-fotója; a menü- és
 > kategóriakártya-kép fehér hátterű packshot maradt (a menü fehér navigációs sávon áll).
 
+> **2026-09-23 — 5 új termék a designer „Webshop leírás x fotó” mappájából (09-21/22).**
+> Élő: VASCAL 10% fitinsavas koncentrátum (19 990 Ft), LEPIREV™ szemkörnyékápoló (18 990 Ft),
+> HI'FUsion Longevity arcszérum (19 990 Ft), ILLUMINO® PP koktél (21 990 Ft) - kategória 16 → 20.
+> 🔴 **HI'FUsion Longevity arckrém (150 ml): `draft`, mert a leírásában nincs ár** (a megrendelő
+> egyeztet). Élesítés: `price` kitöltése + `draft: false` a `monduniq-hifusion-longevity-arckrem.json`-ban.
+> A termékvonal-neveket (acidermis/VASCAL, LEPIREV, HI'FUsion, Dermié BOOST) és a VASCAL 50 ml-es
+> kiszerelését a csomagolás felirata adta, a leírás nem tartalmazza.
+> Az új `webshop fotó`-k fehér hátterűek, de jobb felül **skinlab. vízjel** van rajtuk - Merchant
+> Center élesítése előtt ellenőrizendő (a Google a vízjeles főképet elutasíthatja).
+> **Forrásszabály (designer, 2026-09-23):** csak a „Webshop leírás x fotó” mappa számít, a másik két
+> M'onduniq-mappa munkamappa. Az E-vitaminos maszk (Vitamino'MASK) kimaradt, saját mappája készül.
+
 ---
 
 ## ✅ 1. Hiányzó ár — GENEXEM LSEV 100 exoszómás szérum — **MEGOLDVA (2026-08-05)**
@@ -40,8 +52,8 @@ A kategóriakártyák és a mega-menü fehér hátterű packshotot várnak; ezek
 
 | Termék | Oldal | Kép |
 |---|---|---|
-| AquametiQ Hydra Prime A / B / Lumio C / Osmo D | `monduniq-aquametiq-hydra-prime` | variánsonként 1-1 |
-| Laser-IQ Bio-Cell regeneráló maszk | `monduniq-laseriq-biocell-maszk` | mindössze 1 |
+| ~~AquametiQ Hydra Prime A / B / Lumio C / Osmo D~~ | `monduniq-aquametiq-hydra-prime` | ✅ 2026-09-23: változatonként + fehér packshot + design fotó (3-3) |
+| ~~Laser-IQ Bio-Cell regeneráló maszk~~ | `monduniq-laseriq-biocell-maszk` | ✅ 2026-09-23: + 1 webshop fotó (2) |
 | Nyugtató és érfalerősítő hidratáló krém | `monduniq-nyugtato-erfalerosito-krem` | mindössze 1 |
 | LASER-IQ Anti-Age SPF 50 | `monduniq-laseriq-anti-age-spf50` | mindössze 1 |
 | GENEXEM LSEV 100 szérum | `monduniq-genexem-lsev-100-szerum` | 2 |
