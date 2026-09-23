@@ -14,7 +14,15 @@
     "@assets/products/monduniq-aquametiq-hydra-prime-b-1.webp",
     "@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp",
     "@assets/products/monduniq-aquametiq-lumio-prime-c-1.webp",
-    "@assets/products/monduniq-aquametiq-osmo-prime-d-1.webp"
+    "@assets/products/monduniq-aquametiq-osmo-prime-d-1.webp",
+    "@assets/products/monduniq-aquametiq-hydra-prime-b-2.webp",
+    "@assets/products/monduniq-aquametiq-hydra-prime-a-2.webp",
+    "@assets/products/monduniq-aquametiq-lumio-prime-c-2.webp",
+    "@assets/products/monduniq-aquametiq-osmo-prime-d-2.webp",
+    "@assets/products/monduniq-aquametiq-hydra-prime-b-design-1.webp",
+    "@assets/products/monduniq-aquametiq-hydra-prime-a-design-1.webp",
+    "@assets/products/monduniq-aquametiq-lumio-prime-c-design-1.webp",
+    "@assets/products/monduniq-aquametiq-osmo-prime-d-design-1.webp"
   ],
   "availability": "in_stock",
   "hasVariants": true,
@@ -26,7 +34,9 @@
       "price": 6990,
       "image": "@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp",
       "images": [
-        "@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp"
+        "@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp",
+        "@assets/products/monduniq-aquametiq-hydra-prime-a-design-1.webp",
+        "@assets/products/monduniq-aquametiq-hydra-prime-a-2.webp"
       ],
       "available": true,
       "description": "Savas tisztító kezelőlotion problémás, zsírosodásra hajlamos és kombinált bőr előkezelésére. A 6000 ppm-es savkomplex – mandulasav, laktobionsav és glükonolakton – fellazítja az elszarusodott hámréteget és feloldja a faggyúdugókat, így a vákuumos tisztítás hatékonyabban távolítja el a komedókat és az oxidálódott faggyút. A SyriCalm™, a természetes betain és az aloe vera nyugtat, és mérsékli az irritáció kialakulásának esélyét.",
@@ -44,7 +54,9 @@
       "price": 6990,
       "image": "@assets/products/monduniq-aquametiq-hydra-prime-b-1.webp",
       "images": [
-        "@assets/products/monduniq-aquametiq-hydra-prime-b-1.webp"
+        "@assets/products/monduniq-aquametiq-hydra-prime-b-1.webp",
+        "@assets/products/monduniq-aquametiq-hydra-prime-b-design-1.webp",
+        "@assets/products/monduniq-aquametiq-hydra-prime-b-2.webp"
       ],
       "available": true,
       "description": "Ultrahidratáló kezelőlotion, amely a vákuumos tisztítással egy időben juttat hatóanyagokat a bőrbe. A hialuronsav, a fokozatos leadású Hydromanil®, a Fucogel® és az aloe vera már a kezelés első perceitől feltölti nedvességgel a bőrt, a micellás tisztító összetevők pedig kiszárítás nélkül oldják fel a faggyút és a sminkmaradványokat. Vízhiányos, dehidratált és érzékeny bőrhöz ajánlott.",
@@ -62,7 +74,9 @@
       "price": 6990,
       "image": "@assets/products/monduniq-aquametiq-lumio-prime-c-1.webp",
       "images": [
-        "@assets/products/monduniq-aquametiq-lumio-prime-c-1.webp"
+        "@assets/products/monduniq-aquametiq-lumio-prime-c-1.webp",
+        "@assets/products/monduniq-aquametiq-lumio-prime-c-design-1.webp",
+        "@assets/products/monduniq-aquametiq-lumio-prime-c-2.webp"
       ],
       "available": true,
       "description": "Bőrfényesítő és bőrtónus-kiegyenlítő kezelőlotion Whitonyl® vörös alga kivonattal, hialuronsavval, Croton lechleri (Dragon's Blood) kivonattal és aloe verával. Hydra-abrázióval együtt alkalmazva eltávolítja a felületi szennyeződéseket és az elhalt hámsejteket, miközben világosító és hidratáló hatóanyagokat juttat a bőrbe. Érzékeny, kipirosodásra hajlamos, értágulatos, fakó és pigmentfoltos bőrhöz ajánlott.",
@@ -80,7 +94,9 @@
       "price": 6990,
       "image": "@assets/products/monduniq-aquametiq-osmo-prime-d-1.webp",
       "images": [
-        "@assets/products/monduniq-aquametiq-osmo-prime-d-1.webp"
+        "@assets/products/monduniq-aquametiq-osmo-prime-d-1.webp",
+        "@assets/products/monduniq-aquametiq-osmo-prime-d-design-1.webp",
+        "@assets/products/monduniq-aquametiq-osmo-prime-d-2.webp"
       ],
       "available": true,
       "description": "Fordított ozmózis (RO) technológiával előállított, nagy tisztaságú kezelőfolyadék, amely az AquametiQ protokollban minden kezelés kötelező második fázisa. A készülék vákuumával együtt mélyen átöblíti a pórusokat, és kimossa a fellazított faggyút, a szennyeződéseket és a levált hámsejteket. Minimális ásványianyag-tartalma segít csökkenteni a vízkőlerakódás kialakulását a csőrendszerben, a szivattyúkban és a kezelőfejekben.",
