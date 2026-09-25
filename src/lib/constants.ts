@@ -346,7 +346,7 @@ export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   // "aura-by-skinlab-*"-nak. Vizuálisan mindig THE FROST volt.)
   mezoterapia: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-1-640w.avif',
   testkezeles: '/images/opt/products/freeze-me-slim-cryolipolysis-3-640w.avif',
-  sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
+  sminktetovalas: '/images/opt/products/mast-p60-premium-2in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-1-828w.avif',
   kellekek: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
   // A "-2" a BOTOPAX FEHER hattéru packshotja (a "-1" a szaten eletstilus-foto,
   // ami a termekoldalak fokepe). Ez a map fehér hatteru kepeket ker.
