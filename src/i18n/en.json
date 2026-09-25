@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Professional Cosmetic Equipment",
-    "description": "Professional cosmetic equipment distribution. Diode lasers, PMU machines, ND:YAG lasers and multifunctional devices with 2-year warranty, free training and immediate service support."
+    "description": "Professional cosmetic equipment distribution. Diode lasers, PMU machines, ND:YAG lasers and multifunctional devices with warranty, free training and immediate service support."
   },
   "nav": {
     "home": "Home",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Professional Cosmetic Equipment",
-    "subtitle": "Diode lasers, PMU machines and multifunctional devices with 2-year warranty",
+    "subtitle": "Diode lasers, PMU machines and multifunctional devices with warranty and in-house service",
     "cta": "Free Consultation",
     "ctaSecondary": "View Products",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Training and Service in One Place",
-      "subtitle": "Free training, continuous technical support and 2-year warranty on all our products"
+      "subtitle": "Free training, continuous technical support and 2-year warranty on our cosmetic devices"
     },
     "slide4": {
       "title": "Tattoo Removal with ND:YAG Lasers",
@@ -66,7 +66,7 @@
   },
   "trust": {
     "warranty": "2-Year Warranty",
-    "warrantyDesc": "Full warranty on all equipment",
+    "warrantyDesc": "On cosmetic devices (tattoo and PMU machines: 1 year)",
     "shipping": "15-20 business days",
     "shippingDesc": "Reliable delivery with full customs clearance",
     "training": "FAR Certificate",
@@ -375,15 +375,20 @@
   "warranty": {
     "title": "Warranty & Service",
     "subtitle": "We provide {years} years of full warranty on the {productName}, with our own service center in Hungary.",
-    "subtitleGeneric": "{years} years of full warranty on all devices, with our own service center in Hungary.",
+    "subtitleOne": "We provide 1 year of full warranty on the {productName}, with our own service center in Hungary.",
+    "subtitleGeneric": "{years} years of full warranty on the device, with our own service center in Hungary.",
+    "subtitleGenericOne": "1 year of full warranty on the device, with our own service center in Hungary.",
+    "pageSubtitle": "We provide a full warranty of 2 years on our cosmetic devices and 1 year on tattoo and PMU machines, with our own service center in Hungary.",
     "badge": "Peace of mind & security",
     "yearsWarranty": "{years} years full warranty",
+    "yearsWarrantyOne": "1 year full warranty",
     "extendedWarranty": "Extended Warranty",
     "extendedWarrantyDesc": "Extend your warranty by an additional year at a discounted price!",
     "extendedWarrantyButton": "I'm interested",
     "industryStandardMultiple": "2x industry standard",
     "features": {
       "fullWarranty": "Covers all parts and labor – double the industry standard.",
+      "fullWarrantyBasic": "Full warranty covering all parts and labour.",
       "replacementDevice": "Replacement Device Program",
       "replacementDeviceDesc": "If the repair is expected to take more than 10 business days, we provide a loaner device for the duration of the repair, subject to availability, so your business keeps running.",
       "ownWorkshop": "In-house Service Workshop",
@@ -416,10 +421,10 @@
       "hungarianSupport": "Local Language Support",
       "year": "years"
     },
-    "description": "Comprehensive 2-year manufacturer warranty with our own Hungarian service background, replacement device program and original spare parts.",
+    "description": "Comprehensive manufacturer warranty (2 years on cosmetic devices, 1 year on tattoo and PMU machines) with our own Hungarian service background, replacement device program and original spare parts.",
     "whatIsWarranty": "What is the manufacturer warranty?",
     "whatIsWarrantyDesc1": "A warranty is a binding commitment by the manufacturer and distributor that the device will operate without failure under intended use during the warranty period. In case of manufacturing or material defects, repair, part replacement and - where justified - replacement and labor are free of charge.",
-    "whatIsWarrantyDesc2": "We provide 12-24 months of warranty on every new device (exact duration is on the product sheet), in line with Hungarian government decrees 151/2003. (IX. 22.) and 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "We provide 24 months of warranty on new cosmetic devices and 12 months on tattoo and PMU machines (the exact duration is also on the product sheet), in line with Hungarian government decrees 151/2003. (IX. 22.) and 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Our Skinlab commitment",
     "commitmentDesc1": "Our own trained Hungarian technician team and workshop ensures that you do not have to wait months for foreign repair in case of a fault. We work with original factory parts and, for repairs exceeding 10 business days, provide a replacement device so your business never stops.",
     "commitmentDesc2": "We stay by your side after the purchase as well: remote diagnostics, phone support and - if necessary - on-site visits keep your operation running continuously.",
@@ -893,7 +898,7 @@
     "step3Title": "We deliver the device",
     "step3Desc": "Once payment arrives, the order goes into production and shipping.",
     "trustNoPayment": "No payment needed now",
-    "trustWarranty": "2-year warranty",
+    "trustWarranty": "Full warranty",
     "trustCallback": "We call you back",
     "noPaymentNote": "You don't have to pay immediately after submitting your order - we'll call you back and discuss the details first.",
     "requiredError": "Please fill in the required fields.",

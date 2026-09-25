@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Professionelle Kosmetikgeräte",
-    "description": "Vertrieb professioneller Kosmetikgeräte. Diodenlaser, PMU-Geräte, ND:YAG-Laser und Multifunktionsgeräte mit 2 Jahren Garantie, kostenloser Schulung und sofortigem Service-Support."
+    "description": "Vertrieb professioneller Kosmetikgeräte. Diodenlaser, PMU-Geräte, ND:YAG-Laser und Multifunktionsgeräte mit Garantie, kostenloser Schulung und sofortigem Service-Support."
   },
   "nav": {
     "home": "Startseite",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Professionelle Kosmetikgerate",
-    "subtitle": "Diodenlaser, PMU-Gerate und Multifunktionsgerate mit 2 Jahren Garantie",
+    "subtitle": "Diodenlaser, PMU-Gerate und Multifunktionsgerate mit Garantie und eigenem Service",
     "cta": "Kostenlose Beratung",
     "ctaSecondary": "Produkte ansehen",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Schulung und Service an einem Ort",
-      "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf alle unsere Produkte"
+      "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf unsere Kosmetikgeräte"
     },
     "slide4": {
       "title": "Tattooentfernung mit ND:YAG-Laser",
@@ -66,7 +66,7 @@
   },
   "trust": {
     "warranty": "2 Jahre Garantie",
-    "warrantyDesc": "Volle Garantie auf alle Gerate",
+    "warrantyDesc": "Auf Kosmetikgerate (Tattoo- und PMU-Gerate: 1 Jahr)",
     "shipping": "15-20 Werktage",
     "shippingDesc": "Zuverlässige Lieferung mit vollständiger Zollabwicklung",
     "training": "FAR-Zertifikat",
@@ -375,15 +375,20 @@
   "warranty": {
     "title": "Garantie & Service",
     "subtitle": "Wir gewähren {years} Jahre Vollgarantie auf das {productName}, mit eigenem Servicezentrum in Ungarn.",
-    "subtitleGeneric": "{years} Jahre Vollgarantie auf alle Geräte, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleOne": "Wir gewähren 1 Jahr Vollgarantie auf das {productName}, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleGeneric": "{years} Jahre Vollgarantie auf das Gerät, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleGenericOne": "1 Jahr Vollgarantie auf das Gerät, mit eigenem Servicezentrum in Ungarn.",
+    "pageSubtitle": "Wir gewähren 2 Jahre Vollgarantie auf unsere Kosmetikgeräte und 1 Jahr auf Tattoo- und PMU-Geräte, mit eigenem Servicezentrum in Ungarn.",
     "badge": "Ruhe & Sicherheit",
     "yearsWarranty": "{years} Jahre Vollgarantie",
+    "yearsWarrantyOne": "1 Jahr Vollgarantie",
     "extendedWarranty": "Erweiterte Garantie",
     "extendedWarrantyDesc": "Verlängern Sie Ihre Garantie um ein weiteres Jahr zum Vorzugspreis!",
     "extendedWarrantyButton": "Ich bin interessiert",
     "industryStandardMultiple": "2x Branchenstandard",
     "features": {
       "fullWarranty": "Deckt alle Teile und Arbeitskosten ab – das Doppelte des Branchenstandards.",
+      "fullWarrantyBasic": "Umfassende Garantie auf alle Teile und Arbeitskosten.",
       "replacementDevice": "Ersatzgeräteprogramm",
       "replacementDeviceDesc": "Dauert die Reparatur voraussichtlich länger als 10 Werktage, stellen wir für die Reparaturdauer ein Leihgerät bereit (je nach Verfügbarkeit), damit Ihr Geschäft weiterläuft.",
       "ownWorkshop": "Eigene Servicewerkstatt",
@@ -416,10 +421,10 @@
       "hungarianSupport": "Lokaler Sprachsupport",
       "year": "Jahre"
     },
-    "description": "Umfassende 2-Jahres-Herstellergarantie mit eigenem ungarischen Serviceteam, Ersatzgeräteprogramm und Original-Ersatzteilen.",
+    "description": "Umfassende Herstellergarantie (2 Jahre auf Kosmetikgeräte, 1 Jahr auf Tattoo- und PMU-Geräte) mit eigenem ungarischen Serviceteam, Ersatzgeräteprogramm und Original-Ersatzteilen.",
     "whatIsWarranty": "Was ist die Herstellergarantie?",
     "whatIsWarrantyDesc1": "Die Garantie ist eine verbindliche Zusage des Herstellers und Vertriebs, dass das Gerät während der Garantielaufzeit bei bestimmungsgemäßem Gebrauch störungsfrei arbeitet. Bei Fertigungs- oder Materialfehlern sind Reparatur, Teiltausch und - bei gerechtfertigtem Anlass - Austausch und Arbeitslohn kostenfrei.",
-    "whatIsWarrantyDesc2": "Für jedes neue Gerät gewähren wir 12-24 Monate Garantie (die genaue Laufzeit steht auf dem Produktdatenblatt), gemäß den ungarischen Regierungsverordnungen 151/2003. (IX. 22.) und 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Auf neue Kosmetikgeräte gewähren wir 24 Monate, auf Tattoo- und PMU-Geräte 12 Monate Garantie (die genaue Laufzeit steht auch auf dem Produktdatenblatt), gemäß den ungarischen Regierungsverordnungen 151/2003. (IX. 22.) und 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Unser Skinlab-Versprechen",
     "commitmentDesc1": "Unser eigenes, ausgebildetes ungarisches Technikerteam und unsere Werkstatt sorgen dafür, dass Sie im Störungsfall nicht monatelang auf eine ausländische Reparatur warten müssen. Wir arbeiten mit Original-Ersatzteilen und stellen bei Reparaturen über 10 Werktagen ein Ersatzgerät bereit, damit Ihr Geschäft nicht stillsteht.",
     "commitmentDesc2": "Auch nach dem Kauf sind wir an Ihrer Seite: Ferndiagnose, Telefonunterstützung und bei Bedarf Vor-Ort-Besuch sorgen für den dauerhaften Betrieb.",
@@ -889,7 +894,7 @@
     "step3Title": "Wir liefern das Gerät",
     "step3Desc": "Nach Zahlungseingang geht die Bestellung in Produktion und Versand.",
     "trustNoPayment": "Jetzt keine Zahlung nötig",
-    "trustWarranty": "2 Jahre Garantie",
+    "trustWarranty": "Volle Garantie",
     "trustCallback": "Wir rufen Sie zurück",
     "noPaymentNote": "Nach dem Absenden Ihrer Bestellung müssen Sie nicht sofort bezahlen - wir rufen Sie zuerst zurück und besprechen die Details.",
     "requiredError": "Bitte füllen Sie die Pflichtfelder aus.",

@@ -15,20 +15,32 @@
 interface Props {
   /** Kezelőanyag/kellék oldal: a gépes ígéretek helyett fogyóeszköz-ígéretek. */
   consumable?: boolean;
+  /** Garancia években: a kozmetikai gépekre 2, a (smink)tetováló gépekre 1. */
+  warrantyYears?: number;
+  /**
+   * Készletállapot a szállítási sorhoz: raktári gépnél nem ígérünk 15-20
+   * munkanapot, rendelésre érkezőnél pedig nincs vállalt határidő.
+   */
+  stock?: 'in_stock' | 'preorder' | 'backorder';
 }
 
-const { consumable = false } = Astro.props;
+const { consumable = false, warrantyYears = 2, stock = 'preorder' } = Astro.props;
+
+const shippingItem = {
+  in_stock: { title: 'Raktáron', sub: 'Szállítás vagy érdi átvétel' },
+  preorder: { title: '15–20 munkanap', sub: 'Kiszámítható szállítás' },
+  backorder: { title: 'Rendelésre', sub: 'Érkezés egyeztetés szerint' },
+}[stock];
 
 const machineItems = [
   {
     icon: 'shield-check',
-    title: '2 év garancia',
-    sub: 'Teljes körű, minden gépre',
+    title: `${warrantyYears} év garancia`,
+    sub: 'Teljes körű, alkatrészre és munkadíjra',
   },
   {
     icon: 'truck',
-    title: '15–20 munkanap',
-    sub: 'Kiszámítható szállítás',
+    ...shippingItem,
   },
   {
     icon: 'certificate',

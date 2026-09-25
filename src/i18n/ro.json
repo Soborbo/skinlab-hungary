@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Echipamente cosmetice profesionale",
-    "description": "Distribuție de echipamente cosmetice profesionale. Lasere diodă, aparate PMU, lasere ND:YAG și dispozitive multifuncționale cu garanție de 2 ani, instruire gratuită și suport tehnic imediat."
+    "description": "Distribuție de echipamente cosmetice profesionale. Lasere diodă, aparate PMU, lasere ND:YAG și dispozitive multifuncționale cu garanție, instruire gratuită și suport tehnic imediat."
   },
   "nav": {
     "home": "Acasa",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Echipamente cosmetice profesionale",
-    "subtitle": "Lasere dioda, aparate PMU si dispozitive multifunctionale cu garantie de 2 ani",
+    "subtitle": "Lasere dioda, aparate PMU si dispozitive multifunctionale cu garantie si service propriu",
     "cta": "Consultatie gratuita",
     "ctaSecondary": "Vezi produsele",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Training și service într-un singur loc",
-      "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru toate produsele noastre"
+      "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru aparatele noastre cosmetice"
     },
     "slide4": {
       "title": "Îndepărtarea tatuajelor cu laser ND:YAG",
@@ -66,7 +66,7 @@
   },
   "trust": {
     "warranty": "Garantie 2 ani",
-    "warrantyDesc": "Garantie completa pentru toate echipamentele",
+    "warrantyDesc": "Pentru aparatele cosmetice (aparate de tatuaj si PMU: 1 an)",
     "shipping": "15-20 zile lucrătoare",
     "shippingDesc": "Livrare de încredere cu vămuire completă",
     "training": "Certificat FAR",
@@ -375,15 +375,20 @@
   "warranty": {
     "title": "Garanție și service",
     "subtitle": "Oferim {years} ani de garanție completă pentru {productName}, cu centru de service propriu în Ungaria.",
-    "subtitleGeneric": "{years} ani de garanție completă pentru toate dispozitivele, cu centru de service propriu în Ungaria.",
+    "subtitleOne": "Oferim 1 an de garanție completă pentru {productName}, cu centru de service propriu în Ungaria.",
+    "subtitleGeneric": "{years} ani de garanție completă pentru dispozitiv, cu centru de service propriu în Ungaria.",
+    "subtitleGenericOne": "1 an de garanție completă pentru dispozitiv, cu centru de service propriu în Ungaria.",
+    "pageSubtitle": "Oferim 2 ani de garanție completă pentru aparatele noastre cosmetice și 1 an pentru aparatele de tatuaj și PMU, cu centru de service propriu în Ungaria.",
     "badge": "Liniște și siguranță",
     "yearsWarranty": "{years} ani garanție completă",
+    "yearsWarrantyOne": "1 an garanție completă",
     "extendedWarranty": "Garanție extinsă",
     "extendedWarrantyDesc": "Prelungește garanția cu încă un an la preț avantajos!",
     "extendedWarrantyButton": "Sunt interesat",
     "industryStandardMultiple": "2x standardul industriei",
     "features": {
       "fullWarranty": "Acoperă toate piesele și manopera – dublul standardului industriei.",
+      "fullWarrantyBasic": "Garanție completă pentru toate piesele și manopera.",
       "replacementDevice": "Program echipament de rezervă",
       "replacementDeviceDesc": "Dacă reparația va dura estimat mai mult de 10 zile lucrătoare, oferim pe durata reparației un echipament de rezervă (în funcție de disponibilitate), ca afacerea ta să nu se oprească.",
       "ownWorkshop": "Atelier de service propriu",
@@ -416,10 +421,10 @@
       "hungarianSupport": "Suport în limba locală",
       "year": "ani"
     },
-    "description": "Garanție cuprinzătoare de 2 ani de la producător, cu service propriu în Ungaria, program de aparat de schimb și piese originale.",
+    "description": "Garanție cuprinzătoare de la producător (2 ani pentru aparatele cosmetice, 1 an pentru aparatele de tatuaj și PMU), cu service propriu în Ungaria, program de aparat de schimb și piese originale.",
     "whatIsWarranty": "Ce este garanția producătorului?",
     "whatIsWarrantyDesc1": "Garanția este angajamentul obligatoriu al producătorului și al distribuitorului că dispozitivul funcționează fără defecțiuni, în condiții normale de utilizare, pe durata perioadei de garanție. În cazul defectelor de fabricație sau de material, reparația, schimbul piesei și - în cazuri întemeiate - schimbul aparatului și manopera sunt gratuite.",
-    "whatIsWarrantyDesc2": "Pentru fiecare aparat nou oferim 12-24 luni de garanție (termenul exact este indicat în fișa produsului), conform decretelor guvernamentale maghiare 151/2003. (IX. 22.) și 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Pentru aparatele cosmetice noi oferim 24 de luni, iar pentru aparatele de tatuaj și PMU 12 luni de garanție (termenul exact este indicat și în fișa produsului), conform decretelor guvernamentale maghiare 151/2003. (IX. 22.) și 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Angajamentul Skinlab",
     "commitmentDesc1": "Echipa noastră proprie de tehnicieni instruiți din Ungaria și atelierul propriu vă asigură că nu trebuie să așteptați luni întregi o reparație în străinătate. Lucrăm cu piese originale de fabrică și, pentru reparații de peste 10 zile lucrătoare, oferim un aparat de schimb, astfel încât afacerea dumneavoastră să nu se oprească.",
     "commitmentDesc2": "Suntem alături de dumneavoastră și după achiziție: diagnostic la distanță, suport telefonic și, dacă este nevoie, deplasare la fața locului asigură o funcționare continuă.",
@@ -889,7 +894,7 @@
     "step3Title": "Livrăm aparatul",
     "step3Desc": "După primirea plății, comanda intră în producție și livrare.",
     "trustNoPayment": "Nu trebuie să plătiți acum",
-    "trustWarranty": "2 ani garanție",
+    "trustWarranty": "Garanție completă",
     "trustCallback": "Vă sunăm înapoi",
     "noPaymentNote": "După trimiterea comenzii nu trebuie să plătiți imediat - mai întâi vă sunăm înapoi și discutăm detaliile.",
     "requiredError": "Vă rugăm să completați câmpurile obligatorii.",

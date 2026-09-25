@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Profesionalna kozmetička oprema",
-    "description": "Distribucija profesionalne kozmetičke opreme. Diodni laseri, PMU uređaji, ND:YAG laseri i multifunkcionalni aparati sa 2 godine garancije, besplatnom obukom i trenutnom servisnom podrškom."
+    "description": "Distribucija profesionalne kozmetičke opreme. Diodni laseri, PMU uređaji, ND:YAG laseri i multifunkcionalni aparati sa garancijom, besplatnom obukom i trenutnom servisnom podrškom."
   },
   "nav": {
     "home": "Pocetna",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Profesionalna kozmeticka oprema",
-    "subtitle": "Diodni laseri, PMU uredaji i multifunkcionalni aparati sa 2 godine garancije",
+    "subtitle": "Diodni laseri, PMU uredaji i multifunkcionalni aparati sa garancijom i sopstvenim servisom",
     "cta": "Besplatna konsultacija",
     "ctaSecondary": "Pogledaj proizvode",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Obuka i servis na jednom mestu",
-      "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na sve naše proizvode"
+      "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na naše kozmetičke uređaje"
     },
     "slide4": {
       "title": "Уклањање тетоважа ND:YAG ласером",
@@ -66,7 +66,7 @@
   },
   "trust": {
     "warranty": "2 godine garancije",
-    "warrantyDesc": "Potpuna garancija na svu opremu",
+    "warrantyDesc": "Na kozmetičke uređaje (uređaji za tetoviranje i PMU: 1 godina)",
     "shipping": "15-20 radnih dana",
     "shippingDesc": "Pouzdana isporuka sa potpunim carinjenjem",
     "training": "FAR sertifikat",
@@ -375,15 +375,20 @@
   "warranty": {
     "title": "Garancija i servis",
     "subtitle": "Za {productName} pružamo {years} godine potpune garancije sa sopstvenim servisnim centrom u Mađarskoj.",
-    "subtitleGeneric": "{years} godine potpune garancije na sve uređaje sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleOne": "Za {productName} pružamo 1 godinu potpune garancije sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleGeneric": "{years} godine potpune garancije na uređaj sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleGenericOne": "1 godina potpune garancije na uređaj sa sopstvenim servisnim centrom u Mađarskoj.",
+    "pageSubtitle": "Na naše kozmetičke uređaje dajemo 2 godine, a na uređaje za tetoviranje i PMU 1 godinu potpune garancije, sa sopstvenim servisnim centrom u Mađarskoj.",
     "badge": "Mir i sigurnost",
     "yearsWarranty": "{years} godine potpune garancije",
+    "yearsWarrantyOne": "1 godina potpune garancije",
     "extendedWarranty": "Proširena garancija",
     "extendedWarrantyDesc": "Produžite garanciju za dodatnu godinu po povlašćenoj ceni!",
     "extendedWarrantyButton": "Zainteresovan sam",
     "industryStandardMultiple": "2x industrijski standard",
     "features": {
       "fullWarranty": "Pokriva sve delove i rad – dvostruko više od industrijskog standarda.",
+      "fullWarrantyBasic": "Potpuna garancija na sve delove i rad.",
       "replacementDevice": "Program zamenske opreme",
       "replacementDeviceDesc": "Ako će popravka prema proceni trajati duže od 10 radnih dana, za vreme popravke obezbeđujemo zamensku opremu (u zavisnosti od raspoloživosti), kako vaš posao ne bi stao.",
       "ownWorkshop": "Sopstvena servisna radionica",
@@ -416,10 +421,10 @@
       "hungarianSupport": "Podrška na lokalnom jeziku",
       "year": "godina"
     },
-    "description": "Sveobuhvatna 2-godišnja fabrička garancija uz sopstveni mađarski servis, program zamenskog uređaja i originalne rezervne delove.",
+    "description": "Sveobuhvatna fabrička garancija (2 godine na kozmetičke uređaje, 1 godina na uređaje za tetoviranje i PMU) uz sopstveni mađarski servis, program zamenskog uređaja i originalne rezervne delove.",
     "whatIsWarranty": "Šta je fabrička garancija?",
     "whatIsWarrantyDesc1": "Garancija je obavezujuća izjava proizvođača i distributera da će uređaj pri namenskoj upotrebi raditi bez kvarova tokom garancionog perioda. U slučaju proizvodnih ili materijalnih nedostataka, popravka, zamena dela i - u opravdanim slučajevima - zamena uređaja te rad su besplatni.",
-    "whatIsWarrantyDesc2": "Za svaki novi uređaj dajemo 12-24 meseca garancije (tačan rok naveden je na listu proizvoda), u skladu s mađarskim vladinim uredbama 151/2003. (IX. 22.) i 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Za nove kozmetičke uređaje dajemo 24 meseca, a za uređaje za tetoviranje i PMU 12 meseci garancije (tačan rok naveden je i na listu proizvoda), u skladu s mađarskim vladinim uredbama 151/2003. (IX. 22.) i 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Naš Skinlab zavet",
     "commitmentDesc1": "Sopstveni obučeni mađarski tim tehničara i radionica obezbeđuju da u slučaju kvara ne morate čekati mesecima na servis u inostranstvu. Radimo s originalnim fabričkim delovima i kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj, kako vaš posao ne bi stao.",
     "commitmentDesc2": "Uz vas smo i nakon kupovine: daljinska dijagnostika, telefonska podrška i po potrebi izlazak na teren obezbeđuju neprekidan rad.",
@@ -889,7 +894,7 @@
     "step3Title": "Dostavljamo uređaj",
     "step3Desc": "Nakon prijema uplate porudžbina ide u proizvodnju i otpremu.",
     "trustNoPayment": "Sada ne morate da platite",
-    "trustWarranty": "2 godine garancije",
+    "trustWarranty": "Potpuna garancija",
     "trustCallback": "Pozvaćemo vas",
     "noPaymentNote": "Nakon slanja porudžbine ne morate odmah da platite - najpre ćemo vas pozvati i dogovoriti detalje.",
     "requiredError": "Molimo popunite obavezna polja.",
