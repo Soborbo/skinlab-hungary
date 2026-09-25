@@ -1,12 +1,12 @@
 {
-  "name": "MAST P60 Premium 3in1 PMU set - Tiffany",
-  "shortDescription": "Kompletan PMU set: MAST P60 uređaj sa podesivom dužinom hoda, rezervni akumulator i RCA adapter. Sve što vam treba, u jednom paketu.",
-  "description": "MAST P60 3in1 set savršen je startni paket za PMU umetnike. Paket sadrži popularni bežični MAST P60 PMU uređaj sa podesivom dužinom hoda, rezervni akumulator za neprekidan rad i RCA adapter koji omogućava korišćenje sa klasičnim žičnim napajanjem.\n\nMAST P60 ima 5-stepeno podesivu dužinu hoda (2,2–3,2 mm), što je kod PMU uređaja retko. Tih coreless motor, ergonomski dizajn i težina od samo 121 grama obezbeđuju udoban i precizan rad.\n\nSa rezervnim akumulatorom imate praktično neograničenu autonomiju: dok radite sa jednim, drugi se puni. RCA adapter vam daje fleksibilnost – bežično ili žično, vi odlučujete.",
-  "metaTitle": "MAST P60 3in1 PMU set – uređaj + rezervni akumulator + RCA adapter",
-  "metaDescription": "Kompletan MAST P60 set: PMU uređaj sa podesivom dužinom hoda, rezervni akumulator, RCA adapter. Profesionalni startni paket.",
+  "name": "MAST P60 Premium 2in1 PMU set - Tiffany",
+  "shortDescription": "PMU set: MAST P60 uređaj sa podesivom dužinom hoda i rezervni akumulator. Neprekidan rad, u jednom paketu.",
+  "description": "MAST P60 2in1 set savršen je startni paket za PMU umetnike. Paket sadrži popularni bežični MAST P60 PMU uređaj sa podesivom dužinom hoda i rezervni akumulator za neprekidan rad.\n\nMAST P60 ima 5-stepeno podesivu dužinu hoda (2,2–3,2 mm), što je kod PMU uređaja retko. Tih coreless motor, ergonomski dizajn i težina od samo 121 grama obezbeđuju udoban i precizan rad.\n\nSa rezervnim akumulatorom imate praktično neograničenu autonomiju: dok radite sa jednim, drugi se puni.",
+  "metaTitle": "MAST P60 2in1 PMU set – uređaj + rezervni akumulator",
+  "metaDescription": "MAST P60 2in1 set: bežični PMU uređaj sa podesivom dužinom hoda i rezervni akumulator. Profesionalni startni paket.",
   "stats": [
     {
-      "value": "3in1",
+      "value": "2in1",
       "label": "Kompletan set",
       "icon": "layers"
     },
@@ -39,24 +39,19 @@
       "buttonLabel": "Rezervacija termina"
     },
     "final": {
-      "headline": "Zanima vas MAST P60 3in1 set?",
+      "headline": "Zanima vas MAST P60 2in1 set?",
       "subtitle": "Zatražite besplatnu konsultaciju i pomoći ćemo vam da izaberete najbolji paket.",
       "buttonLabel": "Zatraži konsultaciju"
     }
   },
   "featureRows": {
-    "headline": "Zašto se 3in1 set isplati?",
+    "headline": "Zašto se 2in1 set isplati?",
     "subtitle": "Sadrži sve potrebno za profesionalni početak",
     "features": [
       {
         "title": "Rezervni akumulator – neprekidan rad",
         "description": "Drugi akumulator u setu obezbeđuje da nikada ne morate prekinuti rad zbog punjenja. Dok radite sa jednim, drugi se puni. To je posebno važno u prometnim danima kada klijenti dolaze jedan za drugim.",
         "image": "@assets/products/mast-p60-3in1-tiffany-szett.jpg"
-      },
-      {
-        "title": "RCA adapter – dva režima korišćenja",
-        "description": "RCA adapter omogućava korišćenje MAST P60 sa klasičnim žičnim napajanjem. To je korisno ako želite sigurnost pri dužim tretmanima ili da iskoristite vaše postojeće napajanje.",
-        "image": "@assets/products/mast-p60-3in1-tiffany-design-2.jpg"
       },
       {
         "title": "5-stepena podesiva dužina hoda",
@@ -75,7 +70,7 @@
     "badge": "Sa zvaničnim sertifikatom",
     "intro": "Uz MAST P60 set dostupna je profesionalna obuka u okviru zvanično prijavljenog obrazovanja odraslih.",
     "items": [
-      "Princip rada MAST P60, podešavanje dužine hoda i korišćenje RCA adaptera",
+      "Princip rada MAST P60, podešavanje dužine hoda i zamena akumulatora",
       "PMU obrva: dlačice, senčenje, ombré tehnika",
       "Pigmentacija usana: kontura, akvarel, puno punjenje",
       "Tehnike očnih linija: tanke i deblje linije",
@@ -98,14 +93,14 @@
     {
       "name": "K. Boglárka",
       "date": "2025. 10. 05.",
-      "text": "3in1 set bio je moja najbolja odluka! <mark>Rezervni akumulator me je već nekoliko puta spasao kada su klijenti dolazili jedan za drugim</mark>. RCA adapter takođe koristim kad je posebno dug tretman. Razlika u ceni u odnosu na sam uređaj se apsolutno isplati.",
+      "text": "2in1 set bio je moja najbolja odluka! <mark>Rezervni akumulator me je već nekoliko puta spasao kada su klijenti dolazili jedan za drugim</mark>. Razlika u ceni u odnosu na sam uređaj se apsolutno isplati.",
       "rating": 5
     }
   ],
   "expertQuote": {
-    "quote": "3in1 set je najbolji izbor ako želite da P60 koristite profesionalno. Rezervni akumulator i RCA adapter su sigurnosna mreža koja vredi investicije.",
+    "quote": "2in1 set je najbolji izbor ako želite da P60 koristite profesionalno. Rezervni akumulator je sigurnosna mreža koja vredi investicije.",
     "author": "Horváth László",
-    "role": "Tehnički stručnjak",
+    "role": "Osnivač Skinlaba, tehnički stručnjak",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
@@ -117,17 +112,12 @@
     "Autonomija": "3+ sata / akumulator",
     "Radni napon": "4–10 V",
     "Priključak": "Type-C",
-    "Akumulator": "2 × 900 mAh",
-    "Dodatno": "RCA adapter"
+    "Akumulator": "2 × 900 mAh"
   },
   "faq": [
     {
-      "question": "Koja je razlika između samog P60 i 3in1 seta?",
-      "answer": "3in1 set sadrži MAST P60 uređaj, rezervni akumulator i RCA adapter. Sam P60 sadrži samo uređaj i standardni akumulator. Set dakle nudi dvostruku autonomiju i dva režima korišćenja."
-    },
-    {
-      "question": "Čemu služi RCA adapter?",
-      "answer": "RCA adapter omogućava korišćenje MAST P60 sa klasičnim žičnim napajanjem za neograničenu autonomiju pri dužim tretmanima."
+      "question": "Koja je razlika između samog P60 i 2in1 seta?",
+      "answer": "2in1 set pored uređaja MAST P60 sadrži i rezervni akumulator. Sam P60 sadrži samo uređaj i standardni akumulator. Sa setom dakle imate dvostruku autonomiju: dok radite sa jednim akumulatorom, drugi se puni."
     },
     {
       "question": "Za koje tehnike je MAST P60 pogodna?",
@@ -147,16 +137,15 @@
     },
     {
       "question": "Kakva garancija važi za set?",
-      "answer": "Za MAST P60 3in1 set važi garancija od 1 godine. Tokom popravke obezbeđujemo zamenu uređaja."
+      "answer": "Za MAST P60 2in1 set važi garancija od 1 godine. Za popravke duže od 10 radnih dana obezbeđujemo zamenski uređaj (u zavisnosti od raspoloživosti)."
     }
   ],
   "whatsIncluded": [
     "MAST P60 PMU uređaj",
     "2 kom. 900 mAh akumulator (1 ugrađeni + 1 rezervni)",
-    "RCA adapter (za žično korišćenje)",
     "Type-C kabl za punjenje",
     "Uputstvo za upotrebu",
     "1 godina garancija",
-    "Zamena uređaja tokom popravke"
+    "Program zamenskog uređaja za duže popravke"
   ]
 }
