@@ -253,8 +253,11 @@ const productHref = (p: any) => withTrailingSlash(productPath(p.data.categorySlu
 // — ugyanazt a küszöböt alkalmazzuk, mint a kártyák "havi ~" teaserénél és a
 // termékoldali kalkulátornál (közös forrás: lib/installment.ts).
 const categoryHasInstallment = products.some((p) => getInstallmentInfo(p?.data?.price).available);
+// Tetováló- és sminktetováló gépekre 1 év a garancia, a kozmetikai gépekre 2 év
+// (ugyanaz a kategórialista, mint a ProductLayout ONE_YEAR_WARRANTY_CATEGORIES-e).
+const isOneYearWarrantyCategory = ['sminktetovalas', 'tetovalogepek'].includes(category.slug);
 const defaultTrustBadges: TrustBadge[] = [
-  { title: '2 év garancia' },
+  { title: isOneYearWarrantyCategory ? '1 év garancia' : '2 év garancia' },
   { title: 'Ingyenes betanítás' },
   { title: 'Magyar szerviz' },
   ...(categoryHasInstallment ? [{ title: 'Részletfizetés' }] : []),

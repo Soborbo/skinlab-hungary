@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Profesionálne kozmetické zariadenia",
-    "description": "Distribúcia profesionálnych kozmetických zariadení. Diódové lasery, PMU prístroje, ND:YAG lasery a multifunkčné zariadenia s 2-ročnou zárukou, bezplatným školením a okamžitou servisnou podporou."
+    "description": "Distribúcia profesionálnych kozmetických zariadení. Diódové lasery, PMU prístroje, ND:YAG lasery a multifunkčné zariadenia so zárukou, bezplatným školením a okamžitou servisnou podporou."
   },
   "nav": {
     "home": "Domov",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Profesionálne kozmetické zariadenia",
-    "subtitle": "Diódové lasery, PMU prístroje a multifunkčné zariadenia s 2-ročnou zárukou",
+    "subtitle": "Diódové lasery, PMU prístroje a multifunkčné zariadenia so zárukou a vlastným servisom",
     "cta": "Bezplatná konzultácia",
     "ctaSecondary": "Zobraziť produkty",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Školenie a servis na jednom mieste",
-      "subtitle": "Bezplatné školenie, nepretržitá technická podpora a 2-ročná záruka na všetky naše produkty"
+      "subtitle": "Bezplatné školenie, nepretržitá technická podpora a 2-ročná záruka na naše kozmetické prístroje"
     },
     "slide4": {
       "title": "Odstránenie tetovania laserom ND:YAG",
@@ -66,7 +66,7 @@
   },
   "trust": {
     "warranty": "2-ročná záruka",
-    "warrantyDesc": "Plná záruka na všetky zariadenia",
+    "warrantyDesc": "Na kozmetické prístroje (tetovacie a PMU prístroje: 1 rok)",
     "shipping": "15-20 pracovných dní",
     "shippingDesc": "Spoľahlivá dodávka s kompletným colným odbavením",
     "training": "FAR certifikát",
@@ -347,15 +347,20 @@
   "warranty": {
     "title": "Záruka a servis",
     "subtitle": "Na {productName} poskytujeme {years}-ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
-    "subtitleGeneric": "{years}-ročná plná záruka na všetky zariadenia s vlastným servisným centrom v Maďarsku.",
+    "subtitleOne": "Na {productName} poskytujeme ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
+    "subtitleGeneric": "{years}-ročná plná záruka na zariadenie s vlastným servisným centrom v Maďarsku.",
+    "subtitleGenericOne": "Ročná plná záruka na zariadenie s vlastným servisným centrom v Maďarsku.",
+    "pageSubtitle": "Na naše kozmetické prístroje poskytujeme 2-ročnú, na tetovacie a PMU prístroje 1-ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
     "badge": "Pokoj a istota",
     "yearsWarranty": "{years}-ročná plná záruka",
+    "yearsWarrantyOne": "Ročná plná záruka",
     "extendedWarranty": "Rozšírená záruka",
     "extendedWarrantyDesc": "Predĺžte si záruku o ďalší rok za zvýhodnenú cenu!",
     "extendedWarrantyButton": "Mám záujem",
     "industryStandardMultiple": "2x priemyselný štandard",
     "features": {
       "fullWarranty": "Pokrýva všetky diely a prácu – dvojnásobok priemyselného štandardu.",
+      "fullWarrantyBasic": "Plná záruka na všetky diely a prácu.",
       "replacementDevice": "Program náhradného zariadenia",
       "replacementDeviceDesc": "Ak oprava podľa odhadu potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie (podľa dostupnosti), aby vaša práca nestála.",
       "ownWorkshop": "Vlastná servisná dielňa",
@@ -388,10 +393,10 @@
       "hungarianSupport": "Podpora v miestnom jazyku",
       "year": "rokov"
     },
-    "description": "Komplexná 2-ročná záruka výrobcu s vlastným maďarským servisným zázemím, programom zápožičných strojov a originálnymi náhradnými dielmi.",
+    "description": "Komplexná záruka výrobcu (2 roky na kozmetické prístroje, 1 rok na tetovacie a PMU prístroje) s vlastným maďarským servisným zázemím, programom zápožičných strojov a originálnymi náhradnými dielmi.",
     "whatIsWarranty": "Čo je záruka výrobcu?",
     "whatIsWarrantyDesc1": "Záruka je záväzok výrobcu a distribútora, že zariadenie bude počas záručnej doby pri bežnom používaní pracovať bez poruchy. V prípade výrobných alebo materiálových chýb sú oprava, výmena dielu a - v odôvodnených prípadoch - výmena a pracovný náklad bezplatné.",
-    "whatIsWarrantyDesc2": "Na každý nový prístroj poskytujeme 12-24 mesiacov záruky (presný čas je uvedený v liste produktu), v súlade s maďarskými vládnymi nariadeniami 151/2003. (IX. 22.) a 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Na nové kozmetické prístroje poskytujeme 24 mesiacov, na tetovacie a PMU prístroje 12 mesiacov záruky (presný čas je uvedený aj v liste produktu), v súlade s maďarskými vládnymi nariadeniami 151/2003. (IX. 22.) a 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Náš Skinlab záväzok",
     "commitmentDesc1": "Vlastný vyškolený maďarský technický tím a servisná dielňa zaručujú, že v prípade poruchy nebudete musieť čakať mesiace na opravu v zahraničí. Pracujeme s originálnymi továrenskými dielmi a pri opravách dlhších ako 10 pracovných dní poskytujeme zápožičný stroj, aby vaše podnikanie nestagnovalo.",
     "commitmentDesc2": "Sme pri vás aj po nákupe: diaľková diagnostika, telefonická podpora a v prípade potreby výjazd na miesto zabezpečujú nepretržitú prevádzku.",
@@ -889,7 +894,7 @@
     "step3Title": "Doručíme zariadenie",
     "step3Desc": "Po prijatí platby ide objednávka do výroby a expedície.",
     "trustNoPayment": "Teraz nemusíte platiť",
-    "trustWarranty": "2 roky záruka",
+    "trustWarranty": "Plná záruka",
     "trustCallback": "Zavoláme vám späť",
     "noPaymentNote": "Po odoslaní objednávky nemusíte hneď platiť - najprv vám zavoláme späť a preberieme detaily.",
     "requiredError": "Vyplňte prosím povinné polia.",

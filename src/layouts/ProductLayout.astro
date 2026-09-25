@@ -38,6 +38,7 @@ import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import VariantDetails from '../components/product/VariantDetails.astro';
 import USPStrip from '../components/product/USPStrip.astro';
+import { isBackorder } from '../lib/stock';
 import ProductComparison from '../components/product/ProductComparison.astro';
 import VideoQuote from '../components/video/VideoQuote.astro';
 import { getInstallmentInfo } from '@/lib/installment';
@@ -127,6 +128,19 @@ const firstVideoUrl = product.youtubeVideos?.[0] || '';
  */
 const CONSUMABLE_CATEGORIES = ['kezeloanyagok', 'kellekek'];
 const isConsumable = CONSUMABLE_CATEGORIES.includes(product.categorySlug);
+
+// Garancia: a kozmetikai gépekre 2 év, a (smink)tetováló gépekre 1 év.
+const ONE_YEAR_WARRANTY_CATEGORIES = ['sminktetovalas', 'tetovalogepek'];
+const warrantyYears = ONE_YEAR_WARRANTY_CATEGORIES.includes(product.categorySlug) ? 1 : 2;
+
+// Szállítási ígéret a készletállapotból: raktári gépnél nem 15-20 munkanap,
+// rendelésre érkezőnél (minden variáns elfogyott) nincs vállalt határidő.
+const allBackorder = product.hasVariants && product.variants.length > 0
+  ? product.variants.every((v) => isBackorder(product, v))
+  : isBackorder(product);
+const stockState = allBackorder
+  ? 'backorder'
+  : product.availability === 'in_stock' ? 'in_stock' : 'preorder';
 
 // Részletfizetés: csak HU, gépeknél, a minimum felett. Ugyanez a feltétel adja
 // a hero részlet-sorát és a "Havi részlet" fület, így a #kalkulator anchor sosem lóg.
@@ -344,7 +358,7 @@ const productSchema = product.price ? {
     />
 
     <!-- 2. USP STRIP -->
-    <USPStrip consumable={isConsumable} />
+    <USPStrip consumable={isConsumable} warrantyYears={warrantyYears} stock={stockState} />
 
     <!-- 3. VARIANT DETAILS -->
     {product.hasVariants && product.variants.length > 0 && (
@@ -481,7 +495,7 @@ const productSchema = product.price ? {
 
     <!-- 18. WARRANTY (összefoglaló + link a /garancia/ oldalra) -->
     {!isConsumable && (
-      <WarrantyService locale={locale} productName={displayName} compact />
+      <WarrantyService locale={locale} productName={displayName} warrantyYears={warrantyYears} compact />
     )}
 
     <!-- 19. VÉLEMÉNY #4 -->

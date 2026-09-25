@@ -31,8 +31,10 @@ const {
 const warrantyFeatures = [
   {
     icon: 'shield',
-    title: t(locale, 'warranty.yearsWarranty', { years: String(warrantyYears) }),
-    description: t(locale, 'warranty.features.fullWarranty'),
+    title: t(locale, warrantyYears === 1 ? 'warranty.yearsWarrantyOne' : 'warranty.yearsWarranty', { years: String(warrantyYears) }),
+    // 1 év garanciánál az "iparági standard duplája" állítás nem igaz.
+    description: t(locale, warrantyYears >= 2 ? 'warranty.features.fullWarranty' : 'warranty.features.fullWarrantyBasic'),
+    badge: warrantyYears >= 2,
     highlight: true
   },
   {
@@ -114,8 +116,8 @@ const icons: Record<string, string> = {
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         {productName
-          ? t(locale, 'warranty.subtitle', { productName, years: String(warrantyYears) })
-          : t(locale, 'warranty.subtitleGeneric', { years: String(warrantyYears) })
+          ? t(locale, warrantyYears === 1 ? 'warranty.subtitleOne' : 'warranty.subtitle', { productName, years: String(warrantyYears) })
+          : t(locale, warrantyYears === 1 ? 'warranty.subtitleGenericOne' : 'warranty.subtitleGeneric', { years: String(warrantyYears) })
         }
       </p>
     </div>
@@ -169,7 +171,7 @@ const icons: Record<string, string> = {
           </p>
 
           {/* Highlight badge */}
-          {feature.highlight && (
+          {feature.highlight && feature.badge && (
             <div class="absolute -top-3 -right-3 bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
               {t(locale, 'warranty.industryStandardMultiple')}
             </div>

@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Professzionális kozmetikai berendezések",
-    "description": "Professzionális kozmetikai berendezések forgalmazása. Diódalézerek, sminktetováló gépek, ND:YAG lézerek és multifunkcionális készülékek 2 év garanciával, ingyenes képzéssel és azonnali szervizháttérrel."
+    "description": "Professzionális kozmetikai berendezések forgalmazása. Diódalézerek, sminktetováló gépek, ND:YAG lézerek és multifunkcionális készülékek garanciával, ingyenes képzéssel és azonnali szervizháttérrel."
   },
   "nav": {
     "home": "Főoldal",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Professzionális kozmetikai\nberendezések",
-    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek 2 év garanciával",
+    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek garanciával és saját szervizzel",
     "cta": "Ingyenes konzultáció",
     "ctaSecondary": "Termékek megtekintése",
     "slide2": {
@@ -28,7 +28,7 @@
     },
     "slide3": {
       "title": "Képzés és szerviz egy helyen",
-      "subtitle": "Ingyenes betanítás, folyamatos technikai támogatás és 2 év garancia minden termékünkre"
+      "subtitle": "Ingyenes betanítás, folyamatos technikai támogatás és 2 év garancia kozmetikai gépeinkre"
     },
     "slide4": {
       "title": "Tetováláseltávolítás ND:YAG lézerrel",
@@ -70,7 +70,7 @@
   },
   "trust": {
     "warranty": "2 év garancia",
-    "warrantyDesc": "Teljes körű garancia minden készülékre",
+    "warrantyDesc": "Kozmetikai gépekre (tetováló- és sminktetováló gépekre 1 év)",
     "shipping": "15-20 munkanap",
     "shippingDesc": "Országos házhozszállítással",
     "training": "FAR tanúsítvány",
@@ -394,15 +394,20 @@
   "warranty": {
     "title": "Garancia és szerviz",
     "subtitle": "{productName} készülékre {years} év teljes garanciát adunk, saját magyarországi szervizháttérrel.",
-    "subtitleGeneric": "{years} év teljes garancia minden készülékre, saját magyarországi szervizháttérrel.",
+    "subtitleOne": "{productName} készülékre 1 év teljes garanciát adunk, saját magyarországi szervizháttérrel.",
+    "subtitleGeneric": "{years} év teljes garancia a készülékre, saját magyarországi szervizháttérrel.",
+    "subtitleGenericOne": "1 év teljes garancia a készülékre, saját magyarországi szervizháttérrel.",
+    "pageSubtitle": "Kozmetikai gépeinkre 2 év, tetováló- és sminktetováló gépeinkre 1 év teljes körű garanciát adunk, saját magyarországi szervizháttérrel.",
     "badge": "Nyugalom és biztonság",
     "yearsWarranty": "{years} év teljes garancia",
+    "yearsWarrantyOne": "1 év teljes garancia",
     "extendedWarranty": "Kiterjesztett garancia",
     "extendedWarrantyDesc": "Hosszabbítsd meg a garanciát további 1 évvel kedvezményes áron!",
     "extendedWarrantyButton": "Érdeklődöm",
     "industryStandardMultiple": "2x iparági standard",
     "features": {
       "fullWarranty": "Minden alkatrészre és munkadíjra, az iparági standard duplája.",
+      "fullWarrantyBasic": "Minden alkatrészre és munkadíjra kiterjedő, teljes körű garancia.",
       "replacementDevice": "Cseregép program",
       "replacementDeviceDesc": "Ha a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében, hogy ne álljon a munkád.",
       "ownWorkshop": "Saját szervizműhely",
@@ -435,10 +440,10 @@
       "hungarianSupport": "Magyar nyelvű támogatás",
       "year": "év"
     },
-    "description": "Átfogó 2 éves gyártói jótállás saját magyar szervizháttérrel, cseregép programmal és eredeti alkatrészekkel.",
+    "description": "Átfogó gyártói jótállás (kozmetikai gépekre 2 év, tetováló- és sminktetováló gépekre 1 év) saját magyar szervizháttérrel, cseregép programmal és eredeti alkatrészekkel.",
     "whatIsWarranty": "Mi a gyártói jótállás?",
     "whatIsWarrantyDesc1": "A jótállás a gyártó és a forgalmazó kötelező vállalása arra, hogy a készülék a rendeltetésszerű használat során meghibásodás nélkül működik a garanciális időszakban. Gyártási hiba vagy anyaghiba esetén a javítás, alkatrészcsere, illetve indokolt esetben a csere és a munkadíj is térítésmentes.",
-    "whatIsWarrantyDesc2": "Minden új készülékünkre 12-24 hónap jótállást biztosítunk (a pontos időtartam a termék adatlapján található), a 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján.",
+    "whatIsWarrantyDesc2": "Új kozmetikai gépeinkre 24 hónap, tetováló- és sminktetováló gépeinkre 12 hónap jótállást biztosítunk (a pontos időtartam a termék adatlapján is szerepel), a 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján.",
     "commitmentTitle": "Skinlab vállalásunk",
     "commitmentDesc1": "Saját, képzett magyar technikusi csapatunk és szervizműhelyünk biztosítja, hogy meghibásodás esetén ne kelljen hónapokat várni külföldi javításra. Eredeti gyári alkatrészekkel dolgozunk, és 10 munkanapot meghaladó javítás esetén cseregépet biztosítunk, hogy a vállalkozásod működése ne akadjon meg.",
     "commitmentDesc2": "A vásárlás után is mellettetek állunk: távdiagnosztikával, telefonos támogatással és szükség esetén helyszíni kiszállással gondoskodunk a folyamatos működésről.",
@@ -939,7 +944,7 @@
     "step3Title": "Kiszállítjuk a készüléket",
     "step3Desc": "A fizetés beérkezése után a megrendelés gyártásba, majd szállításba kerül.",
     "trustNoPayment": "Most nem kell fizetned",
-    "trustWarranty": "2 év garancia",
+    "trustWarranty": "Teljes körű garancia",
     "trustCallback": "Visszahívunk",
     "noPaymentNote": "A megrendelés elküldése után nem kell azonnal fizetned – előbb visszahívunk és egyeztetünk.",
     "requiredError": "Kérlek, töltsd ki a kötelező mezőket.",
