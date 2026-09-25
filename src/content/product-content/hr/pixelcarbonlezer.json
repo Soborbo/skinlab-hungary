@@ -1,22 +1,43 @@
 {
   "name": "PIXEL Q-switched ND:YAG laser",
-  "shortDescription": "Poljski nagrađivani kompaktni ND:YAG laser 2025. 3 valne duljine, tretira i crveni pigment, 4,3\" dodirni zaslon.",
-  "description": "PIXEL ND:YAG laser nije samo još jedan kompaktni uređaj - to je jedno od najinteligentnijih i najsnažnijih rješenja u svijetu uklanjanja pigmenata i tetovaža. 2025. godine osvojio je nagradu u Poljskoj u kategoriji stolnih Q-switched ND:YAG laserskih uređaja.",
-  "metaTitle": "PIXEL Q-switched ND:YAG laser | Uklanjanje tetovaža & carbon peeling",
-  "metaDescription": "PIXEL Q-switched ND:YAG laser: kompaktan, visokoučinkovit uređaj za uklanjanje pigmenata i tetovaža. 3 valne duljine, carbon peeling funkcija. 2 godine jamstva.",
+  "shortDescription": "Profesionalni carbon laserski sustav za kozmetičke salone: Q-switched ND:YAG tehnologija s glavama od 1064 nm i 532 nm te glavom Carbon (Black Doll). Kompaktna stolna izvedba, zaslon osjetljiv na dodir od 4,3\", zatvoreno vodeno hlađenje.",
+  "description": "PIXEL carbon laser je visokoprecizan laserski uređaj temeljen na ND:YAG tehnologiji, razvijen posebno za neinvazivne kozmetičke tretmane.\n\nIdealan je izbor za carbon peeling, poboljšanje izgleda kože i tretmane regulacije sebuma, gdje cilj nije uništavanje tkiva, nego izazivanje kontrolirane biološke reakcije.\n\nZahvaljujući stabilnom radu, preciznoj kontroli energije i više valnih duljina, sustav pruža visoku razinu sigurnosti i predvidljive rezultate u profesionalnoj kozmetičkoj praksi.",
+  "metaTitle": "PIXEL Q-switched ND:YAG laser | Uređaj za carbon peeling za salone",
+  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG uređaj s glavama od 1064 nm, 532 nm i Carbon (Black Doll) za carbon peeling i poboljšanje izgleda kože. Kompaktan, zatvoreno vodeno hlađenje.",
   "stats": [
-    { "value": "3", "label": "Valne duljine", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Maks. energija", "icon": "zap" },
-    { "value": "2025", "label": "Nagrađivan", "icon": "award" },
-    { "value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield" }
+    {
+      "value": "1064",
+      "unit": "nm",
+      "label": "ND:YAG valna duljina",
+      "icon": "wave"
+    },
+    {
+      "value": "1200",
+      "unit": "mJ",
+      "label": "Maks. energija impulsa (1064 nm)",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Glave za tretman",
+      "icon": "layers"
+    },
+    {
+      "value": "14",
+      "unit": "kg",
+      "label": "Kompaktan stolni",
+      "icon": "award"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
-    "headline": "PIXEL ne obećava – dokazuje. S laserskom preciznošću.",
+    "headline": "Kontrolirana biološka reakcija, bez oštećenja tkiva",
     "paragraphs": [
-      "Radi s tri valne duljine (532 nm, 1064 nm, 1320 nm), pa samopouzdano tretira svaki tip kože i svaku nijansu pigmenta – čak i one za koje ste mislili da su nemoguće.",
-      "Čuli ste da se crveni pigment ne može ukloniti? PIXEL briše čak i najtvrdokornije crvene tetovaže obrva kao da nikad nisu ni bile tamo.",
-      "Ugrađeni sustav hlađenja i inteligentna raspodjela energije osiguravaju da koža ostane sigurna i ravnomjerno tretirana. Preciznost koja je nevidljiva, rezultati koji su uočljivi."
+      "Tijekom carbon peelinga čestice ugljika apsorbiraju energiju lasera. Time se čiste pore, koža dobiva blagi mikropodražaj, a u dermisu se pokreću regenerativni procesi, sve bez oštećenja tkiva.",
+      "Cilj nikada nije uništavanje stanica, nego izazivanje kontrolirane, ponovljive biološke reakcije. Površina kože postaje ujednačenija, a pore vidljivo finije.",
+      "Odabir valne duljine sigurnosna je, a ne estetska odluka: 1064 nm prodire dublje uz nisku apsorpciju u melaninu, zato je u kozmetičkom okruženju najsigurnija."
     ]
   },
   "cta": {
@@ -37,36 +58,29 @@
     }
   },
   "featureRows": {
-    "headline": "Zašto je PIXEL vaše omiljeno oružje u tretmanskoj sobi?",
-    "subtitle": "Kompaktan, a nevjerojatno učinkovit – sa stilom",
+    "headline": "Premium rješenje za regenerativne laserske tretmane",
+    "subtitle": "Tehnologija medicinske kvalitete, unutar kozmetičkih kompetencija",
     "features": [
       {
-        "title": "3 valne duljine – rješenje za svaki pigment",
-        "description": "PIXEL radi na tri valne duljine, učinkovito tretirajući svaku boju pigmenta i tetovaže.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Valne duljine i njihove primjene:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – crveni, narančasti, toplo smeđi pigmenti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – crni, plavi, sivi, zeleni pigmenti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, dubinsko čišćenje, pomlađivanje kože</div>\n</div>",
-        "highlight": "Valna duljina 532 nm učinkovito tretira crvene i narančaste pigmente – što mnogi drugi laseri ne mogu.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Carbon peeling i poboljšanje izgleda kože",
+        "description": "PIXEL je izrađen posebno za neinvazivne kozmetičke tretmane, gdje cilj nije uništavanje tkiva, nego kontrolirana biološka reakcija.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Područja primjene:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling / carbon laser facial</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Čišćenje pora i regulacija sebuma</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Čišćenje i ujednačavanje površine kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Potpora regeneraciji umorne, problematične kože</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Profinjenje teksture kože, više sjaja</div>\n</div>",
+        "image": "@assets/products/pixel-design-1.jpg"
       },
       {
-        "title": "Uklanjanje crvenog pigmenta – što drugi ne mogu",
-        "description": "Uklanjanje toplih pigmenata (crvena, narančasta, toplo smeđa) jedna je od najvećih izazova u području uklanjanja tetovaža. Većina ND:YAG lasera radi samo na 1064 nm, što je učinkovito na tamne pigmente, ali ne uspijeva s svijetlim, toplim tonovima. Valna duljina 532 nm PIXELa posebno je dizajnirana za te tvrdokorne pigmente.",
-        "highlight": "PIXEL rješava čak i 'nemoguće' crvene tetovaže obrva.",
-        "image": "@assets/products/Pixelwebshop1.webp"
+        "title": "Tri glave: 1064 nm, 532 nm i Carbon",
+        "description": "Uz uređaj dolaze laserske glave od 1064 nm i 532 nm te glava Carbon (Black Doll). Valna duljina od 1064 nm prodire dublje uz nisku apsorpciju u melaninu; 532 nm može se, u skladu s važećim propisima, koristiti za površinske pigmente.",
+        "highlight": "Primjena tretmana koji razgrađuju pigment i terapijskih tretmana podliježe zakonskim uvjetima koji se razlikuju od zemlje do zemlje.",
+        "image": "@assets/products/pixel-design-3.jpg"
       },
       {
-        "title": "Carbon peeling – premium tretman lica",
-        "description": "Valna duljina 1320 nm omogućuje carbon peeling, izuzetno popularan i profitabilan tretman lica. Poseban ugljični sloj nanosi se na kožu, zatim laserski impulsi uklanjaju nečistoće i stimuliraju proizvodnju kolagena.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Rezultati:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vidljivo čistija koža</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stezanje pora</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stimulacija kolagena</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Svježa, blistava koža</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop3.webp"
+        "title": "Precizna kontrola energije, stabilni impulsi",
+        "description": "Kratki impulsi velike vršne snage, digitalno podešavanje energije i frekvencije, brojač impulsa. Ugrađeni zatvoreni sustav vodenog hlađenja neprestano nadzire protok vode i temperaturu te tako osigurava stabilnost impulsa.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Parametri:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Maks. 1200 mJ (1064 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Maks. 600 mJ (532 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencija: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Veličina spota: 2–5 mm</div>\n</div>",
+        "image": "@assets/products/pixel-design-2.jpg"
       },
       {
-        "title": "Kompaktan i inteligentan dizajn",
-        "description": "Unatoč kompaktnim dimenzijama, PIXEL pruža profesionalne performanse. Inteligentni sustav vodenog i zračnog hlađenja osigurava siguran tretman, dok 4,3-inčni dodirni zaslon i upravljanje nožnom pedalom pružaju maksimalan komfort tretmana.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Parametri tretmana:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energija impulsa: 10–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencija: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vodeno i zračno hlađenje</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4,3\" dodirni zaslon + nožna pedala</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop4.webp"
-      },
-      {
-        "title": "Nagrađivan 2025. – međunarodno priznanje",
-        "description": "PIXEL je 2025. godine u Poljskoj osvojio nagradu za najbolji kompaktni stolni Q-switched ND:YAG laserski uređaj. Ovo međunarodno priznanje dokazuje da PIXEL nije samo kompaktan i elegantan, već se performansama nalazi u samom vrhu svoje kategorije.",
-        "highlight": "Nagrađivana kvaliteta po pristupačnoj cijeni – to je PIXEL.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Ugrađeni sigurnosni sustavi",
+        "description": "Pokretanje ključem i tipka za zaustavljanje u nuždi (STOP): prije i nakon svakog tretmana operater ima jasnu, fizičku kontrolu u svojim rukama. Vađenje ključa nakon uporabe obvezan je sigurnosni korak koji sprječava neovlašteno pokretanje. Automatska provjera protoka vode i zaštita od pregrijavanja.",
+        "image": "@assets/products/pixel-1.jpg"
       }
     ]
   },
@@ -75,16 +89,16 @@
     "badge": "S FAR certifikatom",
     "intro": "Za PIXEL ND:YAG laser dostupna je službena certificirana obuka registrirana u FAR sustavu. Nastavni plan razvijen je pod mentorstvom certificiranog instruktora iz zdravstvenog sektora i temelji se na stručnim materijalima ruskog laserskog specijalista.",
     "items": [
-      "Principi rada Q-switched ND:YAG laserske tehnologije",
-      "Valne duljine i područja primjene (tetovaže, pigment, carbon peeling)",
-      "Protokoli tretmana za različite tipove pigmenta",
-      "Kontraindikacije, procjena tipa kože i siguran tretman",
-      "Praksa carbon peeling tretmana",
+      "Princip rada Q-switched ND:YAG lasera",
+      "Uporaba i podešavanje glava (1064 nm, 532 nm, Carbon)",
+      "Carbon peeling u praksi",
+      "Pravilno tumačenje reakcija kože, kontraindikacije",
+      "Granice kompetencija u praksi: što kozmetičarka smije, a što ne smije tretirati",
       "Praktični tretmani na modelima"
     ],
     "closingParagraphs": [
-      "Cilj obuke je omogućiti sudionicima sigurnu i zakonitu primjenu PIXEL lasera za kozmetičke i estetske tretmane.",
-      "Po završetku obuke izdaje se službeni FAR certifikat."
+      "Svaki PIXEL uređaj predajemo uz praktičnu obuku, kako biste od prvih tretmana radili sigurno i samouvjereno.",
+      "Po završetku obuke izdajemo službeni FAR certifikat."
     ],
     "price": "79.990 Ft",
     "priceNote": "vrijednost obuke",
@@ -101,69 +115,95 @@
     }
   ],
   "expertQuote": {
-    "quote": "ND:YAG laser jedan je od najsvestranijih alata na kozmetičkom tržištu – uklanjanje tetovaža, tretman pigmenta i carbon peeling u jednom uređaju. Omjer cijene i kvalitete PIXELa je izvanredan u svojoj kategoriji.",
+    "quote": "Temelj sigurne uporabe lasera nije pomicanje granica tehnologije, nego poštivanje bioloških granica kože. Zato PIXEL preporučujemo za carbon peeling i poboljšanje izgleda kože, unutar kozmetičkih kompetencija.",
     "author": "Horváth László",
-    "role": "Osnivač Skinlaba, tehnički stručnjak"
+    "role": "Osnivač Skinlaba, tehnički stručnjak",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
-    "Tip": "Q-switched ND:YAG laser",
-    "Valne duljine": "532 nm / 1064 nm / 1320 nm",
-    "Energija impulsa": "10–2000 mJ",
+    "Vrsta lasera": "Q-switched ND:YAG",
+    "Valna duljina": "1064 nm / 532 nm",
+    "Glave za tretman": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Maks. energija impulsa (1064 nm)": "1200 mJ",
+    "Maks. energija impulsa (532 nm)": "600 mJ",
     "Frekvencija": "1–10 Hz",
-    "Sustav hlađenja": "Voda + Zrak",
-    "Zaslon": "4,3\" dodirni zaslon",
-    "Upravljanje": "Dodirni zaslon + nožna pedala",
-    "Izvedba": "Kompaktni stolni",
-    "Napajanje": "220V / 50Hz",
-    "Certifikacije": "CE"
+    "Način rada impulsa": "Kratki impulsi velike vršne snage",
+    "Veličina spota": "2–5 mm",
+    "Zaslon": "4,3\" LCD zaslon u boji osjetljiv na dodir",
+    "Upravljanje": "Digitalno podešavanje energije i frekvencije, brojač impulsa",
+    "Nadzor": "Nadzor protoka vode i temperature, višejezično sučelje",
+    "Hlađenje": "Ugrađeno zatvoreno vodeno hlađenje s destiliranom vodom",
+    "Zaštita": "Automatska provjera protoka vode i zaštita od pregrijavanja",
+    "Napajanje": "200–240 V / 50–60 Hz",
+    "Potrošnja snage": "400 W",
+    "Dimenzije": "42 × 23 × 34 cm",
+    "Neto masa": "oko 14 kg",
+    "Izvedba": "Kompaktan stolni sustav"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Uklanjanje tetovaža", "description": "Blijeđenje i uklanjanje tamnih pigmenata (crna, plava, siva, zelena) na valnoj duljini 1064 nm" },
-    { "icon": "sun", "name": "Tretman crvenog pigmenta", "description": "Uklanjanje toplih pigmenata (crvena, narančasta, smeđa) na valnoj duljini 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Dubinsko čišćenje, stezanje pora i pomlađivanje kože na valnoj duljini 1320 nm" },
-    { "icon": "droplet", "name": "Tretman pigmentnih mrlja", "description": "Blijeđenje staračkih mrlja, sunčanih mrlja i drugih pigmentnih promjena" },
-    { "icon": "eye", "name": "Uklanjanje trajne šminke", "description": "Korekcija i uklanjanje trajne šminke obrva, usana i kapaka" }
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Carbon laser facial s glavom Carbon (Black Doll): čišćenje pora i više sjaja, bez oštećenja tkiva"
+    },
+    {
+      "icon": "droplet",
+      "name": "Regulacija sebuma",
+      "description": "Tretmani čišćenja pora i regulacije sebuma za masnu, problematičnu kožu"
+    },
+    {
+      "icon": "sun",
+      "name": "Poboljšanje izgleda kože",
+      "description": "Čišćenje i ujednačavanje površine kože, profinjenje teksture"
+    },
+    {
+      "icon": "zap",
+      "name": "Potpora regeneraciji",
+      "description": "Potpora regeneraciji umorne, problematične kože kontroliranim fototermalnim učinkom"
+    }
   ],
   "faq": [
     {
-      "question": "Koje tetovaže PIXEL može tretirati?",
-      "answer": "PIXEL radi na tri valne duljine, pa može tretirati gotovo svaku boju tetovaže. 1064 nm za tamne boje (crna, plava, siva, zelena), 532 nm za tople boje (crvena, narančasta, smeđa). To uključuje i tjelesne tetovaže i trajnu šminku (obrve, usne)."
+      "question": "Za koje se tretmane preporučuje PIXEL?",
+      "answer": "Za carbon peeling (carbon laser facial), čišćenje pora i regulaciju sebuma, čišćenje i ujednačavanje površine kože, potporu regeneraciji umorne, problematične kože te za profinjenje teksture kože i više sjaja."
     },
     {
-      "question": "Stvarno tretira i crveni pigment?",
-      "answer": "Da! Valna duljina 532 nm posebno je dizajnirana za tople pigmente (crvena, narančasta, toplo smeđa). Mnogi konkurentski ND:YAG laseri rade samo na 1064 nm, što je učinkovito na tamne boje, ali ne uspijeva s svijetlim, toplim tonovima. PIXEL se u tome ističe."
+      "question": "Koje glave dolaze uz uređaj?",
+      "answer": "Tri: laserske glave od 1064 nm i 532 nm te glava Carbon (Black Doll) za carbon peeling."
     },
     {
-      "question": "Što je carbon peeling i koliko je profitabilan?",
-      "answer": "Carbon peeling je premium tretman lica kod kojeg se na kožu nanosi poseban ugljični sloj, a zatim se uklanja laserskim impulsima. Rezultat: vidljivo čistija koža, manji pori, stimulirana proizvodnja kolagena. Tretman se može naplaćivati 15.000-30.000 Ft, a klijenti se redovito vraćaju (preporučeno svaka 4-6 tjedana)."
+      "question": "Može li se koristiti za posvjetljivanje pigmenta ili tetovaža?",
+      "answer": "Q-switched ND:YAG tehnologija može biti prikladna za posvjetljivanje tetovaža i trajne šminke u postupnom, kontroliranom procesu tretmana. Međutim, primjena tretmana koji razgrađuju pigment i terapijskih tretmana podliježe zakonskim uvjetima koji se razlikuju od zemlje do zemlje, stoga se prije njihova izvođenja informirajte o propisima koji vrijede za vas."
     },
     {
-      "question": "Koliko brzo se PIXEL isplati?",
-      "answer": "U prosjeku za 2-3 mjeseca, s 3-5 klijenata dnevno. Uklanjanje tetovaža košta 15.000-50.000 Ft po tretmanu, carbon peeling 15.000-30.000 Ft. Koristite naš ROI kalkulator na stranici za točan izračun!"
+      "question": "Što kozmetičarka ne smije tretirati PIXEL-om?",
+      "answer": "Ono što kozmetičarka ne smije dijagnosticirati, ne smije ni tretirati. Madeži, vaskularne promjene, sumnjivi pigmenti i promjene kože povezane s bolešću nisu dio kozmetičkih kompetencija: njihovo prepoznavanje i upućivanje klijenta liječniku odgovornost je operatera. Uređaj nije namijenjen dijagnostičkim niti medicinskim svrhama."
     },
     {
-      "question": "Kakva obuka dolazi s PIXELom?",
-      "answer": "Službena obuka operatera registrirana u FAR sustavu uključena je BESPLATNO uz kupnju uređaja. Nastavni plan temelji se na materijalima zdravstvenih edukatora i ruskog laserskog specijalista."
+      "question": "Kako se uređaj hladi?",
+      "answer": "Ugrađenim zatvorenim sustavom vodenog hlađenja s destiliranom vodom. Sustav neprestano nadzire protok vode i temperaturu te ima automatsku zaštitu od pregrijavanja."
     },
     {
-      "question": "PIXEL je kompaktan – je li dovoljno snažan za profesionalni rad?",
-      "answer": "Apsolutno! Kompaktne dimenzije ne znače kompromis u performansama. Energija impulsa 10-2000 mJ i frekvencija 1-10 Hz omogućuju profesionalne tretmane. Poljska nagrada 2025. također dokazuje da je PIXEL jedan od najboljih uređaja u svojoj kategoriji."
+      "question": "Koja obuka dolazi uz PIXEL?",
+      "answer": "Svaki PIXEL uređaj predajemo uz praktičnu obuku: od uporabe glava i podešavanja parametara do pravilnog tumačenja reakcija kože. Obuka obuhvaća i primjenu granica kompetencija u praksi. Uz kupnju uređaja je besplatna, a na kraju izdajemo FAR certifikat."
     },
     {
       "question": "Mogu li vidjeti uređaj prije kupnje?",
-      "answer": "Da! U našem showroomu (Érd, Bajcsy-Zsilinszky út 156.) možete osobno pogledati i isprobati PIXEL ND:YAG laser uz prethodnu najavu termina."
+      "answer": "Da, u našem showroomu u Érdu (Bajcsy-Zsilinszky út 156.) PIXEL laser možete osobno pogledati uz prethodnu najavu termina."
     }
   ],
   "whatsIncluded": [
-    "PIXEL Q-switched ND:YAG laserski uređaj",
-    "532 nm tretmanska glava (crveni/narančasti pigmenti)",
-    "1064 nm tretmanska glava (tamni pigmenti)",
-    "1320 nm tretmanska glava (carbon peeling)",
-    "Zaštitne naočale (operater + klijent)",
-    "Nožna pedala",
-    "Korisnički priručnik",
+    "Glavna jedinica lasera",
+    "Ručni nastavak",
+    "Laserska glava 1064 nm",
+    "Laserska glava 532 nm",
+    "Glava Carbon (Black Doll)",
+    "Nožni prekidač",
+    "Zaštitne naočale (za operatera i klijenta)",
+    "Komplet za punjenje vode i dodatna oprema",
+    "M'ONDUNIQ Laser-IQ proizvodi za njegu (anti-age krema SPF 50, regenerirajuća krema, Carbon Peel maska s hijaluronskom kiselinom)",
     "Obuka operatera (FAR certifikat)",
     "2 godine puno jamstvo",
-    "Zamjenski uređaj tijekom popravka"
+    "Program zamjenskog uređaja za dulje popravke"
   ]
 }
