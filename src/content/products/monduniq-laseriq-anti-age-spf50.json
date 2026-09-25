@@ -9,8 +9,9 @@
   "metaTitle": "LASER-IQ Anti-Age SPF 50 védőkrém | M'ONDUNIQ",
   "metaDescription": "Lézeres, IPL és mikrotűs kezelések utáni SPF 50 védőkrém kollagénnel, Matrixyl synthe'6 peptiddel és hialuronsavval. Fotostabil UVA/UVB-szűrők, 50 és 150 ml.",
   "price": 12990,
-  "image": "@assets/products/monduniq-laseriq-anti-age-spf50-1.webp",
+  "image": "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-1.jpg",
   "images": [
+    "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-1.jpg",
     "@assets/products/monduniq-laseriq-anti-age-spf50-1.webp"
   ],
   "availability": "in_stock",
@@ -25,7 +26,13 @@
       "description": "Kisebb, 50 ml-es kiszerelés az anti-age SPF 50 védőkrémből.",
       "specs": {
         "Kiszerelés": "50 ml"
-      }
+      },
+      "image": "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-1.jpg",
+      "images": [
+        "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-1.jpg",
+        "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-design-1.jpg",
+        "@assets/products/monduniq-laseriq-anti-age-spf50-50ml-design-2.jpg"
+      ]
     },
     {
       "sku": "MQ-SPF-150",
@@ -36,7 +43,11 @@
       "description": "Nagyobb, 150 ml-es kiszerelés ugyanabból a formulából.",
       "specs": {
         "Kiszerelés": "150 ml"
-      }
+      },
+      "image": "@assets/products/monduniq-laseriq-anti-age-spf50-1.webp",
+      "images": [
+        "@assets/products/monduniq-laseriq-anti-age-spf50-1.webp"
+      ]
     }
   ],
   "featured": false,
@@ -48,5 +59,11 @@
     "Célbőrtípus": "Lézeres, IPL, mikrotűs, rádiófrekvenciás, hidegplazmás kezelés után érzékennyé vált bőr",
     "Kiemelt hatóanyagok": "Kollagén, Matrixyl® synthe'6™ biomimetikus peptid, hialuronsav, vörös here kivonat, allantoin, E-vitamin",
     "Alkalmazás a protokollban": "A LASER-IQ kezelési protokoll záró készítménye, valamint napi otthoni ápolás"
+  },
+  "imageAlts": {
+    "monduniq-laseriq-anti-age-spf50-50ml-1.jpg": "M'ONDUNIQ LASER-IQ Anti-Age SPF 50 védőkrém, 50 ml, zöld Limited Edition dobozban",
+    "monduniq-laseriq-anti-age-spf50-50ml-design-1.jpg": "M'ONDUNIQ LASER-IQ SPF 50 védőkrém 50 ml-es zöld doboza kövön, növények között",
+    "monduniq-laseriq-anti-age-spf50-50ml-design-2.jpg": "M'ONDUNIQ LASER-IQ SPF 50 védőkrém 50 ml-es zöld doboza zöld selyem háttéren",
+    "monduniq-laseriq-anti-age-spf50-1.webp": "M'ONDUNIQ LASER-IQ Anti-Age SPF 50 védőkrém, 150 ml-es pumpás flakon"
   }
 }
