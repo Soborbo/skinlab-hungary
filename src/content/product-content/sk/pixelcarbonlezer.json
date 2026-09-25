@@ -1,22 +1,43 @@
 {
   "name": "PIXEL Q-switched ND:YAG laser",
-  "shortDescription": "Poľský ocenený kompaktný ND:YAG laser roku 2025. 3 vlnové dĺžky, ošetruje aj červený pigment, 4,3\" dotykový displej.",
-  "description": "PIXEL ND:YAG laser nie je len ďalšie kompaktné zariadenie - je to jedno z najinteligentnejších a najúčinnejších riešení vo svete odstraňovania pigmentov a tetovaní. V roku 2025 získal v Poľsku ocenenie v kategórii stolných Q-switched ND:YAG laserových zariadení.",
-  "metaTitle": "PIXEL Q-switched ND:YAG laser | Odstránenie tetovania & carbon peeling",
-  "metaDescription": "PIXEL Q-switched ND:YAG laser: kompaktné, vysoko výkonné zariadenie na odstraňovanie pigmentov a tetovaní. 3 vlnové dĺžky, funkcia carbon peeling. 2 roky záruky.",
+  "shortDescription": "Profesionálny carbon laserový systém pre kozmetické salóny: Q-switched ND:YAG technológia s hlavicami 1064 nm a 532 nm a hlavicou Carbon (Black Doll). Kompaktné stolové vyhotovenie, dotykový displej 4,3\", uzavreté vodné chladenie.",
+  "description": "Carbon laser PIXEL je vysoko presné laserové zariadenie založené na technológii ND:YAG, vyvinuté špeciálne na neinvazívne kozmetické ošetrenia.\n\nJe ideálnou voľbou na carbon peeling, zlepšenie vzhľadu pleti a ošetrenia regulujúce maz, kde cieľom nie je ničiť tkanivo, ale vyvolať kontrolovanú biologickú odpoveď.\n\nVďaka stabilnej prevádzke, presnému riadeniu energie a viacerým vlnovým dĺžkam ponúka systém vysokú úroveň bezpečnosti a predvídateľné výsledky v profesionálnej kozmetickej praxi.",
+  "metaTitle": "PIXEL Q-switched ND:YAG laser | Prístroj na carbon peeling pre salóny",
+  "metaDescription": "Carbon laser PIXEL: Q-switched ND:YAG prístroj s hlavicami 1064 nm, 532 nm a Carbon (Black Doll) na carbon peeling a zlepšenie vzhľadu pleti. Kompaktný, uzavreté vodné chladenie.",
   "stats": [
-    { "value": "3", "label": "Vlnové dĺžky", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. energia", "icon": "zap" },
-    { "value": "2025", "label": "Ocenený", "icon": "award" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "1064",
+      "unit": "nm",
+      "label": "Vlnová dĺžka ND:YAG",
+      "icon": "wave"
+    },
+    {
+      "value": "1200",
+      "unit": "mJ",
+      "label": "Max. energia pulzu (1064 nm)",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Ošetrovacie hlavice",
+      "icon": "layers"
+    },
+    {
+      "value": "14",
+      "unit": "kg",
+      "label": "Kompaktný stolový",
+      "icon": "award"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
-    "headline": "PIXEL nesľubuje – dokazuje. S laserovou presnosťou.",
+    "headline": "Kontrolovaná biologická odpoveď bez poškodenia tkaniva",
     "paragraphs": [
-      "Pracuje na troch vlnových dĺžkach (532 nm, 1064 nm, 1320 nm), takže sebavedomo ošetrí každý typ pleti a každý odtieň pigmentu – aj tie, o ktorých ste si mysleli, že je to nemožné.",
-      "Počuli ste, že červený pigment sa nedá odstrániť? PIXEL odstráni aj tú najtvrdohlavejšiu červenú tetováciu obočia, ako keby tam nikdy nebola.",
-      "Vstavaný chladiaci systém a inteligentná distribúcia energie zabezpečujú, že pokožka zostane v bezpečí a rovnomerne ošetrená. Presnosť, ktorá je neviditeľná, výsledky, ktoré sú nápadné."
+      "Pri carbon peelingu pohlcujú uhlíkové častice energiu lasera. Tým sa čistia póry, pokožka dostáva jemný mikropodnet a v dermis sa spúšťajú regeneračné procesy, a to všetko bez poškodenia tkaniva.",
+      "Cieľom nikdy nie je ničiť bunky, ale vyvolať kontrolovanú, opakovateľnú biologickú odpoveď. Povrch pleti sa zjednotí a póry sú viditeľne jemnejšie.",
+      "Voľba vlnovej dĺžky je rozhodnutím o bezpečnosti, nie o estetike: 1064 nm preniká hlbšie a melanín ju pohlcuje len málo, preto je v kozmetickom prostredí najbezpečnejšia."
     ]
   },
   "cta": {
@@ -37,36 +58,29 @@
     }
   },
   "featureRows": {
-    "headline": "Prečo je PIXEL vaša obľúbená zbraň v ošetrovni?",
-    "subtitle": "Kompaktný, a predsa brutálne účinný – so štýlom",
+    "headline": "Prémiové riešenie pre regeneračné laserové ošetrenia",
+    "subtitle": "Technológia lekárskej kvality v rámci kozmetických kompetencií",
     "features": [
       {
-        "title": "3 vlnové dĺžky – riešenie pre každý pigment",
-        "description": "PIXEL pracuje na troch vlnových dĺžkach a účinne ošetruje každú farbu pigmentu a tetovania.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vlnové dĺžky a ich použitie:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – červené, oranžové, teplé hnedé pigmenty</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – čierne, modré, sivé, zelené pigmenty</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, hĺbkové čistenie, omladzovanie pleti</div>\n</div>",
-        "highlight": "Vlnová dĺžka 532 nm účinne ošetruje červené a oranžové pigmenty – čo mnohé iné lasery nedokážu.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Carbon peeling a zlepšenie vzhľadu pleti",
+        "description": "PIXEL je určený špeciálne na neinvazívne kozmetické ošetrenia, kde cieľom nie je ničenie tkaniva, ale kontrolovaná biologická odpoveď.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Oblasti použitia:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling / carbon laser facial</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Čistenie pórov a regulácia mazu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Čistenie a zjednotenie povrchu pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Podpora regenerácie unavenej, problematickej pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Zjemnenie textúry pleti, väčšia žiarivosť</div>\n</div>",
+        "image": "@assets/products/pixel-design-1.jpg"
       },
       {
-        "title": "Odstraňovanie červeného pigmentu – čo iní nedokážu",
-        "description": "Odstraňovanie teplých pigmentov (červená, oranžová, teplá hnedá) je jednou z najväčších výziev v oblasti odstraňovania tetovaní. Väčšina ND:YAG laserov pracuje iba na 1064 nm, čo je účinné na tmavé pigmenty, ale zlyháva pri svetlých, teplých odtieňoch. Vlnová dĺžka 532 nm PIXELu bola špeciálne navrhnutá pre tieto tvrdohlavé pigmenty.",
-        "highlight": "PIXEL zvládne aj 'nemožné' červené tetovanie obočia.",
-        "image": "@assets/products/Pixelwebshop1.webp"
+        "title": "Tri hlavice: 1064 nm, 532 nm a Carbon",
+        "description": "K prístroju patrí laserová hlavica 1064 nm a 532 nm a tiež hlavica Carbon (Black Doll). Vlnová dĺžka 1064 nm preniká hlbšie s nízkou absorpciou v melaníne; 532 nm možno v súlade s právnymi predpismi použiť na povrchové pigmenty.",
+        "highlight": "Vykonávanie ošetrení ničiacich pigment a terapeutických ošetrení podlieha v jednotlivých krajinách odlišným právnym podmienkam.",
+        "image": "@assets/products/pixel-design-3.jpg"
       },
       {
-        "title": "Carbon peeling – prémiové ošetrenie tváre",
-        "description": "Vlnová dĺžka 1320 nm umožňuje carbon peeling, mimoriadne obľúbenú a výnosnú službu ošetrenia tváre. Na pokožku sa nanesie špeciálna uhlíková vrstva, potom laserové pulzy odstránia nečistoty a stimulujú tvorbu kolagénu.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Výsledky:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Viditeľne čistejšia pleť</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stiahnutie pórov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Stimulácia kolagénu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Svieža, žiarivá pleť</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop3.webp"
+        "title": "Presné riadenie energie, stabilné pulzy",
+        "description": "Krátke pulzy s vysokým špičkovým výkonom, digitálne nastavenie energie a frekvencie, počítadlo výstrelov. Zabudovaný uzavretý systém vodného chladenia nepretržite stráži prietok vody a teplotu, a tým zabezpečuje stabilitu pulzov.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Parametre:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 1200 mJ (1064 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 600 mJ (532 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Veľkosť spotu: 2–5 mm</div>\n</div>",
+        "image": "@assets/products/pixel-design-2.jpg"
       },
       {
-        "title": "Kompaktný a inteligentný dizajn",
-        "description": "Napriek kompaktným rozmerom PIXEL ponúka profesionálny výkon. Inteligentný systém vodného a vzduchového chladenia zabezpečuje bezpečné ošetrenie, zatiaľ čo 4,3-palcový dotykový displej a ovládanie nožným pedálom poskytujú maximálny komfort pri ošetrení.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Parametre ošetrenia:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Energia pulzu: 10–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vodné a vzduchové chladenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4,3\" dotykový displej + nožný pedál</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop4.webp"
-      },
-      {
-        "title": "Ocenený v roku 2025 – medzinárodné uznanie",
-        "description": "PIXEL v roku 2025 získal v Poľsku ocenenie ako najlepšie kompaktné stolné Q-switched ND:YAG laserové zariadenie. Toto medzinárodné uznanie dokazuje, že PIXEL je nielen kompaktný a elegantný, ale výkonnostne patrí do špičky svojej kategórie.",
-        "highlight": "Ocenená kvalita za dostupnú cenu – to je PIXEL.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Zabudované bezpečnostné systémy",
+        "description": "Spúšťanie kľúčom a núdzové tlačidlo STOP: pred každým ošetrením aj po ňom má obsluha jasnú, fyzickú kontrolu vo svojich rukách. Vybratie kľúča po použití je povinný bezpečnostný krok, ktorý bráni neoprávnenému spusteniu. Automatická kontrola prietoku vody a ochrana proti prehriatiu.",
+        "image": "@assets/products/pixel-1.jpg"
       }
     ]
   },
@@ -75,16 +89,16 @@
     "badge": "S certifikátom FAR",
     "intro": "K laseru PIXEL ND:YAG je k dispozícii oficiálne certifikované školenie registrované v systéme FAR. Učebné osnovy boli vytvorené pod vedením certifikovaného inštruktora zo zdravotníckeho sektora a sú založené na odborných materiáloch ruského laserového špecialistu.",
     "items": [
-      "Princíp fungovania Q-switched ND:YAG laserovej technológie",
-      "Vlnové dĺžky a oblasti použitia (tetovanie, pigment, carbon peeling)",
-      "Ošetrovacie protokoly pre rôzne typy pigmentu",
-      "Kontraindikácie, hodnotenie typu pleti a bezpečné ošetrenie",
-      "Prax carbon peeling ošetrenia",
+      "Princíp fungovania Q-switched ND:YAG lasera",
+      "Používanie a nastavenie hlavíc (1064 nm, 532 nm, Carbon)",
+      "Carbon peeling v praxi",
+      "Správne vyhodnotenie kožných reakcií, kontraindikácie",
+      "Hranice kompetencií v praxi: čo kozmetička smie a nesmie ošetrovať",
       "Praktické ošetrenia na modeloch"
     ],
     "closingParagraphs": [
-      "Cieľom školenia je umožniť účastníkom bezpečne a legálne používať laser PIXEL pre kozmetické a estetické ošetrenia.",
-      "Po absolvovaní školenia bude vydaný oficiálny certifikát FAR."
+      "Každý prístroj PIXEL odovzdávame s praktickým zaškolením, aby ste od prvých ošetrení pracovali bezpečne a s istotou.",
+      "Po absolvovaní školenia vystavíme oficiálny certifikát FAR."
     ],
     "price": "79 990 Ft",
     "priceNote": "hodnota školenia",
@@ -101,69 +115,95 @@
     }
   ],
   "expertQuote": {
-    "quote": "ND:YAG laser je jedným z najuniverzálnejších nástrojov na kozmetickom trhu – odstraňovanie tetovaní, ošetrenie pigmentu a carbon peeling v jednom zariadení. Pomer cena-výkon PIXELu je v jeho kategórii výnimočný.",
+    "quote": "Základom bezpečného používania lasera nie je posúvanie hraníc technológie, ale rešpektovanie biologických limitov pokožky. Preto PIXEL odporúčame na carbon peeling a zlepšenie vzhľadu pleti, v rámci kozmetických kompetencií.",
     "author": "Horváth László",
-    "role": "Zakladateľ Skinlab, technický expert"
+    "role": "Zakladateľ Skinlab, technický expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
-    "Typ": "Q-switched ND:YAG laser",
-    "Vlnové dĺžky": "532 nm / 1064 nm / 1320 nm",
-    "Energia pulzu": "10–2000 mJ",
+    "Typ lasera": "Q-switched ND:YAG",
+    "Vlnová dĺžka": "1064 nm / 532 nm",
+    "Hlavice": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Max. energia pulzu (1064 nm)": "1200 mJ",
+    "Max. energia pulzu (532 nm)": "600 mJ",
     "Frekvencia": "1–10 Hz",
-    "Chladiaci systém": "Voda + Vzduch",
-    "Displej": "4,3\" dotykový displej",
-    "Ovládanie": "Dotykový displej + nožný pedál",
-    "Prevedenie": "Kompaktné stolné",
-    "Napájanie": "220V / 50Hz",
-    "Certifikácie": "CE"
+    "Pulzný režim": "Krátke pulzy s vysokým špičkovým výkonom",
+    "Veľkosť spotu": "2–5 mm",
+    "Displej": "4,3\" farebný dotykový LCD displej",
+    "Ovládanie": "Digitálne nastavenie energie a frekvencie, počítadlo výstrelov",
+    "Monitorovanie": "Stráženie prietoku vody a teploty, viacjazyčné rozhranie",
+    "Chladenie": "Zabudované uzavreté vodné chladenie s destilovanou vodou",
+    "Ochrana": "Automatická kontrola prietoku vody a ochrana proti prehriatiu",
+    "Napájanie": "200–240 V / 50–60 Hz",
+    "Príkon": "400 W",
+    "Rozmery": "42 × 23 × 34 cm",
+    "Čistá hmotnosť": "cca 14 kg",
+    "Prevedenie": "Kompaktný stolový systém"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstránenie tetovania", "description": "Zosvetlenie a odstránenie tmavých pigmentov (čierna, modrá, sivá, zelená) na vlnovej dĺžke 1064 nm" },
-    { "icon": "sun", "name": "Ošetrenie červeného pigmentu", "description": "Odstránenie teplých pigmentov (červená, oranžová, hnedá) na vlnovej dĺžke 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hĺbkové čistenie, stiahnutie pórov a omladzovanie pleti na vlnovej dĺžke 1320 nm" },
-    { "icon": "droplet", "name": "Ošetrenie pigmentových škvŕn", "description": "Zosvetlenie stareckých škvŕn, slnečných škvŕn a ďalších pigmentových zmien" },
-    { "icon": "eye", "name": "Odstránenie permanentného make-upu", "description": "Korekcia a odstránenie permanentného make-upu obočia, pier a očných viečok" }
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Carbon laser facial s hlavicou Carbon (Black Doll): čistenie pórov a žiarivejšia pleť bez poškodenia tkaniva"
+    },
+    {
+      "icon": "droplet",
+      "name": "Regulácia mazu",
+      "description": "Ošetrenia na čistenie pórov a reguláciu mazu pre mastnú, problematickú pleť"
+    },
+    {
+      "icon": "sun",
+      "name": "Zlepšenie vzhľadu pleti",
+      "description": "Čistenie a zjednotenie povrchu pleti, zjemnenie jej textúry"
+    },
+    {
+      "icon": "zap",
+      "name": "Podpora regenerácie",
+      "description": "Podpora regenerácie unavenej, problematickej pleti kontrolovaným fototermickým účinkom"
+    }
   ],
   "faq": [
     {
-      "question": "Aké tetovania dokáže PIXEL ošetriť?",
-      "answer": "PIXEL pracuje na troch vlnových dĺžkach, takže dokáže ošetriť takmer každú farbu tetovania. 1064 nm pre tmavé farby (čierna, modrá, sivá, zelená), 532 nm pre teplé farby (červená, oranžová, hnedá). To zahŕňa ako telesné tetovania, tak permanentný make-up (obočie, pery)."
+      "question": "Na aké ošetrenia je PIXEL odporúčaný?",
+      "answer": "Na carbon peeling (carbon laser facial), čistenie pórov a reguláciu mazu, čistenie a zjednotenie povrchu pleti, podporu regenerácie unavenej, problematickej pleti a tiež na zjemnenie textúry pleti a zvýšenie jej žiarivosti."
     },
     {
-      "question": "Naozaj ošetruje aj červený pigment?",
-      "answer": "Áno! Vlnová dĺžka 532 nm je špeciálne navrhnutá pre teplé pigmenty (červená, oranžová, teplá hnedá). Mnoho konkurenčných ND:YAG laserov pracuje iba na 1064 nm, čo je účinné na tmavé farby, ale zlyháva pri svetlých, teplých tónoch. PIXEL v tom vyniká."
+      "question": "Aké hlavice patria k prístroju?",
+      "answer": "Tri: laserová hlavica 1064 nm a 532 nm a hlavica Carbon (Black Doll) na carbon peeling."
     },
     {
-      "question": "Čo je carbon peeling a ako je výnosný?",
-      "answer": "Carbon peeling je prémiové ošetrenie tváre, pri ktorom sa na pokožku nanesie špeciálna uhlíková vrstva a potom sa odstráni laserovými pulzmi. Výsledok: viditeľne čistejšia pleť, menšie póry, stimulovaná tvorba kolagénu. Cena ošetrenia sa pohybuje medzi 15 000-30 000 Ft a klienti sa pravidelne vracajú (odporúčané každé 4-6 týždňov)."
+      "question": "Dá sa použiť na zosvetlenie pigmentu alebo tetovania?",
+      "answer": "Technológia Q-switched ND:YAG môže byť vhodná na zosvetlenie tetovania a permanentného make-upu v postupnom, kontrolovanom procese ošetrenia. Vykonávanie ošetrení ničiacich pigment a terapeutických ošetrení však v jednotlivých krajinách podlieha odlišným právnym podmienkam, preto sa pred ich zavedením informujte o predpisoch, ktoré sa na vás vzťahujú."
     },
     {
-      "question": "Ako rýchlo sa PIXEL vráti?",
-      "answer": "V priemere za 2-3 mesiace pri 3-5 klientoch denne. Odstraňovanie tetovaní stojí 15 000-50 000 Ft za ošetrenie, carbon peeling 15 000-30 000 Ft. Použite náš ROI kalkulátor na stránke pre presný výpočet!"
+      "question": "Čo kozmetička nesmie prístrojom PIXEL ošetrovať?",
+      "answer": "Čo kozmetička nesmie diagnostikovať, to nesmie ani ošetrovať. Materské znamienka, cievne zmeny, podozrivé pigmenty a kožné zmeny súvisiace s ochorením nepatria do kozmetických kompetencií: ich rozpoznanie a odoslanie klienta k lekárovi je zodpovednosťou obsluhy. Prístroj nie je určený na diagnostické ani liečebné účely."
     },
     {
-      "question": "Aké školenie je súčasťou PIXELu?",
-      "answer": "Oficiálne školenie obsluhy registrované v systéme FAR je ZADARMO pri kúpe zariadenia. Učebné osnovy sú založené na materiáloch zdravotníckych vzdelávateľov a ruského laserového špecialistu."
+      "question": "Ako je prístroj chladený?",
+      "answer": "Zabudovaným uzavretým systémom vodného chladenia s destilovanou vodou. Systém nepretržite stráži prietok vody a teplotu a má automatickú ochranu proti prehriatiu."
     },
     {
-      "question": "PIXEL je kompaktný – je dostatočne výkonný pre profesionálnu prácu?",
-      "answer": "Rozhodne! Kompaktné rozmery neznamenajú kompromis vo výkone. Energia pulzu 10-2000 mJ a frekvencia 1-10 Hz umožňujú profesionálne ošetrenie. Poľské ocenenie z roku 2025 tiež dokazuje, že PIXEL je jedným z najlepších zariadení vo svojej kategórii."
+      "question": "Aké školenie je súčasťou PIXEL?",
+      "answer": "Každý prístroj PIXEL odovzdávame s praktickým zaškolením: od používania hlavíc cez nastavenie parametrov až po správne vyhodnotenie kožných reakcií. Školenie sa venuje aj uplatňovaniu hraníc kompetencií v praxi. Pri kúpe prístroja je zadarmo a na konci vystavíme certifikát FAR."
     },
     {
       "question": "Môžem si zariadenie pozrieť pred kúpou?",
-      "answer": "Áno! V našom showroome (Érd, Bajcsy-Zsilinszky út 156.) si môžete PIXEL ND:YAG laser osobne pozrieť a vyskúšať po predchádzajúcej dohode termínu."
+      "answer": "Áno, v našom showroome v Érde (Bajcsy-Zsilinszky út 156.) si laser PIXEL môžete po predchádzajúcej dohode termínu pozrieť osobne."
     }
   ],
   "whatsIncluded": [
-    "PIXEL Q-switched ND:YAG laserové zariadenie",
-    "532 nm ošetrovacia hlavica (červené/oranžové pigmenty)",
-    "1064 nm ošetrovacia hlavica (tmavé pigmenty)",
-    "1320 nm ošetrovacia hlavica (carbon peeling)",
-    "Ochranné okuliare (obsluha + klient)",
-    "Nožný pedál",
-    "Používateľský manuál",
+    "Hlavná jednotka lasera",
+    "Ošetrovacie rameno",
+    "Laserová hlavica 1064 nm",
+    "Laserová hlavica 532 nm",
+    "Hlavica Carbon (Black Doll)",
+    "Nožný spínač",
+    "Ochranné okuliare (pre obsluhu aj klienta)",
+    "Súprava na plnenie vody a príslušenstvo",
+    "Ošetrujúce produkty M'ONDUNIQ Laser-IQ (anti-age krém SPF 50, regeneračný krém, maska Carbon Peel s kyselinou hyalurónovou)",
     "Školenie obsluhy (certifikát FAR)",
     "2 roky plnej záruky",
-    "Náhradné zariadenie počas opravy"
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

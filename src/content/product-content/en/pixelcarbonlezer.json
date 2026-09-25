@@ -1,22 +1,43 @@
 {
   "name": "PIXEL Q-switched ND:YAG Laser",
-  "shortDescription": "2025 Polish award-winning compact ND:YAG laser. 3 wavelengths, treats red pigment too, 4.3\" touchscreen.",
-  "description": "The PIXEL ND:YAG laser is not just another compact device - it is one of the most intelligent and powerful solutions in the world of pigment and tattoo removal. In 2025, it won an award in Poland in the desktop Q-switched ND:YAG laser device category.",
-  "metaTitle": "PIXEL Q-switched ND:YAG Laser | Tattoo removal & carbon peeling",
-  "metaDescription": "PIXEL Q-switched ND:YAG laser: compact, high-performance pigment and tattoo removal device. 3 wavelengths, carbon peeling function. 2-year warranty.",
+  "shortDescription": "Professional carbon laser system for beauty salons: Q-switched ND:YAG technology with 1064 nm and 532 nm treatment heads plus a Carbon (Black Doll) head. Compact desktop design, 4.3\" touchscreen, closed-loop water cooling.",
+  "description": "The PIXEL carbon laser is a high-precision laser device based on ND:YAG technology, developed specifically for non-invasive cosmetic treatments.\n\nIt is an ideal choice for carbon peeling, skin-texture improvement and sebum-regulating treatments, where the aim is not to destroy tissue but to trigger a controlled biological response.\n\nThanks to its stable operation, precise energy control and multiple wavelength options, the system delivers a high level of safety and predictable results in professional cosmetic practice.",
+  "metaTitle": "PIXEL Q-switched ND:YAG Laser | Carbon peeling device for salons",
+  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG device with 1064 nm, 532 nm and Carbon (Black Doll) heads for carbon peeling and skin-texture improvement. Compact, closed-loop water cooling.",
   "stats": [
-    { "value": "3", "label": "Wavelengths", "icon": "wave" },
-    { "value": "2000", "unit": "mJ", "label": "Max. energy", "icon": "zap" },
-    { "value": "2025", "label": "Award-winning", "icon": "award" },
-    { "value": "2", "unit": "yr", "label": "Warranty", "icon": "shield" }
+    {
+      "value": "1064",
+      "unit": "nm",
+      "label": "ND:YAG wavelength",
+      "icon": "wave"
+    },
+    {
+      "value": "1200",
+      "unit": "mJ",
+      "label": "Max. pulse energy (1064 nm)",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Treatment heads",
+      "icon": "layers"
+    },
+    {
+      "value": "14",
+      "unit": "kg",
+      "label": "Compact desktop",
+      "icon": "award"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
-    "headline": "The PIXEL doesn't promise – it delivers. With laser precision.",
+    "headline": "A controlled biological response, without tissue damage",
     "paragraphs": [
-      "It works with three wavelengths (532 nm, 1064 nm, 1320 nm), so it confidently treats every skin type and every pigment shade – even those you thought were impossible.",
-      "You heard that red pigment can't be removed? The PIXEL wipes away even the most stubborn red eyebrow tattoo as if it was never there.",
-      "The built-in cooling system and intelligent energy distribution ensure that the skin remains safe and evenly treated. Precision that's invisible, results that are striking."
+      "During carbon peeling, the carbon particles absorb the laser energy. This cleanses the pores, gives the skin a gentle micro-stimulus and sets regenerative processes in motion in the dermis, all without damaging the tissue.",
+      "The goal is never to destroy cells, but to trigger a controlled, reproducible biological response. The skin surface becomes more even and the pores look visibly finer.",
+      "Choosing the wavelength is a safety decision, not an aesthetic one: 1064 nm penetrates deeper with low melanin absorption, which makes it the safest option in a cosmetic setting."
     ]
   },
   "cta": {
@@ -37,36 +58,29 @@
     }
   },
   "featureRows": {
-    "headline": "Why is the PIXEL your favourite weapon in the treatment room?",
-    "subtitle": "Compact, yet brutally effective – with style",
+    "headline": "A premium solution for regenerative laser treatments",
+    "subtitle": "Medical-grade technology, within cosmetic competence",
     "features": [
       {
-        "title": "3 wavelengths – a solution for every pigment",
-        "description": "The PIXEL works on three wavelengths, effectively treating every colour of pigment and tattoo.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Wavelengths and their applications:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – red, orange, warm brown pigments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – black, blue, grey, green pigments</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, deep cleansing, skin rejuvenation</div>\n</div>",
-        "highlight": "The 532 nm wavelength effectively treats red and orange pigments – something many other lasers cannot do.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Carbon peeling and skin-texture improvement",
+        "description": "The PIXEL is built specifically for non-invasive cosmetic treatments, where the aim is not to destroy tissue but to achieve a controlled biological response.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Areas of application:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling / carbon laser facial</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pore cleansing and sebum control</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Cleansing and evening out the skin surface</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Supporting the regeneration of dull, problem skin</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Refining skin texture, boosting radiance</div>\n</div>",
+        "image": "@assets/products/pixel-design-1.jpg"
       },
       {
-        "title": "Red pigment removal – what others can't do",
-        "description": "Removing warm-toned pigments (red, orange, warm brown) is one of the biggest challenges in tattoo removal. Most ND:YAG lasers only work at 1064 nm, which is effective on dark pigments but struggles with light, warm shades. The PIXEL's 532 nm wavelength was specifically designed for these stubborn pigments.",
-        "highlight": "The PIXEL solves even the 'impossible' red eyebrow tattoos.",
-        "image": "@assets/products/Pixelwebshop1.webp"
+        "title": "Three treatment heads: 1064 nm, 532 nm and Carbon",
+        "description": "The device comes with a 1064 nm and a 532 nm laser head, plus a Carbon (Black Doll) treatment head. The 1064 nm head penetrates deeper with low melanin absorption; the 532 nm head can be used for superficial pigments, in line with the applicable legal regulations.",
+        "highlight": "The use of pigment-destroying and therapeutic treatments is subject to legal requirements that differ from country to country.",
+        "image": "@assets/products/pixel-design-3.jpg"
       },
       {
-        "title": "Carbon peeling – premium facial treatment",
-        "description": "The 1320 nm wavelength enables carbon peeling, an extremely popular and profitable facial treatment service. A special carbon layer is applied to the skin, then laser pulses remove impurities and stimulate collagen production.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Results:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Visibly cleaner skin</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pore tightening</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Collagen stimulation</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fresh, radiant skin</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop3.webp"
+        "title": "Precise energy control, stable pulses",
+        "description": "Short, high-peak-power pulses, digital energy and frequency adjustment, and a shot counter. The built-in closed-loop water cooling system continuously monitors water flow and temperature, which keeps the pulses stable.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Parameters:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 1200 mJ (1064 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 600 mJ (532 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spot size: 2–5 mm</div>\n</div>",
+        "image": "@assets/products/pixel-design-2.jpg"
       },
       {
-        "title": "Compact and intelligent design",
-        "description": "Despite its compact size, the PIXEL delivers professional performance. The intelligent water and air cooling system ensures safe treatment, while the 4.3-inch touchscreen and foot pedal control provide maximum treatment comfort.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Treatment parameters:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pulse energy: 10–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frequency: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Water and air cooling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4.3\" touchscreen + foot pedal</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop4.webp"
-      },
-      {
-        "title": "Award-winning in 2025 – international recognition",
-        "description": "In 2025, the PIXEL won the award for best compact desktop Q-switched ND:YAG laser device in Poland. This international recognition proves that the PIXEL is not only compact and elegant, but also at the forefront of its category in terms of performance.",
-        "highlight": "Award-winning quality at an affordable price – that's the PIXEL.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Built-in safety systems",
+        "description": "Key-operated start and an emergency STOP button give the operator clear, physical control before and after every treatment. Removing the key after use is a mandatory safety step that prevents unauthorised operation. Automatic water flow monitoring and overheating protection.",
+        "image": "@assets/products/pixel-1.jpg"
       }
     ]
   },
@@ -75,16 +89,16 @@
     "badge": "With FAR certificate",
     "intro": "An official, certified training course registered in the FAR system is available for the PIXEL ND:YAG laser. The curriculum was developed under the mentorship of a certified instructor from the healthcare sector and is based on professional materials from a Russian laser specialist physician.",
     "items": [
-      "Operating principles of Q-switched ND:YAG laser technology",
-      "Wavelengths and application areas (tattoo, pigment, carbon peeling)",
-      "Treatment protocols for different pigment types",
-      "Contraindications, skin type assessment and safe treatment",
-      "Carbon peeling treatment practice",
+      "How the Q-switched ND:YAG laser works",
+      "Using and setting up the treatment heads (1064 nm, 532 nm, Carbon)",
+      "Carbon peeling in practice",
+      "Reading skin reactions correctly, contraindications",
+      "Scope of practice in real life: what a cosmetician may and may not treat",
       "Hands-on treatments on models"
     ],
     "closingParagraphs": [
-      "The aim of the training is to enable participants to safely and legally apply the PIXEL laser for cosmetic and aesthetic treatments.",
-      "Upon completion of the training, an official FAR certificate will be issued."
+      "Every PIXEL device is handed over with practical hands-on training, so you can work safely and confidently from your very first treatments.",
+      "Upon completion of the training, we issue an official FAR certificate."
     ],
     "price": "79,990 Ft",
     "priceNote": "value training",
@@ -101,69 +115,95 @@
     }
   ],
   "expertQuote": {
-    "quote": "The ND:YAG laser is one of the most versatile tools on the cosmetic market – tattoo removal, pigment treatment and carbon peeling in a single device. The PIXEL's value for money is outstanding in its category.",
+    "quote": "Safe laser use is not about pushing the limits of the technology, but about respecting the biological limits of the skin. That is why we recommend the PIXEL for carbon peeling and skin-texture improvement, within cosmetic competence.",
     "author": "Horváth László",
-    "role": "Skinlab founder, technical expert"
+    "role": "Skinlab founder, technical expert",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
-    "Type": "Q-switched ND:YAG laser",
-    "Wavelengths": "532 nm / 1064 nm / 1320 nm",
-    "Pulse energy": "10–2000 mJ",
+    "Laser type": "Q-switched ND:YAG",
+    "Wavelength": "1064 nm / 532 nm",
+    "Treatment heads": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Max. pulse energy (1064 nm)": "1200 mJ",
+    "Max. pulse energy (532 nm)": "600 mJ",
     "Frequency": "1–10 Hz",
-    "Cooling system": "Water + Air",
-    "Display": "4.3\" touchscreen",
-    "Control": "Touchscreen + foot pedal",
-    "Design": "Compact desktop",
-    "Power supply": "220V / 50Hz",
-    "Certifications": "CE"
+    "Pulse mode": "Short, high-peak-power pulses",
+    "Spot size": "2–5 mm",
+    "Display": "4.3\" colour LCD touchscreen",
+    "Control": "Digital energy and frequency adjustment, shot counter",
+    "Monitoring": "Water flow and temperature monitoring, multilingual interface",
+    "Cooling": "Built-in closed-loop water cooling, with distilled water",
+    "Protection": "Automatic water flow check and overheating protection",
+    "Power supply": "200–240 V / 50–60 Hz",
+    "Power consumption": "400 W",
+    "Dimensions": "42 × 23 × 34 cm",
+    "Net weight": "approx. 14 kg",
+    "Design": "Compact desktop system"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Tattoo removal", "description": "Fading and removal of dark pigments (black, blue, grey, green) at 1064 nm wavelength" },
-    { "icon": "sun", "name": "Red pigment treatment", "description": "Removal of warm-toned pigments (red, orange, brown) at 532 nm wavelength" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Deep cleansing, pore tightening and skin rejuvenation at 1320 nm wavelength" },
-    { "icon": "droplet", "name": "Pigmentation treatment", "description": "Fading of age spots, sun spots and other pigmentation changes" },
-    { "icon": "eye", "name": "Permanent makeup removal", "description": "Correction and removal of eyebrow, lip and eyelid permanent makeup" }
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Carbon laser facial with the Carbon (Black Doll) head: pore cleansing and more radiance, without tissue damage"
+    },
+    {
+      "icon": "droplet",
+      "name": "Sebum control",
+      "description": "Pore-cleansing and sebum-regulating treatments for oily, problem skin"
+    },
+    {
+      "icon": "sun",
+      "name": "Skin-texture improvement",
+      "description": "Cleansing and evening out the skin surface, refining skin texture"
+    },
+    {
+      "icon": "zap",
+      "name": "Regeneration support",
+      "description": "Supporting the regeneration of dull, problem skin with a controlled photothermal effect"
+    }
   ],
   "faq": [
     {
-      "question": "What tattoos can the PIXEL treat?",
-      "answer": "The PIXEL works on three wavelengths, so it can treat almost every colour of tattoo. The 1064 nm is for dark colours (black, blue, grey, green), the 532 nm for warm colours (red, orange, brown). This includes both body tattoos and permanent makeup (eyebrow, lip)."
+      "question": "What treatments is the PIXEL recommended for?",
+      "answer": "Carbon peeling (carbon laser facial), pore cleansing and sebum control, cleansing and evening out the skin surface, supporting the regeneration of dull, problem skin, and refining skin texture and boosting radiance."
     },
     {
-      "question": "Does it really treat red pigment?",
-      "answer": "Yes! The 532 nm wavelength is specifically designed for warm-toned pigments (red, orange, warm brown). Many competing ND:YAG lasers only work at 1064 nm, which is effective on dark colours but struggles with light, warm tones. The PIXEL excels in this area."
+      "question": "Which treatment heads come with the device?",
+      "answer": "Three: a 1064 nm and a 532 nm laser head, plus a Carbon (Black Doll) treatment head for carbon peeling."
     },
     {
-      "question": "What is carbon peeling and how profitable is it?",
-      "answer": "Carbon peeling is a premium facial treatment where a special carbon layer is applied to the skin, then removed with laser pulses. The result: visibly cleaner skin, smaller pores, stimulated collagen production. A treatment can be priced between 15,000-30,000 Ft, and clients regularly return (recommended every 4-6 weeks)."
+      "question": "Can it be used to fade pigment or tattoos?",
+      "answer": "Q-switched ND:YAG technology may be suitable for fading tattoos and permanent make-up in a gradual, controlled treatment process. However, the use of pigment-destroying and therapeutic treatments is subject to legal requirements that differ from country to country, so check the rules that apply to you before offering them."
     },
     {
-      "question": "How quickly does the PIXEL pay for itself?",
-      "answer": "On average within 2-3 months, with 3-5 clients per day. Tattoo removal costs 15,000-50,000 Ft per treatment, carbon peeling 15,000-30,000 Ft. Use our ROI calculator on the page for an exact calculation!"
+      "question": "What must a cosmetician not treat with the PIXEL?",
+      "answer": "Whatever a cosmetician cannot diagnose, they must not treat. Moles, vascular lesions, suspicious pigmentation and disease-related skin changes fall outside cosmetic competence: recognising them and referring the client to a doctor is the operator's responsibility. The device is not intended for diagnostic or medical use."
+    },
+    {
+      "question": "How is the device cooled?",
+      "answer": "By a built-in closed-loop water cooling system using distilled water. The system continuously monitors water flow and temperature and has automatic overheating protection."
     },
     {
       "question": "What training comes with the PIXEL?",
-      "answer": "An official, FAR-registered device operator training is included FREE with the device purchase. The curriculum is based on materials from healthcare educators and a Russian laser specialist physician."
-    },
-    {
-      "question": "The PIXEL is compact – is it powerful enough for professional work?",
-      "answer": "Absolutely! The compact size does not mean compromised performance. The 10-2000 mJ pulse energy and 1-10 Hz frequency enable professional-level treatment. The 2025 Polish award also proves that the PIXEL is one of the best devices in its category."
+      "answer": "Every PIXEL device is handed over with hands-on training: from using the treatment heads and setting the parameters to reading skin reactions correctly. The training also covers how to apply the limits of your competence in practice. It is free with the device purchase, and at the end we issue a FAR certificate."
     },
     {
       "question": "Can I see the device before purchasing?",
-      "answer": "Yes! You can personally view and try out the PIXEL ND:YAG laser in our showroom (Érd, Bajcsy-Zsilinszky út 156.) by prior appointment."
+      "answer": "Yes, you can view the PIXEL laser in person at our showroom in Érd (Bajcsy-Zsilinszky út 156.) by prior appointment."
     }
   ],
   "whatsIncluded": [
-    "PIXEL Q-switched ND:YAG laser device",
-    "532 nm treatment head (red/orange pigments)",
-    "1064 nm treatment head (dark pigments)",
-    "1320 nm treatment head (carbon peeling)",
-    "Safety goggles (operator + client)",
-    "Foot pedal",
-    "User manual",
+    "Main laser unit",
+    "Handpiece",
+    "1064 nm laser head",
+    "532 nm laser head",
+    "Carbon (Black Doll) treatment head",
+    "Foot switch",
+    "Safety goggles (for operator and client)",
+    "Water filling kit and accessories",
+    "M'ONDUNIQ Laser-IQ care products (SPF 50 anti-age cream, regenerating cream, Carbon Peel hyaluronic acid mask)",
     "Device operator training (FAR certificate)",
     "2-year full warranty",
-    "Replacement device during repairs"
+    "Replacement device programme for longer repairs"
   ]
 }

@@ -1,42 +1,43 @@
 {
   "name": "PIXEL Q-kapcsolt ND:YAG lézer",
-  "shortDescription": "2025 lengyel díjnyertes kompakt ND:YAG lézer. 3 hullámhossz, piros pigmentet is kezel, 4.3\" érintőkijelző.",
-  "description": "A PIXEL ND:YAG lézer nem csak egy újabb kompakt gép - ez a kategória egyik legintelligensebb és legütősebb megoldása a pigment- és tetováláseltávolítás világában. 2025-ben Lengyelországban díjat nyert asztali Q-kapcsolt ND:YAG lézerkészülék kategóriában.",
-  "metaTitle": "PIXEL Q-kapcsolt ND:YAG lézer | Tetoválás eltávolítás & carbon peeling",
-  "metaDescription": "PIXEL Q-kapcsolt ND:YAG lézer: kompakt, nagy teljesítményű pigment- és tetováláseltávolító készülék. 3 hullámhossz, carbon peeling funkció. 2 év garancia.",
+  "shortDescription": "Professzionális Carbon-lézer rendszer kozmetikai szalonoknak: Q-kapcsolt ND:YAG technológia 1064 nm és 532 nm kezelőfejjel, valamint Carbon (Black Doll) fejjel. Kompakt asztali kivitel, 4,3\" érintőképernyő, zárt vízhűtés.",
+  "description": "A PIXEL Carbon-lézer készülék egy ND:YAG technológián alapuló, nagy pontosságú lézerberendezés, amelyet kifejezetten kozmetikai célú, nem invazív kezelésekhez fejlesztettek.\n\nA készülék ideális választás carbon peeling, bőrképjavító és faggyúszabályozó kezelésekhez, ahol a cél nem a szövetroncsolás, hanem a kontrollált biológiai válasz kiváltása.\n\nA rendszer stabil működése, pontos energiakontrollja és több hullámhosszú lehetősége révén magas szintű biztonságot és kiszámítható eredményeket nyújt a professzionális kozmetikai gyakorlatban.",
+  "metaTitle": "PIXEL Q-kapcsolt ND:YAG lézer | Carbon peeling készülék szalonoknak",
+  "metaDescription": "PIXEL Carbon-lézer: Q-kapcsolt ND:YAG készülék 1064 nm, 532 nm és Carbon (Black Doll) kezelőfejjel, carbon peelinghez és bőrképjavításhoz. Kompakt, zárt vízhűtéses.",
   "stats": [
     {
-      "value": "3",
-      "label": "Hullámhossz",
+      "value": "1064",
+      "unit": "nm",
+      "label": "ND:YAG hullámhossz",
       "icon": "wave"
     },
     {
-      "value": "2000",
+      "value": "1200",
       "unit": "mJ",
-      "label": "Max. energia",
+      "label": "Max. impulzusenergia (1064 nm)",
       "icon": "zap"
     },
     {
-      "value": "2025",
-      "label": "Díjnyertes",
-      "icon": "award"
+      "value": "3",
+      "label": "Kezelőfej",
+      "icon": "layers"
     },
     {
-      "value": "2",
-      "unit": "év",
-      "label": "Garancia",
-      "icon": "shield"
+      "value": "14",
+      "unit": "kg",
+      "label": "Kompakt asztali",
+      "icon": "award"
     }
   ],
   "roi": {
     "defaultTreatmentPrice": 30000
   },
   "videoDescription": {
-    "headline": "A PIXEL nem ígér – bizonyít. Lézerpontosan.",
+    "headline": "Kontrollált biológiai válasz, szövetroncsolás nélkül",
     "paragraphs": [
-      "Három hullámhosszal (532 nm, 1064 nm, 1320 nm) dolgozik, így minden bőrtípust és minden pigmentárnyalatot magabiztosan kezel – még azokat is, amikről azt hitted, lehetetlen.",
-      "Azt hallottad, hogy a piros pigmentet nem lehet eltüntetni? A PIXEL letakarítja a legmakacsabb vörös szemöldöktetoválást is, mintha sosem lett volna ott.",
-      "A beépített hűtőrendszer és intelligens energiaelosztás gondoskodik arról, hogy a bőr biztonságban és egyenletesen kezelve maradjon. Precizitás, ami láthatatlan, eredmény, ami szembetűnő."
+      "A carbon peeling kezelés során a szénrészecskék elnyelik a lézerenergiát: ez egyszerre tisztítja a pórusokat, mikroingert kelt a bőrben, és regeneratív folyamatokat indít el a dermális rétegben, mindezt szövetkárosodás nélkül.",
+      "A cél soha nem a sejtek elpusztítása, hanem egy kontrollált, reprodukálható biológiai válaszreakció kiváltása. A bőr felszíne egységesebbé, a pórusok láthatóan finomabbá válnak.",
+      "A hullámhossz megválasztása biztonsági, nem esztétikai döntés: az 1064 nm mélyebbre hatol, alacsony melaninabszorpcióval, ezért kozmetikai környezetben a legbiztonságosabb."
     ]
   },
   "cta": {
@@ -57,36 +58,29 @@
     }
   },
   "featureRows": {
-    "headline": "Miért a PIXEL a kedvenc fegyvered a kezelőben?",
-    "subtitle": "Kompakt, mégis brutálisan hatékony – stílussal",
+    "headline": "Prémium megoldás regeneratív lézeres kezelésekhez",
+    "subtitle": "Orvosi minőségű technológia, kozmetikai kompetencián belül",
     "features": [
       {
-        "title": "3 hullámhossz – minden pigmentre megoldás",
-        "description": "A PIXEL három hullámhosszon dolgozik, így minden színű pigmentet és tetoválást hatékonyan kezel.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Hullámhosszak és alkalmazásuk:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>532 nm</strong> – piros, narancs, meleg barna pigmentek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1064 nm</strong> – fekete, kék, szürke, zöld pigmentek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>1320 nm</strong> – carbon peeling, mélytisztítás, bőrfiatalítás</div>\n</div>",
-        "highlight": "Az 532 nm hullámhossz a piros és narancssárga pigmenteket is hatékonyan kezeli – amit sok más lézer nem tud.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Carbon peeling és bőrképjavítás",
+        "description": "A PIXEL kifejezetten kozmetikai célú, nem invazív kezelésekre készült, ahol a cél nem a szövetroncsolás, hanem a kontrollált biológiai válasz.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Alkalmazási területek:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Carbon peeling / carbon laser facial</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pórustisztítás és faggyúszabályozás</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrfelszín tisztítása és egységesítése</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Fakó, problémás bőr regenerációjának támogatása</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bőrkép finomítása, ragyogásfokozás</div>\n</div>",
+        "image": "@assets/products/pixel-design-1.jpg"
       },
       {
-        "title": "Piros pigment eltávolítás – amit más nem tud",
-        "description": "A meleg színárnyalatú pigmentek (piros, narancs, meleg barna) eltávolítása az egyik legnagyobb kihívás a tetováláseltávolítás területén. A legtöbb ND:YAG lézer csak az 1064 nm hullámhosszon dolgozik, ami a sötét pigmentekre hatékony, de a világos, meleg árnyalatokkal nem boldogul. A PIXEL 532 nm hullámhossza kifejezetten ezekre a makacs pigmentekre lett tervezve.",
-        "highlight": "A PIXEL megoldja a 'lehetetlen' piros szemöldöktetoválásokat is.",
-        "image": "@assets/products/Pixelwebshop1.webp"
+        "title": "Három kezelőfej: 1064 nm, 532 nm és Carbon",
+        "description": "A készülékhez 1064 nm-es és 532 nm-es lézerfej, valamint Carbon (Black Doll) kezelőfej tartozik. Az 1064 nm mélyebbre hatol, alacsony melaninabszorpcióval; az 532 nm a felszíni pigmentekhez használható, a jogi szabályozás szerint.",
+        "highlight": "A pigmentromboló és terápiás kezelések alkalmazása országonként eltérő jogszabályi feltételekhez kötött.",
+        "image": "@assets/products/pixel-design-3.jpg"
       },
       {
-        "title": "Carbon peeling – prémium arckezelés",
-        "description": "Az 1320 nm hullámhossz lehetővé teszi a carbon peeling kezelést, amely egy rendkívül népszerű és jövedelmező arckezelési szolgáltatás. A speciális szénréteg a bőrre kerül, majd a lézer impulzusai eltávolítják a szennyeződéseket és serkentik a kollagéntermelést.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Eredmények:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Látványosan tisztább bőr</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pórusösszehúzás</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kollagénstimuláció</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Friss, üde arcbőr</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop3.webp"
+        "title": "Pontos energiakontroll, stabil impulzusok",
+        "description": "Rövid, nagy csúcsteljesítményű impulzusok, digitális energia- és frekvenciabeállítás, lövésszámláló. A beépített, zárt vízhűtéses rendszer folyamatosan felügyeli a vízáramlást és a hőmérsékletet, ez biztosítja az impulzusok stabilitását.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Paraméterek:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 1200 mJ (1064 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Max. 600 mJ (532 nm)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Spotméret: 2–5 mm</div>\n</div>",
+        "image": "@assets/products/pixel-design-2.jpg"
       },
       {
-        "title": "Kompakt és intelligens kialakítás",
-        "description": "A PIXEL kompakt mérete ellenére profi teljesítményt nyújt. Az intelligens víz- és léghűtéses rendszer gondoskodik a biztonságos kezelésről, a 4.3 colos érintőkijelző és a lábpedálos vezérlés pedig maximális kezelési kényelmet biztosít.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Kezelési paraméterek:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Impulzusenergia: 10–2000 mJ</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–10 Hz</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Víz- és léghűtés</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4.3\" érintőkijelző + lábpedál</div>\n</div>",
-        "image": "@assets/products/Pixelwebshop4.webp"
-      },
-      {
-        "title": "2025-ben díjnyertes – nemzetközi elismerés",
-        "description": "A PIXEL 2025-ben Lengyelországban elnyerte az év legjobb kompakt asztali Q-kapcsolt ND:YAG lézerkészüléke díjat. Ez a nemzetközi elismerés bizonyítja, hogy a PIXEL nemcsak kompakt és elegáns, hanem teljesítményben is a kategória élvonalába tartozik.",
-        "highlight": "Díjnyertes minőség, elérhető áron – ez a PIXEL.",
-        "image": "@assets/products/Pixelwebshop2.webp"
+        "title": "Beépített biztonsági rendszerek",
+        "description": "Kulcsos indítórendszer és vészleállító (STOP) gomb: minden kezelés előtt és után egyértelmű, fizikai kontroll a kezelő kezében. Használat után a kulcs eltávolítása kötelező biztonsági lépés, amely megakadályozza a jogosulatlan üzembe helyezést. Automatikus vízáramlás-ellenőrzés és túlmelegedés-védelem.",
+        "image": "@assets/products/pixel-1.jpg"
       }
     ]
   },
@@ -95,15 +89,15 @@
     "badge": "FAR tanúsítvánnyal",
     "intro": "A PIXEL ND:YAG lézerhez hivatalos, B-számos képzés is elérhető, amely a FAR rendszerben regisztrált. A tananyag kidolgozását egészségügyi szférában tevékenykedő, vizsgáztatói jogosultsággal rendelkező oktató mentorálta, továbbá orosz lézerspecialista orvos szakmai információs anyagán alapul.",
     "items": [
-      "A Q-kapcsolt ND:YAG lézer technológia működési elve",
-      "Hullámhosszak és alkalmazási területek (tetoválás, pigment, carbon peeling)",
-      "Kezelési protokollok különböző pigmenttípusokhoz",
-      "Kontraindikációk, bőrtípus-felmérés és biztonságos kezelés",
+      "A Q-kapcsolt ND:YAG lézer működési elve",
+      "A kezelőfejek (1064 nm, 532 nm, Carbon) használata és paraméterezése",
       "Carbon peeling kezelés gyakorlata",
+      "A bőrreakciók helyes értelmezése, kontraindikációk",
+      "Kompetenciahatárok a gyakorlatban: mit kezelhet és mit nem a kozmetikus",
       "Gyakorlati kezelések modelleken"
     ],
     "closingParagraphs": [
-      "A képzés célja, hogy a résztvevők biztonságosan és jogszabályi keretek között tudják alkalmazni a PIXEL lézert kozmetikai és esztétikai kezelésekhez.",
+      "Minden PIXEL készülék átadása gyakorlati betanítással történik, hogy az első kezelésektől kezdve biztonságosan és magabiztosan dolgozhass.",
       "A képzés elvégzése után hivatalos FAR tanúsítványt állítunk ki."
     ],
     "price": "79.990 Ft",
@@ -121,88 +115,93 @@
     }
   ],
   "expertQuote": {
-    "quote": "Az ND:YAG lézer az egyik legsokoldalúbb eszköz a kozmetikai piacon – tetováláseltávolítás, pigmentkezelés és carbon peeling egyetlen gépben. A PIXEL ár-érték aránya kiemelkedő a kategóriában.",
+    "quote": "A biztonságos lézerhasználat alapja nem a technológia határainak feszegetése, hanem a bőr biológiai korlátainak tiszteletben tartása. A PIXEL-t ezért carbon peelingre és bőrképjavításra ajánljuk, kozmetikai kompetencián belül.",
     "author": "Horváth László",
     "role": "Skinlab alapító, technikai szakértő",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
-    "Típus": "Q-kapcsolt ND:YAG lézer",
-    "Hullámhosszak": "532 nm / 1064 nm / 1320 nm",
-    "Impulzusenergia": "10–2000 mJ",
+    "Lézertípus": "Q-kapcsolt ND:YAG",
+    "Hullámhossz": "1064 nm / 532 nm",
+    "Kezelőfejek": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Max. impulzusenergia (1064 nm)": "1200 mJ",
+    "Max. impulzusenergia (532 nm)": "600 mJ",
     "Frekvencia": "1–10 Hz",
-    "Hűtési rendszer": "Víz + Levegő",
-    "Kijelző": "4.3\" érintőkijelző",
-    "Vezérlés": "Érintőkijelző + lábpedál",
-    "Kialakítás": "Kompakt asztali",
-    "Tápellátás": "220V / 50Hz",
-    "Tanúsítványok": "CE"
+    "Impulzusüzem": "Rövid, nagy csúcsteljesítményű impulzusok",
+    "Spotméret": "2–5 mm",
+    "Kijelző": "4,3\" színes LCD érintőképernyő",
+    "Vezérlés": "Digitális energia- és frekvenciabeállítás, lövésszámláló",
+    "Felügyelet": "Vízáramlás- és hőmérséklet-felügyelet, többnyelvű kezelőfelület",
+    "Hűtés": "Beépített, zárt vízhűtéses rendszer, desztillált vízzel",
+    "Védelem": "Automatikus vízáramlás-ellenőrzés és túlmelegedés-védelem",
+    "Tápfeszültség": "200–240 V / 50–60 Hz",
+    "Teljesítményfelvétel": "400 W",
+    "Méretek": "42 × 23 × 34 cm",
+    "Nettó tömeg": "kb. 14 kg",
+    "Kivitel": "Asztali, kompakt rendszer"
   },
   "functionCards": [
     {
-      "icon": "zap",
-      "name": "Tetoválás eltávolítás",
-      "description": "Sötét pigmentek (fekete, kék, szürke, zöld) halványítása és eltávolítása 1064 nm hullámhosszon"
-    },
-    {
-      "icon": "sun",
-      "name": "Piros pigment kezelés",
-      "description": "Meleg színárnyalatú pigmentek (piros, narancs, barna) eltávolítása 532 nm hullámhosszon"
-    },
-    {
       "icon": "sparkles",
       "name": "Carbon peeling",
-      "description": "Mélytisztítás, pórusösszehúzás és bőrfiatalítás 1320 nm hullámhosszon"
+      "description": "Carbon laser facial a Carbon (Black Doll) kezelőfejjel: pórustisztítás, ragyogásfokozás, szövetroncsolás nélkül"
     },
     {
       "icon": "droplet",
-      "name": "Pigmentfolt kezelés",
-      "description": "Korfoltos, napfoltos és egyéb pigmentációs elváltozások halványítása"
+      "name": "Faggyúszabályozás",
+      "description": "Pórustisztítás és faggyúszabályozó kezelések zsíros, problémás bőrre"
     },
     {
-      "icon": "eye",
-      "name": "Sminktetoválás eltávolítás",
-      "description": "Szemöldök, ajak és szemhéj sminktetoválások korrekciója és eltávolítása"
+      "icon": "sun",
+      "name": "Bőrképjavítás",
+      "description": "A bőrfelszín tisztítása és egységesítése, a bőrkép finomítása"
+    },
+    {
+      "icon": "zap",
+      "name": "Regeneráció támogatása",
+      "description": "Fakó, problémás bőr regenerációjának támogatása kontrollált fototermikus hatással"
     }
   ],
   "faq": [
     {
-      "question": "Milyen tetoválásokat tud kezelni a PIXEL?",
-      "answer": "A PIXEL háromféle hullámhosszon dolgozik, így szinte minden színű tetoválást kezelni tud. Az 1064 nm a sötét színekhez (fekete, kék, szürke, zöld), az 532 nm a meleg színekhez (piros, narancs, barna). Ez magában foglalja a testtetoválásokat és a sminktetoválásokat (szemöldök, ajak) egyaránt."
+      "question": "Milyen kezelésekre ajánlott a PIXEL?",
+      "answer": "Carbon peelingre (carbon laser facial), pórustisztításra és faggyúszabályozásra, a bőrfelszín tisztítására és egységesítésére, a fakó, problémás bőr regenerációjának támogatására, valamint a bőrkép finomítására és ragyogásfokozásra."
     },
     {
-      "question": "Tényleg kezeli a piros pigmentet is?",
-      "answer": "Igen! Az 532 nm hullámhossz kifejezetten a meleg színárnyalatú pigmentekre (piros, narancs, meleg barna) lett tervezve. Sok versenytárs ND:YAG lézer csak 1064 nm-en dolgozik, ami a sötét színekre hatékony, de a világos, meleg tónusokkal nem boldogul. A PIXEL ebben kiemelkedik."
+      "question": "Milyen kezelőfejek tartoznak a készülékhez?",
+      "answer": "Három: egy 1064 nm-es és egy 532 nm-es lézerfej, valamint egy Carbon (Black Doll) kezelőfej a carbon peelinghez."
     },
     {
-      "question": "Mi az a carbon peeling és mennyire jövedelmező?",
-      "answer": "A carbon peeling egy prémium arckezelés, ahol speciális szénréteget viszünk fel a bőrre, majd a lézer impulzusaival eltávolítjuk. Az eredmény: látványosan tisztább bőr, kisebb pórusok, stimulált kollagéntermelés. Egy kezelés ára 15.000-30.000 Ft között mozog, és a vendégek rendszeresen visszatérnek (4-6 hetente ajánlott)."
+      "question": "Használható pigment- vagy tetoválás-halványításra?",
+      "answer": "A Q-kapcsolt ND:YAG technológia alkalmas lehet tetoválás- és sminktetoválás-halványításra, fokozatos, kontrollált kezelési folyamatban. A pigmentromboló és terápiás kezelések alkalmazása azonban országonként eltérő jogszabályi feltételekhez kötött, ezért ezek végzése előtt tájékozódj a rád vonatkozó szabályokról."
     },
     {
-      "question": "Mennyi idő alatt térül meg a PIXEL?",
-      "answer": "Átlagosan 2-3 hónap alatt, napi 3-5 vendéggel számolva. A tetováláseltávolítás kezelésenként 15.000-50.000 Ft, a carbon peeling 15.000-30.000 Ft. Használja a ROI kalkulátorunkat az oldalon a pontos számításhoz!"
+      "question": "Mit nem kezelhet a kozmetikus a PIXEL-lel?",
+      "answer": "Amit a kozmetikus nem diagnosztizálhat, azt nem kezelheti. Anyajegyek, éreredetű elváltozások, gyanús pigmentek és betegséghez köthető bőrelváltozások nem tartoznak a kozmetikai kompetenciába: ezek felismerése és orvoshoz irányítása a kezelő felelőssége. A készülék nem diagnosztikai és nem gyógyászati célú."
+    },
+    {
+      "question": "Milyen hűtése van a készüléknek?",
+      "answer": "Beépített, zárt vízhűtéses rendszer, desztillált vízzel. A rendszer folyamatosan felügyeli a vízáramlást és a hőmérsékletet, automatikus túlmelegedés-védelemmel."
     },
     {
       "question": "Milyen képzés jár a PIXEL-hez?",
-      "answer": "Hivatalos, B-számos, FAR-regisztrált gépkezelői képzés jár INGYENESEN a gépvásárlás mellé (79.990 Ft értékben). A tananyag egészségügyi szférában tevékenykedő oktatók és orosz lézerspecialista orvos szakmai anyagán alapul."
-    },
-    {
-      "question": "A PIXEL kompakt – elég erős a profi munkához?",
-      "answer": "Abszolút! A kompakt méret nem jelent kompromisszumot a teljesítményben. A 10-2000 mJ impulzusenergia és az 1-10 Hz frekvencia profi szintű kezelést tesz lehetővé. A 2025-ös lengyel díj is bizonyítja, hogy a PIXEL a kategória egyik legjobb készüléke."
+      "answer": "Minden PIXEL készülék átadása gyakorlati betanítással történik: a kezelőfejek használatától a paraméterezésen át a bőrreakciók helyes értelmezéséig. Az oktatás kitér a kompetenciahatárok gyakorlati alkalmazására is. A képzés gépvásárlás mellé ingyenes, a végén FAR tanúsítványt állítunk ki."
     },
     {
       "question": "Van lehetőség a gép megtekintésére vásárlás előtt?",
-      "answer": "Igen! Showroomunkban (Érd, Bajcsy-Zsilinszky út 156.) személyesen is megtekintheted és kipróbálhatod a PIXEL ND:YAG lézert előzetes időpontfoglalással."
+      "answer": "Igen, érdi showroomunkban (Bajcsy-Zsilinszky út 156.) előzetes időpontfoglalással személyesen is megtekintheted a PIXEL lézert."
     }
   ],
   "whatsIncluded": [
-    "PIXEL Q-kapcsolt ND:YAG lézerkészülék",
-    "532 nm kezelőfej (piros/narancs pigmentek)",
-    "1064 nm kezelőfej (sötét pigmentek)",
-    "1320 nm kezelőfej (carbon peeling)",
-    "Védőszemüveg (kezelő + vendég)",
-    "Lábpedál",
-    "Használati útmutató (magyar nyelvű)",
+    "Lézerkészülék főegység",
+    "Kezelőkar",
+    "1064 nm lézerfej",
+    "532 nm lézerfej",
+    "Carbon (Black Doll) kezelőfej",
+    "Lábkapcsoló",
+    "Védőszemüvegek (kezelő és vendég részére)",
+    "Vízbetöltő készlet és kiegészítők",
+    "M'ONDUNIQ Laser-IQ ápolási termékek (SPF 50 anti-age krém, regeneráló krém, Carbon Peel hialuronsavas maszk)",
     "Gépkezelői oktatás (FAR tanúsítvány)",
     "2 év teljes körű garancia",
     "Cseregép-program hosszabb javítás esetére"
