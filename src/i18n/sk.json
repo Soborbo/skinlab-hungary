@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "2-ročná záruka",
     "warrantyDesc": "Na kozmetické prístroje (tetovacie a PMU prístroje: 1 rok)",
-    "shipping": "15-20 pracovných dní",
-    "shippingDesc": "Spoľahlivá dodávka s kompletným colným odbavením",
+    "shipping": "Spoľahlivé doručenie",
+    "shippingDesc": "Skladový tovar zo skladu, prístroje za 15–20 pracovných dní",
     "training": "FAR certifikát",
     "trainingDesc": "Oficiálne školenie operátorov",
     "service": "Vlastný servis",
@@ -1029,5 +1029,33 @@
     "laszloRole": "Zakladateľ Skinlab",
     "laszloSpec": "Technický expert",
     "cta": "Spoznajte celý náš príbeh"
+  },
+  "services": {
+    "title": "Viac ako e-shop",
+    "subtitle": "K prístrojom dostanete všetko, čo váš salón potrebuje: ošetrujúce prípravky, školenie, servis a osobnú ukážku.",
+    "consumables": {
+      "title": "Ošetrujúce prípravky M'onduniq",
+      "desc": "Profesionálne ošetrujúce prípravky a príslušenstvo k vašim prístrojom, od starostlivosti pred a po laserovom ošetrení až po ihlové moduly.",
+      "cta": "Ošetrujúce prípravky",
+      "alt": "Ošetrujúci prípravok M'onduniq na hodvábnom pozadí"
+    },
+    "training": {
+      "title": "Školenia s certifikáciou FAR",
+      "desc": "Školenie obsluhy prístrojov v skutočnom salónnom prostredí, v malých skupinách, s oficiálnym certifikátom.",
+      "cta": "Naše školenia",
+      "alt": "Účastníčka školenia s certifikátom FAR"
+    },
+    "service": {
+      "title": "Vlastný servis a záruka",
+      "desc": "Servis v Maďarsku, žiadne týždne čakania na prístroj poslaný do zahraničia. Program náhradného prístroja pri dlhšej oprave.",
+      "cta": "Záruka a servis",
+      "alt": "László Horváth pri práci s laserovou hlavicou"
+    },
+    "showroom": {
+      "title": "Showroom v Érde",
+      "desc": "Pozrite si a vyskúšajte prístroje osobne, po predchádzajúcom dohovore.",
+      "cta": "Showroom a kontakt",
+      "alt": "Showroom Skinlab so svietiacim logom a kozmetickým prístrojom"
+    }
   }
 }

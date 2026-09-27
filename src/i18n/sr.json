@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "2 godine garancije",
     "warrantyDesc": "Na kozmetičke uređaje (uređaji za tetoviranje i PMU: 1 godina)",
-    "shipping": "15-20 radnih dana",
-    "shippingDesc": "Pouzdana isporuka sa potpunim carinjenjem",
+    "shipping": "Pouzdana isporuka",
+    "shippingDesc": "Artikli na stanju iz magacina, uređaji za 15–20 radnih dana",
     "training": "FAR sertifikat",
     "trainingDesc": "Zvanicna obuka operatera",
     "service": "Sopstveni servis",
@@ -1029,5 +1029,33 @@
     "laszloRole": "Osnivač Skinlaba",
     "laszloSpec": "Tehnički stručnjak",
     "cta": "Upoznajte celu našu priču"
+  },
+  "services": {
+    "title": "Više od web-prodavnice",
+    "subtitle": "Uz uređaje dobijate sve što vašem salonu treba: preparate za tretmane, obuku, servis i ličnu prezentaciju.",
+    "consumables": {
+      "title": "M'onduniq preparati za tretmane",
+      "desc": "Profesionalni preparati i pribor za vaše uređaje, od nege pre i posle laserskih tretmana do modula igala.",
+      "cta": "Preparati za tretmane",
+      "alt": "M'onduniq preparat na svilenoj pozadini"
+    },
+    "training": {
+      "title": "Obuke sa FAR sertifikatom",
+      "desc": "Obuka za rad sa uređajima u stvarnom salonskom okruženju, u malim grupama, sa zvaničnim sertifikatom.",
+      "cta": "Naše obuke",
+      "alt": "Polaznica obuke sa svojim FAR sertifikatom"
+    },
+    "service": {
+      "title": "Sopstveni servis i garancija",
+      "desc": "Servis u Mađarskoj, bez nedelja čekanja na uređaj poslat u inostranstvo. Program zamenskog uređaja za duže popravke.",
+      "cta": "Garancija i servis",
+      "alt": "László Horváth radi na laserskoj ručki"
+    },
+    "showroom": {
+      "title": "Šourum u Érdu",
+      "desc": "Pogledajte i isprobajte uređaje lično, uz prethodnu najavu.",
+      "cta": "Šourum i kontakt",
+      "alt": "Skinlab šourum sa svetlećim logom i kozmetičkim uređajem"
+    }
   }
 }

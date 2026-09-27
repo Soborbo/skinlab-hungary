@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "2 Jahre Garantie",
     "warrantyDesc": "Auf Kosmetikgerate (Tattoo- und PMU-Gerate: 1 Jahr)",
-    "shipping": "15-20 Werktage",
-    "shippingDesc": "Zuverlässige Lieferung mit vollständiger Zollabwicklung",
+    "shipping": "Zuverlässige Lieferung",
+    "shippingDesc": "Lagerartikel ab Lager, Geräte in 15–20 Werktagen",
     "training": "FAR-Zertifikat",
     "trainingDesc": "Offizielle Bediener-Schulung",
     "service": "Eigener Service",
@@ -1029,5 +1029,33 @@
     "laszloRole": "Skinlab-Gründer",
     "laszloSpec": "Technischer Experte",
     "cta": "Lernen Sie unsere ganze Geschichte kennen"
+  },
+  "services": {
+    "title": "Mehr als ein Webshop",
+    "subtitle": "Zu den Geräten bekommen Sie alles, was Ihr Salon braucht: Behandlungsprodukte, Schulung, Service und eine persönliche Vorführung.",
+    "consumables": {
+      "title": "M'onduniq Behandlungsprodukte",
+      "desc": "Professionelle Behandlungsprodukte und Zubehör für Ihre Geräte, von der Pflege vor und nach Laserbehandlungen bis zu Nadelmodulen.",
+      "cta": "Behandlungsprodukte",
+      "alt": "M'onduniq Behandlungsprodukt auf Seidenhintergrund"
+    },
+    "training": {
+      "title": "FAR-zertifizierte Schulungen",
+      "desc": "Geräteschulung in echter Salonumgebung, in kleinen Gruppen, mit offiziellem Zertifikat.",
+      "cta": "Unsere Schulungen",
+      "alt": "Schulungsteilnehmerin mit ihrem FAR-Zertifikat"
+    },
+    "service": {
+      "title": "Eigener Service und Garantie",
+      "desc": "Service in Ungarn, kein wochenlanges Warten auf ein ins Ausland geschicktes Gerät. Ersatzgeräte-Programm bei längeren Reparaturen.",
+      "cta": "Garantie und Service",
+      "alt": "László Horváth bei der Arbeit an einem Laser-Handstück"
+    },
+    "showroom": {
+      "title": "Showroom in Érd",
+      "desc": "Sehen und testen Sie die Geräte persönlich, nach Terminvereinbarung.",
+      "cta": "Showroom und Kontakt",
+      "alt": "Der Skinlab-Showroom mit dem beleuchteten Logo und einem Kosmetikgerät"
+    }
   }
 }
