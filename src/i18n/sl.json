@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "2-letna garancija",
     "warrantyDesc": "Za kozmeticne naprave (naprave za tetoviranje in PMU: 1 leto)",
-    "shipping": "15-20 delovnih dni",
-    "shippingDesc": "Zanesljiva dostava s popolno carinsko obravnavo",
+    "shipping": "Zanesljiva dostava",
+    "shippingDesc": "Izdelki na zalogi z zaloge, naprave v 15–20 delovnih dneh",
     "training": "FAR certifikat",
     "trainingDesc": "Uradno usposabljanje operaterjev",
     "service": "Lasten servis",
@@ -1029,5 +1029,33 @@
     "laszloRole": "Ustanovitelj Skinlaba",
     "laszloSpec": "Tehnični strokovnjak",
     "cta": "Spoznajte vso našo zgodbo"
+  },
+  "services": {
+    "title": "Več kot spletna trgovina",
+    "subtitle": "Poleg naprav dobite vse, kar vaš salon potrebuje: pripravke za tretmaje, izobraževanje, servis in osebno predstavitev.",
+    "consumables": {
+      "title": "Pripravki za tretmaje M'onduniq",
+      "desc": "Profesionalni pripravki in pripomočki za vaše naprave, od nege pred laserskimi tretmaji in po njih do igelnih modulov.",
+      "cta": "Pripravki za tretmaje",
+      "alt": "Pripravek M'onduniq na svilenem ozadju"
+    },
+    "training": {
+      "title": "Izobraževanja s certifikatom FAR",
+      "desc": "Usposabljanje za delo z napravami v resničnem salonskem okolju, v majhnih skupinah, z uradnim certifikatom.",
+      "cta": "Naša izobraževanja",
+      "alt": "Udeleženka izobraževanja s certifikatom FAR"
+    },
+    "service": {
+      "title": "Lasten servis in garancija",
+      "desc": "Servis na Madžarskem, brez tednov čakanja na napravo, poslano v tujino. Program nadomestne naprave za daljša popravila.",
+      "cta": "Garancija in servis",
+      "alt": "László Horváth pri delu z lasersko ročko"
+    },
+    "showroom": {
+      "title": "Razstavni prostor v Érdu",
+      "desc": "Oglejte si in preizkusite naprave osebno, po predhodnem dogovoru.",
+      "cta": "Razstavni prostor in kontakt",
+      "alt": "Razstavni prostor Skinlab s svetlečim logotipom in kozmetično napravo"
+    }
   }
 }

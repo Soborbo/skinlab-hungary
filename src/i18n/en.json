@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "2-Year Warranty",
     "warrantyDesc": "On cosmetic devices (tattoo and PMU machines: 1 year)",
-    "shipping": "15-20 business days",
-    "shippingDesc": "Reliable delivery with full customs clearance",
+    "shipping": "Reliable delivery",
+    "shippingDesc": "In-stock items from stock, machines in 15–20 business days",
     "training": "FAR Certificate",
     "trainingDesc": "Official operator training",
     "service": "In-house Service",
@@ -1035,5 +1035,33 @@
     "laszloRole": "Skinlab founder",
     "laszloSpec": "Technical expert",
     "cta": "Read our full story"
+  },
+  "services": {
+    "title": "More than a webshop",
+    "subtitle": "Alongside the machines you get everything your salon needs to run: treatment products, training, service and a personal demo.",
+    "consumables": {
+      "title": "M'onduniq treatment products",
+      "desc": "Professional treatment products and supplies for your machines, from pre- and post-laser skincare to needle cartridges.",
+      "cta": "Treatment products",
+      "alt": "M'onduniq treatment product on a silk background"
+    },
+    "training": {
+      "title": "FAR-certified training",
+      "desc": "Machine operator training in a real salon environment, in small groups, with an official certificate.",
+      "cta": "Our training",
+      "alt": "Training participant holding her FAR certificate"
+    },
+    "service": {
+      "title": "Own service and warranty",
+      "desc": "Service in Hungary, so no waiting weeks for a machine sent abroad. Replacement device programme for longer repairs.",
+      "cta": "Warranty and service",
+      "alt": "László Horváth working on a laser handpiece"
+    },
+    "showroom": {
+      "title": "Showroom in Érd",
+      "desc": "See and try the machines in person, by appointment.",
+      "cta": "Showroom and contact",
+      "alt": "The Skinlab showroom with the illuminated logo and a cosmetic device"
+    }
   }
 }

@@ -5,14 +5,17 @@
  *
  * Tájékozódás → bizonyíték → a friss ajánlat → döntés és finanszírozás →
  * ki áll mögötte → mi történik, ha jelentkezem → záró CTA.
+ * 2026-09-27: a kategóriák alá bekerült a "Több mint webshop" sáv
+ * (kezelőanyag, képzés, szerviz, showroom); a diódalézer-összehasonlítás
+ * kikerült, hogy a főoldal ne egyetlen gépről szóljon (a kategóriaoldalon megvan).
  * A régi Stats-sáv kikerült (igazolatlan számok, duplikálta az USP-sávot).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroCarousel from '../sections/HeroCarousel.astro';
 import Categories from '../sections/Categories.astro';
+import ServicesStrip from '../sections/ServicesStrip.astro';
 import VideoQuote from '../video/VideoQuote.astro';
 import FeaturedProduct from '../sections/FeaturedProduct.astro';
-import DiodeComparison from '../sections/DiodeComparison.astro';
 import HomeFinance from '../sections/HomeFinance.astro';
 import WhyUs from '../sections/WhyUs.astro';
 import TrainingGallery from '../sections/TrainingGallery.astro';
@@ -43,12 +46,12 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
     <HeroCarousel />
     {/* 2. Nekem való terület van itt? */}
     <Categories />
+    {/* 2b. Csak webshop? Nem: kezelőanyag, képzés, szerviz, showroom is. */}
+    <ServicesStrip />
     {/* 3. Kik dolgoznak ezzel tényleg? */}
     <VideoQuote testimonial="adri" videoSide="right" />
     {/* 4. Mi az újdonság, megéri? */}
     <FeaturedProduct slug="empire" />
-    {/* 5. Melyiket válasszam? */}
-    <DiodeComparison highlight="empire" categorySlug="diodalezerek" />
     {/* 6. Ki tudom fizetni? (csak HU, ott van részletfizetés) */}
     <HomeFinance exampleSlug="empire" />
     {/* 7. Mi van, ha elromlik vagy elakadok? */}

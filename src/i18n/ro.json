@@ -67,8 +67,8 @@
   "trust": {
     "warranty": "Garantie 2 ani",
     "warrantyDesc": "Pentru aparatele cosmetice (aparate de tatuaj si PMU: 1 an)",
-    "shipping": "15-20 zile lucrătoare",
-    "shippingDesc": "Livrare de încredere cu vămuire completă",
+    "shipping": "Livrare de încredere",
+    "shippingDesc": "Produsele în stoc din stoc, aparatele în 15–20 de zile lucrătoare",
     "training": "Certificat FAR",
     "trainingDesc": "Curs oficial de operator",
     "service": "Service propriu",
@@ -1029,5 +1029,33 @@
     "laszloRole": "Fondator Skinlab",
     "laszloSpec": "Expert tehnic",
     "cta": "Descoperă povestea noastră completă"
+  },
+  "services": {
+    "title": "Mai mult decât un magazin online",
+    "subtitle": "Pe lângă aparate primești tot ce îi trebuie salonului tău: produse pentru tratamente, instruire, service și o demonstrație personală.",
+    "consumables": {
+      "title": "Produse pentru tratamente M'onduniq",
+      "desc": "Produse profesionale și accesorii pentru aparatele tale, de la îngrijirea înainte și după tratamentele laser până la modulele de ace.",
+      "cta": "Produse pentru tratamente",
+      "alt": "Produs M'onduniq pe fundal de mătase"
+    },
+    "training": {
+      "title": "Cursuri certificate FAR",
+      "desc": "Instruire pentru operarea aparatelor într-un mediu real de salon, în grupuri mici, cu certificat oficial.",
+      "cta": "Cursurile noastre",
+      "alt": "Cursantă cu certificatul FAR"
+    },
+    "service": {
+      "title": "Service propriu și garanție",
+      "desc": "Service în Ungaria, fără săptămâni de așteptare pentru un aparat trimis în străinătate. Program de dispozitiv de înlocuire pentru reparații mai lungi.",
+      "cta": "Garanție și service",
+      "alt": "László Horváth lucrând la o piesă de mână laser"
+    },
+    "showroom": {
+      "title": "Showroom în Érd",
+      "desc": "Vezi și încearcă aparatele personal, cu programare prealabilă.",
+      "cta": "Showroom și contact",
+      "alt": "Showroomul Skinlab cu logoul luminos și un aparat cosmetic"
+    }
   }
 }

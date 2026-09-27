@@ -71,8 +71,8 @@
   "trust": {
     "warranty": "2 év garancia",
     "warrantyDesc": "Kozmetikai gépekre (tetováló- és sminktetováló gépekre 1 év)",
-    "shipping": "15-20 munkanap",
-    "shippingDesc": "Országos házhozszállítással",
+    "shipping": "Országos szállítás",
+    "shippingDesc": "Raktári tételek készletről, gépek 15–20 munkanap",
     "training": "FAR tanúsítvány",
     "trainingDesc": "Hivatalos gépkezelői képzés",
     "service": "Saját szerviz",
@@ -1122,5 +1122,33 @@
     "term": "{months} hónap",
     "perMonth": "{amount}/hó",
     "note": "Pontos ajánlatot a konzultáción adunk."
+  },
+  "services": {
+    "title": "Több mint webshop",
+    "subtitle": "A gépek mellé mindent megkapsz, ami a szalonod működéséhez kell: kezelőanyagot, képzést, szervizt és személyes bemutatót.",
+    "consumables": {
+      "title": "M'onduniq kezelőanyagok",
+      "desc": "Professzionális kezelőanyagok és kellékek a gépeidhez, a lézeres kezelések előtti és utáni ápolástól a tűmodulokig.",
+      "cta": "Kezelőanyagok",
+      "alt": "M'onduniq kezelőanyag selyem háttéren"
+    },
+    "training": {
+      "title": "FAR-tanúsított képzések",
+      "desc": "Gépkezelői oktatás valódi szalonkörnyezetben, kis létszámú csoportokban, hivatalos tanúsítvánnyal.",
+      "cta": "Képzéseink",
+      "alt": "Képzésen résztvevő a FAR-tanúsítványával"
+    },
+    "service": {
+      "title": "Saját szerviz és garancia",
+      "desc": "Magyarországi szerviz, nem kell heteket várni külföldre küldött gépre. Cseregép-program hosszabb javítás esetére.",
+      "cta": "Garancia és szerviz",
+      "alt": "Horváth László munka közben egy lézeres kezelőfejjel"
+    },
+    "showroom": {
+      "title": "Showroom Érden",
+      "desc": "Nézd meg és próbáld ki a gépeket személyesen, előzetes időpontfoglalással.",
+      "cta": "Showroom és elérhetőség",
+      "alt": "A Skinlab showroom a világító logóval és egy kozmetikai géppel"
+    }
   }
 }

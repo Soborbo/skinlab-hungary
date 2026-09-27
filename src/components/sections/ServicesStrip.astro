@@ -1,0 +1,76 @@
+---
+/**
+ * ServicesStrip - "Több mint webshop" sáv a főoldalon, a kategóriák alatt.
+ *
+ * A webshop marad az első (hero + kategóriák), ez a sáv mutatja meg, mi minden
+ * van még a gépek mögött: kezelőanyagok, képzés, saját szerviz, showroom.
+ * Minden kártya a meglévő aloldalra visz.
+ */
+import { QuarterImage } from '../images';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+const items = [
+  {
+    key: 'consumables',
+    href: '/kezeloanyagok/',
+    image: '@assets/products/monduniq-hifusion-longevity-arckrem-design-1.webp',
+  },
+  {
+    key: 'training',
+    href: '/kepzesek/',
+    image: '@assets/kozmetikai-kepzes-far-tanusitvany.jpg',
+  },
+  {
+    key: 'service',
+    href: '/garancia/',
+    image: '@assets/kozmetikai-gepkezelo-kepzes-gyakorlat.jpg',
+  },
+  {
+    key: 'showroom',
+    href: '/kapcsolat/',
+    image: '@assets/rolunk3.jpg',
+  },
+];
+---
+
+<section class="py-12 lg:py-16 bg-white" id="szolgaltatasok">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 lg:mb-10">
+      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+        {t(locale, 'services.title')}
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-sm lg:text-base">
+        {t(locale, 'services.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
+      {items.map((item) => (
+        <a
+          href={getLocalizedUrl(locale, item.href)}
+          class="group flex flex-row sm:flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-cta hover:shadow-lg transition-all"
+        >
+          <div class="w-28 shrink-0 sm:w-auto sm:aspect-[4/3] overflow-hidden bg-gray-100">
+            <QuarterImage
+              src={item.image}
+              alt={t(locale, `services.${item.key}.alt`)}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="flex flex-col flex-1 p-4 sm:p-5">
+            <h3 class="font-bold text-gray-900 mb-2">{t(locale, `services.${item.key}.title`)}</h3>
+            <p class="text-sm text-gray-600 mb-3 sm:mb-4 flex-1">{t(locale, `services.${item.key}.desc`)}</p>
+            <span class="inline-flex items-center gap-1 text-sm font-semibold text-cta">
+              {t(locale, `services.${item.key}.cta`)}
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
