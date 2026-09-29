@@ -321,7 +321,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
                       )}
                     </div>
                     <span class="flex-1 flex items-center gap-2">
-                      {t(locale, item.labelKey)}
+                      {t(locale, item.mobileLabelKey ?? item.labelKey)}
                       {item.badgeKey && (
                         <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold bg-[#ffdbe5] text-[#ce2252] rounded-full">
                           {t(locale, item.badgeKey)}
