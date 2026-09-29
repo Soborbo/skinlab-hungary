@@ -8,7 +8,7 @@
   "metaTitle": "MAST Nano 2 sminktetováló gép – Könnyű, halk és precíz",
   "metaDescription": "66 g-os kompakt sminktetováló gép profi és kezdő használatra. Minimális vibráció, precíz szemhéjmunka, erőteljes és megbízható teljesítmény.\r\n\r\n",
   "price": 59990,
-  "image": "@assets/products/mastnano2.webp",
+  "image": "@assets/products/mast-nano-2-design.jpg",
   "youtubeVideos": [],
   "availability": "out_of_stock",
   "hasVariants": false,
@@ -20,5 +20,11 @@
   ],
   "specs": {
     "Gyártó": "Dragonhawk"
+  },
+  "designImages": [
+    "@assets/products/mast-nano-2-design.jpg"
+  ],
+  "imageAlts": {
+    "mast-nano-2-design.jpg": "Két Mast Nano 2.0 sminktetováló gép rózsaszín-arany selyem háttéren"
   }
 }
