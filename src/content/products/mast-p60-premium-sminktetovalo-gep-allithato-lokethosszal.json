@@ -8,7 +8,7 @@
   "metaTitle": "MAST P60 sminktetováló gép – vezeték nélküli, állítható lökethosszal",
   "metaDescription": "Vezeték nélküli MAST P60 gép állítható lökethosszal, hosszú üzemidővel és csendes működéssel. Tökéletes sminktetováláshoz kezdőknek és profiknak.",
   "price": 79990,
-  "image": "@assets/products/P60arany.webp",
+  "image": "@assets/products/mast-p60-arany-design.jpg",
   "availability": "out_of_stock",
   "hasVariants": true,
   "variants": [
@@ -17,8 +17,9 @@
       "name": "Arany",
       "value": "MP60gold",
       "price": 79990,
-      "image": "@assets/products/P60arany.webp",
+      "image": "@assets/products/mast-p60-arany-design.jpg",
       "images": [
+        "@assets/products/mast-p60-arany-design.jpg",
         "@assets/products/P60arany.webp",
         "@assets/products/mast-p60-arany-allvany.png"
       ]
@@ -28,8 +29,9 @@
       "name": "Rose Gold",
       "value": "MP60rosegold",
       "price": 79990,
-      "image": "@assets/products/mast-p60-rosegold-allvany.png",
+      "image": "@assets/products/mast-p60-rosegold-design.jpg",
       "images": [
+        "@assets/products/mast-p60-rosegold-design.jpg",
         "@assets/products/mast-p60-rosegold-allvany.png",
         "@assets/products/P60rosegold.webp",
         "@assets/products/mast-p60-kozelrol.png"
@@ -40,8 +42,9 @@
       "name": "Lila",
       "value": "MP60PURPLE",
       "price": 79990,
-      "image": "@assets/products/mast-p60-lila-allvany.png",
+      "image": "@assets/products/mast-p60-lila-design.jpg",
       "images": [
+        "@assets/products/mast-p60-lila-design.jpg",
         "@assets/products/mast-p60-lila-allvany.png",
         "@assets/products/P60lila.webp"
       ]
@@ -52,8 +55,9 @@
       "value": "MP60menta",
       "price": 79990,
       "available": false,
-      "image": "@assets/products/mast-p60-menta.png",
+      "image": "@assets/products/mast-p60-tiffany-design.jpg",
       "images": [
+        "@assets/products/mast-p60-tiffany-design.jpg",
         "@assets/products/mast-p60-menta.png",
         "@assets/products/mast-p60-menta-eletkep.png",
         "@assets/products/mast-p60-szincsalad.png"
@@ -80,5 +84,11 @@
     "Gyártó": "Dragonhawk",
     "Szín": "#FFD700 - Arany",
     "Típus": "Különálló"
+  },
+  "imageAlts": {
+    "mast-p60-arany-design.jpg": "MAST P60 sminktetováló gép arany színben, arany selyem háttéren",
+    "mast-p60-rosegold-design.jpg": "MAST P60 sminktetováló gép rose gold színben, rózsaszín selyem háttéren",
+    "mast-p60-lila-design.jpg": "MAST P60 sminktetováló gép lila színben, lila selyem háttéren",
+    "mast-p60-tiffany-design.jpg": "MAST P60 sminktetováló gép Tiffany színben, türkiz selyem háttéren"
   }
 }

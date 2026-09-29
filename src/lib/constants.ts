@@ -452,6 +452,7 @@ export const CATEGORY_MENU_IMAGE: Record<string, string> = {
   testkezeles: '@assets/products/freeze-me-slim-3.png',
   kellekek: '@assets/products/ocheart.webp',
   kezeloanyagok: '@assets/products/monduniq-botopax-peptid-koktel-1.webp',
+  sminktetovalas: '@assets/products/P60arany.webp',
 };
 
 // Simple navigation for header
