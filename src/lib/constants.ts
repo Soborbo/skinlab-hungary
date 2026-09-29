@@ -391,6 +391,8 @@ export interface MegaMenuItem {
   count: number;
   descriptionKey: string;
   badgeKey?: string;
+  /** Rövidebb felirat a mobilmenühöz (ott nincs alatta leírássor). */
+  mobileLabelKey?: string;
 }
 
 export interface MegaMenuColumn {
@@ -429,7 +431,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.pmu',
       items: [
-        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
+        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 4, descriptionKey: 'megaMenu.pmuDesc', mobileLabelKey: 'megaMenu.pmuShort' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
         { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 20, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
