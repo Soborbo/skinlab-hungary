@@ -8,20 +8,20 @@
   "metaTitle": "HydraScan PRO+ 2026 | AI bőranalízissel egybeépített 8+1 funkciós hydrofacial gép",
   "metaDescription": "HydraScan PRO+ 2026 – továbbfejlesztett hydrofacial készülék: valós idejű AI bőrdiagnózis 4K mikrokamerával, 8+1 kezelési funkció, digitális kezelési napló. 2 év garancia.",
   "price": 669990,
-  "image": "@assets/products/hydrascan-pro-plus-1.png",
+  "image": "@assets/products/hydrascan-pro-plus-webshop-1.png",
   "youtubeVideos": [],
   "availability": "in_stock",
   "hasVariants": false,
   "variants": [],
   "featured": true,
   "images": [
-    "@assets/products/hydrascan-pro-plus-1.png",
-    "@assets/products/hydrascan-pro-plus-2.png",
-    "@assets/products/hydrascan-pro-plus-3.png",
-    "@assets/products/hydrascan-pro-plus-4.png",
-    "@assets/products/hydrascan-pro-plus-5.png",
-    "@assets/products/hydrascan-pro-plus-interface.png",
-    "@assets/products/hydrascan-pro-plus-applicators.png",
+    "@assets/products/hydrascan-pro-plus-webshop-1.png",
+    "@assets/products/hydrascan-pro-plus-webshop-2.png",
+    "@assets/products/hydrascan-pro-plus-webshop-3.png",
+    "@assets/products/hydrascan-pro-plus-webshop-4.png",
+    "@assets/products/hydrascan-pro-plus-webshop-5.png"
+  ],
+  "extraImages": [
     "@assets/products/hydrascan-pro-plus-showroom-1.jpg",
     "@assets/products/hydrascan-pro-plus-showroom-2.jpg",
     "@assets/products/hydrascan-pro-plus-showroom-3.jpg",
@@ -29,11 +29,42 @@
     "@assets/products/hydrascan-pro-plus-showroom-5.jpg",
     "@assets/products/hydrascan-pro-plus-showroom-6.jpg"
   ],
+  "designImages": [
+    "@assets/products/hydrascan-pro-plus-design-1.jpg",
+    "@assets/products/hydrascan-pro-plus-design-2.jpg",
+    "@assets/products/hydrascan-pro-plus-design-3.jpg",
+    "@assets/products/hydrascan-pro-plus-design-4.jpg"
+  ],
+  "trainingImages": [
+    "@assets/products/hydrascan-pro-plus-oktatas-1.jpg",
+    "@assets/products/hydrascan-pro-plus-oktatas-2.jpg"
+  ],
+  "introImage": "@assets/products/hydrascan-pro-plus-webshop-3.png",
+  "hero": {
+    "fill": true
+  },
   "stats": [
-    { "value": "8+1", "label": "Kezelési funkció", "icon": "layers" },
-    { "value": "AI", "label": "Bőrdiagnózis", "icon": "zap" },
-    { "value": "4K", "label": "Mikrokamera", "icon": "eye" },
-    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" }
+    {
+      "value": "8+1",
+      "label": "Kezelési funkció",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Bőrdiagnózis",
+      "icon": "zap"
+    },
+    {
+      "value": "4K",
+      "label": "Mikrokamera",
+      "icon": "eye"
+    },
+    {
+      "value": "2",
+      "unit": "év",
+      "label": "Garancia",
+      "icon": "shield"
+    }
   ],
   "specs": {
     "Modell": "HydraScan PRO+ 2026",
@@ -111,5 +142,20 @@
     "Gépkezelői oktatás (FAR tanúsítvány)",
     "2 év teljes körű garancia",
     "Cseregép-program hosszabb javítás esetére"
-  ]
+  ],
+  "imageAlts": {
+    "hydrascan-pro-plus-webshop-1.png": "HydraScan PRO+ 2026 hydrofacial gép kezelőfejekkel és érintőképernyővel",
+    "hydrascan-pro-plus-webshop-2.png": "HydraScan PRO+ 2026 hydrofacial gép gurulós állványon",
+    "hydrascan-pro-plus-webshop-3.png": "HydraScan PRO+ 2026 hydrofacial készülék szemből",
+    "hydrascan-pro-plus-webshop-4.png": "HydraScan PRO+ 2026 oldalnézet a hydra-liquid folyadéktartályokkal",
+    "hydrascan-pro-plus-webshop-5.png": "HydraScan PRO+ 2026 érintőképernyő a kezelési menüvel",
+    "hydrascan-pro-plus-design-1.jpg": "HydraScan PRO+ 2026 hydrofacial gép őszi dekorációval",
+    "hydrascan-pro-plus-design-2.jpg": "HydraScan PRO+ 2026 kezelőfejek közelről",
+    "hydrascan-pro-plus-design-3.jpg": "HydraScan PRO+ 2026 kezelőfej kézben",
+    "hydrascan-pro-plus-design-4.jpg": "HydraScan PRO+ 2026 kerek kezelőfej kézben",
+    "hydrascan-pro-plus-oktatas-1.jpg": "HydraScan PRO+ gépkezelői oktatás gyakorlati kezeléssel",
+    "hydrascan-pro-plus-oktatas-2.jpg": "HydraScan PRO+ oktatás és szakmai konzultáció a Skinlab showroomban",
+    "hydrascan-pro-plus-applicators.png": "HydraScan PRO+ 2026 kezelőfejei a készülék körül",
+    "hydrascan-pro-plus-interface.png": "HydraScan PRO+ 2026 érintőképernyős kezelési menü"
+  }
 }
