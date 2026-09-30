@@ -55,13 +55,31 @@ function slugify(str) {
 }
 
 /**
+ * A products/ kimeneti mappában minden forrásfájlnak EGYEDI seoSlug kell:
+ * ha két fájl ugyanazt kapja (pl. két azonos nevű draft termék főképe, vagy
+ * egy termék-slug és egy orphan fájlnév), a később generált felülírja a másik
+ * variánsait, és élesben rossz kép jelenik meg. Ütközéskor betű-utótagot
+ * kap (-b, -c, ...) az, aki később foglal.
+ */
+const usedProductSlugs = new Set();
+function claimProductSlug(seoSlug) {
+  let candidate = seoSlug;
+  let code = 'b'.charCodeAt(0);
+  while (usedProductSlugs.has(candidate)) {
+    candidate = `${seoSlug}-${String.fromCharCode(code++)}`;
+  }
+  usedProductSlugs.add(candidate);
+  return candidate;
+}
+
+/**
  * Build a map: original filename → { seoSlug, alt, productSlug, imageIndex }
  * by reading all product JSON files.
  */
 function buildImageMapping() {
   const mapping = {}; // filename → { seoSlug, alt, productSlug, imageIndex }
 
-  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_'));
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_')).sort();
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
@@ -180,7 +198,7 @@ function buildImageMapping() {
       }
 
       mapping[entry.filename] = {
-        seoSlug,
+        seoSlug: claimProductSlug(seoSlug),
         alt,
         productSlug,
         imageIndex,
@@ -413,7 +431,7 @@ async function main() {
   // ── Process product images ────────────────────────────────────────────
   console.log(`\nProcessing ${Object.keys(productMapping).length} product images...`);
 
-  const productFiles = fs.readdirSync(PRODUCTS_DIR);
+  const productFiles = fs.readdirSync(PRODUCTS_DIR).sort();
   for (const file of productFiles) {
     const srcPath = path.join(PRODUCTS_DIR, file);
     const info = productMapping[file];
@@ -421,7 +439,7 @@ async function main() {
     if (!info) {
       // Orphan image — still generate with filename-based slug
       const name = path.parse(file).name;
-      const seoSlug = slugify(name);
+      const seoSlug = claimProductSlug(slugify(name));
 
       const result = await generateVariants(srcPath, seoSlug, 'products');
       if (result) {
