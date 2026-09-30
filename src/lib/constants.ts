@@ -448,7 +448,7 @@ export const MEGA_MENU: {
 // each category; these slugs override that because their first product's main
 // image is a lifestyle/non-white shot, and the menu must use white-bg images only.
 export const CATEGORY_MENU_IMAGE: Record<string, string> = {
-  hydrafacial: '@assets/products/HydraSCANPRO2.webp',
+  hydrafacial: '@assets/products/hydrascan-pro-plus-webshop-1.png',
   testkezeles: '@assets/products/freeze-me-slim-3.png',
   kellekek: '@assets/products/ocheart.webp',
   kezeloanyagok: '@assets/products/monduniq-botopax-peptid-koktel-1.webp',
