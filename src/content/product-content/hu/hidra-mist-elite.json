@@ -11,34 +11,115 @@
   "videoDescription": {
     "headline": "HydraMIST Elite – 11 technológia egyetlen platformon",
     "paragraphs": [
-      "A HydraMIST Elite egy komplex, többfunkciós elektrokozmetikai berendezés, amely a modern bőrkezelési technológiákat egyetlen platformon egyesíti. Lehetővé teszi a bőr mélytisztítását, hidratálását, revitalizálását és feszesítését, miközben hatékonyan támogatja a hatóanyagok bejuttatását – mindezt egy készüléken belül.",
-      "A rendszer fő funkciója a vákuumos hydradermabrázió, amely folyadék és vákuum kombinációjával egyszerre végzi az elhalt hámsejtek eltávolítását, a pórusok tisztítását és a hidratálást. Ezt egészíti ki az ultrahangos peeling, a CO₂ buborékos tisztítás és a skin scrubber a tökéletesen tiszta bőrképért.",
-      "A hatóanyag-bevitelt nagy nyomású és porlasztott oxigénes technológia, valamint ultrahangos sonophoresis biztosítja – tű nélkül, kíméletesen. A multipoláris rádiófrekvencia a kollagénrostok újraképződését indítja el (bőrfeszesítés, ránccsökkentés), az ionos görgő pedig lifting- és kontúrhatást ad.",
-      "A LED + oxigén kupola több hullámhosszú fényterápiát és oxigénes regenerációt kombinál, a hideg terápiás fej pedig megnyugtatja a bőrt és összehúzza a pórusokat. Egyedülálló komfort: a kupolába integrált multimédiás rendszerrel zene játszható a kezelés alatt – prémium élmény, amely növeli a vendégek elégedettségét és a visszatéréseket."
+      "A HydraMIST Elite egyetlen készülékben adja azt, amihez egy szalonban általában több gép kell: mélytisztítást, hidratálást, hatóanyag-bevitelt, bőrfeszesítést és nyugtató lezárást. A funkciók között az érintőképernyőn váltasz, így egy kezelésen belül a vendég bőrére szabott, komplex protokollt építhetsz fel.",
+      "Az alapja a vákuumos hydradermabrázió: a folyadék és a vákuum együtt tisztítja a pórusokat, távolítja el az elhalt hámsejteket és hidratál. Erre épül a tű nélküli oxigénes és ultrahangos hatóanyag-bevitel, a multipoláris RF és a LED-oxigén kupola. Az összes funkciót lent, a Kezelési funkcióknál találod."
+    ]
+  },
+  "featureRows": {
+    "headline": "Miért a HydraMIST Elite?",
+    "subtitle": "Komplex arckezelés egyetlen, jól átgondolt készülékkel",
+    "features": [
+      {
+        "title": "Átlátszó oxigénes búra 360°-os arcfedéssel",
+        "description": "A búra prémium minőségű PC anyagból készül: tartós, átlátszó és könnyen tisztítható. Ergonomikusan illeszkedik az arc vonalához, és minden szögből egyenletes hatóanyag-bevitelt ad. Az integrált védőpajzs megakadályozza, hogy a permet kiszivárogjon, így a kezelés tiszta és biztonságos marad.",
+        "highlight": "A kupolába épített multimédiás rendszerrel a kezelés alatt zene is szólhat.",
+        "image": "@assets/products/hydramist-elite-info-bura.png"
+      },
+      {
+        "title": "Intuitív érintőképernyő, minden funkció egy helyen",
+        "description": "Minden kezelési mód áttekinthető ikonokkal érhető el a nagy felbontású érintőképernyőn. Az intenzitás és az időtartam kezelésenként állítható, a kedvenc beállítások elmenthetők a memória funkcióval. A kék LED állapotjelző mutatja, ha a készülék kész a kezelésre.",
+        "highlight": "Gyors beállítás, így több idő jut a vendégre.",
+        "image": "@assets/products/hydramist-elite-info-kijelzo.png"
+      },
+      {
+        "title": "Precíz adagolás, egyenletes folyadékáramlás",
+        "description": "A professzionális folyadékellátó rendszer stabil nyomással és egyenletes áramlással juttatja a hatóanyagot a bőrbe. Az adagolócső szabályozó gyűrűjével pontosan beállítható a kívánt folyadékmennyiség. A zárt rendszer higiénikus, a tartályok gyorsan és egyszerűen cserélhetők.",
+        "highlight": "3 oldattartály (A/B/C) és külön hulladéktartály.",
+        "image": "@assets/products/hydramist-elite-info-adagolas.png"
+      }
     ]
   },
   "functionCards": [
-    { "icon": "spray", "name": "Vákuumos hydradermabrázió", "description": "A fő funkció: pórus-mélytisztítás és hidratálás egyszerre." },
-    { "icon": "sound", "name": "Ultrahangos peeling", "description": "Elhalt hámsejtek és pórusszennyeződés eltávolítása." },
-    { "icon": "bubbles", "name": "CO₂ buborékos tisztítás", "description": "Oxigénellátás serkentése, tónus- és keringésjavítás." },
-    { "icon": "droplet", "name": "Oxigénes hatóanyag-bevitel", "description": "Nagy nyomású és porlasztott penetráció, tű nélkül." },
-    { "icon": "sound", "name": "Ultrahangos bevitel", "description": "Sonophoresis a hatóanyagok mélyebb rétegeibe." },
-    { "icon": "bolt", "name": "Rádiófrekvenciás feszesítés", "description": "Multipoláris RF a kollagén-újraképződésért." },
-    { "icon": "bubbles", "name": "LED + oxigén kupola", "description": "Több hullámhosszú fényterápia, integrált zenével." },
-    { "icon": "snowflake", "name": "Hideg terápiás fej", "description": "Pórusösszehúzás, a kezelés nyugtató lezárása." }
+    {
+      "icon": "spray",
+      "name": "Vákuumos hydradermabrázió",
+      "description": "A fő funkció: folyadék és vákuum együtt tisztítja a pórusokat és hidratál."
+    },
+    {
+      "icon": "sound",
+      "name": "Skin scrubber",
+      "description": "Ultrahangos peeling, elhalt hámsejtek és mitesszerek eltávolítása."
+    },
+    {
+      "icon": "bubbles",
+      "name": "CO₂ buborékos kezelés",
+      "description": "Pórustisztítás és a bőr oxigénellátásának serkentése."
+    },
+    {
+      "icon": "droplet",
+      "name": "Nagy nyomású oxigénes injektor",
+      "description": "Tű nélküli, gyors hatóanyag-bevitel a felső bőrrétegekbe."
+    },
+    {
+      "icon": "spray",
+      "name": "Oxigénes porlasztó pisztoly",
+      "description": "Finom permet frissítésre, hidratálásra, érzékeny bőrre."
+    },
+    {
+      "icon": "droplet",
+      "name": "Precíziós oxigénes toll",
+      "description": "Kis felületek, például a szemkörnyék célzott kezelése."
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrahangos hatóanyag-bevitel",
+      "description": "1–3 MHz-es sonophoresis a jobb felszívódásért."
+    },
+    {
+      "icon": "bolt",
+      "name": "7 pólusú rádiófrekvencia",
+      "description": "Mélyhő a kollagén-újraképződésért: feszesítés, ránccsökkentés."
+    },
+    {
+      "icon": "bolt",
+      "name": "Ionos görgő",
+      "description": "Mikroáramos masszázs, izomtónus és enyhe lifting hatás."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hideg kalapács",
+      "description": "Pórusösszehúzás, nyugtatás, a kezelés lezárása."
+    },
+    {
+      "icon": "bubbles",
+      "name": "LED-oxigén kupola",
+      "description": "Több hullámhosszú fényterápia oxigénnel, beépített zenével."
+    }
   ],
   "faq": [
     {
       "question": "Mit jelent a 11 az 1-ben?",
-      "answer": "Egyetlen platform 11 kezelési technológiát egyesít: vákuumos hydradermabrázió, ultrahangos peeling, CO₂ buborékos tisztítás, nagy nyomású és porlasztott oxigénes hatóanyag-bevitel, ultrahangos sonophoresis, multipoláris RF, ionos masszázs/lifting, LED + oxigén kupola, hideg terápiás fej és precíziós oxigénes toll."
-    },
-    {
-      "question": "Mi a készülék fő funkciója?",
-      "answer": "A vákuumos hydradermabrázió: folyadék és vákuum kombinációjával egyszerre tisztítja a pórusokat, távolítja el az elhalt hámsejteket és hidratál. A többi technológia ezt egészíti ki a komplex kezelésekhez."
+      "answer": "11 külön kezelőfej és technológia egy készülékben, a vákuumos hydradermabráziótól a rádiófrekvenciáig és a LED-oxigén kupoláig. Így egy gépen végezhető a tisztítás, a hatóanyag-bevitel, a feszesítés és a nyugtató lezárás. Mindegyiket fent, a Kezelési funkcióknál mutatjuk be."
     },
     {
       "question": "Kinek ajánlott?",
       "answer": "Kozmetikai szalonoknak és bőrápolási kezeléseket végző szakembereknek – kezdőknek és haladóknak egyaránt. Profi szalonhasználatra készült, és megfelelő szaktudást igényel."
+    },
+    {
+      "question": "Mennyi ideig tart egy kezelés?",
+      "answer": "A választott protokolltól függően általában 60–90 perc."
+    },
+    {
+      "question": "Milyen bőrtípusra alkalmas?",
+      "answer": "Szinte minden bőrtípusra: száraz, vízhiányos, zsíros, kombinált és fakó bőrre is. Az erősségeket mindig a vendég bőrállapotához kell igazítani, első kezelésnél alacsonyabb fokozattal."
+    },
+    {
+      "question": "Van felépülési idő a vendégnél?",
+      "answer": "Nincs. A kezelés non-invazív és fájdalommentes, a vendég utána azonnal visszatérhet a napi teendőihez. Enyhe bőrpír előfordulhat, ez általában rövid időn belül elmúlik."
+    },
+    {
+      "question": "Milyen gyakran ajánlott a kezelés?",
+      "answer": "Bőrkarbantartásra 3–4 hetente. Intenzívebb bőrmegújító programnál a kezelő személyre szabott tervet állít össze."
     },
     {
       "question": "Orvostechnikai eszköz?",
@@ -49,6 +130,26 @@
       "answer": "A szállítási idő 2–6 hét. A vásárláshoz teljeskörű szakmai oktatás jár (magyar nyelvű tananyag, kezelési protokollok, biztonsági irányelvek). Igény esetén élő modelles gyakorlati képzés is elérhető (69.990 Ft)."
     }
   ],
+  "training": {
+    "headline": "Oktatás a HydraMIST Elite-hez",
+    "badge": "Magyar nyelvű oktatás",
+    "intro": "A készülék mellé teljes körű szakmai oktatási anyag jár, hogy biztonságosan és magabiztosan használd az összes funkciót.",
+    "items": [
+      "Részletes, magyar nyelvű tananyag",
+      "Kezelési protokollok különböző bőrtípusokra",
+      "Lépésről lépésre felépített kezelési menetek",
+      "Készülékhasználati útmutató",
+      "Vendég beleegyező nyilatkozat sablon",
+      "Higiéniai és biztonsági irányelvek"
+    ],
+    "closingParagraphs": [
+      "Igény esetén élő modelles gyakorlati oktatáson is részt vehetsz, ahol valós kezelési környezetben, szakmai iránymutatás mellett sajátíthatod el a technikákat. Ezt különösen kezdőknek ajánljuk."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "élő modelles gyakorlati oktatás",
+    "duration": "Egyeztetett időpontban",
+    "ctaText": "Érdekel a képzés"
+  },
   "whatsIncluded": [
     "HydraMIST Elite készülék",
     "3 db oldattartály (A/B/C) + hulladéktartály",

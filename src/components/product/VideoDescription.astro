@@ -22,13 +22,15 @@ interface Props {
   content: ProductContentVideoDescription;
   /** Videó hiányában ez a fotó jelenik meg a "videó hamarosan" doboz helyett. */
   fallbackImage?: string;
+  /** Fehér hátterű termékfotó: teljes egészében látszik (contain), nem vágjuk. */
+  fallbackContain?: boolean;
   /** Saját tárhelyes, néma, álló loop-videó (YouTube hiányában a fotót váltja). */
   localVideo?: { src: string; poster: string };
   /** Kulcsszámok a szöveg alatt (max. 3 jelenik meg). */
   stats?: ProductContentStat[];
 }
 
-const { locale, videoUrl, productName, content, fallbackImage, localVideo, stats = [] } = Astro.props;
+const { locale, videoUrl, productName, content, fallbackImage, fallbackContain = false, localVideo, stats = [] } = Astro.props;
 const shownStats = stats.slice(0, 3);
 
 // Extract YouTube video ID
@@ -67,7 +69,7 @@ const photo = !videoId && !loop && fallbackImage && hasImage(fallbackImage) ? fa
       <div class:list={[
         'relative rounded-2xl overflow-hidden shadow-lg',
         MOBILE_MEDIA_BLEED,
-        photo ? 'aspect-square bg-gray-100' : 'aspect-video bg-gray-900',
+        photo ? (fallbackContain ? 'aspect-square bg-white' : 'aspect-square bg-gray-100') : 'aspect-video bg-gray-900',
       ]}>
         {photo ? (
           <OptimizedPicture
@@ -75,7 +77,7 @@ const photo = !videoId && !loop && fallbackImage && hasImage(fallbackImage) ? fa
             alt={productName}
             widths={[480, 640, 828, 1080]}
             sizes="(min-width: 1024px) 50vw, 100vw"
-            class="w-full h-full object-cover"
+            class={fallbackContain ? "w-full h-full object-contain" : "w-full h-full object-cover"}
             loading="lazy"
           />
         ) : videoId ? (
