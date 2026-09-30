@@ -83,6 +83,9 @@ const productSchema = z.object({
   // Saját tárhelyes, néma loop-videó a bevezető (VideoDescription) szekcióba,
   // ha nincs YouTube-videó. Nyelvfüggetlen, ezért a termék JSON-ban van.
   introVideo: z.object({ src: z.string(), poster: z.string() }).optional(),
+  // A bevezető (VideoDescription) képe, ha nincs videó. Alapból a második
+  // design fotó; itt felülírható (pl. fehér hátteres termékfotóra).
+  introImage: z.string().optional(),
   // Termék-szintű akcentus-téma: a tartalom-wrapperen belül a primary skálát
   // cseréli (global.css `[data-product-theme]`). Fejléc/lábléc nem változik.
   theme: z.enum(['frost']).optional(),

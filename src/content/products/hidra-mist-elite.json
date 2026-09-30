@@ -9,13 +9,45 @@
   "metaTitle": "HydraMIST Elite – 11 az 1-ben hydrofacial rendszer | Skinlab",
   "metaDescription": "HydraMIST Elite 11 az 1-ben multifunkciós hydrofacial: vákuumos hydradermabrázió, oxigénes hatóanyag-bevitel, RF bőrfeszesítés, LED-oxigén kupola. Profi szalongép.",
   "price": 749990,
-  "image": "@assets/products/hydramist-elite-webshop1.png",
+  "image": "@assets/products/hydramist-elite-1.png",
   "gallery": [],
   "images": [
-    "@assets/products/hydramist-elite-webshop1.png",
-    "@assets/products/hydramist-elite-webshop2.png",
-    "@assets/products/hydramist-elite-webshop3.png"
+    "@assets/products/hydramist-elite-1.png",
+    "@assets/products/hydramist-elite-2.png",
+    "@assets/products/hydramist-elite-3.png"
   ],
+  "designImages": [
+    "@assets/products/hydramist-elite-design-1.jpg",
+    "@assets/products/hydramist-elite-design-2.jpg",
+    "@assets/products/hydramist-elite-design-3.jpg",
+    "@assets/products/hydramist-elite-design-4.jpg",
+    "@assets/products/hydramist-elite-design-5.jpg",
+    "@assets/products/hydramist-elite-design-6.jpg"
+  ],
+  "trainingImages": [
+    "@assets/products/hydramist-elite-oktatas-1.jpg",
+    "@assets/products/hydramist-elite-oktatas-2.jpg"
+  ],
+  "introImage": "@assets/products/hydramist-elite-2.png",
+  "hero": {
+    "fill": true
+  },
+  "imageAlts": {
+    "hydramist-elite-1.png": "HydraMIST Elite 11 az 1-ben hydrofacial gép oxigénes kupolával és kezelőfejekkel",
+    "hydramist-elite-2.png": "HydraMIST Elite hydrofacial készülék szemből, érintőképernyővel és LED-oxigén kupolával",
+    "hydramist-elite-3.png": "HydraMIST Elite hydrofacial gép oldalnézetből, oldattartályokkal",
+    "hydramist-elite-design-1.jpg": "HydraMIST Elite hydrofacial gép a Skinlab showroomban",
+    "hydramist-elite-design-2.jpg": "HydraMIST Elite bekapcsolt LED-oxigén kupolával és kezelőfejekkel",
+    "hydramist-elite-design-3.jpg": "HydraMIST Elite hydrofacial készülék megvilágított oldattartállyal",
+    "hydramist-elite-design-4.jpg": "HydraMIST Elite kerek fémfejes kezelőfej kézben",
+    "hydramist-elite-design-5.jpg": "HydraMIST Elite cserélhető kezelőfej kézben",
+    "hydramist-elite-design-6.jpg": "HydraMIST Elite kétgolyós görgős kezelőfej kézben",
+    "hydramist-elite-info-bura.png": "HydraMIST Elite átlátszó oxigénes búra: 360°-os arcfedés, integrált védőpajzs",
+    "hydramist-elite-info-kijelzo.png": "HydraMIST Elite érintőképernyő funkcióválasztó menüvel, állítható intenzitással és időtartammal",
+    "hydramist-elite-info-adagolas.png": "HydraMIST Elite folyadékellátó rendszer állítható folyadékáramlással",
+    "hydramist-elite-oktatas-1.jpg": "HydraMIST Elite kezelés gyakorlás közben a gépkezelői oktatáson",
+    "hydramist-elite-oktatas-2.jpg": "HydraMIST Elite gépkezelői oktatás a Skinlab showroomban"
+  },
   "youtubeVideos": [],
   "availability": "preorder",
   "hasVariants": false,
@@ -23,16 +55,24 @@
   "featured": false,
   "specs": {
     "Készülék típusa": "Multifunkciós elektrokozmetikai rendszer (11 az 1-ben)",
+    "Kezelőfejek": "Hydradermabráziós vákuumfej, skin scrubber, CO₂ buborékos fej, nagy nyomású oxigénes injektor, oxigénes porlasztó pisztoly, precíziós oxigénes toll, ultrahangos bevitelfej, 7 pólusú RF fej, ionos görgő, hideg kalapács, LED-oxigén kupola",
+    "Kijelző": "Érintőképernyő",
     "Bemeneti feszültség": "220–240 V / 50–60 Hz",
     "Teljesítmény": "150–300 W",
     "Vákuum erősség": "0–80 kPa (állítható)",
-    "Oxigén nyomás": "0–6 bar (modelltől függően)",
+    "Folyadékáramlás": "Több fokozatban szabályozható",
+    "Oxigén nyomás": "0–6 bar",
     "Ultrahang frekvencia": "1–3 MHz",
     "Rádiófrekvencia": "0,3–1 MHz (multipoláris)",
     "LED fényterápia": "több hullámhossz (kb. 415–640 nm)",
     "Skin scrubber": "kb. 25–30 kHz",
     "Oldattartályok": "3 db (A/B/C) + hulladéktartály",
+    "Tartály kapacitás": "kb. 250–500 ml / tartály",
+    "Csőrendszer": "Zárt, cserélhető",
+    "Ház anyaga": "ABS műanyag + fém elemek",
     "Zajszint": "< 60 dB",
-    "Súly": "15–25 kg"
+    "Súly": "15–25 kg",
+    "Működési hőmérséklet": "10–30 °C",
+    "Garancia": "2 év teljes körű garancia"
   }
 }

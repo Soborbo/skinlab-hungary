@@ -165,7 +165,8 @@ const galleryImages = [...new Set([
   ...showroomKeys,
 ])].filter(Boolean);
 const heroFirstImage = product.designImages[0] ?? product.image;
-const introImage = product.designImages[1]
+const introImage = product.introImage
+  ?? product.designImages[1]
   ?? product.gallery.find((img) => img !== heroFirstImage)
   ?? product.image;
 
@@ -377,6 +378,7 @@ const productSchema = product.price ? {
         productName={displayName}
         content={content.videoDescription}
         fallbackImage={introImage}
+        fallbackContain={Boolean(product.introImage)}
         localVideo={product.introVideo}
         stats={content.stats}
       />
