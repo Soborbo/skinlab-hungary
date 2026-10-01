@@ -6,15 +6,15 @@
   "metaDescription": "PIXEL Carbon-lézer: Q-kapcsolt ND:YAG készülék 1064 nm, 532 nm és Carbon (Black Doll) kezelőfejjel, carbon peelinghez és bőrképjavításhoz. Kompakt, zárt vízhűtéses.",
   "stats": [
     {
-      "value": "1064",
+      "value": "1064 / 532",
       "unit": "nm",
       "label": "ND:YAG hullámhossz",
       "icon": "wave"
     },
     {
-      "value": "1200",
+      "value": "1200 / 600",
       "unit": "mJ",
-      "label": "Max. impulzusenergia (1064 nm)",
+      "label": "Max. impulzusenergia (1064 / 532 nm)",
       "icon": "zap"
     },
     {
