@@ -10,6 +10,10 @@
   "price": 999990,
   "image": "@assets/products/pixel-1.jpg",
   "youtubeVideos": [],
+  "introVideo": {
+    "src": "/videos/pixel/pixel-bemutato.mp4",
+    "poster": "/videos/pixel/pixel-bemutato.jpg"
+  },
   "availability": "in_stock",
   "hasVariants": false,
   "variants": [],
