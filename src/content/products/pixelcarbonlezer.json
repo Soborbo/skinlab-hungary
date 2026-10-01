@@ -10,6 +10,10 @@
   "price": 999990,
   "image": "@assets/products/pixel-1.jpg",
   "youtubeVideos": [],
+  "trainingImages": [
+    "@assets/products/pixel-oktatas-1.jpg",
+    "@assets/products/pixel-oktatas-2.jpg"
+  ],
   "introVideo": {
     "src": "/videos/pixel/pixel-bemutato.mp4",
     "poster": "/videos/pixel/pixel-bemutato.jpg"
@@ -39,6 +43,8 @@
     "pixel-design-1.jpg": "PIXEL ND:YAG lézer a Skinlab showroomban, őszi dekorációval",
     "pixel-design-2.jpg": "A PIXEL lézer kezelőkarja kesztyűs kézben, őszi levelek között",
     "pixel-design-3.jpg": "A PIXEL lézer kezelőfejei a dobozban, őszi dekorációval",
-    "pixel-design-4.jpg": "PIXEL lézerkészülék kocsin, mellette a szállítóláda"
+    "pixel-design-4.jpg": "PIXEL lézerkészülék kocsin, mellette a szállítóláda",
+    "pixel-oktatas-1.jpg": "PIXEL carbon lézeres kezelés a gépkezelői oktatáson",
+    "pixel-oktatas-2.jpg": "PIXEL gépkezelői oktatás a Skinlab showroomban"
   }
 }

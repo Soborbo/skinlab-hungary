@@ -6,15 +6,15 @@
   "metaDescription": "Carbon laser PIXEL: Q-switched ND:YAG prístroj s hlavicami 1064 nm, 532 nm a Carbon (Black Doll) na carbon peeling a zlepšenie vzhľadu pleti. Kompaktný, uzavreté vodné chladenie.",
   "stats": [
     {
-      "value": "1064",
+      "value": "1064 / 532",
       "unit": "nm",
       "label": "Vlnová dĺžka ND:YAG",
       "icon": "wave"
     },
     {
-      "value": "1200",
+      "value": "1200 / 600",
       "unit": "mJ",
-      "label": "Max. energia pulzu (1064 nm)",
+      "label": "Max. energia pulzu (1064 / 532 nm)",
       "icon": "zap"
     },
     {
