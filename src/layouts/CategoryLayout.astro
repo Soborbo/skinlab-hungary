@@ -64,6 +64,8 @@ interface Props {
   category: {
     name: string;
     nameShort: string;
+    /** <title>, ha eltér a H1-től (pl. SEO-kulcsszó a rövid kategórianév mellé). */
+    metaTitle?: string;
     slug: string;
     description: string;
     heroDescription?: string;
@@ -350,7 +352,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
 ---
 
 <BaseLayout
-  title={category.name}
+  title={category.metaTitle ?? category.name}
   description={category.description}
   image={ogImage}
   schema={categorySchema}
