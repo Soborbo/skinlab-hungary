@@ -1,0 +1,33 @@
+---
+/**
+ * /bordiagnosztika/ - a kategória URL-jén MAGA a termékoldal áll (SKINETIC AI+).
+ *
+ * Tulajdonosi döntés (2026-10-05): a SKINETIC AI+ "külön gép, egyik
+ * kategóriába se" - korábban az anti-aging alatt volt. A régi
+ * /anti-aging/skinetic-ai-plus/ 301-gyel ide mutat (public/_redirects).
+ *
+ * Ugyanaz a minta, mint a /hidegplazma/-nál: a linképítés forrása
+ * lib/product-url.ts `CATEGORY_AS_PRODUCT`. Ha ide mégis kerülne egy második
+ * élő termék, ez a route visszaesik a kategórialistára.
+ */
+import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import { getCollection } from 'astro:content';
+import { buildProductData } from '../../lib/product-data';
+import { getCategoryTranslation } from '../../data/category-translations';
+
+const category = getCategoryTranslation('hu', 'bordiagnosztika');
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'bordiagnosztika' && !data.draft;
+});
+
+// Egyetlen élő termék = a termékoldal áll a kategória URL-jén.
+const soleProduct = products.length === 1 ? products[0] : undefined;
+---
+
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} />
+)}

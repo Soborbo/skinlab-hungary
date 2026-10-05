@@ -13,6 +13,8 @@
 export const CATEGORY_AS_PRODUCT: Record<string, string> = {
   // 2026-09-21: "nem lesz több plazma termék, csak ez az egy"
   hidegplazma: 'thefrostcoldplasma',
+  // 2026-10-05: a SKINETIC AI+ "külön gép, egyik kategóriába se" (korábban anti-aging)
+  bordiagnosztika: 'skinetic-ai-plus',
 };
 
 /** Az adott termék oldalának útvonala, záró perjel nélkül (pl. `/hidegplazma`). */

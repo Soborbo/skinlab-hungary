@@ -1,13 +1,14 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import antiAgingKezeles from '../../assets/products/biopen3.png';
 
 const category = {
   name: 'Anti-aging készülékek',
   nameShort: 'Anti-aging',
   slug: 'anti-aging',
-  description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
-  heroDescription: 'Bőrfeszesítés, ránckezelés, arcformálás műtét nélkül. Rádiófrekvenciás, HIFU és kombinált technológiák egy helyen.',
+  description: 'Vákuumos mikrotűs RF és EMS mikrotűs bőrfiatalító készülékek.',
+  heroDescription: 'Bőrfeszesítés, ránckezelés, hegkezelés műtét nélkül. Vákuumos mikrotűs RF és EMS mikrotűs technológia egy helyen.',
   badge: 'Fiatalosabb bőr',
   color: 'rose',
 };
@@ -20,7 +21,7 @@ const benefits = [
   {
     icon: 'target',
     title: 'Célzott feszesítés',
-    description: 'RF és HIFU technológia a mély szövetek eléréséhez. Valódi lifting hatás műtét nélkül.',
+    description: 'A mikrotűs RF a hőt közvetlenül a mélyebb bőrrétegekbe juttatja. Feszesítés műtét nélkül.',
   },
   {
     icon: 'clock',
@@ -35,18 +36,18 @@ const benefits = [
   {
     icon: 'coins',
     title: 'Prémium kezelési árak',
-    description: 'HIFU kezelés: 50-150.000 Ft. RF arckezelés: 20-40.000 Ft. Magas árrésű szolgáltatások.',
+    description: 'A mikrotűs RF és a mikrotűs bőrmegújító kezelések a szalonok magas árrésű, prémium szolgáltatásai közé tartoznak.',
   },
 ];
 
 const faq = [
   {
-    question: 'Mi a különbség az RF és a HIFU kezelés között?',
-    answer: '<strong>RF (rádiófrekvencia):</strong> A bőr felső és középső rétegeit melegíti, serkenti a kollagén termelődést. Fájdalommentes, több kezelés szükséges.<br><br><strong>HIFU:</strong> Mélyebb rétegeket ér el, erősebb lifting hatás. Intenzívebb, de kevesebb kezelés kell. Enyhe kellemetlen érzés lehetséges.',
+    question: 'Mi a különbség a vákuumos mikrotűs RF és az EMS mikrotűs pen között?',
+    answer: '<strong>Vákuumos mikrotűs RF (AESTIQ AI):</strong> a mikrotűk a rádiófrekvenciás hőt közvetlenül a mélyebb bőrrétegekbe juttatják, ez erőteljes kollagén-stimulációt ad. Ráncokra, aknés hegekre, striákra és a bőr textúrájának javítására.<br><br><strong>EMS mikrotűs pen (Bio Pen Q2):</strong> finom mikrotűzés EMS-sel és LED fényterápiával kombinálva. Kíméletesebb, mobil kézi eszköz arcra, szemkörnyékre, fejbőrre és testre.',
   },
   {
     question: 'Mikor látható az eredmény?',
-    answer: 'RF kezelésnél azonnal látható enyhe feszesedés, de a valódi eredmény 4-6 hét alatt alakul ki. HIFU-nál 2-3 hónap alatt érik be a teljes hatás, de utána akár 1-2 évig is tarthat.',
+    answer: 'Közvetlenül a kezelés után enyhe feszesedés érezhető, a valódi eredmény a kollagén-újraképződéssel 4-6 hét alatt alakul ki. Kúraszerű kezeléssel a hatás fokozható.',
   },
   {
     question: 'Kinek ajánlott anti-aging kezelés?',
@@ -101,6 +102,8 @@ const choicesSubheading = 'Egy asztali AI-platform és egy mobil kézi pen – m
   category={category}
   products={products}
   benefits={benefits}
+  benefitsImage={antiAgingKezeles}
+  benefitsImageAlt="Bio Pen Q2 mikrotűs arckezelés a szalonban"
   faq={faq}
   comparison={comparison}
   choicesHeading={choicesHeading}
