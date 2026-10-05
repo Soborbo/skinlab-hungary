@@ -18,15 +18,29 @@
   "images": [
     "@assets/products/skinetic-ai-plus-main.jpg",
     "@assets/products/skinetic-ai-plus-oldalnezet.jpg",
-    "@assets/products/skinetic-ai-plus-mikroszkop.png",
     "@assets/products/skinetic-ai-plus-allvany.jpg",
-    "@assets/products/skinetic-ai-plus-showroom.jpg"
+    "@assets/products/skinetic-ai-plus-mikroszkop.png"
   ],
+  "designImages": [
+    "@assets/products/skinetic-ai-plus-showroom.jpg",
+    "@assets/products/skinetic-ai-plus-design-2.jpg",
+    "@assets/products/skinetic-ai-plus-design-3.jpg",
+    "@assets/products/skinetic-ai-plus-design-4.jpg"
+  ],
+  "introImage": "@assets/products/skinetic-ai-plus-main.jpg",
+  "hero": {
+    "fill": true
+  },
   "imageAlts": {
     "skinetic-ai-plus-main.jpg": "SKINETIC AI+ AI bőrdiagnosztikai készülék 15,6 hüvelykes érintőkijelzővel, magyar nyelvű szoftverrel",
     "skinetic-ai-plus-oldalnezet.jpg": "SKINETIC AI+ bőranalizáló készülék oldalnézetből, fényárnyékolt vizsgálati térrel és érintőképernyős tablettel",
     "skinetic-ai-plus-mikroszkop.png": "SKINETIC AI+ készülék a tartozék scalp- és arcmikroszkóppal, magyar nyelvű menüvel",
     "skinetic-ai-plus-allvany.jpg": "SKINETIC AI+ bőrdiagnosztikai rendszer gurulós állványon a kézi mikroszkóppal",
-    "skinetic-ai-plus-showroom.jpg": "SKINETIC AI+ bőranalizáló a Skinlab érdi showroomjában kezelőággyal"
+    "skinetic-ai-plus-showroom.jpg": "SKINETIC AI+ bőranalizáló a Skinlab érdi showroomjában kezelőággyal",
+    "skinetic-ai-plus-design-2.jpg": "SKINETIC AI+ bőrdiagnosztikai készülék tablettel, rózsafal előtt",
+    "skinetic-ai-plus-design-3.jpg": "SKINETIC AI+ AI bőranalizátor oldalnézetből, rózsafal előtt",
+    "skinetic-ai-plus-design-4.jpg": "SKINETIC AI+ scalp- és arcmikroszkóp kézben, a Skinlab logó előtt",
+    "skinetic-ai-plus-kupola.jpg": "SKINETIC AI+ képalkotó kupola közelről",
+    "skinetic-ai-plus-tablet.jpg": "SKINETIC AI+ magyar nyelvű kezelőfelület a tableten"
   }
 }
