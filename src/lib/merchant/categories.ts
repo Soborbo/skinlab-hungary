@@ -49,6 +49,7 @@ export const GOOGLE_PRODUCT_CATEGORY: Readonly<Record<string, number>> = {
   'nd-yag-lezerek': TAXONOMY.skinCareTools.id,
   hydrafacial: TAXONOMY.skinCareTools.id,
   hidegplazma: TAXONOMY.skinCareTools.id,
+  bordiagnosztika: TAXONOMY.skinCareTools.id,
   'anti-aging': TAXONOMY.skinCareTools.id,
   'arckezelo-rendszerek': TAXONOMY.skinCareTools.id,
   mezoterapia: TAXONOMY.skinCareTools.id,

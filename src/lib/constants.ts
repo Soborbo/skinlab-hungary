@@ -162,6 +162,13 @@ export const CATEGORY_COLORS = {
     gradient: 'from-[#b8c4a9] to-[#a1ae8f]',
     gradientHero: 'from-[#edf1e8] via-[#f5f8f1] to-white',
   },
+  bordiagnosztika: {
+    accent: '#b4b0c9',       // soft lavender
+    accentLight: '#eeedf5',   // lavender mist
+    accentDark: '#7a7494',    // deep lavender
+    gradient: 'from-[#b4b0c9] to-[#9d98b6]',
+    gradientHero: 'from-[#eeedf5] via-[#f5f4fa] to-white',
+  },
   'anti-aging': {
     accent: '#d4b8c9',       // soft pearl pink
     accentLight: '#f5edf1',   // pearl mist
@@ -240,6 +247,18 @@ export const CATEGORIES = [
     featured: true,
     productCount: 1,
     color: 'hidegplazma' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'bordiagnosztika',
+    name: 'AI bőrdiagnosztikai rendszer',
+    nameShort: 'Bőrdiagnosztika',
+    slug: 'bordiagnosztika',
+    description: 'AI-alapú bőranalízis és bőrdiagnosztikai rendszerek.',
+    icon: 'sparkles',
+    image: '/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1-480w.webp',
+    featured: true,
+    productCount: 1,
+    color: 'bordiagnosztika' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'anti-aging',
@@ -418,6 +437,7 @@ export const MEGA_MENU: {
         { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 2, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
         { labelKey: 'categories.hidegplazma', href: '/hidegplazma', count: 1, descriptionKey: 'megaMenu.hidegplazmaDesc' },
+        { labelKey: 'categories.bordiagnosztika', href: '/bordiagnosztika', count: 1, descriptionKey: 'megaMenu.bordiagnosztikaDesc' },
       ],
     },
     {
