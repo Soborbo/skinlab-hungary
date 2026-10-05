@@ -12,8 +12,9 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 // Brand logos. `h` = rendered visual height in px — the per-brand knob that
 // normalizes how large the wordmark *looks*. Pure wordmarks (brovi, MAST) need a
 // smaller height; logos with an emblem or lots of internal whitespace
-// (Dragonhawk, Farmona, Biotatum) need a larger height so the lettering matches.
+// (Dragonhawk, Biotatum) need a larger height so the lettering matches.
 // `maxW` caps width so a wide lockup can't overflow the fixed-width card.
+// A Farmona 2026-10-05-én kikerült: már nem forgalmazzuk.
 const brands = [
   { name: 'MAST', logo: '@assets/brands/mast-logo.png', h: 28, maxW: 130 },
   { name: 'Dragonhawk', logo: '@assets/brands/dragonhawk-logo.png', h: 54, maxW: 140 },
@@ -21,7 +22,6 @@ const brands = [
   { name: "M'onduniq", logo: '@assets/brands/monduniq-logo.png', h: 40, maxW: 144 },
   { name: 'Biotatum', logo: '@assets/brands/biotatum-logo.png', h: 52, maxW: 140 },
   { name: 'Biopen', logo: '@assets/brands/biopen-logo.png', h: 38, maxW: 130 },
-  { name: 'Farmona', logo: '@assets/brands/farmona-logo.png', h: 52, maxW: 130 },
   { name: 'Brovi', logo: '@assets/brands/brovi-logo.png', h: 30, maxW: 120 },
 ];
 ---
