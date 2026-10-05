@@ -40,20 +40,23 @@ interface Props {
   /**
    * A kép kitölti a négyzetes keretet: nincs belső margó és 50vh-s korlát
    * (a négyzetes design-fotók teljes felületen, a fehér packshotok fehér mezőben).
-   * Csak az alap (nem variánsos) módban.
+   * Alapértelmezetten be van kapcsolva; a termék JSON `hero.fill: false`-szal
+   * kérheti a régi, alacsonyabb 4:3-as keretet.
    */
   fill?: boolean;
   /** Automatikus lapozás ennyi ms-onként (0/hiány = nincs). Csak alap módban. */
   autoplayMs?: number;
 }
 
-const { images, productName, badges, variantImageSets, thumbnails = true, fill = false, autoplayMs = 0 } = Astro.props;
+const { images, productName, badges, variantImageSets, thumbnails = true, fill = true, autoplayMs = 0 } = Astro.props;
 
 // Nem-fill keret: desktopon 4:3 + 50vh + belső margó; mobilon (640px alatt) viszont
 // mindig úgy viselkedik, mint a `fill` - négyzetes, margó nélkül -, különben a négyzetes
 // lifestyle-fotók 58px-re kerülnének a képernyő szélétől (szabály: max 12px).
 const GALLERY_FRAME_DEFAULT = 'aspect-square sm:aspect-[4/3] sm:max-h-[50vh]';
 const GALLERY_IMG_PAD_DEFAULT = 'sm:p-4';
+const frameClass = fill ? 'aspect-square' : GALLERY_FRAME_DEFAULT;
+const imgClass = fill ? 'w-full h-full object-contain' : `w-full h-full object-contain ${GALLERY_IMG_PAD_DEFAULT}`;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Filter to images that exist in manifest
@@ -109,7 +112,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
           data-variant-gallery={set.value}
         >
           {/* Main Image Container */}
-          <div class={`group relative ${GALLERY_FRAME_DEFAULT} bg-white rounded-2xl overflow-hidden mb-4`}>
+          <div class={`group relative ${frameClass} bg-white rounded-2xl overflow-hidden mb-4`}>
             <button
               type="button"
               class="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset overflow-hidden"
@@ -124,7 +127,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                       alt={getAlt(img, i, set.images.length)}
                       widths={mainWidths}
                       sizes={mainSizes}
-                      class={`w-full h-full object-contain ${GALLERY_IMG_PAD_DEFAULT}`}
+                      class={imgClass}
                       loading={setIndex === 0 && i === 0 ? 'eager' : 'lazy'}
                       fetchpriority={setIndex === 0 && i === 0 ? 'high' : 'low'}
                     />
@@ -330,7 +333,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
       <div
         class:list={[
           'group relative bg-white rounded-2xl overflow-hidden mb-4',
-          fill ? 'aspect-square' : GALLERY_FRAME_DEFAULT,
+          frameClass,
         ]}
         data-gallery-frame
       >
@@ -349,7 +352,7 @@ function getAlt(imgPath: string, index: number, totalImages: number): string {
                     alt={getAlt(img, i, resolvedImages.length)}
                     widths={mainWidths}
                     sizes={mainSizes}
-                    class={fill ? 'w-full h-full object-contain' : `w-full h-full object-contain ${GALLERY_IMG_PAD_DEFAULT}`}
+                    class={imgClass}
                     loading={i === 0 ? 'eager' : 'lazy'}
                     fetchpriority={i === 0 ? 'high' : 'low'}
                   />
