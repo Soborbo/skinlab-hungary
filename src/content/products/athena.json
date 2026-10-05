@@ -27,6 +27,7 @@
   "specs": {
     "Lézertípus": "Dióda lézer",
     "Hullámhossz": "755 / 808 / 940 / 1064 nm",
+    "Spotméret": "12 × 20 mm (fix)",
     "Teljesítmény": "1000W (kimeneti)",
     "Kezelőfej": "Nagyméretű, ergonomikus, zafír kontakthűtéssel",
     "Hűtési rendszer": "Többlépcsős TEC + víz + levegő",
@@ -42,6 +43,11 @@
     "@assets/products/athena-design-2.jpg",
     "@assets/products/athena-design-3.jpg"
   ],
+  "introImage": "@assets/products/athena-2.png",
+  "trainingImages": [
+    "@assets/products/athena-oktatas-1.jpg",
+    "@assets/products/athena-oktatas-2.jpg"
+  ],
   "imageAlts": {
     "athena-1.png": "ATHENA 1000W diódalézer készülék a kezelési paraméterekkel a kijelzőn",
     "athena-2.png": "ATHENA diódalézer oldalnézetben, kezelőfej-tartóval",
@@ -51,6 +57,8 @@
     "athena-6.png": "ATHENA 1000W diódalézer készülék a testtájankénti kezelési menüvel",
     "athena-design-1.jpg": "ATHENA 1000W diódalézer készülék szalonkörnyezetben",
     "athena-design-2.jpg": "ATHENA diódalézer kezelőfeje a beállított frekvenciával és energiaszinttel",
-    "athena-design-3.jpg": "ATHENA diódalézer kezelőfeje közelről, arany zafírablakkal"
+    "athena-design-3.jpg": "ATHENA diódalézer kezelőfeje közelről, arany zafírablakkal",
+    "athena-oktatas-1.jpg": "ATHENA diódalézer gépkezelői oktatás a Skinlab oktatójával",
+    "athena-oktatas-2.jpg": "ATHENA diódalézer kezelőfej bemutatása oktatás közben"
   }
 }
