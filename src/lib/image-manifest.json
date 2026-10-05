@@ -3170,8 +3170,8 @@
     "basePath": "/images/opt/products/elise-5"
   },
   "@assets/products/elitepod-1.png": {
-    "seoSlug": "elitepod-system-1",
-    "alt": "ElitePod System",
+    "seoSlug": "elitepod-system-11",
+    "alt": "ElitePod System készülék a kezelőfejekkel",
     "width": 1254,
     "height": 1254,
     "widths": [
@@ -3184,14 +3184,139 @@
       1080,
       1200,
       1254
+    ],
+    "basePath": "/images/opt/products/elitepod-system-11"
+  },
+  "@assets/products/elitepod-2.png": {
+    "seoSlug": "elitepod-system-5",
+    "alt": "ElitePod System bőranalízis a készülék kijelzőjén",
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1536
+    ],
+    "basePath": "/images/opt/products/elitepod-system-5"
+  },
+  "@assets/products/elitepod-design-1.jpg": {
+    "seoSlug": "elitepod-system-6",
+    "alt": "ElitePod System arckezelő gép fehér orchideák között",
+    "width": 1389,
+    "height": 1132,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1389
+    ],
+    "basePath": "/images/opt/products/elitepod-system-6"
+  },
+  "@assets/products/elitepod-design-2.jpg": {
+    "seoSlug": "elitepod-system-7",
+    "alt": "ElitePod System készülék oldalnézetből, orchideákkal",
+    "width": 1385,
+    "height": 1136,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1385
+    ],
+    "basePath": "/images/opt/products/elitepod-system-7"
+  },
+  "@assets/products/elitepod-design-3.jpg": {
+    "seoSlug": "elitepod-system-8",
+    "alt": "ElitePod System gurulós kocsin a Skinlab showroomban",
+    "width": 1111,
+    "height": 1415,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1111
+    ],
+    "basePath": "/images/opt/products/elitepod-system-8"
+  },
+  "@assets/products/elitepod-design-4.jpg": {
+    "seoSlug": "elitepod-system-9",
+    "alt": "ElitePod System lila kezelőfej kézben, orchideák előtt",
+    "width": 1333,
+    "height": 1180,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1333
+    ],
+    "basePath": "/images/opt/products/elitepod-system-9"
+  },
+  "@assets/products/elitepod-design-5.jpg": {
+    "seoSlug": "elitepod-system-10",
+    "alt": "ElitePod System kapszulás kezelőfej kézben, orchideák előtt",
+    "width": 1212,
+    "height": 1297,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1212
+    ],
+    "basePath": "/images/opt/products/elitepod-system-10"
+  },
+  "@assets/products/elitepod-webshop-1.png": {
+    "seoSlug": "elitepod-system-1",
+    "alt": "ElitePod System arckezelő gép szemből, érintőképernyővel és két kezelőfejjel",
+    "width": 1216,
+    "height": 1293,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1216
     ],
     "basePath": "/images/opt/products/elitepod-system-1"
   },
-  "@assets/products/elitepod-2.png": {
+  "@assets/products/elitepod-webshop-2.png": {
     "seoSlug": "elitepod-system-2",
-    "alt": "ElitePod System - 2. kép",
-    "width": 1536,
-    "height": 1024,
+    "alt": "ElitePod System arckezelő készülék ferde nézetből, állványon",
+    "width": 1216,
+    "height": 1294,
     "widths": [
       160,
       320,
@@ -3201,15 +3326,15 @@
       960,
       1080,
       1200,
-      1536
+      1216
     ],
     "basePath": "/images/opt/products/elitepod-system-2"
   },
-  "@assets/products/elitepod-3.png": {
+  "@assets/products/elitepod-webshop-3.png": {
     "seoSlug": "elitepod-system-3",
-    "alt": "ElitePod System - 3. kép",
-    "width": 1536,
-    "height": 1024,
+    "alt": "ElitePod System kezelőfej cserélhető kapszulafejjel",
+    "width": 1213,
+    "height": 1297,
     "widths": [
       160,
       320,
@@ -3219,15 +3344,15 @@
       960,
       1080,
       1200,
-      1536
+      1213
     ],
     "basePath": "/images/opt/products/elitepod-system-3"
   },
-  "@assets/products/elitepod-4.png": {
+  "@assets/products/elitepod-webshop-4.png": {
     "seoSlug": "elitepod-system-4",
-    "alt": "ElitePod System - 4. kép",
-    "width": 1254,
-    "height": 1254,
+    "alt": "ElitePod System lila kezelőfej közelről",
+    "width": 1213,
+    "height": 1296,
     "widths": [
       160,
       320,
@@ -3237,27 +3362,9 @@
       960,
       1080,
       1200,
-      1254
+      1213
     ],
     "basePath": "/images/opt/products/elitepod-system-4"
-  },
-  "@assets/products/elitepod-wallpaper.png": {
-    "seoSlug": "elitepod-wallpaper",
-    "alt": "elitepod wallpaper",
-    "width": 1254,
-    "height": 1254,
-    "widths": [
-      160,
-      320,
-      480,
-      640,
-      828,
-      960,
-      1080,
-      1200,
-      1254
-    ],
-    "basePath": "/images/opt/products/elitepod-wallpaper"
   },
   "@assets/products/empire-1.png": {
     "seoSlug": "empire-4wave-1200w-diodalezer-1",
