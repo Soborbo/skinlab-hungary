@@ -29,6 +29,11 @@ Jelölések: 🔴 blokkoló · 🟠 fontos, nem blokkoló · 🟡 ráér
 > **Forrásszabály (designer, 2026-09-23):** csak a „Webshop leírás x fotó” mappa számít, a másik két
 > M'onduniq-mappa munkamappa. Az E-vitaminos maszk (Vitamino'MASK) kimaradt, saját mappája készül.
 
+> **2026-10-06 — Vitamino'MASK intenzív fiatalító arcmaszk (200 ml, 17 990 Ft) élesítve**
+> a saját „Intenzív fiatalító arcmaszk” almappából (leírás + ár + 1 webshop fotó + 2 design fotó).
+> A csomagoláson „à l'huile d'argan” (argánolaj) szerepel, a leírásban nem, ezért az oldal nem állítja.
+> Kategória 21 → 22 élő termék (a menü 20-at mutatott, mert az arckrém élesítésekor nem frissült).
+
 ---
 
 ## ✅ 1. Hiányzó ár — GENEXEM LSEV 100 exoszómás szérum — **MEGOLDVA (2026-08-05)**
