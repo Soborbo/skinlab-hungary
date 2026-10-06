@@ -2753,27 +2753,9 @@
     ],
     "basePath": "/images/opt/products/athena-1000w-diodalezer-11"
   },
-  "@assets/products/biopen1.png": {
-    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-1",
-    "alt": "Bio Pen Q2 EMS mikrotűs pen",
-    "width": 1448,
-    "height": 1086,
-    "widths": [
-      160,
-      320,
-      480,
-      640,
-      828,
-      960,
-      1080,
-      1200,
-      1448
-    ],
-    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-1"
-  },
-  "@assets/products/biopen2.png": {
-    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-2",
-    "alt": "Bio Pen Q2 EMS mikrotűs pen - 2. kép",
+  "@assets/products/biopen-design-1.jpg": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-5",
+    "alt": "Bio Pen Q2 mikrotűs pen páfránylevelek között",
     "width": 1536,
     "height": 1024,
     "widths": [
@@ -2787,11 +2769,101 @@
       1200,
       1536
     ],
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-5"
+  },
+  "@assets/products/biopen-design-2.jpg": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-6",
+    "alt": "Bio Pen Q2 mikrotűs cartridge zöld növények között",
+    "width": 1292,
+    "height": 1218,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1292
+    ],
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-6"
+  },
+  "@assets/products/biopen-design-3.jpg": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-7",
+    "alt": "Bio Pen Q2 mikrotűs pen M'ONDUNIQ kezelőanyagokkal",
+    "width": 1448,
+    "height": 1086,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1448
+    ],
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-7"
+  },
+  "@assets/products/biopen-tufej-valaszto.png": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-4",
+    "alt": "Bio Pen Q2 tűfej-választó: 9 tűs, 14 tűs, 25 tűs és nano cartridge",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-4"
+  },
+  "@assets/products/biopen-webshop-1.png": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-1",
+    "alt": "Bio Pen Q2 vezeték nélküli mikrotűs pen a sebességfokozat-kijelzővel",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-1"
+  },
+  "@assets/products/biopen-webshop-2.png": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-2",
+    "alt": "Bio Pen Q2 aranyozott mikrotűs cartridge közelről",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
     "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-2"
   },
-  "@assets/products/biopen3.png": {
+  "@assets/products/biopen-webshop-3.png": {
     "seoSlug": "bio-pen-q2-ems-mikrotus-pen-3",
-    "alt": "Bio Pen Q2 EMS mikrotűs pen - 3. kép",
+    "alt": "Bio Pen Q2 mikrotűs pen a töltőtalpban",
     "width": 1254,
     "height": 1254,
     "widths": [
@@ -2807,9 +2879,9 @@
     ],
     "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-3"
   },
-  "@assets/products/biopen4.png": {
-    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-4",
-    "alt": "Bio Pen Q2 EMS mikrotűs pen - 4. kép",
+  "@assets/products/biopen3.png": {
+    "seoSlug": "bio-pen-q2-ems-mikrotus-pen-8",
+    "alt": "Bio Pen Q2 mikrotűs arckezelés a szalonban",
     "width": 1254,
     "height": 1254,
     "widths": [
@@ -2823,7 +2895,7 @@
       1200,
       1254
     ],
-    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-4"
+    "basePath": "/images/opt/products/bio-pen-q2-ems-mikrotus-pen-8"
   },
   "@assets/products/black-pearl.webp": {
     "seoSlug": "black-pearl",
@@ -3557,7 +3629,7 @@
     "basePath": "/images/opt/products/empire-4wave-1200w-diodalezer-9"
   },
   "@assets/products/empire-kijelzo.jpg": {
-    "seoSlug": "empire-4wave-1200w-diodalezer-10",
+    "seoSlug": "empire-4wave-1200w-diodalezer-12",
     "alt": "EMPIRE diódalézer érintőképernyős kezelőfelülete vendégnévvel és kezelési módokkal",
     "width": 1030,
     "height": 525,
@@ -3570,7 +3642,43 @@
       960,
       1030
     ],
+    "basePath": "/images/opt/products/empire-4wave-1200w-diodalezer-12"
+  },
+  "@assets/products/empire-oktatas-1.jpg": {
+    "seoSlug": "empire-4wave-1200w-diodalezer-10",
+    "alt": "EMPIRE gépkezelői oktatás a kezelőfejjel és az érintőképernyővel",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
     "basePath": "/images/opt/products/empire-4wave-1200w-diodalezer-10"
+  },
+  "@assets/products/empire-oktatas-2.jpg": {
+    "seoSlug": "empire-4wave-1200w-diodalezer-11",
+    "alt": "EMPIRE kezelési kézikönyv és oklevél a gépkezelői oktatás után",
+    "width": 1254,
+    "height": 1254,
+    "widths": [
+      160,
+      320,
+      480,
+      640,
+      828,
+      960,
+      1080,
+      1200,
+      1254
+    ],
+    "basePath": "/images/opt/products/empire-4wave-1200w-diodalezer-11"
   },
   "@assets/products/evosculpt.webp": {
     "seoSlug": "evosculpt-smart-1",

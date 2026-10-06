@@ -239,8 +239,9 @@ const huFmt = new Intl.NumberFormat('hu-HU');
 // Teaser havi részlet: a közös installment-logikára kötve (50% előleg + ársávos
 // futamidő). 100 000 Ft alatt null → nem jelenik meg "havi ~" a kártyán.
 // A leghosszabb elérhető futamidő = legkisebb havi összeg.
-const monthlyTeaser = (price?: number | null): number | null => {
-  const info = getInstallmentInfo(price);
+const monthlyTeaser = (data: { price?: number | null; installment?: boolean }): number | null => {
+  if (data.installment === false) return null;
+  const info = getInstallmentInfo(data.price);
   if (!info.available) return null;
   const term = info.months[info.months.length - 1];
   return info.monthly[term];
@@ -252,7 +253,7 @@ const productHref = (p: any) => withTrailingSlash(productPath(p.data.categorySlu
 // kategóriákon (pl. kellékek, kezelőanyagok) NEM ajánljuk fel a részletfizetést
 // — ugyanazt a küszöböt alkalmazzuk, mint a kártyák "havi ~" teaserénél és a
 // termékoldali kalkulátornál (közös forrás: lib/installment.ts).
-const categoryHasInstallment = products.some((p) => getInstallmentInfo(p?.data?.price).available);
+const categoryHasInstallment = products.some((p) => p?.data && monthlyTeaser(p.data) !== null);
 // Tetováló- és sminktetováló gépekre 1 év a garancia, a kozmetikai gépekre 2 év
 // (ugyanaz a kategórialista, mint a ProductLayout ONE_YEAR_WARRANTY_CATEGORIES-e).
 const isOneYearWarrantyCategory = ['sminktetovalas', 'tetovalogepek'].includes(category.slug);
@@ -417,8 +418,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 {heroProduct.data.price ? (
                   <div class="flex items-baseline gap-3 mb-4">
                     <span class="text-3xl font-bold text-gray-900">{huFmt.format(heroProduct.data.price)} Ft</span>
-                    {monthlyTeaser(heroProduct.data.price) && (
-                      <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(monthlyTeaser(heroProduct.data.price)!)} Ft</span>
+                    {monthlyTeaser(heroProduct.data) && (
+                      <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(monthlyTeaser(heroProduct.data)!)} Ft</span>
                     )}
                   </div>
                 ) : (
@@ -499,8 +500,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     {p.data.price ? (
                       <div class="mt-1">
                         <div class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</div>
-                        {monthlyTeaser(p.data.price) && (
-                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data.price)!)} Ft</span>
+                        {monthlyTeaser(p.data) && (
+                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
                         )}
                       </div>
                     ) : (
@@ -543,8 +544,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                       {p.data.price ? (
                         <div class="mt-1 flex items-baseline gap-2">
                           <span class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</span>
-                          {monthlyTeaser(p.data.price) && (
-                            <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data.price)!)} Ft</span>
+                          {monthlyTeaser(p.data) && (
+                            <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
                           )}
                         </div>
                       ) : (
@@ -705,9 +706,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                           <div class="text-xl font-bold text-gray-900">
                             {new Intl.NumberFormat('hu-HU').format(product.data.price)} Ft
                           </div>
-                          {monthlyTeaser(product.data.price) && (
+                          {monthlyTeaser(product.data) && (
                             <div class="text-green-600 text-sm font-medium">
-                              vagy havi ~{huFmt.format(monthlyTeaser(product.data.price)!)} Ft
+                              vagy havi ~{huFmt.format(monthlyTeaser(product.data)!)} Ft
                             </div>
                           )}
                         </>
