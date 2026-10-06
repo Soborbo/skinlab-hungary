@@ -146,7 +146,7 @@ const stockState = allBackorder
 // a hero részlet-sorát és a "Havi részlet" fület, így a #kalkulator anchor sosem lóg.
 const offerPriceForInstallment = product.salePrice ?? product.price;
 const installmentInfo = getInstallmentInfo(offerPriceForInstallment ?? 0);
-const showInstallment = locale === 'hu' && !isConsumable && installmentInfo.available;
+const showInstallment = locale === 'hu' && !isConsumable && product.installment !== false && installmentInfo.available;
 const longestTerm = installmentInfo.months[installmentInfo.months.length - 1];
 const heroInstallment = showInstallment && longestTerm
   ? { downPayment: installmentInfo.downPayment, months: longestTerm, monthly: installmentInfo.monthly[longestTerm] }

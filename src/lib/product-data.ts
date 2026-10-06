@@ -33,6 +33,7 @@ export function buildProductData(entry: CollectionEntry<'products'>) {
     youtubeVideos: d.youtubeVideos,
     introVideo: d.introVideo,
     introImage: d.introImage,
+    installment: d.installment,
     theme: d.theme,
     hero: d.hero,
     availability: d.availability,

@@ -86,6 +86,9 @@ const productSchema = z.object({
   // A bevezető (VideoDescription) képe, ha nincs videó. Alapból a második
   // design fotó; itt felülírható (pl. fehér hátteres termékfotóra).
   introImage: z.string().optional(),
+  // false = erre a termékre nincs részletfizetés (pl. ELITPOD, tulajdonosi döntés
+  // 2026-10-06): se kalkulátor, se hero részlet-sor, se "havi ~" kártya-teaser.
+  installment: z.boolean().default(true),
   // Termék-szintű akcentus-téma: a tartalom-wrapperen belül a primary skálát
   // cseréli (global.css `[data-product-theme]`). Fejléc/lábléc nem változik.
   theme: z.enum(['frost']).optional(),
