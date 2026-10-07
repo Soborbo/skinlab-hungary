@@ -15,6 +15,10 @@ export const CATEGORY_AS_PRODUCT: Record<string, string> = {
   hidegplazma: 'thefrostcoldplasma',
   // 2026-10-05: a SKINETIC AI+ "külön gép, egyik kategóriába se" (korábban anti-aging)
   bordiagnosztika: 'skinetic-ai-plus',
+  // 2026-10-07: az ELITPOD egyelőre egyedül van az okos arckezelők között. Ha
+  // jön második gép, vedd ki ezt a sort és a _redirects ELITPOD-blokkját; a
+  // kategória-route magától visszaáll listára, a [slug].astro újra legenerálja.
+  'arckezelo-rendszerek': 'elitepod',
 };
 
 /** Az adott termék oldalának útvonala, záró perjel nélkül (pl. `/hidegplazma`). */
