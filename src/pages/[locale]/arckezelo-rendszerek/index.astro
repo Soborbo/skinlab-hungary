@@ -3,6 +3,8 @@ import CategoryLayout from '../../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
 import { locales, defaultLocale } from '../../../i18n/ui';
 import { getCategoryTranslation } from '../../../data/category-translations';
+import ProductLayout from '../../../layouts/ProductLayout.astro';
+import { buildProductData } from '../../../lib/product-data';
 
 export function getStaticPaths() {
   return locales
@@ -16,6 +18,13 @@ const category = getCategoryTranslation(locale!, 'arckezelo-rendszerek');
 const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'arckezelo-rendszerek' && !data.draft;
 });
+
+// Egyetlen élő termék = a termékoldal áll a kategória URL-jén (lásd a HU route-ot).
+const soleProduct = products.length === 1 ? products[0] : undefined;
 ---
 
-<CategoryLayout category={category} products={products} />
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} />
+)}

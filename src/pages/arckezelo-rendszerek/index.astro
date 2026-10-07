@@ -1,6 +1,14 @@
 ---
+/**
+ * /arckezelo-rendszerek/ - amíg egyetlen élő termék van (ELITPOD), a kategória
+ * URL-jén MAGA a termékoldal áll (2026-10-07, a "Részletek megtekintése" köztes
+ * oldal kimarad). Minta: pages/bordiagnosztika/, lib/product-url.ts
+ * `CATEGORY_AS_PRODUCT`. Második élő termékkel visszaesik a kategórialistára.
+ */
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
+import ProductLayout from '../../layouts/ProductLayout.astro';
 import { getCollection } from 'astro:content';
+import { buildProductData } from '../../lib/product-data';
 import { getCategoryTranslation } from '../../data/category-translations';
 
 const category = getCategoryTranslation('hu', 'arckezelo-rendszerek');
@@ -8,6 +16,12 @@ const category = getCategoryTranslation('hu', 'arckezelo-rendszerek');
 const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'arckezelo-rendszerek' && !data.draft;
 });
+
+const soleProduct = products.length === 1 ? products[0] : undefined;
 ---
 
-<CategoryLayout category={category} products={products} />
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} />
+)}

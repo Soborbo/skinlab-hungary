@@ -7,6 +7,9 @@ export async function getStaticPaths() {
   const products = await getCollection('products', ({ data }) => {
     return data.categorySlug === 'arckezelo-rendszerek' && !data.draft;
   });
+  // Egyetlen élő termék esetén a termékoldal a kategória URL-jén áll
+  // (index.astro), ezért külön /arckezelo-rendszerek/<slug>/ oldal nem készül.
+  if (products.length < 2) return [];
 
   return products.map((product) => ({
     params: { slug: product.data.slug },
