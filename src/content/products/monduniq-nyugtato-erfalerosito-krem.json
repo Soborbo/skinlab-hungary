@@ -9,10 +9,19 @@
   "metaTitle": "M'ONDUNIQ nyugtató, érfalerősítő krém | couperosás bőrre",
   "metaDescription": "Nyugtató és érfalerősítő hidratáló krém érzékeny, couperosás, teleangiectasiákra hajlamos bőrre. Datolyamag-kivonat, stabilizált C-vitamin. 50 és 150 ml.",
   "price": 12990,
-  "image": "@assets/products/monduniq-nyugtato-erfalerosito-krem-1.webp",
+  "image": "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-design-1.jpg",
   "images": [
-    "@assets/products/monduniq-nyugtato-erfalerosito-krem-1.webp"
+    "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-1.jpg",
+    "@assets/products/monduniq-nyugtato-erfalerosito-krem-150ml-1.jpg"
   ],
+  "imageAlts": {
+    "monduniq-nyugtato-erfalerosito-krem-50ml-design-1.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice nyugtató krém 50 ml-es doboza selyem háttéren",
+    "monduniq-nyugtato-erfalerosito-krem-50ml-design-2.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice 50 ml-es doboz kőlapon, olajágakkal",
+    "monduniq-nyugtato-erfalerosito-krem-50ml-1.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice nyugtató és érfalerősítő krém, 50 ml, doboz",
+    "monduniq-nyugtato-erfalerosito-krem-150ml-design-1.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice 150 ml-es pumpás flakon selyem háttéren",
+    "monduniq-nyugtato-erfalerosito-krem-150ml-design-2.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice 150 ml-es flakon kőlapon, olajágakkal",
+    "monduniq-nyugtato-erfalerosito-krem-150ml-1.jpg": "M'ONDUNIQ Laser-IQ Crème Réparatrice nyugtató és érfalerősítő krém, 150 ml, pumpás flakon"
+  },
   "availability": "in_stock",
   "hasVariants": true,
   "variants": [
@@ -25,7 +34,13 @@
       "description": "Kisebb, 50 ml-es kiszerelés a nyugtató és érfalerősítő hidratáló krémből.",
       "specs": {
         "Kiszerelés": "50 ml"
-      }
+      },
+      "image": "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-design-1.jpg",
+      "images": [
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-design-1.jpg",
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-1.jpg",
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-design-2.jpg"
+      ]
     },
     {
       "sku": "MQ-NK-150",
@@ -36,7 +51,13 @@
       "description": "Nagyobb, 150 ml-es kiszerelés ugyanabból a formulából.",
       "specs": {
         "Kiszerelés": "150 ml"
-      }
+      },
+      "image": "@assets/products/monduniq-nyugtato-erfalerosito-krem-150ml-design-1.jpg",
+      "images": [
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-150ml-design-1.jpg",
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-150ml-1.jpg",
+        "@assets/products/monduniq-nyugtato-erfalerosito-krem-150ml-design-2.jpg"
+      ]
     }
   ],
   "featured": false,
