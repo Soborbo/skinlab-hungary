@@ -29,6 +29,12 @@ Jelölések: 🔴 blokkoló · 🟠 fontos, nem blokkoló · 🟡 ráér
 > **Forrásszabály (designer, 2026-09-23):** csak a „Webshop leírás x fotó” mappa számít, a másik két
 > M'onduniq-mappa munkamappa. Az E-vitaminos maszk (Vitamino'MASK) kimaradt, saját mappája készül.
 
+> **2026-10-09 — Dermoaktív bőrkiegyensúlyozó szérum niacinamiddal (16 990 Ft) élesítve**
+> a saját almappából (leírás + ár + 2 szaténos design fotó). **Fehér hátterű webshopfotó nincs**,
+> ezért nincs `introImage`; ha a designer pótolja, harmadik képként kerüljön be. A kiszerelést
+> (5 × 3 ml ampulla) és a „DERMOSTAB™ Sérum Stabilisant 11%” nevet a csomagolásról vettük, a leírás
+> nem írja. A „11%” jelentését (niacinamid-koncentráció?) az oldal nem állítja. Kategória 22 → 23.
+
 > **2026-10-06 — Vitamino'MASK intenzív fiatalító arcmaszk (200 ml, 17 990 Ft) élesítve**
 > a saját „Intenzív fiatalító arcmaszk” almappából (leírás + ár + 1 webshop fotó + 2 design fotó).
 > A csomagoláson „à l'huile d'argan” (argánolaj) szerepel, a leírásban nem, ezért az oldal nem állítja.
