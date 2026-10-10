@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroCarousel from '../sections/HeroCarousel.astro';
+import Categories from '../sections/Categories.astro';
+import BrandMarquee from '../sections/BrandMarquee.astro';
+import Stats from '../sections/Stats.astro';
+import WhyUs from '../sections/WhyUs.astro';
+import FeaturedProduct from '../sections/FeaturedProduct.astro';
+import FoundersStory from '../sections/FoundersStory.astro';
+import Testimonials from '../sections/Testimonials.astro';
+import TrainingGallery from '../sections/TrainingGallery.astro';
+import HowItWorks from '../sections/HowItWorks.astro';
+import FinalCTA from '../sections/FinalCTA.astro';
+import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
+import { config } from '../../config/siteConfig';
+import { homepageSchema } from '../../config/schema';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+---
+
+<BaseLayout
+  title={t(locale, 'home.title')}
+  description={t(locale, 'home.description')}
+  preloadImage="/hero/hero-athena-1000w-diodalezer.avif"
+  preloadImageMobile="/hero/hero-athena-1000w-diodalezer-mobile.avif"
+  schema={homepageSchema(config)}
+>
+  <div>
+    <HeroCarousel />
+    <Categories />
+    <BrandMarquee />
+    <Stats />
+    <WhyUs />
+    <TrainingGallery />
+    <FeaturedProduct />
+    <FoundersStory />
+    <Testimonials />
+    <HowItWorks />
+    <FinalCTA />
+  </div>
+</BaseLayout>
