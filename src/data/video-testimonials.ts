@@ -20,12 +20,19 @@ export interface VideoTestimonial {
   /** A teljes videó hossza, ahogy a felületen megjelenik (pl. "1:14"). */
   duration: string;
   quoteKey: string;
+  /**
+   * A YouTube-feltöltés (publikálás) időpontja, ISO 8601, időzónával.
+   * KÖTELEZŐ: a VideoObject rich result enélkül hibás (GSC). Forrás: a videó
+   * YouTube-oldalán szereplő publikálási dátum – nem kitalált érték.
+   */
+  uploadDate: string;
 }
 
 export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
   {
     id: 'adri',
     videoId: 'YHyZ1HheFUc',
+    uploadDate: '2026-06-29T14:31:13+02:00',
     name: 'Zsidai Adri',
     roleKey: 'videoTestimonials.role1',
     business: 'Fancy Beauty Palota',
@@ -35,6 +42,7 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
   {
     id: 'hajnalka',
     videoId: 'yD0Rhk9kXmg',
+    uploadDate: '2026-06-29T14:31:39+02:00',
     name: 'Török Hajnalka',
     roleKey: 'videoTestimonials.role2',
     business: 'Aurora Face Art Studio & PMU Academy',
@@ -44,6 +52,7 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
   {
     id: 'anna',
     videoId: 'ftVAd7itY_0',
+    uploadDate: '2026-06-29T14:31:59+02:00',
     name: 'Solti Anna',
     roleKey: 'videoTestimonials.role3',
     business: 'd’Ane Beauty Salon',
@@ -53,6 +62,7 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
   {
     id: 'dori',
     videoId: 'VxAFGEOMq1w',
+    uploadDate: '2026-06-29T14:32:24+02:00',
     name: 'Rácz Dóri',
     roleKey: 'videoTestimonials.role4',
     business: 'RD Beauty',
@@ -77,6 +87,7 @@ export function videoObjectSchema(item: VideoTestimonial, locale: Locale) {
     name: `${item.name} (${item.business})`,
     description: `${item.name} – ${t(locale, item.roleKey)} (${item.business}) – ${t(locale, 'videoTestimonials.subtitle')}`,
     thumbnailUrl: shortsPoster(item.videoId),
+    uploadDate: item.uploadDate,
     contentUrl: `https://www.youtube.com/watch?v=${item.videoId}`,
     embedUrl: `https://www.youtube-nocookie.com/embed/${item.videoId}`,
   };
