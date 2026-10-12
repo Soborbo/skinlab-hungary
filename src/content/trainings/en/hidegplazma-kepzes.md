@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Being at least 18 years of age"
   - "For your own or a third-party device: the exact model of the device and, if possible, its technical documentation at the time of registration"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 

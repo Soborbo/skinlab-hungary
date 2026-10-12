@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Navršenih 18 godina"
   - "Za vlastiti uređaj ili uređaj drugog dobavljača: točan tip uređaja i, ako je moguće, njegova tehnička dokumentacija pri prijavi"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 

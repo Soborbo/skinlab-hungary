@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Vollendung des 18. Lebensjahres"
   - "Bei eigenem oder fremdem Gerät: der genaue Gerätetyp und nach Möglichkeit die technische Dokumentation bei der Anmeldung"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 

@@ -233,7 +233,7 @@ export const CATEGORIES = [
     icon: 'droplet',
     image: '/images/opt/products/hydrascan-pro-2026-1-480w.webp',
     featured: true,
-    productCount: 2,
+    productCount: 3,
     color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -434,7 +434,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.treatments',
       items: [
-        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 2, descriptionKey: 'megaMenu.hydrafacialDesc' },
+        { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
         { labelKey: 'categories.hidegplazma', href: '/hidegplazma', count: 1, descriptionKey: 'megaMenu.hidegplazmaDesc' },
         { labelKey: 'categories.bordiagnosztika', href: '/bordiagnosztika', count: 1, descriptionKey: 'megaMenu.bordiagnosztikaDesc' },

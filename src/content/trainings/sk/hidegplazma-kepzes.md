@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Dovŕšenie veku 18 rokov"
   - "Pri vlastnom alebo externom prístroji: presný typ prístroja a podľa možnosti jeho technická dokumentácia pri prihlásení"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 
