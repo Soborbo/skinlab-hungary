@@ -333,6 +333,58 @@
 /evosculpt-smart-hiemt                                                           /testkezeles/  301
 /evosculpt-venus-hiemt-intim-pad                                                 /testkezeles/  301
 
+# --- 2026-10-12: GSC 404-ek (regi OpenCart /kategoria/ es /termek/ URL-ek, /adatkezeles) ---
+/kategoria/diodalezerek                                                          /diodalezerek/  301
+/kategoria/diodalezerek/                                                         /diodalezerek/  301
+/kategoria/testkezeles                                                           /testkezeles/  301
+/kategoria/testkezeles/                                                          /testkezeles/  301
+/kategoria/coldplasma                                                            /hidegplazma/  301
+/kategoria/coldplasma/                                                           /hidegplazma/  301
+/kategoria/sminktetovalas                                                        /sminktetovalas/  301
+/kategoria/sminktetovalas/                                                       /sminktetovalas/  301
+/kategoria/anti-aging                                                            /anti-aging/  301
+/kategoria/anti-aging/                                                           /anti-aging/  301
+/termek/hydrascanpro                                                             /hydrafacial/hydrascanpro/  301
+/termek/hydrascanpro/                                                            /hydrafacial/hydrascanpro/  301
+/termek/wjxtumodul                                                               /kellekek/wjxtumodul/  301
+/termek/wjxtumodul/                                                              /kellekek/wjxtumodul/  301
+/adatkezeles                                                                     /adatvedelem/  301
+/adatkezeles/                                                                    /adatvedelem/  301
+
+# --- 2026-10-12: archivalt Farmona termekek (2026-08-06) a tobbi 8 nyelven is -> nyelvi kezeloanyagok ---
+/en/kezeloanyagok/hydraliquid_peeling                                            /en/kezeloanyagok/  301
+/en/kezeloanyagok/hydraliquid_peeling/                                           /en/kezeloanyagok/  301
+/en/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /en/kezeloanyagok/  301
+/en/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /en/kezeloanyagok/  301
+/sk/kezeloanyagok/hydraliquid_peeling                                            /sk/kezeloanyagok/  301
+/sk/kezeloanyagok/hydraliquid_peeling/                                           /sk/kezeloanyagok/  301
+/sk/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /sk/kezeloanyagok/  301
+/sk/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /sk/kezeloanyagok/  301
+/ro/kezeloanyagok/hydraliquid_peeling                                            /ro/kezeloanyagok/  301
+/ro/kezeloanyagok/hydraliquid_peeling/                                           /ro/kezeloanyagok/  301
+/ro/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /ro/kezeloanyagok/  301
+/ro/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /ro/kezeloanyagok/  301
+/de/kezeloanyagok/hydraliquid_peeling                                            /de/kezeloanyagok/  301
+/de/kezeloanyagok/hydraliquid_peeling/                                           /de/kezeloanyagok/  301
+/de/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /de/kezeloanyagok/  301
+/de/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /de/kezeloanyagok/  301
+/cs/kezeloanyagok/hydraliquid_peeling                                            /cs/kezeloanyagok/  301
+/cs/kezeloanyagok/hydraliquid_peeling/                                           /cs/kezeloanyagok/  301
+/cs/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /cs/kezeloanyagok/  301
+/cs/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /cs/kezeloanyagok/  301
+/hr/kezeloanyagok/hydraliquid_peeling                                            /hr/kezeloanyagok/  301
+/hr/kezeloanyagok/hydraliquid_peeling/                                           /hr/kezeloanyagok/  301
+/hr/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /hr/kezeloanyagok/  301
+/hr/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /hr/kezeloanyagok/  301
+/sr/kezeloanyagok/hydraliquid_peeling                                            /sr/kezeloanyagok/  301
+/sr/kezeloanyagok/hydraliquid_peeling/                                           /sr/kezeloanyagok/  301
+/sr/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /sr/kezeloanyagok/  301
+/sr/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /sr/kezeloanyagok/  301
+/sl/kezeloanyagok/hydraliquid_peeling                                            /sl/kezeloanyagok/  301
+/sl/kezeloanyagok/hydraliquid_peeling/                                           /sl/kezeloanyagok/  301
+/sl/kezeloanyagok/oxygenx-pod-szett-glam-pod                                     /sl/kezeloanyagok/  301
+/sl/kezeloanyagok/oxygenx-pod-szett-glam-pod/                                    /sl/kezeloanyagok/  301
+
 # --- HydraScan Pro+ alias ---
 
 # --- /coldplasma/ -> /hidegplazma/ biztonsagi halo (2026-09-21) ---
@@ -352,3 +404,8 @@
 /sminktetovalo-gepek/*                                                           /sminktetovalas/  301
 /szalon-berendezesek/*                                                           /termekek/  301
 /szalonberendezes/*                                                              /termekek/  301
+
+# --- 2026-10-12: regi OpenCart /kategoria/ es /termek/ catch-all (a P60 prefix a /termek/* ELOTT) ---
+/termek/mast-p60*                                                                /sminktetovalas/  301
+/kategoria/*                                                                     /termekek/  301
+/termek/*                                                                        /termekek/  301
