@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Dopolnjenih 18 let"
   - "Pri lastni napravi ali napravi drugega dobavitelja: natančen tip naprave in po možnosti njena tehnična dokumentacija ob prijavi"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 

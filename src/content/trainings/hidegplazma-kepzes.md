@@ -26,7 +26,7 @@ topics:
 requirements:
   - "18 éves kor betöltése"
   - "Saját vagy külsős készülék esetén a gép pontos típusa és lehetőség szerint a műszaki dokumentációja a jelentkezéskor"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 

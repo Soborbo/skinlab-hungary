@@ -26,7 +26,7 @@ topics:
 requirements:
   - "Vârsta minimă de 18 ani"
   - "În cazul aparatului propriu sau de la alt furnizor: tipul exact al aparatului și, dacă este posibil, documentația tehnică a acestuia la înscriere"
-image: "@assets/hidegplazma-kepzes.jpg"
+image: "@assets/products/thefrost-oktatas-2.jpg"
 featured: false
 ---
 
