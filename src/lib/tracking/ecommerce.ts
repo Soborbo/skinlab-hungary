@@ -17,7 +17,8 @@ import {
   getSessionId, getDevice, getAttribution, getPageUrl, getGclid, getFbclid,
   normalizeEmail, normalizePhone, sanitizeName,
 } from './persistence';
-import { generateEventId, setUserDataForEC } from './events';
+import { generateEventId, setUserDataForEC, canPushDataLayer, stripIdentifiersWithoutConsent } from './events';
+import { isCookielessPingAllowed } from './consent';
 import { trackingConfig } from './config';
 
 function pushRaw(data: Record<string, unknown>): void {
@@ -32,7 +33,8 @@ function pushEcommerceEvent(
   extra?: Record<string, unknown>,
 ): void {
   pushRaw({ ecommerce: null }); // GA4: clear previous ecommerce state
-  pushRaw({
+  // Advanced mód, hozzájárulás nélkül: azonosítók le (lásd events.ts).
+  pushRaw(stripIdentifiersWithoutConsent({
     event: eventName,
     ecommerce,
     session_id: getSessionId(),
@@ -40,7 +42,7 @@ function pushEcommerceEvent(
     page_url: getPageUrl(),
     ...getAttribution(),
     ...extra,
-  });
+  }));
 }
 
 export interface EcommerceItem {
@@ -61,7 +63,7 @@ export interface EcommerceItem {
 
 /** Product page view */
 export function trackViewItem(item: EcommerceItem): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushEcommerceEvent('view_item', {
     currency: item.currency || 'HUF',
     value: item.price || 0,
@@ -71,7 +73,7 @@ export function trackViewItem(item: EcommerceItem): void {
 
 /** Category page view */
 export function trackViewItemList(listId: string, listName: string, items: EcommerceItem[]): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushEcommerceEvent('view_item_list', {
     item_list_id: listId,
     item_list_name: listName,
@@ -86,7 +88,7 @@ export function trackViewItemList(listId: string, listName: string, items: Ecomm
 
 /** Click on product card from list */
 export function trackSelectItem(listId: string, listName: string, item: EcommerceItem): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushEcommerceEvent('select_item', {
     item_list_id: listId,
     item_list_name: listName,
@@ -96,7 +98,7 @@ export function trackSelectItem(listId: string, listName: string, item: Ecommerc
 
 /** Add to cart */
 export function trackAddToCart(item: EcommerceItem): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushEcommerceEvent('add_to_cart', {
     currency: item.currency || 'HUF',
     value: (item.price || 0) * (item.quantity || 1),
@@ -117,7 +119,7 @@ export function trackBeginCheckout(
   currency = 'HUF',
   eventId?: string,
 ): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushEcommerceEvent('begin_checkout', {
     currency,
     value,
@@ -127,7 +129,7 @@ export function trackBeginCheckout(
 
 /** Lead generation funnel signal for a specific product (GA4 standard event) */
 export function trackGenerateLead(productName: string, productSku: string, productPrice?: number): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPushDataLayer()) return;
   pushRaw({
     event: 'generate_lead',
     product_name: productName,
@@ -176,7 +178,18 @@ export interface OrderRequestSubmitResult {
 export function trackOrderRequestSubmit(params: OrderRequestSubmitParams): OrderRequestSubmitResult {
   const gclid = getGclid(), fbclid = getFbclid();
   const eventId = params.eventId || generateEventId();
-  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  if (!hasMarketingConsent()) {
+    // Advanced mód: a rendelés PII- és azonosító-mentesen megy a dataLayerbe →
+    // a Google Ads/GA4 süti nélküli pinget küld (konverzió-modellezés).
+    if (isCookielessPingAllowed()) {
+      const cur = params.currency || trackingConfig.currency;
+      pushEcommerceEvent('order_request_submitted', {
+        transaction_id: params.orderId, currency: cur, value: params.value,
+        items: params.items.map(item => ({ ...item, currency: item.currency || cur, quantity: item.quantity || 1 })),
+      }, { event_id: eventId });
+    }
+    return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  }
 
   const currency = params.currency || trackingConfig.currency;
   const ud: Record<string, string> = {};

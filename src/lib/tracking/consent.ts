@@ -130,6 +130,18 @@ export function hasAnalyticsConsent(): boolean {
   return c.analytics === true;
 }
 
+/**
+ * Advanced Consent Mode (soborbo-tracking 6.10.0 port) — szabad-e a dataLayer-be
+ * AZONOSÍTÓ NÉLKÜLI eseményt tenni hozzájárulás hiányában is? Csak sbo +
+ * PUBLIC_TRACKING_CONSENT_MODE=advanced mellett. A GTM denied default alatt fut,
+ * a Google-tagek ebből süti nélküli pinget küldenek (modellezés); a Meta-tagek a
+ * GTM-ben ad_storage-kapusak. NEM hozzájárulás: tárolásra, gatewayre, PII-re nem
+ * jogosít. Az azonosítók levágását az events.ts végzi.
+ */
+export function isCookielessPingAllowed(): boolean {
+  return isSboConsentProvider() && trackingConfig.consentMode === 'advanced';
+}
+
 /** Any non-essential tracking allowed? */
 export function hasAnyConsent(): boolean {
   return hasAnalyticsConsent() || hasMarketingConsent();
