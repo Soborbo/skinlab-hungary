@@ -23,11 +23,23 @@ export type Market = 'GB' | 'HU';
  */
 export type ConsentProvider = 'cookieyes' | 'sbo';
 
+/**
+ * Consent Mode v2 mód az sbo CMP alatt (PUBLIC_TRACKING_CONSENT_MODE) — a kit
+ * 6.10.0 portja. 'basic' (default): a GTM csak pozitív döntés után tölt.
+ * 'advanced': a GTM mindig tölt a denied default alatt (süti nélküli pingek).
+ * Feltétel: minden nem-Google GTM-tag consent-kapus. Más érték = 'basic'.
+ */
+export type ConsentModeKind = 'basic' | 'advanced';
+
 export interface TrackingConfig {
   country: Market;
   currency: string;
   locale: 'en' | 'hu';
   consentProvider: ConsentProvider;
+  /** Consent Mode v2 mód az sbo CMP alatt — lásd ConsentModeKind. */
+  consentMode: ConsentModeKind;
+  /** Kiemelt Elfogadom (PUBLIC_TRACKING_CONSENT_ACCEPT_EMPHASIS=1) — tudatos paritás-kivétel. */
+  acceptEmphasis: boolean;
   /**
    * Az adatkezelési tájékoztató verziója (consent_log.policy_version). A
    * `sbo_consent` süti ehhez kötődik: más érték = nincs érvényes döntés, a
@@ -69,6 +81,8 @@ export const trackingConfig: TrackingConfig = {
   currency: readEnv('PUBLIC_TRACKING_CURRENCY') || 'GBP',
   locale: (readEnv('PUBLIC_TRACKING_LOCALE') as 'en' | 'hu') || 'en',
   consentProvider: readEnv('PUBLIC_TRACKING_CONSENT_PROVIDER') === 'sbo' ? 'sbo' : 'cookieyes',
+  consentMode: readEnv('PUBLIC_TRACKING_CONSENT_MODE') === 'advanced' ? 'advanced' : 'basic',
+  acceptEmphasis: readEnv('PUBLIC_TRACKING_CONSENT_ACCEPT_EMPHASIS') === '1',
   policyVersion: readEnv('PUBLIC_TRACKING_POLICY_VERSION') || 'policy-unset',
   ruleset: readEnv('PUBLIC_TRACKING_RULESET') || 'eea_uk',
   devConsentAllow: readEnv('PUBLIC_TRACKING_DEV_CONSENT_ALLOW') === '1',

@@ -62,7 +62,7 @@ export {
   TRACKING_CODES, type TrackingDiagnostic, type TrackingCode, type TrackingCodeKey,
 } from './observability';
 
-import { hasMarketingConsent, hasAnalyticsConsent, onConsentChange } from './consent';
+import { hasMarketingConsent, hasAnalyticsConsent, onConsentChange, isCookielessPingAllowed } from './consent';
 import {
   persistTrackingParams, captureUrlParams,
   getGclid, getFbclid, getSessionId, getSourceType, getAttribution, getAllTrackingData,
@@ -159,7 +159,17 @@ function dispatchToGateway(
  */
 export function trackLeadSubmit(params: LeadSubmitParams): LeadSubmitResult {
   const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
-  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  if (!hasMarketingConsent()) {
+    // Advanced mód: PII- és azonosító-mentes push → süti nélküli Google-ping
+    // (konverzió-modellezés). A teljes konverzió továbbra is blokkolt.
+    if (isCookielessPingAllowed()) {
+      pushLeadConversion({
+        email: '', value: params.value,
+        currency: params.currency || trackingConfig.currency, eventId,
+      });
+    }
+    return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  }
 
   const currency = params.currency || trackingConfig.currency;
 
@@ -182,7 +192,14 @@ export function trackContactSubmit(
   params: Pick<LeadSubmitParams, 'email' | 'phone'>,
 ): LeadSubmitResult {
   const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
-  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  if (!hasMarketingConsent()) {
+    // Advanced mód: PII- és azonosító-mentes push → süti nélküli Google-ping
+    // (konverzió-modellezés). A teljes konverzió továbbra is blokkolt.
+    if (isCookielessPingAllowed()) {
+      pushContactConversion({ email: '', eventId });
+    }
+    return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  }
 
   pushContactConversion({ email: params.email, phone: params.phone, eventId, gclid: gclid || undefined });
   return { success: true, consentBlocked: false, eventId, gclid, fbclid };
@@ -195,7 +212,17 @@ export function trackContactSubmit(
  */
 export function trackConsultationSubmit(params: LeadSubmitParams): LeadSubmitResult {
   const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
-  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  if (!hasMarketingConsent()) {
+    // Advanced mód: PII- és azonosító-mentes push → süti nélküli Google-ping
+    // (konverzió-modellezés). A teljes konverzió továbbra is blokkolt.
+    if (isCookielessPingAllowed()) {
+      pushConsultationConversion({
+        email: '', value: params.value,
+        currency: params.currency || trackingConfig.currency, eventId,
+      });
+    }
+    return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  }
 
   pushConsultationConversion({
     email: params.email, phone: params.phone,
@@ -214,7 +241,14 @@ export function trackTrainingSignupSubmit(
   params: Pick<LeadSubmitParams, 'email' | 'phone'>,
 ): LeadSubmitResult {
   const gclid = getGclid(), fbclid = getFbclid(), eventId = generateEventId();
-  if (!hasMarketingConsent()) return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  if (!hasMarketingConsent()) {
+    // Advanced mód: PII- és azonosító-mentes push → süti nélküli Google-ping
+    // (konverzió-modellezés). A teljes konverzió továbbra is blokkolt.
+    if (isCookielessPingAllowed()) {
+      pushTrainingSignupConversion({ email: '', eventId });
+    }
+    return { success: false, consentBlocked: true, eventId, gclid, fbclid };
+  }
 
   pushTrainingSignupConversion({ email: params.email, phone: params.phone, eventId, gclid: gclid || undefined });
   return { success: true, consentBlocked: false, eventId, gclid, fbclid };
@@ -281,11 +315,13 @@ function trackClickConversion(
   const { dedupName, params = {} } = opts;
   const analytics = hasAnalyticsConsent();
   const marketing = hasMarketingConsent();
-  if (!analytics && !marketing) return null;             // nothing consented → no-op, no dedup mark
+  // Advanced mód: consent nélkül is megy egy azonosító-mentes dataLayer-esemény.
+  const cookieless = !analytics && isCookielessPingAllowed();
+  if (!analytics && !marketing && !cookieless) return null;             // nothing consented → no-op, no dedup mark
   if (dedupName && hasClickFired(dedupName)) return null; // already fired this session (both channels)
 
   const eventId = generateEventId();
-  if (analytics) pushDataLayer(eventId);                  // browser GA4 (dataLayer)
+  if (analytics || cookieless) pushDataLayer(eventId);                  // browser GA4 (dataLayer)
   if (marketing && gatewayEvent) dispatchToGateway(gatewayEvent, eventId, params); // server Meta CAPI
   if (dedupName) markClickFired(dedupName);
   return eventId;
