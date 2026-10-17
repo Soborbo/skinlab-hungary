@@ -17,6 +17,14 @@ import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
+import { env as workerEnv } from 'cloudflare:workers';
+import type { FormTrackingContext } from '@/lib/forms/submit';
+import {
+  sendGatewayConversion,
+  readConsentFromCookie,
+  readSboConsentCookieHeader,
+  type GatewayEnv,
+} from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import {
   isCartShippable,
@@ -27,6 +35,7 @@ import {
   type PaymentMethodId,
 } from '@/lib/shipping/methods';
 import type { Locale } from '@/i18n/ui';
+import { isBackorder } from '@/lib/stock';
 
 export const prerender = false;
 
@@ -125,10 +134,13 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       let variantName = item.variantName || '';
       let sku = item.sku;
       let unitPrice: number | null = null;
+      let backorder = false;
 
       if (product) {
         name = product.data.name;
         const variant = product.data.variants?.find((v) => v.sku === item.sku);
+        // Készlethiány a kollekcióból (a kosár `backorder` jelzője csak megjelenítés).
+        backorder = isBackorder(product.data, variant);
         if (variant) {
           variantName = variant.name;
           sku = variant.sku;
@@ -152,11 +164,13 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
         qty: item.qty,
         unitPrice,
         lineTotal: unitPrice === null ? null : unitPrice * item.qty,
+        backorder,
       };
     });
 
     const subtotal = items.reduce((sum, i) => sum + (i.lineTotal || 0), 0);
     const hasPriceOnRequest = items.some((i) => i.unitPrice === null);
+    const hasBackorder = items.some((i) => i.backorder);
 
     // 7b. Szállítási + fizetési mód szerveroldali ellenőrzése és újraszámolása.
     //    "Kellék-ág" (parcel tier) = SZERVEROLDALI árak per-tétel < 100k, mind
@@ -208,6 +222,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       items,
       subtotal,
       hasPriceOnRequest,
+      hasBackorder,
       shippingMethod,
       shippingFee,
       foxpostPoint,
@@ -222,6 +237,11 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       utmContent: data.utmContent || '',
       gclid: data.gclid || '',
       fbclid: data.fbclid || '',
+      gbraid: data.gbraid || '',
+      wbraid: data.wbraid || '',
+      msclkid: data.msclkid || '',
+      fbc: data.fbc || '',
+      fbp: data.fbp || '',
       referrer: data.referrer || '',
       userAgent: request.headers.get('user-agent') ?? undefined,
     };
@@ -236,14 +256,78 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       });
     }
 
-    // 9. Siker - proforma státusz visszaadva, hogy a success page jelezhesse
-    //    a vevőnek, várjon-e külön fizetési e-mailre
+    // 9. Gateway (server) leg: order_request_submitted — lead-style checkout,
+    //    SOHA nem purchase (az árat telefonos egyeztetés véglegesíti). A
+    //    böngésző-leg ugyanezzel az event_id-vel megy (payload event_id mező),
+    //    így a Meta Pixel↔CAPI pár deduplikál. Nincs CRM-továbbítás az order
+    //    ágon → nincs lead_id. A tracking-hiba SOHA nem buktatja a rendelést.
+    {
+      const rawEventId = (body as Record<string, unknown>)?.event_id;
+      const tracking: FormTrackingContext = {
+        eventId: typeof rawEventId === 'string' && rawEventId ? rawEventId : crypto.randomUUID(),
+        consent: readConsentFromCookie(request.headers.get('cookie')),
+        consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
+        clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
+        clientUserAgent: request.headers.get('user-agent') ?? undefined,
+        eventSourceUrl: request.headers.get('referer') ?? undefined,
+      };
+      try {
+        const trackResult = await sendGatewayConversion(workerEnv as unknown as GatewayEnv, {
+          eventName: 'order_request_submitted',
+          eventId: tracking.eventId,
+          value: subtotal,
+          currency: 'HUF',
+          userData: {
+            email: data.email || undefined,
+            phone_number: data.phone || undefined,
+            first_name: data.firstName || undefined,
+            last_name: data.lastName || undefined,
+            city: data.city || undefined,
+            postal_code: data.postcode || undefined,
+            // `country` SZÁNDÉKOSAN kimarad: a checkout mezője szabadszöveges
+            // országNÉV ("Magyarország"), a Meta viszont 2-betűs ISO kódot vár —
+            // a névből képzett hash sosem illeszkedne. Az ország a gateway
+            // KV site-configjából megy (ott már 100% a lefedettség).
+            external_id: data.external_id || undefined,
+          },
+          // Meta Browser/Click ID a checkout rejtett mezőiből — enélkül a
+          // szerver-leg csak email+telefon párosítást tud adni a Metának.
+          fbp: data.fbp || undefined,
+          fbc: data.fbc || undefined,
+          attribution: {
+            gclid: data.gclid || undefined,
+            fbclid: data.fbclid || undefined,
+            utm_source: data.utmSource || undefined,
+            utm_medium: data.utmMedium || undefined,
+            utm_campaign: data.utmCampaign || undefined,
+          },
+          consent: tracking.consent,
+          consentId: tracking.consentId,
+          eventSourceUrl: tracking.eventSourceUrl,
+          clientIpAddress: tracking.clientIpAddress,
+          clientUserAgent: tracking.clientUserAgent,
+        });
+        if (!trackResult.ok) {
+          console.error(JSON.stringify({
+            level: 'error', message: 'gateway dispatch failed',
+            event_name: 'order_request_submitted', event_id: tracking.eventId,
+            status: trackResult.status, error: trackResult.error,
+          }));
+        }
+      } catch (trackErr) {
+        console.error('[tracking] order gateway dispatch threw:',
+          trackErr instanceof Error ? trackErr.message : trackErr);
+      }
+    }
+
+    // 10. Siker - proforma státusz visszaadva, hogy a success page jelezhesse
+    //     a vevőnek, várjon-e külön fizetési e-mailre
     const proformaStatus = result.proforma?.success
       ? { sent: true as const, number: result.proforma.proformaNumber }
       : { sent: false as const };
 
     return new Response(
-      JSON.stringify({ success: true, orderId, proforma: proformaStatus }),
+      JSON.stringify({ success: true, orderId, proforma: proformaStatus, backorder: hasBackorder }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },

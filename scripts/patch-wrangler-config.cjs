@@ -44,6 +44,17 @@ for (const ns of config.previews?.kv_namespaces ?? []) {
   }
 }
 
+// soborbo-tracking backend dispatch + daily smoke cron (none of these are
+// secrets: SITE_URL is public, the test-lead email is synthetic, and the Meta
+// Test Events code only routes events into the pixel's TEST stream — the CAPI
+// access token itself lives in the gateway worker's KV, never here).
+// TRACKING_GATEWAY_TOKEN is a real secret → Cloudflare dashboard secret only.
+const TRACKING_VARS = {
+  SITE_URL: 'https://skinlabhungary.hu',
+  TRACKING_TEST_LEAD_EMAIL: 'tracking-smoke@skinlabhungary.hu',
+  TRACKING_TEST_EVENT_CODE: 'TEST25273',
+};
+
 config.vars = config.vars ?? {};
 if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
   config.vars.GOOGLE_SHEETS_SPREADSHEET_ID = GOOGLE_SHEETS_SPREADSHEET_ID;
@@ -52,6 +63,12 @@ if (config.vars.GOOGLE_SHEETS_SPREADSHEET_ID !== GOOGLE_SHEETS_SPREADSHEET_ID) {
 if (config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL !== GOOGLE_SERVICE_ACCOUNT_EMAIL) {
   config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL = GOOGLE_SERVICE_ACCOUNT_EMAIL;
   patched.push(`GOOGLE_SERVICE_ACCOUNT_EMAIL (${GOOGLE_SERVICE_ACCOUNT_EMAIL})`);
+}
+for (const [key, value] of Object.entries(TRACKING_VARS)) {
+  if (config.vars[key] !== value) {
+    config.vars[key] = value;
+    patched.push(`${key} (${value})`);
+  }
 }
 
 // Route /api/* to the User (Astro) Worker BEFORE the static-asset layer.
@@ -63,12 +80,17 @@ if (config.vars.GOOGLE_SERVICE_ACCOUNT_EMAIL !== GOOGLE_SERVICE_ACCOUNT_EMAIL) {
 // browser's response.json() then throws and the form shows a phantom network
 // error. run_worker_first makes /api/* skip the asset layer regardless of the
 // site's trailingSlash setting.
+// /index.php is forced to the Worker for the same reason: the legacy OpenCart
+// contact URL /index.php?route=information/contact must 301 to /kapcsolat/, but
+// Cloudflare _redirects cannot match query strings. The query-aware branching
+// lives in src/pages/index.php.ts (prerender=false); without run_worker_first
+// the asset layer could answer /index.php before the Worker sees it.
 config.assets = config.assets ?? {};
-const API_ROUTES = ['/api/*'];
+const WORKER_FIRST_ROUTES = ['/api/*', '/index.php'];
 const currentWorkerFirst = Array.isArray(config.assets.run_worker_first)
   ? config.assets.run_worker_first
   : [];
-const missingRoutes = API_ROUTES.filter((r) => !currentWorkerFirst.includes(r));
+const missingRoutes = WORKER_FIRST_ROUTES.filter((r) => !currentWorkerFirst.includes(r));
 if (missingRoutes.length > 0) {
   config.assets.run_worker_first = [...currentWorkerFirst, ...missingRoutes];
   patched.push(`assets.run_worker_first (${config.assets.run_worker_first.join(', ')})`);

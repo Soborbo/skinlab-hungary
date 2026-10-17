@@ -121,4 +121,4 @@ V průběhu školení vám ukážeme ty praktické postupy a nastavení, díky k
 
 ## Místo konání
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

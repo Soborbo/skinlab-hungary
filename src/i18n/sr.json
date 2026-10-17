@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Profesionalna kozmetička oprema",
-    "description": "Distribucija profesionalne kozmetičke opreme. Diodni laseri, PMU uređaji, ND:YAG laseri i multifunkcionalni aparati sa 2 godine garancije, besplatnom obukom i trenutnom servisnom podrškom."
+    "description": "Distribucija profesionalne kozmetičke opreme. Diodni laseri, PMU uređaji, ND:YAG laseri i multifunkcionalni aparati sa garancijom, besplatnom obukom i trenutnom servisnom podrškom."
   },
   "nav": {
     "home": "Pocetna",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Profesionalna kozmeticka oprema",
-    "subtitle": "Diodni laseri, PMU uredaji i multifunkcionalni aparati sa 2 godine garancije",
+    "subtitle": "Diodni laseri, PMU uredaji i multifunkcionalni aparati sa garancijom i sopstvenim servisom",
     "cta": "Besplatna konsultacija",
     "ctaSecondary": "Pogledaj proizvode",
     "slide2": {
@@ -28,15 +28,19 @@
     },
     "slide3": {
       "title": "Obuka i servis na jednom mestu",
-      "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na sve naše proizvode"
+      "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine garancije na naše kozmetičke uređaje"
     },
     "slide4": {
       "title": "Уклањање тетоважа ND:YAG ласером",
-      "subtitle": "Безбедно и ефикасно уклањање тетоважа и пигмента Q-switched ND:YAG ласерима – награђивани уређаји и локални сервис"
+      "subtitle": "Bezbedno i efikasno uklanjanje tetovaža i pigmenta Q-switched ND:YAG laserom, uz servisnu podršku u Mađarskoj"
     },
     "slide5": {
       "title": "Стигао је наш нови Frame YAG ласер!",
       "subtitle": "Ускоро у нашем вебшопу. Пријавите се за демо производа"
+    },
+    "slide7": {
+      "title": "Novo: diodni laser EMPIRE 4WAVE",
+      "subtitle": "1200 W, 4 talasne dužine, mikrokamerna dijagnostika dlačica i kože i digitalni karton klijenta – pametniji sistem za profesionalnu depilaciju."
     }
   },
   "categories": {
@@ -51,31 +55,29 @@
     "testkezeles": "Oblikovanje tela",
     "sminktetovalas": "PMU uredaji",
     "kellekek": "Pribor",
-    "kezeloanyagok": "Materijali za tretmane",
-    "coldplasma": "ColdPlasma",
-    "productCount": "proizvoda"
+    "kezeloanyagok": "M'ONDUNIQ",
+    "hidegplazma": "ColdPlasma",
+    "bordiagnosztika": "Dijagnostika kože",
+    "productCount": "proizvoda",
+    "homeTitle": "Koji tretman želite da nudite?",
+    "homeSubtitle": "Izaberite oblast, a mi ćemo vam pokazati uređaje za nju koji odgovaraju vašem salonu.",
+    "suppliesTitle": "Pribor i preparati za tretmane",
+    "showAll": "Sve kategorije ({count})",
+    "showLess": "Manje kategorija"
   },
   "trust": {
     "warranty": "2 godine garancije",
-    "warrantyDesc": "Potpuna garancija na svu opremu",
-    "shipping": "15-20 radnih dana",
-    "shippingDesc": "Pouzdana isporuka sa potpunim carinjenjem",
+    "warrantyDesc": "Na kozmetičke uređaje (uređaji za tetoviranje i PMU: 1 godina)",
+    "shipping": "Pouzdana isporuka",
+    "shippingDesc": "Artikli na stanju iz magacina, uređaji za 15–20 radnih dana",
     "training": "FAR sertifikat",
     "trainingDesc": "Zvanicna obuka operatera",
     "service": "Sopstveni servis",
-    "serviceDesc": "Trenutna popravka, zamenska oprema"
+    "serviceDesc": "Brza popravka, program zamenskih uređaja"
   },
   "brands": {
     "title": "Naši brendovi",
-    "subtitle": "Ekskluzivni distributer premium kozmetičkih brendova u Mađarskoj"
-  },
-  "stats": {
-    "soldUnits": "Prodatih Novalight jedinica",
-    "warranty": "Garancija",
-    "deliveryTime": "Vreme dostave",
-    "hungarianService": "Mađarski servis",
-    "yearsSuffix": "godina",
-    "weeksSuffix": "nedelja"
+    "subtitle": "Sa ovim brendovima sarađujemo, od uređaja do preparata za tretmane."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -111,7 +113,7 @@
     "relatedProducts": "Srodni proizvodi",
     "whatsIncluded": "Sta je ukljuceno?",
     "warranty": "Garancija i servis",
-    "warrantyInfo": "2 godine potpune garancije, zamenska oprema tokom popravke",
+    "warrantyInfo": "2 godine potpune garancije + program zamenske opreme",
     "videoDemo": "Video demonstracija",
     "specsTitle": "Tehničke specifikacije",
     "specsSubtitle": "Detaljni tehnički podaci za {productName}",
@@ -139,7 +141,21 @@
     "videoPlaceholder": "Demo video uskoro",
     "videoPlayLabel": "Pokreni video: {title} demonstracija",
     "trainingTitle": "Obuka operatera",
-    "trainingContent": "Obuka uključuje:"
+    "trainingContent": "Obuka uključuje:",
+    "galleryTitle": "Galerija",
+    "allPhotos": "Svih {count} fotografija",
+    "moreImages": "+{count} fotografija",
+    "zoomImage": "{alt} – uvećaj",
+    "pauseMotion": "Pauziraj",
+    "resumeMotion": "Pusti",
+    "imageViewer": "Pregledač slika",
+    "prevImage": "Prethodna slika",
+    "nextImage": "Sledeća slika",
+    "installmentLinePre": "Na rate:",
+    "installmentLine": "{down} avans + {months} × {monthly}",
+    "installmentCalc": "Izračunajte ↓",
+    "backorderLabel": "Po porudžbini",
+    "backorderNote": "Ovaj proizvod trenutno nije na stanju, pa ga zasad možete samo poručiti unapred. Očekivani datum dolaska dogovorićemo sa vama nakon porudžbine."
   },
   "form": {
     "name": "Ime",
@@ -204,7 +220,8 @@
     "noObligation": "Bez obaveze",
     "inPersonOrOnline": "Uzivo ili online",
     "roiCalculation": "Izracun povrata investicije",
-    "orCallDirectly": "Ili pozovite direktno:"
+    "orCallDirectly": "Ili pozovite direktno:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Laseri",
@@ -215,13 +232,15 @@
     "ndyagDesc": "Uklanjanje tetovaža",
     "hydrafacialDesc": "Čišćenje lica, hidratacija",
     "smartFacialDesc": "Pametne platforme za negu lica",
-    "antiAgingDesc": "Microneedle RF, HIFU, analiza kože",
+    "antiAgingDesc": "Microneedle RF, EMS microneedling",
     "bodyShapingDesc": "Kriolipoliza, oblikovanje tela",
     "mesoDesc": "Mezoterapija bez igala",
     "pmuDesc": "PMU uređaji",
+    "pmuShort": "PMU",
     "accessoriesDesc": "Usisivač dima, rastvori, igle",
-    "treatmentMaterialsDesc": "Tečnosti, podovi, aktivni sastojci",
-    "coldplasmaDesc": "Cold plasma"
+    "treatmentMaterialsDesc": "Hydra-liquidi, kokteli, egzozomi",
+    "hidegplazmaDesc": "Cold plasma",
+    "bordiagnosztikaDesc": "AI analiza kože"
   },
   "footer": {
     "company": "Podaci o firmi",
@@ -236,7 +255,8 @@
     "newsletter": "Prijava na newsletter",
     "newsletterPlaceholder": "Vasa e-mail adresa",
     "subscribe": "Pretplati se",
-    "shipping": "Dostava i plaćanje"
+    "shipping": "Dostava i plaćanje",
+    "cookieSettings": "Podešavanja kolačića"
   },
   "contact": {
     "title": "Kontakt",
@@ -255,7 +275,7 @@
     "taxId": "PIB",
     "vatId": "EU PDV ID",
     "howToReach": "Kako do nas",
-    "howToReachDesc": "Budai út 28., Érd - sa autoputa M7, izlaz Érd (čvorište Budaörs), zatim 5 minuta Budai útom. Besplatno parkiranje ispred zgrade.",
+    "howToReachDesc": "Bajcsy-Zsilinszky út 156., Érd (Parkváros) – nekoliko minuta vožnje od izlaza Érd sa autoputa M7.",
     "openingHoursDetails": "Ponedeljak–Petak: uz prethodni dogovor",
     "openingHoursNote": "Molimo dogovorite termin telefonom ili e-mailom!"
   },
@@ -271,9 +291,9 @@
     "storyParagraph3": "Zato smo stvorili Skinlab: da ponudimo pouzdanog partnera koji ne samo da prodaje opremu, vec pruza sveobuhvatnu podrsku za uspesan rad salona.",
     "foundersTitle": "Osnivaci",
     "founder": {
-      "technical": "Tehnicki strucnjak",
+      "technical": "Osnivač Skinlaba, tehnički stručnjak",
       "technicalBio": "Од тинејџерских дана поправљао сам и туниирао аутомобиле – свет машина ми је одувек био близак. Тај практични, инжењерски приступ одређује и мој рад у Скинлабу: моја је одговорност да сваки уређај стигне до наших клијената у беспрекорном техничком стању. Ако се појави проблем, решавамо га интерно, брзо и професионално – уз заменски уређај за време поправке. Ласерска технологија је током година постала моја специјалност и слободно могу рећи да не постоји квар са којим се нисам сусрео. То искуство даје нашим клијентима прави мир јер знају да је њихов уређај у добрим рукама.",
-      "treatment": "Strucnjakinja za tretmane",
+      "treatment": "Osnivačica Skinlaba, stručnjakinja za tretmane",
       "treatmentBio": "Долазим из лекарске породице и индустрија лепоте ме привлачила од малих ногу. Медицинско окружење ме научило важну ствар: третмани морају почивати на једнако строгим стручним темељима као и медицина. Није довољно да нешто функционише – мора бити и безбедно. За мене је најважније да настају не само лепи, него и здрави резултати, те да никада не прелазимо границе стручне компетенције. Ту филозофију уносимо у сваку консултацију и препоруку производа јер нудимо само оно иза чега у потпуности стојимо."
     },
     "whyUsTitle": "Zasto izabrati nas?",
@@ -286,7 +306,7 @@
     "benefit4Title": "Besplatna obuka",
     "benefit4Desc": "4-6 sati licne obuke + FAR sertifikat ukljuceni u cenu.",
     "benefit5Title": "Sopstveni servis",
-    "benefit5Desc": "Lokalni servisni centar, zamenska oprema tokom popravke.",
+    "benefit5Desc": "Lokalni servisni centar, program zamenske opreme kod dužih popravki.",
     "benefit6Title": "Trajna podrska",
     "benefit6Desc": "Ne ostavljamo vas same nakon kupovine. Pozovite nas bilo kada.",
     "companyInfoTitle": "Podaci o firmi",
@@ -308,7 +328,21 @@
     "included": "Ukljuceno u cenu",
     "duration": "Trajanje",
     "location": "Lokacija",
-    "register": "Registracija"
+    "register": "Registracija",
+    "galleryTitle": "Uz uređaj dobijate i znanje",
+    "gallerySubtitle": "Praktična obuka u stvarnom salonskom okruženju, u malim grupama.",
+    "galleryAlt1": "Vežbanje hidrodermabrazije na obuci",
+    "galleryAlt2": "Demonstracija karbonskog laserskog tretmana lica tokom obuke",
+    "galleryAlt3": "Praktična obuka za tretman diodnim laserom",
+    "galleryAlt4": "Grupna praktična obuka u salonskom okruženju",
+    "galleryAlt5": "Sertifikati obuke upisane u FAR registar",
+    "galleryAlt6": "Polaznici Skinlab obuke za rukovanje uređajima",
+    "fact1Title": "Obuka upisana u FAR registar",
+    "fact1Desc": "Sa sertifikatom sa mađarskim registarskim B-brojem i praktičnom nastavom.",
+    "fact2Title": "Puštanje u rad na licu mesta",
+    "fact2Desc": "Uređaj podešavamo u vašem salonu i tamo vas obučavamo da ga koristite.",
+    "fact3Title": "Sopstveni servis, program zamenskih uređaja",
+    "fact3Desc": "Kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj, u zavisnosti od stanja zaliha."
   },
   "comparison": {
     "title": "Poredenje",
@@ -344,17 +378,22 @@
   "warranty": {
     "title": "Garancija i servis",
     "subtitle": "Za {productName} pružamo {years} godine potpune garancije sa sopstvenim servisnim centrom u Mađarskoj.",
-    "subtitleGeneric": "{years} godine potpune garancije na sve uređaje sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleOne": "Za {productName} pružamo 1 godinu potpune garancije sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleGeneric": "{years} godine potpune garancije na uređaj sa sopstvenim servisnim centrom u Mađarskoj.",
+    "subtitleGenericOne": "1 godina potpune garancije na uređaj sa sopstvenim servisnim centrom u Mađarskoj.",
+    "pageSubtitle": "Na naše kozmetičke uređaje dajemo 2 godine, a na uređaje za tetoviranje i PMU 1 godinu potpune garancije, sa sopstvenim servisnim centrom u Mađarskoj.",
     "badge": "Mir i sigurnost",
     "yearsWarranty": "{years} godine potpune garancije",
+    "yearsWarrantyOne": "1 godina potpune garancije",
     "extendedWarranty": "Proširena garancija",
     "extendedWarrantyDesc": "Produžite garanciju za dodatnu godinu po povlašćenoj ceni!",
     "extendedWarrantyButton": "Zainteresovan sam",
     "industryStandardMultiple": "2x industrijski standard",
     "features": {
       "fullWarranty": "Pokriva sve delove i rad – dvostruko više od industrijskog standarda.",
+      "fullWarrantyBasic": "Potpuna garancija na sve delove i rad.",
       "replacementDevice": "Program zamenske opreme",
-      "replacementDeviceDesc": "Tokom popravke obezbeđujemo besplatnu zamensku opremu kako vaš posao ne bi stao.",
+      "replacementDeviceDesc": "Ako će popravka prema proceni trajati duže od 10 radnih dana, za vreme popravke obezbeđujemo zamensku opremu (u zavisnosti od raspoloživosti), kako vaš posao ne bi stao.",
       "ownWorkshop": "Sopstvena servisna radionica",
       "ownWorkshopDesc": "Popravke u Mađarskoj – ne morate čekati mesecima na inostrani servis.",
       "fastRepair": "Brza popravka",
@@ -365,7 +404,7 @@
       "step1Title": "Prijava kvara",
       "step1Desc": "Pozovite nas ili pošaljite e-mail sa opisom kvara.",
       "step2Title": "Zamenska oprema",
-      "step2Desc": "Kurirskom službom šaljemo zamensku opremu i preuzimamo neispravnu.",
+      "step2Desc": "Ako popravka traje duže od 10 radnih dana, za vreme popravke obezbeđujemo zamensku opremu.",
       "step3Title": "Popravka",
       "step3Desc": "Uređaj popravljamo u našoj sopstvenoj radionici.",
       "step4Title": "Povrat",
@@ -385,18 +424,18 @@
       "hungarianSupport": "Podrška na lokalnom jeziku",
       "year": "godina"
     },
-    "description": "Sveobuhvatna 2-godišnja fabrička garancija uz sopstveni mađarski servis, program zamenskog uređaja i originalne rezervne delove.",
+    "description": "Sveobuhvatna fabrička garancija (2 godine na kozmetičke uređaje, 1 godina na uređaje za tetoviranje i PMU) uz sopstveni mađarski servis, program zamenskog uređaja i originalne rezervne delove.",
     "whatIsWarranty": "Šta je fabrička garancija?",
     "whatIsWarrantyDesc1": "Garancija je obavezujuća izjava proizvođača i distributera da će uređaj pri namenskoj upotrebi raditi bez kvarova tokom garancionog perioda. U slučaju proizvodnih ili materijalnih nedostataka, popravka, zamena dela i - u opravdanim slučajevima - zamena uređaja te rad su besplatni.",
-    "whatIsWarrantyDesc2": "Za svaki novi uređaj dajemo 12-24 meseca garancije (tačan rok naveden je na listu proizvoda), u skladu s mađarskim vladinim uredbama 151/2003. (IX. 22.) i 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Za nove kozmetičke uređaje dajemo 24 meseca, a za uređaje za tetoviranje i PMU 12 meseci garancije (tačan rok naveden je i na listu proizvoda), u skladu s mađarskim vladinim uredbama 151/2003. (IX. 22.) i 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Naš Skinlab zavet",
-    "commitmentDesc1": "Sopstveni obučeni mađarski tim tehničara i radionica obezbeđuju da u slučaju kvara ne morate čekati mesecima na servis u inostranstvu. Radimo s originalnim fabričkim delovima i za vreme popravke obezbeđujemo zamenski uređaj, kako vaš posao ne bi stao.",
+    "commitmentDesc1": "Sopstveni obučeni mađarski tim tehničara i radionica obezbeđuju da u slučaju kvara ne morate čekati mesecima na servis u inostranstvu. Radimo s originalnim fabričkim delovima i kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj, kako vaš posao ne bi stao.",
     "commitmentDesc2": "Uz vas smo i nakon kupovine: daljinska dijagnostika, telefonska podrška i po potrebi izlazak na teren obezbeđuju neprekidan rad.",
     "contentTitle": "Šta garancija pokriva?",
     "contentDesc": "Fabrička garancija obuhvata sledeće slučajeve, pod uslovom da je kvar nastao pri redovnoj upotrebi uz poštovanje uputstva za upotrebu:",
     "point1": "Potpuna popravka proizvodnih i materijalnih kvarova.",
     "point2": "Zamena originalnih fabričkih delova uključujući rad, besplatno.",
-    "point3": "Program zamenskog uređaja - za vreme popravke obezbeđujemo besplatan zamenski uređaj.",
+    "point3": "Program zamenskog uređaja - kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj za vreme popravke, u zavisnosti od raspoloživosti.",
     "point4": "Daljinska dijagnostika i stručna telefonska podrška za otklanjanje kvarova.",
     "point5": "Po potrebi izlazak tehničara, prema pojedinačnom dogovoru.",
     "exclusionsTitle": "Šta garancija ne pokriva?",
@@ -423,7 +462,8 @@
     "claimInfo4": "Ime i kontakt osobe za kontakt.",
     "importantNote": "Ne pokušavajte sami da popravljate ni da rastavljate uređaj - neovlašćeni zahvat vodi gubitku garancije. Pri kvaru uređaj isključite iz mreže i kontaktirajte nas.",
     "ctaTitle": "Imate pitanja o garanciji?",
-    "ctaSubtitle": "Naš stručni tim rado pomaže - pozovite ili pošaljite e-mail."
+    "ctaSubtitle": "Naš stručni tim rado pomaže - pozovite ili pošaljite e-mail.",
+    "readMore": "Sve pojedinosti o garanciji"
   },
   "faq": {
     "title": "Često postavljana pitanja",
@@ -453,7 +493,7 @@
       "q2": "Koliko traje popravka?",
       "a2": "Manje kvarove rešavamo za 3–7 radnih dana, kod većih zamena delova 10–20 radnih dana. Tačno vreme potvrđujemo nakon pregleda. Popravke obavljaju naši interno obučeni tehničari s originalnim delovima.",
       "q3": "Da li dobijam zamenski uređaj tokom popravke?",
-      "a3": "Da, na zahtev obezbeđujemo zamenski uređaj - u garantnom roku besplatno, izvan garancije po povoljnoj ceni - kako bi vaš posao nesmetano tekao tokom servisa.",
+      "a3": "Ako će popravka prema prethodnoj proceni verovatno trajati duže od 10 radnih dana, za vreme popravke obezbeđujemo zamenski uređaj (u zavisnosti od raspoloživosti) - u garantnom roku besplatno, izvan garancije pod povoljnim uslovima. Zamenski uređaj nije nužno isti model, ali je pogodan za nastavak tretmana.",
       "q4": "Šta da radim ako uređaj prijavi grešku ili se ne uključuje?",
       "a4": "Prvo ga isključite, izvucite iz struje, pustite da se ohladi i ponovo uključite. Ako se kvar nastavi, pozovite nas na {phone} ili pišite na {email} - daljinska dijagnostika rešava većinu problema."
     },
@@ -500,14 +540,11 @@
     "training": "Kompletna obuka",
     "trainingDesc": "4-6 sati licne obuke + FAR sertifikat + video materijali. Ne pustamo vas dok ne koristite uredaj sa poverenjem.",
     "warranty": "2 godine garancije, lokalni servis",
-    "warrantyDesc": "Nema nedelja cekanja na inostrani servis. Reagujemo u roku od 24 sata i po potrebi obezbedjujemo zamenski uredaj.",
+    "warrantyDesc": "Nema nedelja čekanja na inostrani servis. Popravljamo brzo, u sopstvenom servisu, a kod popravki dužih od 10 radnih dana obezbeđujemo zamenski uređaj, u zavisnosti od stanja zaliha.",
     "financing": "Finansiranje, lizing",
     "financingDesc": "Od ~250 EUR/mesecno. Ne morate platiti sve odjednom - prihodi od uredaja placaju rate.",
     "consulting": "Poslovno savetovanje",
-    "consultingDesc": "Pomazemo sa formiranjem cena i marketingom. Delimo sta rade uspesni saloni.",
-    "testimonialTitle": "Zadovoljan partner",
-    "testimonialText": "Obuka je bila odlicna i mogu ih pozvati bilo kada imam pitanje.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Pomazemo sa formiranjem cena i marketingom. Delimo sta rade uspesni saloni."
   },
   "search": {
     "placeholder": "Pretraži proizvode po imenu...",
@@ -549,7 +586,7 @@
     "step2Title": "Izbor",
     "step2Desc": "Pomazemo vam da izaberete najbolji uredaj za vas salon",
     "step3Title": "Instalacija + Obuka",
-    "step3Desc": "Instalacija na licu mesta i 4-6 sati obuke",
+    "step3Desc": "Puštanje u rad na licu mesta i obuka za rukovanje uređajem",
     "step4Title": "Pocetak!",
     "step4Desc": "Trajna podrska, servis i poslovno savetovanje"
   },
@@ -570,20 +607,31 @@
     "business3": "Glow Clinic",
     "location3": "Szeged"
   },
+  "videoTestimonials": {
+    "title": "Već rade sa Skinlab uređajima",
+    "subtitle": "Stvarne recenzije naših klijenata",
+    "role1": "PMU majstorica, kozmetičarka",
+    "role2": "PMU edukatorka, kozmetičarka",
+    "role3": "kozmetičarka",
+    "role4": "PMU majstorica, kozmetičarka",
+    "playLabel": "Pokreni video",
+    "quote1": "Moja najveća preporuka je to što sa njima radim godinama, i kada bih danas morala ponovo da složim svoj park uređaja, opet bih izabrala Skinlab.",
+    "quote2": "Mislim da je firma koju predstavljaju jedinstvena u Mađarskoj i iskreno ih mogu toplo preporučiti.",
+    "quote3": "Skinlab je za mene sinonim za kvalitet i pouzdanost. Lepo je raditi sa partnerom koji veruje u kvalitet isto koliko i ja.",
+    "quote4": "Nikada se nije desilo da mi u nečemu nisu mogli pomoći. Kada sam imala pitanje, uvek sam mogla da ih dobijem.",
+    "watchFull": "Pogledajte ceo video ({duration})"
+  },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Profesionalno uklanjanje dlaka sa 4 talasne duzine",
-    "wavelength": "Talasna duzina",
+    "badge": "Upravo stiglo",
+    "tagline": "Dijagnostika dlaka i kože mikrokamerom, digitalni karton klijenta i preporuka parametara u jednom uređaju.",
     "power": "Snaga",
-    "cooling": "Safirno hladenje",
     "warranty": "Garancija",
     "grossPrice": "Bruto cena",
-    "orMonthly": "ili mesecno",
     "viewDetails": "Pogledaj detalje",
     "requestDemo": "Zatrazi demonstraciju",
-    "productPlaceholder": "foto proizvoda",
     "warrantyValue": "2 godine",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 talasne dužine",
+    "skinTypes": "Za sve tipove kože"
   },
   "ctaSection": {
     "title": "Imate pitanja? Ovde smo da pomognemo!",
@@ -770,7 +818,9 @@
     "drawerTitle": "Vaša korpa",
     "drawerEmpty": "Vaša korpa je još prazna.",
     "priceNote": "Troškove dostave i konačnu cenu potvrđujemo tokom telefonske konsultacije.",
-    "close": "Zatvori"
+    "close": "Zatvori",
+    "preorder": "Pretporudžbina",
+    "backorderItem": "Po porudžbini - trenutno nije na stanju, samo pretporudžbina"
   },
   "checkout": {
     "title": "Porudžbina",
@@ -816,7 +866,11 @@
       "shippingMethods": {
         "personal_pickup": "Lično preuzimanje — Skinlab Showroom (Érd)",
         "arranged": "Isporuka po dogovoru"
-      }
+      },
+      "backorderNote": "Vaša porudžbina sadrži proizvod koji trenutno nije na stanju, pa smo je evidentirali kao pretporudžbinu. Sada ne morate da platite: naš saradnik će vas uskoro kontaktirati u vezi sa očekivanim datumom dolaska, a tek nakon toga ćemo vam poslati zahtev za plaćanje.",
+      "backorderStep1": "Vašu porudžbinu smo evidentirali kao pretporudžbinu - sada ne morate da platite.",
+      "backorderStep2": "Naš saradnik će vas uskoro kontaktirati i obavestiti o očekivanom datumu dolaska proizvoda.",
+      "backorderStep3": "Kada proizvod stigne, dogovorićemo plaćanje i dostaviti vam ga izabranim načinom."
     },
     "phone": "Broj telefona",
     "companyToggle": "Unesi podatke firme",
@@ -843,7 +897,7 @@
     "step3Title": "Dostavljamo uređaj",
     "step3Desc": "Nakon prijema uplate porudžbina ide u proizvodnju i otpremu.",
     "trustNoPayment": "Sada ne morate da platite",
-    "trustWarranty": "2 godine garancije",
+    "trustWarranty": "Potpuna garancija",
     "trustCallback": "Pozvaćemo vas",
     "noPaymentNote": "Nakon slanja porudžbine ne morate odmah da platite - najpre ćemo vas pozvati i dogovoriti detalje.",
     "requiredError": "Molimo popunite obavezna polja.",
@@ -865,7 +919,9 @@
       "emailNote": "Potvrdu porudžbine poslali smo na vašu e-mail adresu.",
       "backToHome": "Nazad na početnu",
       "browseProducts": "Više proizvoda"
-    }
+    },
+    "backorderTitle": "Pretporudžbina",
+    "backorderNote": "Vaša korpa sadrži proizvod koji trenutno nije na stanju: {items}. Zasad ga možete samo poručiti unapred. U tom slučaju ne šaljemo odmah zahtev za plaćanje i sada ne morate da platite: naš saradnik će vas kontaktirati u vezi sa očekivanim datumom dolaska, a tek nakon toga ćemo zatražiti plaćanje."
   },
   "bank": {
     "title": "Podaci za bankovni transfer",
@@ -894,5 +950,116 @@
     "requirements": "Uslovi za učešće",
     "back": "Nazad na obuke",
     "signupHeading": "Prijavite se: {name}"
+  },
+  "founderConsult": {
+    "badge": "Lična pomoć",
+    "expertRole": "Osnivač Skinlaba, tehnički stručnjak",
+    "heading": {
+      "category": {
+        "pre": "Ne znate",
+        "highlight": "koji uređaj",
+        "post": "vam odgovara?"
+      },
+      "machine": {
+        "pre": "Niste sigurni da li je",
+        "highlight": "ovo pravi uređaj",
+        "post": "za vaš salon?"
+      },
+      "consumable": {
+        "pre": "Niste sigurni da li je",
+        "highlight": "ovo pravi proizvod",
+        "post": "za vaše tretmane?"
+      }
+    },
+    "scenario1": "Ne znate koji da izaberete",
+    "scenario2": "Želite tačne informacije o uređajima",
+    "scenario3": "Želeli biste da razgovarate o kupovini",
+    "scenario4": "Treba vam samo dobar savet",
+    "bodyPre": "Šta god od toga važilo –",
+    "bodyStrong": "rado ćemo pomoći.",
+    "bodyPost": "Pozovite nas ili zatražite besplatnu konsultaciju i javićemo vam se.",
+    "cta": "Zatražite besplatnu konsultaciju",
+    "phone": "Pozovite: {phone}",
+    "responseTime": "Obično vas pozovemo u roku od 1 radnog dana."
+  },
+  "finance": {
+    "title": "Da li se isplati? Hajde da izračunamo.",
+    "subtitle": "Izračunajte sa svojim podacima kada se uređaj isplati i kolika bi bila mesečna rata.",
+    "subtitleRoiOnly": "Izračunajte sa svojim podacima kada se uređaj isplati.",
+    "tabRoi": "Povrat ulaganja",
+    "tabInstallment": "Mesečna rata"
+  },
+  "productComparison": {
+    "title": "Uporedite naše slične uređaje",
+    "subtitle": "Najvažnije razlike na prvi pogled.",
+    "current": "Upravo gledate",
+    "price": "Cena (sa PDV-om)",
+    "view": "Pogledaj"
+  },
+  "homeHero": {
+    "prev": "Prethodni slajd",
+    "next": "Sledeći slajd",
+    "goTo": "Slajd {n}",
+    "upNext": "Sledeće:",
+    "slides": {
+      "empire": "Diodni laser EMPIRE",
+      "olympia": "Diodni laser OLYMPIA",
+      "ndyag": "ND:YAG laser",
+      "training": "Obuka i servis"
+    }
+  },
+  "homeComparison": {
+    "title": "Koji diodni laser odgovara vašem salonu?",
+    "subtitle": "Svi uređaji ({count}) imaju 4 talasne dužine. Razlika je u snazi, glavi za tretman i upravljačkom softveru.",
+    "specHeader": "Karakteristika",
+    "details": "Detalji",
+    "scrollHint": "Prevucite u stranu za poređenje",
+    "showAll": "Sve specifikacije (još {count})",
+    "showLess": "Manje specifikacija"
+  },
+  "mobileCta": {
+    "call": "Poziv",
+    "consult": "Konsultacija"
+  },
+  "foundersHome": {
+    "badge": "Osnivači",
+    "title": "Susret dva sveta - to smo mi",
+    "intro": "Skinlab smo osnovali nas dvoje: Szimonetta je došla iz industrije lepote, sa iskustvom u zdravstvu, a László iz sveta tehnike i uređaja. Pokrenuo nas je jedan tretman u inostranstvu: videli smo sa kakvim uređajima rade na Zapadu i odlučili smo da taj kvalitet - i znanje koje stoji iza njega - donesemo i mađarskim salonima.",
+    "quote": "Ne želimo da prodajemo uređaje, već da pružimo primenljivo stručno znanje, sigurnost i ljudsku podršku. Prodajemo samo uređaje koje i sami poznajemo, volimo i od srca preporučujemo - a ni posle kupovine ne ostavljamo svoje partnere same.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Osnivačica Skinlaba",
+    "simonettaSpec": "Stručnjakinja za tretmane",
+    "laszloName": "Horváth László",
+    "laszloRole": "Osnivač Skinlaba",
+    "laszloSpec": "Tehnički stručnjak",
+    "cta": "Upoznajte celu našu priču"
+  },
+  "services": {
+    "title": "Više od web-prodavnice",
+    "subtitle": "Uz uređaje dobijate sve što vašem salonu treba: preparate za tretmane, obuku, servis i ličnu prezentaciju.",
+    "consumables": {
+      "title": "M'onduniq preparati za tretmane",
+      "desc": "Profesionalni preparati i pribor za vaše uređaje, od nege pre i posle laserskih tretmana do modula igala.",
+      "cta": "Preparati za tretmane",
+      "alt": "M'onduniq preparat na svilenoj pozadini"
+    },
+    "training": {
+      "title": "Obuke sa FAR sertifikatom",
+      "desc": "Obuka za rad sa uređajima u stvarnom salonskom okruženju, u malim grupama, sa zvaničnim sertifikatom.",
+      "cta": "Naše obuke",
+      "alt": "Polaznica obuke sa svojim FAR sertifikatom"
+    },
+    "service": {
+      "title": "Sopstveni servis i garancija",
+      "desc": "Servis u Mađarskoj, bez nedelja čekanja na uređaj poslat u inostranstvo. Program zamenskog uređaja za duže popravke.",
+      "cta": "Garancija i servis",
+      "alt": "László Horváth radi na laserskoj ručki"
+    },
+    "showroom": {
+      "title": "Šourum u Érdu",
+      "desc": "Pogledajte i isprobajte uređaje lično, uz prethodnu najavu.",
+      "cta": "Šourum i kontakt",
+      "alt": "Skinlab šourum sa svetlećim logom i kozmetičkim uređajem"
+    }
   }
 }

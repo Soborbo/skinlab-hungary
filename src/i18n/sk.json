@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Profesionálne kozmetické zariadenia",
-    "description": "Distribúcia profesionálnych kozmetických zariadení. Diódové lasery, PMU prístroje, ND:YAG lasery a multifunkčné zariadenia s 2-ročnou zárukou, bezplatným školením a okamžitou servisnou podporou."
+    "description": "Distribúcia profesionálnych kozmetických zariadení. Diódové lasery, PMU prístroje, ND:YAG lasery a multifunkčné zariadenia so zárukou, bezplatným školením a okamžitou servisnou podporou."
   },
   "nav": {
     "home": "Domov",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Profesionálne kozmetické zariadenia",
-    "subtitle": "Diódové lasery, PMU prístroje a multifunkčné zariadenia s 2-ročnou zárukou",
+    "subtitle": "Diódové lasery, PMU prístroje a multifunkčné zariadenia so zárukou a vlastným servisom",
     "cta": "Bezplatná konzultácia",
     "ctaSecondary": "Zobraziť produkty",
     "slide2": {
@@ -28,15 +28,19 @@
     },
     "slide3": {
       "title": "Školenie a servis na jednom mieste",
-      "subtitle": "Bezplatné školenie, nepretržitá technická podpora a 2-ročná záruka na všetky naše produkty"
+      "subtitle": "Bezplatné školenie, nepretržitá technická podpora a 2-ročná záruka na naše kozmetické prístroje"
     },
     "slide4": {
       "title": "Odstránenie tetovania laserom ND:YAG",
-      "subtitle": "Bezpečné a účinné odstránenie tetovania a pigmentu lasermi ND:YAG Q-switched – oceňované prístroje a miestny servis"
+      "subtitle": "Bezpečné a účinné odstraňovanie tetovania a pigmentu Q-switched ND:YAG laserom so servisným zázemím v Maďarsku"
     },
     "slide5": {
       "title": "Náš nový Frame YAG laser je tu!",
       "subtitle": "Čoskoro v našom e-shope. Prihláste sa na ukážku produktu"
+    },
+    "slide7": {
+      "title": "Novinka: diódový laser EMPIRE 4WAVE",
+      "subtitle": "1200 W, 4 vlnové dĺžky, mikrokamerová diagnostika chĺpkov a pokožky a digitálna karta klienta – inteligentnejší systém pre profesionálnu epiláciu."
     }
   },
   "categories": {
@@ -51,31 +55,29 @@
     "testkezeles": "Tvarovanie tela",
     "sminktetovalas": "PMU prístroje",
     "kellekek": "Príslušenstvo",
-    "kezeloanyagok": "Ošetrujúce materiály",
-    "coldplasma": "ColdPlasma",
-    "productCount": "produktov"
+    "kezeloanyagok": "M'ONDUNIQ",
+    "hidegplazma": "ColdPlasma",
+    "bordiagnosztika": "Diagnostika pleti",
+    "productCount": "produktov",
+    "homeTitle": "Aké ošetrenie chcete ponúkať?",
+    "homeSubtitle": "Vyberte si oblasť a ukážeme vám prístroje vhodné pre váš salón.",
+    "suppliesTitle": "Príslušenstvo a ošetrujúce prípravky",
+    "showAll": "Všetky kategórie ({count})",
+    "showLess": "Menej kategórií"
   },
   "trust": {
     "warranty": "2-ročná záruka",
-    "warrantyDesc": "Plná záruka na všetky zariadenia",
-    "shipping": "15-20 pracovných dní",
-    "shippingDesc": "Spoľahlivá dodávka s kompletným colným odbavením",
+    "warrantyDesc": "Na kozmetické prístroje (tetovacie a PMU prístroje: 1 rok)",
+    "shipping": "Spoľahlivé doručenie",
+    "shippingDesc": "Skladový tovar zo skladu, prístroje za 15–20 pracovných dní",
     "training": "FAR certifikát",
     "trainingDesc": "Oficiálne školenie operátorov",
     "service": "Vlastný servis",
-    "serviceDesc": "Okamžitá oprava, náhradné zariadenie"
+    "serviceDesc": "Rýchla oprava, program náhradného zariadenia"
   },
   "brands": {
     "title": "Naše značky",
-    "subtitle": "Exkluzívny distribútor prémiových kozmetických značiek v Maďarsku"
-  },
-  "stats": {
-    "soldUnits": "Predaných jednotiek Novalight",
-    "warranty": "Záruka",
-    "deliveryTime": "Doba dodania",
-    "hungarianService": "Maďarský servis",
-    "yearsSuffix": "rokov",
-    "weeksSuffix": "týždňov"
+    "subtitle": "S týmito značkami spolupracujeme, od prístrojov až po ošetrujúce prípravky."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -111,7 +113,7 @@
     "relatedProducts": "Súvisiace produkty",
     "whatsIncluded": "Čo je v balení?",
     "warranty": "Záruka a servis",
-    "warrantyInfo": "2-ročná plná záruka, náhradné zariadenie počas opravy",
+    "warrantyInfo": "2-ročná plná záruka + program náhradného zariadenia",
     "videoDemo": "Video ukážka",
     "specsTitle": "Technické špecifikácie",
     "specsSubtitle": "Podrobné technické údaje {productName}",
@@ -139,7 +141,21 @@
     "videoPlaceholder": "Ukážkové video čoskoro",
     "videoPlayLabel": "Prehrať video: ukážka {title}",
     "trainingTitle": "Školenie obsluhy",
-    "trainingContent": "Obsah školenia:"
+    "trainingContent": "Obsah školenia:",
+    "galleryTitle": "Galéria",
+    "allPhotos": "Všetkých {count} fotiek",
+    "moreImages": "+{count} fotiek",
+    "zoomImage": "{alt} – zväčšiť",
+    "pauseMotion": "Pozastaviť",
+    "resumeMotion": "Prehrať",
+    "imageViewer": "Prehliadač obrázkov",
+    "prevImage": "Predchádzajúci obrázok",
+    "nextImage": "Ďalší obrázok",
+    "installmentLinePre": "Na splátky:",
+    "installmentLine": "{down} záloha + {months} × {monthly}",
+    "installmentCalc": "Vypočítajte ↓",
+    "backorderLabel": "Na objednávku",
+    "backorderNote": "Tento produkt momentálne nie je na sklade, preto si ho teraz môžete iba predobjednať. Predpokladaný termín dodania s vami dohodneme po objednávke."
   },
   "form": {
     "name": "Meno",
@@ -209,7 +225,8 @@
     "newsletter": "Odber noviniek",
     "newsletterPlaceholder": "Vaša e-mailová adresa",
     "subscribe": "Prihlásiť sa",
-    "shipping": "Doprava a platba"
+    "shipping": "Doprava a platba",
+    "cookieSettings": "Nastavenia cookies"
   },
   "contact": {
     "title": "Kontakt",
@@ -228,7 +245,7 @@
     "taxId": "DIČ",
     "vatId": "IČ DPH",
     "howToReach": "Ako sa k nám dostať",
-    "howToReachDesc": "Budai út 28., Érd - z diaľnice M7 výjazd Érd (križovatka Budaörs), potom 5 minút po Budai út. Bezplatné parkovanie pred budovou.",
+    "howToReachDesc": "Bajcsy-Zsilinszky út 156., Érd (Parkváros) – pár minút autom od výjazdu Érd z diaľnice M7.",
     "openingHoursDetails": "Pondelok–Piatok: po dohodnutí termínu",
     "openingHoursNote": "Prosíme, dohodnite si termín telefonicky alebo e-mailom!"
   },
@@ -244,9 +261,9 @@
     "storyParagraph3": "Preto sme vytvorili Skinlab: aby sme ponúkli spoľahlivého partnera, ktorý nielen predáva zariadenia, ale poskytuje komplexnú podporu pre úspešné fungovanie salónu.",
     "foundersTitle": "Zakladatelia",
     "founder": {
-      "technical": "Technický expert",
-      "technicalBio": "Už od dospievania som opravoval a tuningoval autá – svet strojov mi bol vždy blízky. Tento praktický, technický prístup určuje aj moju prácu v Skinlabe: mám na starosti, aby každý prístroj dorazil k našim zákazníkom v bezchybnom technickom stave. Ak sa vyskytne problém, riešime ho interne, rýchlo a profesionálne – s náhradným prístrojom na dobu opravy. Laserová technológia sa v priebehu rokov stala mojou špecializáciou a môžem s istotou povedať, že neexistuje porucha, s ktorou by som sa doteraz nestretol. Táto skúsenosť dáva našim zákazníkom skutočný pokoj, pretože vedia, že ich prístroj je v dobrých rukách.",
-      "treatment": "Expert na ošetrenia",
+      "technical": "Zakladateľ Skinlab, technický expert",
+      "technicalBio": "Už od dospievania som opravoval a tuningoval autá – svet strojov mi bol vždy blízky. Tento praktický, technický prístup určuje aj moju prácu v Skinlabe: mám na starosti, aby každý prístroj dorazil k našim zákazníkom v bezchybnom technickom stave. Ak sa vyskytne problém, riešime ho interne, rýchlo a profesionálne – pri dlhších opravách s náhradným prístrojom. Laserová technológia sa v priebehu rokov stala mojou špecializáciou a môžem s istotou povedať, že neexistuje porucha, s ktorou by som sa doteraz nestretol. Táto skúsenosť dáva našim zákazníkom skutočný pokoj, pretože vedia, že ich prístroj je v dobrých rukách.",
+      "treatment": "Zakladateľka Skinlab, expertka na ošetrenia",
       "treatmentBio": "Pochádzam z lekárskej rodiny a kozmetický priemysel ma priťahoval odmalička. Lekárske prostredie ma však naučilo dôležitú vec: ošetrenia musia stáť na rovnako prísnych odborných základoch ako medicína. Nestačí, aby niečo fungovalo – musí to byť aj bezpečné. Pre mňa je najdôležitejšie, aby vznikali nielen krásne, ale aj zdravé výsledky, a aby sme nikdy neprekročili hranice odbornej kompetencie. Túto filozofiu vnášame do každej konzultácie aj odporúčania produktov, pretože ponúkame len to, za čím si plne stojíme."
     },
     "whyUsTitle": "Prečo si vybrať nás?",
@@ -259,7 +276,7 @@
     "benefit4Title": "Bezplatné školenie",
     "benefit4Desc": "4-6 hodín osobného školenia + FAR certifikát zahrnuté v cene.",
     "benefit5Title": "Vlastný servis",
-    "benefit5Desc": "Miestne servisné stredisko, náhradné zariadenie počas opravy.",
+    "benefit5Desc": "Miestne servisné stredisko, program náhradného zariadenia pri dlhších opravách.",
     "benefit6Title": "Priebežná podpora",
     "benefit6Desc": "Po nákupe vás nenecháme osamote. Zavolajte nám kedykoľvek.",
     "companyInfoTitle": "Informácie o spoločnosti",
@@ -281,7 +298,21 @@
     "included": "Zahrnuté v cene",
     "duration": "Trvanie",
     "location": "Miesto",
-    "register": "Registrovať"
+    "register": "Registrovať",
+    "galleryTitle": "K prístroju dostanete aj know-how",
+    "gallerySubtitle": "Praktické školenie v skutočnom salónnom prostredí, v malých skupinách.",
+    "galleryAlt1": "Nácvik hydrodermabrázie na školení",
+    "galleryAlt2": "Ukážka karbónového laserového ošetrenia pleti počas školenia",
+    "galleryAlt3": "Praktické školenie ošetrenia diódovým laserom",
+    "galleryAlt4": "Skupinové praktické školenie v salónnom prostredí",
+    "galleryAlt5": "Certifikáty zo školenia registrovaného vo FAR",
+    "galleryAlt6": "Účastníci školenia obsluhy prístrojov Skinlab",
+    "fact1Title": "Školenie registrované vo FAR",
+    "fact1Desc": "S certifikátom s registračným B-číslom a praktickým výcvikom.",
+    "fact2Title": "Uvedenie do prevádzky na mieste",
+    "fact2Desc": "Prístroj nastavíme vo vašom salóne a priamo tam vás zaškolíme na jeho používanie.",
+    "fact3Title": "Vlastný servis, program náhradného zariadenia",
+    "fact3Desc": "Pri opravách dlhších ako 10 pracovných dní poskytneme náhradné zariadenie, v závislosti od dostupnosti na sklade."
   },
   "comparison": {
     "title": "Porovnanie",
@@ -317,17 +348,22 @@
   "warranty": {
     "title": "Záruka a servis",
     "subtitle": "Na {productName} poskytujeme {years}-ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
-    "subtitleGeneric": "{years}-ročná plná záruka na všetky zariadenia s vlastným servisným centrom v Maďarsku.",
+    "subtitleOne": "Na {productName} poskytujeme ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
+    "subtitleGeneric": "{years}-ročná plná záruka na zariadenie s vlastným servisným centrom v Maďarsku.",
+    "subtitleGenericOne": "Ročná plná záruka na zariadenie s vlastným servisným centrom v Maďarsku.",
+    "pageSubtitle": "Na naše kozmetické prístroje poskytujeme 2-ročnú, na tetovacie a PMU prístroje 1-ročnú plnú záruku s vlastným servisným centrom v Maďarsku.",
     "badge": "Pokoj a istota",
     "yearsWarranty": "{years}-ročná plná záruka",
+    "yearsWarrantyOne": "Ročná plná záruka",
     "extendedWarranty": "Rozšírená záruka",
     "extendedWarrantyDesc": "Predĺžte si záruku o ďalší rok za zvýhodnenú cenu!",
     "extendedWarrantyButton": "Mám záujem",
     "industryStandardMultiple": "2x priemyselný štandard",
     "features": {
       "fullWarranty": "Pokrýva všetky diely a prácu – dvojnásobok priemyselného štandardu.",
+      "fullWarrantyBasic": "Plná záruka na všetky diely a prácu.",
       "replacementDevice": "Program náhradného zariadenia",
-      "replacementDeviceDesc": "Počas opravy poskytujeme bezplatné náhradné zariadenie, aby vaša práca nestála.",
+      "replacementDeviceDesc": "Ak oprava podľa odhadu potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie (podľa dostupnosti), aby vaša práca nestála.",
       "ownWorkshop": "Vlastná servisná dielňa",
       "ownWorkshopDesc": "Opravy v Maďarsku – nemusíte čakať mesiace na zahraničný servis.",
       "fastRepair": "Rýchla oprava",
@@ -338,7 +374,7 @@
       "step1Title": "Nahlásenie poruchy",
       "step1Desc": "Zavolajte nám alebo pošlite e-mail s popisom poruchy.",
       "step2Title": "Náhradné zariadenie",
-      "step2Desc": "Kuriérom pošleme náhradné zariadenie a prevezmeme poškodené.",
+      "step2Desc": "Ak oprava potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie.",
       "step3Title": "Oprava",
       "step3Desc": "Zariadenie opravíme v našej vlastnej dielni.",
       "step4Title": "Vrátenie",
@@ -358,18 +394,18 @@
       "hungarianSupport": "Podpora v miestnom jazyku",
       "year": "rokov"
     },
-    "description": "Komplexná 2-ročná záruka výrobcu s vlastným maďarským servisným zázemím, programom zápožičných strojov a originálnymi náhradnými dielmi.",
+    "description": "Komplexná záruka výrobcu (2 roky na kozmetické prístroje, 1 rok na tetovacie a PMU prístroje) s vlastným maďarským servisným zázemím, programom zápožičných strojov a originálnymi náhradnými dielmi.",
     "whatIsWarranty": "Čo je záruka výrobcu?",
     "whatIsWarrantyDesc1": "Záruka je záväzok výrobcu a distribútora, že zariadenie bude počas záručnej doby pri bežnom používaní pracovať bez poruchy. V prípade výrobných alebo materiálových chýb sú oprava, výmena dielu a - v odôvodnených prípadoch - výmena a pracovný náklad bezplatné.",
-    "whatIsWarrantyDesc2": "Na každý nový prístroj poskytujeme 12-24 mesiacov záruky (presný čas je uvedený v liste produktu), v súlade s maďarskými vládnymi nariadeniami 151/2003. (IX. 22.) a 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Na nové kozmetické prístroje poskytujeme 24 mesiacov, na tetovacie a PMU prístroje 12 mesiacov záruky (presný čas je uvedený aj v liste produktu), v súlade s maďarskými vládnymi nariadeniami 151/2003. (IX. 22.) a 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Náš Skinlab záväzok",
-    "commitmentDesc1": "Vlastný vyškolený maďarský technický tím a servisná dielňa zaručujú, že v prípade poruchy nebudete musieť čakať mesiace na opravu v zahraničí. Pracujeme s originálnymi továrenskými dielmi a počas opravy poskytujeme zápožičný stroj, aby vaše podnikanie nestagnovalo.",
+    "commitmentDesc1": "Vlastný vyškolený maďarský technický tím a servisná dielňa zaručujú, že v prípade poruchy nebudete musieť čakať mesiace na opravu v zahraničí. Pracujeme s originálnymi továrenskými dielmi a pri opravách dlhších ako 10 pracovných dní poskytujeme zápožičný stroj, aby vaše podnikanie nestagnovalo.",
     "commitmentDesc2": "Sme pri vás aj po nákupe: diaľková diagnostika, telefonická podpora a v prípade potreby výjazd na miesto zabezpečujú nepretržitú prevádzku.",
     "contentTitle": "Čo záruka pokrýva?",
     "contentDesc": "Záruka výrobcu zahŕňa nasledujúce prípady, ak k závade došlo pri bežnom používaní a pri dodržaní návodu na obsluhu:",
     "point1": "Úplná oprava výrobných a materiálových chýb.",
     "point2": "Výmena originálnych továrenských dielov vrátane pracovného nákladu, bezplatne.",
-    "point3": "Program zápožičného stroja - počas opravy poskytujeme bezplatný náhradný stroj.",
+    "point3": "Program zápožičného stroja - pri opravách dlhších ako 10 pracovných dní poskytujeme na čas opravy náhradný stroj, podľa dostupnosti.",
     "point4": "Diaľková diagnostika a odborná telefonická podpora pri riešení problémov.",
     "point5": "V prípade potreby výjazd technika na miesto, po individuálnej dohode.",
     "exclusionsTitle": "Čo záruka nepokrýva?",
@@ -396,7 +432,8 @@
     "claimInfo4": "Meno a kontaktné údaje kontaktnej osoby.",
     "importantNote": "Nepokúšajte sa prístroj opravovať ani rozoberať - neoprávnený zásah vedie k strate záruky. Pri zistení poruchy zariadenie odpojte od elektriny a kontaktujte nás.",
     "ctaTitle": "Máte otázky k záruke?",
-    "ctaSubtitle": "Náš odborný tím rád pomôže - zavolajte alebo napíšte e-mail."
+    "ctaSubtitle": "Náš odborný tím rád pomôže - zavolajte alebo napíšte e-mail.",
+    "readMore": "Všetky podrobnosti o záruke"
   },
   "faq": {
     "title": "Často kladené otázky",
@@ -426,7 +463,7 @@
       "q2": "Ako dlho trvá oprava?",
       "a2": "Drobné poruchy opravíme za 3–7 pracovných dní, pri väčších výmenách dielov 10–20 pracovných dní. Presný čas určíme po diagnostike. Opravy vykonávajú naši interní školení technici s originálnymi dielmi.",
       "q3": "Dostanem náhradné zariadenie počas opravy?",
-      "a3": "Áno, na vyžiadanie poskytujeme náhradné zariadenie - v rámci záruky bezplatne, mimo záruky za zvýhodnenú cenu - aby vaše podnikanie počas servisu bežalo ďalej.",
+      "a3": "Ak podľa vstupnej diagnostiky oprava pravdepodobne potrvá dlhšie ako 10 pracovných dní, poskytneme na čas opravy náhradné zariadenie (podľa dostupnosti) - v rámci záruky bezplatne, mimo záruky za zvýhodnených podmienok. Náhradné zariadenie nemusí byť rovnaký model, ale umožní pokračovať v ošetreniach.",
       "q4": "Čo mám robiť, ak zariadenie hlási chybu alebo sa nezapne?",
       "a4": "Najprv ho vypnite, odpojte od napájania, nechajte vychladnúť a znovu zapnite. Ak chyba pretrváva, kontaktujte nás na {phone} alebo {email} - diaľková diagnostika rieši väčšinu problémov."
     },
@@ -507,7 +544,8 @@
     "noObligation": "Bez záväzkov",
     "inPersonOrOnline": "Osobne alebo online",
     "roiCalculation": "Výpočet návratnosti",
-    "orCallDirectly": "Alebo zavolajte priamo:"
+    "orCallDirectly": "Alebo zavolajte priamo:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lasery",
@@ -518,13 +556,15 @@
     "ndyagDesc": "Odstránenie tetovania",
     "hydrafacialDesc": "Čistenie pleti, hydratácia",
     "smartFacialDesc": "Inteligentné platformy pre tvár",
-    "antiAgingDesc": "Mikroihličková RF, HIFU, analýza pleti",
+    "antiAgingDesc": "Mikroihličková RF, EMS mikroihličkovanie",
     "bodyShapingDesc": "Kryolipolýza, tvarovanie postavy",
     "mesoDesc": "Bezihlová mezoterapia",
     "pmuDesc": "PMU prístroje",
+    "pmuShort": "PMU",
     "accessoriesDesc": "Odsávač dymu, roztoky, ihly",
-    "treatmentMaterialsDesc": "Tekutiny, pody, účinné látky",
-    "coldplasmaDesc": "Cold plasma"
+    "treatmentMaterialsDesc": "Hydra-liquidy, kokteily, exozómy",
+    "hidegplazmaDesc": "Cold plasma",
+    "bordiagnosztikaDesc": "AI analýza pleti"
   },
   "whyUs": {
     "title": "Prečo úspešné salóny vyberajú Skinlab?",
@@ -532,14 +572,11 @@
     "training": "Kompletné školenie",
     "trainingDesc": "4-6 hodín osobného školenia + FAR certifikát + video materiály. Nepustíme vás, kým nebudete zariadenie používať s istotou.",
     "warranty": "2-ročná záruka, miestny servis",
-    "warrantyDesc": "Žiadne týždne čakania na zahraničný servis. Reagujeme do 24 hodín a v prípade potreby poskytneme náhradné zariadenie.",
+    "warrantyDesc": "Žiadne týždne čakania na zahraničný servis. Opravujeme rýchlo vo vlastnom servise a pri opravách dlhších ako 10 pracovných dní poskytneme náhradné zariadenie, v závislosti od dostupnosti na sklade.",
     "financing": "Financovanie, lízing",
     "financingDesc": "Od ~250 €/mesiac. Nemusíte platiť všetko naraz – príjmy zo zariadenia platia splátky.",
     "consulting": "Obchodné poradenstvo",
-    "consultingDesc": "Pomáhame s cenami a marketingom. Zdieľame, čo robia úspešné salóny.",
-    "testimonialTitle": "Spokojný partner",
-    "testimonialText": "Školenie bolo skvelé a kedykoľvek im môžem zavolať, keď mám otázku.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Pomáhame s cenami a marketingom. Zdieľame, čo robia úspešné salóny."
   },
   "howItWorks": {
     "title": "Ako to funguje",
@@ -549,7 +586,7 @@
     "step2Title": "Výber",
     "step2Desc": "Pomôžeme vám vybrať najlepšie zariadenie pre váš salón",
     "step3Title": "Inštalácia + školenie",
-    "step3Desc": "Inštalácia na mieste a 4-6 hodín školenia",
+    "step3Desc": "Uvedenie do prevádzky na mieste a zaškolenie obsluhy",
     "step4Title": "Štart!",
     "step4Desc": "Priebežná podpora, servis a obchodné poradenstvo"
   },
@@ -570,20 +607,31 @@
     "business3": "Glow Clinic",
     "location3": "Segedín"
   },
+  "videoTestimonials": {
+    "title": "Už pracujú so zariadeniami Skinlab",
+    "subtitle": "Skutočné recenzie od našich zákazníkov",
+    "role1": "PMU artistka, kozmetička",
+    "role2": "PMU školiteľka, kozmetička",
+    "role3": "kozmetička",
+    "role4": "PMU artistka, kozmetička",
+    "playLabel": "Prehrať video",
+    "quote1": "Najväčším odporúčaním je, že s nimi spolupracujem roky, a keby som dnes musela znova vybudovať svoj strojový park, opäť by som si vybrala Skinlab.",
+    "quote2": "Myslím si, že firma, ktorú zastupujú, je v Maďarsku jedinečná, a úprimne ich môžem vrelo odporučiť.",
+    "quote3": "Skinlab je pre mňa synonymom kvality a spoľahlivosti. Je dobré pracovať s partnerom, ktorý verí v kvalitu rovnako ako ja.",
+    "quote4": "Nikdy sa nestalo, že by mi s niečím nevedeli pomôcť. Keď som mala otázku, vždy som sa im dovolala.",
+    "watchFull": "Pozrite si celé video ({duration})"
+  },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "4-vlnová profesionálna depilácia",
-    "wavelength": "Vlnová dĺžka",
+    "badge": "Práve dorazilo",
+    "tagline": "Diagnostika chĺpkov a pleti mikrokamerou, digitálna karta klienta a odporúčanie parametrov v jednom prístroji.",
     "power": "Výkon",
-    "cooling": "Zafírové chladenie",
     "warranty": "Záruka",
     "grossPrice": "Cena s DPH",
-    "orMonthly": "alebo mesačne",
     "viewDetails": "Zobraziť detaily",
     "requestDemo": "Požiadať o ukážku",
-    "productPlaceholder": "fotografia produktu",
     "warrantyValue": "2 roky",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 vlnové dĺžky",
+    "skinTypes": "Pre všetky typy pleti"
   },
   "ctaSection": {
     "title": "Máte otázky? Sme tu, aby sme pomohli!",
@@ -770,7 +818,9 @@
     "drawerTitle": "Váš košík",
     "drawerEmpty": "Váš košík je zatiaľ prázdny.",
     "priceNote": "Náklady na dopravu a konečnú cenu potvrdíme počas telefonickej konzultácie.",
-    "close": "Zavrieť"
+    "close": "Zavrieť",
+    "preorder": "Predobjednať",
+    "backorderItem": "Na objednávku - momentálne nie je na sklade, iba predobjednávka"
   },
   "checkout": {
     "title": "Objednávka",
@@ -816,7 +866,11 @@
       "payButton": "Zaplatiť / otvoriť zálohovú faktúru",
       "questions": "Máte otázku? Pokojne nám zavolajte:",
       "regards": "S pozdravom,",
-      "team": "Tím Skinlab Hungary"
+      "team": "Tím Skinlab Hungary",
+      "backorderNote": "Vaša objednávka obsahuje produkt, ktorý momentálne nie je na sklade, preto sme ju zaevidovali ako predobjednávku. Teraz nemusíte platiť: náš kolega vás čoskoro bude kontaktovať ohľadom predpokladaného termínu dodania a až potom vám pošleme výzvu na platbu.",
+      "backorderStep1": "Vašu objednávku sme zaevidovali ako predobjednávku - teraz nemusíte platiť.",
+      "backorderStep2": "Náš kolega vás čoskoro bude kontaktovať a informuje vás o predpokladanom termíne dodania produktu.",
+      "backorderStep3": "Keď produkt dorazí, dohodneme platbu a doručíme vám ho zvoleným spôsobom."
     },
     "phone": "Telefónne číslo",
     "companyToggle": "Zadať firemné údaje",
@@ -843,7 +897,7 @@
     "step3Title": "Doručíme zariadenie",
     "step3Desc": "Po prijatí platby ide objednávka do výroby a expedície.",
     "trustNoPayment": "Teraz nemusíte platiť",
-    "trustWarranty": "2 roky záruka",
+    "trustWarranty": "Plná záruka",
     "trustCallback": "Zavoláme vám späť",
     "noPaymentNote": "Po odoslaní objednávky nemusíte hneď platiť - najprv vám zavoláme späť a preberieme detaily.",
     "requiredError": "Vyplňte prosím povinné polia.",
@@ -865,7 +919,9 @@
       "emailNote": "Potvrdenie objednávky sme odoslali na vašu e-mailovú adresu.",
       "backToHome": "Späť na úvod",
       "browseProducts": "Ďalšie produkty"
-    }
+    },
+    "backorderTitle": "Predobjednávka",
+    "backorderNote": "Váš košík obsahuje produkt, ktorý momentálne nie je na sklade: {items}. Ten si teraz môžete iba predobjednať. V takom prípade vám hneď neposielame výzvu na platbu a teraz nemusíte platiť: náš kolega vás bude kontaktovať ohľadom predpokladaného termínu dodania a až potom vás požiadame o platbu."
   },
   "bank": {
     "title": "Údaje pre bankový prevod",
@@ -894,5 +950,116 @@
     "requirements": "Podmienky účasti",
     "back": "Späť na školenia",
     "signupHeading": "Prihláste sa: {name}"
+  },
+  "founderConsult": {
+    "badge": "Osobná pomoc",
+    "expertRole": "Zakladateľ Skinlab, technický expert",
+    "heading": {
+      "category": {
+        "pre": "Neviete,",
+        "highlight": "ktorý prístroj",
+        "post": "je pre vás?"
+      },
+      "machine": {
+        "pre": "Nie ste si istí, či je",
+        "highlight": "toto správny prístroj",
+        "post": "pre váš salón?"
+      },
+      "consumable": {
+        "pre": "Nie ste si istí, či je",
+        "highlight": "toto správny prípravok",
+        "post": "pre vaše ošetrenia?"
+      }
+    },
+    "scenario1": "Neviete sa rozhodnúť",
+    "scenario2": "Chcete presné informácie o prístrojoch",
+    "scenario3": "Chcete prebrať podrobnosti nákupu",
+    "scenario4": "Potrebujete len dobrú radu",
+    "bodyPre": "Nech platí čokoľvek –",
+    "bodyStrong": "radi vám pomôžeme.",
+    "bodyPost": "Zavolajte nám alebo si vyžiadajte bezplatnú konzultáciu a ozveme sa vám.",
+    "cta": "Vyžiadajte si bezplatnú konzultáciu",
+    "phone": "Zavolajte: {phone}",
+    "responseTime": "Zvyčajne sa ozveme do 1 pracovného dňa."
+  },
+  "finance": {
+    "title": "Oplatí sa to? Poďme to spočítať.",
+    "subtitle": "Vypočítajte si z vlastných údajov, kedy sa prístroj vráti a aká by bola mesačná splátka.",
+    "subtitleRoiOnly": "Vypočítajte si z vlastných údajov, kedy sa prístroj vráti.",
+    "tabRoi": "Návratnosť",
+    "tabInstallment": "Mesačná splátka"
+  },
+  "productComparison": {
+    "title": "Porovnajte naše podobné prístroje",
+    "subtitle": "Najdôležitejšie rozdiely na prvý pohľad.",
+    "current": "Práve si prezeráte",
+    "price": "Cena (s DPH)",
+    "view": "Pozrieť"
+  },
+  "homeHero": {
+    "prev": "Predchádzajúca snímka",
+    "next": "Ďalšia snímka",
+    "goTo": "Snímka {n}",
+    "upNext": "Ďalej:",
+    "slides": {
+      "empire": "Diódový laser EMPIRE",
+      "olympia": "Diódový laser OLYMPIA",
+      "ndyag": "ND:YAG laser",
+      "training": "Školenie a servis"
+    }
+  },
+  "homeComparison": {
+    "title": "Ktorý diódový laser je vhodný pre váš salón?",
+    "subtitle": "Všetky prístroje ({count}) majú 4 vlnové dĺžky. Rozdiel je vo výkone, v ošetrovacej hlavici a v ošetrovacom softvéri.",
+    "specHeader": "Parameter",
+    "details": "Detaily",
+    "scrollHint": "Na porovnanie posuňte do strany",
+    "showAll": "Všetky parametre (ďalšie: {count})",
+    "showLess": "Menej parametrov"
+  },
+  "mobileCta": {
+    "call": "Zavolať",
+    "consult": "Konzultácia"
+  },
+  "foundersHome": {
+    "badge": "Zakladatelia",
+    "title": "Stretnutie dvoch svetov - to sme my",
+    "intro": "Skinlab sme založili dvaja: Szimonetta prišla z beauty odvetvia so zdravotníckym zázemím, László zo sveta techniky a prístrojov. Všetko odštartovalo ošetrenie v zahraničí: videli sme, s akými prístrojmi sa pracuje na Západe, a rozhodli sme sa túto kvalitu - aj know-how, ktoré za ňou stojí - priniesť aj do maďarských salónov.",
+    "quote": "Nechceme predávať prístroje, ale dávať využiteľné odborné znalosti, istotu a ľudskú podporu. Predávame iba prístroje, ktoré sami poznáme, máme radi a s čistým svedomím odporúčame - a ani po kúpe nenecháme našich partnerov samých.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Zakladateľka Skinlab",
+    "simonettaSpec": "Expertka na ošetrenia",
+    "laszloName": "Horváth László",
+    "laszloRole": "Zakladateľ Skinlab",
+    "laszloSpec": "Technický expert",
+    "cta": "Spoznajte celý náš príbeh"
+  },
+  "services": {
+    "title": "Viac ako e-shop",
+    "subtitle": "K prístrojom dostanete všetko, čo váš salón potrebuje: ošetrujúce prípravky, školenie, servis a osobnú ukážku.",
+    "consumables": {
+      "title": "Ošetrujúce prípravky M'onduniq",
+      "desc": "Profesionálne ošetrujúce prípravky a príslušenstvo k vašim prístrojom, od starostlivosti pred a po laserovom ošetrení až po ihlové moduly.",
+      "cta": "Ošetrujúce prípravky",
+      "alt": "Ošetrujúci prípravok M'onduniq na hodvábnom pozadí"
+    },
+    "training": {
+      "title": "Školenia s certifikáciou FAR",
+      "desc": "Školenie obsluhy prístrojov v skutočnom salónnom prostredí, v malých skupinách, s oficiálnym certifikátom.",
+      "cta": "Naše školenia",
+      "alt": "Účastníčka školenia s certifikátom FAR"
+    },
+    "service": {
+      "title": "Vlastný servis a záruka",
+      "desc": "Servis v Maďarsku, žiadne týždne čakania na prístroj poslaný do zahraničia. Program náhradného prístroja pri dlhšej oprave.",
+      "cta": "Záruka a servis",
+      "alt": "László Horváth pri práci s laserovou hlavicou"
+    },
+    "showroom": {
+      "title": "Showroom v Érde",
+      "desc": "Pozrite si a vyskúšajte prístroje osobne, po predchádzajúcom dohovore.",
+      "cta": "Showroom a kontakt",
+      "alt": "Showroom Skinlab so svietiacim logom a kozmetickým prístrojom"
+    }
   }
 }

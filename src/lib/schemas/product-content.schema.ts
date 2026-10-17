@@ -22,6 +22,10 @@ export const productContentFeatureSchema = z.object({
   description: z.string(),
   highlight: z.string().optional(),
   image: z.string().optional(),
+  /** Álló, néma loop-videó a kép helyett (pl. "/videos/thefrost/x.mp4"). */
+  video: z.string().optional(),
+  /** A videó poszterképe (kötelező, ha van `video`). */
+  poster: z.string().optional(),
 });
 
 export const productContentReviewSchema = z.object({
@@ -127,6 +131,7 @@ export const productContentSchema = z.object({
   videoDescription: productContentVideoDescriptionSchema.optional(),
   cta: productContentCTASchema.optional(),
   featureRows: productContentFeatureRowsSchema.optional(),
+  science: productContentFeatureRowsSchema.optional(),
   training: productContentTrainingSchema.optional(),
   testimonials: z.array(productContentTestimonialSchema).optional(),
   expertQuote: productContentExpertQuoteSchema.optional(),

@@ -13,15 +13,21 @@ import type { Locale } from '@/i18n';
 import { t } from '@/i18n';
 import { getLocalizedUrl, formatPrice } from '@/i18n/ui';
 import { CATEGORIES } from '../../lib/constants';
+import { productPath } from '@/lib/product-url';
 
 interface Props {
   locale: Locale;
   currentSlug: string;
   categorySlug: string;
   maxProducts?: number;
+  /**
+   * Alcím felülírása. Az alapértelmezett i18n szöveg "a többi professzionális
+   * készülékünket" alakú, ami kezelőanyag/kellék kategóriában félrevezető.
+   */
+  subtitle?: string;
 }
 
-const { locale, currentSlug, categorySlug, maxProducts = 4 } = Astro.props;
+const { locale, currentSlug, categorySlug, maxProducts = 4, subtitle } = Astro.props;
 
 // Get category info
 const category = CATEGORIES.find(c => c.slug === categorySlug);
@@ -58,14 +64,14 @@ const displayPrice = (price: number | null) => {
           {t(locale, 'product.relatedTitle', { categoryName })}
         </h2>
         <p class="text-gray-600">
-          {t(locale, 'product.relatedSubtitle')}
+          {subtitle || t(locale, 'product.relatedSubtitle')}
         </p>
       </div>
 
       <!-- Products Grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((product) => {
-          const productUrl = getLocalizedUrl(locale, `/${product.data.categorySlug}/${product.data.slug}`);
+          const productUrl = getLocalizedUrl(locale, productPath(product.data.categorySlug, product.data.slug));
           const imgExists = hasImage(product.data.image);
 
           return (

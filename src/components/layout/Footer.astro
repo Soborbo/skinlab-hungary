@@ -194,6 +194,11 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
           <a href={getLocalizedUrl(locale, '/aszf')} class="hover:text-gray-300 transition-colors">
             {t(locale, 'footer.terms')}
           </a>
+          {/* A hozzájárulás visszavonásának útja (GDPR 7(3)) — a ConsentBanner
+              panelét nyitja újra. */}
+          <a href="#" data-sb-consent-open class="hover:text-gray-300 transition-colors">
+            {t(locale, 'footer.cookieSettings')}
+          </a>
         </div>
       </div>
     </div>

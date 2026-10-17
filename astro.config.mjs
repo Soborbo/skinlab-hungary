@@ -23,8 +23,10 @@ export default defineConfig({
       // duplicate-content / thank-you / cart pages in the sitemap.
       // `blog` is excluded while the section is drafted off (see
       // src/config/features.ts → BLOG_ENABLED); remove it when re-publishing.
+      // `merchant-feed.xml` is a Merchant Center product feed, not a page.
       filter: (page) =>
-        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page),
+        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page) &&
+        !/\/merchant-feed\.xml$/i.test(page),
       i18n: {
         defaultLocale: 'hu',
         // Language-only hreflang codes to match the <head> alternate links
@@ -42,6 +44,19 @@ export default defineConfig({
           sr: 'sr',
           sl: 'sl',
         },
+      },
+      // @astrojs/sitemap emits one <xhtml:link hreflang> per configured locale
+      // but never an x-default. Add x-default → the Hungarian (defaultLocale)
+      // URL of each page-set, matching the <head> alternate in BaseLayout.astro
+      // so the sitemap and the on-page hreflang annotations agree.
+      serialize(item) {
+        if (item.links?.length) {
+          const hu = item.links.find((l) => l.lang === 'hu');
+          if (hu && !item.links.some((l) => l.lang === 'x-default')) {
+            item.links.push({ lang: 'x-default', url: hu.url });
+          }
+        }
+        return item;
       },
     }),
   ],

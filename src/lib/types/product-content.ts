@@ -17,6 +17,10 @@ export interface ProductContentFeature {
   description: string;
   highlight?: string;
   image?: string;
+  /** Álló, néma loop-videó a kép helyett (pl. "/videos/thefrost/x.mp4"). */
+  video?: string;
+  /** A videó poszterképe. */
+  poster?: string;
 }
 
 export interface ProductContentReview {
@@ -91,6 +95,16 @@ export interface ProductContentVideoDescription {
   paragraphs: string[];
 }
 
+/**
+ * Az átadás/betanítás fotógaléria kísérőszövege. A fotók MAGUK mappa-vezéreltek
+ * (`src/assets/tulajdonosok/{slug}/`); ez a blokk csak a nevet és a bevezetőt
+ * adja hozzá. `ownerName` CSAK akkor kerüljön ki, ha a vevő hozzájárult.
+ */
+export interface ProductContentOwnerStory {
+  ownerName?: string;
+  intro?: string;
+}
+
 export interface ProductContent {
   name: string;
   shortDescription: string;
@@ -102,9 +116,13 @@ export interface ProductContent {
   videoDescription?: ProductContentVideoDescription;
   cta?: ProductContentCTA;
   featureRows?: ProductContentFeatureRows;
+  /** "Hogyan működik?" - a technológia közérthető magyarázata, a FeatureRows
+   *  sorformátumában. Csak ott jelenik meg, ahol a termék tartalma megadja. */
+  science?: ProductContentFeatureRows;
   training?: ProductContentTraining;
   testimonials?: ProductContentTestimonial[];
   expertQuote?: ProductContentExpertQuote;
+  ownerStory?: ProductContentOwnerStory;
   specs?: Record<string, string>;
   functionCards?: ProductContentFunctionCard[];
   faq?: ProductContentFAQItem[];

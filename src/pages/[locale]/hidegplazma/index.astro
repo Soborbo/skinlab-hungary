@@ -1,0 +1,33 @@
+---
+/**
+ * /{locale}/hidegplazma/ - a HU oldal párja: a kategória URL-jén maga a
+ * termékoldal áll (lásd pages/hidegplazma/index.astro).
+ */
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import ProductLayout from '../../../layouts/ProductLayout.astro';
+import { getCollection } from 'astro:content';
+import { locales, defaultLocale } from '../../../i18n/ui';
+import { getCategoryTranslation } from '../../../data/category-translations';
+import { buildProductData } from '../../../lib/product-data';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const category = getCategoryTranslation(locale!, 'hidegplazma');
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'hidegplazma' && !data.draft;
+});
+
+const soleProduct = products.length === 1 ? products[0] : undefined;
+---
+
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} />
+)}

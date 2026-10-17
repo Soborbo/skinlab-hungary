@@ -8,9 +8,12 @@ import { config } from '../config/siteConfig';
 import { collectionPageSchema, breadcrumbSchema as buildBreadcrumb, faqSchema as buildFaqSchema } from '../config/schema';
 import QuickAddButton from '../components/cart/QuickAddButton.astro';
 import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
+import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import { getLocaleFromUrl, withTrailingSlash, type Locale } from '../i18n/ui';
+import { getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../i18n/ui';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import { getInstallmentInfo } from '@/lib/installment';
+import { productPath } from '@/lib/product-url';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
 
@@ -76,6 +79,14 @@ interface Props {
    */
   benefitsImage?: ImageMetadata;
   benefitsImageAlt?: string;
+  /**
+   * Opt-in: a hero jobb oszlopának főképe "classic" módban (5+ termék).
+   * Enélkül ott egy üres "Kategória kép / Videó" placeholder áll.
+   * Astro:assets ImageMetadata (import a src/assets-ből) - a `benefitsImage`-hez
+   * hasonlóan. Ha `expert` is meg van adva, a lead-capture kártya nyer.
+   */
+  heroImage?: ImageMetadata;
+  heroImageAlt?: string;
   comparison?: {
     features: string[];
     products: ComparisonProduct[];
@@ -114,6 +125,16 @@ interface Props {
    */
   heroChooser?: { label: string; target: string }[];
   /**
+   * Opt-in: a termékrács csoportokra bontása nagy kategóriáknál.
+   * Egy 15+ termékes kategóriában az egyenszilárdságú rács nehezen navigálható;
+   * a csoportok termékvonal/protokoll szerint rendezik a listát.
+   * A `slugs` sorrendje adja a csoporton belüli sorrendet (felülírja az ár szerinti
+   * rendezést) — így pl. egy kezelési protokoll a valós lépéssorrendben mutatható.
+   * A fel nem sorolt termékek egy záró blokkba kerülnek, tehát nem tűnhet el termék.
+   * Ha nincs megadva, a rács a jelenlegi egyetlen, ár szerint rendezett lista marad.
+   */
+  productGroups?: { title: string; subtitle?: string; slugs: string[] }[];
+  /**
    * Opt-in: a benefits-szekció címe.
    * Default: 'Mire figyelj a választásnál?' — döntés-támogató keret (NEM "miért
    * válaszd a kategóriát", mert a látogató már a kategórián belül van).
@@ -131,6 +152,8 @@ const {
   benefits = [],
   benefitsImage,
   benefitsImageAlt,
+  heroImage,
+  heroImageAlt,
   comparison,
   choices = [],
   choicesHeading,
@@ -142,6 +165,7 @@ const {
   consultationCtaHref,
   consultationSocialProof,
   heroChooser,
+  productGroups = [],
   benefitsHeading,
 } = Astro.props;
 
@@ -170,6 +194,36 @@ const heroProduct = heroMode === 'single' ? products[0] : null;
 // A különálló terméknégyzet-grid csak classic módban kell — single/decision
 // módban a fold már megmutatja a termékeket, a duplikáció zavaró lenne.
 const showStandaloneGrid = heroMode === 'classic';
+
+// Fogyóeszköz-kategóriák (kezelőanyagok, kellékek) - ugyanaz a lista, mint a
+// ProductLayout-ban. A gépre utaló, márkaszintű feliratok itt is félrevezetőek:
+// a videós vélemények nem "Skinlab géppel dolgoznak" bizonyítékok egy krém mellé.
+const isConsumableCategory = ['kezeloanyagok', 'kellekek'].includes(category.slug);
+
+// Termékrács szekciói. `productGroups` nélkül egyetlen, ár szerint rendezett rács
+// (a korábbi viselkedés). Csoportokkal a `slugs` sorrendje dönt a csoporton belül,
+// és a fel nem sorolt termékek egy záró blokkba kerülnek — így egy termék sem eshet ki.
+const productKey = (p: any) => p.data.slug || p.id;
+const gridSections: { title: string | null; subtitle?: string; items: any[] }[] = (() => {
+  if (productGroups.length === 0) return [{ title: null, items: products }];
+  const used = new Set<string>();
+  const sections = productGroups
+    .map((g) => {
+      const items = g.slugs
+        .map((s) => products.find((p) => productKey(p) === s))
+        .filter((p): p is any => Boolean(p));
+      items.forEach((p) => used.add(productKey(p)));
+      return { title: g.title, subtitle: g.subtitle, items };
+    })
+    .filter((s) => s.items.length > 0);
+  const rest = products.filter((p) => !used.has(productKey(p)));
+  if (rest.length > 0) sections.push({ title: 'További kezelőanyagok', subtitle: undefined, items: rest });
+  return sections;
+})();
+// A lazy/eager határ a TELJES rácsra értendő, ezért szekciónkénti eltolást számolunk;
+// a csoporton belüli index önmagában újraindulna, és feleslegesen sok eager kép lenne.
+const sectionOffsets: number[] = [];
+gridSections.reduce((acc, s, i) => { sectionOffsets[i] = acc; return acc + s.items.length; }, 0);
 // Founder (visszahívás) szekció a hero alatt minden gép-kategória oldalon.
 // Alapértelmezett: Horváth László (alapító) - oldalanként felülírható az `expert` proppal.
 const defaultExpert: Expert = {
@@ -185,22 +239,26 @@ const huFmt = new Intl.NumberFormat('hu-HU');
 // Teaser havi részlet: a közös installment-logikára kötve (50% előleg + ársávos
 // futamidő). 100 000 Ft alatt null → nem jelenik meg "havi ~" a kártyán.
 // A leghosszabb elérhető futamidő = legkisebb havi összeg.
-const monthlyTeaser = (price?: number | null): number | null => {
-  const info = getInstallmentInfo(price);
+const monthlyTeaser = (data: { price?: number | null; installment?: boolean }): number | null => {
+  if (data.installment === false) return null;
+  const info = getInstallmentInfo(data.price);
   if (!info.available) return null;
   const term = info.months[info.months.length - 1];
   return info.monthly[term];
 };
-const productHref = (p: any) => withTrailingSlash(`/${p.data.categorySlug}/${p.data.slug || p.id}`);
+const productHref = (p: any) => withTrailingSlash(productPath(p.data.categorySlug, p.data.slug || p.id));
 // A "Részletfizetés" ígéretet csak akkor tartjuk a kategória trust-badge-ek
 // között, ha van legalább egy, a részletfizetési küszöb (INSTALLMENT_MIN,
 // ~100 000 Ft) feletti termék a kategóriában. Tisztán küszöb-alatti
 // kategóriákon (pl. kellékek, kezelőanyagok) NEM ajánljuk fel a részletfizetést
 // — ugyanazt a küszöböt alkalmazzuk, mint a kártyák "havi ~" teaserénél és a
 // termékoldali kalkulátornál (közös forrás: lib/installment.ts).
-const categoryHasInstallment = products.some((p) => getInstallmentInfo(p?.data?.price).available);
+const categoryHasInstallment = products.some((p) => p?.data && monthlyTeaser(p.data) !== null);
+// Tetováló- és sminktetováló gépekre 1 év a garancia, a kozmetikai gépekre 2 év
+// (ugyanaz a kategórialista, mint a ProductLayout ONE_YEAR_WARRANTY_CATEGORIES-e).
+const isOneYearWarrantyCategory = ['sminktetovalas', 'tetovalogepek'].includes(category.slug);
 const defaultTrustBadges: TrustBadge[] = [
-  { title: '2 év garancia' },
+  { title: isOneYearWarrantyCategory ? '1 év garancia' : '2 év garancia' },
   { title: 'Ingyenes betanítás' },
   { title: 'Magyar szerviz' },
   ...(categoryHasInstallment ? [{ title: 'Részletfizetés' }] : []),
@@ -360,8 +418,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 {heroProduct.data.price ? (
                   <div class="flex items-baseline gap-3 mb-4">
                     <span class="text-3xl font-bold text-gray-900">{huFmt.format(heroProduct.data.price)} Ft</span>
-                    {monthlyTeaser(heroProduct.data.price) && (
-                      <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(monthlyTeaser(heroProduct.data.price)!)} Ft</span>
+                    {monthlyTeaser(heroProduct.data) && (
+                      <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(monthlyTeaser(heroProduct.data)!)} Ft</span>
                     )}
                   </div>
                 ) : (
@@ -399,7 +457,6 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             : ''
           }>
             {heroMode === 'single' && heroProduct ? (
-              <!-- SINGLE: nagy termékfotó -->
               <div class="relative aspect-square rounded-3xl overflow-hidden flex items-center justify-center p-8 lg:p-12" style={`background: linear-gradient(135deg, ${catColor.accentLight} 0%, white 70%)`}>
                 <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-30" style={`background-color: ${accentColor}`} aria-hidden="true"></div>
                 {hasImage(heroProduct.data.image) ? (
@@ -418,7 +475,6 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 )}
               </div>
             ) : heroMode === 'duo' ? (
-              <!-- DUO: két termék EGYMÁS MELLETT, nagy képpel (több látszik a képből) -->
               <div class="grid grid-cols-2 gap-3 sm:gap-4">
                 {products.map((p) => (
                   <a
@@ -444,8 +500,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     {p.data.price ? (
                       <div class="mt-1">
                         <div class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</div>
-                        {monthlyTeaser(p.data.price) && (
-                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data.price)!)} Ft</span>
+                        {monthlyTeaser(p.data) && (
+                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
                         )}
                       </div>
                     ) : (
@@ -459,7 +515,6 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 ))}
               </div>
             ) : heroMode === 'decision' ? (
-              <!-- DECISION: a tényleges termékek kompakt döntő-kártyaként -->
               <div class="space-y-3">
                 {products.map((p) => (
                   <a
@@ -489,8 +544,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                       {p.data.price ? (
                         <div class="mt-1 flex items-baseline gap-2">
                           <span class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</span>
-                          {monthlyTeaser(p.data.price) && (
-                            <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data.price)!)} Ft</span>
+                          {monthlyTeaser(p.data) && (
+                            <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
                           )}
                         </div>
                       ) : (
@@ -502,8 +557,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 ))}
               </div>
             ) : (
-              <!-- CLASSIC: eredeti viselkedés (founder-kártya vagy placeholder) -->
-              <div class="hidden lg:block">
+              <div class={heroImage && !expert ? 'mt-8 lg:mt-0' : 'hidden lg:block'}>
                 {expert ? (
                   <CategoryConsultationCard
                     expert={expert}
@@ -513,6 +567,17 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     accentDark={accentDark}
                     accentLight={catColor.accentLight}
                   />
+                ) : heroImage ? (
+                  <div class:list={['relative rounded-2xl aspect-square overflow-hidden shadow-lg', MOBILE_MEDIA_BLEED]}>
+                    <Image
+                      src={heroImage}
+                      alt={heroImageAlt || `${category.nameShort} - Skinlab`}
+                      widths={[480, 640, 800, 1000]}
+                      sizes="(min-width: 1024px) 45vw, 90vw"
+                      class="w-full h-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
                 ) : (
                   <div class="bg-white/10 backdrop-blur rounded-2xl aspect-video flex items-center justify-center">
                     <div class="text-center p-8">
@@ -557,7 +622,6 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         */}
 
         {products.length === 0 ? (
-          <!-- Empty state -->
           <div class="text-center py-16">
             <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gray-200 flex items-center justify-center">
               <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -567,25 +631,35 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
             <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
             <a
-              href="/konzultacio/"
+              href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800"
             >
               Konzultáció kérése
             </a>
           </div>
         ) : (
-          <!-- Products -->
+          <div class="space-y-12">
+          {gridSections.map((section, si) => (
+          <div>
+            {section.title && (
+              <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">{section.title}</h2>
+                {section.subtitle && (
+                  <p class="text-gray-600 mt-1 max-w-3xl">{section.subtitle}</p>
+                )}
+              </div>
+            )}
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product, index) => (
+            {section.items.map((product, i) => { const index = sectionOffsets[si] + i; return (
               <div
                 class="prod-card group bg-white rounded-2xl overflow-hidden relative flex flex-col"
                 style={`--card-accent: ${accentColor}; --card-accent-dark: ${accentDark}`}
               >
-                <!-- Badges -->
+                {/* Badges */}
                 <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
                   {product.data.hasVariants && (
                     <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      {product.data.variants.length} szín
+                      {product.data.variants.length} változat
                     </span>
                   )}
                 </div>
@@ -594,7 +668,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   href={productHref(product)}
                   class="flex flex-col flex-1"
                 >
-                  <!-- Image -->
+                  {/* Image */}
                   <div class="aspect-square bg-white relative overflow-hidden">
                     {hasImage(product.data.image) ? (
                       <OptimizedPicture
@@ -617,7 +691,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors"></div>
                   </div>
 
-                  <!-- Content -->
+                  {/* Content */}
                   <div class="p-6 flex flex-col flex-1">
                     <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors">
                       {product.data.name}
@@ -632,9 +706,9 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                           <div class="text-xl font-bold text-gray-900">
                             {new Intl.NumberFormat('hu-HU').format(product.data.price)} Ft
                           </div>
-                          {monthlyTeaser(product.data.price) && (
+                          {monthlyTeaser(product.data) && (
                             <div class="text-green-600 text-sm font-medium">
-                              vagy havi ~{huFmt.format(monthlyTeaser(product.data.price)!)} Ft
+                              vagy havi ~{huFmt.format(monthlyTeaser(product.data)!)} Ft
                             </div>
                           )}
                         </>
@@ -645,7 +719,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   </div>
                 </a>
 
-                <!-- Kosárba gomb -->
+                {/* Kosárba gomb */}
                 <div class="px-6 pb-6">
                   <QuickAddButton
                     locale={pageLocale}
@@ -655,16 +729,26 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     categorySlug={product.data.categorySlug}
                     image={product.data.image}
                     price={product.data.price}
+                    availability={product.data.availability}
+                    variants={product.data.variants}
                     class="w-full"
                   />
                 </div>
               </div>
-            ))}
+            ); })}
+          </div>
+          </div>
+          ))}
           </div>
         )}
       </div>
     </section>
     )}
+
+    <!-- Video testimonials (site-wide social proof) -->
+    <VideoTestimonials
+      title={isConsumableCategory && pageLocale === 'hu' ? 'Ők már Skinlabbal dolgoznak' : undefined}
+    />
 
     <!-- "Melyiket válaszd?" - rich choices + comparison table (optional) -->
     {showChoicesSection && (
@@ -848,7 +932,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           <div class="text-center mt-8">
             <p class="text-gray-500 mb-4">Nem tudod eldönteni? Segítünk!</p>
             <a
-              href="/konzultacio/"
+              href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-colors"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -890,7 +974,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               </div>
             </div>
             {benefitsImage ? (
-              <div class="relative rounded-2xl aspect-square overflow-hidden shadow-sm">
+              <div class:list={['relative rounded-2xl aspect-square overflow-hidden shadow-sm', MOBILE_MEDIA_BLEED]}>
                 <Image
                   src={benefitsImage}
                   alt={benefitsImageAlt || `${category.nameShort} használat közben`}
@@ -951,7 +1035,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/konzultacio/"
+            href={getLocalizedUrl(pageLocale, '/konzultacio')}
             class="font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl text-lg transition-all inline-flex items-center justify-center gap-2 text-white shadow-lg hover:shadow-xl bg-primary-700 hover:bg-primary-800"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

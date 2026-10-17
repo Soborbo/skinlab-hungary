@@ -7,10 +7,10 @@ import TrainingSignupForm from '../../components/forms/TrainingSignupForm.astro'
 import { t, getLocaleFromUrl, withTrailingSlash, type Locale } from '../../i18n/ui';
 
 const trainingHero = '@assets/training-hero.jpg';
-const kepzesGyakorlat = '@assets/kozmetikai-gepkezelo-kepzes-gyakorlat.jpg';
-const kepzesUzleti = '@assets/kozmetikai-kepzes-uzleti-jogi-modul.jpg';
-const kepzesSzalon = '@assets/kozmetikai-kepzes-szalonkornyezet.jpg';
-const kepzesTanusitvany = '@assets/kozmetikai-kepzes-far-tanusitvany.jpg';
+const kepzesGyakorlat = '@assets/kepzes-gyakorlati-oktatas-modellen.jpg';
+const kepzesUzleti = '@assets/kepzes-tananyag-es-tanusitvany.jpg';
+const kepzesSzalon = '@assets/kepzes-hydramist-gyakorlat.jpg';
+const kepzesTanusitvany = '@assets/kepzes-the-frost-tanusitvany.jpg';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -184,7 +184,7 @@ const pillarIcons: Record<string, string> = {
         <div class="overflow-hidden">
           <ContentImage
             src={kepzesGyakorlat}
-            alt="Kozmetikai gépkezelő képzés gyakorlati oktatás"
+            alt="Gyakorlati gépkezelői oktatás élő modellen, oktatói felügyelettel"
             class="w-full h-full object-cover"
           />
         </div>
@@ -223,7 +223,7 @@ const pillarIcons: Record<string, string> = {
         <div class="overflow-hidden order-1 lg:order-2">
           <ContentImage
             src={kepzesUzleti}
-            alt="Kozmetikai képzés jogi és üzleti modul"
+            alt="Kezelési kézikönyv és tanúsítvány a gépkezelői képzés végén"
             class="w-full h-full object-cover"
           />
         </div>
@@ -236,7 +236,7 @@ const pillarIcons: Record<string, string> = {
         <div class="overflow-hidden">
           <ContentImage
             src={kepzesSzalon}
-            alt="Kozmetikai képzés szalonkörnyezetben gépvásárlási kötelezettség nélkül"
+            alt="Gyakorlati kezelés oktatói felügyelettel a képzésen"
             class="w-full h-full object-cover"
           />
         </div>
@@ -278,8 +278,8 @@ const pillarIcons: Record<string, string> = {
         <div class="overflow-hidden order-1 lg:order-2">
           <ContentImage
             src={kepzesTanusitvany}
-            alt="FAR-jegyzett kozmetikai gépkezelő képzés hivatalos tanúsítvány"
-            class="w-full h-full object-cover"
+            alt="Végzett résztvevő a tanúsítványával a THE FROST hidegplazma képzés után"
+            class="w-full h-full max-h-[520px] lg:max-h-none object-cover object-[center_30%]"
           />
         </div>
       </div>

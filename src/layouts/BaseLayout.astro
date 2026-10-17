@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
-import AnnouncementBar from '../components/layout/AnnouncementBar.astro';
 import Footer from '../components/layout/Footer.astro';
 import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
@@ -9,6 +8,8 @@ import CartDrawer from '../components/cart/CartDrawer.astro';
 import { LCPTracker } from '../components/images';
 import Tracking from '../components/tracking/Tracking.astro';
 import TrackingNoscript from '../components/tracking/TrackingNoscript.astro';
+import ConsentBanner from '../components/tracking/ConsentBanner.astro';
+import { isSboConsentProvider } from '@/lib/tracking/config';
 import { SITE, SEO_DEFAULTS } from '../lib/constants';
 import {
   locales,
@@ -35,6 +36,8 @@ interface Props {
   preloadImage?: string;
   /** URL of the LCP hero image to preload on mobile viewports (< 640px) */
   preloadImageMobile?: string;
+  /** Viewport width (px) where the desktop preload takes over from the mobile one. */
+  preloadBreakpoint?: number;
   /** MIME type for preload (auto-detected from extension if omitted) */
   preloadImageType?: string;
   /**
@@ -43,8 +46,6 @@ interface Props {
    * Defaults to all locales.
    */
   availableLocales?: Locale[];
-  /** Defer GTM loading by N milliseconds (0 = load immediately) */
-  deferGtmMs?: number;
 }
 
 const {
@@ -57,9 +58,9 @@ const {
   hideDesktopWidget = false,
   preloadImage,
   preloadImageMobile,
+  preloadBreakpoint = 640,
   preloadImageType,
   availableLocales,
-  deferGtmMs = 0,
 } = Astro.props;
 
 // Auto-detect preload image MIME type from extension
@@ -79,10 +80,6 @@ const currentLocale = getLocaleFromUrl(Astro.url);
 const rawPath = Astro.url.pathname;
 const currentPath = rawPath !== '/' ? rawPath.replace(/\/+$/, '') : '/';
 const htmlLang = getHtmlLang(currentLocale);
-
-// A site-wide akciós szalagot mindenhol mutatjuk, kivéve magán az akciós
-// landing page-en (ott felesleges/önmagára mutatna).
-const isPromoPage = currentPath === '/olympia-akcio';
 
 // Generate canonical URL - absolute URL for SEO.
 // trailingSlash: 'always' — getLocalizedUrl/withTrailingSlash (i18n/ui.ts) emit
@@ -119,6 +116,17 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Az oldalnak nincs sötét témája: ne sötétítse be a böngésző (Chrome
+       „Sötét téma a webhelyekhez”, Samsung Internet sötét mód). -->
+  <meta name="color-scheme" content="only light" />
+
+  <!-- Meta (Facebook) domain verification — Business Manager → Brand Safety →
+       Domains, skinlabhungary.hu (ID 2396213767535382). STATIKUSAN kell a
+       <head>-ben lennie: a Meta scraper nem futtat JS-t, tehát GTM-ből vagy
+       bármilyen kliens-oldali injektálásból NEM találná meg. A domain-hitelesítés
+       az Aggregated Event Measurement (iOS) esemény-prioritás beállításának
+       előfeltétele — enélkül a pixel eseményeit nem tudod rangsorolni. -->
+  <meta name="facebook-domain-verification" content="trcafooh8sqiq07z9wt02tc0n6gw7g" />
 
   <!-- SEO -->
   <title>{fullTitle}</title>
@@ -153,11 +161,15 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(image, SITE.url)} />
   
-  {/* Favicon: SVG for modern browsers, .ico fallback for older crawlers/UAs.
-      TODO: add a designed 180x180 public/apple-touch-icon.png and re-add an
-      apple-touch-icon link (the previous one was removed because it 404'd). */}
+  {/* Favicon: "s." a márka-pinken (2026-09-18; előtte az Astro alap-ikonja ment
+      ki). SVG a modern böngészőknek, .ico (16/32/48) és PNG a régieknek és a
+      keresőknek, apple-touch-icon az iOS kezdőképernyőhöz. */}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#ce2252" />
   
   <!-- Fonts: self-hosted, preload the primary `latin` subsets (these render the
        bulk of visible above-the-fold text). The heavier `latin-ext` subset
@@ -174,8 +186,8 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   )}
   {preloadImage && preloadImageMobile && (
     <>
-      <link rel="preload" href={preloadImageMobile} as="image" type={getImageMimeType(preloadImageMobile)} media="(max-width: 639px)" fetchpriority="high" />
-      <link rel="preload" href={preloadImage} as="image" type={resolvedPreloadType} media="(min-width: 640px)" fetchpriority="high" />
+      <link rel="preload" href={preloadImageMobile} as="image" type={getImageMimeType(preloadImageMobile)} media={`(max-width: ${preloadBreakpoint - 1}px)`} fetchpriority="high" />
+      <link rel="preload" href={preloadImage} as="image" type={resolvedPreloadType} media={`(min-width: ${preloadBreakpoint}px)`} fetchpriority="high" />
     </>
   )}
   
@@ -230,16 +242,25 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
     })();
   </script>
 
-  {/* Tracking: GTM + Consent Mode v2. deferGtmMs above 0 delays gtm.js fetch
-      until user interaction/timeout. cookieYesId: build-time env
-      (PUBLIC_COOKIEYES_ID); without it there is no consent banner, so
-      marketing/analytics tags never get consent (no CookieYes tag in the GTM
-      container either - 2026-06-10 audit). */}
-  <Tracking
-    gtmId="GTM-NW7DKC2D"
-    cookieYesId={import.meta.env.PUBLIC_COOKIEYES_ID}
-    deferMs={deferGtmMs}
-  />
+  {/* Belépési jelek (belépési oldal + KÜLSŐ hivatkozó) — SZÁNDÉKOSAN a
+      PROD-kapun KÍVÜL, minden környezetben. Nem hirdetési kód: nem tölt be
+      külső scriptet, nem küld kérést, és semmit nem ír az eszközre marketing-
+      hozzájárulás nélkül. Ha a `<Tracking />` mögé kerülne, a jelet átvivő
+      kattintás-figyelő dev alatt egyáltalán nem létezne, és a funkció csak
+      élesben lenne kipróbálható — pont a legdrágább helyen. */}
+  <script>
+    import { initEntryAttribution } from '@/lib/tracking/entry-attribution';
+    initEntryAttribution();
+    document.addEventListener('astro:page-load', initEntryAttribution);
+  </script>
+
+  {/* Tracking: saját CMP (sbo) + Consent Mode v2 + GTM (soborbo-tracking).
+      2026-09-18 óta a CookieYes helyett a saját CMP fut (a CookieYes bannert a
+      csomag oldalmegtekintési limitje letiltotta). sbo alatt a GTM CSAK pozitív
+      döntés után töltődik; a provider a .env.production-ből jön.
+      PROD-only: the dev server must never load GTM — `astro dev` sessions were
+      polluting the production GA4 property (localhost:4321 referral). */}
+  {import.meta.env.PROD && <Tracking gtmId="GTM-NW7DKC2D" />}
 
   <!-- Additional head content from pages -->
   <slot name="head" />
@@ -248,8 +269,9 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <meta name="generator" content={Astro.generator} />
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 antialiased">
-  <TrackingNoscript gtmId="GTM-NW7DKC2D" />
-  {!isPromoPage && <AnnouncementBar />}
+  {/* sbo alatt NINCS noscript GTM: JS nélkül consent-döntés sincs, a GTM-iframe
+      hozzájárulás előtt futna. */}
+  {import.meta.env.PROD && !isSboConsentProvider() && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
   <Header />
   <main id="main-content" class="flex-1">
     <slot />
@@ -258,6 +280,14 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   <MobileStickyCta />
   {!hideDesktopWidget && <DesktopContactWidget />}
   <CartDrawer />
+  {/* Saját CMP bannere + panelje (a footer „Süti beállítások” linkje nyitja újra).
+      Magyar oldalon magyar, minden más nyelven angol a kit szövege. */}
+  {import.meta.env.PROD && isSboConsentProvider() && (
+    <ConsentBanner
+      policyHref={getLocalizedUrl(currentLocale, '/adatvedelem')}
+      lang={currentLocale === 'hu' ? 'hu' : 'en'}
+    />
+  )}
 <LCPTracker />
 <slot name="body-end" />
 </body>

@@ -1,4 +1,13 @@
 ---
+/**
+ * Categories - a főoldal kategória-belépői.
+ *
+ * 9 gépkategória kártyán + egy összevont "Kellékek és kezelőanyagok" kártya.
+ * A darabszám az ÉLŐ (nem draft) termékekből számolódik, nem a kézi
+ * `CATEGORIES[].productCount`-ból, így nem csúszhat el.
+ * Mobilon az első 4 gépkártya látszik; a "Mind a N kategória" gomb bontja ki
+ * a többit (JS nélkül a /termekek/ oldalra visz).
+ */
 import { getCollection } from 'astro:content';
 import { FifthImage } from '../images';
 import { hasImage } from '@/lib/resolve-image';
@@ -7,165 +16,212 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
-// Fetch all products and group by category
+const SUPPLY_SLUGS = ['kellekek', 'kezeloanyagok'];
+const MOBILE_VISIBLE = 4;
+
 const allProducts = await getCollection('products', ({ data }) => !data.draft);
 
-// Get first product image for each category (CATEGORY_CARD_IMAGE overrides take priority)
-const categoryImages: Record<string, string | null> = {};
-for (const category of CATEGORIES.filter(c => c.featured)) {
-  if (CATEGORY_CARD_IMAGE[category.slug]) {
-    categoryImages[category.slug] = CATEGORY_CARD_IMAGE[category.slug];
-    continue;
-  }
-  const categoryProducts = allProducts.filter(p => p.data.categorySlug === category.slug);
-  for (const product of categoryProducts) {
-    if (product.data.image && hasImage(product.data.image)) {
-      categoryImages[category.slug] = product.data.image;
-      break;
-    }
-  }
-  if (!categoryImages[category.slug]) {
-    categoryImages[category.slug] = null;
-  }
+const featured = CATEGORIES.filter((c) => c.featured);
+const counts: Record<string, number> = {};
+const images: Record<string, string | null> = {};
+for (const category of featured) {
+  const products = allProducts.filter((p) => p.data.categorySlug === category.slug);
+  counts[category.slug] = products.length;
+  images[category.slug] = CATEGORY_CARD_IMAGE[category.slug]
+    ?? products.find((p) => p.data.image && hasImage(p.data.image))?.data.image
+    ?? null;
 }
 
-function getCategoryLink(slug: string): string {
-  return getLocalizedUrl(locale, `/${slug}`);
+const machines = featured.filter((c) => !SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0);
+const supplies = featured.filter((c) => SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0);
+const totalCategories = machines.length + supplies.length;
+
+function categoryName(slug: string, fallback: string): string {
+  const key = `categories.${slug}`;
+  const translated = t(locale, key);
+  return translated !== key ? translated : fallback;
 }
 
-// CATEGORY_CARD_IMAGE overrides are resolved "-NNNw.ext" URLs. Derive the
-// base path so we can emit a responsive srcset instead of shipping one large
-// fixed width (cards display ~150-183px, so 800w was massively oversized).
+// A CATEGORY_CARD_IMAGE felülírások feloldott "-NNNw.ext" URL-ek; ebből
+// reszponzív srcset lesz a fix nagy szélesség helyett.
 const CARD_IMG_WIDTHS = [320, 480, 640];
-function cardImageBase(url: string): string {
-  return url.replace(/-\d+w\.(avif|webp|jpe?g)$/i, '');
-}
-function cardSrcset(base: string, ext: string): string {
-  return CARD_IMG_WIDTHS.map((w) => `${base}-${w}w.${ext} ${w}w`).join(', ');
-}
-const CARD_IMG_SIZES = '(min-width: 1024px) 22vw, 48vw';
-
-const visibleCategories = CATEGORIES.filter(c => c.featured);
+const cardImageBase = (url: string) => url.replace(/-\d+w\.(avif|webp|jpe?g)$/i, '');
+const cardSrcset = (base: string, ext: string) => CARD_IMG_WIDTHS.map((w) => `${base}-${w}w.${ext} ${w}w`).join(', ');
+const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
 ---
 
-<section class="py-14 lg:py-20 bg-slate-100">
+<section class="py-12 lg:py-16 bg-slate-100" id="kategoriak">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center mb-10">
+    <div class="text-center mb-8 lg:mb-10">
       <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-        {t(locale, 'categories.title')}
+        {t(locale, 'categories.homeTitle')}
       </h2>
-      <p class="text-gray-500 max-w-2xl mx-auto text-sm lg:text-base">
-        {t(locale, 'categories.subtitle')}
+      <p class="text-gray-600 max-w-2xl mx-auto text-sm lg:text-base">
+        {t(locale, 'categories.homeSubtitle')}
       </p>
     </div>
 
-    <!-- Categories -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
-      {visibleCategories.map((category) => {
-        const categoryImage = categoryImages[category.slug];
-        const translationKey = `categories.${category.slug}`;
-        const translated = t(locale, translationKey);
-        const categoryName = translated !== translationKey ? translated : category.nameShort;
+    <div class="cat-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4" data-cat-grid>
+      {machines.map((category, index) => {
+        const image = images[category.slug];
+        const name = categoryName(category.slug, category.nameShort);
         const colorKey = (category as any).color as keyof typeof CATEGORY_COLORS | undefined;
         const colors = colorKey ? CATEGORY_COLORS[colorKey] : null;
-
         return (
           <a
-            href={getCategoryLink(category.slug)}
-            class="group w-auto flex"
+            href={getLocalizedUrl(locale, `/${category.slug}`)}
+            class="group flex"
+            data-extra={index >= MOBILE_VISIBLE ? '' : undefined}
+            data-event="home_category_click"
+            data-category={category.slug}
           >
             <div
-              class="category-card relative rounded-2xl overflow-hidden transition-all duration-300 h-full w-full flex flex-col"
-              style={colors ? `--cat-accent: ${colors.accent}; --cat-light: ${colors.accentLight}; --cat-dark: ${colors.accentDark}; border-color: ${colors.accent}40` : ''}
+              class="category-card rounded-2xl overflow-hidden h-full w-full flex flex-col"
+              style={colors ? `--cat-accent: ${colors.accent}` : ''}
             >
-              <!-- Image with category-colored gradient -->
-              <div
-                class="aspect-[4/3] relative overflow-hidden"
-                style="background: white"
-              >
-                {categoryImage ? (
+              <div class="aspect-[4/3] relative overflow-hidden bg-white">
+                {image ? (
                   CATEGORY_CARD_IMAGE[category.slug] ? (
                     <picture>
-                      <source type="image/avif" srcset={cardSrcset(cardImageBase(categoryImage), 'avif')} sizes={CARD_IMG_SIZES} />
-                      <source type="image/webp" srcset={cardSrcset(cardImageBase(categoryImage), 'webp')} sizes={CARD_IMG_SIZES} />
+                      <source type="image/avif" srcset={cardSrcset(cardImageBase(image), 'avif')} sizes={CARD_IMG_SIZES} />
+                      <source type="image/webp" srcset={cardSrcset(cardImageBase(image), 'webp')} sizes={CARD_IMG_SIZES} />
                       <img
-                        src={`${cardImageBase(categoryImage)}-480w.jpg`}
-                        srcset={cardSrcset(cardImageBase(categoryImage), 'jpg')}
+                        src={`${cardImageBase(image)}-480w.jpg`}
+                        srcset={cardSrcset(cardImageBase(image), 'jpg')}
                         sizes={CARD_IMG_SIZES}
-                        alt={categoryName}
+                        alt={name}
                         width="400"
                         height="300"
-                        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                        class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         decoding="async"
                       />
                     </picture>
                   ) : (
                     <FifthImage
-                      src={categoryImage}
-                      alt={categoryName}
-                      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                      src={image}
+                      alt={name}
+                      class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
                     />
                   )
-                ) : (
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                )}
+                ) : null}
               </div>
-
-              <!-- Content -->
-              <div class="p-3 lg:p-4 flex-1 flex items-center" style={colors ? `background: linear-gradient(135deg, ${colors.accentLight}90, ${colors.accentLight}30)` : 'background: white'}>
-                <div class="flex items-center justify-between w-full">
-                  <div class="min-w-0">
-                    <h3 class="font-semibold text-[13px] sm:text-sm lg:text-base leading-tight tracking-tight whitespace-nowrap transition-colors duration-300" style={colors ? `color: ${colors.accentDark}` : ''}>
-                      {categoryName}
-                    </h3>
-                    <p class="text-xs mt-0.5" style={colors ? `color: ${colors.accent}` : 'color: #9ca3af'}>
-                      {category.productCount} {t(locale, 'categories.productCount')}
-                    </p>
-                  </div>
-                  <div
-                    class="w-8 h-8 rounded-full hidden lg:flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 shrink-0"
-                    style={colors ? `background: ${colors.accentLight}; color: ${colors.accentDark}` : 'background: #f3f4f6; color: #6b7280'}
-                  >
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+              <div class="px-3 py-2.5 lg:px-4 lg:py-3 flex-1 flex items-center justify-between gap-2 bg-primary-50/70">
+                <div class="min-w-0">
+                  <h3 class="font-semibold text-[13px] sm:text-sm lg:text-[15px] leading-tight text-primary-700">{name}</h3>
+                  <p class="text-xs mt-0.5 text-gray-600">{counts[category.slug]} {t(locale, 'categories.productCount')}</p>
                 </div>
+                <svg class="w-4 h-4 text-primary-700 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden lg:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </div>
             </div>
           </a>
         );
       })}
+
+      {supplies.length > 0 && (
+        <div class="category-card rounded-2xl overflow-hidden flex flex-col bg-white" data-extra>
+          <div class="px-4 pt-3 pb-2 text-[11px] font-semibold uppercase tracking-wide text-gray-500">
+            {t(locale, 'categories.suppliesTitle')}
+          </div>
+          <div class="flex gap-2 px-3 pb-3 flex-1">
+            {supplies.map((category) => {
+              const image = images[category.slug];
+              const name = categoryName(category.slug, category.nameShort);
+              return (
+                <a
+                  href={getLocalizedUrl(locale, `/${category.slug}`)}
+                  class="group flex-1 min-w-0 flex flex-col items-center gap-1 rounded-xl border border-gray-100 p-2 hover:border-primary-300 transition-colors"
+                  data-event="home_category_click"
+                  data-category={category.slug}
+                >
+                  <div class="w-full aspect-[4/3] flex items-center justify-center">
+                    {image && (
+                      CATEGORY_CARD_IMAGE[category.slug] ? (
+                        <img
+                          src={`${cardImageBase(image)}-320w.jpg`}
+                          alt={name}
+                          width="160"
+                          height="120"
+                          class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : (
+                        <FifthImage src={image} alt={name} class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+                      )
+                    )}
+                  </div>
+                  <span class="text-xs sm:text-[13px] font-semibold text-primary-700 text-center leading-tight">{name}</span>
+                  <span class="text-[11px] text-gray-600">{counts[category.slug]} {t(locale, 'categories.productCount')}</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+
+    {/* Mobil: a többi kategória kibontása. JS nélkül a teljes terméklistára visz. */}
+    <div class="md:hidden mt-4">
+      <a
+        href={getLocalizedUrl(locale, '/termekek')}
+        data-cat-toggle
+        aria-expanded="false"
+        class="flex items-center justify-center gap-2 min-h-12 rounded-xl border border-primary-700/30 text-primary-700 font-semibold text-sm active:scale-[0.99] transition-transform"
+        data-label-more={t(locale, 'categories.showAll', { count: totalCategories })}
+        data-label-less={t(locale, 'categories.showLess')}
+      >
+        <span data-cat-toggle-label>{t(locale, 'categories.showAll', { count: totalCategories })}</span>
+        <svg class="w-4 h-4 transition-transform duration-300" data-cat-toggle-icon fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  @reference "../../styles/global.css";
-
   .category-card {
     background: white;
-    box-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.04),
-      0 4px 12px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   }
-
-  .category-card:hover {
-    box-shadow:
-      0 4px 12px color-mix(in srgb, var(--cat-accent, gray) 15%, transparent),
-      0 12px 28px color-mix(in srgb, var(--cat-accent, gray) 10%, transparent);
+  a.group:hover .category-card,
+  a.group:focus-visible .category-card {
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--cat-accent, #ce2252) 15%, transparent),
+      0 12px 28px color-mix(in srgb, var(--cat-accent, #ce2252) 10%, transparent);
     border-color: var(--cat-accent, rgba(0, 0, 0, 0.12));
     transform: translateY(-2px);
   }
-
-  .group:hover h3 {
-    color: var(--hover-color, #1f2937);
+  /* Mobilon csak az első néhány kártya látszik, amíg ki nem bontják. */
+  @media (max-width: 767px) {
+    .cat-grid:not([data-expanded]) [data-extra] {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .category-card { transition: none; }
+    a.group:hover .category-card { transform: none; }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-cat-toggle]').forEach((toggle) => {
+    const grid = toggle.closest('section')?.querySelector<HTMLElement>('[data-cat-grid]');
+    const label = toggle.querySelector<HTMLElement>('[data-cat-toggle-label]');
+    const icon = toggle.querySelector<HTMLElement>('[data-cat-toggle-icon]');
+    if (!grid) return;
+    toggle.setAttribute('role', 'button');
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const expanded = grid.hasAttribute('data-expanded');
+      grid.toggleAttribute('data-expanded', !expanded);
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      if (label) label.textContent = (expanded ? toggle.dataset.labelMore : toggle.dataset.labelLess) ?? '';
+      icon?.classList.toggle('rotate-180', !expanded);
+    });
+  });
+</script>

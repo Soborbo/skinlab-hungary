@@ -1,0 +1,117 @@
+---
+/**
+ * VideoFacade - YouTube "click-to-load" lejátszó.
+ *
+ * Poszter + valódi <button> (billentyűzettel is indítható); az iframe csak
+ * kattintásra töltődik (youtube-nocookie), és ekkor megy a GA4 `video_play`
+ * dataLayer event. A script egyszer kerül az oldalra, akárhány példány van.
+ *
+ * A wrapper méretét/arányát a hívó adja a `class`-szal
+ * (pl. `aspect-[9/16] rounded-2xl` vagy `w-full h-full`).
+ */
+interface Props {
+  videoId: string;
+  /** Követéshez és az iframe címéhez. */
+  title: string;
+  /** A poszter alt szövege. */
+  alt: string;
+  /** A lejátszás gomb aria-labelje. */
+  playLabel: string;
+  /** 'shorts' = álló oar2.jpg, 'landscape' = maxresdefault.jpg */
+  poster?: 'shorts' | 'landscape';
+  playSize?: 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  videoId,
+  title,
+  alt,
+  playLabel,
+  poster = 'shorts',
+  playSize = 'md',
+  class: className = '',
+} = Astro.props;
+
+const posterUrl = poster === 'shorts'
+  ? `https://i.ytimg.com/vi/${videoId}/oar2.jpg`
+  : `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+const circle = playSize === 'lg' ? 'w-16 h-16 lg:w-20 lg:h-20' : 'w-14 h-14 lg:w-16 lg:h-16';
+const icon = playSize === 'lg' ? 'w-8 h-8 lg:w-10 lg:h-10' : 'w-7 h-7 lg:w-8 lg:h-8';
+---
+
+<div
+  class:list={['video-facade relative overflow-hidden bg-gray-900 group', className]}
+  data-video-id={videoId}
+  data-video-title={title}
+>
+  <img
+    src={posterUrl}
+    alt={alt}
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+  <button
+    type="button"
+    class="video-facade-play absolute inset-0 flex w-full items-center justify-center cursor-pointer"
+    aria-label={playLabel}
+  >
+    <span class:list={['rounded-full bg-red-600 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:bg-red-700', circle]}>
+      <svg class:list={['text-white ml-1', icon]} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </span>
+  </button>
+  <slot />
+</div>
+
+<script>
+  function initVideoFacades() {
+    document.querySelectorAll<HTMLElement>('.video-facade[data-video-id]').forEach((facade) => {
+      if (facade.dataset.initialized) return;
+      facade.dataset.initialized = 'true';
+
+      let played = false;
+      const play = () => {
+        if (played) return;
+        played = true;
+
+        const videoId = facade.dataset.videoId!;
+        const title = facade.dataset.videoTitle || 'Video';
+
+        const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+        w.dataLayer?.push({ event: 'video_play', video_id: videoId, video_title: title });
+
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.className = 'absolute inset-0 w-full h-full';
+        facade.replaceChildren(iframe);
+      };
+
+      // A natív <button> kezeli az Enter/Space-t; a poszterre kattintás is indít.
+      (facade.querySelector('.video-facade-play') ?? facade).addEventListener('click', play);
+    });
+  }
+
+  // Külső "Nézd meg a videót" gomb: ugyanazon a szekción belüli facade-et indítja.
+  document.addEventListener('click', (e) => {
+    const trigger = (e.target as HTMLElement).closest<HTMLElement>('[data-video-play-for]');
+    if (!trigger) return;
+    const scope = trigger.closest('section') ?? document;
+    const facade = scope.querySelector<HTMLElement>(`.video-facade[data-video-id="${trigger.dataset.videoPlayFor}"]`);
+    facade?.querySelector<HTMLElement>('.video-facade-play')?.click();
+  });
+
+  document.addEventListener('astro:page-load', initVideoFacades);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoFacades);
+  } else {
+    initVideoFacades();
+  }
+</script>

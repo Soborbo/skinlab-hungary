@@ -1,0 +1,39 @@
+name: CI
+
+# MIERT LETEZIK. A Cloudflare Workers Builds sajat kornyezetben epit, es ha ott
+# elhasal, a hibat CSAK a Cloudflare dashboardon lehet elolvasni — a GitHub
+# checkbol egyetlen sor log sem latszik, ezert kivulrol megkulonboztethetetlen
+# az infrastruktura-hiba a repo-hibatol. Ez a workflow ugyanazt a ket lepest
+# futtatja LINUXON, a PR-en, ahol a log olvashato.
+#
+# A `deploy.yml` ugyanezt csinalja, de CSAK master-re pusholva. A merge ELOTT
+# eddig semmi nem futott.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    name: install + build + unit tesztek
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # `npm install`, nem `npm ci`: a root package-lock.json gitignore-olt
+      # (lasd deploy.yml ugyanezzel a megjegyzessel).
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Unit tesztek
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          # Enelkul a verify-turnstile-build SZANDEKOSAN elbuktatja a buildet.
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}

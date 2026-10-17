@@ -148,4 +148,4 @@ Profesionalna obravnava Hydro-Facial ne pomeni le, da z aplikatorjem „gremo č
 
 ## Lokacija
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

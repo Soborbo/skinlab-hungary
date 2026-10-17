@@ -121,4 +121,4 @@ Tijekom edukacije pokazat ćemo vam one praktične zahvate i postavke s kojima m
 
 ## Lokacija
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

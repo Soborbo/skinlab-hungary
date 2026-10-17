@@ -16,9 +16,14 @@ interface Props {
   locale: Locale;
   faq: ProductContentFAQItem[];
   productName: string;
+  /**
+   * Alcím felülírása. Az alapértelmezett i18n szöveg "…a {productName} gépről"
+   * alakú, ami kezelőanyagnál/kelléknél félrevezető.
+   */
+  subtitle?: string;
 }
 
-const { locale, faq, productName } = Astro.props;
+const { locale, faq, productName, subtitle } = Astro.props;
 
 // NOTE: the FAQPage JSON-LD is emitted once, centrally, by ProductLayout via
 // <FAQSchema>. This component intentionally renders only the visible accordion —
@@ -34,7 +39,7 @@ const { locale, faq, productName } = Astro.props;
           {t(locale, 'product.faqTitle')}
         </h2>
         <p class="text-gray-600">
-          {t(locale, 'product.faqSubtitle', { productName })}
+          {subtitle || t(locale, 'product.faqSubtitle', { productName })}
         </p>
       </div>
 

@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Echipamente cosmetice profesionale",
-    "description": "Distribuție de echipamente cosmetice profesionale. Lasere diodă, aparate PMU, lasere ND:YAG și dispozitive multifuncționale cu garanție de 2 ani, instruire gratuită și suport tehnic imediat."
+    "description": "Distribuție de echipamente cosmetice profesionale. Lasere diodă, aparate PMU, lasere ND:YAG și dispozitive multifuncționale cu garanție, instruire gratuită și suport tehnic imediat."
   },
   "nav": {
     "home": "Acasa",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Echipamente cosmetice profesionale",
-    "subtitle": "Lasere dioda, aparate PMU si dispozitive multifunctionale cu garantie de 2 ani",
+    "subtitle": "Lasere dioda, aparate PMU si dispozitive multifunctionale cu garantie si service propriu",
     "cta": "Consultatie gratuita",
     "ctaSecondary": "Vezi produsele",
     "slide2": {
@@ -28,15 +28,19 @@
     },
     "slide3": {
       "title": "Training și service într-un singur loc",
-      "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru toate produsele noastre"
+      "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru aparatele noastre cosmetice"
     },
     "slide4": {
       "title": "Îndepărtarea tatuajelor cu laser ND:YAG",
-      "subtitle": "Îndepărtare sigură și eficientă a tatuajelor și a pigmentului cu lasere ND:YAG Q-switched – dispozitive premiate și service local"
+      "subtitle": "Îndepărtarea sigură și eficientă a tatuajelor și pigmenților cu laser ND:YAG Q-switched, cu service local în Ungaria"
     },
     "slide5": {
       "title": "Noul nostru laser Frame YAG a sosit!",
       "subtitle": "În curând în magazinul nostru online. Înscrieți-vă la demonstrația de produs"
+    },
+    "slide7": {
+      "title": "Nou: laserul cu diodă EMPIRE 4WAVE",
+      "subtitle": "1200 W, 4 lungimi de undă, diagnostic cu microcameră pentru păr și piele și fișă digitală de client – un sistem mai inteligent pentru epilarea profesională."
     }
   },
   "categories": {
@@ -51,31 +55,29 @@
     "testkezeles": "Modelare corporală",
     "sminktetovalas": "Aparate PMU",
     "kellekek": "Accesorii",
-    "kezeloanyagok": "Materiale de tratament",
-    "coldplasma": "ColdPlasma",
-    "productCount": "produse"
+    "kezeloanyagok": "M'ONDUNIQ",
+    "hidegplazma": "ColdPlasma",
+    "bordiagnosztika": "Diagnoza pielii",
+    "productCount": "produse",
+    "homeTitle": "Ce tratament vrei să oferi?",
+    "homeSubtitle": "Alege domeniul și îți arătăm aparatele potrivite pentru salonul tău.",
+    "suppliesTitle": "Accesorii și produse pentru tratamente",
+    "showAll": "Toate cele {count} categorii",
+    "showLess": "Mai puține categorii"
   },
   "trust": {
     "warranty": "Garantie 2 ani",
-    "warrantyDesc": "Garantie completa pentru toate echipamentele",
-    "shipping": "15-20 zile lucrătoare",
-    "shippingDesc": "Livrare de încredere cu vămuire completă",
+    "warrantyDesc": "Pentru aparatele cosmetice (aparate de tatuaj si PMU: 1 an)",
+    "shipping": "Livrare de încredere",
+    "shippingDesc": "Produsele în stoc din stoc, aparatele în 15–20 de zile lucrătoare",
     "training": "Certificat FAR",
     "trainingDesc": "Curs oficial de operator",
     "service": "Service propriu",
-    "serviceDesc": "Reparatie imediata, aparat de rezerva"
+    "serviceDesc": "Reparație rapidă, program de aparat de înlocuire"
   },
   "brands": {
     "title": "Brandurile noastre",
-    "subtitle": "Distribuitor exclusiv de branduri cosmetice premium în Ungaria"
-  },
-  "stats": {
-    "soldUnits": "Unitati Novalight vandute",
-    "warranty": "Garantie",
-    "deliveryTime": "Timp de livrare",
-    "hungarianService": "Service maghiar",
-    "yearsSuffix": "ani",
-    "weeksSuffix": "săptămâni"
+    "subtitle": "Acestea sunt brandurile cu care lucrăm, de la aparate până la produsele pentru tratamente."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -139,7 +141,21 @@
     "videoPlaceholder": "Video demonstrativ în curând",
     "videoPlayLabel": "Redă video: demonstrație {title}",
     "trainingTitle": "Curs de operare",
-    "trainingContent": "Cursul include:"
+    "trainingContent": "Cursul include:",
+    "galleryTitle": "Galerie",
+    "allPhotos": "Toate cele {count} fotografii",
+    "moreImages": "+{count} fotografii",
+    "zoomImage": "{alt} – mărire",
+    "pauseMotion": "Pauză",
+    "resumeMotion": "Redă",
+    "imageViewer": "Vizualizator imagini",
+    "prevImage": "Imaginea anterioară",
+    "nextImage": "Imaginea următoare",
+    "installmentLinePre": "În rate:",
+    "installmentLine": "{down} avans + {months} × {monthly}",
+    "installmentCalc": "Calculează ↓",
+    "backorderLabel": "La comandă",
+    "backorderNote": "Acest produs nu este momentan în stoc, așa că deocamdată poate fi doar precomandat. Data estimată de sosire o stabilim împreună după plasarea comenzii."
   },
   "form": {
     "name": "Nume",
@@ -204,7 +220,8 @@
     "noObligation": "Fara obligatii",
     "inPersonOrOnline": "Personal sau online",
     "roiCalculation": "Calcul rentabilitate",
-    "orCallDirectly": "Sau suna direct:"
+    "orCallDirectly": "Sau suna direct:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lasere",
@@ -215,13 +232,15 @@
     "ndyagDesc": "Îndepărtarea tatuajelor",
     "hydrafacialDesc": "Curățare facială, hidratare",
     "smartFacialDesc": "Platforme inteligente pentru tratament facial",
-    "antiAgingDesc": "Microneedle RF, HIFU, analiză a pielii",
+    "antiAgingDesc": "Microneedle RF, microneedling EMS",
     "bodyShapingDesc": "Crioliplioză, modelare corporală",
     "mesoDesc": "Mezoterapie fără ace",
     "pmuDesc": "Aparate PMU",
+    "pmuShort": "PMU",
     "accessoriesDesc": "Aspirator de fum, soluții, ace",
-    "treatmentMaterialsDesc": "Lichide, capsule, ingrediente active",
-    "coldplasmaDesc": "Cold plasma"
+    "treatmentMaterialsDesc": "Hydra-liquiduri, cocktailuri, exozomi",
+    "hidegplazmaDesc": "Cold plasma",
+    "bordiagnosztikaDesc": "Analiză AI a pielii"
   },
   "footer": {
     "company": "Informatii companie",
@@ -236,7 +255,8 @@
     "newsletter": "Abonare newsletter",
     "newsletterPlaceholder": "Adresa dumneavoastra de email",
     "subscribe": "Abonare",
-    "shipping": "Livrare și plată"
+    "shipping": "Livrare și plată",
+    "cookieSettings": "Setări cookie-uri"
   },
   "contact": {
     "title": "Contact",
@@ -255,7 +275,7 @@
     "taxId": "Cod fiscal",
     "vatId": "Cod TVA UE",
     "howToReach": "Cum ajungeți la noi",
-    "howToReachDesc": "Budai út 28., Érd - de pe autostrada M7, ieșirea Érd (nodul Budaörs), apoi 5 minute pe Budai út. Parcare gratuită în fața clădirii.",
+    "howToReachDesc": "Bajcsy-Zsilinszky út 156., Érd (Parkváros) – la câteva minute cu mașina de la ieșirea Érd de pe autostrada M7.",
     "openingHoursDetails": "Luni–Vineri: cu programare",
     "openingHoursNote": "Vă rugăm să programați o vizită telefonic sau prin email!"
   },
@@ -271,9 +291,9 @@
     "storyParagraph3": "De aceea am creat Skinlab: pentru a oferi un partener de incredere care nu doar vinde echipamente, ci ofera suport complet pentru functionarea de succes a salonului.",
     "foundersTitle": "Fondatori",
     "founder": {
-      "technical": "Expert tehnic",
-      "technicalBio": "Încă din adolescență am reparat și tunat mașini – lumea aparatelor mi-a fost întotdeauna apropiată. Această abordare practică, inginerească îmi definește și munca la Skinlab: responsabilitatea mea este ca fiecare aparat să ajungă la clienții noștri în stare tehnică impecabilă. Dacă apare o problemă, o rezolvăm intern, rapid și profesional – cu un aparat de schimb pe durata reparației. Tehnologia laser a devenit specialitatea mea de-a lungul anilor și pot spune cu certitudine că nu există defecțiune pe care să nu o fi întâlnit. Această experiență le oferă clienților noștri o liniște reală, pentru că știu că aparatul lor este pe mâini bune.",
-      "treatment": "Expert in tratamente",
+      "technical": "Fondator Skinlab, expert tehnic",
+      "technicalBio": "Încă din adolescență am reparat și tunat mașini – lumea aparatelor mi-a fost întotdeauna apropiată. Această abordare practică, inginerească îmi definește și munca la Skinlab: responsabilitatea mea este ca fiecare aparat să ajungă la clienții noștri în stare tehnică impecabilă. Dacă apare o problemă, o rezolvăm intern, rapid și profesional – la reparații mai lungi, cu un aparat de schimb. Tehnologia laser a devenit specialitatea mea de-a lungul anilor și pot spune cu certitudine că nu există defecțiune pe care să nu o fi întâlnit. Această experiență le oferă clienților noștri o liniște reală, pentru că știu că aparatul lor este pe mâini bune.",
+      "treatment": "Fondatoare Skinlab, expertă în tratamente",
       "treatmentBio": "Provin dintr-o familie de medici și industria frumuseții m-a atras încă de la o vârstă fragedă. Mediul medical m-a învățat însă un lucru important: tratamentele trebuie să se bazeze pe fundamente profesionale la fel de riguroase ca medicina. Nu este suficient ca ceva să funcționeze – trebuie să fie și sigur. Pentru mine, cel mai important lucru este ca rezultatele să fie nu doar frumoase, ci și sănătoase, și să nu depășim niciodată limitele competenței profesionale. Această filozofie o aducem în fiecare consultație și recomandare de produs, deoarece oferim doar ceea ce susținem cu toată convingerea."
     },
     "whyUsTitle": "De ce sa ne alegeti?",
@@ -308,7 +328,21 @@
     "included": "Inclus in pret",
     "duration": "Durata",
     "location": "Locatie",
-    "register": "Inregistrare"
+    "register": "Inregistrare",
+    "galleryTitle": "Pe lângă aparat primești și know-how",
+    "gallerySubtitle": "Instruire practică într-un mediu real de salon, în grupuri mici.",
+    "galleryAlt1": "Exersarea unui tratament de hidrodermabraziune la curs",
+    "galleryAlt2": "Demonstrație de tratament facial cu laser carbon în timpul cursului",
+    "galleryAlt3": "Instruire practică pentru tratamentul cu laser cu diodă",
+    "galleryAlt4": "Instruire practică de grup într-un mediu de salon",
+    "galleryAlt5": "Certificatele cursului înregistrat în FAR",
+    "galleryAlt6": "Participanți la cursul Skinlab pentru operatori de aparate",
+    "fact1Title": "Curs înregistrat în FAR",
+    "fact1Desc": "Cu certificat cu număr de înregistrare B și instruire practică.",
+    "fact2Title": "Punere în funcțiune la fața locului",
+    "fact2Desc": "Configurăm aparatul în salonul tău și te instruim acolo cum să-l folosești.",
+    "fact3Title": "Service propriu, program de aparat de înlocuire",
+    "fact3Desc": "Pentru reparațiile care depășesc 10 zile lucrătoare oferim un aparat de înlocuire, în funcție de stoc."
   },
   "comparison": {
     "title": "Comparatie",
@@ -344,17 +378,22 @@
   "warranty": {
     "title": "Garanție și service",
     "subtitle": "Oferim {years} ani de garanție completă pentru {productName}, cu centru de service propriu în Ungaria.",
-    "subtitleGeneric": "{years} ani de garanție completă pentru toate dispozitivele, cu centru de service propriu în Ungaria.",
+    "subtitleOne": "Oferim 1 an de garanție completă pentru {productName}, cu centru de service propriu în Ungaria.",
+    "subtitleGeneric": "{years} ani de garanție completă pentru dispozitiv, cu centru de service propriu în Ungaria.",
+    "subtitleGenericOne": "1 an de garanție completă pentru dispozitiv, cu centru de service propriu în Ungaria.",
+    "pageSubtitle": "Oferim 2 ani de garanție completă pentru aparatele noastre cosmetice și 1 an pentru aparatele de tatuaj și PMU, cu centru de service propriu în Ungaria.",
     "badge": "Liniște și siguranță",
     "yearsWarranty": "{years} ani garanție completă",
+    "yearsWarrantyOne": "1 an garanție completă",
     "extendedWarranty": "Garanție extinsă",
     "extendedWarrantyDesc": "Prelungește garanția cu încă un an la preț avantajos!",
     "extendedWarrantyButton": "Sunt interesat",
     "industryStandardMultiple": "2x standardul industriei",
     "features": {
       "fullWarranty": "Acoperă toate piesele și manopera – dublul standardului industriei.",
+      "fullWarrantyBasic": "Garanție completă pentru toate piesele și manopera.",
       "replacementDevice": "Program echipament de rezervă",
-      "replacementDeviceDesc": "Pe durata reparației, oferim gratuit un echipament de rezervă ca afacerea ta să nu se oprească.",
+      "replacementDeviceDesc": "Dacă reparația va dura estimat mai mult de 10 zile lucrătoare, oferim pe durata reparației un echipament de rezervă (în funcție de disponibilitate), ca afacerea ta să nu se oprească.",
       "ownWorkshop": "Atelier de service propriu",
       "ownWorkshopDesc": "Reparații în Ungaria – nu mai aștepți luni de zile pentru service străin.",
       "fastRepair": "Reparație rapidă",
@@ -385,18 +424,18 @@
       "hungarianSupport": "Suport în limba locală",
       "year": "ani"
     },
-    "description": "Garanție cuprinzătoare de 2 ani de la producător, cu service propriu în Ungaria, program de aparat de schimb și piese originale.",
+    "description": "Garanție cuprinzătoare de la producător (2 ani pentru aparatele cosmetice, 1 an pentru aparatele de tatuaj și PMU), cu service propriu în Ungaria, program de aparat de schimb și piese originale.",
     "whatIsWarranty": "Ce este garanția producătorului?",
     "whatIsWarrantyDesc1": "Garanția este angajamentul obligatoriu al producătorului și al distribuitorului că dispozitivul funcționează fără defecțiuni, în condiții normale de utilizare, pe durata perioadei de garanție. În cazul defectelor de fabricație sau de material, reparația, schimbul piesei și - în cazuri întemeiate - schimbul aparatului și manopera sunt gratuite.",
-    "whatIsWarrantyDesc2": "Pentru fiecare aparat nou oferim 12-24 luni de garanție (termenul exact este indicat în fișa produsului), conform decretelor guvernamentale maghiare 151/2003. (IX. 22.) și 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Pentru aparatele cosmetice noi oferim 24 de luni, iar pentru aparatele de tatuaj și PMU 12 luni de garanție (termenul exact este indicat și în fișa produsului), conform decretelor guvernamentale maghiare 151/2003. (IX. 22.) și 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Angajamentul Skinlab",
-    "commitmentDesc1": "Echipa noastră proprie de tehnicieni instruiți din Ungaria și atelierul propriu vă asigură că nu trebuie să așteptați luni întregi o reparație în străinătate. Lucrăm cu piese originale de fabrică și oferim un aparat de schimb pe durata reparației, astfel încât afacerea dumneavoastră să nu se oprească.",
+    "commitmentDesc1": "Echipa noastră proprie de tehnicieni instruiți din Ungaria și atelierul propriu vă asigură că nu trebuie să așteptați luni întregi o reparație în străinătate. Lucrăm cu piese originale de fabrică și, pentru reparații de peste 10 zile lucrătoare, oferim un aparat de schimb, astfel încât afacerea dumneavoastră să nu se oprească.",
     "commitmentDesc2": "Suntem alături de dumneavoastră și după achiziție: diagnostic la distanță, suport telefonic și, dacă este nevoie, deplasare la fața locului asigură o funcționare continuă.",
     "contentTitle": "Ce acoperă garanția?",
     "contentDesc": "Garanția producătorului cuprinde următoarele situații, cu condiția ca defectul să fi apărut în timpul utilizării normale, cu respectarea manualului de utilizare:",
     "point1": "Reparație completă a defectelor de fabricație și de material.",
     "point2": "Înlocuirea pieselor originale de fabrică, inclusiv manopera, gratuit.",
-    "point3": "Program de aparat de schimb - oferim un aparat gratuit pe durata reparației.",
+    "point3": "Program de aparat de schimb - pentru reparații de peste 10 zile lucrătoare oferim un aparat de schimb pe durata reparației, în funcție de disponibilitate.",
     "point4": "Diagnostic la distanță și suport telefonic de specialitate pentru depanare.",
     "point5": "La nevoie, deplasare a tehnicianului la fața locului, pe bază de acord individual.",
     "exclusionsTitle": "Ce nu acoperă garanția?",
@@ -423,7 +462,8 @@
     "claimInfo4": "Numele și datele de contact ale persoanei de contact.",
     "importantNote": "Nu încercați să reparați sau să demontați singur aparatul - intervenția neautorizată duce la pierderea garanției. La apariția unui defect, deconectați aparatul și contactați-ne.",
     "ctaTitle": "Aveți întrebări despre garanție?",
-    "ctaSubtitle": "Echipa noastră de specialiști vă ajută cu plăcere - sunați sau trimiteți un e-mail."
+    "ctaSubtitle": "Echipa noastră de specialiști vă ajută cu plăcere - sunați sau trimiteți un e-mail.",
+    "readMore": "Toate detaliile despre garanție"
   },
   "faq": {
     "title": "Întrebări frecvente",
@@ -453,7 +493,7 @@
       "q2": "Cât durează o reparație?",
       "a2": "Timpul de rezolvare pentru defecte minore este 3–7 zile lucrătoare, iar pentru schimbarea unor piese mai mari, 10–20 zile lucrătoare. Timpul exact este confirmat după inspecție. Reparațiile sunt efectuate de tehnicienii noștri interni instruiți, cu piese originale.",
       "q3": "Primesc aparat de schimb pe perioada reparației?",
-      "a3": "Da, la cerere punem la dispoziție un aparat de schimb - gratuit în perioada de garanție sau la tarif redus în afara garanției - astfel încât activitatea să continue fără întreruperi.",
+      "a3": "Dacă, pe baza evaluării preliminare, reparația va dura probabil mai mult de 10 zile lucrătoare, punem la dispoziție un aparat de schimb pe durata reparației (în funcție de disponibilitate) - gratuit în perioada de garanție sau în condiții preferențiale în afara garanției. Aparatul de schimb nu este neapărat același model, dar permite continuarea tratamentelor.",
       "q4": "Ce fac dacă aparatul afișează o eroare sau nu pornește?",
       "a4": "Mai întâi oprește-l, scoate-l din priză, lasă-l să se răcească și repornește. Dacă problema persistă, contactează-ne la {phone} sau {email} - diagnosticarea la distanță rezolvă majoritatea situațiilor."
     },
@@ -500,14 +540,11 @@
     "training": "Instruire completa",
     "trainingDesc": "4-6 ore de training personal + certificat FAR + materiale video. Nu te lasam pana nu folosesti echipamentul cu incredere.",
     "warranty": "2 ani garantie, service local",
-    "warrantyDesc": "Nu trebuie sa astepti saptamani pentru service strain. Raspundem in 24 de ore si, daca e nevoie, oferim echipament de inlocuire.",
+    "warrantyDesc": "Nu trebuie să aștepți săptămâni pentru un service în străinătate. Reparăm rapid, în regie proprie, iar pentru reparațiile care depășesc 10 zile lucrătoare oferim un aparat de înlocuire, în funcție de stoc.",
     "financing": "Finantare, leasing",
     "financingDesc": "De la ~250 EUR/luna. Nu trebuie sa platesti totul odata - veniturile echipamentului platesc ratele.",
     "consulting": "Consultanta de afaceri",
-    "consultingDesc": "Te ajutam cu stabilirea preturilor si marketingul. Impartasim ce fac saloanele de succes.",
-    "testimonialTitle": "Partener multumit",
-    "testimonialText": "Instruirea a fost grozava si pot sa-i sun oricand am o intrebare.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Te ajutam cu stabilirea preturilor si marketingul. Impartasim ce fac saloanele de succes."
   },
   "search": {
     "placeholder": "Căutați produse după nume...",
@@ -549,7 +586,7 @@
     "step2Title": "Selectie",
     "step2Desc": "Te ajutam sa alegi cel mai potrivit echipament pentru salonul tau",
     "step3Title": "Instalare + Instruire",
-    "step3Desc": "Instalare la fata locului si 4-6 ore de training",
+    "step3Desc": "Punere în funcțiune la fața locului și instruirea operatorului",
     "step4Title": "Lansare!",
     "step4Desc": "Suport continuu, service si consultanta de afaceri"
   },
@@ -570,20 +607,31 @@
     "business3": "Glow Clinic",
     "location3": "Szeged"
   },
+  "videoTestimonials": {
+    "title": "Lucrează deja cu aparate Skinlab",
+    "subtitle": "Recenzii reale de la clienții noștri",
+    "role1": "artist PMU, cosmetician",
+    "role2": "trainer PMU, cosmetician",
+    "role3": "cosmetician",
+    "role4": "artist PMU, cosmetician",
+    "playLabel": "Redă videoclipul",
+    "quote1": "Cea mai mare recomandare din partea mea este că lucrez cu ei de ani de zile și, dacă ar trebui să-mi refac azi parcul de aparate, tot Skinlab aș alege.",
+    "quote2": "Cred că firma pe care o reprezintă este unică în Ungaria și chiar îi pot recomanda din toată inima.",
+    "quote3": "Pentru mine, Skinlab este sinonim cu calitatea și încrederea. E bine să lucrezi cu un partener care crede în calitate la fel de mult ca mine.",
+    "quote4": "Nu s-a întâmplat niciodată să nu mă poată ajuta cu ceva. Ori de câte ori am avut o întrebare, i-am putut contacta oricând.",
+    "watchFull": "Vezi videoclipul complet ({duration})"
+  },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Epilare profesionala cu 4 lungimi de unda",
-    "wavelength": "Lungime de unda",
+    "badge": "Tocmai a sosit",
+    "tagline": "Diagnostic al firului de păr și al pielii cu microcameră, fișă digitală a clientului și recomandare de parametri într-un singur aparat.",
     "power": "Putere",
-    "cooling": "Racire cu safir",
     "warranty": "Garantie",
     "grossPrice": "Pret brut",
-    "orMonthly": "sau lunar",
     "viewDetails": "Vezi detalii",
     "requestDemo": "Solicita demonstratie",
-    "productPlaceholder": "foto produs",
     "warrantyValue": "2 ani",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 lungimi de undă",
+    "skinTypes": "Pentru toate tipurile de piele"
   },
   "ctaSection": {
     "title": "Ai intrebari? Suntem aici sa ajutam!",
@@ -770,7 +818,9 @@
     "drawerTitle": "Coșul dvs.",
     "drawerEmpty": "Coșul dvs. este încă gol.",
     "priceNote": "Costul de livrare și prețul final le confirmăm în cadrul unei consultații telefonice.",
-    "close": "Închideți"
+    "close": "Închideți",
+    "preorder": "Precomandă",
+    "backorderItem": "La comandă - momentan nu este în stoc, doar precomandă"
   },
   "checkout": {
     "title": "Comandă",
@@ -816,7 +866,11 @@
       "payButton": "Plătește / deschide proforma",
       "questions": "Aveți o întrebare? Sunați-ne cu încredere:",
       "regards": "Cu stimă,",
-      "team": "Echipa Skinlab Hungary"
+      "team": "Echipa Skinlab Hungary",
+      "backorderNote": "Comanda dumneavoastră include un produs care nu este momentan în stoc, așa că am înregistrat-o ca precomandă. Nu trebuie să plătiți acum: colegii noștri vă vor contacta în curând cu privire la data estimată de sosire și abia după aceea vă vom trimite cererea de plată.",
+      "backorderStep1": "Am înregistrat comanda dumneavoastră ca precomandă - nu trebuie să plătiți acum.",
+      "backorderStep2": "Colegii noștri vă vor contacta în curând și vă vor informa despre data estimată de sosire a produsului.",
+      "backorderStep3": "Când produsul sosește, stabilim plata și vi-l livrăm prin metoda aleasă."
     },
     "phone": "Număr de telefon",
     "companyToggle": "Adăugați datele firmei",
@@ -843,7 +897,7 @@
     "step3Title": "Livrăm aparatul",
     "step3Desc": "După primirea plății, comanda intră în producție și livrare.",
     "trustNoPayment": "Nu trebuie să plătiți acum",
-    "trustWarranty": "2 ani garanție",
+    "trustWarranty": "Garanție completă",
     "trustCallback": "Vă sunăm înapoi",
     "noPaymentNote": "După trimiterea comenzii nu trebuie să plătiți imediat - mai întâi vă sunăm înapoi și discutăm detaliile.",
     "requiredError": "Vă rugăm să completați câmpurile obligatorii.",
@@ -865,7 +919,9 @@
       "emailNote": "Confirmarea comenzii a fost trimisă la adresa dvs. de email.",
       "backToHome": "Înapoi la pagina principală",
       "browseProducts": "Mai multe produse"
-    }
+    },
+    "backorderTitle": "Precomandă",
+    "backorderNote": "Coșul dumneavoastră conține un produs care nu este momentan în stoc: {items}. Deocamdată acesta poate fi doar precomandat. În acest caz nu vă trimitem imediat o cerere de plată și nu trebuie să plătiți acum: colegii noștri vă vor contacta cu privire la data estimată de sosire și abia după aceea vă vom solicita plata."
   },
   "bank": {
     "title": "Date pentru transfer bancar",
@@ -894,5 +950,116 @@
     "requirements": "Condiții de participare",
     "back": "Înapoi la cursuri",
     "signupHeading": "Înscrie-te: {name}"
+  },
+  "founderConsult": {
+    "badge": "Ajutor personal",
+    "expertRole": "Fondator Skinlab, expert tehnic",
+    "heading": {
+      "category": {
+        "pre": "Nu știi",
+        "highlight": "ce aparat",
+        "post": "ți se potrivește?"
+      },
+      "machine": {
+        "pre": "Nu ești sigur că",
+        "highlight": "acesta este aparatul potrivit",
+        "post": "pentru salonul tău?"
+      },
+      "consumable": {
+        "pre": "Nu ești sigur că",
+        "highlight": "acesta este produsul potrivit",
+        "post": "pentru tratamentele tale?"
+      }
+    },
+    "scenario1": "Nu știi pe care să-l alegi",
+    "scenario2": "Vrei informații exacte despre aparate",
+    "scenario3": "Ai discuta detaliile achiziției",
+    "scenario4": "Ai nevoie doar de un sfat bun",
+    "bodyPre": "Oricare ar fi situația ta –",
+    "bodyStrong": "te ajutăm cu drag.",
+    "bodyPost": "Sună-ne sau solicită o consultație gratuită și te contactăm.",
+    "cta": "Solicită o consultație gratuită",
+    "phone": "Sună-ne: {phone}",
+    "responseTime": "De obicei revenim cu un apel în 1 zi lucrătoare."
+  },
+  "finance": {
+    "title": "Merită? Hai să calculăm.",
+    "subtitle": "Calculează cu datele tale când se amortizează aparatul și cât ar fi rata lunară.",
+    "subtitleRoiOnly": "Calculează cu datele tale când se amortizează aparatul.",
+    "tabRoi": "Amortizare",
+    "tabInstallment": "Rată lunară"
+  },
+  "productComparison": {
+    "title": "Compară aparatele noastre similare",
+    "subtitle": "Cele mai importante diferențe dintr-o privire.",
+    "current": "Vizualizezi acum",
+    "price": "Preț (cu TVA)",
+    "view": "Vezi"
+  },
+  "homeHero": {
+    "prev": "Slide-ul anterior",
+    "next": "Slide-ul următor",
+    "goTo": "Slide-ul {n}",
+    "upNext": "Urmează:",
+    "slides": {
+      "empire": "Laser cu diodă EMPIRE",
+      "olympia": "Laser cu diodă OLYMPIA",
+      "ndyag": "Laser ND:YAG",
+      "training": "Training și service"
+    }
+  },
+  "homeComparison": {
+    "title": "Ce laser cu diodă i se potrivește salonului tău?",
+    "subtitle": "Toate cele {count} aparate au 4 lungimi de undă. Diferența constă în putere, în piesa de mână și în software-ul de tratament.",
+    "specHeader": "Caracteristică",
+    "details": "Detalii",
+    "scrollHint": "Glisează lateral pentru comparație",
+    "showAll": "Toate specificațiile (încă {count})",
+    "showLess": "Mai puține specificații"
+  },
+  "mobileCta": {
+    "call": "Sună",
+    "consult": "Consultație"
+  },
+  "foundersHome": {
+    "badge": "Fondatorii",
+    "title": "Întâlnirea a două lumi - aceștia suntem noi",
+    "intro": "Am fondat Skinlab în doi: Szimonetta a venit din industria frumuseții, cu experiență în domeniul sănătății, iar László din lumea tehnicii și a aparatelor. Totul a pornit de la un tratament în străinătate: am văzut cu ce nivel de aparate se lucrează în Vest și am hotărât să aducem această calitate - și cunoștințele din spatele ei - și în saloanele din Ungaria.",
+    "quote": "Nu vrem să vindem aparate, ci să oferim cunoștințe de specialitate utile, siguranță și sprijin uman. Comercializăm doar aparate pe care le cunoaștem, le îndrăgim și le recomandăm cu încredere - și nu ne lăsăm partenerii singuri nici după cumpărare.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Fondatoare Skinlab",
+    "simonettaSpec": "Expertă în tratamente",
+    "laszloName": "Horváth László",
+    "laszloRole": "Fondator Skinlab",
+    "laszloSpec": "Expert tehnic",
+    "cta": "Descoperă povestea noastră completă"
+  },
+  "services": {
+    "title": "Mai mult decât un magazin online",
+    "subtitle": "Pe lângă aparate primești tot ce îi trebuie salonului tău: produse pentru tratamente, instruire, service și o demonstrație personală.",
+    "consumables": {
+      "title": "Produse pentru tratamente M'onduniq",
+      "desc": "Produse profesionale și accesorii pentru aparatele tale, de la îngrijirea înainte și după tratamentele laser până la modulele de ace.",
+      "cta": "Produse pentru tratamente",
+      "alt": "Produs M'onduniq pe fundal de mătase"
+    },
+    "training": {
+      "title": "Cursuri certificate FAR",
+      "desc": "Instruire pentru operarea aparatelor într-un mediu real de salon, în grupuri mici, cu certificat oficial.",
+      "cta": "Cursurile noastre",
+      "alt": "Cursantă cu certificatul FAR"
+    },
+    "service": {
+      "title": "Service propriu și garanție",
+      "desc": "Service în Ungaria, fără săptămâni de așteptare pentru un aparat trimis în străinătate. Program de dispozitiv de înlocuire pentru reparații mai lungi.",
+      "cta": "Garanție și service",
+      "alt": "László Horváth lucrând la o piesă de mână laser"
+    },
+    "showroom": {
+      "title": "Showroom în Érd",
+      "desc": "Vezi și încearcă aparatele personal, cu programare prealabilă.",
+      "cta": "Showroom și contact",
+      "alt": "Showroomul Skinlab cu logoul luminos și un aparat cosmetic"
+    }
   }
 }

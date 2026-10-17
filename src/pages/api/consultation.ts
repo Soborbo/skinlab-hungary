@@ -7,7 +7,8 @@
 import type { APIRoute } from 'astro';
 import { validateConsultationForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
-import { processConsultationSubmission } from '@/lib/forms/submit';
+import { processConsultationSubmission, type FormTrackingContext } from '@/lib/forms/submit';
+import { readConsentFromCookie, readSboConsentCookieHeader } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -105,7 +106,22 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     // Process form submission - capture User-Agent for the Sheets row too
     recordFormSubmission(clientAddress, 'consultation');
     const userAgent = request.headers.get('user-agent') ?? undefined;
-    const result = await processConsultationSubmission(validation.data!, clientAddress, userAgent, waitUntil);
+
+    // Gateway server-leg context: the BROWSER's event_id (hidden field the
+    // wizard set before the POST) keeps Meta Pixel↔CAPI dedup intact; consent
+    // is read from the same CookieYes cookie the browser reads.
+    const tracking: FormTrackingContext = {
+      eventId: String(data.event_id || '') || crypto.randomUUID(),
+      consent: readConsentFromCookie(request.headers.get('cookie')),
+      consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
+      clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
+      clientUserAgent: userAgent,
+      eventSourceUrl: request.headers.get('referer') ?? undefined,
+    };
+
+    const result = await processConsultationSubmission(
+      validation.data!, clientAddress, userAgent, waitUntil, tracking,
+    );
 
     if (!result.success) {
       // Keep internal error details server-side only - userMessage is generic

@@ -75,6 +75,12 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
   <input type="hidden" name="utmContent" data-track="utm_content" />
   <input type="hidden" name="gclid" data-track="gclid" />
   <input type="hidden" name="fbclid" data-track="fbclid" />
+  <input type="hidden" name="gbraid" data-track="gbraid" />
+  <input type="hidden" name="wbraid" data-track="wbraid" />
+  <input type="hidden" name="msclkid" data-track="msclkid" />
+  <input type="hidden" name="fbc" data-track="fbc" />
+  <input type="hidden" name="fbp" data-track="fbp" />
+  <input type="hidden" name="external_id" data-track="external_id" />
   <input type="hidden" name="referrer" data-track="referrer" />
 
   <!-- Honeypot - hidden from users, bots will fill it -->
@@ -280,7 +286,11 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
 <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
-  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import {
+    trackContactSubmit, waitForTracking, getAllTrackingData,
+    getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    applyEntryAttributionToForm,
+  } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   // Turnstile callbacks (global)
@@ -327,15 +337,38 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
     } catch {
       /* private mode / quota - ignore */
     }
+    const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
     formEl.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
       if (!key) return;
-      let value = urlParams.get(key) || storedTracking[key] || '';
-      if (!value && key === 'referrer') {
-        value = document.referrer || '';
-      }
+      // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az garantálja,
+      // hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy ki. A nyers
+      // `urlParams || sb_tracking` fallback itt újra bevinné a régi kattintás ID-jét
+      // a rejtett mezőbe — a localStorage későbbi ön-gyógyítása pedig már nem
+      // frissítené a kitöltött inputot, és a FormData mindkettőt elküldené.
+      let value = GOOGLE_CLICK_KEYS.includes(key)
+        ? (sanitized[key] || '')
+        : (urlParams.get(key) || storedTracking[key] || '');
+      // Meta paraméterek KIZÁRÓLAG a tracking-lib accessorain át: a `getFbc()`
+      // a `_fbc` süti hiányában a tárolt fbclid-ből ÚJRAÉPÍTI a click ID-t
+      // (consent-race: a Pixel csak a hozzájárulás után írja a sütit), a nyers
+      // süti-olvasás ilyenkor üresen hagyta a mezőt.
+      if (key === 'fbc') value = getFbc() || '';
+      else if (key === 'fbp') value = getFbp() || '';
+      else if (key === 'external_id') value = getExternalId() || '';
       (input as HTMLInputElement).value = value;
     });
+
+    // A BELÉPÉSI JELEK nem a fenti hurokból jönnek. A `referrer` korábban
+    // `document.referrer`-re esett vissza, ami a 2. oldaltól a SAJÁT előző
+    // oldalunk — a CRM-ben 95 sorból 86 ilyen belső érték keletkezett, 0 külső.
+    // A `sourceUrl` pedig szerveroldalon a SUBMIT-oldal URL-je. Mindkettő a
+    // first-touch belépési modulból töltődik felül.
+    applyEntryAttributionToForm(formEl);
 
     // GDPR timestamp on checkbox change
     const gdprCheckbox = formEl.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;
@@ -382,12 +415,23 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
           gdprTimestamp.value = new Date().toISOString();
         }
 
+        // A Pixel a `_fbp`/`_fbc` sütit a consent UTÁN írja — a betöltéskori
+        // kitöltés még üresen hagyhatta. Beküldés előtt újraolvassuk.
+        refreshMetaMatchKeys(formEl);
         const formData = new FormData(formEl);
 
         // Add turnstile token
         if (turnstileToken) {
           formData.set('cf-turnstile-response', turnstileToken);
         }
+
+        // Browser leg BEFORE the POST (contact_form_submitted); event_id rides
+        // in the body so /api/contact dispatches the gateway leg with the same id.
+        const tracked = trackContactSubmit({
+          email: (formData.get('email') as string) || '',
+          phone: (formData.get('phone') as string) || '',
+        });
+        formData.set('event_id', tracked.eventId);
 
         const response = await fetch('/api/contact', {
           method: 'POST',
@@ -399,15 +443,6 @@ const formId = `contact-form-${Math.random().toString(36).slice(2, 8)}`;
         if (result.success) {
           // Show success
           successMessage?.classList.remove('hidden');
-
-          // Unified conversion tracking (dataLayer + /api/track beacon)
-          trackLeadSubmit({
-            email: (formData.get('email') as string) || '',
-            phone: (formData.get('phone') as string) || '',
-            firstName: (formData.get('name') as string) || undefined,
-            contentName: (formData.get('product') as string) || undefined,
-            currency: 'HUF',
-          });
 
           formEl.reset();
 

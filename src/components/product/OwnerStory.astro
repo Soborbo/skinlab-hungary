@@ -1,0 +1,89 @@
+---
+/**
+ * OwnerStory - "Ők már ezzel dolgoznak" szekció: átadás + gépkezelői betanítás
+ * fotói egy konkrét vevőnél.
+ *
+ * MIÉRT KÜLÖN SZEKCIÓ. A site-wide videós vélemények azt igazolják, hogy a
+ * Skinlab megbízható; ez azt, hogy EZT a gépet is megvették, és hogy a
+ * betanítás, amit a szöveg ígér, tényleg megtörténik, személyesen. A kettő
+ * együtt mond olyat, amit külön egyik sem.
+ *
+ * MAPPA-VEZÉRELT, mint a showroom galéria: a szekció attól jelenik meg, hogy
+ * `src/assets/tulajdonosok/{slug}/` tartalmaz fotót. Nincs hozzá termék-JSON
+ * szerkesztés - új gépnél elég a fotókat bemásolni és lefuttatni a
+ * `generate:images` scriptet.
+ *
+ * A rácsot/lightboxot a ShowroomGallery adja (`assetRoot="tulajdonosok"`), hogy
+ * egyetlen galéria-implementáció legyen karbantartva.
+ */
+import ShowroomGallery from './ShowroomGallery.astro';
+import manifest from '@/lib/image-manifest.json';
+
+interface Props {
+  /** Aktuális nyelv. A szekció szövege EGYELŐRE csak magyarul létezik, ezért
+   *  más nyelven nem renderelünk - magyar szöveg egy angol/német terméklapon
+   *  rosszabb, mint a hiányzó szekció. Fordítás után ez a kapu kivehető. */
+  locale: string;
+  /** Termék slug - ez választja ki a @assets/tulajdonosok/{slug}/ mappát. */
+  slug: string;
+  /** Terméknév a címsorhoz. */
+  productName: string;
+  /** A vevő/szalon neve, ha ADOTT rá engedélyt. Név nélkül a fotó dekoráció,
+   *  névvel bizonyíték - de engedély nélkül nem írjuk ki. */
+  ownerName?: string;
+  /** Rövid kísérőszöveg; ha nincs, egy semleges alapszöveg megy ki. */
+  intro?: string;
+}
+
+const { locale, slug, productName, ownerName, intro } = Astro.props;
+
+/**
+ * Magyar határozott névelő: magánhangzóval kezdődő szó előtt "az".
+ * A terméknevek fele magánhangzóval kezdődik (ATHENA, OLYMPIA, ELITEPOD),
+ * ezért a fix "a" névelő minden második gépnél hibás mondatot adna.
+ */
+const article = /^[aáeéiíoóöőuúüű]/i.test(productName.trim()) ? 'az' : 'a';
+
+const manifestData = manifest as Record<string, unknown>;
+const hasPhotos = locale === 'hu' && Object.keys(manifestData).some(k =>
+  k.startsWith(`@assets/tulajdonosok/${slug}/`)
+);
+
+const headline = ownerName
+  ? `Így indult el ${article} ${productName} a ${ownerName} stúdióban`
+  : `Így indul el ${article} ${productName} egy szalonban`;
+
+// SZÁNDÉKOSAN általános: ez az alapszöveg MINDEN gépre kimegy, aminek nincs
+// saját `ownerStory.intro`-ja. Csak azt állítja, ami minden gépre igaz (az
+// oktatás a vásárlás része); a helyszíni betanítás termékenként eltérhet, ezért
+// azt a konkrét átadást leíró, terméklap-specifikus introban kell megírni.
+const defaultIntro =
+  'Nem a gép kiszállításával fejeződik be a munkánk: a gépkezelői oktatás a vásárlás ' +
+  'része. Az alábbi képek egy átadásról és betanításról készültek.';
+---
+
+{hasPhotos && (
+  <section class="py-16 lg:py-24 bg-primary-50" aria-labelledby="tulajdonosok-cim">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="inline-block bg-primary-100 text-primary-700 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+          Ők már ezzel dolgoznak
+        </p>
+        <h2 id="tulajdonosok-cim" class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          {headline}
+        </h2>
+        <p class="text-lg text-gray-600">
+          {intro ?? defaultIntro}
+        </p>
+      </div>
+
+      <ShowroomGallery
+        slug={slug}
+        assetRoot="tulajdonosok"
+        layout="grid"
+        label={`${productName} átadás és betanítás – fotók`}
+        eyebrow={ownerName ? `Átadás és betanítás – ${ownerName}` : 'Átadás és betanítás'}
+      />
+    </div>
+  </section>
+)}

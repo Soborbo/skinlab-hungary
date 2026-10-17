@@ -1,0 +1,113 @@
+---
+/**
+ * LoopVideo - saját tárhelyről szolgált, néma, ismétlődő álló videó (Reels-szerű).
+ *
+ * - `preload="none"` + poszter: a videó csak akkor töltődik, amikor a képernyőre ér
+ *   (IntersectionObserver indítja, és kiérve megállítja).
+ * - `prefers-reduced-motion` esetén nem indul magától; a gombbal indítható.
+ * - Szünet/lejátszás gomb (WCAG 2.2.2: 5 mp-nél hosszabb mozgás megállítható).
+ * - Hang nincs (a forrásfájlok is hang nélkül készülnek), ezért nincs némítás-gomb.
+ *
+ * A méretet/arányt a hívó adja a `class`-szal (pl. `aspect-[9/16] max-w-[360px]`).
+ */
+import type { Locale } from '@/i18n';
+import { t } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+  src: string;
+  poster: string;
+  /** Rövid leírás a videó tartalmáról (képernyőolvasónak). */
+  label: string;
+  class?: string;
+}
+
+const { locale, src, poster, label, class: className = '' } = Astro.props;
+---
+
+<div class:list={['loop-video relative overflow-hidden bg-gray-900', className]} data-loop-video>
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster={poster}
+    aria-label={label}
+    data-loop-video-el
+  >
+    <source src={src} type="video/mp4" />
+  </video>
+  <button
+    type="button"
+    class="absolute bottom-3 right-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm transition-colors hover:bg-black/65 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+    data-loop-video-toggle
+    data-label-pause={t(locale, 'product.pauseMotion')}
+    data-label-play={t(locale, 'product.resumeMotion')}
+    aria-label={t(locale, 'product.resumeMotion')}
+  >
+    <svg class="h-4 w-4 hidden" data-icon-pause viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+    <svg class="h-4 w-4 translate-x-px" data-icon-play viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.9-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z" /></svg>
+  </button>
+</div>
+
+<script>
+  function initLoopVideos() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLElement>('[data-loop-video]').forEach((root) => {
+      if (root.dataset.loopVideoBound) return;
+      root.dataset.loopVideoBound = '1';
+
+      const video = root.querySelector<HTMLVideoElement>('[data-loop-video-el]');
+      const toggle = root.querySelector<HTMLButtonElement>('[data-loop-video-toggle]');
+      if (!video || !toggle) return;
+
+      // A felhasználó kézzel megállította → a görgetés ne indítsa újra.
+      let userPaused = reduceMotion;
+      let inView = false;
+
+      const render = () => {
+        const playing = !video.paused;
+        toggle.querySelector('[data-icon-pause]')?.classList.toggle('hidden', !playing);
+        toggle.querySelector('[data-icon-play]')?.classList.toggle('hidden', playing);
+        toggle.setAttribute('aria-label', (playing ? toggle.dataset.labelPause : toggle.dataset.labelPlay) || '');
+      };
+
+      const play = () => { video.play().catch(() => { /* autoplay tiltva: marad a poszter + gomb */ }); };
+
+      video.addEventListener('play', render);
+      video.addEventListener('pause', render);
+
+      toggle.addEventListener('click', () => {
+        if (video.paused) {
+          userPaused = false;
+          play();
+        } else {
+          userPaused = true;
+          video.pause();
+        }
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          inView = entries[0]?.isIntersecting ?? false;
+          if (inView && !userPaused) play();
+          else if (!inView && !video.paused) video.pause();
+        }, { threshold: 0.35 }).observe(root);
+      } else if (!userPaused) {
+        play();
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) video.pause();
+        else if (inView && !userPaused) play();
+      });
+
+      render();
+    });
+  }
+
+  initLoopVideos();
+  document.addEventListener('astro:page-load', initLoopVideos);
+</script>

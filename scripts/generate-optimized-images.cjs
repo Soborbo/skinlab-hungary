@@ -55,13 +55,31 @@ function slugify(str) {
 }
 
 /**
+ * A products/ kimeneti mappában minden forrásfájlnak EGYEDI seoSlug kell:
+ * ha két fájl ugyanazt kapja (pl. két azonos nevű draft termék főképe, vagy
+ * egy termék-slug és egy orphan fájlnév), a később generált felülírja a másik
+ * variánsait, és élesben rossz kép jelenik meg. Ütközéskor betű-utótagot
+ * kap (-b, -c, ...) az, aki később foglal.
+ */
+const usedProductSlugs = new Set();
+function claimProductSlug(seoSlug) {
+  let candidate = seoSlug;
+  let code = 'b'.charCodeAt(0);
+  while (usedProductSlugs.has(candidate)) {
+    candidate = `${seoSlug}-${String.fromCharCode(code++)}`;
+  }
+  usedProductSlugs.add(candidate);
+  return candidate;
+}
+
+/**
  * Build a map: original filename → { seoSlug, alt, productSlug, imageIndex }
  * by reading all product JSON files.
  */
 function buildImageMapping() {
   const mapping = {}; // filename → { seoSlug, alt, productSlug, imageIndex }
 
-  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_'));
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_')).sort();
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, file), 'utf8');
@@ -100,6 +118,30 @@ function buildImageMapping() {
       }
     }
 
+    // Stylizált design fotók (hero galéria eleje). SZÁNDÉKOSAN az `images` UTÁN
+    // regisztráljuk: az imageIndex a felvétel sorrendjéből jön, így a már élő
+    // termékfotók slugja (…-1 … -6) változatlan marad, a design fotók pedig a
+    // sor végére kapják az indexüket. Megjelenési sorrend != slug sorrend.
+    if (product.designImages && product.designImages.length > 0) {
+      for (const imgPath of product.designImages) {
+        const fn = imgPath.split('/').pop();
+        if (!allImageEntries.some(e => e.filename === fn)) {
+          allImageEntries.push({ filename: fn, context: 'gallery' });
+        }
+      }
+    }
+
+    // Gépkezelői oktatás blokk fotói (TrainingCard) - szintén a sor végén,
+    // hogy a meglévő slugok ne tolódjanak el.
+    if (product.trainingImages && product.trainingImages.length > 0) {
+      for (const imgPath of product.trainingImages) {
+        const fn = imgPath.split('/').pop();
+        if (!allImageEntries.some(e => e.filename === fn)) {
+          allImageEntries.push({ filename: fn, context: 'gallery' });
+        }
+      }
+    }
+
     // Variant images
     if (product.variants) {
       for (const variant of product.variants) {
@@ -121,6 +163,18 @@ function buildImageMapping() {
       }
     }
 
+    // Optional per-file alt overrides: { "filename.jpg": "custom alt" }.
+    // Astro's zod schema strips this key, so it only affects this script.
+    // Files listed here are also registered for mapping even when the product
+    // JSON itself doesn't reference them (e.g. images used only from the
+    // product-content feature rows).
+    const altOverrides = product.imageAlts || {};
+    for (const fn of Object.keys(altOverrides)) {
+      if (!allImageEntries.some(e => e.filename === fn)) {
+        allImageEntries.push({ filename: fn, context: 'gallery' });
+      }
+    }
+
     // Assign SEO slug and alt to each image
     let imageIndex = 1;
     for (const entry of allImageEntries) {
@@ -139,9 +193,12 @@ function buildImageMapping() {
           ? productName
           : `${productName} - ${imageIndex}. kép`;
       }
+      if (altOverrides[entry.filename]) {
+        alt = altOverrides[entry.filename];
+      }
 
       mapping[entry.filename] = {
-        seoSlug,
+        seoSlug: claimProductSlug(seoSlug),
         alt,
         productSlug,
         imageIndex,
@@ -221,6 +278,32 @@ function buildNonProductMapping() {
           alt: `Skinlab showroom – ${productSlug.toUpperCase()} – ${idx}. fotó`,
           subfolder: `showroom/${productSlug}`,
           srcSubdir: `showroom/${productSlug}`,
+        };
+        idx++;
+      }
+    }
+  }
+
+  // Tulajdonosok — per-termék átadás/betanítás fotók: src/assets/tulajdonosok/{slug}/{file}
+  // Ugyanaz a mappa-vezérelt minta, mint a showroomnál: a szekció attól jelenik
+  // meg, hogy a mappában van fotó — nincs hozzá termék-JSON szerkesztés.
+  const ownersDir = path.join(SRC_DIR, 'tulajdonosok');
+  if (fs.existsSync(ownersDir)) {
+    const productDirs = fs.readdirSync(ownersDir)
+      .filter(d => fs.statSync(path.join(ownersDir, d)).isDirectory())
+      .sort();
+    for (const productSlug of productDirs) {
+      const productPath = path.join(ownersDir, productSlug);
+      const files = fs.readdirSync(productPath)
+        .filter(f => /\.(jpe?g|png|webp|avif)$/i.test(f))
+        .sort();
+      let idx = 1;
+      for (const file of files) {
+        mapping[`tulajdonosok/${productSlug}/${file}`] = {
+          seoSlug: `skinlab-${productSlug}-atadas-${idx}`,
+          alt: `${productSlug.toUpperCase()} átadás és gépkezelői betanítás – ${idx}. fotó`,
+          subfolder: `tulajdonosok/${productSlug}`,
+          srcSubdir: `tulajdonosok/${productSlug}`,
         };
         idx++;
       }
@@ -348,7 +431,7 @@ async function main() {
   // ── Process product images ────────────────────────────────────────────
   console.log(`\nProcessing ${Object.keys(productMapping).length} product images...`);
 
-  const productFiles = fs.readdirSync(PRODUCTS_DIR);
+  const productFiles = fs.readdirSync(PRODUCTS_DIR).sort();
   for (const file of productFiles) {
     const srcPath = path.join(PRODUCTS_DIR, file);
     const info = productMapping[file];
@@ -356,7 +439,7 @@ async function main() {
     if (!info) {
       // Orphan image — still generate with filename-based slug
       const name = path.parse(file).name;
-      const seoSlug = slugify(name);
+      const seoSlug = claimProductSlug(slugify(name));
 
       const result = await generateVariants(srcPath, seoSlug, 'products');
       if (result) {

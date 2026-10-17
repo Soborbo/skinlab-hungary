@@ -148,4 +148,4 @@ Profesionálne ošetrenie Hydro-Facial nespočíva v tom, že aplikačnou hlavic
 
 ## Miesto konania
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

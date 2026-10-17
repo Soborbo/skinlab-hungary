@@ -28,6 +28,10 @@ jobs:
       # the SESSION KV id and GOOGLE_SHEETS_SPREADSHEET_ID into dist/server/wrangler.json.
       - name: Build
         run: npm run build
+        env:
+          # Publikus kulcs (a prerenderelt HTML-be kerül); enélkül a
+          # verify-turnstile-build szándékosan elbuktatja a buildet.
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
 
       # `npm run deploy` = wrangler deploy --config dist/server/wrangler.json --keep-vars
       # --keep-vars preserves dashboard-managed secrets/vars (RESEND_API_KEY,

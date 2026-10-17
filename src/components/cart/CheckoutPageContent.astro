@@ -55,6 +55,20 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
       <!-- Bal: űrlap -->
       <div class="lg:col-span-2 space-y-6">
 
+        <!-- Készlethiányos (rendelésre) tétel a kosárban: a rendelés elküldése
+             ELŐTT jelezzük, hogy ez előrendelés. A renderSummary kapcsolja. -->
+        <div class="hidden bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5" data-backorder-banner role="status">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p class="font-semibold text-amber-900">{t(locale, 'checkout.backorderTitle')}</p>
+              <p class="text-sm text-amber-900/90 mt-0.5" data-backorder-text></p>
+            </div>
+          </div>
+        </div>
+
         <!-- "Most nem kell fizetnie" sáv -->
         <div class="bg-success-50 border border-success-200 rounded-2xl p-4 sm:p-5">
           <div class="flex items-start gap-3">
@@ -410,6 +424,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     locale,
     successUrl,
     priceOnRequest: t(locale, 'cart.priceOnRequest'),
+    backorderItem: t(locale, 'cart.backorderItem'),
+    // A `{items}` helyére a kliens a készlethiányos tételek nevét írja.
+    backorderNote: t(locale, 'checkout.backorderNote'),
     quantity: t(locale, 'checkout.email.qty'),
     submitLabel: t(locale, 'checkout.submit'),
     submittingLabel: t(locale, 'checkout.submitting'),
@@ -438,7 +455,12 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
 <script>
   import { getCartSummary, formatPrice, clearCart, CART_EVENTS } from '@/lib/cart/store';
-  import { trackPurchaseSubmit, waitForTracking, type EcommerceItem } from '@/lib/tracking';
+  import {
+    trackOrderRequestSubmit, generateEventId, waitForTracking, getAllTrackingData,
+    trackBeginCheckout, trackServerEvent,
+    getFbc, getFbp, getExternalId,
+    getEntryLandingUrl, getEntryReferrer, type EcommerceItem,
+  } from '@/lib/tracking';
   import {
     shippingFeeFor,
     FOXPOST_WIDGET_URL,
@@ -629,8 +651,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         }
       }
 
-      // Kellék-ágon nincs visszahívás → az intro szövegét lecseréljük.
-      if (parcelEligible) applyParcelIntro();
+      // Kellék-ágon nincs visszahívás → az intro szövegét lecseréljük. Kivétel a
+      // készlethiányos (előrendelt) tétel: ott NEM megy automatikus díjbekérő
+      // (lásd lib/billingo), előbb egyeztetünk - erre a visszahívós lépések illenek.
+      if (parcelEligible && !getCartSummary().hasBackorder) applyParcelIntro();
 
       form!
         .querySelectorAll<HTMLInputElement>('input[name="shippingMethod"]')
@@ -800,16 +824,29 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             const variant = item.variantName
               ? `<span class="text-gray-400"> · ${escapeHtml(item.variantName)}</span>`
               : '';
+            const backorder = item.backorder
+              ? `<span class="mt-1 flex items-start gap-1.5 text-xs font-medium text-amber-800"><svg class="w-3.5 h-3.5 shrink-0 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>${escapeHtml(i18n.backorderItem || '')}</span></span>`
+              : '';
             return `
               <div class="flex justify-between gap-3 text-sm">
                 <span class="text-gray-700 min-w-0">
                   <span class="font-medium">${escapeHtml(item.name)}</span>${variant}
                   <span class="text-gray-400"> × ${item.qty}</span>
+                  ${backorder}
                 </span>
                 <span class="font-semibold text-gray-900 whitespace-nowrap">${line}</span>
               </div>`;
           })
           .join('');
+      }
+      const backorderBanner = document.querySelector<HTMLElement>('[data-backorder-banner]');
+      if (backorderBanner) {
+        const names = summary.items
+          .filter((i) => i.backorder)
+          .map((i) => (i.variantName ? `${i.name} (${i.variantName})` : i.name));
+        backorderBanner.classList.toggle('hidden', names.length === 0);
+        const textEl = backorderBanner.querySelector<HTMLElement>('[data-backorder-text]');
+        if (textEl) textEl.textContent = String(i18n.backorderNote || '').replace('{items}', names.join(', '));
       }
       const fee = currentShippingFee();
       if (summaryTotal) {
@@ -946,8 +983,10 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         formStartTime: Number(startTimeInput?.value || Date.now()),
         website: '',
         turnstileToken: readTurnstileToken(),
-        sourceUrl: window.location.href,
-        // Attribution stack - URL params → persisted tracking → document.referrer
+        // A BELÉPÉSI OLDAL, nem a pénztár URL-je. A `window.location.href` itt
+        // mindig `/megrendeles/` volt — a CRM-ben 131/134 sor pont ezt kapta.
+        sourceUrl: getEntryLandingUrl(),
+        // Attribution stack - URL params → persisted tracking
         ...(() => {
           const urlParams = new URLSearchParams(window.location.search);
           let stored: Record<string, string | undefined> = {};
@@ -958,20 +997,45 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             /* private mode / quota - ignore */
           }
           const pick = (key: string) => urlParams.get(key) || stored[key] || '';
+          // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az garantálja,
+          // hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy ki. A nyers
+          // `urlParams || sb_tracking` fallback itt újra bevinné a régi kattintás ID-jét.
+          const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
           return {
             utmSource: pick('utm_source'),
             utmMedium: pick('utm_medium'),
             utmCampaign: pick('utm_campaign'),
             utmTerm: pick('utm_term'),
             utmContent: pick('utm_content'),
-            gclid: pick('gclid'),
+            gclid: sanitized.gclid || '',
             fbclid: pick('fbclid'),
-            referrer: pick('referrer') || document.referrer || '',
+            gbraid: sanitized.gbraid || '',
+            wbraid: sanitized.wbraid || '',
+            msclkid: pick('msclkid'),
+            // A tracking-lib accessorai: a `getFbc()` a `_fbc` süti hiányában a
+            // tárolt fbclid-ből újraépíti a Meta click ID-t (a Pixel csak a
+            // marketing-consent után írja a sütit — enélkül a szerver-leg
+            // click ID nélkül ment a Metának).
+            fbc: getFbc() || '',
+            fbp: getFbp() || '',
+            external_id: getExternalId() || '',
+            // KÜLSŐ hivatkozó. A `document.referrer` visszaesés a pénztárnál
+            // garantáltan a saját kosár-oldalunk lett volna.
+            referrer: getEntryReferrer() || '',
           };
         })(),
       };
 
       try {
+        // Pre-generate the conversion event id: the order payload carries it so
+        // /api/order can dispatch the gateway (server) leg of
+        // order_request_submitted with the SAME id as the browser leg below.
+        const orderEventId = generateEventId();
+        (payload as Record<string, unknown>).event_id = orderEventId;
+
         const res = await fetch('/api/order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -994,11 +1058,13 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             index: idx,
           }));
 
-          // trackPurchaseSubmit: client-side GA4/Meta Pixel via dataLayer
-          // + server-side beacon to /api/track → Meta CAPI + GA4 MP.
-          // Both signals carry the same event_id so each destination dedups.
-          trackPurchaseSubmit({
-            transactionId: result.orderId,
+          // Model A checkout: a szállítás/véglegesítés telefonon zárul, de a
+          // kosárérték RÖGZÍTETT — ezért az `order_request_submitted` a Metában
+          // `Purchase` (value-alapú optimalizálás). Böngésző-leg; az /api/order a
+          // payload event_id-jével küldte a gateway-leget → dedup.
+          // A pénztár MEGNYITÁSA külön esemény (begin_checkout → InitiateCheckout).
+          trackOrderRequestSubmit({
+            orderId: result.orderId,
             items: ecomItems,
             value: summary.subtotal,
             currency: 'HUF',
@@ -1006,13 +1072,16 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
             phone: payload.phone,
             firstName: payload.firstName,
             lastName: payload.lastName,
+            eventId: orderEventId,
           });
 
           // Wait briefly for the GTM/beacon pipeline to flush before the redirect
           await waitForTracking(600);
 
           clearCart();
-          window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}`;
+          // `pre=1`: a sikeroldal az előrendelés lépéseit mutatja (a szerver dönti el).
+          const pre = result.backorder ? '&pre=1' : '';
+          window.location.href = `${i18n.successUrl}?id=${encodeURIComponent(result.orderId)}${pre}`;
           return;
         }
 
@@ -1044,6 +1113,46 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
     window.addEventListener(CART_EVENTS.updated, renderSummary);
     initShipping();
     renderSummary();
+    fireBeginCheckout();
+  }
+
+  /**
+   * A pénztároldal megnyitása → `begin_checkout` (Meta `InitiateCheckout`).
+   *
+   * KÉT láb, EGY event_id-vel: a dataLayer-push (GTM → Pixel/GA4) analytics
+   * consenthez, a gateway-dispatch (Meta CAPI) marketing consenthez kötött — a
+   * közös id nélkül a Meta két külön InitiateCheckout-ot látna ugyanarról a
+   * megnyitásról. A `begin_checkout` böngésző-úton is engedélyezett esemény
+   * (BROWSER_GATEWAY_EVENTS), tehát nem kell hozzá szerver-leg.
+   *
+   * Oldalanként egyszer fut: az astro:page-load újra hívja az initCheckout-ot,
+   * a modul-szintű flag pedig megakadályozza a duplikált eseményt egy SPA-szerű
+   * visszanavigálásnál.
+   */
+  let beginCheckoutFired = false;
+  function fireBeginCheckout() {
+    if (beginCheckoutFired) return;
+    const summary = getCartSummary();
+    if (!summary.items.length) return; // üres kosárral nincs mit jelenteni
+    beginCheckoutFired = true;
+
+    const items: EcommerceItem[] = summary.items.map((i, idx) => ({
+      item_id: i.sku || i.slug,
+      item_name: i.name,
+      item_category: i.categorySlug || undefined,
+      item_variant: i.variantName || undefined,
+      price: typeof i.price === 'number' ? i.price : 0,
+      quantity: i.qty,
+      currency: 'HUF',
+      index: idx,
+    }));
+
+    const eventId = generateEventId();
+    trackBeginCheckout(items, summary.subtotal, 'HUF', eventId);
+    trackServerEvent('begin_checkout', {
+      eventId,
+      ...(summary.subtotal > 0 && { value: summary.subtotal, currency: 'HUF' }),
+    });
   }
 
   initCheckout();

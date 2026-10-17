@@ -13,6 +13,8 @@ const variantSchema = z.object({
   name: z.string(),
   value: z.string(),
   price: z.number().nullable(),
+  /** Vonalkód, ha van. A Merchant Center feed variánssoraiba kerül. */
+  gtin: z.string().optional(),
   image: z.string().optional(),
   images: z.array(z.string()).optional(),
   available: z.boolean().optional(),
@@ -34,6 +36,18 @@ const productSchema = z.object({
   draft: z.boolean().default(false),
   sku: z.string(),
   name: z.string(),
+  // --- Merchant Center / schema.org termékazonosítás -------------------------
+  // Mindhárom opcionális. `brand` hiányában a terméknévből dől el
+  // (lib/merchant/brand.ts), `gtin` hiányában a feed `identifier_exists: no`-t
+  // küld, `googleProductCategory` hiányában a kategória-alapértelmezés
+  // érvényes (lib/merchant/categories.ts).
+  brand: z.string().optional(),
+  /** EAN/UPC vonalkód. Importált gépeken jellemzően nincs. */
+  gtin: z.string().optional(),
+  /** Gyártói cikkszám, ha eltér a saját SKU-tól. */
+  mpn: z.string().optional(),
+  /** Google product taxonomy numerikus ID - csak felülíráshoz. */
+  googleProductCategory: z.number().int().optional(),
   categorySlug: z.string(),
   shortDescription: z.string().default(''),
   description: z.string().default(''),
@@ -47,12 +61,43 @@ const productSchema = z.object({
   // Secondary images shown in a dedicated gallery section deeper in the page
   // (separate from the hero gallery built from `image` + `images`).
   extraImages: z.array(z.string()).default([]),
+  // Stylizált "design" fotók (életkép-háttér, stylingolt beállítás). Ezek a HERO
+  // GALÉRIA ELEJÉRE kerülnek, de NEM lehetnek főképek: a főkép és a mega-menü
+  // thumbnail fehér hátteres termékfotó marad, és a Merchant Center feed is a
+  // `image` + `images` mezőkből épül - így a vízjeles/stylingolt fotók eleve nem
+  // kerülnek be a feedbe (a Google a promóciós overlayes főképet elutasítja).
+  designImages: z.array(z.string()).default([]),
+  // A gépkezelői oktatás blokk (TrainingCard) saját fotói: [0] = bal oldali
+  // gyakorlati kép, [1] = jobb oldali kép az árkártya felett. Ha nincs megadva,
+  // az általános Skinlab oktatás-fotók maradnak. Nem kerül a hero galériába/feedbe.
+  trainingImages: z.array(z.string()).max(2).default([]),
+  // Letölthető termékadatlap (PDF), pl. "/datasheets/olympia.pdf". Ha nincs,
+  // a Műszaki adatok blokk letöltés-gombja nem jelenik meg.
+  datasheet: z.string().optional(),
   // If set, this product's page emits <link rel="canonical"> pointing to the
   // product with this slug (same category). Used for duplicate/variant spin-off
   // products (e.g. a limited-edition colour that also exists as a variant of the
   // canonical product). Hreflang is suppressed on canonicalized pages.
   canonicalSlug: z.string().optional(),
   youtubeVideos: z.array(z.string()).default([]),
+  // Saját tárhelyes, néma loop-videó a bevezető (VideoDescription) szekcióba,
+  // ha nincs YouTube-videó. Nyelvfüggetlen, ezért a termék JSON-ban van.
+  introVideo: z.object({ src: z.string(), poster: z.string() }).optional(),
+  // A bevezető (VideoDescription) képe, ha nincs videó. Alapból a második
+  // design fotó; itt felülírható (pl. fehér hátteres termékfotóra).
+  introImage: z.string().optional(),
+  // false = erre a termékre nincs részletfizetés (pl. ELITPOD, tulajdonosi döntés
+  // 2026-10-06): se kalkulátor, se hero részlet-sor, se "havi ~" kártya-teaser.
+  installment: z.boolean().default(true),
+  // Termék-szintű akcentus-téma: a tartalom-wrapperen belül a primary skálát
+  // cseréli (global.css `[data-product-theme]`). Fejléc/lábléc nem változik.
+  theme: z.enum(['frost']).optional(),
+  // Hero galéria: `fill` = a kép kitölti a négyzetes keretet (nincs belső margó,
+  // nincs 50vh-s korlát); `autoplayMs` = automatikus lapozás ennyi ms-onként.
+  hero: z.object({
+    fill: z.boolean().default(false),
+    autoplayMs: z.number().int().min(2000).optional(),
+  }).optional(),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
   hasVariants: z.boolean().default(false),
   variants: z.array(variantSchema).default([]),

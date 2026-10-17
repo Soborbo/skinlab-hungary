@@ -17,6 +17,12 @@
     "@assets/products/helios-3.png",
     "@assets/products/helios-spot-sizes.png"
   ],
+  "designImages": [
+    "@assets/products/helios-design-foto-1.jpg",
+    "@assets/products/helios-design-foto-2.jpg",
+    "@assets/products/helios-design-foto-3.jpg"
+  ],
+  "introImage": "@assets/products/helios-2.png",
   "youtubeVideos": [],
   "availability": "preorder",
   "hasVariants": false,
@@ -33,5 +39,10 @@
     "Feszültség": "110V / 220V",
     "Súly": "kb. 25 kg",
     "Szállítási idő": "2-6 hét"
+  },
+  "imageAlts": {
+    "helios-design-foto-1.jpg": "HELIOS 1600W diódalézer stilizált környezetben",
+    "helios-design-foto-2.jpg": "HELIOS 1600W diódalézer kezelőfejjel és kijelzővel",
+    "helios-design-foto-3.jpg": "HELIOS diódalézer cserélhető spotméret-feltétek"
   }
 }

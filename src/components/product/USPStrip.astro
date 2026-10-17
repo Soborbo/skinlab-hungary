@@ -5,19 +5,42 @@
  * Desktop: single horizontal row (sits directly under the hero, above the fold).
  * Mobile: 2x2 grid.
  *
- * Content is intentionally fixed (brand-wide promises), not per-product.
+ * Content is brand-wide (not per-product), but comes in two sets: a gép-ígéret
+ * (garancia, szerviz, gépkezelői oktatás, hosszú beszerzési idő) és egy
+ * fogyóeszköz-ígéret. A kezelőanyagokra/kellékekre a gépes ígéretek egyszerűen
+ * nem igazak: nincs cseregép egy 50 ml-es krémhez, és nem 15-20 munkanap a
+ * szállítás, hanem Foxpost-csomag.
  */
 
-const items = [
+interface Props {
+  /** Kezelőanyag/kellék oldal: a gépes ígéretek helyett fogyóeszköz-ígéretek. */
+  consumable?: boolean;
+  /** Garancia években: a kozmetikai gépekre 2, a (smink)tetováló gépekre 1. */
+  warrantyYears?: number;
+  /**
+   * Készletállapot a szállítási sorhoz: raktári gépnél nem ígérünk 15-20
+   * munkanapot, rendelésre érkezőnél pedig nincs vállalt határidő.
+   */
+  stock?: 'in_stock' | 'preorder' | 'backorder';
+}
+
+const { consumable = false, warrantyYears = 2, stock = 'preorder' } = Astro.props;
+
+const shippingItem = {
+  in_stock: { title: 'Raktáron', sub: 'Szállítás vagy érdi átvétel' },
+  preorder: { title: '15–20 munkanap', sub: 'Kiszámítható szállítás' },
+  backorder: { title: 'Rendelésre', sub: 'Érkezés egyeztetés szerint' },
+}[stock];
+
+const machineItems = [
   {
     icon: 'shield-check',
-    title: '2 év garancia',
-    sub: 'Teljes körű, minden gépre',
+    title: `${warrantyYears} év garancia`,
+    sub: 'Teljes körű, alkatrészre és munkadíjra',
   },
   {
     icon: 'truck',
-    title: '15–20 munkanap',
-    sub: 'Kiszámítható szállítás',
+    ...shippingItem,
   },
   {
     icon: 'certificate',
@@ -27,9 +50,37 @@ const items = [
   {
     icon: 'wrench',
     title: 'Saját szerviz',
-    sub: 'Magyar háttér, cseregép',
+    sub: 'Magyar háttér, cseregép-program',
   },
 ];
+
+// Csak olyan állítás, ami ellenőrizhető: a szállítási módok és díjak a
+// lib/shipping/methods.ts-ből, a személyes átvétel az érdi showroomból.
+// Szándékosan NINCS benne szállítási határidő - arra nincs vállalásunk.
+const consumableItems = [
+  {
+    icon: 'shield-check',
+    title: 'Eredeti termék',
+    sub: 'Közvetlen forgalmazás a gyártótól',
+  },
+  {
+    icon: 'truck',
+    title: 'Foxpost vagy MPL',
+    sub: 'Automatába 1 490 Ft-tól',
+  },
+  {
+    icon: 'certificate',
+    title: 'Személyes átvétel',
+    sub: 'Érdi showroom, díjmentes',
+  },
+  {
+    icon: 'wrench',
+    title: 'Szakmai támogatás',
+    sub: 'Segítünk a protokoll összeállításában',
+  },
+];
+
+const items = consumable ? consumableItems : machineItems;
 
 const icons: Record<string, string> = {
   'shield-check': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,

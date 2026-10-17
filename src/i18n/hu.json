@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Professzionális kozmetikai berendezések",
-    "description": "Professzionális kozmetikai berendezések forgalmazása. Diódalézerek, sminktetováló gépek, ND:YAG lézerek és multifunkcionális készülékek 2 év garanciával, ingyenes képzéssel és azonnali szervizháttérrel."
+    "description": "Professzionális kozmetikai berendezések forgalmazása. Diódalézerek, sminktetováló gépek, ND:YAG lézerek és multifunkcionális készülékek garanciával, ingyenes képzéssel és azonnali szervizháttérrel."
   },
   "nav": {
     "home": "Főoldal",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Professzionális kozmetikai\nberendezések",
-    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek 2 év garanciával",
+    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek garanciával és saját szervizzel",
     "cta": "Ingyenes konzultáció",
     "ctaSecondary": "Termékek megtekintése",
     "slide2": {
@@ -28,11 +28,11 @@
     },
     "slide3": {
       "title": "Képzés és szerviz egy helyen",
-      "subtitle": "Ingyenes betanítás, folyamatos technikai támogatás és 2 év garancia minden termékünkre"
+      "subtitle": "Ingyenes betanítás, folyamatos technikai támogatás és 2 év garancia kozmetikai gépeinkre"
     },
     "slide4": {
       "title": "Tetováláseltávolítás ND:YAG lézerrel",
-      "subtitle": "Biztonságos, hatékony tetoválás- és pigmenteltávolítás Q‑kapcsolt ND:YAG lézerrel – díjnyertes készülékekkel és hazai szervizzel"
+      "subtitle": "Biztonságos, hatékony tetoválás- és pigmenteltávolítás Q-kapcsolt ND:YAG lézerrel, hazai szervizháttérrel"
     },
     "slide5": {
       "title": "Hozd ki a maximumot a carbon peelingből",
@@ -41,6 +41,10 @@
     "slide6": {
       "title": "Álomszerű kezelőgépek mesterséges intelligenciával",
       "subtitle": "Végezz minden eddiginél pontosabb és biztonságosabb kezeléseket az AI segítségével – minden vendéged teljesen egyénre szabott eredményt kap."
+    },
+    "slide7": {
+      "title": "Új: EMPIRE 4WAVE diódalézer",
+      "subtitle": "1200W, 4 hullámhossz, mikrokamerás szőr- és bőrdiagnosztika és digitális vendégkarton – egy intelligensebb rendszer a professzionális szőrtelenítéshez."
     }
   },
   "categories": {
@@ -55,31 +59,29 @@
     "testkezeles": "Testkezelés",
     "sminktetovalas": "Sminktetováló",
     "kellekek": "Kellékek",
-    "kezeloanyagok": "Kezelőanyagok",
-    "coldplasma": "Hidegplazma",
-    "productCount": "termék"
+    "kezeloanyagok": "M'ONDUNIQ",
+    "hidegplazma": "Hidegplazma",
+    "bordiagnosztika": "Bőrdiagnosztika",
+    "productCount": "termék",
+    "homeTitle": "Milyen kezelést szeretnél kínálni?",
+    "homeSubtitle": "Válaszd ki a területet, és megmutatjuk hozzá a szalonodba illő gépeket.",
+    "suppliesTitle": "Kellékek és kezelőanyagok",
+    "showAll": "Mind a {count} kategória",
+    "showLess": "Kevesebb kategória"
   },
   "trust": {
     "warranty": "2 év garancia",
-    "warrantyDesc": "Teljes körű garancia minden készülékre",
-    "shipping": "15-20 munkanap",
-    "shippingDesc": "Országos házhozszállítással",
+    "warrantyDesc": "Kozmetikai gépekre (tetováló- és sminktetováló gépekre 1 év)",
+    "shipping": "Országos szállítás",
+    "shippingDesc": "Raktári tételek készletről, gépek 15–20 munkanap",
     "training": "FAR tanúsítvány",
     "trainingDesc": "Hivatalos gépkezelői képzés",
     "service": "Saját szerviz",
-    "serviceDesc": "Azonnali javítás, cseregép"
+    "serviceDesc": "Gyors javítás, cseregép-program"
   },
   "brands": {
     "title": "Márkáink",
-    "subtitle": "Prémium kozmetikai márkák kizárólagos forgalmazója Magyarországon"
-  },
-  "stats": {
-    "soldUnits": "Eladott Novalight",
-    "warranty": "Garancia",
-    "deliveryTime": "Szállítási idő",
-    "hungarianService": "Magyar szerviz",
-    "yearsSuffix": "év",
-    "weeksSuffix": "hét"
+    "subtitle": "Ezekkel a márkákkal dolgozunk, a gépektől a kezelőanyagokig."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -138,12 +140,26 @@
     "buyerChecklistTitle": "Mire figyelj vásárlás előtt?",
     "buyerChecklistNote": "Szakértőink segítenek eligazodni a részletekben – kérj ingyenes konzultációt, és személyre szabott tanácsot adunk.",
     "warranty": "Garancia és szerviz",
-    "warrantyInfo": "2 év teljes körű garancia, cseregép javítás idejére",
+    "warrantyInfo": "2 év teljes körű garancia + cseregép-program",
     "videoDemo": "Videó bemutató",
     "videoPlaceholder": "Bemutató videó hamarosan",
     "videoPlayLabel": "Videó lejátszása: {title} bemutató",
     "trainingTitle": "Gépkezelői képzés",
-    "trainingContent": "A képzés tartalma:"
+    "trainingContent": "A képzés tartalma:",
+    "galleryTitle": "Galéria",
+    "allPhotos": "Mind a {count} fotó",
+    "moreImages": "+{count} fotó",
+    "zoomImage": "{alt} – nagyítás",
+    "pauseMotion": "Szüneteltetés",
+    "resumeMotion": "Lejátszás",
+    "imageViewer": "Képnagyító",
+    "prevImage": "Előző kép",
+    "nextImage": "Következő kép",
+    "installmentLinePre": "Részletben:",
+    "installmentLine": "{down} előleg + {months} × {monthly}",
+    "installmentCalc": "Számold ki ↓",
+    "backorderLabel": "Rendelésre",
+    "backorderNote": "Ez a termék jelenleg nincs raktáron, ezért most csak előrendelhető. A várható érkezésről a rendelés után egyeztetünk veled."
   },
   "form": {
     "name": "Név",
@@ -208,7 +224,8 @@
     "noObligation": "Kötelezettségmentes",
     "inPersonOrOnline": "Személyes vagy online",
     "roiCalculation": "Megtérülés kalkuláció",
-    "orCallDirectly": "Vagy hívj közvetlenül:"
+    "orCallDirectly": "Vagy hívj közvetlenül:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Lézerek",
@@ -219,13 +236,15 @@
     "ndyagDesc": "Tetoválás eltávolítás",
     "hydrafacialDesc": "Arctisztítás, hidratálás",
     "smartFacialDesc": "Okos arckezelő rendszerek",
-    "antiAgingDesc": "Mikrotűs RF, HIFU, bőranalízis",
+    "antiAgingDesc": "Mikrotűs RF, EMS mikrotű",
     "bodyShapingDesc": "Cryolipolysis, alakformálás",
     "mesoDesc": "Tű nélküli mezoterápia",
     "pmuDesc": "PMU készülékek",
+    "pmuShort": "PMU",
     "accessoriesDesc": "Füstelszívó, oldatok, tűmodulok",
-    "treatmentMaterialsDesc": "Liquidek, podok, hatóanyagok",
-    "coldplasmaDesc": "Hidegplazma kezelések"
+    "treatmentMaterialsDesc": "Hydra-liquidek, koktélok, exoszómák",
+    "hidegplazmaDesc": "Hidegplazma kezelések",
+    "bordiagnosztikaDesc": "AI bőranalízis"
   },
   "footer": {
     "company": "Cégünk",
@@ -242,7 +261,8 @@
     "copyright": "© {year} Skinlab Beauty Equipment Kft. Minden jog fenntartva.",
     "newsletter": "Hírlevél feliratkozás",
     "newsletterPlaceholder": "Az e-mail címed",
-    "subscribe": "Feliratkozás"
+    "subscribe": "Feliratkozás",
+    "cookieSettings": "Süti beállítások"
   },
   "contact": {
     "title": "Kapcsolat",
@@ -261,7 +281,7 @@
     "taxId": "Adószám",
     "vatId": "EU adószám",
     "howToReach": "Megközelítés",
-    "howToReachDesc": "Budai út 28., Érd - az M7-es autópályáról az érdi lehajtónál (Budaörsi csomópont), majd a Budai úton 5 perc. Ingyenes parkolás az épület előtt.",
+    "howToReachDesc": "Bajcsy-Zsilinszky út 156., Érd (Parkváros) – az M7-es autópálya érdi lehajtójától néhány perc autóval.",
     "openingHoursDetails": "Hétfő–Péntek: előre egyeztetett időpontban",
     "openingHoursNote": "Kérlek, egyeztess időpontot telefonon vagy e-mailben!"
   },
@@ -291,7 +311,7 @@
     "foundersTitle": "Alapítók",
     "founder": {
       "technical": "Skinlab alapító, technikai szakértő",
-      "technicalBio": "Kamaszkórom óta autókat szereltem és tuningoltam, úgyhogy a gépek világa mindig is közel állt hozzám. Ez a gyakorlatias, mérnöki szemlélet határozza meg a munkámat a Skinlabnál is: az én felelősségem, hogy minden készülék műszakilag kifogástalan állapotban kerüljön az ügyfeleinkhez. Ha bármi probléma adódik, házon belül oldjuk meg, gyorsan és szakszerűen, cseregéppel a javítás idejére. A lézertechnológia az évek során a specialitásommá vált, és bátran mondhatom, hogy nincs olyan meghibásodás, amivel ne találkoztam volna. Ez az a fajta tapasztalat, ami igazi nyugalmat ad ügyfeleinknek, mert tudják, hogy a gépük jó kezekben van.",
+      "technicalBio": "Kamaszkórom óta autókat szereltem és tuningoltam, úgyhogy a gépek világa mindig is közel állt hozzám. Ez a gyakorlatias, mérnöki szemlélet határozza meg a munkámat a Skinlabnál is: az én felelősségem, hogy minden készülék műszakilag kifogástalan állapotban kerüljön az ügyfeleinkhez. Ha bármi probléma adódik, házon belül oldjuk meg, gyorsan és szakszerűen – hosszabb javítás esetén cseregéppel. A lézertechnológia az évek során a specialitásommá vált, és bátran mondhatom, hogy nincs olyan meghibásodás, amivel ne találkoztam volna. Ez az a fajta tapasztalat, ami igazi nyugalmat ad ügyfeleinknek, mert tudják, hogy a gépük jó kezekben van.",
       "treatment": "Skinlab alapító, kezelési szakértő",
       "treatmentBio": "Orvoscsaládból származom, és egészen fiatal korom óta vonz a szépségipar. Az orvosi háttér viszont egy fontos dolgot belém nevelt: a kezeléseknek ugyanolyan szigorú szakmai alapokon kell állniuk, mint az orvostudománynak. Nem elég, ha valami működik, biztonságosnak is kell lennie. Számomra az a legfontosabb, hogy ne csak szép, hanem egészséges eredmények szülessenek, és soha ne lépjük át a szakmai kompetencia határait. Ezt a szemléletet visszük bele minden konzultációba és minden termékajánlásba is, mert csak olyat kínálunk, ami mögött teljes meggyőződéssel állunk."
     },
@@ -305,7 +325,7 @@
     "benefit4Title": "Ingyenes betanítás",
     "benefit4Desc": "4-6 órás személyes oktatás + FAR tanúsítvány a gép árában.",
     "benefit5Title": "Saját szerviz",
-    "benefit5Desc": "Magyar szervizháttér, cseregép javítás idejére.",
+    "benefit5Desc": "Magyar szervizháttér, cseregép-program hosszabb javítás esetére.",
     "benefit6Title": "Folyamatos támogatás",
     "benefit6Desc": "Nem hagyunk magadra a vásárlás után sem. Bármikor hívhatsz.",
     "companyInfoTitle": "Cégadatok",
@@ -328,14 +348,20 @@
     "duration": "Időtartam",
     "location": "Helyszín",
     "register": "Jelentkezés",
-    "galleryTitle": "Pillanatképek a képzéseinkről",
+    "galleryTitle": "A gép mellé tudást is kapsz",
     "gallerySubtitle": "Gyakorlati oktatás valódi szalonkörnyezetben, kis létszámú csoportokban.",
     "galleryAlt1": "Hidrodermabráziós kezelés gyakorlása a képzésen",
     "galleryAlt2": "Karbonlézeres arckezelés bemutatása oktatás közben",
     "galleryAlt3": "Diódalézeres kezelés gyakorlati oktatása",
     "galleryAlt4": "Csoportos gyakorlati oktatás szalonkörnyezetben",
     "galleryAlt5": "FAR-jegyzett képzés tanúsítványai",
-    "galleryAlt6": "Résztvevők a Skinlab gépkezelői képzésén"
+    "galleryAlt6": "Résztvevők a Skinlab gépkezelői képzésén",
+    "fact1Title": "FAR-jegyzett képzés",
+    "fact1Desc": "B-számos tanúsítvánnyal, gyakorlati oktatással.",
+    "fact2Title": "Helyszíni üzembe helyezés",
+    "fact2Desc": "A gépet a szalonodban állítjuk be, és ott tanítunk be a használatára.",
+    "fact3Title": "Saját szerviz, cseregép-program",
+    "fact3Desc": "10 munkanapot meghaladó javítás esetén cseregépet biztosítunk, készlet függvényében."
   },
   "comparison": {
     "title": "Összehasonlítás",
@@ -371,17 +397,22 @@
   "warranty": {
     "title": "Garancia és szerviz",
     "subtitle": "{productName} készülékre {years} év teljes garanciát adunk, saját magyarországi szervizháttérrel.",
-    "subtitleGeneric": "{years} év teljes garancia minden készülékre, saját magyarországi szervizháttérrel.",
+    "subtitleOne": "{productName} készülékre 1 év teljes garanciát adunk, saját magyarországi szervizháttérrel.",
+    "subtitleGeneric": "{years} év teljes garancia a készülékre, saját magyarországi szervizháttérrel.",
+    "subtitleGenericOne": "1 év teljes garancia a készülékre, saját magyarországi szervizháttérrel.",
+    "pageSubtitle": "Kozmetikai gépeinkre 2 év, tetováló- és sminktetováló gépeinkre 1 év teljes körű garanciát adunk, saját magyarországi szervizháttérrel.",
     "badge": "Nyugalom és biztonság",
     "yearsWarranty": "{years} év teljes garancia",
+    "yearsWarrantyOne": "1 év teljes garancia",
     "extendedWarranty": "Kiterjesztett garancia",
     "extendedWarrantyDesc": "Hosszabbítsd meg a garanciát további 1 évvel kedvezményes áron!",
     "extendedWarrantyButton": "Érdeklődöm",
     "industryStandardMultiple": "2x iparági standard",
     "features": {
       "fullWarranty": "Minden alkatrészre és munkadíjra, az iparági standard duplája.",
+      "fullWarrantyBasic": "Minden alkatrészre és munkadíjra kiterjedő, teljes körű garancia.",
       "replacementDevice": "Cseregép program",
-      "replacementDeviceDesc": "Javítás idejére ingyenes cseregépet biztosítunk, hogy ne álljon a munkád.",
+      "replacementDeviceDesc": "Ha a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében, hogy ne álljon a munkád.",
       "ownWorkshop": "Saját szervizműhely",
       "ownWorkshopDesc": "Magyarországi javítás, nem kell hónapokat várni külföldi szervizre.",
       "fastRepair": "Gyors javítás",
@@ -392,7 +423,7 @@
       "step1Title": "Hibabejelentés",
       "step1Desc": "Hívj minket vagy írj emailt a hiba leírásával.",
       "step2Title": "Cseregép",
-      "step2Desc": "Futárral küldünk cseregépet, viszik a hibásat.",
+      "step2Desc": "Ha a javítás várhatóan 10 munkanapnál tovább tart, cseregépet biztosítunk a javítás idejére.",
       "step3Title": "Javítás",
       "step3Desc": "Saját műhelyünkben megjavítjuk a készüléked.",
       "step4Title": "Visszaküldés",
@@ -412,18 +443,18 @@
       "hungarianSupport": "Magyar nyelvű támogatás",
       "year": "év"
     },
-    "description": "Átfogó 2 éves gyártói jótállás saját magyar szervizháttérrel, cseregép programmal és eredeti alkatrészekkel.",
+    "description": "Átfogó gyártói jótállás (kozmetikai gépekre 2 év, tetováló- és sminktetováló gépekre 1 év) saját magyar szervizháttérrel, cseregép programmal és eredeti alkatrészekkel.",
     "whatIsWarranty": "Mi a gyártói jótállás?",
     "whatIsWarrantyDesc1": "A jótállás a gyártó és a forgalmazó kötelező vállalása arra, hogy a készülék a rendeltetésszerű használat során meghibásodás nélkül működik a garanciális időszakban. Gyártási hiba vagy anyaghiba esetén a javítás, alkatrészcsere, illetve indokolt esetben a csere és a munkadíj is térítésmentes.",
-    "whatIsWarrantyDesc2": "Minden új készülékünkre 12-24 hónap jótállást biztosítunk (a pontos időtartam a termék adatlapján található), a 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján.",
+    "whatIsWarrantyDesc2": "Új kozmetikai gépeinkre 24 hónap, tetováló- és sminktetováló gépeinkre 12 hónap jótállást biztosítunk (a pontos időtartam a termék adatlapján is szerepel), a 151/2003. (IX. 22.) Korm. rendelet és a 19/2014. (IV. 29.) NGM rendelet alapján.",
     "commitmentTitle": "Skinlab vállalásunk",
-    "commitmentDesc1": "Saját, képzett magyar technikusi csapatunk és szervizműhelyünk biztosítja, hogy meghibásodás esetén ne kelljen hónapokat várni külföldi javításra. Eredeti gyári alkatrészekkel dolgozunk, és cseregépet biztosítunk a javítás idejére, hogy a vállalkozásod működése ne akadjon meg.",
+    "commitmentDesc1": "Saját, képzett magyar technikusi csapatunk és szervizműhelyünk biztosítja, hogy meghibásodás esetén ne kelljen hónapokat várni külföldi javításra. Eredeti gyári alkatrészekkel dolgozunk, és 10 munkanapot meghaladó javítás esetén cseregépet biztosítunk, hogy a vállalkozásod működése ne akadjon meg.",
     "commitmentDesc2": "A vásárlás után is mellettetek állunk: távdiagnosztikával, telefonos támogatással és szükség esetén helyszíni kiszállással gondoskodunk a folyamatos működésről.",
     "contentTitle": "Mit fed le a garancia?",
     "contentDesc": "A gyártói jótállás az alábbi eseteket foglalja magában, feltéve hogy a meghibásodás a rendeltetésszerű használat során, a kezelési útmutató betartása mellett következett be:",
     "point1": "Gyártási hibák és anyaghibák teljes körű javítása.",
     "point2": "Eredeti gyári alkatrészek cseréje, a munkadíjjal együtt díjmentesen.",
-    "point3": "Cseregép program - a javítás idejére ingyenes cseregépet biztosítunk.",
+    "point3": "Cseregép program - 10 munkanapot meghaladó javítás esetén cseregépet biztosítunk a javítás idejére, a cseregép-állomány függvényében.",
     "point4": "Távdiagnosztika és telefonos szakértői támogatás hibaelhárításhoz.",
     "point5": "Szükség esetén helyszíni szerviz kiszállás, egyedi egyeztetés alapján.",
     "exclusionsTitle": "Mit nem fed le a garancia?",
@@ -450,7 +481,8 @@
     "claimInfo4": "Kapcsolattartó személy nevét és elérhetőségét.",
     "importantNote": "Ne próbáld magad javítani vagy szétszerelni a készüléket - az illetéktelen beavatkozás a garancia elvesztésével jár. Hiba észlelésekor áramtalanítsd a gépet, és vedd fel velünk a kapcsolatot.",
     "ctaTitle": "Kérdésed van a garanciával kapcsolatban?",
-    "ctaSubtitle": "Szakértő munkatársaink készséggel segítenek - hívj minket vagy írj emailt."
+    "ctaSubtitle": "Szakértő munkatársaink készséggel segítenek - hívj minket vagy írj emailt.",
+    "readMore": "Minden részlet a garanciáról"
   },
   "shipping": {
     "title": "Szállítás és fizetés",
@@ -568,7 +600,7 @@
       "q2": "Mennyi időt vesz igénybe egy javítás?",
       "a2": "Kisebb hiba esetén a javítás átfutási ideje 3–7 munkanap, komolyabb alkatrészcsere esetén 10–20 munkanap. A pontos időt minden esetben a bevizsgálás után adjuk meg. A javításokat saját, képzett technikusainkból álló műhelyünk végzi, eredeti alkatrészekkel.",
       "q3": "Kapok cseregépet a javítás idejére?",
-      "a3": "Igen, kérésre cseregépet biztosítunk, amely garanciális ügynél díjmentes, egyéb esetben pedig kedvezményes áron érhető el. Így a vállalkozásod folyamatos működése biztosított a szerviz ideje alatt is.",
+      "a3": "Ha az előzetes bevizsgálás alapján a javítás várhatóan 10 munkanapnál tovább tart, a javítás idejére cseregépet biztosítunk a cseregép-állomány függvényében – garanciális ügynél díjmentesen, egyéb esetben kedvezményes feltételekkel. A cseregép nem feltétlenül azonos típusú, de a kezelések folytatására alkalmas, így a vállalkozásod működése a szerviz alatt is biztosított.",
       "q4": "Mit tegyek, ha a gép hibát jelez vagy nem kapcsol be?",
       "a4": "Első lépésként kapcsold ki a gépet, áramtalanítsd, hagyd lehűlni, majd indítsd újra. Ha a hiba továbbra is fennáll, keress minket a {phone} telefonszámon vagy a {email} címen – a távdiagnosztika sok esetben megoldja a problémát."
     },
@@ -615,20 +647,17 @@
     "training": "Gyakorlatorientált, mély szakmai tudás",
     "trainingDesc": "Nem egy gyors „összeszerelős” oktatás: megtanítunk magabiztosan paraméterezni, felismerni a hibafaktorokat, és felkészítünk minden eshetőségre. Képzéseink FAR-jegyzettek, B-számos tanúsítvánnyal.",
     "warranty": "2 év garancia, saját magyar szerviz",
-    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és a javítás idejére cserekészüléket adunk.",
+    "warrantyDesc": "Nem kell heteket várni külföldi szervizre. Házon belül, gyorsan javítunk, és 10 munkanapot meghaladó javítás esetén cserekészüléket biztosítunk, készlet függvényében.",
     "financing": "Jogi és üzleti szemlélet",
     "financingDesc": "Átbeszéljük a géphasználat jogi kereteit és a dokumentációs elvárásokat, marketing- és üzleti modullal segítünk árazni, kommunikálni és fenntartható vállalkozást építeni.",
     "consulting": "Nem engedjük el a kezed",
-    "consultingDesc": "A vásárlás után sem hagyunk magadra: az utókövetés nálunk azt jelenti, hogy segítünk a használatban, a beállításokban és a mindennapi munkában.",
-    "testimonialTitle": "Elégedett partner",
-    "testimonialText": "A betanítás szuper volt, és bármikor felhívhatom őket ha kérdésem van.",
-    "testimonialAuthor": "Nagy Éva, Skin Studio"
+    "consultingDesc": "A vásárlás után sem hagyunk magadra: az utókövetés nálunk azt jelenti, hogy segítünk a használatban, a beállításokban és a mindennapi munkában."
   },
   "foundersHome": {
     "badge": "Az alapítók",
-    "title": "Két világ találkozása – ez vagyunk mi",
-    "intro": "A Skinlabot ketten alapítottuk: Szimonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget – és a mögötte lévő tudást – elhozzuk a magyar szalonoknak is.",
-    "quote": "Nem gépeket akarunk eladni, hanem használható szaktudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk – és a vásárlás után sem engedjük el a partnereink kezét.",
+    "title": "Két világ találkozása - ez vagyunk mi",
+    "intro": "A Skinlabot ketten alapítottuk: Szimonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget - és a mögötte lévő tudást - elhozzuk a magyar szalonoknak is.",
+    "quote": "Nem gépeket akarunk eladni, hanem használható szaktudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk - és a vásárlás után sem engedjük el a partnereink kezét.",
     "simonettaName": "Gaszler Szimonetta",
     "simonettaRole": "Skinlab alapító",
     "simonettaSpec": "Kezelési szakértő",
@@ -677,7 +706,7 @@
     "step2Title": "Kiválasztás",
     "step2Desc": "Segítünk a szalonodnak legmegfelelőbb gépet kiválasztani",
     "step3Title": "Telepítés + oktatás",
-    "step3Desc": "Helyszíni üzembe helyezés és 4-6 órás betanítás",
+    "step3Desc": "Helyszíni üzembe helyezés és gépkezelői betanítás",
     "step4Title": "Indulás!",
     "step4Desc": "Folyamatos support, szerviz és üzleti tanácsadás"
   },
@@ -698,20 +727,32 @@
     "business3": "Glow Clinic",
     "location3": "Szeged"
   },
+  "videoTestimonials": {
+    "title": "Ők már Skinlab géppel dolgoznak",
+    "subtitle": "Valódi vélemények korábbi ügyfeleinktől",
+    "role1": "sminktetováló, kozmetikus",
+    "role2": "sminktetováló oktató, kozmetikus",
+    "role3": "kozmetikus",
+    "role4": "sminktetováló, kozmetikus",
+    "playLabel": "Videó lejátszása",
+    "quote1": "Tőlem az a legnagyobb ajánlás, hogy évek óta velük dolgozom, és ha ma újra kéne építeni a géparkomat, akkor is a Skinlabot választanám.",
+    "quote2": "Szerintem a cég, amit képvisel, egyedülálló Magyarországon, és tényleg meleg szívvel tudom ajánlani őket.",
+    "quote3": "A Skinlab számomra a minőség és a megbízhatóság szinonimája. Jó érzés olyan partnerrel dolgozni, akik ugyanúgy hisznek a minőségben, mint én.",
+    "quote4": "Még soha nem volt olyan, hogy valamiben nem tudtak volna nekem segíteni. Hogyha kérdésem volt, akkor bármikor elérem őket.",
+    "watchFull": "Nézd meg a teljes videót ({duration})"
+  },
   "featuredProduct": {
-    "badge": "Zászlóshajó modellünk",
-    "tagline": "4 hullámhosszú professzionális szőrtelenítő",
-    "wavelength": "Hullámhossz",
+    "badge": "Most érkezett",
+    "tagline": "Mikrokamerás szőr- és bőrdiagnosztika, digitális vendégkarton és paraméterajánlás egy gépben.",
     "power": "Teljesítmény",
-    "cooling": "Zafír hűtés",
     "warranty": "Garancia",
     "warrantyValue": "2 év",
     "grossPrice": "Bruttó ár",
-    "orMonthly": "vagy havi",
-    "monthlyPrice": "~89.000 Ft",
     "viewDetails": "Részletek megtekintése",
     "requestDemo": "Bemutatót kérek",
-    "productPlaceholder": "termékfotó"
+    "wavelengthsValue": "4 hullámhossz",
+    "skinTypes": "Minden bőrtípusra",
+    "installmentLine": "vagy 50% előleg után {monthly}/hó, {months} hónapon át"
   },
   "ctaSection": {
     "title": "Kérdésed van? Segítünk!",
@@ -823,7 +864,9 @@
     "drawerTitle": "A kosarad",
     "drawerEmpty": "A kosarad még üres.",
     "priceNote": "A szállítási költséget és a végleges árat telefonos egyeztetéskor pontosítjuk.",
-    "close": "Bezárás"
+    "close": "Bezárás",
+    "preorder": "Előrendelés",
+    "backorderItem": "Rendelésre - jelenleg nincs raktáron, csak előrendelhető"
   },
   "checkout": {
     "title": "Megrendelés",
@@ -869,7 +912,11 @@
         "mpl": "MPL házhozszállítás (következő munkanap)",
         "personal_pickup": "Személyes átvétel – Skinlab Showroom (Érd)",
         "arranged": "Kiszállítás egyeztetés alapján"
-      }
+      },
+      "backorderNote": "A rendelésedben jelenleg nem raktáron lévő termék is szerepel, ezért előrendelésként rögzítettük. Most nem kell fizetned: munkatársunk hamarosan felveszi veled a kapcsolatot a várható érkezésről, és csak ezután küldjük a díjbekérőt.",
+      "backorderStep1": "Előrendelésként rögzítettük a megrendelésed - most nem kell fizetned.",
+      "backorderStep2": "Munkatársunk hamarosan felveszi veled a kapcsolatot, és tájékoztat a termék várható érkezéséről.",
+      "backorderStep3": "A termék beérkezésekor egyeztetjük a fizetést, és a választott módon eljuttatjuk hozzád."
     },
     "phone": "Telefonszám",
     "companyToggle": "Céges adatok megadása",
@@ -900,7 +947,7 @@
     "step3Title": "Kiszállítjuk a készüléket",
     "step3Desc": "A fizetés beérkezése után a megrendelés gyártásba, majd szállításba kerül.",
     "trustNoPayment": "Most nem kell fizetned",
-    "trustWarranty": "2 év garancia",
+    "trustWarranty": "Teljes körű garancia",
     "trustCallback": "Visszahívunk",
     "noPaymentNote": "A megrendelés elküldése után nem kell azonnal fizetned – előbb visszahívunk és egyeztetünk.",
     "requiredError": "Kérlek, töltsd ki a kötelező mezőket.",
@@ -940,7 +987,7 @@
       "mpl": "MPL házhozszállítás",
       "mplDesc": "Magyar Posta – következő munkanapos kézbesítés (MPL Üzleti csomag).",
       "pickup": "Személyes átvétel",
-      "pickupDesc": "Skinlab Showroom, 2030 Érd, Budai út 28. – ingyenes, előzetes időpont-egyeztetéssel.",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – ingyenes, előzetes időpont-egyeztetéssel.",
       "recommended": "Ajánlott",
       "highValueTitle": "Átvétel és kiszállítás",
       "highValueNote": "A kosaradban nagy értékű, érzékeny készülék szerepel. Ezeket nem postázzuk automatikusan: személyesen, ünnepélyes átadás keretében adjuk át a showroomban, vagy a termék értékére tekintettel egyeztetett módon szállítjuk ki.",
@@ -964,7 +1011,9 @@
     "parcelStep3Title": "Kiszállítjuk / átveheted",
     "parcelStep3Desc": "Foxpost automatába vagy MPL-lel küldjük, vagy személyesen átveheted.",
     "parcelNoPaymentNote": "Nincs azonnali online fizetés: a díjbekérőt e-mailben kapod, vagy utánvéttel fizetsz az átvételkor.",
-    "parcelTrustShipping": "Foxpost / MPL szállítás"
+    "parcelTrustShipping": "Foxpost / MPL szállítás",
+    "backorderTitle": "Előrendelés",
+    "backorderNote": "A kosaradban jelenleg nem raktáron lévő termék van: {items}. Ezt most csak előrendelni tudod. Ilyenkor nem küldünk azonnal díjbekérőt, és most nem kell fizetned: munkatársunk felveszi veled a kapcsolatot a várható érkezésről, és csak ezután kérjük a fizetést."
   },
   "bank": {
     "title": "Banki átutalás adatai",
@@ -993,5 +1042,117 @@
     "requirements": "Részvételi feltételek",
     "back": "Vissza a képzésekhez",
     "signupHeading": "Jelentkezz: {name}"
+  },
+  "founderConsult": {
+    "badge": "Személyes segítség",
+    "expertRole": "Skinlab alapító, technikai szakértő",
+    "heading": {
+      "category": {
+        "pre": "Nem tudod,",
+        "highlight": "melyik gép",
+        "post": "való neked?"
+      },
+      "machine": {
+        "pre": "Nem biztos, hogy",
+        "highlight": "ez a megfelelő gép",
+        "post": "a szalonodnak?"
+      },
+      "consumable": {
+        "pre": "Nem biztos, hogy",
+        "highlight": "ez a megfelelő készítmény",
+        "post": "a kezeléseidhez?"
+      }
+    },
+    "scenario1": "Nem tudod, melyiket válaszd",
+    "scenario2": "Pontos infót kérsz a gépekről",
+    "scenario3": "Megbeszélnéd a vásárlás részleteit",
+    "scenario4": "Csak egy jó tanácsra van szükséged",
+    "bodyPre": "Bármelyik is igaz rád –",
+    "bodyStrong": "szeretettel segítünk.",
+    "bodyPost": "Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.",
+    "cta": "Kérj ingyenes konzultációt",
+    "phone": "Hívj fel: {phone}",
+    "responseTime": "Általában 1 munkanapon belül visszahívjuk."
+  },
+  "finance": {
+    "title": "Megéri? Számoljuk ki.",
+    "subtitle": "Számold ki a saját adataiddal, mikor térül meg a gép és mennyi lenne a havi részlet.",
+    "subtitleRoiOnly": "Számold ki a saját adataiddal, mikor térül meg a gép.",
+    "tabRoi": "Megtérülés",
+    "tabInstallment": "Havi részlet"
+  },
+  "productComparison": {
+    "title": "Hasonlítsd össze a hasonló gépeinket",
+    "subtitle": "A legfontosabb különbségek egy pillantásra.",
+    "current": "Ezt nézed most",
+    "price": "Ár (bruttó)",
+    "view": "Megnézem"
+  },
+  "homeHero": {
+    "prev": "Előző dia",
+    "next": "Következő dia",
+    "goTo": "{n}. dia",
+    "upNext": "Következő:",
+    "slides": {
+      "empire": "EMPIRE diódalézer",
+      "olympia": "OLYMPIA diódalézer",
+      "ndyag": "ND:YAG lézer",
+      "training": "Képzés és szerviz"
+    }
+  },
+  "homeComparison": {
+    "title": "Melyik diódalézer való a szalonodba?",
+    "subtitle": "Mind a {count} gép 4 hullámhosszú. A különbség a teljesítményben, a kezelőfejben és a kezelőszoftverben van.",
+    "specHeader": "Jellemző",
+    "details": "Részletek",
+    "scrollHint": "Húzd oldalra az összehasonlításhoz",
+    "showAll": "Összes jellemző (még {count})",
+    "showLess": "Kevesebb jellemző"
+  },
+  "mobileCta": {
+    "call": "Hívás",
+    "consult": "Konzultáció"
+  },
+  "homeFinance": {
+    "badge": "Finanszírozás",
+    "title": "Nem kell egy összegben kifizetned",
+    "body": "Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3, 6 vagy 12 havi részletben, a gép árától függően. Nincs kezelési díj és nincs rejtett költség.",
+    "tier1": "3 hónap 100 000 Ft felett",
+    "tier2": "3 vagy 6 hónap 1 000 000 Ft felett",
+    "tier3": "3, 6 vagy 12 hónap 3 000 000 Ft felett, vagy két gép együttes vásárlásakor",
+    "cta": "Részletek és kalkulátor",
+    "example": "Példa: {name}",
+    "downPayment": "Előleg (50%)",
+    "term": "{months} hónap",
+    "perMonth": "{amount}/hó",
+    "note": "Pontos ajánlatot a konzultáción adunk."
+  },
+  "services": {
+    "title": "Több mint webshop",
+    "subtitle": "A gépek mellé mindent megkapsz, ami a szalonod működéséhez kell: kezelőanyagot, képzést, szervizt és személyes bemutatót.",
+    "consumables": {
+      "title": "M'onduniq kezelőanyagok",
+      "desc": "Professzionális kezelőanyagok és kellékek a gépeidhez, a lézeres kezelések előtti és utáni ápolástól a tűmodulokig.",
+      "cta": "Kezelőanyagok",
+      "alt": "M'onduniq kezelőanyag selyem háttéren"
+    },
+    "training": {
+      "title": "FAR-tanúsított képzések",
+      "desc": "Gépkezelői oktatás valódi szalonkörnyezetben, kis létszámú csoportokban, hivatalos tanúsítvánnyal.",
+      "cta": "Képzéseink",
+      "alt": "Képzésen résztvevő a FAR-tanúsítványával"
+    },
+    "service": {
+      "title": "Saját szerviz és garancia",
+      "desc": "Magyarországi szerviz, nem kell heteket várni külföldre küldött gépre. Cseregép-program hosszabb javítás esetére.",
+      "cta": "Garancia és szerviz",
+      "alt": "Horváth László munka közben egy lézeres kezelőfejjel"
+    },
+    "showroom": {
+      "title": "Showroom Érden",
+      "desc": "Nézd meg és próbáld ki a gépeket személyesen, előzetes időpontfoglalással.",
+      "cta": "Showroom és elérhetőség",
+      "alt": "A Skinlab showroom a világító logóval és egy kozmetikai géppel"
+    }
   }
 }

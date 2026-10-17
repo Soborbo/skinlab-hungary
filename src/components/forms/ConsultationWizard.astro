@@ -123,6 +123,12 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <input type="hidden" name="utmContent" data-track="utm_content" />
     <input type="hidden" name="gclid" data-track="gclid" />
     <input type="hidden" name="fbclid" data-track="fbclid" />
+    <input type="hidden" name="gbraid" data-track="gbraid" />
+    <input type="hidden" name="wbraid" data-track="wbraid" />
+    <input type="hidden" name="msclkid" data-track="msclkid" />
+    <input type="hidden" name="fbc" data-track="fbc" />
+    <input type="hidden" name="fbp" data-track="fbp" />
+    <input type="hidden" name="external_id" data-track="external_id" />
     <input type="hidden" name="referrer" data-track="referrer" />
 
     <!-- Honeypot -->
@@ -504,7 +510,11 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 </style>
 
 <script>
-  import { trackLeadSubmit, waitForTracking } from '@/lib/tracking';
+  import {
+    trackConsultationSubmit, waitForTracking, getAllTrackingData,
+    getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    applyEntryAttributionToForm,
+  } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
 
   declare global {
@@ -555,15 +565,36 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     } catch {
       /* private mode / quota - ignore */
     }
+    const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
+    const sanitizedSrc = getAllTrackingData();
+    const sanitized: Record<string, string | undefined> = {
+      gclid: sanitizedSrc.gclid, gbraid: sanitizedSrc.gbraid, wbraid: sanitizedSrc.wbraid,
+    };
     form.querySelectorAll('[data-track]').forEach((input) => {
       const key = input.getAttribute('data-track');
       if (!key) return;
-      let value = urlParams.get(key) || storedTracking[key] || '';
-      if (!value && key === 'referrer') {
-        value = document.referrer || '';
-      }
+      // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az garantálja,
+      // hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy ki. A nyers
+      // `urlParams || sb_tracking` fallback itt újra bevinné a régi kattintás ID-jét
+      // a rejtett mezőbe — a localStorage későbbi ön-gyógyítása pedig már nem
+      // frissítené a kitöltött inputot, és a FormData mindkettőt elküldené.
+      let value = GOOGLE_CLICK_KEYS.includes(key)
+        ? (sanitized[key] || '')
+        : (urlParams.get(key) || storedTracking[key] || '');
+      // Meta paraméterek KIZÁRÓLAG a tracking-lib accessorain át (lásd ContactForm):
+      // a `getFbc()` a `_fbc` süti hiányában a tárolt fbclid-ből újraépíti a click ID-t.
+      if (key === 'fbc') value = getFbc() || '';
+      else if (key === 'fbp') value = getFbp() || '';
+      else if (key === 'external_id') value = getExternalId() || '';
       (input as HTMLInputElement).value = value;
     });
+
+    // A BELÉPÉSI JELEK nem a fenti hurokból jönnek. A `referrer` korábban
+    // `document.referrer`-re esett vissza, ami a 2. oldaltól a SAJÁT előző
+    // oldalunk — a CRM-ben 95 sorból 86 ilyen belső érték keletkezett, 0 külső.
+    // A `sourceUrl` pedig szerveroldalon a SUBMIT-oldal URL-je. Mindkettő a
+    // first-touch belépési modulból töltődik felül.
+    applyEntryAttributionToForm(form);
 
     // GDPR timestamp
     const gdprCheckbox = form.querySelector('[data-gdpr-checkbox]') as HTMLInputElement;
@@ -787,6 +818,9 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           gdprTimestamp.value = new Date().toISOString();
         }
 
+        // A Pixel a `_fbp`/`_fbc` sütit a consent UTÁN írja — a betöltéskori
+        // kitöltés még üresen hagyhatta. Beküldés előtt újraolvassuk.
+        refreshMetaMatchKeys(form);
         const formData = new FormData(form);
 
         // Combine firstName and lastName into name (trimmed to avoid double spaces)
@@ -803,6 +837,20 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           formData.set('cf-turnstile-response', turnstileToken);
         }
 
+        // Browser leg BEFORE the POST (quote_calculator_submitted → GTM →
+        // GA4/Meta Pixel). The returned event_id rides along in the form body
+        // so /api/consultation can dispatch the gateway (server) leg with the
+        // SAME id — that is what keeps Meta Pixel↔CAPI dedup intact.
+        const tracked = trackConsultationSubmit({
+          email: (formData.get('email') as string) || '',
+          phone: (formData.get('phone') as string) || '',
+          firstName: firstName || undefined,
+          lastName: lastName || undefined,
+          contentName: (formData.get('product') as string) || 'konzultacio',
+          currency: 'HUF',
+        });
+        formData.set('event_id', tracked.eventId);
+
         const response = await fetch('/api/consultation', {
           method: 'POST',
           body: formData,
@@ -811,17 +859,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         const result = await readJsonResponse(response);
 
         if (result.success) {
-          // Unified conversion tracking (dataLayer + /api/track beacon)
-          trackLeadSubmit({
-            email: (formData.get('email') as string) || '',
-            phone: (formData.get('phone') as string) || '',
-            firstName: firstName || undefined,
-            lastName: lastName || undefined,
-            contentName: (formData.get('product') as string) || 'konzultacio',
-            currency: 'HUF',
-          });
-
-          // Wait briefly for the beacon to flush, then redirect
+          // Give GTM a beat to flush the conversion tags, then redirect
           await waitForTracking(600);
           window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
         } else {

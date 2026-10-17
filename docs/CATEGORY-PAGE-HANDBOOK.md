@@ -62,9 +62,10 @@ A 14 kategória SKU-szám alapján három csoportra osztható, és **mindegyikre
 
 | Csoport | SKU | Kategóriák | PLP-stratégia |
 |---|---|---|---|
-| **A (Showcase)** | 1–3 | anti-aging, arckezelo-rendszerek, mezoterapia, pico-lezerek, coldplasma, testkezeles, tetovalogepek | **Egyetlen hero-termék-oldal** stílusban; szűrő felesleges; comparison ha van 2+; choices szekció dominál |
+| **A (Showcase)** | 1–3 | anti-aging, arckezelo-rendszerek, mezoterapia, pico-lezerek, testkezeles, tetovalogepek | **Egyetlen hero-termék-oldal** stílusban; szűrő felesleges; comparison ha van 2+; choices szekció dominál |
 | **B (Comparison)** | 4–9 | nd-yag-lezerek (9), hydrafacial (8), hiemt (4), kellekek (5), anti-aging (5) | **Comparison-vezérelt** layout: a 2–3 fő termék vs egymás; choices szekció hosszabb; spec-comparison table prominens |
 | **C (Catalog)** | 10+ | diodalezerek (24), sminktetovalas (15), kezeloanyagok (13) | **Klasszikus szűrhető rács**; itt értelmes a NemesVent-típusú filter (csak itt!); spec-as-filter pattern |
+> **2026-09-21 - hidegplazma kivétel:** a `/hidegplazma/` URL-en nem kategórialista, hanem MAGA a THE FROST termékoldal áll (egyetlen plazma termék marad). Lásd `src/lib/product-url.ts` → `CATEGORY_AS_PRODUCT` és `src/pages/hidegplazma/index.astro`.
 
 Ez **kritikus a kézikönyv hátralévő részében**: minden szekciónál külön kibontjuk, hogy az adott best practice mely csoportra (A/B/C) érvényes.
 
@@ -394,7 +395,7 @@ A jelenlegi `nd-yag-lezerek` (9 SKU, B-csoport) → **#1 lead-capture kártya** 
 │ │                                 │ │ │                                  │ ││
 │ │ Trust badges (specifikussá!):   │ │ │ ┌────────────────────────────┐  │ ││
 │ │ ✓ 2 év teljes körű garancia +   │ │ │ │ Időpont foglalása →        │  │ ││ ← teal CTA
-│ │   24h cseregép Budapesten        │ │ │ └────────────────────────────┘  │ ││
+│ │   cseregép-program (10+ nap)     │ │ │ └────────────────────────────┘  │ ││
 │ │ ✓ 8h helyszíni betanítás +      │ │ │                                  │ ││
 │ │   6 hó follow-up                 │ │ │ ⭐ 4,9 · 12 ND:YAG szalon       │ ││
 │ │ ✓ 100% magyar szerviz +         │ │ │   választott minket             │ ││
@@ -642,7 +643,7 @@ A high-ticket B2B vásárlói pszichológia szerint a vásárló nem terméket v
 - *Csere mátrix*:
   | Jelenlegi vague | Specifikus változat |
   |---|---|
-  | „2 év garancia" | „2 év teljes körű garancia + 24h cseregép Budapesten" |
+  | „2 év garancia" | „2 év teljes körű garancia + cseregép-program" (a cseregép feltételes: 10+ munkanapos javításnál, készlet függvényében — ne ígérj 24h cserét) |
   | „Ingyenes betanítás" | „8 órás helyszíni betanítás + 6 hónap follow-up" |
   | „Magyar szerviz" | „100% magyar szerviz + 48h kiszállás Budapesten" |
   | „Részletfizetés" | „0% THM, 24 hónap, előleg nélkül" |
@@ -1085,7 +1086,7 @@ Astro 5 SSR-rel mobile/desktop HTML ekvivalens — kompatibilis. A leaf PLP telj
 
 ### 10.7 Helyi SEO Skinlab-specifikum
 
-- **Egyetlen telephely** (Érd, Budai út 28.) → `LocalBusiness` schema a `/kapcsolat` és `/rolunk` oldalakon, **NEM** a kategória oldalakon.
+- **Egyetlen telephely** (Érd, Bajcsy-Zsilinszky út 156.) → `LocalBusiness` schema a `/kapcsolat` és `/rolunk` oldalakon, **NEM** a kategória oldalakon.
 - **Magyar nyelvi target**: `lang="hu"` HTML attribútum kötelező (BaseLayout-ban).
 - **Hreflang**: jelenleg HU primary; ha jövőben aktivizáljuk az SK/RO areaServed-et (lásd `COMPANY.areaServed`), `hreflang` szülő-attribútumokat kell hozzáadni.
 

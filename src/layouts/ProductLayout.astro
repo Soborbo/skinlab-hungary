@@ -2,11 +2,15 @@
 /**
  * ProductLayout - Unified product page layout
  *
- * Section order:
- * Breadcrumb → Hero → Stats → ROI → VideoDescription → CTA(light) →
- * FeatureRows → CTA(accent) → Training → Testimonials → Expert →
- * TechSpecs → FunctionCards → FAQ → BuyerChecklist →
- * WhatsIncluded → Warranty → CTA(primary) → Related
+ * Section order (előbb a gép, utána bizonyíték, pénz, támogatás, összehasonlítás):
+ * Breadcrumb → Hero → USP → VariantDetails → Intro (VideoDescription) →
+ * VideoQuote#1 → FeatureRows → Gallery → Science (ha van) → Finance (ROI + részlet) → VideoQuote#2 →
+ * Training → VideoQuote#3 → OwnerStory → FounderConsult (+expert quote) →
+ * TechSpecs → Comparison → FunctionCards → WhatsIncluded → Warranty (compact) →
+ * VideoQuote#4 → Testimonials → FAQ → BuyerChecklist → CTA(primary) → Related
+ *
+ * Fogyóeszközök (kezelőanyag, kellék): nincs pénzügy, garancia és
+ * összehasonlítás; a 4 videós véleményből csak #1 és #4.
  *
  * All sections are standalone components - zero inline HTML.
  * i18n-aware: uses loadProductContent for locale-specific content,
@@ -18,13 +22,13 @@ import Breadcrumb from '../components/product/Breadcrumb.astro';
 import ProductHero from '../components/product/ProductHero.astro';
 import ProductGallerySection from '../components/product/ProductGallerySection.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import ROICalculator from '../components/product/ROICalculator.astro';
+import FinanceSection from '../components/product/FinanceSection.astro';
 import VideoDescription from '../components/product/VideoDescription.astro';
 import ProductCTA from '../components/product/ProductCTA.astro';
 import FeatureRows from '../components/product/FeatureRows.astro';
 import TrainingCard from '../components/product/TrainingCard.astro';
 import Testimonials from '../components/product/Testimonials.astro';
-import ExpertQuote from '../components/product/ExpertQuote.astro';
+import OwnerStory from '../components/product/OwnerStory.astro';
 import TechSpecs from '../components/product/TechSpecs.astro';
 import FunctionCards from '../components/product/FunctionCards.astro';
 import WhatsIncluded from '../components/product/WhatsIncluded.astro';
@@ -34,8 +38,12 @@ import WarrantyService from '../components/product/WarrantyService.astro';
 import RelatedProducts from '../components/product/RelatedProducts.astro';
 import VariantDetails from '../components/product/VariantDetails.astro';
 import USPStrip from '../components/product/USPStrip.astro';
-import InstallmentCalculator from '../components/product/InstallmentCalculator.astro';
-import { INSTALLMENT_MIN } from '@/lib/installment';
+import { isBackorder } from '../lib/stock';
+import ProductComparison from '../components/product/ProductComparison.astro';
+import VideoQuote from '../components/video/VideoQuote.astro';
+import { getInstallmentInfo } from '@/lib/installment';
+import { getCategorySiblings, buildComparison, COMPARISON_SIBLINGS } from '@/lib/product-comparison';
+import manifest from '@/lib/image-manifest.json';
 // Schema components
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
@@ -43,57 +51,15 @@ import { SITE, CATEGORIES } from '../lib/constants';
 import { getLocaleFromUrl, t, getLocalizedUrl } from '@/i18n';
 import { loadProductContent } from '@/lib/load-product-content';
 import { getOgImagePath } from '@/lib/resolve-image';
+import { courierOptionsForPrice } from '@/lib/shipping/methods';
+import { resolveBrand } from '@/lib/merchant/brand';
 import type { ProductContentFAQItem } from '@/lib/types/product-content';
-
-interface Variant {
-  sku: string;
-  name: string;
-  value: string;
-  price: number | null;
-  image?: string;
-  images?: string[];
-  description?: string;
-  specs?: Record<string, string>;
-}
-
-interface Stat {
-  value: string;
-  unit?: string;
-  label: string;
-  icon?: string;
-}
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+import type { ProductData } from '@/lib/product-data';
+import { productPath, isCategoryAsProduct } from '@/lib/product-url';
 
 interface Props {
-  product: {
-    name: string;
-    sku: string;
-    slug: string;
-    categorySlug: string;
-    description: string;
-    shortDescription: string;
-    price: number | null;
-    salePrice?: number | null;
-    image: string;
-    gallery: string[];
-    extraImages?: string[];
-    canonicalSlug?: string;
-    youtubeVideos?: string[];
-    availability: 'in_stock' | 'preorder' | 'out_of_stock';
-    hasVariants: boolean;
-    variants: Variant[];
-    featured?: boolean;
-    metaTitle?: string;
-    metaDescription?: string;
-    stats?: Stat[];
-    faq?: FAQItem[];
-    whatsIncluded?: string[];
-    specs?: Record<string, string>;
-  };
+  /** A route-ok `buildProductData(entry)`-vel állítják elő (lib/product-data.ts). */
+  product: ProductData;
 }
 
 const { product } = Astro.props;
@@ -122,18 +88,24 @@ const categoryName = category?.nameShort || product.categorySlug;
 // Page URL (trailing slash to match the served/canonical URL).
 // NB: the slash is concatenated, not placed inside the template literal — a
 // getLocalizedUrl now returns the trailing-slash form, so no manual `+ '/'`.
-const pageUrl = SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}/${product.slug}`);
+const pageUrl = SITE.url + getLocalizedUrl(locale, productPath(product.categorySlug, product.slug));
 
 // Canonical override: spin-off/duplicate products (e.g. a limited-edition colour
 // that is also a variant of the canonical product) point to the canonical slug.
 const canonicalOverride = product.canonicalSlug
-  ? `${SITE.url}${getLocalizedUrl(locale, `/${product.categorySlug}/${product.canonicalSlug}`)}`
+  ? `${SITE.url}${getLocalizedUrl(locale, productPath(product.categorySlug, product.canonicalSlug))}`
   : undefined;
+
+// Egytermékes kategóriában a kategória URL-je MAGA ez az oldal (pl. /hidegplazma/),
+// ezért a morzsából kimarad a kategória-szint: nem mutatna önmagára.
+const isCategoryPage = isCategoryAsProduct(product.categorySlug, product.slug);
 
 // Breadcrumb items for schema
 const breadcrumbItems = [
   { name: t(locale, 'breadcrumb.home'), url: SITE.url + '/' },
-  { name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) },
+  ...(isCategoryPage
+    ? []
+    : [{ name: categoryName, url: SITE.url + getLocalizedUrl(locale, `/${product.categorySlug}`) }]),
   { name: displayName }
 ];
 
@@ -141,8 +113,68 @@ const breadcrumbItems = [
 const firstVideoUrl = product.youtubeVideos?.[0] || '';
 
 
-// Installment calculator: HU only, and only above the installment minimum
-const showInstallment = locale === 'hu' && !!product.price && product.price > INSTALLMENT_MIN;
+
+/**
+ * Fogyóeszköz-kategóriák: kezelőanyagok és kellékek.
+ *
+ * A termékoldal sablonja gépekre készült, és több szekciója értelmetlen vagy
+ * kifejezetten félrevezető egy 7 000 Ft-os tisztítóporon:
+ *  - megtérülés-kalkulátor: a kezelőanyag nem termel kezelésenkénti bevételt,
+ *    a "hány kezelés alatt térül meg" kérdés fel sem merül
+ *  - garancia/szerviz: cseregép, eredeti alkatrész, sorozatszám - nincs értelmük
+ *  - a gépre utaló feliratok ("…a {termék} gépről", "a többi készülékünket")
+ *
+ * A gépoldalak viselkedése változatlan marad.
+ */
+const CONSUMABLE_CATEGORIES = ['kezeloanyagok', 'kellekek'];
+const isConsumable = CONSUMABLE_CATEGORIES.includes(product.categorySlug);
+
+// Garancia: a kozmetikai gépekre 2 év, a (smink)tetováló gépekre 1 év.
+const ONE_YEAR_WARRANTY_CATEGORIES = ['sminktetovalas', 'tetovalogepek'];
+const warrantyYears = ONE_YEAR_WARRANTY_CATEGORIES.includes(product.categorySlug) ? 1 : 2;
+
+// Szállítási ígéret a készletállapotból: raktári gépnél nem 15-20 munkanap,
+// rendelésre érkezőnél (minden variáns elfogyott) nincs vállalt határidő.
+const allBackorder = product.hasVariants && product.variants.length > 0
+  ? product.variants.every((v) => isBackorder(product, v))
+  : isBackorder(product);
+const stockState = allBackorder
+  ? 'backorder'
+  : product.availability === 'in_stock' ? 'in_stock' : 'preorder';
+
+// Részletfizetés: csak HU, gépeknél, a minimum felett. Ugyanez a feltétel adja
+// a hero részlet-sorát és a "Havi részlet" fület, így a #kalkulator anchor sosem lóg.
+const offerPriceForInstallment = product.salePrice ?? product.price;
+const installmentInfo = getInstallmentInfo(offerPriceForInstallment ?? 0);
+const showInstallment = locale === 'hu' && !isConsumable && product.installment !== false && installmentInfo.available;
+const longestTerm = installmentInfo.months[installmentInfo.months.length - 1];
+const heroInstallment = showInstallment && longestTerm
+  ? { downPayment: installmentInfo.downPayment, months: longestTerm, monthly: installmentInfo.monthly[longestTerm] }
+  : undefined;
+
+// Képek: a hero egyetlen nagy képet mutat (design fotó elöl, ha van); a Galéria
+// szekció az összes fotót (design + termék + extra + showroom) rácsban adja.
+const showroomKeys = Object.keys(manifest)
+  .filter((key) => key.startsWith(`@assets/showroom/${product.slug}/`))
+  .sort();
+const galleryImages = [...new Set([
+  ...product.designImages,
+  product.image,
+  ...product.gallery,
+  ...product.extraImages,
+  ...showroomKeys,
+])].filter(Boolean);
+const heroFirstImage = product.designImages[0] ?? product.image;
+const introImage = product.introImage
+  ?? product.designImages[1]
+  ?? product.gallery.find((img) => img !== heroFirstImage)
+  ?? product.image;
+
+// Kategória-testvérek: összehasonlító tábla (gépek) + RelatedProducts csak ha
+// maradt olyan testvér, ami nem fért a táblába.
+const { current: currentEntry, siblings } = await getCategorySiblings(product.slug, product.categorySlug);
+const comparison = !isConsumable && currentEntry ? buildComparison(locale, currentEntry, siblings) : null;
+const showRelated = siblings.length > (comparison ? COMPARISON_SIBLINGS : 0);
 
 // FAQ questions for schema (if available)
 const faqQuestions = resolvedFaq.map(item => ({
@@ -188,6 +220,55 @@ const reviewSchema = ratedTestimonials.map((tm) => {
 // Offer price validity end of next year.
 const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
 
+/**
+ * Szállítási adat a strukturált ajánlathoz.
+ *
+ * Korábban itt fixen "0 HUF" díj és 10-20 NAPOS kézbesítés szerepelt minden
+ * terméken - egyik sem igaz: a kellék-ágon 1 490 / 3 490 Ft a díj, a
+ * kézbesítés pedig munkanapokban mérhető. A Merchant Center a feedet ÖSSZEVETI
+ * az oldal strukturált adatával, tehát a hamis 0 Ft ott is elutasítást hozna.
+ *
+ * Nagy értékű gépeknél (>= SHIPPING_THRESHOLD) nincs automatizált futár - ott a
+ * `shippingDetails` teljesen kimarad, mert a kiszállítás egyedi egyeztetés
+ * alapján történik, díja előre nem állítható. (A Merchant Center feed ilyenkor
+ * az ingyenes személyes átvételt adja meg; lásd lib/merchant/feed.ts.)
+ */
+const offerPrice = product.salePrice || product.price;
+const shippingDetails = courierOptionsForPrice(offerPrice).map((option) => ({
+  "@type": "OfferShippingDetails",
+  "shippingRate": {
+    "@type": "MonetaryAmount",
+    "value": String(option.fee),
+    "currency": "HUF"
+  },
+  "shippingDestination": {
+    "@type": "DefinedRegion",
+    "addressCountry": "HU"
+  },
+  "deliveryTime": {
+    "@type": "ShippingDeliveryTime",
+    "handlingTime": {
+      "@type": "QuantitativeValue",
+      "minValue": option.handling.min,
+      "maxValue": option.handling.max,
+      "unitCode": "DAY"
+    },
+    "transitTime": {
+      "@type": "QuantitativeValue",
+      "minValue": option.transit.min,
+      "maxValue": option.transit.max,
+      "unitCode": "DAY"
+    }
+  }
+}));
+
+// A galéria képei is bekerülnek a schema-ba (a Google több képet is felhasznál
+// a rich resulthoz), abszolút URL-re oldva, duplikáció nélkül.
+const schemaImages = [...new Set([ogImage, ...(product.gallery ?? []).map(getOgImagePath)])]
+  .filter(Boolean)
+  .slice(0, 6)
+  .map((path) => new URL(path, SITE.url).href);
+
 // Product schema
 const productSchema = product.price ? {
   "@context": "https://schema.org",
@@ -196,8 +277,8 @@ const productSchema = product.price ? {
   "name": displayName,
   "description": displayShortDesc || displayDesc?.slice(0, 200),
   "sku": product.sku,
-  "brand": { "@type": "Brand", "name": "Skinlab" },
-  "image": [new URL(ogImage, SITE.url).href],
+  "brand": { "@type": "Brand", "name": resolveBrand(product.name, product.brand) },
+  "image": schemaImages,
   "offers": {
     "@type": "Offer",
     "url": pageUrl,
@@ -212,37 +293,12 @@ const productSchema = product.price ? {
     "seller": { "@type": "Organization", "@id": `${SITE.url}#organization`, "name": "Skinlab Hungary" },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
+      "applicableCountry": "HU",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
       "merchantReturnDays": 14,
       "returnMethod": "https://schema.org/ReturnByMail"
     },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "HUF"
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "HU"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 1,
-          "maxValue": 3,
-          "unitCode": "DAY"
-        },
-        "transitTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 10,
-          "maxValue": 20,
-          "unitCode": "DAY"
-        }
-      }
-    }
+    ...(shippingDetails.length > 0 ? { "shippingDetails": shippingDetails } : {})
   },
   ...(aggregateRating ? { "aggregateRating": aggregateRating, "review": reviewSchema } : {})
 } : null;
@@ -267,7 +323,8 @@ const productSchema = product.price ? {
   <BreadcrumbSchema items={breadcrumbItems} currentUrl={pageUrl} />
   {faqQuestions.length > 0 && <FAQSchema url={pageUrl} questions={faqQuestions} />}
 
-  <div>
+  <!-- Termék-szintű akcentus-téma (global.css [data-product-theme]); nélküle márkarózsaszín. -->
+  <div data-product-theme={product.theme}>
 
     <!-- 0. BREADCRUMB -->
     <Breadcrumb
@@ -275,9 +332,10 @@ const productSchema = product.price ? {
       categorySlug={product.categorySlug}
       categoryName={categoryName}
       productName={displayName}
+      hideCategory={isCategoryPage}
     />
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO (egy nagy kép + "Mind a N fotó", ár alatt részlet-sor) -->
     <ProductHero
       locale={locale}
       slug={product.slug}
@@ -289,18 +347,21 @@ const productSchema = product.price ? {
       salePrice={product.salePrice}
       image={product.image}
       gallery={product.gallery}
+      designImages={product.designImages}
       availability={product.availability}
       hasVariants={product.hasVariants}
       variants={product.variants}
       featured={product.featured}
       categorySlug={product.categorySlug}
       variantImageSets={variantImageSets}
+      installment={heroInstallment}
+      hero={product.hero}
     />
 
-    <!-- 1.1. USP STRIP (brand-wide trust promises, above the fold) -->
-    <USPStrip />
+    <!-- 2. USP STRIP -->
+    <USPStrip consumable={isConsumable} warrantyYears={warrantyYears} stock={stockState} />
 
-    <!-- 1.5. VARIANT DETAILS (description + comparison table) -->
+    <!-- 3. VARIANT DETAILS -->
     {product.hasVariants && product.variants.length > 0 && (
       <VariantDetails
         locale={locale}
@@ -309,87 +370,141 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 3. ROI CALCULATOR -->
-    <ROICalculator
-      locale={locale}
-      productPrice={product.price}
-      productName={displayName}
-      defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
-    />
-
-    <!-- 3.5. INSTALLMENT CALCULATOR (HU, above installment minimum) -->
-    {showInstallment && product.price && (
-      <InstallmentCalculator price={product.price} productName={displayName} />
-    )}
-
-    <!-- 3.7. FOUNDER CONSULT (személyes segítség - tanácsadói hang) -->
-    <FounderConsult
-      ctaHref="/konzultacio"
-      eventPrefix="product"
-      heading={{ pre: 'Nem biztos, hogy', highlight: 'ez a megfelelő gép', post: 'a szalonodnak?' }}
-    />
-
-    <!-- 4. VIDEO + DESCRIPTION -->
+    <!-- 4. INTRO: mi ez a gép (videó, vagy nagy fotó + kulcsszámok) -->
     {content.videoDescription && (
       <VideoDescription
         locale={locale}
         videoUrl={firstVideoUrl}
         productName={displayName}
         content={content.videoDescription}
+        fallbackImage={introImage}
+        fallbackContain={Boolean(product.introImage)}
+        localVideo={product.introVideo}
+        stats={content.stats}
       />
     )}
 
-    <!-- 5. CTA: after video -->
-    <ProductCTA
-      locale={locale}
-      productName={displayName}
-      variant="light"
-      headline={content.cta?.afterVideo?.text}
-      buttonLabel={content.cta?.afterVideo?.buttonLabel}
-      phoneLabel={content.cta?.afterVideo?.phoneLabel}
-      showPhone={true}
-    />
-
-    <!-- 5.5. GALLERY SECTION (secondary product images, deeper in the page) -->
-    {product.extraImages && product.extraImages.length > 0 && (
-      <ProductGallerySection
-        images={product.extraImages}
-        productName={displayName}
-        headline="Galéria"
-      />
-    )}
+    <!-- 5. VÉLEMÉNY #1 -->
+    <VideoQuote testimonial="anna" videoSide="left" />
 
     <!-- 6. FEATURE ROWS -->
-    {content.featureRows && (
+    {content.featureRows && content.featureRows.features.length > 0 && (
       <FeatureRows
         locale={locale}
         content={content.featureRows}
       />
     )}
 
-    <!-- 7. CTA: after features (showroom invite + per-product gallery) -->
-    {content.featureRows && (
-      <ProductCTA
-        locale={locale}
+    <!-- 7. GALÉRIA (minden fotó; a hero csak egyet mutat) -->
+    {galleryImages.length > 1 && (
+      <ProductGallerySection
+        images={galleryImages}
         productName={displayName}
-        variant="accent"
-        headline={content.cta?.afterFeatures?.headline}
-        subtitle={content.cta?.afterFeatures?.subtitle}
-        buttonLabel={content.cta?.afterFeatures?.buttonLabel}
-        showPhone={true}
-        productSlug={locale === 'hu' ? product.slug : undefined}
+        maxTiles={8}
       />
     )}
 
-    <!-- 8. TRAINING SECTION -->
+    <!-- 7b. HOGYAN MŰKÖDIK? (csak ha a termék tartalma megadja) -->
+    {content.science && content.science.features.length > 0 && (
+      <FeatureRows
+        locale={locale}
+        content={content.science}
+        id="hogyan-mukodik"
+        tone="tint"
+      />
+    )}
+
+    {!isConsumable && (
+      <>
+        {/* 8. MEGÉRI? (megtérülés + havi részlet) */}
+        <FinanceSection
+          locale={locale}
+          price={offerPriceForInstallment}
+          defaultTreatmentPrice={content.roi?.defaultTreatmentPrice}
+          showInstallment={showInstallment}
+        />
+
+        {/* 9. VÉLEMÉNY #2 */}
+        <VideoQuote testimonial="adri" videoSide="right" />
+      </>
+    )}
+
+    <!-- 10. TRAINING -->
     {content.training && (
       <TrainingCard
         locale={locale}
         content={content.training}
+        images={product.trainingImages}
       />
     )}
 
-    <!-- 9. TESTIMONIALS -->
+    <!-- 11. VÉLEMÉNY #3 -->
+    {!isConsumable && <VideoQuote testimonial="hajnalka" videoSide="left" />}
+
+    <!-- 12. OWNER STORY (átadás + betanítás fotók egy valódi vevőnél; mappa-vezérelt) -->
+    <OwnerStory
+      locale={locale}
+      slug={product.slug}
+      productName={displayName}
+      ownerName={content.ownerStory?.ownerName}
+      intro={content.ownerStory?.intro}
+    />
+
+    <!-- 13. SZEMÉLYES SEGÍTSÉG (a termék szakértői idézetével) -->
+    <FounderConsult
+      eventPrefix="product"
+      heading={isConsumable ? 'consumable' : 'machine'}
+      tone="dark"
+      quote={resolvedExpertQuote}
+    />
+
+    <!-- 14. TECH SPECS -->
+    {Object.keys(resolvedSpecs).length > 0 && (
+      <TechSpecs
+        locale={locale}
+        specs={resolvedSpecs}
+        productName={displayName}
+        datasheet={product.datasheet}
+        title={isConsumable && locale === 'hu' ? 'Termékadatok' : undefined}
+        subtitle={isConsumable && locale === 'hu'
+          ? `A ${displayName} részletes adatai`
+          : undefined}
+      />
+    )}
+
+    <!-- 15. ÖSSZEHASONLÍTÁS a kategória többi gépével -->
+    {comparison && <ProductComparison locale={locale} table={comparison} />}
+
+    <!-- 16. FUNCTION CARDS -->
+    {resolvedFunctionCards.length > 0 && (
+      <FunctionCards
+        locale={locale}
+        functions={resolvedFunctionCards}
+      />
+    )}
+
+    <!-- 17. WHATS INCLUDED -->
+    {resolvedWhatsIncluded.length > 0 && (
+      <WhatsIncluded
+        locale={locale}
+        items={resolvedWhatsIncluded}
+        productName={displayName}
+        showWarrantyBadge={!isConsumable}
+        title={isConsumable && locale === 'hu' ? 'Mit tartalmaz a csomag?' : undefined}
+        subtitle={isConsumable && locale === 'hu' ? 'A kiszerelés pontos tartalma' : undefined}
+      />
+    )}
+
+    <!-- 18. WARRANTY (összefoglaló + link a /garancia/ oldalra) -->
+    {!isConsumable && (
+      <WarrantyService locale={locale} productName={displayName} warrantyYears={warrantyYears} compact />
+    )}
+
+    <!-- 19. VÉLEMÉNY #4 -->
+    <VideoQuote testimonial="dori" videoSide="right" />
+
+    <!-- 20. TESTIMONIALS (szöveges; a Product schema review-jai ezekből épülnek,
+         ezért láthatónak kell maradniuk) -->
     {resolvedTestimonials.length > 0 && (
       <Testimonials
         locale={locale}
@@ -398,44 +513,19 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 10. EXPERT QUOTE -->
-    {resolvedExpertQuote && (
-      <ExpertQuote
-        locale={locale}
-        quote={resolvedExpertQuote.quote}
-        author={resolvedExpertQuote.author}
-        role={resolvedExpertQuote.role}
-        image={resolvedExpertQuote.image}
-      />
-    )}
-
-    <!-- 11. TECH SPECS -->
-    {Object.keys(resolvedSpecs).length > 0 && (
-      <TechSpecs
-        locale={locale}
-        specs={resolvedSpecs}
-        productName={displayName}
-      />
-    )}
-
-    <!-- 12. FUNCTION CARDS -->
-    {resolvedFunctionCards.length > 0 && (
-      <FunctionCards
-        locale={locale}
-        functions={resolvedFunctionCards}
-      />
-    )}
-
-    <!-- 13. FAQ -->
+    <!-- 21. FAQ -->
     {resolvedFaq.length > 0 && (
       <ProductFAQ
         locale={locale}
         faq={resolvedFaq}
         productName={displayName}
+        subtitle={isConsumable && locale === 'hu'
+          ? `Minden, amit a ${displayName} készítményről tudni érdemes`
+          : undefined}
       />
     )}
 
-    <!-- 13.5 BUYER CHECKLIST -->
+    <!-- 22. BUYER CHECKLIST -->
     {content.buyerChecklist && content.buyerChecklist.items.length > 0 && (
       <BuyerChecklist
         locale={locale}
@@ -445,19 +535,7 @@ const productSchema = product.price ? {
       />
     )}
 
-    <!-- 14. WHATS INCLUDED -->
-    {resolvedWhatsIncluded.length > 0 && (
-      <WhatsIncluded
-        locale={locale}
-        items={resolvedWhatsIncluded}
-        productName={displayName}
-      />
-    )}
-
-    <!-- 15. WARRANTY -->
-    <WarrantyService locale={locale} productName={displayName} />
-
-    <!-- 16. CTA SECTION -->
+    <!-- 23. CTA SECTION -->
     <ProductCTA
       locale={locale}
       productName={displayName}
@@ -468,12 +546,17 @@ const productSchema = product.price ? {
       showPhone={true}
     />
 
-    <!-- 17. RELATED PRODUCTS -->
-    <RelatedProducts
-      locale={locale}
-      currentSlug={product.slug}
-      categorySlug={product.categorySlug}
-    />
+    <!-- 24. RELATED PRODUCTS (csak ha maradt testvér az összehasonlításon kívül) -->
+    {showRelated && (
+      <RelatedProducts
+        locale={locale}
+        currentSlug={product.slug}
+        categorySlug={product.categorySlug}
+        subtitle={isConsumable && locale === 'hu'
+          ? 'Nézd meg a kategória további kezelőanyagait'
+          : undefined}
+      />
+    )}
 
   </div>
 

@@ -11,6 +11,8 @@ dist/
 .env
 .env.*
 !.env.example
+# Nem titok: a produkciós build PUBLIC_* értékei (tracking-piac, CMP) — commitolva.
+!.env.production
 
 # IDE
 .vscode/
@@ -36,4 +38,13 @@ npm-debug.log*
 # Developer reference material (not part of production build)
 references/
 homepage-redesign-mockup.html
-package-lock.json
+# package-lock.json: NEM ignoralt tobbe. A Cloudflare Workers Builds
+# `npm clean-install`-lal telepit, aminek KELL a lockfile; enelkul a build
+# az install lepesnel hal meg. A lockot Linuxon kell generalni
+# (.github/workflows/lockfile.yml) — Windowson az npm kipucolja a
+# Linux-only opcionalis agakat.
+
+# pnpm: csak lokalis fejlesztoi telepiteshez hasznaljuk (kozos store D:/.pnpm-store).
+# A CI es a Cloudflare Workers Builds tovabbra is npm + package-lock.json alapon fut,
+# ezert a pnpm lockfile NEM mehet a repoba.
+pnpm-lock.yaml

@@ -102,6 +102,13 @@ export const orderSchema = z.object({
   utmContent: z.string().max(200).optional().default(''),
   gclid: z.string().max(300).optional().default(''),
   fbclid: z.string().max(300).optional().default(''),
+  gbraid: z.string().max(300).optional().default(''),
+  wbraid: z.string().max(300).optional().default(''),
+  msclkid: z.string().max(300).optional().default(''),
+  fbc: z.string().max(300).optional().default(''),
+  fbp: z.string().max(300).optional().default(''),
+  // First-party visitor id → Meta external_id (hashed server-side).
+  external_id: z.string().max(100).optional().default(''),
   referrer: z.string().max(500).optional().default(''),
 });
 

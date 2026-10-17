@@ -7,9 +7,16 @@
  * picked up correctly (Astro v6 inlines `import.meta.env.X` at build
  * time, which silently broke every integration before this refactor).
  */
+import { env as workerEnv } from 'cloudflare:workers';
 import type { ContactFormData, ConsultationFormData } from './schemas';
 import { generateLeadId, anonymizeIp } from './schemas';
 import { readEnv } from '@/lib/env';
+import {
+  sendGatewayConversion,
+  type ConsentState,
+  type GatewayEnv,
+  type GatewayEventName,
+} from '@/lib/tracking/gateway-dispatch';
 
 /**
  * Escape HTML special characters to prevent XSS in email templates
@@ -23,6 +30,79 @@ function escapeHtml(str: string): string {
     "'": '&#39;',
   };
   return str.replace(/[&<>"']/g, (char) => htmlEscapes[char]);
+}
+
+/**
+ * Per-request tracking context for the gateway (server) leg of form
+ * conversions. Built by the API route from the incoming request:
+ * `eventId` is the BROWSER's event_id (hidden field / payload) so the Meta
+ * Pixel↔CAPI pair dedups; consent is read from the same CookieYes cookie the
+ * browser reads, so the two legs cannot disagree.
+ */
+export interface FormTrackingContext {
+  eventId: string;
+  consent?: ConsentState;
+  /** Saját CMP döntés-lánc azonosító (sbo_consent) → consent_receipts.consent_id. */
+  consentId?: string;
+  clientIpAddress?: string;
+  clientUserAgent?: string;
+  eventSourceUrl?: string;
+}
+
+/**
+ * Gateway (server) leg of a form conversion — server-ingress-only events
+ * (quote_calculator_submitted / contact_form_submitted) never leave the
+ * browser; this is their ONLY route to Meta CAPI / offline Google Ads.
+ * The lead flow NEVER fails because tracking failed: log and move on.
+ */
+async function dispatchGatewayLeadConversion(
+  eventName: GatewayEventName,
+  leadData: Pick<
+    LeadData,
+    | 'email' | 'phone' | 'gclid' | 'fbclid' | 'utmSource' | 'utmMedium' | 'utmCampaign'
+    | 'fbc' | 'fbp' | 'externalId'
+  >,
+  crmLeadId: string | undefined,
+  tracking: FormTrackingContext,
+): Promise<void> {
+  try {
+    const result = await sendGatewayConversion(workerEnv as unknown as GatewayEnv, {
+      eventName,
+      eventId: tracking.eventId,
+      leadId: crmLeadId,
+      userData: {
+        email: leadData.email || undefined,
+        phone_number: leadData.phone || undefined,
+        external_id: leadData.externalId || undefined,
+      },
+      // Meta Browser/Click ID — the form's hidden fields. Without these the
+      // server leg reaches Meta with email+phone only (EMQ: "your server is not
+      // sending fbc/fbp through Conversions API").
+      fbp: leadData.fbp || undefined,
+      fbc: leadData.fbc || undefined,
+      attribution: {
+        gclid: leadData.gclid || undefined,
+        fbclid: leadData.fbclid || undefined,
+        utm_source: leadData.utmSource || undefined,
+        utm_medium: leadData.utmMedium || undefined,
+        utm_campaign: leadData.utmCampaign || undefined,
+      },
+      consent: tracking.consent,
+      consentId: tracking.consentId,
+      eventSourceUrl: tracking.eventSourceUrl,
+      clientIpAddress: tracking.clientIpAddress,
+      clientUserAgent: tracking.clientUserAgent,
+    });
+    if (!result.ok) {
+      console.error(JSON.stringify({
+        level: 'error', message: 'gateway dispatch failed',
+        event_name: eventName, event_id: tracking.eventId,
+        status: result.status, error: result.error,
+      }));
+    }
+  } catch (err) {
+    console.error('[tracking] gateway dispatch threw:', err instanceof Error ? err.message : err);
+  }
 }
 
 interface SubmissionResult {
@@ -54,6 +134,13 @@ interface LeadData {
   utmContent?: string;
   gclid?: string;
   fbclid?: string;
+  gbraid?: string;
+  wbraid?: string;
+  msclkid?: string;
+  fbc?: string;
+  fbp?: string;
+  /** First-party visitor id → Meta `external_id` (hashed by the gateway). */
+  externalId?: string;
   referrer?: string;
   userAgent?: string;
 }
@@ -101,6 +188,8 @@ export async function processFormSubmission(
   /** Google Sheets tab to append to. Defaults to "Kapcsolat"; training
    *  signups pass "Képzések". Both tabs share the A–S column layout. */
   sheetName: string = 'Kapcsolat',
+  /** Gateway server-leg context (browser event_id + consent) from the route. */
+  tracking?: FormTrackingContext,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -124,6 +213,12 @@ export async function processFormSubmission(
     utmContent: data.utmContent,
     gclid: data.gclid,
     fbclid: data.fbclid,
+    gbraid: data.gbraid,
+    wbraid: data.wbraid,
+    msclkid: data.msclkid,
+    fbc: data.fbc,
+    fbp: data.fbp,
+    externalId: data.external_id,
     referrer: data.referrer,
     userAgent,
   };
@@ -136,6 +231,28 @@ export async function processFormSubmission(
   ]);
   const sheetsOk = channels[0];
   const notifyOk = channels[1];
+
+  // CRM lead-webhook — best-effort (kapcsolati + képzés űrlap is). Sosem buktatja a beküldést;
+  // a teljes attribúciót (gclid/fbclid/utm) is továbbítja a CRM konverzió-illesztéséhez.
+  const crm = await postLeadToCrm(leadToCrmBody(leadData)).catch((err) => {
+    console.error('[contact] CRM forward failed:', err instanceof Error ? err.message : err);
+    return { success: false } as CrmForwardResult;
+  });
+
+  // Gateway (server) leg: contact_form_submitted with the browser's event_id;
+  // lead_id ONLY if the CRM returned its record id.
+  if (tracking) {
+    // A képzés-jelentkezés SAJÁT konverzió (Meta CompleteRegistration) — ugyanaz
+    // a `leadType === 'training'` elágazás dönti el, mint a Sheets-fület. Korábban
+    // mindkettő `contact_form_submitted`-et küldött, ezért a Metában a képzés és a
+    // kapcsolati űrlap egyetlen Contact-vödörbe folyt össze.
+    await dispatchGatewayLeadConversion(
+      sheetName === 'Képzések' ? 'training_signup_submitted' : 'contact_form_submitted',
+      leadData,
+      crm.success && crm.id ? crm.id : undefined,
+      tracking,
+    );
+  }
 
   if (sheetsOk || notifyOk) {
     return { success: true, leadId };
@@ -420,7 +537,7 @@ function generateConfirmationEmailHtml(data: LeadData): string {
 
   <p style="color: #888; font-size: 12px;">
     Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
-    Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+    Skinlab Beauty Equipment Kft. | 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
     Hivatkozási szám: ${data.leadId}
   </p>
 </body>
@@ -557,6 +674,8 @@ export async function processConsultationSubmission(
   ip: string,
   userAgent?: string,
   waitUntil?: (p: Promise<unknown>) => void,
+  /** Gateway server-leg context (browser event_id + consent) from the route. */
+  tracking?: FormTrackingContext,
 ): Promise<SubmissionResult> {
   const leadId = generateLeadId();
   const timestamp = new Date().toISOString();
@@ -582,6 +701,12 @@ export async function processConsultationSubmission(
     utmContent: data.utmContent,
     gclid: data.gclid,
     fbclid: data.fbclid,
+    gbraid: data.gbraid,
+    wbraid: data.wbraid,
+    msclkid: data.msclkid,
+    fbc: data.fbc,
+    fbp: data.fbp,
+    externalId: data.external_id,
     referrer: data.referrer,
     userAgent,
   };
@@ -601,13 +726,45 @@ export async function processConsultationSubmission(
   // On Cloudflare Workers fire-and-forget fetches can be terminated before the
   // response resolves. If the caller passes ctx.waitUntil, register the promise;
   // otherwise fall back to await so the work isn't dropped.
-  const crmPromise = sendToCrm(leadData).catch((err) => {
+  const crmPromise = postLeadToCrm(
+    leadToCrmBody(leadData, 'form', {
+      form_key: 'skinlab_consult',
+      // A kulcsok 1:1 a CRM skinlab_consult form-configgal; a select-`value`-k (timeline/
+      // businessType/experience) is egyeznek a wizard enumjaival → strukturáltan jelennek
+      // meg a lead alatt (need_type/message marad a gyors pillantáshoz).
+      answers: {
+        product: leadData.product,
+        timeline: leadData.timeline,
+        businessType: leadData.businessType,
+        experience: leadData.experience,
+        ...(leadData.message ? { message: leadData.message } : {}),
+      },
+    }),
+  ).catch((err) => {
     console.error('CRM webhook failed:', err instanceof Error ? err.message : err);
+    return { success: false } as CrmForwardResult;
+  });
+
+  // Gateway (server) leg chained onto the CRM forward so the CRM's record id
+  // can become lead_id — a failed CRM call sends the conversion WITHOUT
+  // lead_id. Runs in the same waitUntil chain: no added user-facing latency.
+  const crmAndTrackPromise = crmPromise.then(async (crm) => {
+    if (tracking) {
+      // Konzultáció-kérés = SAJÁT konverzió (Meta Schedule). A korábbi
+      // `quote_calculator_submitted` a többi Soborbo-site fő lead-eseménye, Meta
+      // Lead-re képezve — ott hagyva a konzultáció nem lett volna külön mérhető.
+      await dispatchGatewayLeadConversion(
+        'consultation_request_submitted',
+        leadData,
+        crm.success && crm.id ? crm.id : undefined,
+        tracking,
+      );
+    }
   });
   if (waitUntil) {
-    waitUntil(crmPromise);
+    waitUntil(crmAndTrackPromise);
   } else {
-    await crmPromise;
+    await crmAndTrackPromise;
   }
 
   if (sheetsOk || notifyOk) {
@@ -832,7 +989,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
         </a>
       </p>
       <p style="color: #78716c; font-size: 13px; margin: 0;">
-        Skinlab SHOWROOM: 2030 Érd, Budai út 28.<br>
+        Skinlab SHOWROOM: 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
         Email: <a href="mailto:hello@skinlabhungary.hu" style="color: #db2777;">hello@skinlabhungary.hu</a>
       </p>
     </div>
@@ -841,7 +998,7 @@ function generateConsultationConfirmationEmailHtml(data: ConsultationLeadData): 
 
     <p style="color: #9ca3af; font-size: 11px; text-align: center; line-height: 1.5;">
       Ez az email automatikusan lett küldve. Kérjük, ne válaszolj rá.<br>
-      Skinlab Beauty Equipment Kft. | 2030 Érd, Budai út 28.<br>
+      Skinlab Beauty Equipment Kft. | 2030 Érd, Bajcsy-Zsilinszky út 156.<br>
       Hivatkozási szám: ${data.leadId}
     </p>
   </div>
@@ -989,33 +1146,81 @@ function generateConsultationNotificationEmailHtml(data: ConsultationLeadData): 
  * Send consultation lead data to CRM via webhook
  * Uses the same schema as the CRM's /api/webhook/lead endpoint
  */
-async function sendToCrm(data: ConsultationLeadData): Promise<void> {
+export interface CrmForwardResult {
+  success: boolean;
+  /** The CRM's own record id from the webhook response ({success, id}). */
+  id?: string;
+}
+
+/** Generic CRM lead-webhook POST. Skips (warns) if not configured; throws on non-2xx.
+ *  Returns the CRM's record id — that, and ONLY that, may become the tracking
+ *  gateway `lead_id` (a site-minted id is worse than NULL: unjoinable-but-populated). */
+export async function postLeadToCrm(body: Record<string, unknown>): Promise<CrmForwardResult> {
   const crmWebhookUrl = readEnv('CRM_WEBHOOK_URL');
   const crmWebhookSecret = readEnv('CRM_WEBHOOK_SECRET');
 
   if (!crmWebhookUrl || !crmWebhookSecret) {
     console.warn('CRM_WEBHOOK_URL or CRM_WEBHOOK_SECRET not configured, skipping CRM');
-    return;
+    return { success: false };
   }
 
   const response = await fetch(crmWebhookUrl, {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${crmWebhookSecret}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: data.name,
-      phone: data.phone,
-      email: data.email,
-      need_type: data.product,
-      utm_source: data.utmSource || 'skinlabhungary.hu',
-      marketing_consent: data.gdprConsent,
-    }),
+    headers: { Authorization: `Bearer ${crmWebhookSecret}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`CRM webhook returned ${response.status}: ${error}`);
+    throw new Error(`CRM webhook returned ${response.status}: ${await response.text()}`);
   }
+
+  const parsed = (await response.json().catch(() => null)) as
+    | { success?: boolean; id?: unknown }
+    | null;
+  return {
+    success: parsed?.success === true,
+    id: parsed?.id != null ? String(parsed.id) : undefined,
+  };
+}
+
+/**
+ * Map a lead (contact / training / consultation) to the CRM `/api/webhook/lead` payload —
+ * the FULL attribution set so the CRM can do Google Ads / Meta offline-conversion matching.
+ */
+export function leadToCrmBody(
+  data: LeadData,
+  sourceType: string = 'form',
+  // Opcionális strukturált kvíz-válaszok. Ha megadva, a CRM a kontakt-lead MELLÉ
+  // `lead_submissions` sort is ír (a `form_key` form-config-ja validál/címkéz). Enélkül
+  // a régi viselkedés marad: csak kontakt-lead jön létre. A `form_key` + az `answers`
+  // KULCSAI 1:1 a CRM form-configgal (soborbo-crm: lib/intake/forms/*).
+  intake?: { form_key: string; answers: Record<string, unknown> },
+): Record<string, unknown> {
+  return {
+    name: data.name,
+    phone: data.phone,
+    email: data.email,
+    need_type: data.product,
+    message: data.message,
+    source_type: sourceType,
+    consent_given: data.gdprConsent,
+    marketing_consent: false, // egységes GDPR-checkbox = adatkezelés, nem külön marketing-opt-in
+    attribution: {
+      landing_url: data.sourceUrl,
+      referrer: data.referrer,
+      utm_source: data.utmSource,
+      utm_medium: data.utmMedium,
+      utm_campaign: data.utmCampaign,
+      utm_content: data.utmContent,
+      utm_term: data.utmTerm,
+      gclid: data.gclid,
+      fbclid: data.fbclid,
+      gbraid: data.gbraid,
+      wbraid: data.wbraid,
+      msclkid: data.msclkid,
+      fbc: data.fbc,
+      fbp: data.fbp,
+    },
+    ...(intake ? { form_key: intake.form_key, answers: intake.answers } : {}),
+  };
 }

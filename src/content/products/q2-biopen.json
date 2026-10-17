@@ -9,14 +9,31 @@
   "metaTitle": "Bio Pen Q2 – EMS mikrotűs pen LED fényterápiával | Skinlab",
   "metaDescription": "Bio Pen Q2 vezeték nélküli EMS mikrotűs kezelőgép: microneedling, elektroporáció és kék/vörös LED fényterápia. Kollagénindukció, hatóanyag-bevitel, bőrmegújítás.",
   "price": 89990,
-  "image": "@assets/products/biopen1.png",
+  "image": "@assets/products/biopen-webshop-1.png",
   "gallery": [],
   "images": [
-    "@assets/products/biopen1.png",
-    "@assets/products/biopen2.png",
-    "@assets/products/biopen3.png",
-    "@assets/products/biopen4.png"
+    "@assets/products/biopen-webshop-1.png",
+    "@assets/products/biopen-webshop-2.png",
+    "@assets/products/biopen-webshop-3.png",
+    "@assets/products/biopen-tufej-valaszto.png"
   ],
+  "designImages": [
+    "@assets/products/biopen-design-1.jpg",
+    "@assets/products/biopen-design-2.jpg",
+    "@assets/products/biopen-design-3.jpg",
+    "@assets/products/biopen3.png"
+  ],
+  "introImage": "@assets/products/biopen-webshop-3.png",
+  "imageAlts": {
+    "biopen-webshop-1.png": "Bio Pen Q2 vezeték nélküli mikrotűs pen a sebességfokozat-kijelzővel",
+    "biopen-webshop-2.png": "Bio Pen Q2 aranyozott mikrotűs cartridge közelről",
+    "biopen-webshop-3.png": "Bio Pen Q2 mikrotűs pen a töltőtalpban",
+    "biopen-tufej-valaszto.png": "Bio Pen Q2 tűfej-választó: 9 tűs, 14 tűs, 25 tűs és nano cartridge",
+    "biopen-design-1.jpg": "Bio Pen Q2 mikrotűs pen páfránylevelek között",
+    "biopen-design-2.jpg": "Bio Pen Q2 mikrotűs cartridge zöld növények között",
+    "biopen-design-3.jpg": "Bio Pen Q2 mikrotűs pen M'ONDUNIQ kezelőanyagokkal",
+    "biopen3.png": "Bio Pen Q2 mikrotűs arckezelés a szalonban"
+  },
   "youtubeVideos": [],
   "availability": "preorder",
   "hasVariants": false,

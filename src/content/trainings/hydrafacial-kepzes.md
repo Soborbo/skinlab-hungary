@@ -148,4 +148,4 @@ Egy professzionális Hydro-Facial kezelés nem abból áll, hogy „végigmegyü
 
 ## Helyszín
 
-**Skinlab SHOWROOM** — 2030 Érd, Budai út 28.
+**Skinlab SHOWROOM** — 2030 Érd, Bajcsy-Zsilinszky út 156.

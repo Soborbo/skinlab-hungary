@@ -58,28 +58,28 @@ export const BANK = {
 export const LOCATIONS = {
   headquarters: {
     name: 'Székhely',
-    streetAddress: 'János utca 14.',
+    streetAddress: 'Bajcsy-Zsilinszky út 156.',
     postalCode: '2030',
     city: 'Érd',
     country: 'HU',
     countryName: 'Magyarország',
-    fullAddress: '2030 Érd, János utca 14.',
+    fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
   },
   showroom: {
     name: 'Skinlab SHOWROOM',
-    streetAddress: 'Budai út 28.',
+    streetAddress: 'Bajcsy-Zsilinszky út 156.',
     postalCode: '2030',
     city: 'Érd',
     country: 'HU',
     countryName: 'Magyarország',
-    fullAddress: '2030 Érd, Budai út 28.',
+    fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
     openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
     openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {
-      latitude: 47.378666588736394,
-      longitude: 18.9253785018499,
+      latitude: 47.4074715,
+      longitude: 18.8915312,
     },
-    googleMapsUrl: 'https://www.google.com/maps?q=47.378666588736394,18.9253785018499',
+    googleMapsUrl: 'https://www.google.com/maps?q=47.4074715,18.8915312',
   },
 };
 
@@ -134,7 +134,7 @@ export const CATEGORY_COLORS = {
     gradient: 'from-[#a9c9c4] to-[#8fb4ae]',
     gradientHero: 'from-[#e8f3f1] via-[#f1f9f7] to-white',
   },
-  coldplasma: {
+  hidegplazma: {
     accent: '#a9bcc9',       // powder blue
     accentLight: '#e8eff3',   // ice mist
     accentDark: '#6a8494',    // steel blue
@@ -161,6 +161,13 @@ export const CATEGORY_COLORS = {
     accentDark: '#7c8f6a',    // deep sage
     gradient: 'from-[#b8c4a9] to-[#a1ae8f]',
     gradientHero: 'from-[#edf1e8] via-[#f5f8f1] to-white',
+  },
+  bordiagnosztika: {
+    accent: '#b4b0c9',       // soft lavender
+    accentLight: '#eeedf5',   // lavender mist
+    accentDark: '#7a7494',    // deep lavender
+    gradient: 'from-[#b4b0c9] to-[#9d98b6]',
+    gradientHero: 'from-[#eeedf5] via-[#f5f4fa] to-white',
   },
   'anti-aging': {
     accent: '#d4b8c9',       // soft pearl pink
@@ -202,7 +209,7 @@ export const CATEGORIES = [
     icon: 'laser',
     image: '/images/opt/products/helios-1600w-diodalezer-1-480w.webp',
     featured: true,
-    productCount: 3,
+    productCount: 4,
     color: 'diodalezerek' as keyof typeof CATEGORY_COLORS,
   },
   {
@@ -224,22 +231,34 @@ export const CATEGORIES = [
     slug: 'hydrafacial',
     description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
     icon: 'droplet',
-    image: '/images/opt/products/hydrascanpro2-480w.webp',
+    image: '/images/opt/products/hydrascan-pro-2026-1-480w.webp',
     featured: true,
     productCount: 3,
     color: 'hydrafacial' as keyof typeof CATEGORY_COLORS,
   },
   {
-    id: 'coldplasma',
+    id: 'hidegplazma',
     name: 'Hidegplazma készülékek',
     nameShort: 'Hidegplazma',
-    slug: 'coldplasma',
+    slug: 'hidegplazma',
     description: 'Hidegplazma, termoplazma és ózonplazma technológiás kozmetikai készülékek.',
     icon: 'snowflake',
-    image: '/images/opt/products/the-frost-coldplasma-by-skinlab-1-480w.webp',
+    image: '/images/opt/products/the-frost-cold-plasma-by-skinlab-1-480w.webp',
     featured: true,
-    productCount: 2,
-    color: 'coldplasma' as keyof typeof CATEGORY_COLORS,
+    productCount: 1,
+    color: 'hidegplazma' as keyof typeof CATEGORY_COLORS,
+  },
+  {
+    id: 'bordiagnosztika',
+    name: 'AI bőrdiagnosztikai rendszer',
+    nameShort: 'Bőrdiagnosztika',
+    slug: 'bordiagnosztika',
+    description: 'AI-alapú bőranalízis és bőrdiagnosztikai rendszerek.',
+    icon: 'sparkles',
+    image: '/images/opt/products/skinetic-ai-professzionalis-ai-bordiagnosztikai-rendszer-1-480w.webp',
+    featured: true,
+    productCount: 1,
+    color: 'bordiagnosztika' as keyof typeof CATEGORY_COLORS,
   },
   {
     id: 'anti-aging',
@@ -315,14 +334,18 @@ export const CATEGORIES = [
   },
   {
     id: 'kezeloanyagok',
-    name: 'Kezelőanyagok',
-    nameShort: 'Kezelőanyagok',
+    // A kategoria 2026-08-06-tol kizarolag M'ONDUNIQ (a Farmona HydraLiquid es az
+    // OxyGenX pod-szettek archivalva). Az URL szandekosan marad /kezeloanyagok/:
+    // 20+ redirect celozza, mind a 9 nyelven felepult, es a "kezeloanyag" valos
+    // magyar keresokifejezes - a markanev a megjelenitett nevben van.
+    name: "M'ONDUNIQ professzionális kozmetikumok",
+    nameShort: "M'ONDUNIQ",
     slug: 'kezeloanyagok',
-    description: 'Hydrofacial oldatok, OxyGenX podok és hatóanyagok kozmetikai kezelésekhez.',
+    description: "M'ONDUNIQ professzionális kezelőanyagok: hydra-liquidek, hatóanyag-koktélok és exoszómás készítmények.",
     icon: 'droplet',
-    image: '/images/opt/products/hydraliquid-oldatok-1-480w.webp',
+    image: '/images/opt/products/monduniq-botopax-peptid-koktel-feher-szarvasgombaval-2-480w.webp',
     featured: true,
-    productCount: 2,
+    productCount: 16,
     color: 'kezeloanyagok' as keyof typeof CATEGORY_COLORS,
   },
 ] as const;
@@ -335,12 +358,18 @@ export const CATEGORIES = [
 export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   diodalezerek: '/images/opt/products/helios-1600w-diodalezer-1-828w.avif',
   hydrafacial: '/images/opt/products/hydrascan-pro-plus-1-800w.avif',
-  coldplasma: '/images/opt/products/aura-by-skinlab-hideg-plazma-keszulek-1-828w.avif',
+  // hidegplazma: nincs override. Az AURA archiválása (draft) óta a fallback adja a
+  // helyes képet: THE FROST fehér hátterű packshotja. (Megjegyzés: a két termék
+  // UGYANAZT a FROSTCOLD.webp fájlt használta, és a manifest az ábécében előbb
+  // álló AURA-ról nevezte el - ezért hívják a legenerált fájlokat máig
+  // "aura-by-skinlab-*"-nak. Vizuálisan mindig THE FROST volt.)
   mezoterapia: '/images/opt/products/dermatech-tu-nelkuli-mezoterapia-1-640w.avif',
   testkezeles: '/images/opt/products/freeze-me-slim-cryolipolysis-3-640w.avif',
-  sminktetovalas: '/images/opt/products/mast-p60-premium-3in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-rca-csatlakozo-fejjel-1-800w.avif',
+  sminktetovalas: '/images/opt/products/mast-p60-premium-2in1-sminktetovalo-gep-allithato-lokethosszal-pot-akkumulatorral-2-828w.avif',
   kellekek: '/images/opt/products/mast-oceanheart-tumodul-0-20mm-1rl-1-800w.avif',
-  kezeloanyagok: '/images/opt/products/oxygenx-pod-szett-detox-pod-1-800w.avif',
+  // A "-2" a BOTOPAX FEHER hattéru packshotja (a "-1" a szaten eletstilus-foto,
+  // ami a termekoldalak fokepe). Ez a map fehér hatteru kepeket ker.
+  kezeloanyagok: '/images/opt/products/monduniq-botopax-peptid-koktel-feher-szarvasgombaval-2-800w.avif',
 };
 
 export const TRUST_BADGES = [
@@ -362,7 +391,7 @@ export const TRUST_BADGES = [
   {
     icon: 'wrench',
     title: 'Saját szerviz',
-    description: 'Azonnali javítás, cseregép',
+    description: 'Gyors javítás, cseregép-program',
   },
 ];
 
@@ -381,6 +410,8 @@ export interface MegaMenuItem {
   count: number;
   descriptionKey: string;
   badgeKey?: string;
+  /** Rövidebb felirat a mobilmenühöz (ott nincs alatta leírássor). */
+  mobileLabelKey?: string;
 }
 
 export interface MegaMenuColumn {
@@ -396,7 +427,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.lasers',
       items: [
-        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 3, descriptionKey: 'megaMenu.diodeDesc' },
+        { labelKey: 'categories.diodalezerek', href: '/diodalezerek', count: 4, descriptionKey: 'megaMenu.diodeDesc' },
         { labelKey: 'categories.nd-yag-lezerek', href: '/nd-yag-lezerek', count: 2, descriptionKey: 'megaMenu.ndyagDesc' },
       ],
     },
@@ -405,7 +436,8 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.hydrafacial', href: '/hydrafacial', count: 3, descriptionKey: 'megaMenu.hydrafacialDesc' },
         { labelKey: 'categories.arckezelo-rendszerek', href: '/arckezelo-rendszerek', count: 1, descriptionKey: 'megaMenu.smartFacialDesc' },
-        { labelKey: 'categories.coldplasma', href: '/coldplasma', count: 2, descriptionKey: 'megaMenu.coldplasmaDesc' },
+        { labelKey: 'categories.hidegplazma', href: '/hidegplazma', count: 1, descriptionKey: 'megaMenu.hidegplazmaDesc' },
+        { labelKey: 'categories.bordiagnosztika', href: '/bordiagnosztika', count: 1, descriptionKey: 'megaMenu.bordiagnosztikaDesc' },
       ],
     },
     {
@@ -419,9 +451,9 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.pmu',
       items: [
-        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 3, descriptionKey: 'megaMenu.pmuDesc' },
+        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 4, descriptionKey: 'megaMenu.pmuDesc', mobileLabelKey: 'megaMenu.pmuShort' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
-        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 2, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 23, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],
@@ -436,10 +468,11 @@ export const MEGA_MENU: {
 // each category; these slugs override that because their first product's main
 // image is a lifestyle/non-white shot, and the menu must use white-bg images only.
 export const CATEGORY_MENU_IMAGE: Record<string, string> = {
-  hydrafacial: '@assets/products/HydraSCANPRO2.webp',
+  hydrafacial: '@assets/products/hydrascan-pro-plus-webshop-1.png',
   testkezeles: '@assets/products/freeze-me-slim-3.png',
   kellekek: '@assets/products/ocheart.webp',
-  kezeloanyagok: '@assets/products/Glam-Pods-Oxy-Genx.webp',
+  kezeloanyagok: '@assets/products/monduniq-botopax-peptid-koktel-1.webp',
+  sminktetovalas: '@assets/products/P60arany.webp',
 };
 
 // Simple navigation for header

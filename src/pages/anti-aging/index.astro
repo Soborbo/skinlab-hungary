@@ -1,13 +1,14 @@
 ---
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
+import antiAgingKezeles from '../../assets/products/biopen3.png';
 
 const category = {
   name: 'Anti-aging készülékek',
   nameShort: 'Anti-aging',
   slug: 'anti-aging',
-  description: 'RF, HIFU és egyéb bőrfiatalító technológiák.',
-  heroDescription: 'Bőrfeszesítés, ránckezelés, arcformálás műtét nélkül. Rádiófrekvenciás, HIFU és kombinált technológiák egy helyen.',
+  description: 'Vákuumos mikrotűs RF és EMS mikrotűs bőrfiatalító készülékek.',
+  heroDescription: 'Bőrfeszesítés, ránckezelés, hegkezelés műtét nélkül. Vákuumos mikrotűs RF és EMS mikrotűs technológia egy helyen.',
   badge: 'Fiatalosabb bőr',
   color: 'rose',
 };
@@ -20,7 +21,7 @@ const benefits = [
   {
     icon: 'target',
     title: 'Célzott feszesítés',
-    description: 'RF és HIFU technológia a mély szövetek eléréséhez. Valódi lifting hatás műtét nélkül.',
+    description: 'A mikrotűs RF a hőt közvetlenül a mélyebb bőrrétegekbe juttatja. Feszesítés műtét nélkül.',
   },
   {
     icon: 'clock',
@@ -35,18 +36,56 @@ const benefits = [
   {
     icon: 'coins',
     title: 'Prémium kezelési árak',
-    description: 'HIFU kezelés: 50-150.000 Ft. RF arckezelés: 20-40.000 Ft. Magas árrésű szolgáltatások.',
+    description: 'A mikrotűs RF és a mikrotűs bőrmegújító kezelések a szalonok magas árrésű, prémium szolgáltatásai közé tartoznak.',
   },
 ];
 
+// GYIK: "AESTIQ AI vagy Bio Pen Q2?" - a designer (Rebeka) szövege 2026-10-06,
+// magázásra igazítva. Utána a két általános kérdés marad.
 const faq = [
   {
-    question: 'Mi a különbség az RF és a HIFU kezelés között?',
-    answer: '<strong>RF (rádiófrekvencia):</strong> A bőr felső és középső rétegeit melegíti, serkenti a kollagén termelődést. Fájdalommentes, több kezelés szükséges.<br><br><strong>HIFU:</strong> Mélyebb rétegeket ér el, erősebb lifting hatás. Intenzívebb, de kevesebb kezelés kell. Enyhe kellemetlen érzés lehetséges.',
+    question: 'Mi a legfontosabb különbség az AESTIQ AI és a Bio Pen Q2 között?',
+    answer: 'A <strong>Bio Pen Q2</strong> egy kompakt, vezeték nélküli professzionális microneedling készülék, amely a mikrotűs kezelést EMS elektroporációval és LED fényterápiával kombinálja. Az <strong>AESTIQ AI</strong> ezzel szemben egy magasabb kategóriájú, professzionális vákuumos mikrotűs RF rendszer, amely rádiófrekvenciás energiát, vákuumos bőrstabilizálást, AI Educator rendszert és ANG™ kezelési támogatást egyesít. A két készülék tehát technológiailag és felhasználási célját tekintve is más kategóriát képvisel.',
+  },
+  {
+    question: 'Melyiket válasszam, ha most szeretném bevezetni a mikrotűs kezeléseket a szalonomba?',
+    answer: 'A Bio Pen Q2 ideális belépési pont lehet. Kis beruházással, egyszerűen beilleszthető a meglévő kezelési kínálatba, vezeték nélküli és könnyen hordozható. Microneedling, EMS elektroporáció és 470/630 nm-es LED fényterápia áll rendelkezésre egyetlen kézi készülékben.',
+  },
+  {
+    question: 'Mikor érdemes inkább az AESTIQ AI-t választanom?',
+    answer: 'Ha kifejezetten magasabb kategóriájú anti-aging, bőrfeszesítő, heges vagy textúrajavító kezeléseket szeretne kínálni, és egy komolyabb mikrotűs RF szolgáltatást építene fel. Az AESTIQ AI nem egyszerű dermapen: a mikrotűk mellett RF energiával dolgozik, vákuummal stabilizálja a kezelendő bőrfelületet, az AI Educator és ANG™ rendszer pedig a kezelő munkáját is támogatja.',
+  },
+  {
+    question: 'A Bio Pen Q2 is rádiófrekvenciás készülék?',
+    answer: 'Nem, és ez fontos különbség. A Bio Pen Q2 EMS mikroáramot (elektroporációt) használ, nem mikrotűs rádiófrekvenciát. Az AESTIQ AI valódi mikrotűs RF rendszer, amelynél az RF energia a tűs technológiával kombinálva fejti ki hatását.',
+  },
+  {
+    question: 'Van HIFU funkció az AESTIQ AI-ban?',
+    answer: 'Nincs. Az AESTIQ AI vákuumos mikrotűs RF készülék, nem HIFU. A Bio Pen Q2 sem HIFU készülék.',
+  },
+  {
+    question: 'Melyik készülék dolgozik mélyebb, intenzívebb anti-aging technológiával?',
+    answer: 'Az AESTIQ AI. A mikrotűs RF célja, hogy a mechanikai mikrotűs stimuláció mellett rádiófrekvenciás energiát is alkalmazzon a bőrben. A Bio Pen Q2 elsősorban microneedlingre, EMS elektroporációra és LED-del támogatott bőrmegújító kezelésekre szolgál.',
+  },
+  {
+    question: 'Melyik alkalmas hatóanyag-bevitelre?',
+    answer: 'Erre elsősorban a Bio Pen Q2 való. Az EMS elektroporáció a microneedlinggel kombinálva kifejezetten a professzionális hatóanyag-beviteli protokollok támogatására szolgál. Emellett tűmentes nano cartridge is rendelkezésre áll.',
+  },
+  {
+    question: 'Melyiket válasszam aknés hegek és egyenetlen bőrtextúra kezelésére?',
+    answer: 'Mindkét készülék beilleszthető bőrmegújító protokollokba, de eltérő szinten. A Bio Pen Q2 klasszikus microneedling-alapú megoldást kínál, míg az AESTIQ AI mikrotűs RF technológiával magasabb kategóriájú, intenzívebb kezelési szolgáltatás kialakítására alkalmas.',
+  },
+  {
+    question: 'Miért kerül jelentősen többe az AESTIQ AI?',
+    answer: 'Mert nem ugyanazt a technológiát kapja nagyobb gépházban. Az AESTIQ AI egy komplett professzionális platform: vákuumos mikrotűs RF + AI Educator + ANG™ kezelési támogatás. A Bio Pen Q2 ezzel szemben egy kompakt, vezeték nélküli microneedling + EMS + LED készülék. A választásnál ezért nem pusztán az árkülönbséget, hanem a bevezetni kívánt kezelés kategóriáját és árazhatóságát érdemes figyelembe venni.',
+  },
+  {
+    question: 'Röviden: melyiket válasszam?',
+    answer: '<strong>Bio Pen Q2</strong>, ha kedvező beruházással szeretne professzionális microneedling, EMS és LED kezeléseket bevezetni.<br><br><strong>AESTIQ AI</strong>, ha prémium, magasabb kezelési árú vákuumos mikrotűs RF anti-aging szolgáltatást szeretne kialakítani AI-alapú kezelői támogatással.',
   },
   {
     question: 'Mikor látható az eredmény?',
-    answer: 'RF kezelésnél azonnal látható enyhe feszesedés, de a valódi eredmény 4-6 hét alatt alakul ki. HIFU-nál 2-3 hónap alatt érik be a teljes hatás, de utána akár 1-2 évig is tarthat.',
+    answer: 'Közvetlenül a kezelés után enyhe feszesedés érezhető, a valódi eredmény a kollagén-újraképződéssel 4-6 hét alatt alakul ki. Kúraszerű kezeléssel a hatás fokozható.',
   },
   {
     question: 'Kinek ajánlott anti-aging kezelés?',
@@ -101,6 +140,8 @@ const choicesSubheading = 'Egy asztali AI-platform és egy mobil kézi pen – m
   category={category}
   products={products}
   benefits={benefits}
+  benefitsImage={antiAgingKezeles}
+  benefitsImageAlt="Bio Pen Q2 mikrotűs arckezelés a szalonban"
   faq={faq}
   comparison={comparison}
   choicesHeading={choicesHeading}

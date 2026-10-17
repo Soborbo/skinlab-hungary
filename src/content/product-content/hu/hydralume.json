@@ -1,0 +1,122 @@
+{
+  "name": "HydraLUME V10 arcápoló központ",
+  "shortDescription": "Vortex hydrodermabráziós arckezelő központ öt szárnyas LED-panellel és 12 kezelőfejjel: mélytisztítás, bőrfiatalítás, feszesítés, akne-kezelés, hidratálás és fejbőrápolás egy gépben.",
+  "description": "A HydraLUME V10 egy gépben adja a mélytisztítást, a bőrfiatalítást és a feszesítést: vortex hydrodermabrázió, összecsukható LED-panel és 12 külön kezelőfej, gurulós álló kivitelben, szalonba tervezve.",
+  "metaTitle": "HydraLUME V10 | Vortex hydrodermabrázió + LED arcápoló központ",
+  "metaDescription": "HydraLUME V10 – vortex hydrodermabráziós arckezelő központ öt szárnyas LED-panellel és 12 kezelőfejjel. Plug-in, gurulós, egyéni betanítással, 2 év garancia.",
+  "stats": [
+    { "value": "12", "label": "Külön kezelőfej", "icon": "layers" },
+    { "value": "5", "label": "Szárnyas LED-panel", "icon": "sun" },
+    { "value": "110–220", "unit": "V", "label": "Plug-in, azonnal használható", "icon": "bolt" },
+    { "value": "2", "unit": "év", "label": "Garancia", "icon": "shield" }
+  ],
+  "roi": { "defaultTreatmentPrice": 25000 },
+  "videoDescription": {
+    "headline": "HydraLUME V10 – mélytisztítás, fiatalítás és feszesítés egy gépben",
+    "paragraphs": [
+      "A HydraLUME V10 vortex hydrodermabrázióval dolgozik: forgó, örvénylő szívással szedi ki a mitesszereket és a tág pórusok szennyeződését. Ez a tisztítás minden további kezelés alapja.",
+      "Mellette ott van a karra szerelt, öt szárnyas LED-panel a fényterápiához, és 12 külön kezelőfej arcemeléshez, ránccsökkentéshez, akne-kezeléshez, hidratáláshoz és fejbőrápoláshoz. Így egy gépből építhetsz fel teljes arckezelési protokollt, a tisztítástól a lezárásig."
+    ]
+  },
+  "featureRows": {
+    "headline": "Miért válaszd a HydraLUME V10-et?",
+    "subtitle": "Vortex hydrodermabrázió, LED-fényterápia és 12 kezelőfej egy gurulós, plug-in arcápoló központban.",
+    "features": [
+      {
+        "title": "Vortex hydrodermabrázió-rendszer",
+        "description": "A vortex technika forgatva szív: az örvénylő mozgás miatt precízebb a tisztítás, alaposabban szedi ki a mitesszereket és a pórusok szennyeződését. Javítja a bőr textúráját, és minden további kezelés stabil alapja.",
+        "image": "@assets/products/hydralume-design-4.jpg",
+        "highlight": "A tisztítás az alap, erre épül minden további lépés."
+      },
+      {
+        "title": "LED-fényterápia, állítható panellel",
+        "description": "Öt szárnyas, karra szerelt LED-panel, ami az egész arcot lefedi. Bőrfiatalításhoz, a bőrtónus egységesítéséhez és a kezelés lezárásához használhatod, a szárnyak a vendég arcához állíthatók.",
+        "image": "@assets/products/hydralume-led-panel.png"
+      },
+      {
+        "title": "Feszesítés, arcemelés, ránccsökkentés",
+        "description": "Külön kezelőfejek a bőrfeszesítő és anti-aging kezelésekhez, így egy gépből építhetsz komplett fiatalító protokollt. Mind a 12 fej a gép tartójában van, kéznél a kezelés során.",
+        "image": "@assets/products/hydralume-kezelofejek.png"
+      },
+      {
+        "title": "Akne-kezelés és hidratálás",
+        "description": "Pattanásos, zsíros és vízhiányos bőrre is van megoldás. A tisztítás után a bőr hidratálását és megnyugtatását ugyanazon a gépen végzed, nem kell másik készülékhez átülnie a vendégnek.",
+        "image": "@assets/products/hydralume-design-3.jpg"
+      },
+      {
+        "title": "Fejbőr- és hajápolás, egyszerű kezelés",
+        "description": "A fésűs kezelőfejjel a fejbőrápolás is bekerül a szolgáltatásaid közé. Plug-in kialakítás: bedugod és indulhat, nincs bonyolult telepítés. A nagy kijelzőn minden funkció egy helyen van.",
+        "image": "@assets/products/hydralume-fesus-fej.png",
+        "highlight": "Új szolgáltatás a meglévő vendégeidnek."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Egyéni betanítás – a vételár része",
+    "badge": "Betanítás a vételárban",
+    "intro": "A HydraLUME V10 árában benne van az egyéni, személyre szabott betanítás. Végigmegyünk a gép minden funkcióján, és megmutatjuk, hogyan építs fel belőle teljes kezelési protokollt.",
+    "items": [
+      "A vortex hydrodermabrázió technikája és beállításai",
+      "A 12 kezelőfej szerepe és használata",
+      "A LED-panel beállítása és alkalmazása",
+      "Kezelési protokollok bőrtípus és bőrprobléma szerint",
+      "Fejbőrkezelés a fésűs kezelőfejjel",
+      "Higiénia, tisztítás és napi karbantartás"
+    ],
+    "closingParagraphs": [
+      "A betanítás mellé tananyagot is kapsz, és a vásárlás után is folyamatos támogatással segítünk, ha kérdésed van."
+    ],
+    "price": "A vételárban",
+    "priceNote": "benne van a betanítás",
+    "freeText": "INGYENES – a vételár tartalmazza!",
+    "duration": "Egyeztetett időpontban",
+    "ctaText": "Érdekel a betanítás"
+  },
+  "functionCards": [
+    { "icon": "droplet", "name": "Vortex hydrodermabrázió", "description": "Örvénylő szívás a mitesszerekre és a tág pórusokra." },
+    { "icon": "sun", "name": "LED-fényterápia", "description": "Öt szárnyas, állítható panel az egész arcra." },
+    { "icon": "sparkles", "name": "Feszesítés, arcemelés", "description": "Külön fejek az anti-aging kezelésekhez." },
+    { "icon": "target", "name": "Akne-kezelés", "description": "Pattanásos és zsíros bőr kezelése tisztítás után." },
+    { "icon": "bubbles", "name": "Hidratálás", "description": "Vízhiányos bőr hidratálása és megnyugtatása." },
+    { "icon": "wave", "name": "Fejbőrápolás", "description": "Fésűs kezelőfej a fejbőr- és hajápoláshoz." }
+  ],
+  "faq": [
+    {
+      "question": "Miben más a vortex hydrodermabrázió, mint a hagyományos vákuumos tisztítás?",
+      "answer": "A vortex technika nem egyenesen szív, hanem forgatva: az örvénylő mozgás miatt precízebb a tisztítás, és alaposabban szedi ki a mitesszereket és a pórusok szennyeződését. A bőr textúrája már az első kezelés után simábbnak tűnik."
+    },
+    {
+      "question": "Milyen kezelőfejek tartoznak a géphez?",
+      "answer": "12 külön kezelőfej és egy öt szárnyas LED-panel. A fejekkel mélytisztítást, feszesítést és arcemelést, ránccsökkentést, akne-kezelést, hidratálást és a fésűs fejjel fejbőrápolást végezhetsz."
+    },
+    {
+      "question": "Mire használható a LED-panel?",
+      "answer": "Bőrfiatalításhoz, a bőrtónus egységesítéséhez és a kezelés lezárásához. Az öt szárnyas, karra szerelt panel az egész arcot lefedi, és a vendég arcához állítható."
+    },
+    {
+      "question": "Kell valamilyen telepítés vagy külön bekötés?",
+      "answer": "Nem. A HydraLUME V10 plug-in kialakítású, 110–220 V-os hálózatról működik: bedugod és indulhat. A gép gurulós állványon áll, így a kabinon belül is könnyen mozgatható."
+    },
+    {
+      "question": "Mekkora helyet és súlyt kell számolni?",
+      "answer": "A gép álló, gurulós kivitelű, rozsdamentes acél vázzal, a súlya 47 kg. A LED-panel tartókarja összecsukható, így használaton kívül kevesebb helyet foglal."
+    },
+    {
+      "question": "Jár betanítás a géphez?",
+      "answer": "Igen. A vételár egyéni, személyre szabott betanítást tartalmaz, mellé tananyagot és folyamatos támogatást adunk. A betanítás időpontját veled egyeztetjük."
+    },
+    {
+      "question": "Meg lehet nézni a gépet vásárlás előtt?",
+      "answer": "Igen. Érdi showroomunkban (2030 Érd, Bajcsy-Zsilinszky út 156.) előzetes időpontfoglalással személyesen is megnézheted és kipróbálhatod a HydraLUME V10-et."
+    }
+  ],
+  "whatsIncluded": [
+    "HydraLUME V10 arcápoló központ",
+    "12 kezelőfej",
+    "Öt szárnyas LED-fényterápiás panel tartókarral",
+    "Egyéni, személyre szabott betanítás",
+    "Tananyag és folyamatos támogatás",
+    "2 év teljes körű garancia",
+    "Cseregép-program hosszabb javítás esetére"
+  ]
+}

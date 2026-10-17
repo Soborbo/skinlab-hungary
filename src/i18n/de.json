@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Skinlab Hungary - Professionelle Kosmetikgeräte",
-    "description": "Vertrieb professioneller Kosmetikgeräte. Diodenlaser, PMU-Geräte, ND:YAG-Laser und Multifunktionsgeräte mit 2 Jahren Garantie, kostenloser Schulung und sofortigem Service-Support."
+    "description": "Vertrieb professioneller Kosmetikgeräte. Diodenlaser, PMU-Geräte, ND:YAG-Laser und Multifunktionsgeräte mit Garantie, kostenloser Schulung und sofortigem Service-Support."
   },
   "nav": {
     "home": "Startseite",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Professionelle Kosmetikgerate",
-    "subtitle": "Diodenlaser, PMU-Gerate und Multifunktionsgerate mit 2 Jahren Garantie",
+    "subtitle": "Diodenlaser, PMU-Gerate und Multifunktionsgerate mit Garantie und eigenem Service",
     "cta": "Kostenlose Beratung",
     "ctaSecondary": "Produkte ansehen",
     "slide2": {
@@ -28,15 +28,19 @@
     },
     "slide3": {
       "title": "Schulung und Service an einem Ort",
-      "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf alle unsere Produkte"
+      "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf unsere Kosmetikgeräte"
     },
     "slide4": {
       "title": "Tattooentfernung mit ND:YAG-Laser",
-      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Lasern – preisgekrönte Geräte und lokaler Service"
+      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Laser, mit Service vor Ort in Ungarn"
     },
     "slide5": {
       "title": "Unser neuer Frame YAG Laser ist da!",
       "subtitle": "Bald in unserem Webshop erhältlich. Jetzt zur Produktvorführung anmelden"
+    },
+    "slide7": {
+      "title": "Neu: EMPIRE 4WAVE Diodenlaser",
+      "subtitle": "1200 W, 4 Wellenlängen, Mikrokamera-Haar- und Hautdiagnose und digitale Kundenkartei – ein intelligenteres System für die professionelle Haarentfernung."
     }
   },
   "categories": {
@@ -51,31 +55,29 @@
     "testkezeles": "Body Shaping",
     "sminktetovalas": "PMU-Gerate",
     "kellekek": "Zubehor",
-    "kezeloanyagok": "Behandlungsmaterialien",
-    "coldplasma": "Kaltplasma",
-    "productCount": "Produkte"
+    "kezeloanyagok": "M'ONDUNIQ",
+    "hidegplazma": "Kaltplasma",
+    "bordiagnosztika": "Hautdiagnostik",
+    "productCount": "Produkte",
+    "homeTitle": "Welche Behandlung möchten Sie anbieten?",
+    "homeSubtitle": "Wählen Sie den Bereich, und wir zeigen Ihnen die passenden Geräte für Ihren Salon.",
+    "suppliesTitle": "Zubehör und Behandlungsprodukte",
+    "showAll": "Alle {count} Kategorien",
+    "showLess": "Weniger Kategorien"
   },
   "trust": {
     "warranty": "2 Jahre Garantie",
-    "warrantyDesc": "Volle Garantie auf alle Gerate",
-    "shipping": "15-20 Werktage",
-    "shippingDesc": "Zuverlässige Lieferung mit vollständiger Zollabwicklung",
+    "warrantyDesc": "Auf Kosmetikgerate (Tattoo- und PMU-Gerate: 1 Jahr)",
+    "shipping": "Zuverlässige Lieferung",
+    "shippingDesc": "Lagerartikel ab Lager, Geräte in 15–20 Werktagen",
     "training": "FAR-Zertifikat",
     "trainingDesc": "Offizielle Bediener-Schulung",
     "service": "Eigener Service",
-    "serviceDesc": "Sofortige Reparatur, Leihgerat"
+    "serviceDesc": "Schnelle Reparatur, Ersatzgeräte-Programm"
   },
   "brands": {
     "title": "Unsere Marken",
-    "subtitle": "Exklusivvertrieb von Premium-Kosmetikmarken in Ungarn"
-  },
-  "stats": {
-    "soldUnits": "Verkaufte Novalight",
-    "warranty": "Garantie",
-    "deliveryTime": "Lieferzeit",
-    "hungarianService": "Ungarischer Service",
-    "yearsSuffix": "Jahre",
-    "weeksSuffix": "Wochen"
+    "subtitle": "Mit diesen Marken arbeiten wir, von den Geräten bis zu den Behandlungsprodukten."
   },
   "blog": {
     "title": "Blog | skinlab.",
@@ -139,7 +141,21 @@
     "videoPlaceholder": "Demo-Video in Kürze",
     "videoPlayLabel": "Video abspielen: {title} Demo",
     "trainingTitle": "Bedienerschulung",
-    "trainingContent": "Schulungsinhalte:"
+    "trainingContent": "Schulungsinhalte:",
+    "galleryTitle": "Galerie",
+    "allPhotos": "Alle {count} Fotos",
+    "moreImages": "+{count} Fotos",
+    "zoomImage": "{alt} – vergrößern",
+    "pauseMotion": "Pausieren",
+    "resumeMotion": "Abspielen",
+    "imageViewer": "Bildbetrachter",
+    "prevImage": "Vorheriges Bild",
+    "nextImage": "Nächstes Bild",
+    "installmentLinePre": "In Raten:",
+    "installmentLine": "{down} Anzahlung + {months} × {monthly}",
+    "installmentCalc": "Berechnen ↓",
+    "backorderLabel": "Vorbestellung",
+    "backorderNote": "Dieses Produkt ist derzeit nicht auf Lager und kann momentan nur vorbestellt werden. Den voraussichtlichen Liefertermin stimmen wir nach Ihrer Bestellung mit Ihnen ab."
   },
   "form": {
     "name": "Name",
@@ -204,7 +220,8 @@
     "noObligation": "Unverbindlich",
     "inPersonOrOnline": "Personlich oder online",
     "roiCalculation": "ROI-Berechnung",
-    "orCallDirectly": "Oder rufen Sie direkt an:"
+    "orCallDirectly": "Oder rufen Sie direkt an:",
+    "showroom": "Showroom: {address}"
   },
   "megaMenu": {
     "lasers": "Laser",
@@ -215,13 +232,15 @@
     "ndyagDesc": "Tattooentfernung",
     "hydrafacialDesc": "Gesichtsreinigung, Hydration",
     "smartFacialDesc": "Smarte Gesichtsbehandlungsplattformen",
-    "antiAgingDesc": "Microneedling-RF, HIFU, Hautanalyse",
+    "antiAgingDesc": "Microneedling-RF, EMS-Microneedling",
     "bodyShapingDesc": "Kryolipolyse, Körperkonturierung",
     "mesoDesc": "Nadelfreie Mesotherapie",
     "pmuDesc": "PMU-Geräte",
+    "pmuShort": "PMU",
     "accessoriesDesc": "Rauchabsauger, Lösungen, Nadeln",
-    "treatmentMaterialsDesc": "Flüssigkeiten, Pods, Wirkstoffe",
-    "coldplasmaDesc": "Kaltplasma-Behandlungen"
+    "treatmentMaterialsDesc": "Hydra-Liquids, Cocktails, Exosomen",
+    "hidegplazmaDesc": "Kaltplasma-Behandlungen",
+    "bordiagnosztikaDesc": "KI-Hautanalyse"
   },
   "footer": {
     "company": "Unternehmensinformationen",
@@ -236,7 +255,8 @@
     "newsletter": "Newsletter-Anmeldung",
     "newsletterPlaceholder": "Ihre E-Mail-Adresse",
     "subscribe": "Abonnieren",
-    "shipping": "Versand und Zahlung"
+    "shipping": "Versand und Zahlung",
+    "cookieSettings": "Cookie-Einstellungen"
   },
   "contact": {
     "title": "Kontakt",
@@ -255,7 +275,7 @@
     "taxId": "Steuernummer",
     "vatId": "EU-USt-IdNr.",
     "howToReach": "Anfahrt",
-    "howToReachDesc": "Budai út 28., Érd - von der Autobahn M7 Ausfahrt Érd (Knoten Budaörs), dann 5 Minuten auf der Budai út. Kostenlose Parkplätze vor dem Gebäude.",
+    "howToReachDesc": "Bajcsy-Zsilinszky út 156., Érd (Parkváros) – wenige Minuten mit dem Auto von der Autobahnausfahrt Érd (M7).",
     "openingHoursDetails": "Montag–Freitag: nach Vereinbarung",
     "openingHoursNote": "Bitte vereinbaren Sie einen Termin per Telefon oder E-Mail!"
   },
@@ -271,9 +291,9 @@
     "storyParagraph3": "Deshalb haben wir Skinlab gegrundet: um einen zuverlassigen Partner anzubieten, der nicht nur Gerate verkauft, sondern umfassende Unterstutzung fur einen erfolgreichen Salonbetrieb bietet.",
     "foundersTitle": "Grunder",
     "founder": {
-      "technical": "Technischer Experte",
-      "technicalBio": "Schon als Jugendlicher habe ich Autos repariert und getuned – die Welt der Maschinen war mir immer nah. Diese praktische, technische Denkweise bestimmt auch meine Arbeit bei Skinlab: Ich bin dafür verantwortlich, dass jedes Gerät in einwandfreiem technischen Zustand bei unseren Kunden ankommt. Wenn ein Problem auftritt, lösen wir es hausintern, schnell und professionell – mit einem Ersatzgerät für die Dauer der Reparatur. Die Lasertechnologie ist im Laufe der Jahre zu meiner Spezialität geworden, und ich kann mit Sicherheit sagen, dass es keinen Defekt gibt, dem ich noch nicht begegnet wäre. Diese Erfahrung gibt unseren Kunden echte Sicherheit, denn sie wissen, dass ihr Gerät in guten Händen ist.",
-      "treatment": "Behandlungsexpertin",
+      "technical": "Skinlab-Gründer, technischer Experte",
+      "technicalBio": "Schon als Jugendlicher habe ich Autos repariert und getuned – die Welt der Maschinen war mir immer nah. Diese praktische, technische Denkweise bestimmt auch meine Arbeit bei Skinlab: Ich bin dafür verantwortlich, dass jedes Gerät in einwandfreiem technischen Zustand bei unseren Kunden ankommt. Wenn ein Problem auftritt, lösen wir es hausintern, schnell und professionell – bei längeren Reparaturen mit einem Ersatzgerät. Die Lasertechnologie ist im Laufe der Jahre zu meiner Spezialität geworden, und ich kann mit Sicherheit sagen, dass es keinen Defekt gibt, dem ich noch nicht begegnet wäre. Diese Erfahrung gibt unseren Kunden echte Sicherheit, denn sie wissen, dass ihr Gerät in guten Händen ist.",
+      "treatment": "Skinlab-Gründerin, Behandlungsexpertin",
       "treatmentBio": "Ich stamme aus einer Ärztefamilie und die Schönheitsbranche hat mich schon von klein auf angezogen. Der medizinische Hintergrund hat mir jedoch etwas Wichtiges beigebracht: Behandlungen müssen auf ebenso strengen fachlichen Grundlagen basieren wie die Medizin selbst. Es reicht nicht, wenn etwas funktioniert – es muss auch sicher sein. Für mich ist es am wichtigsten, dass nicht nur schöne, sondern auch gesunde Ergebnisse entstehen, und wir nie die Grenzen der fachlichen Kompetenz überschreiten. Diese Philosophie bringen wir in jede Beratung und Produktempfehlung ein, denn wir bieten nur an, wovon wir vollkommen überzeugt sind."
     },
     "whyUsTitle": "Warum uns wahlen?",
@@ -308,7 +328,21 @@
     "included": "Im Preis enthalten",
     "duration": "Dauer",
     "location": "Standort",
-    "register": "Anmelden"
+    "register": "Anmelden",
+    "galleryTitle": "Zum Gerät bekommen Sie auch das Know-how",
+    "gallerySubtitle": "Praxisschulung in echter Salonumgebung, in kleinen Gruppen.",
+    "galleryAlt1": "Üben einer Hydrodermabrasion-Behandlung in der Schulung",
+    "galleryAlt2": "Vorführung einer Carbon-Laser-Gesichtsbehandlung in der Schulung",
+    "galleryAlt3": "Praxisschulung zur Diodenlaser-Behandlung",
+    "galleryAlt4": "Praktische Gruppenschulung in Salonumgebung",
+    "galleryAlt5": "Zertifikate der FAR-registrierten Schulung",
+    "galleryAlt6": "Teilnehmende an der Skinlab-Geräteschulung",
+    "fact1Title": "FAR-registrierte Schulung",
+    "fact1Desc": "Mit Zertifikat mit B-Nummer und praktischer Ausbildung.",
+    "fact2Title": "Inbetriebnahme vor Ort",
+    "fact2Desc": "Wir richten das Gerät in Ihrem Salon ein und schulen Sie direkt dort in der Anwendung.",
+    "fact3Title": "Eigener Service, Ersatzgeräte-Programm",
+    "fact3Desc": "Bei Reparaturen von mehr als 10 Werktagen stellen wir ein Ersatzgerät zur Verfügung, je nach Lagerverfügbarkeit."
   },
   "comparison": {
     "title": "Vergleich",
@@ -344,17 +378,22 @@
   "warranty": {
     "title": "Garantie & Service",
     "subtitle": "Wir gewähren {years} Jahre Vollgarantie auf das {productName}, mit eigenem Servicezentrum in Ungarn.",
-    "subtitleGeneric": "{years} Jahre Vollgarantie auf alle Geräte, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleOne": "Wir gewähren 1 Jahr Vollgarantie auf das {productName}, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleGeneric": "{years} Jahre Vollgarantie auf das Gerät, mit eigenem Servicezentrum in Ungarn.",
+    "subtitleGenericOne": "1 Jahr Vollgarantie auf das Gerät, mit eigenem Servicezentrum in Ungarn.",
+    "pageSubtitle": "Wir gewähren 2 Jahre Vollgarantie auf unsere Kosmetikgeräte und 1 Jahr auf Tattoo- und PMU-Geräte, mit eigenem Servicezentrum in Ungarn.",
     "badge": "Ruhe & Sicherheit",
     "yearsWarranty": "{years} Jahre Vollgarantie",
+    "yearsWarrantyOne": "1 Jahr Vollgarantie",
     "extendedWarranty": "Erweiterte Garantie",
     "extendedWarrantyDesc": "Verlängern Sie Ihre Garantie um ein weiteres Jahr zum Vorzugspreis!",
     "extendedWarrantyButton": "Ich bin interessiert",
     "industryStandardMultiple": "2x Branchenstandard",
     "features": {
       "fullWarranty": "Deckt alle Teile und Arbeitskosten ab – das Doppelte des Branchenstandards.",
+      "fullWarrantyBasic": "Umfassende Garantie auf alle Teile und Arbeitskosten.",
       "replacementDevice": "Ersatzgeräteprogramm",
-      "replacementDeviceDesc": "Wir stellen während der Reparatur ein kostenloses Leihgerät bereit, damit Ihr Geschäft weiterläuft.",
+      "replacementDeviceDesc": "Dauert die Reparatur voraussichtlich länger als 10 Werktage, stellen wir für die Reparaturdauer ein Leihgerät bereit (je nach Verfügbarkeit), damit Ihr Geschäft weiterläuft.",
       "ownWorkshop": "Eigene Servicewerkstatt",
       "ownWorkshopDesc": "Reparaturen in Ungarn – kein monatelanges Warten auf ausländischen Service.",
       "fastRepair": "Schnelle Reparatur",
@@ -365,7 +404,7 @@
       "step1Title": "Fehlermeldung",
       "step1Desc": "Rufen Sie uns an oder senden Sie eine E-Mail mit der Fehlerbeschreibung.",
       "step2Title": "Ersatzgerät",
-      "step2Desc": "Wir senden per Kurier ein Ersatzgerät und holen das defekte ab.",
+      "step2Desc": "Dauert die Reparatur voraussichtlich länger als 10 Werktage, stellen wir für die Reparaturdauer ein Leihgerät bereit.",
       "step3Title": "Reparatur",
       "step3Desc": "Wir reparieren Ihr Gerät in unserer eigenen Werkstatt.",
       "step4Title": "Rücksendung",
@@ -385,18 +424,18 @@
       "hungarianSupport": "Lokaler Sprachsupport",
       "year": "Jahre"
     },
-    "description": "Umfassende 2-Jahres-Herstellergarantie mit eigenem ungarischen Serviceteam, Ersatzgeräteprogramm und Original-Ersatzteilen.",
+    "description": "Umfassende Herstellergarantie (2 Jahre auf Kosmetikgeräte, 1 Jahr auf Tattoo- und PMU-Geräte) mit eigenem ungarischen Serviceteam, Ersatzgeräteprogramm und Original-Ersatzteilen.",
     "whatIsWarranty": "Was ist die Herstellergarantie?",
     "whatIsWarrantyDesc1": "Die Garantie ist eine verbindliche Zusage des Herstellers und Vertriebs, dass das Gerät während der Garantielaufzeit bei bestimmungsgemäßem Gebrauch störungsfrei arbeitet. Bei Fertigungs- oder Materialfehlern sind Reparatur, Teiltausch und - bei gerechtfertigtem Anlass - Austausch und Arbeitslohn kostenfrei.",
-    "whatIsWarrantyDesc2": "Für jedes neue Gerät gewähren wir 12-24 Monate Garantie (die genaue Laufzeit steht auf dem Produktdatenblatt), gemäß den ungarischen Regierungsverordnungen 151/2003. (IX. 22.) und 19/2014. (IV. 29.) NGM.",
+    "whatIsWarrantyDesc2": "Auf neue Kosmetikgeräte gewähren wir 24 Monate, auf Tattoo- und PMU-Geräte 12 Monate Garantie (die genaue Laufzeit steht auch auf dem Produktdatenblatt), gemäß den ungarischen Regierungsverordnungen 151/2003. (IX. 22.) und 19/2014. (IV. 29.) NGM.",
     "commitmentTitle": "Unser Skinlab-Versprechen",
-    "commitmentDesc1": "Unser eigenes, ausgebildetes ungarisches Technikerteam und unsere Werkstatt sorgen dafür, dass Sie im Störungsfall nicht monatelang auf eine ausländische Reparatur warten müssen. Wir arbeiten mit Original-Ersatzteilen und stellen für die Reparaturdauer ein Ersatzgerät, damit Ihr Geschäft nicht stillsteht.",
+    "commitmentDesc1": "Unser eigenes, ausgebildetes ungarisches Technikerteam und unsere Werkstatt sorgen dafür, dass Sie im Störungsfall nicht monatelang auf eine ausländische Reparatur warten müssen. Wir arbeiten mit Original-Ersatzteilen und stellen bei Reparaturen über 10 Werktagen ein Ersatzgerät bereit, damit Ihr Geschäft nicht stillsteht.",
     "commitmentDesc2": "Auch nach dem Kauf sind wir an Ihrer Seite: Ferndiagnose, Telefonunterstützung und bei Bedarf Vor-Ort-Besuch sorgen für den dauerhaften Betrieb.",
     "contentTitle": "Was deckt die Garantie ab?",
     "contentDesc": "Die Herstellergarantie umfasst die folgenden Fälle, sofern der Defekt bei bestimmungsgemäßer Nutzung und unter Einhaltung der Bedienungsanleitung aufgetreten ist:",
     "point1": "Vollständige Reparatur von Fertigungs- und Materialfehlern.",
     "point2": "Austausch von Original-Werksteilen, einschließlich Arbeitslohn, kostenfrei.",
-    "point3": "Ersatzgeräteprogramm - während der Reparatur stellen wir ein kostenloses Ersatzgerät.",
+    "point3": "Ersatzgeräteprogramm - bei Reparaturen über 10 Werktagen stellen wir für die Reparaturdauer ein Leihgerät bereit, je nach Verfügbarkeit.",
     "point4": "Ferndiagnose und fachlicher Telefon-Support zur Fehlerbehebung.",
     "point5": "Vor-Ort-Service nach Bedarf, auf individuelle Vereinbarung.",
     "exclusionsTitle": "Was deckt die Garantie nicht ab?",
@@ -423,7 +462,8 @@
     "claimInfo4": "Name und Kontaktdaten der Ansprechperson.",
     "importantNote": "Versuchen Sie nicht, das Gerät selbst zu reparieren oder zu zerlegen - unbefugte Eingriffe führen zum Erlöschen der Garantie. Nehmen Sie das Gerät bei Fehlern vom Strom und kontaktieren Sie uns.",
     "ctaTitle": "Fragen zur Garantie?",
-    "ctaSubtitle": "Unser Expertenteam hilft gerne - rufen Sie uns an oder schreiben Sie eine E-Mail."
+    "ctaSubtitle": "Unser Expertenteam hilft gerne - rufen Sie uns an oder schreiben Sie eine E-Mail.",
+    "readMore": "Alle Details zur Garantie"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
@@ -453,7 +493,7 @@
       "q2": "Wie lange dauert eine Reparatur?",
       "a2": "Kleinere Defekte sind in 3–7 Werktagen behoben, größere Teiletausche dauern 10–20 Werktage. Die genaue Zeit bestätigen wir nach der Prüfung. Reparaturen führen unsere geschulten hauseigenen Techniker mit Originalteilen aus.",
       "q3": "Erhalte ich ein Ersatzgerät während der Reparatur?",
-      "a3": "Ja, auf Anfrage stellen wir ein Leihgerät zur Verfügung - innerhalb der Garantie kostenlos, sonst zu vergünstigten Konditionen - damit Ihr Betrieb während des Service weiterläuft.",
+      "a3": "Wenn die Reparatur laut Erstprüfung voraussichtlich länger als 10 Werktage dauert, stellen wir für die Reparaturdauer ein Leihgerät bereit (je nach Verfügbarkeit) - innerhalb der Garantie kostenlos, sonst zu vergünstigten Konditionen. Das Leihgerät ist nicht unbedingt dasselbe Modell, eignet sich aber zur Fortführung der Behandlungen.",
       "q4": "Was soll ich tun, wenn das Gerät einen Fehler anzeigt oder nicht startet?",
       "a4": "Zuerst ausschalten, vom Netz trennen, abkühlen lassen und neu starten. Bleibt der Fehler bestehen, erreichen Sie uns unter {phone} oder {email} - Ferndiagnose löst die meisten Probleme."
     },
@@ -500,14 +540,11 @@
     "training": "Vollstandige Schulung",
     "trainingDesc": "4-6 Stunden personliche Schulung + FAR-Zertifikat + Videomaterial. Wir lassen Sie nicht gehen, bis Sie das Gerat sicher bedienen.",
     "warranty": "2 Jahre Garantie, lokaler Service",
-    "warrantyDesc": "Kein wochenlanges Warten auf auslandischen Service. Wir reagieren innerhalb von 24 Stunden und stellen bei Bedarf ein Ersatzgerat.",
+    "warrantyDesc": "Kein wochenlanges Warten auf einen Service im Ausland. Wir reparieren schnell im eigenen Haus und stellen bei Reparaturen von mehr als 10 Werktagen ein Ersatzgerät zur Verfügung, je nach Lagerverfügbarkeit.",
     "financing": "Finanzierung, Leasing",
     "financingDesc": "Ab ~250 EUR/Monat. Kein Einmalbetrag notig - die Einnahmen des Gerats zahlen die Raten.",
     "consulting": "Geschaftsberatung",
-    "consultingDesc": "Wir helfen bei Preisgestaltung und Marketing. Wir teilen, was erfolgreiche Salons machen.",
-    "testimonialTitle": "Zufriedener Partner",
-    "testimonialText": "Die Schulung war groBartig, und ich kann sie jederzeit anrufen, wenn ich eine Frage habe.",
-    "testimonialAuthor": "Eva Nagy, Skin Studio"
+    "consultingDesc": "Wir helfen bei Preisgestaltung und Marketing. Wir teilen, was erfolgreiche Salons machen."
   },
   "search": {
     "placeholder": "Produkte nach Name suchen...",
@@ -549,7 +586,7 @@
     "step2Title": "Auswahl",
     "step2Desc": "Wir helfen Ihnen, das beste Gerat fur Ihren Salon auszuwahlen",
     "step3Title": "Installation + Schulung",
-    "step3Desc": "Vor-Ort-Installation und 4-6 Stunden Schulung",
+    "step3Desc": "Inbetriebnahme vor Ort und Geräteschulung",
     "step4Title": "Start!",
     "step4Desc": "Laufende Unterstutzung, Service und Geschaftsberatung"
   },
@@ -570,20 +607,31 @@
     "business3": "Glow Clinic",
     "location3": "Szeged"
   },
+  "videoTestimonials": {
+    "title": "Sie arbeiten bereits mit Skinlab-Geräten",
+    "subtitle": "Echte Bewertungen von unseren Kunden",
+    "role1": "PMU-Stylistin, Kosmetikerin",
+    "role2": "PMU-Ausbilderin, Kosmetikerin",
+    "role3": "Kosmetikerin",
+    "role4": "PMU-Stylistin, Kosmetikerin",
+    "playLabel": "Video abspielen",
+    "quote1": "Meine größte Empfehlung ist, dass ich seit Jahren mit ihnen arbeite – und wenn ich meinen Gerätepark heute neu aufbauen müsste, würde ich wieder Skinlab wählen.",
+    "quote2": "Ich finde, das Unternehmen, das sie vertreten, ist in Ungarn einzigartig, und ich kann sie wirklich von Herzen empfehlen.",
+    "quote3": "Skinlab steht für mich für Qualität und Zuverlässigkeit. Es ist ein gutes Gefühl, mit einem Partner zu arbeiten, der genauso an Qualität glaubt wie ich.",
+    "quote4": "Es gab noch nie etwas, bei dem sie mir nicht helfen konnten. Wenn ich eine Frage hatte, habe ich sie jederzeit erreicht.",
+    "watchFull": "Ganzes Video ansehen ({duration})"
+  },
   "featuredProduct": {
-    "badge": "#1 Bestseller 2026",
-    "tagline": "Professionelle Haarentfernung mit 4 Wellenlangen",
-    "wavelength": "Wellenlange",
+    "badge": "Neu eingetroffen",
+    "tagline": "Haar- und Hautdiagnostik per Mikrokamera, digitale Kundenkartei und Parameterempfehlung in einem Gerät.",
     "power": "Leistung",
-    "cooling": "Saphir-Kuhlung",
     "warranty": "Garantie",
     "grossPrice": "Bruttopreis",
-    "orMonthly": "oder monatlich",
     "viewDetails": "Details ansehen",
     "requestDemo": "Demo anfordern",
-    "productPlaceholder": "Produktfoto",
     "warrantyValue": "2 Jahre",
-    "monthlyPrice": "~250 €"
+    "wavelengthsValue": "4 Wellenlängen",
+    "skinTypes": "Für alle Hauttypen"
   },
   "ctaSection": {
     "title": "Haben Sie Fragen? Wir helfen gerne!",
@@ -770,7 +818,9 @@
     "drawerTitle": "Ihr Warenkorb",
     "drawerEmpty": "Ihr Warenkorb ist noch leer.",
     "priceNote": "Die Versandkosten und den Endpreis bestätigen wir in einem telefonischen Gespräch.",
-    "close": "Schließen"
+    "close": "Schließen",
+    "preorder": "Vorbestellen",
+    "backorderItem": "Vorbestellung - derzeit nicht auf Lager, nur vorbestellbar"
   },
   "checkout": {
     "title": "Bestellung",
@@ -816,7 +866,11 @@
       "payButton": "Jetzt bezahlen / Proforma öffnen",
       "questions": "Haben Sie Fragen? Rufen Sie uns gerne an:",
       "regards": "Mit freundlichen Grüßen,",
-      "team": "Ihr Skinlab Hungary Team"
+      "team": "Ihr Skinlab Hungary Team",
+      "backorderNote": "Ihre Bestellung enthält einen Artikel, der derzeit nicht auf Lager ist, daher haben wir sie als Vorbestellung erfasst. Sie müssen jetzt nicht bezahlen: Unser Team meldet sich in Kürze bei Ihnen zum voraussichtlichen Liefertermin, erst danach senden wir Ihnen die Zahlungsaufforderung.",
+      "backorderStep1": "Wir haben Ihre Bestellung als Vorbestellung erfasst - Sie müssen jetzt nicht bezahlen.",
+      "backorderStep2": "Unser Team meldet sich in Kürze bei Ihnen und informiert Sie über den voraussichtlichen Liefertermin des Produkts.",
+      "backorderStep3": "Sobald das Produkt eingetroffen ist, stimmen wir die Zahlung ab und liefern es auf dem von Ihnen gewählten Weg."
     },
     "phone": "Telefonnummer",
     "companyToggle": "Firmendaten angeben",
@@ -843,7 +897,7 @@
     "step3Title": "Wir liefern das Gerät",
     "step3Desc": "Nach Zahlungseingang geht die Bestellung in Produktion und Versand.",
     "trustNoPayment": "Jetzt keine Zahlung nötig",
-    "trustWarranty": "2 Jahre Garantie",
+    "trustWarranty": "Volle Garantie",
     "trustCallback": "Wir rufen Sie zurück",
     "noPaymentNote": "Nach dem Absenden Ihrer Bestellung müssen Sie nicht sofort bezahlen - wir rufen Sie zuerst zurück und besprechen die Details.",
     "requiredError": "Bitte füllen Sie die Pflichtfelder aus.",
@@ -865,7 +919,9 @@
       "emailNote": "Die Bestellbestätigung haben wir an Ihre E-Mail-Adresse gesendet.",
       "backToHome": "Zurück zur Startseite",
       "browseProducts": "Weitere Produkte"
-    }
+    },
+    "backorderTitle": "Vorbestellung",
+    "backorderNote": "Ihr Warenkorb enthält einen Artikel, der derzeit nicht auf Lager ist: {items}. Dieser kann momentan nur vorbestellt werden. In diesem Fall senden wir Ihnen nicht sofort eine Zahlungsaufforderung, und Sie müssen jetzt nicht bezahlen: Unser Team meldet sich bei Ihnen zum voraussichtlichen Liefertermin, erst danach bitten wir um die Zahlung."
   },
   "bank": {
     "title": "Banküberweisungsdaten",
@@ -894,5 +950,116 @@
     "requirements": "Teilnahmevoraussetzungen",
     "back": "Zurück zu den Schulungen",
     "signupHeading": "Jetzt anmelden: {name}"
+  },
+  "founderConsult": {
+    "badge": "Persönliche Hilfe",
+    "expertRole": "Skinlab-Gründer, technischer Experte",
+    "heading": {
+      "category": {
+        "pre": "Du weißt nicht,",
+        "highlight": "welches Gerät",
+        "post": "zu dir passt?"
+      },
+      "machine": {
+        "pre": "Nicht sicher, ob",
+        "highlight": "das das richtige Gerät",
+        "post": "für deinen Salon ist?"
+      },
+      "consumable": {
+        "pre": "Nicht sicher, ob",
+        "highlight": "das das richtige Produkt",
+        "post": "für deine Behandlungen ist?"
+      }
+    },
+    "scenario1": "Du kannst dich nicht entscheiden",
+    "scenario2": "Du möchtest genaue Infos zu den Geräten",
+    "scenario3": "Du möchtest die Kaufdetails besprechen",
+    "scenario4": "Du brauchst einfach einen guten Rat",
+    "bodyPre": "Was auch immer zutrifft –",
+    "bodyStrong": "wir helfen dir gerne.",
+    "bodyPost": "Ruf uns an oder fordere eine kostenlose Beratung an, und wir melden uns bei dir.",
+    "cta": "Kostenlose Beratung anfordern",
+    "phone": "Ruf uns an: {phone}",
+    "responseTime": "Wir rufen in der Regel innerhalb von 1 Werktag zurück."
+  },
+  "finance": {
+    "title": "Lohnt es sich? Rechnen wir nach.",
+    "subtitle": "Berechne mit deinen eigenen Zahlen, wann sich das Gerät amortisiert und wie hoch die Monatsrate wäre.",
+    "subtitleRoiOnly": "Berechne mit deinen eigenen Zahlen, wann sich das Gerät amortisiert.",
+    "tabRoi": "Amortisation",
+    "tabInstallment": "Monatsrate"
+  },
+  "productComparison": {
+    "title": "Vergleiche unsere ähnlichen Geräte",
+    "subtitle": "Die wichtigsten Unterschiede auf einen Blick.",
+    "current": "Du siehst gerade",
+    "price": "Preis (brutto)",
+    "view": "Ansehen"
+  },
+  "homeHero": {
+    "prev": "Vorherige Folie",
+    "next": "Nächste Folie",
+    "goTo": "Folie {n}",
+    "upNext": "Als Nächstes:",
+    "slides": {
+      "empire": "EMPIRE Diodenlaser",
+      "olympia": "OLYMPIA Diodenlaser",
+      "ndyag": "ND:YAG-Laser",
+      "training": "Schulung und Service"
+    }
+  },
+  "homeComparison": {
+    "title": "Welcher Diodenlaser passt zu Ihrem Salon?",
+    "subtitle": "Alle {count} Geräte haben 4 Wellenlängen. Der Unterschied liegt in der Leistung, im Handstück und in der Behandlungssoftware.",
+    "specHeader": "Merkmal",
+    "details": "Details",
+    "scrollHint": "Zum Vergleichen seitlich wischen",
+    "showAll": "Alle Merkmale ({count} weitere)",
+    "showLess": "Weniger Merkmale"
+  },
+  "mobileCta": {
+    "call": "Anrufen",
+    "consult": "Beratung"
+  },
+  "foundersHome": {
+    "badge": "Die Gründer",
+    "title": "Wo zwei Welten sich treffen - das sind wir",
+    "intro": "Wir haben Skinlab zu zweit gegründet: Szimonetta kam aus der Beauty-Branche mit medizinischem Hintergrund, László aus der Welt der Technik und der Geräte. Den Anstoß gab eine Behandlung im Ausland: Wir sahen, mit welchen Geräten man im Westen arbeitet, und beschlossen, diese Qualität - und das Wissen dahinter - auch in die ungarischen Salons zu bringen.",
+    "quote": "Wir wollen keine Geräte verkaufen, sondern anwendbares Fachwissen, Sicherheit und menschliche Unterstützung bieten. Wir vertreiben nur Geräte, die wir selbst kennen, mögen und guten Gewissens empfehlen - und auch nach dem Kauf lassen wir unsere Partner nicht allein.",
+    "simonettaName": "Gaszler Szimonetta",
+    "simonettaRole": "Skinlab-Gründerin",
+    "simonettaSpec": "Behandlungsexpertin",
+    "laszloName": "Horváth László",
+    "laszloRole": "Skinlab-Gründer",
+    "laszloSpec": "Technischer Experte",
+    "cta": "Lernen Sie unsere ganze Geschichte kennen"
+  },
+  "services": {
+    "title": "Mehr als ein Webshop",
+    "subtitle": "Zu den Geräten bekommen Sie alles, was Ihr Salon braucht: Behandlungsprodukte, Schulung, Service und eine persönliche Vorführung.",
+    "consumables": {
+      "title": "M'onduniq Behandlungsprodukte",
+      "desc": "Professionelle Behandlungsprodukte und Zubehör für Ihre Geräte, von der Pflege vor und nach Laserbehandlungen bis zu Nadelmodulen.",
+      "cta": "Behandlungsprodukte",
+      "alt": "M'onduniq Behandlungsprodukt auf Seidenhintergrund"
+    },
+    "training": {
+      "title": "FAR-zertifizierte Schulungen",
+      "desc": "Geräteschulung in echter Salonumgebung, in kleinen Gruppen, mit offiziellem Zertifikat.",
+      "cta": "Unsere Schulungen",
+      "alt": "Schulungsteilnehmerin mit ihrem FAR-Zertifikat"
+    },
+    "service": {
+      "title": "Eigener Service und Garantie",
+      "desc": "Service in Ungarn, kein wochenlanges Warten auf ein ins Ausland geschicktes Gerät. Ersatzgeräte-Programm bei längeren Reparaturen.",
+      "cta": "Garantie und Service",
+      "alt": "László Horváth bei der Arbeit an einem Laser-Handstück"
+    },
+    "showroom": {
+      "title": "Showroom in Érd",
+      "desc": "Sehen und testen Sie die Geräte persönlich, nach Terminvereinbarung.",
+      "cta": "Showroom und Kontakt",
+      "alt": "Der Skinlab-Showroom mit dem beleuchteten Logo und einem Kosmetikgerät"
+    }
   }
 }
