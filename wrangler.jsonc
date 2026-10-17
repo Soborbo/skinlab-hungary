@@ -14,6 +14,9 @@
   "name": "skinlab-hungary",
   "main": "./src/worker.ts",
   "keep_vars": true,
+  // Workers Logs: invocation logs, console output and uncaught exceptions
+  // (7-day retention), queryable in the dashboard and the Observability API/MCP.
+  "observability": { "enabled": true },
   "services": [
     { "binding": "GATEWAY", "service": "event-gateway" }
   ],
