@@ -122,6 +122,12 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
               {t(locale, 'nav.faq')}
             </a>
           </li>
+          <li>
+            {/* Az értékelő oldal csak magyarul létezik, minden nyelvről oda visz. */}
+            <a href="/ertekeles/" class="text-sm text-gray-400 hover:text-white transition-colors">
+              {t(locale, 'footer.review')}
+            </a>
+          </li>
           {BLOG_ENABLED && (
             <li>
               <a href={getLocalizedUrl(locale, '/blog')} class="text-sm text-gray-400 hover:text-white transition-colors">

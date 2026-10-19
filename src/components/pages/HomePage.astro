@@ -19,6 +19,7 @@ import FeaturedProduct from '../sections/FeaturedProduct.astro';
 import HomeFinance from '../sections/HomeFinance.astro';
 import WhyUs from '../sections/WhyUs.astro';
 import TrainingLife from '../sections/TrainingLife.astro';
+import GoogleReviews from '../sections/GoogleReviews.astro';
 import VideoTestimonials from '../sections/VideoTestimonials.astro';
 import BrandMarquee from '../sections/BrandMarquee.astro';
 import FoundersStory from '../sections/FoundersStory.astro';
@@ -60,6 +61,8 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
     <TrainingLife />
     {/* 9. Mások tapasztalata (a fenti Adri-videó nélkül) */}
     <VideoTestimonials exclude={['adri']} quotes />
+    {/* 9b. Google-vélemények + a csapat */}
+    <GoogleReviews />
     {/* 10. Kitől van a gép és az anyag? */}
     <BrandMarquee />
     {/* 11. Kivel fogok beszélni? */}

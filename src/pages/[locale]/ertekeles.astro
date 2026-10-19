@@ -1,0 +1,14 @@
+---
+// Az értékelő oldal tartalma csak magyar (noindex, kiküldött linkről érkeznek);
+// a nyelvi útvonal azért létezik, hogy a nyelvválasztó ne vigyen 404-re.
+import ReviewPage from '../../components/pages/ReviewPage.astro';
+import { locales, defaultLocale } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return locales
+    .filter((l) => l !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+---
+
+<ReviewPage />
