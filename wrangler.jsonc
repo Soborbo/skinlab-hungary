@@ -14,6 +14,12 @@
   "name": "skinlab-hungary",
   "main": "./src/worker.ts",
   "keep_vars": true,
+  // Szerveroldali hibagyűjtés: a Soborbo error-notifier Tail Worker megkapja ennek
+  // a workernek minden eseményét (uncaught exception → SRV-FUNC-001, ill. a
+  // `__pipeline:"error"` console.error sorok) → ERROR_KV / error-admin.
+  "tail_consumers": [
+    { "service": "error-notifier" }
+  ],
   "services": [
     { "binding": "GATEWAY", "service": "event-gateway" }
   ],
