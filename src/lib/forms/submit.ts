@@ -59,8 +59,10 @@ async function dispatchGatewayLeadConversion(
   eventName: GatewayEventName,
   leadData: Pick<
     LeadData,
-    | 'email' | 'phone' | 'gclid' | 'fbclid' | 'utmSource' | 'utmMedium' | 'utmCampaign'
-    | 'fbc' | 'fbp' | 'externalId'
+    | 'email' | 'phone' | 'fbc' | 'fbp' | 'externalId'
+    | 'sourceUrl' | 'referrer'
+    | 'utmSource' | 'utmMedium' | 'utmCampaign' | 'utmTerm' | 'utmContent'
+    | 'gclid' | 'fbclid' | 'gbraid' | 'wbraid' | 'msclkid'
   >,
   crmLeadId: string | undefined,
   tracking: FormTrackingContext,
@@ -80,13 +82,9 @@ async function dispatchGatewayLeadConversion(
       // sending fbc/fbp through Conversions API").
       fbp: leadData.fbp || undefined,
       fbc: leadData.fbc || undefined,
-      attribution: {
-        gclid: leadData.gclid || undefined,
-        fbclid: leadData.fbclid || undefined,
-        utm_source: leadData.utmSource || undefined,
-        utm_medium: leadData.utmMedium || undefined,
-        utm_campaign: leadData.utmCampaign || undefined,
-      },
+      // A TELJES attribúciós készlet (12 kulcs), ugyanaz a mapping, mint a
+      // rendelés-ágon — lásd `leadToGatewayAttribution`.
+      attribution: leadToGatewayAttribution(leadData),
       consent: tracking.consent,
       consentId: tracking.consentId,
       eventSourceUrl: tracking.eventSourceUrl,
@@ -1222,5 +1220,83 @@ export function leadToCrmBody(
       fbp: data.fbp,
     },
     ...(intake ? { form_key: intake.form_key, answers: intake.answers } : {}),
+  };
+}
+
+/**
+ * A gateway (szerver-láb) `attribution` blokkjának forrásmezői: a kontakt /
+ * képzés / konzultáció `LeadData` és a rendelés `OrderData` KÖZÖS, camelCase
+ * részhalmaza. Szerkezeti típus, hogy a két útvonal ugyanazt az egy mappinget
+ * használja — egy új mezőt itt kell felvenni, és mindkét láb megkapja.
+ */
+export interface GatewayAttributionSource {
+  sourceUrl?: string;
+  referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  gclid?: string;
+  fbclid?: string;
+  gbraid?: string;
+  wbraid?: string;
+  msclkid?: string;
+}
+
+/** A gateway által elfogadott `attribution` kulcsok — a kulcsnevek a gateway
+ *  szerződése (Serverside), NEM a CRM-é (`landing_page`, nem `landing_url`). */
+export const GATEWAY_ATTRIBUTION_KEYS = [
+  'gclid',
+  'gbraid',
+  'wbraid',
+  'fbclid',
+  'msclkid',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'landing_page',
+  'referrer',
+] as const;
+
+export type GatewayAttributionKey = (typeof GATEWAY_ATTRIBUTION_KEYS)[number];
+
+/**
+ * Lead / rendelés → a gateway `attribution` blokkja.
+ *
+ * Miért külön függvény: a korábbi, kézzel írt inline objektum a két dispatch-
+ * helyen (lead-űrlapok + rendelés) csak az első ÖT kulcsot vitte (gclid, fbclid,
+ * utm_source/medium/campaign). A gbraid/wbraid (iOS Google-kattintás, ahol
+ * nincs gclid), a msclkid, az utm_term/utm_content és a belépési oldal /
+ * külső hivatkozó eljutott a CRM-be (`leadToCrmBody`), a gatewayhez — vagyis
+ * az offline Google Ads / Meta CAPI illesztéshez — viszont nem. Egy mapping,
+ * két hívó, egy teszt (attribution-no-drop.test.ts, 3. határ).
+ *
+ * Üres string → undefined: a `buildGatewayPayload` `compact()`-ja az undefined
+ * kulcsokat kihagyja, így üres mező sosem megy ki a drótra.
+ *
+ * `landing_page` = `sourceUrl`: a kliensen ez az entry-attribution modul
+ * first-touch BELÉPÉSI oldala (`applyEntryAttributionToForm` /
+ * `getEntryLandingUrl`), nem a submit-oldal — a CRM `landing_url`-jével azonos
+ * forrás.
+ */
+export function leadToGatewayAttribution(
+  source: GatewayAttributionSource,
+): Record<GatewayAttributionKey, string | undefined> {
+  return {
+    gclid: source.gclid || undefined,
+    gbraid: source.gbraid || undefined,
+    wbraid: source.wbraid || undefined,
+    fbclid: source.fbclid || undefined,
+    msclkid: source.msclkid || undefined,
+    utm_source: source.utmSource || undefined,
+    utm_medium: source.utmMedium || undefined,
+    utm_campaign: source.utmCampaign || undefined,
+    utm_term: source.utmTerm || undefined,
+    utm_content: source.utmContent || undefined,
+    landing_page: source.sourceUrl || undefined,
+    referrer: source.referrer || undefined,
   };
 }

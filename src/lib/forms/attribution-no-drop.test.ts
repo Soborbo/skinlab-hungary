@@ -1,8 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { contactSchema, consultationSchema } from './schemas';
-import { leadToCrmBody } from './submit';
+import {
+  leadToCrmBody,
+  leadToGatewayAttribution,
+  GATEWAY_ATTRIBUTION_KEYS,
+  type GatewayAttributionSource,
+} from './submit';
 import { orderSchema } from '../order/schema';
 import { orderToCrmAttribution } from '../order/submit';
+import { buildGatewayPayload } from '../tracking/gateway-dispatch';
 
 /**
  * A CSENDES KULCS-ELDOBÁS elleni védőháló.
@@ -15,6 +21,12 @@ import { orderToCrmAttribution } from '../order/submit';
  * A skinlab útján HÁROM ilyen határ van sorban:
  *
  *   böngésző (rejtett mezők) → zod séma → `leadToCrmBody()` → CRM
+ *                                       ↘ `leadToGatewayAttribution()` → gateway
+ *
+ * A harmadik határ a GATEWAY (szerver-láb): a zod után a lead a CRM MELLETT
+ * a konverzió-gatewaynek is megy (offline Google Ads / Meta CAPI). Ott más a
+ * kulcskészlet neve (`landing_page`, nem `landing_url`), és 2026-10-ig a
+ * kézzel írt mapping csak öt kulcsot vitt a tizenkettőből.
  *
  * Ezért ez a fájl nem egy-egy mezőt ellenőriz, hanem a TELJES készlet
  * túlélését minden határon. Egy új attribúciós mező felvétele addig nem kész,
@@ -89,6 +101,36 @@ const CONSULTATION_BASE = {
   phone: '+36301234567',
 };
 
+/** Érvényes rendelés-törzs az `orderSchema`-hoz (attribúció nélkül). */
+const ORDER_BASE = {
+  firstName: 'Elek',
+  lastName: 'Teszt',
+  email: 'teszt@example.com',
+  phone: '+36301234567',
+  country: 'HU',
+  postcode: '1011',
+  city: 'Budapest',
+  street: 'Fő utca 1.',
+  gdpr: true,
+  items: [{
+    slug: 'dioda-lezer',
+    sku: 'DL-1',
+    categorySlug: 'diodalezerek',
+    name: 'Dióda lézer',
+    variantName: '',
+    price: 1_000_000,
+    qty: 1,
+  }],
+  subtotal: 1_000_000,
+  hasPriceOnRequest: false,
+  shippingMethod: 'personal_pickup',
+  shippingFee: 0,
+  paymentMethod: 'transfer',
+  formStartTime: Date.now() - 10_000,
+  website: '',
+  turnstileToken: 'test-token',
+};
+
 /** A kulcsonkénti ellenőrzés, ami MEGNEVEZI a kiesett mezőket. */
 function expectNoneDropped(
   parsed: Record<string, unknown>,
@@ -119,35 +161,7 @@ describe('1. határ — a zod séma nem dobja el az attribúciós mezőket', () 
   });
 
   it('orderSchema', () => {
-    const result = orderSchema.safeParse({
-      ...CLIENT_ATTRIBUTION,
-      firstName: 'Elek',
-      lastName: 'Teszt',
-      email: 'teszt@example.com',
-      phone: '+36301234567',
-      country: 'HU',
-      postcode: '1011',
-      city: 'Budapest',
-      street: 'Fő utca 1.',
-      gdpr: true,
-      items: [{
-        slug: 'dioda-lezer',
-        sku: 'DL-1',
-        categorySlug: 'diodalezerek',
-        name: 'Dióda lézer',
-        variantName: '',
-        price: 1_000_000,
-        qty: 1,
-      }],
-      subtotal: 1_000_000,
-      hasPriceOnRequest: false,
-      shippingMethod: 'personal_pickup',
-      shippingFee: 0,
-      paymentMethod: 'transfer',
-      formStartTime: Date.now() - 10_000,
-      website: '',
-      turnstileToken: 'test-token',
-    });
+    const result = orderSchema.safeParse({ ...ORDER_BASE, ...CLIENT_ATTRIBUTION });
     expect(result.success, `az orderSchema elutasította az érvényes rendelést: `
       + JSON.stringify(result.success ? {} : result.error.issues)).toBe(true);
 
@@ -227,6 +241,114 @@ describe('2. határ — a CRM-payload-építő minden mezőt átvisz', () => {
       'az `orderToCrmAttribution()` nem tette bele ezeket a mezőket a CRM '
         + '`attribution` blokkjába',
     ).toEqual([]);
+  });
+});
+
+describe('3. határ — a gateway (szerver-láb) attribúciós blokkja minden mezőt átvisz', () => {
+  /**
+   * A TELJES készlet a gateway kulcsneveivel. Ha egy kulcs innen hiányzik,
+   * az a gateway felé NEM megy ki — a CRM-ben még látszódhat, az offline
+   * Ads-/Meta-illesztésnél viszont már nem.
+   */
+  const EXPECTED_GATEWAY_ATTRIBUTION = {
+    gclid: CLIENT_ATTRIBUTION.gclid,
+    gbraid: CLIENT_ATTRIBUTION.gbraid,
+    wbraid: CLIENT_ATTRIBUTION.wbraid,
+    fbclid: CLIENT_ATTRIBUTION.fbclid,
+    msclkid: CLIENT_ATTRIBUTION.msclkid,
+    utm_source: CLIENT_ATTRIBUTION.utmSource,
+    utm_medium: CLIENT_ATTRIBUTION.utmMedium,
+    utm_campaign: CLIENT_ATTRIBUTION.utmCampaign,
+    utm_term: CLIENT_ATTRIBUTION.utmTerm,
+    utm_content: CLIENT_ATTRIBUTION.utmContent,
+    landing_page: CLIENT_ATTRIBUTION.sourceUrl,
+    referrer: CLIENT_ATTRIBUTION.referrer,
+  };
+
+  /** Minden forrásmező üres string — így jön a rejtett mező, ha nincs jel. */
+  const ALL_EMPTY: Required<GatewayAttributionSource> = {
+    sourceUrl: '',
+    referrer: '',
+    utmSource: '',
+    utmMedium: '',
+    utmCampaign: '',
+    utmTerm: '',
+    utmContent: '',
+    gclid: '',
+    fbclid: '',
+    gbraid: '',
+    wbraid: '',
+    msclkid: '',
+  };
+
+  it('a kulcskészlet pontosan a 12 gateway-kulcs', () => {
+    expect([...GATEWAY_ATTRIBUTION_KEYS].sort()).toEqual(
+      Object.keys(EXPECTED_GATEWAY_ATTRIBUTION).sort(),
+    );
+  });
+
+  it('leadToGatewayAttribution — lead-űrlap (LeadData-alakú forrás)', () => {
+    const attribution = leadToGatewayAttribution({ ...CLIENT_ATTRIBUTION });
+
+    const missing = GATEWAY_ATTRIBUTION_KEYS.filter((k) => !attribution[k]);
+    expect(
+      missing,
+      'a `leadToGatewayAttribution()` nem tette bele ezeket a mezőket a gateway '
+        + '`attribution` blokkjába — a CRM megkapja, az offline konverzió-illesztés nem',
+    ).toEqual([]);
+    expect(attribution).toEqual(EXPECTED_GATEWAY_ATTRIBUTION);
+  });
+
+  it('leadToGatewayAttribution — rendelés (az orderSchema valódi kimenete)', () => {
+    const parsed = orderSchema.safeParse({ ...ORDER_BASE, ...CLIENT_ATTRIBUTION });
+    expect(parsed.success, 'az orderSchema elutasította az érvényes rendelést').toBe(true);
+    if (!parsed.success) return;
+
+    // Ugyanaz az egy mapping eszi az OrderData-t is — a rendelés-ág nem
+    // tarthat külön, rövidebb listát.
+    expect(leadToGatewayAttribution(parsed.data)).toEqual(EXPECTED_GATEWAY_ATTRIBUTION);
+  });
+
+  it('a belépési oldal `landing_page` néven megy (gateway), nem `landing_url`-ként (CRM)', () => {
+    const attribution = leadToGatewayAttribution({ sourceUrl: CLIENT_ATTRIBUTION.sourceUrl });
+    expect(attribution.landing_page).toBe(CLIENT_ATTRIBUTION.sourceUrl);
+    expect('landing_url' in attribution).toBe(false);
+  });
+
+  it('üres string → undefined, és a payload-építő az üres blokkot egészében kihagyja', () => {
+    const empty = leadToGatewayAttribution(ALL_EMPTY);
+    for (const key of GATEWAY_ATTRIBUTION_KEYS) {
+      expect(empty[key], `üres \`${key}\` nem lehet üres string a drótra`).toBeUndefined();
+    }
+
+    const payload = buildGatewayPayload({
+      eventName: 'contact_form_submitted',
+      eventId: 'evt-empty',
+      attribution: empty,
+    });
+    expect(payload.attribution, 'üres attribúció mellett nem mehet ki `attribution: {}`')
+      .toBeUndefined();
+  });
+
+  it('a gateway payloadban a kitöltött kulcsok mind kimennek, csak az üresek maradnak ki', () => {
+    // A `msclkid` a rejtett mezőben ma mindig üres (ismert korlát), az
+    // `utmContent` pedig gyakran — ezek kiesnek, a többi 10 mind kimegy.
+    const partial = leadToGatewayAttribution({ ...CLIENT_ATTRIBUTION, msclkid: '', utmContent: '' });
+    const payload = buildGatewayPayload({
+      eventName: 'order_request_submitted',
+      eventId: 'evt-partial',
+      attribution: partial,
+    });
+    const sent = payload.attribution as Record<string, unknown>;
+
+    expect(Object.keys(sent).sort()).toEqual(
+      GATEWAY_ATTRIBUTION_KEYS.filter((k) => k !== 'msclkid' && k !== 'utm_content').sort(),
+    );
+    expect(sent.gbraid).toBe(CLIENT_ATTRIBUTION.gbraid);
+    expect(sent.wbraid).toBe(CLIENT_ATTRIBUTION.wbraid);
+    expect(sent.utm_term).toBe(CLIENT_ATTRIBUTION.utmTerm);
+    expect(sent.landing_page).toBe(CLIENT_ATTRIBUTION.sourceUrl);
+    expect(sent.referrer).toBe(CLIENT_ATTRIBUTION.referrer);
   });
 });
 
