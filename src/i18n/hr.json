@@ -999,12 +999,14 @@
   "homeHero": {
     "kicker": "Skinlab showroom · Érd, Mađarska",
     "title": "Blistava koža za tvoje klijentice.",
-    "titleAccent": "Jednostavni uređaji za tebe.",
-    "text": "Pokazat ćemo ti, obučiti te i, ako treba, popraviti. Dođi i isprobaj uređaje vlastitim rukama.",
+    "titleAccent": "Jednostavni uređaji za rukovanje za tebe.",
+    "text": "Pokazat ćemo ti, obučiti te i, ako treba, popraviti. Dođi i isprobaj uređaje osobno.",
     "cta": "Želim besplatnu konzultaciju",
-    "phoneLabel": "Nazovi:",
-    "trustLine": "Obuka s FAR certifikatom · 2 godine jamstva · Vlastiti servis",
-    "imageAlt": "Skinlab showroom u Érdu s tri kozmetička uređaja ispred cvjetnog zida"
+    "imageAlt": "Skinlab showroom u Érdu s tri kozmetička uređaja ispred cvjetnog zida",
+    "phoneCta": "Radije ću nazvati",
+    "reassurance": "Prva konzultacija je besplatna i ni na što te ne obvezuje.",
+    "googleRating": "Na temelju Google recenzija",
+    "googleRatingShort": "Google ocjena"
   },
   "homeComparison": {
     "title": "Koji diodni laser odgovara vašem salonu?",
@@ -1033,8 +1035,8 @@
     "cta": "Upoznajte cijelu našu priču"
   },
   "services": {
-    "title": "Više od web-trgovine",
-    "subtitle": "Uz uređaje dobivate sve što vašem salonu treba: preparate za tretmane, edukaciju, servis i osobnu prezentaciju.",
+    "title": "Sve što ti treba",
+    "subtitle": "Uređaj je tek početak. Od nas dobivaš i preparate za tretmane, obuku, servis i osobnu demonstraciju.",
     "consumables": {
       "title": "M'onduniq preparati za tretmane",
       "desc": "Profesionalni preparati i pribor za vaše uređaje, od njege prije i nakon laserskih tretmana do modula igala.",
@@ -1057,7 +1059,29 @@
       "title": "Izložbeni prostor u Érdu",
       "desc": "Pogledajte i isprobajte uređaje osobno, uz prethodnu najavu.",
       "cta": "Izložbeni prostor i kontakt",
-      "alt": "Skinlab izložbeni prostor sa svijetlećim logom i kozmetičkim uređajem"
-    }
+      "alt": "Skinlab showroom u Érdu sa stolom za sastanke i svijetlećim logotipom"
+    },
+    "titleAccent": "za vođenje salona"
+  },
+  "trainingLife": {
+    "kicker": "Obuka i uvođenje",
+    "title": "Nećeš to učiti sama.",
+    "titleAccent": "Naučit ćemo te svemu.",
+    "text": "Uz naše uređaje dajemo osobnu obuku: u stvarnom salonu, u malim grupama, s FAR certifikatom.",
+    "cta": "Naše obuke",
+    "alt1": "Obuka tijekom tretmana hidrodermoabrazije",
+    "alt2": "Obuka trajne šminke",
+    "alt3": "Demonstracija laserskog tretmana",
+    "alt4": "Vježba s nastavkom",
+    "alt5": "Laserska praksa s polaznicom",
+    "alt6": "Dijagnostika kože na obuci"
+  },
+  "showroomCta": {
+    "title": "Dođi i isprobaj uređaje",
+    "titleAccent": "u našem showroomu",
+    "text": "Osobno ćemo ti pokazati uređaje i pomoći odabrati onaj koji odgovara tvom salonu.",
+    "cta": "Želim termin u showroomu",
+    "phoneCta": "Radije ću nazvati",
+    "imageAlt": "Skinlab showroom u Érdu: stol za sastanke, svijetleći logotip i The Frost roll-up"
   }
 }

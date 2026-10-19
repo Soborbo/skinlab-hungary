@@ -1,0 +1,86 @@
+---
+/**
+ * TrainingLife - "Nem egyedül tanulod meg" életkép-mozaik a főoldalon
+ * (a korábbi képzés-galéria helyett).
+ *
+ * Sötét háttér, 6 valódi oktatási fotó. Asztalon 5 oszlopos, 2 soros mozaik
+ * (az első kép 2×2-es, az ötödik 2 oszlop széles), mobilon 2 oszlop, az első
+ * kép teljes szélességű. A csempék a képernyőre érve lépcsőzetesen beúsznak
+ * (csak JS-sel, csökkentett mozgásnál nincs animáció).
+ */
+import { ContentImage, QuarterImage } from '../images';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+const tiles = [
+  { src: '@assets/kepzes-hidrodermabrazio-oktatas.jpg', position: 'center 35%', cls: 'col-span-2 lg:col-span-2 lg:row-span-2 aspect-[4/3] lg:aspect-auto', big: true },
+  { src: '@assets/kepzes-sminktetovalas-oktatas.jpg', position: 'center 30%', cls: 'aspect-[3/4] lg:aspect-auto' },
+  { src: '@assets/kepzes-lezeres-kezeles-bemutato.jpg', position: 'center 40%', cls: 'aspect-[3/4] lg:aspect-auto' },
+  { src: '@assets/kepzes-kezelofej-gyakorlat.jpg', position: 'center 30%', cls: 'aspect-[3/4] lg:aspect-auto' },
+  { src: '@assets/kepzes-lezeres-gyakorlat-tanitvannyal.jpg', position: 'center 40%', cls: 'col-span-2 lg:col-span-2 aspect-[4/3] lg:aspect-auto', big: true },
+  { src: '@assets/kepzes-bordiagnosztika-gyakorlat.jpg', position: 'center', cls: 'col-span-2 lg:col-span-1 aspect-[4/3] lg:aspect-auto' },
+];
+---
+
+<section class="bg-[#1f1418] text-white pt-12 lg:pt-[88px]" id="kepzes">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-12">
+    <div class="max-w-3xl">
+      <p class="text-sm font-bold tracking-[0.12em] uppercase text-primary-300 mb-3">{t(locale, 'trainingLife.kicker')}</p>
+      <h2 class="font-heading font-normal text-white text-[1.9rem] leading-[1.15] lg:text-[2.9rem] lg:leading-[1.12] mb-3 lg:mb-4">
+        {t(locale, 'trainingLife.title')}
+        <em class="text-primary-300">{t(locale, 'trainingLife.titleAccent')}</em>
+      </h2>
+      <p class="text-base lg:text-lg leading-relaxed text-[#e3d3d9]">{t(locale, 'trainingLife.text')}</p>
+    </div>
+    <a
+      href={getLocalizedUrl(locale, '/kepzesek/')}
+      data-event="home_training_click"
+      class="group self-start lg:self-auto shrink-0 inline-flex items-center gap-2.5 min-h-[3.25rem] px-6 border border-white font-semibold hover:bg-white hover:text-[#1f1418] transition-colors"
+    >
+      {t(locale, 'trainingLife.cta')}
+      <svg class="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </a>
+  </div>
+
+  <div class="tl-grid grid grid-cols-2 lg:grid-cols-5 lg:grid-rows-[300px_300px] gap-1.5" data-tl-grid>
+    {tiles.map((tile, i) => (
+      <div class:list={['tl-tile relative overflow-hidden bg-black/30', tile.cls]} style={`--tl-i: ${i}`}>
+        {tile.big ? (
+          <ContentImage src={tile.src} alt={t(locale, `trainingLife.alt${i + 1}`)} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105" style={`object-position: ${tile.position}`} />
+        ) : (
+          <QuarterImage src={tile.src} alt={t(locale, `trainingLife.alt${i + 1}`)} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105" style={`object-position: ${tile.position}`} />
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .tl-grid[data-tl-anim] .tl-tile {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .tl-grid[data-tl-run] .tl-tile {
+    animation: tlIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--tl-i, 0) * 90ms);
+  }
+  @keyframes tlIn {
+    to { opacity: 1; transform: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var grid = document.querySelector('[data-tl-grid]');
+    if (!grid || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    grid.setAttribute('data-tl-anim', '');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      grid.setAttribute('data-tl-run', '');
+      io.disconnect();
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(grid);
+  })();
+</script>

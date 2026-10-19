@@ -1091,12 +1091,14 @@
   "homeHero": {
     "kicker": "Skinlab bemutatóterem · Érd",
     "title": "Ragyogó bőr a vendégeidnek.",
-    "titleAccent": "Egyszerű gép neked.",
-    "text": "Megmutatjuk, betanítunk, és ha kell, megjavítjuk. Gyere el, és próbáld ki a gépeket a saját kezeddel.",
+    "titleAccent": "Egyszerűen kezelhető gépek neked.",
+    "text": "Megmutatjuk, betanítunk, és ha kell, megjavítjuk. Gyere el, és próbáld ki a gépeket személyesen.",
     "cta": "Ingyenes konzultációt kérek",
-    "phoneLabel": "Hívj:",
-    "trustLine": "Betanítás FAR-tanúsítvánnyal · 2 év garancia · Saját szerviz",
-    "imageAlt": "A Skinlab érdi bemutatóterme három kozmetikai géppel a virágfal előtt"
+    "imageAlt": "A Skinlab érdi bemutatóterme három kozmetikai géppel a virágfal előtt",
+    "phoneCta": "Inkább telefonálok",
+    "reassurance": "Az első konzultáció ingyenes, és semmire nem kötelez.",
+    "googleRating": "Google értékelés alapján",
+    "googleRatingShort": "Google értékelés"
   },
   "homeComparison": {
     "title": "Melyik diódalézer való a szalonodba?",
@@ -1126,8 +1128,8 @@
     "note": "Pontos ajánlatot a konzultáción adunk."
   },
   "services": {
-    "title": "Több mint webshop",
-    "subtitle": "A gépek mellé mindent megkapsz, ami a szalonod működéséhez kell: kezelőanyagot, képzést, szervizt és személyes bemutatót.",
+    "title": "Mindent megkapsz, ami a szalonod",
+    "subtitle": "A gép csak a kezdet. Kezelőanyagot, képzést, szervizt és személyes bemutatót is tőlünk kapsz.",
     "consumables": {
       "title": "M'onduniq kezelőanyagok",
       "desc": "Professzionális kezelőanyagok és kellékek a gépeidhez, a lézeres kezelések előtti és utáni ápolástól a tűmodulokig.",
@@ -1150,7 +1152,29 @@
       "title": "Showroom Érden",
       "desc": "Nézd meg és próbáld ki a gépeket személyesen, előzetes időpontfoglalással.",
       "cta": "Showroom és elérhetőség",
-      "alt": "A Skinlab showroom a világító logóval és egy kozmetikai géppel"
-    }
+      "alt": "A Skinlab érdi bemutatóterme tárgyalóasztallal és a világító logóval"
+    },
+    "titleAccent": "működtetéséhez kell"
+  },
+  "trainingLife": {
+    "kicker": "Képzés és betanítás",
+    "title": "Nem egyedül tanulod meg.",
+    "titleAccent": "Mindent megtanítunk neked.",
+    "text": "Gépeinkhez személyes betanítást adunk: valódi szalonkörnyezetben, kis létszámú csoportban, FAR-tanúsítvánnyal.",
+    "cta": "Képzéseink",
+    "alt1": "Oktatás hidrodermabráziós kezelés közben",
+    "alt2": "Sminktetoválás oktatása",
+    "alt3": "Lézeres kezelés bemutatása",
+    "alt4": "Gyakorlás kezelőfejjel",
+    "alt5": "Lézeres gyakorlat tanítvánnyal",
+    "alt6": "Bőrdiagnosztika a képzésen"
+  },
+  "showroomCta": {
+    "title": "Gyere el, és próbáld ki a gépeket",
+    "titleAccent": "a bemutatótermünkben",
+    "text": "Személyesen megmutatjuk a gépeket, és segítünk kiválasztani, melyik illik a szalonodhoz.",
+    "cta": "Időpontot kérek a bemutatóterembe",
+    "phoneCta": "Inkább telefonálok",
+    "imageAlt": "A Skinlab érdi bemutatóterme: tárgyalóasztal, a világító logó és a The Frost roll-up"
   }
 }
