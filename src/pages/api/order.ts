@@ -18,7 +18,7 @@ import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { env as workerEnv } from 'cloudflare:workers';
-import type { FormTrackingContext } from '@/lib/forms/submit';
+import { leadToGatewayAttribution, type FormTrackingContext } from '@/lib/forms/submit';
 import {
   sendGatewayConversion,
   readConsentFromCookie,
@@ -294,13 +294,10 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
           // szerver-leg csak email+telefon párosítást tud adni a Metának.
           fbp: data.fbp || undefined,
           fbc: data.fbc || undefined,
-          attribution: {
-            gclid: data.gclid || undefined,
-            fbclid: data.fbclid || undefined,
-            utm_source: data.utmSource || undefined,
-            utm_medium: data.utmMedium || undefined,
-            utm_campaign: data.utmCampaign || undefined,
-          },
+          // A TELJES attribúciós készlet (12 kulcs: gbraid/wbraid/msclkid,
+          // utm_term/utm_content, belépési oldal + külső hivatkozó is), ugyanaz
+          // a mapping, mint a lead-űrlapoknál — lásd `leadToGatewayAttribution`.
+          attribution: leadToGatewayAttribution(data),
           consent: tracking.consent,
           consentId: tracking.consentId,
           eventSourceUrl: tracking.eventSourceUrl,
