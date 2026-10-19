@@ -40,6 +40,9 @@ export const FOUNDERS = [
  */
 export const GOOGLE_RATING: { value: number } | null = { value: 4.6 };
 
+/** A Google-cégprofil „Értékelés írása” linkje (az /ertekeles/ oldal és a főoldal használja). */
+export const GOOGLE_REVIEW_URL = 'https://g.page/r/CRCe0DvQHBYMEBM/review';
+
 export const CONTACT = {
   phone: '+3613009280',
   phoneFormatted: '+36 1 300 9280',

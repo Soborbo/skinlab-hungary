@@ -25,7 +25,7 @@ export default defineConfig({
       // src/config/features.ts → BLOG_ENABLED); remove it when re-publishing.
       // `merchant-feed.xml` is a Merchant Center product feed, not a page.
       filter: (page) =>
-        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles)(\/|$)/i.test(page) &&
+        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles|ertekeles)(\/|$)/i.test(page) &&
         !/\/merchant-feed\.xml$/i.test(page),
       i18n: {
         defaultLocale: 'hu',
