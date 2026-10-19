@@ -38,7 +38,7 @@ export const FOUNDERS = [
  * Google-kártyájához. CSAK a valódi, Google-on látható érték kerülhet ide
  * (kitalált értékelés tilos). `null` = a kártya nem jelenik meg.
  */
-export const GOOGLE_RATING: { value: number } | null = null;
+export const GOOGLE_RATING: { value: number } | null = { value: 4.6 };
 
 export const CONTACT = {
   phone: '+3613009280',
