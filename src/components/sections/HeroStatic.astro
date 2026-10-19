@@ -6,7 +6,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
 // Állandó fejléckép (2026-10-19): a forgató helyett egyetlen showroom-fotó
-// (1536x1024, 3:2). Asztalon a jobb oszlopban, mobilon a külön 1080x1080-as vágás.
+// (1434x1024, a három gép tengelyére szimmetrikusan vágva). Asztalon a jobb oszlopban, mobilon a külön 1080x1080-as vágás.
 const hero = {
   titleKey: 'hero.title',
   subtitleKey: 'hero.subtitle',
@@ -102,7 +102,7 @@ const icons: Record<string, string> = {
           src={`${hero.image}.jpg`}
           alt={t(locale, hero.titleKey)}
           class="absolute inset-0 w-full h-full object-cover"
-          width="1536"
+          width="1434"
           height="1024"
           loading="eager"
           fetchpriority="high"
