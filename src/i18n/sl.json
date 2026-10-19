@@ -999,12 +999,14 @@
   "homeHero": {
     "kicker": "Skinlab razstavni prostor · Érd, Madžarska",
     "title": "Sijoča koža za tvoje stranke.",
-    "titleAccent": "Preproste naprave zate.",
-    "text": "Pokažemo ti, te usposobimo in, če je treba, popravimo. Pridi in preizkusi naprave na lastne roke.",
+    "titleAccent": "Preproste naprave za uporabo zate.",
+    "text": "Pokažemo ti, te usposobimo in, če je treba, popravimo. Pridi in preizkusi naprave osebno.",
     "cta": "Želim brezplačno svetovanje",
-    "phoneLabel": "Pokliči:",
-    "trustLine": "Usposabljanje s certifikatom FAR · 2 leti garancije · Lasten servis",
-    "imageAlt": "Razstavni prostor Skinlab v Érdu s tremi kozmetičnimi napravami pred cvetlično steno"
+    "imageAlt": "Razstavni prostor Skinlab v Érdu s tremi kozmetičnimi napravami pred cvetlično steno",
+    "phoneCta": "Raje pokličem",
+    "reassurance": "Prvo svetovanje je brezplačno in te ne obvezuje.",
+    "googleRating": "Na podlagi Googlovih ocen",
+    "googleRatingShort": "Googlova ocena"
   },
   "homeComparison": {
     "title": "Kateri diodni laser je pravi za vaš salon?",
@@ -1033,8 +1035,8 @@
     "cta": "Spoznajte vso našo zgodbo"
   },
   "services": {
-    "title": "Več kot spletna trgovina",
-    "subtitle": "Poleg naprav dobite vse, kar vaš salon potrebuje: pripravke za tretmaje, izobraževanje, servis in osebno predstavitev.",
+    "title": "Vse, kar potrebuješ",
+    "subtitle": "Naprava je šele začetek. Od nas dobiš tudi preparate za tretmaje, usposabljanje, servis in osebno predstavitev.",
     "consumables": {
       "title": "Pripravki za tretmaje M'onduniq",
       "desc": "Profesionalni pripravki in pripomočki za vaše naprave, od nege pred laserskimi tretmaji in po njih do igelnih modulov.",
@@ -1057,7 +1059,29 @@
       "title": "Razstavni prostor v Érdu",
       "desc": "Oglejte si in preizkusite naprave osebno, po predhodnem dogovoru.",
       "cta": "Razstavni prostor in kontakt",
-      "alt": "Razstavni prostor Skinlab s svetlečim logotipom in kozmetično napravo"
-    }
+      "alt": "Razstavni prostor Skinlab v Érdu z mizo za sestanke in svetlečim logotipom"
+    },
+    "titleAccent": "za delovanje salona"
+  },
+  "trainingLife": {
+    "kicker": "Usposabljanje in uvajanje",
+    "title": "Tega se ne boš učila sama.",
+    "titleAccent": "Naučimo te vsega.",
+    "text": "Ob naših napravah nudimo osebno usposabljanje: v pravem salonu, v majhnih skupinah, s certifikatom FAR.",
+    "cta": "Naša usposabljanja",
+    "alt1": "Usposabljanje med tretmajem hidrodermabrazije",
+    "alt2": "Usposabljanje za trajno ličenje",
+    "alt3": "Predstavitev laserskega tretmaja",
+    "alt4": "Vaja z nastavkom",
+    "alt5": "Laserska praksa s tečajnico",
+    "alt6": "Diagnostika kože na usposabljanju"
+  },
+  "showroomCta": {
+    "title": "Pridi in preizkusi naprave",
+    "titleAccent": "v našem razstavnem prostoru",
+    "text": "Naprave ti pokažemo osebno in pomagamo izbrati tisto, ki ustreza tvojemu salonu.",
+    "cta": "Želim termin v razstavnem prostoru",
+    "phoneCta": "Raje pokličem",
+    "imageAlt": "Razstavni prostor Skinlab v Érdu: miza za sestanke, svetleči logotip in roll-up The Frost"
   }
 }

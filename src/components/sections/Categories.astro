@@ -2,11 +2,14 @@
 /**
  * Categories - a főoldal kategória-belépői.
  *
- * 9 gépkategória kártyán + egy összevont "Kellékek és kezelőanyagok" kártya.
+ * Minden kategória (a kellékek és a M'onduniq kezelőanyagok is) saját,
+ * egyforma kártyát kap: asztalon 4×3-as rács, nagy, négyzetes képekkel.
  * A darabszám az ÉLŐ (nem draft) termékekből számolódik, nem a kézi
  * `CATEGORIES[].productCount`-ból, így nem csúszhat el.
- * Mobilon az első 4 gépkártya látszik; a "Mind a N kategória" gomb bontja ki
- * a többit (JS nélkül a /termekek/ oldalra visz).
+ * Mobilon (2 oszlop) az első 6 kártya látszik; a "Mind a N kategória" gomb
+ * bontja ki a többit (JS nélkül a /termekek/ oldalra visz).
+ * Amikor a rács a képernyőre ér, a kártyák lépcsőzetesen beúsznak (csak JS-sel,
+ * csökkentett mozgásnál nincs animáció).
  */
 import { getCollection } from 'astro:content';
 import { FifthImage } from '../images';
@@ -17,7 +20,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 const SUPPLY_SLUGS = ['kellekek', 'kezeloanyagok'];
-const MOBILE_VISIBLE = 4;
+const MOBILE_VISIBLE = 6;
 
 const allProducts = await getCollection('products', ({ data }) => !data.draft);
 
@@ -32,9 +35,12 @@ for (const category of featured) {
     ?? null;
 }
 
-const machines = featured.filter((c) => !SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0);
-const supplies = featured.filter((c) => SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0);
-const totalCategories = machines.length + supplies.length;
+// Előbb a gépek, a végén a kellékek és a kezelőanyagok.
+const cards = [
+  ...featured.filter((c) => !SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0),
+  ...featured.filter((c) => SUPPLY_SLUGS.includes(c.slug) && counts[c.slug] > 0),
+];
+const totalCategories = cards.length;
 
 function categoryName(slug: string, fallback: string): string {
   const key = `categories.${slug}`;
@@ -47,7 +53,7 @@ function categoryName(slug: string, fallback: string): string {
 const CARD_IMG_WIDTHS = [320, 480, 640];
 const cardImageBase = (url: string) => url.replace(/-\d+w\.(avif|webp|jpe?g)$/i, '');
 const cardSrcset = (base: string, ext: string) => CARD_IMG_WIDTHS.map((w) => `${base}-${w}w.${ext} ${w}w`).join(', ');
-const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
+const CARD_IMG_SIZES = '(min-width: 1024px) 22vw, (min-width: 768px) 31vw, 48vw';
 ---
 
 <section class="py-12 lg:py-16 bg-slate-100" id="kategoriak">
@@ -61,8 +67,8 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
       </p>
     </div>
 
-    <div class="cat-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4" data-cat-grid>
-      {machines.map((category, index) => {
+    <div class="cat-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6" data-cat-grid>
+      {cards.map((category, index) => {
         const image = images[category.slug];
         const name = categoryName(category.slug, category.nameShort);
         const colorKey = (category as any).color as keyof typeof CATEGORY_COLORS | undefined;
@@ -71,15 +77,16 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
           <a
             href={getLocalizedUrl(locale, `/${category.slug}`)}
             class="group flex"
+            style={`--cat-i: ${index}`}
             data-extra={index >= MOBILE_VISIBLE ? '' : undefined}
             data-event="home_category_click"
             data-category={category.slug}
           >
             <div
-              class="category-card rounded-2xl overflow-hidden h-full w-full flex flex-col"
+              class="category-card overflow-hidden h-full w-full flex flex-col"
               style={colors ? `--cat-accent: ${colors.accent}` : ''}
             >
-              <div class="aspect-[4/3] relative overflow-hidden bg-white">
+              <div class="aspect-square relative overflow-hidden bg-white">
                 {image ? (
                   CATEGORY_CARD_IMAGE[category.slug] ? (
                     <picture>
@@ -92,7 +99,7 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
                         alt={name}
                         width="400"
                         height="300"
-                        class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                        class="w-full h-full object-contain p-2 sm:p-3 lg:p-4 group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                         decoding="async"
                       />
@@ -101,17 +108,17 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
                     <FifthImage
                       src={image}
                       alt={name}
-                      class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                      class="w-full h-full object-contain p-2 sm:p-3 lg:p-4 group-hover:scale-105 transition-transform duration-500"
                     />
                   )
                 ) : null}
               </div>
-              <div class="px-3 py-2.5 lg:px-4 lg:py-3 flex-1 flex items-center justify-between gap-2 bg-primary-50/70">
+              <div class="px-3 py-2.5 lg:px-[18px] lg:py-4 flex-1 flex items-center justify-between gap-2 bg-primary-50/70 border-t border-primary-100/60">
                 <div class="min-w-0">
-                  <h3 class="font-semibold text-[13px] sm:text-sm lg:text-[15px] leading-tight text-primary-700">{name}</h3>
-                  <p class="text-xs mt-0.5 text-gray-600">{counts[category.slug]} {t(locale, 'categories.productCount')}</p>
+                  <h3 class="font-bold text-[15px] sm:text-base lg:text-[17px] leading-tight text-primary-700">{name}</h3>
+                  <p class="text-[13px] lg:text-sm mt-0.5 text-gray-600">{counts[category.slug]} {t(locale, 'categories.productCount')}</p>
                 </div>
-                <svg class="w-4 h-4 text-primary-700 shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden lg:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <svg class="w-5 h-5 text-primary-700 shrink-0 group-hover:translate-x-1 transition-transform duration-300 hidden lg:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </div>
@@ -120,47 +127,6 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
         );
       })}
 
-      {supplies.length > 0 && (
-        <div class="category-card rounded-2xl overflow-hidden flex flex-col bg-white" data-extra>
-          <div class="px-4 pt-3 pb-2 text-[11px] font-semibold uppercase tracking-wide text-gray-500">
-            {t(locale, 'categories.suppliesTitle')}
-          </div>
-          <div class="flex gap-2 px-3 pb-3 flex-1">
-            {supplies.map((category) => {
-              const image = images[category.slug];
-              const name = categoryName(category.slug, category.nameShort);
-              return (
-                <a
-                  href={getLocalizedUrl(locale, `/${category.slug}`)}
-                  class="group flex-1 min-w-0 flex flex-col items-center gap-1 rounded-xl border border-gray-100 p-2 hover:border-primary-300 transition-colors"
-                  data-event="home_category_click"
-                  data-category={category.slug}
-                >
-                  <div class="w-full aspect-[4/3] flex items-center justify-center">
-                    {image && (
-                      CATEGORY_CARD_IMAGE[category.slug] ? (
-                        <img
-                          src={`${cardImageBase(image)}-320w.jpg`}
-                          alt={name}
-                          width="160"
-                          height="120"
-                          class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      ) : (
-                        <FifthImage src={image} alt={name} class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500" />
-                      )
-                    )}
-                  </div>
-                  <span class="text-xs sm:text-[13px] font-semibold text-primary-700 text-center leading-tight">{name}</span>
-                  <span class="text-[11px] text-gray-600">{counts[category.slug]} {t(locale, 'categories.productCount')}</span>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      )}
     </div>
 
     {/* Mobil: a többi kategória kibontása. JS nélkül a teljes terméklistára visz. */}
@@ -169,7 +135,7 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
         href={getLocalizedUrl(locale, '/termekek')}
         data-cat-toggle
         aria-expanded="false"
-        class="flex items-center justify-center gap-2 min-h-12 rounded-xl border border-primary-700/30 text-primary-700 font-semibold text-sm active:scale-[0.99] transition-transform"
+        class="flex items-center justify-center gap-2 min-h-12 bg-white border border-primary-700/30 text-primary-700 font-semibold text-sm active:scale-[0.99] transition-transform"
         data-label-more={t(locale, 'categories.showAll', { count: totalCategories })}
         data-label-less={t(locale, 'categories.showLess')}
       >
@@ -185,6 +151,7 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
 <style>
   .category-card {
     background: white;
+    border-radius: 0;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
     transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
@@ -202,12 +169,38 @@ const CARD_IMG_SIZES = '(min-width: 1024px) 18vw, 48vw';
       display: none;
     }
   }
+  /* Beúszás: a rács a képernyőre érve kapja meg a data-cat-run-t. */
+  .cat-grid[data-cat-anim] > a {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  .cat-grid[data-cat-run] > a {
+    animation: catIn 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--cat-i, 0) * 70ms);
+  }
+  @keyframes catIn {
+    to { opacity: 1; transform: none; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .category-card { transition: none; }
     a.group:hover .category-card { transform: none; }
   }
 </style>
 
+<script is:inline>
+  (function () {
+    var grid = document.querySelector('[data-cat-grid]');
+    if (!grid || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    grid.setAttribute('data-cat-anim', '');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      grid.setAttribute('data-cat-run', '');
+      io.disconnect();
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(grid);
+  })();
+</script>
 <script>
   document.querySelectorAll<HTMLAnchorElement>('[data-cat-toggle]').forEach((toggle) => {
     const grid = toggle.closest('section')?.querySelector<HTMLElement>('[data-cat-grid]');

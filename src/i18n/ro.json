@@ -999,12 +999,14 @@
   "homeHero": {
     "kicker": "Showroom Skinlab · Érd, Ungaria",
     "title": "Piele strălucitoare pentru clientele tale.",
-    "titleAccent": "Aparate simple pentru tine.",
-    "text": "Îți arătăm, te instruim și, dacă e nevoie, le reparăm. Vino și încearcă aparatele cu mâinile tale.",
+    "titleAccent": "Aparate ușor de folosit pentru tine.",
+    "text": "Îți arătăm, te instruim și, dacă e nevoie, le reparăm. Vino și încearcă aparatele personal.",
     "cta": "Vreau o consultație gratuită",
-    "phoneLabel": "Sună-ne:",
-    "trustLine": "Instruire cu certificat FAR · 2 ani garanție · Service propriu",
-    "imageAlt": "Showroomul Skinlab din Érd cu trei aparate cosmetice în fața unui perete cu flori"
+    "imageAlt": "Showroomul Skinlab din Érd cu trei aparate cosmetice în fața unui perete cu flori",
+    "phoneCta": "Prefer să sun",
+    "reassurance": "Prima consultație este gratuită și fără nicio obligație.",
+    "googleRating": "Pe baza recenziilor Google",
+    "googleRatingShort": "Evaluare Google"
   },
   "homeComparison": {
     "title": "Ce laser cu diodă i se potrivește salonului tău?",
@@ -1033,8 +1035,8 @@
     "cta": "Descoperă povestea noastră completă"
   },
   "services": {
-    "title": "Mai mult decât un magazin online",
-    "subtitle": "Pe lângă aparate primești tot ce îi trebuie salonului tău: produse pentru tratamente, instruire, service și o demonstrație personală.",
+    "title": "Tot ce îți trebuie",
+    "subtitle": "Aparatul este doar începutul. De la noi primești și produse de tratament, instruire, service și o demonstrație personală.",
     "consumables": {
       "title": "Produse pentru tratamente M'onduniq",
       "desc": "Produse profesionale și accesorii pentru aparatele tale, de la îngrijirea înainte și după tratamentele laser până la modulele de ace.",
@@ -1057,7 +1059,29 @@
       "title": "Showroom în Érd",
       "desc": "Vezi și încearcă aparatele personal, cu programare prealabilă.",
       "cta": "Showroom și contact",
-      "alt": "Showroomul Skinlab cu logoul luminos și un aparat cosmetic"
-    }
+      "alt": "Showroomul Skinlab din Érd cu masă de întâlniri și logo luminos"
+    },
+    "titleAccent": "pentru a-ți conduce salonul"
+  },
+  "trainingLife": {
+    "kicker": "Instruire și pregătire",
+    "title": "Nu înveți singură.",
+    "titleAccent": "Te învățăm tot.",
+    "text": "La aparatele noastre oferim instruire personală: într-un salon real, în grupuri mici, cu certificat FAR.",
+    "cta": "Cursurile noastre",
+    "alt1": "Instruire în timpul unui tratament de hidrodermabraziune",
+    "alt2": "Curs de machiaj semipermanent",
+    "alt3": "Demonstrație de tratament cu laser",
+    "alt4": "Exersare cu piesa de mână",
+    "alt5": "Practică laser cu o cursantă",
+    "alt6": "Diagnostic al pielii la curs"
+  },
+  "showroomCta": {
+    "title": "Vino și încearcă aparatele",
+    "titleAccent": "în showroomul nostru",
+    "text": "Îți arătăm aparatele personal și te ajutăm să alegi ce se potrivește salonului tău.",
+    "cta": "Vreau o programare la showroom",
+    "phoneCta": "Prefer să sun",
+    "imageAlt": "Showroomul Skinlab din Érd: masă de întâlniri, logo luminos și roll-up The Frost"
   }
 }

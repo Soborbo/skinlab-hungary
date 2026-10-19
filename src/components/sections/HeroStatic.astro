@@ -1,19 +1,21 @@
 ---
-import { CONTACT } from '../../lib/constants';
+import { CONTACT, GOOGLE_RATING } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 
-// Lézervillanásos hero (2026-10-19, Claude Design 9-es terv). Egy kép, a három
-// gép tengelyére szimmetrikusan vágva: asztalon 1434x1024 a jobb oszlopban,
-// mobilon 1080x1080. A vízszintes „lézervonal” a szöveg és a gombok között
-// betöltéskor egyszer, ~1 mp alatt végigfut az egész heron (a fotón is), aztán eltűnik.
+// Lézervillanásos hero (Claude Design „Főoldal v2”). Egy kép, a három gép
+// tengelyére szimmetrikusan vágva: asztalon 1434x1024 a jobb oszlopban,
+// mobilon 1080x1080. A „lézervonal” betöltéskor egyszer végigsuhan a hero
+// alsó szélén (~1 mp), aztán eltűnik – nem vágja ketté a tartalmat.
 // Az intró (sötét → lézersugár → fehér villanás → kitisztul) csak az első
 // látogatáskor fut, és csak JS-sel: a html-re tett `lz-intro` osztály kapcsolja
 // be, így JS nélkül és csökkentett mozgásnál rögtön a kész oldal látszik.
+// A Google-kártya csak akkor jelenik meg, ha a GOOGLE_RATING ki van töltve.
 const image = '/hero/hero-skinlab-showroom-foto';
 const mobile = '/hero/hero-skinlab-showroom-mobile';
+const ratingText = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', locale === 'en' ? '.' : ',') : '';
 
 const trustBadges = [
   { icon: 'shield-check', titleKey: 'trust.warranty', descKey: 'trust.warrantyDesc' },
@@ -45,7 +47,7 @@ const icons: Record<string, string> = {
 </script>
 
 <section class="relative overflow-hidden">
-  <div class="lz-hero">
+  <div class="lz-hero relative">
     <div class="lz-photo relative overflow-hidden">
       <picture>
         <source media="(max-width: 767px)" type="image/avif" srcset={`${mobile}.avif`} />
@@ -64,38 +66,64 @@ const icons: Record<string, string> = {
           decoding="sync"
         />
       </picture>
+
+      {GOOGLE_RATING && (
+        <div
+          class="g-badge absolute right-3 bottom-3 md:right-6 md:bottom-6 flex items-center gap-2 md:gap-3 p-2 md:p-4 bg-white/95 backdrop-blur-sm rounded-lg md:rounded-xl shadow-lg md:shadow-xl"
+          data-g-rating={ratingText}
+        >
+          <svg class="shrink-0 w-6 h-6 md:hidden" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+          <svg class="shrink-0 hidden md:block w-10 h-10" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+          <div>
+            <div class="flex items-center gap-1">
+              <span class="text-lg md:text-2xl font-bold text-gray-900 tabular-nums" data-g-rating-value>{ratingText}</span>
+              <span class="flex text-orange-400" aria-hidden="true">
+                <svg class="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69z"/></svg>
+                <span class="hidden md:flex"><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69z"/></svg></span>
+              </span>
+            </div>
+            <p class="text-[11px] md:text-[13px] text-gray-600">
+              <span class="md:hidden">{t(locale, 'homeHero.googleRatingShort')}</span>
+              <span class="hidden md:inline">{t(locale, 'homeHero.googleRating')}</span>
+            </p>
+          </div>
+        </div>
+      )}
     </div>
 
     <div class="lz-text">
       <p class="text-sm md:text-[15px] font-semibold text-primary-800 mb-3 md:mb-5">{t(locale, 'homeHero.kicker')}</p>
-      <h1 class="font-heading font-normal text-[#2b1d22] text-[2rem] leading-[1.12] md:text-[2.75rem] lg:text-[3.6rem] lg:leading-[1.08] mb-4 md:mb-6">
+      <h1 class="font-heading font-normal text-[#2b1d22] text-[2rem] leading-[1.12] md:text-[2.75rem] lg:text-[3.4rem] lg:leading-[1.08] mb-4 md:mb-6">
         {t(locale, 'homeHero.title')}
         <em class="text-primary-700">{t(locale, 'homeHero.titleAccent')}</em>
       </h1>
-      <p class="text-[17px] md:text-[19px] leading-relaxed text-[#4d3b42] max-w-[32rem]">{t(locale, 'homeHero.text')}</p>
-    </div>
+      <p class="text-[17px] md:text-[19px] leading-relaxed text-[#4d3b42] max-w-[32rem] mx-auto md:mx-0">{t(locale, 'homeHero.text')}</p>
 
-    <div class="lz-line" aria-hidden="true"></div>
-
-    <div class="lz-cta">
-      <div class="flex flex-wrap gap-3">
+      <div class="mt-6 md:mt-9 flex flex-col items-center gap-2.5 md:flex-row md:flex-wrap md:items-stretch md:gap-3">
         <a
           href={contactLink}
           data-event="hero_consult_click"
-          class="inline-flex items-center justify-center px-7 py-4 bg-primary-700 text-white font-semibold text-base md:text-[17px] hover:bg-primary-800 active:scale-[0.98] transition-all"
+          class="w-full max-w-[20rem] md:w-auto md:max-w-none inline-flex items-center justify-center min-h-[3.5rem] px-6 bg-primary-700 text-white font-semibold text-base xl:text-[17px] hover:bg-primary-800 active:scale-[0.98] transition-all"
         >
           {t(locale, 'homeHero.cta')}
         </a>
         <a
           href={CONTACT.phoneTel}
           data-event="hero_phone_click"
-          class="inline-flex items-center justify-center px-6 py-4 bg-white text-primary-800 font-semibold text-base md:text-[17px] border border-primary-700 hover:bg-primary-50 active:scale-[0.98] transition-all"
+          class="w-full max-w-[20rem] md:w-auto md:max-w-none inline-flex items-center justify-center gap-2 min-h-[3.5rem] px-5 bg-white text-primary-800 font-semibold text-base xl:text-[17px] border border-primary-700 hover:bg-primary-50 active:scale-[0.98] transition-all"
         >
-          {t(locale, 'homeHero.phoneLabel')}&nbsp;{CONTACT.phoneDisplay}
+          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          {t(locale, 'homeHero.phoneCta')}
         </a>
       </div>
-      <p class="mt-4 text-sm md:text-[15px] text-[#4d3b42]">{t(locale, 'homeHero.trustLine')}</p>
+      <p class="mt-4 flex items-center justify-center md:justify-start gap-2 text-sm md:text-[15px] text-[#4d3b42]">
+        <svg class="w-[18px] h-[18px] shrink-0 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7" /></svg>
+        {t(locale, 'homeHero.reassurance')}
+      </p>
     </div>
+
+    {/* Lézer: egyszer végigsuhan a hero alsó szélén, aztán eltűnik */}
+    <div class="lz-line" aria-hidden="true"></div>
   </div>
 
   {/* Intró-rétegek: csak a html.lz-intro alatt látszanak, kattintást nem fognak meg */}
@@ -123,6 +151,28 @@ const icons: Record<string, string> = {
   </div>
 </section>
 
+{GOOGLE_RATING && (
+  <script>
+    // A pontszám 1,0-ról felpörög a valódi értékig (~1,5 mp), ha a kártya látszik.
+    document.querySelectorAll<HTMLElement>('.g-badge[data-g-rating]').forEach((badge) => {
+      const out = badge.querySelector<HTMLElement>('[data-g-rating-value]');
+      const text = badge.dataset.gRating ?? '';
+      const target = parseFloat(text.replace(',', '.'));
+      if (!out || !target || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const sep = text.includes(',') ? ',' : '.';
+      const start = performance.now() + 500;
+      const tick = (now: number) => {
+        const p = Math.min(1, Math.max(0, (now - start) / 1500));
+        const v = 1 + (target - 1) * (1 - Math.pow(1 - p, 3));
+        out.textContent = v.toFixed(1).replace('.', sep);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      out.textContent = `1${sep}0`;
+      requestAnimationFrame(tick);
+    });
+  </script>
+)}
+
 <style>
   .lz-hero {
     display: grid;
@@ -130,64 +180,57 @@ const icons: Record<string, string> = {
     background: #fbf3f2;
   }
   .lz-text {
-    padding: 1.5rem 1rem 0;
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
   }
-  .lz-cta {
-    padding: 0 1rem 1.75rem;
-  }
-  .lz-line {
-    position: relative;
-    height: 2px;
-    margin: 1.5rem 0;
-    background: #ff4d86;
-    box-shadow: 0 0 6px 1px rgba(255, 77, 134, 0.9), 0 0 22px 3px rgba(206, 34, 82, 0.45);
-    z-index: 1;
-  }
-  /* Mobilon a vonal közvetlenül a kép alatt fut, a szöveg fölött. */
-  @media (max-width: 767px) {
-    .lz-photo { order: 0; }
-    .lz-line { order: 1; margin: 0; }
-    .lz-text { order: 2; }
-    .lz-cta { order: 3; padding-top: 1.25rem; }
-  }
-  /* Asztalon: szöveg balra, fotó jobbra teljes magasságban; a vonal a szöveg
-     és a gombok között átfut a fotón is (a rácscellák átfedik egymást). */
   @media (min-width: 768px) {
     .lz-hero {
       grid-template-columns: 5fr 6fr;
-      grid-template-rows: 1fr auto auto;
       min-height: clamp(520px, 46vw, 720px);
     }
-    .lz-photo { grid-column: 2; grid-row: 1 / 4; }
+    .lz-photo { grid-column: 2; grid-row: 1; }
     .lz-text {
       grid-column: 1; grid-row: 1;
-      align-self: end;
-      padding: 3rem 2.5rem 0 1.5rem;
+      align-self: center;
+      text-align: left;
+      padding: 3rem 2rem 3rem 1.5rem;
     }
-    .lz-line { grid-column: 1 / 3; grid-row: 2; margin: 2rem 0; }
-    .lz-cta { grid-column: 1; grid-row: 3; padding: 0 2.5rem 3rem 1.5rem; }
   }
   @media (min-width: 1024px) {
     .lz-text { padding-left: 2rem; }
-    .lz-cta { padding-left: 2rem; }
   }
   /* A szövegoszlop bal széle a 7xl konténerhez igazodik. */
   @media (min-width: 1280px) {
-    .lz-text,
-    .lz-cta {
-      padding-left: max(2rem, calc((100vw - 80rem) / 2 + 2rem));
-    }
+    .lz-text { padding-left: max(2rem, calc((100vw - 80rem) / 2 + 2rem)); }
   }
 
-  /* A lézervonal egyszer, ~1 mp alatt végigfut, aztán elhalványul. */
+  /* Google-kártya: finoman beúszik. */
+  .g-badge { animation: gBadgeIn 0.8s ease-out 0.5s both; }
+  @keyframes gBadgeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  :global(html.lz-intro) .g-badge { animation-delay: 2s; }
+
+  /* A lézer a hero alsó szélén egyszer végigsuhan (~1 mp), aztán eltűnik.
+     Mobilon a kép és a szöveg határán fut. */
   .lz-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: #ff4d86;
+    box-shadow: 0 0 8px 2px rgba(255, 77, 134, 0.9), 0 0 26px 4px rgba(206, 34, 82, 0.5);
+    z-index: 2;
     opacity: 0;
     transform-origin: 0 50%;
-    animation: lzSweep 1.4s cubic-bezier(0.6, 0, 0.3, 1) 0.3s both;
+    pointer-events: none;
+    animation: lzSweep 1.3s cubic-bezier(0.6, 0, 0.3, 1) 0.4s both;
+  }
+  @media (max-width: 767px) {
+    .lz-line { top: 100vw; bottom: auto; }
   }
   @keyframes lzSweep {
     0% { transform: scaleX(0); opacity: 1; }
-    70% { transform: scaleX(1); opacity: 1; }
+    72% { transform: scaleX(1); opacity: 1; }
     100% { transform: scaleX(1); opacity: 0; }
   }
 
@@ -211,7 +254,7 @@ const icons: Record<string, string> = {
   }
   .lz-flash { background: #fff7fa; animation: lzFlash 2s ease-out both; }
   :global(html.lz-intro) .lz-hero { animation: lzWake 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.85s both; }
-  :global(html.lz-intro) .lz-line { animation-delay: 1.7s; }
+  :global(html.lz-intro) .lz-line { animation-delay: 1.9s; }
 
   @keyframes lzDark { 0%, 85% { opacity: 1; } 100% { opacity: 0; } }
   @keyframes lzBeam {
@@ -227,6 +270,7 @@ const icons: Record<string, string> = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .lz-line { animation: none; }
+    .lz-line { display: none; }
+    .g-badge { animation: none; }
   }
 </style>

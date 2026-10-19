@@ -19,6 +19,8 @@ interface Props {
   playLabel: string;
   /** 'shorts' = álló oar2.jpg, 'landscape' = maxresdefault.jpg */
   poster?: 'shorts' | 'landscape';
+  /** Saját poszterkép (pl. kivilágosított képkocka) a YouTube-bélyegkép helyett. */
+  posterSrc?: string;
   playSize?: 'md' | 'lg';
   class?: string;
 }
@@ -29,13 +31,14 @@ const {
   alt,
   playLabel,
   poster = 'shorts',
+  posterSrc,
   playSize = 'md',
   class: className = '',
 } = Astro.props;
 
-const posterUrl = poster === 'shorts'
+const posterUrl = posterSrc ?? (poster === 'shorts'
   ? `https://i.ytimg.com/vi/${videoId}/oar2.jpg`
-  : `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  : `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`);
 
 const circle = playSize === 'lg' ? 'w-16 h-16 lg:w-20 lg:h-20' : 'w-14 h-14 lg:w-16 lg:h-16';
 const icon = playSize === 'lg' ? 'w-8 h-8 lg:w-10 lg:h-10' : 'w-7 h-7 lg:w-8 lg:h-8';
@@ -53,7 +56,8 @@ const icon = playSize === 'lg' ? 'w-8 h-8 lg:w-10 lg:h-10' : 'w-7 h-7 lg:w-8 lg:
     loading="lazy"
     decoding="async"
   />
-  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+  {/* Saját (már kivilágosított) poszternél csak enyhe sötétítés kell a gomb mögé. */}
+  <div class:list={['absolute inset-0 transition-colors', posterSrc ? 'bg-black/5 group-hover:bg-black/15' : 'bg-black/20 group-hover:bg-black/30']}></div>
   <button
     type="button"
     class="video-facade-play absolute inset-0 flex w-full items-center justify-center cursor-pointer"

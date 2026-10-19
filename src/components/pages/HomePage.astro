@@ -18,7 +18,7 @@ import VideoQuote from '../video/VideoQuote.astro';
 import FeaturedProduct from '../sections/FeaturedProduct.astro';
 import HomeFinance from '../sections/HomeFinance.astro';
 import WhyUs from '../sections/WhyUs.astro';
-import TrainingGallery from '../sections/TrainingGallery.astro';
+import TrainingLife from '../sections/TrainingLife.astro';
 import VideoTestimonials from '../sections/VideoTestimonials.astro';
 import BrandMarquee from '../sections/BrandMarquee.astro';
 import FoundersStory from '../sections/FoundersStory.astro';
@@ -49,7 +49,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
     {/* 2b. Csak webshop? Nem: kezelőanyag, képzés, szerviz, showroom is. */}
     <ServicesStrip />
     {/* 3. Kik dolgoznak ezzel tényleg? */}
-    <VideoQuote testimonial="adri" videoSide="right" />
+    <VideoQuote testimonial="adri" videoSide="right" posterSrc="/images/video/zsidai-adri-poster.jpg" />
     {/* 4. Mi az újdonság, megéri? */}
     <FeaturedProduct slug="empire" />
     {/* 6. Ki tudom fizetni? (csak HU, ott van részletfizetés) */}
@@ -57,7 +57,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
     {/* 7. Mi van, ha elromlik vagy elakadok? */}
     <WhyUs />
     {/* 8. Meg tudom majd használni? */}
-    <TrainingGallery />
+    <TrainingLife />
     {/* 9. Mások tapasztalata (a fenti Adri-videó nélkül) */}
     <VideoTestimonials exclude={['adri']} quotes />
     {/* 10. Kitől van a gép és az anyag? */}

@@ -1,12 +1,14 @@
 ---
 /**
- * ServicesStrip - "Több mint webshop" sáv a főoldalon, a kategóriák alatt.
+ * ServicesStrip - "Mindent megkapsz, ami a szalonod működtetéséhez kell"
+ * a főoldalon, a kategóriák alatt.
  *
- * A webshop marad az első (hero + kategóriák), ez a sáv mutatja meg, mi minden
- * van még a gépek mögött: kezelőanyagok, képzés, saját szerviz, showroom.
- * Minden kártya a meglévő aloldalra visz.
+ * Sakktábla-elrendezés széltől szélig: asztalon soronként a kép a képernyő
+ * egyik felét tölti ki (a lap széléig), a szöveg a másikat; a sorok iránya és
+ * háttere váltakozik. Mobilon kép, alatta szöveg. Minden sor a meglévő
+ * aloldalra visz.
  */
-import { QuarterImage } from '../images';
+import { ContentImage } from '../images';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -16,61 +18,65 @@ const items = [
     key: 'consumables',
     href: '/kezeloanyagok/',
     image: '@assets/products/monduniq-hifusion-longevity-arckrem-design-1.webp',
+    position: 'center 45%',
   },
   {
     key: 'training',
     href: '/kepzesek/',
     image: '@assets/kozmetikai-kepzes-far-tanusitvany.jpg',
+    position: 'center 30%',
   },
   {
     key: 'service',
     href: '/garancia/',
     image: '@assets/kozmetikai-gepkezelo-kepzes-gyakorlat.jpg',
+    position: 'center',
   },
   {
     key: 'showroom',
     href: '/kapcsolat/',
-    image: '@assets/rolunk3.jpg',
+    image: '@assets/skinlab-showroom-targyalo.jpg',
+    position: '70% center',
   },
 ];
 ---
 
-<section class="py-12 lg:py-16 bg-white" id="szolgaltatasok">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8 lg:mb-10">
-      <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-        {t(locale, 'services.title')}
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto text-sm lg:text-base">
-        {t(locale, 'services.subtitle')}
-      </p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
-      {items.map((item) => (
-        <a
-          href={getLocalizedUrl(locale, item.href)}
-          class="group flex flex-row sm:flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-cta hover:shadow-lg transition-all"
-        >
-          <div class="w-28 shrink-0 sm:w-auto sm:aspect-[4/3] overflow-hidden bg-gray-100">
-            <QuarterImage
-              src={item.image}
-              alt={t(locale, `services.${item.key}.alt`)}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="flex flex-col flex-1 p-4 sm:p-5">
-            <h3 class="font-bold text-gray-900 mb-2">{t(locale, `services.${item.key}.title`)}</h3>
-            <p class="text-sm text-gray-600 mb-3 sm:mb-4 flex-1">{t(locale, `services.${item.key}.desc`)}</p>
-            <span class="inline-flex items-center gap-1 text-sm font-semibold text-cta">
-              {t(locale, `services.${item.key}.cta`)}
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-        </a>
-      ))}
-    </div>
+<section class="bg-white" id="szolgaltatasok">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 lg:pt-24 lg:pb-16 text-center">
+    <h2 class="font-heading font-normal text-[1.9rem] leading-[1.15] lg:text-5xl lg:leading-[1.12] text-gray-900 mb-3 lg:mb-4">
+      {t(locale, 'services.title')}
+      <em class="text-primary-700">{t(locale, 'services.titleAccent')}</em>
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto text-base lg:text-[19px] leading-relaxed">
+      {t(locale, 'services.subtitle')}
+    </p>
   </div>
+
+  {items.map((item, index) => (
+    <div class:list={['svc-row flex flex-col lg:min-h-[620px]', index % 2 === 0 ? 'lg:flex-row bg-white' : 'lg:flex-row-reverse bg-[#fbf3f2]']}>
+      <div class="lg:w-1/2 aspect-[4/3] lg:aspect-auto relative overflow-hidden bg-gray-100">
+        <ContentImage
+          src={item.image}
+          alt={t(locale, `services.${item.key}.alt`)}
+          class="absolute inset-0 w-full h-full object-cover"
+          style={`object-position: ${item.position}`}
+        />
+      </div>
+      <div class="lg:w-1/2 flex flex-col justify-center px-4 sm:px-8 py-8 lg:py-16 lg:pl-24 lg:pr-28">
+        <p class="text-sm font-bold tracking-[0.12em] text-primary-700 mb-2 lg:mb-3.5">{`0${index + 1}`}</p>
+        <h3 class="font-heading font-normal text-[1.75rem] lg:text-[2.5rem] leading-[1.12] text-gray-900 mb-3 lg:mb-4">
+          {t(locale, `services.${item.key}.title`)}
+        </h3>
+        <p class="text-base lg:text-lg leading-relaxed text-gray-700 mb-5 lg:mb-6 max-w-[30rem]">
+          {t(locale, `services.${item.key}.desc`)}
+        </p>
+        <a href={getLocalizedUrl(locale, item.href)} class="group self-start inline-flex items-center gap-2 min-h-11 font-semibold text-base lg:text-[17px] text-primary-700 hover:text-primary-800">
+          {t(locale, `services.${item.key}.cta`)}
+          <svg class="w-[18px] h-[18px] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  ))}
 </section>
