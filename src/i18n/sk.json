@@ -997,16 +997,16 @@
     "view": "Pozrieť"
   },
   "homeHero": {
-    "prev": "Predchádzajúca snímka",
-    "next": "Ďalšia snímka",
-    "goTo": "Snímka {n}",
-    "upNext": "Ďalej:",
-    "slides": {
-      "empire": "Diódový laser EMPIRE",
-      "olympia": "Diódový laser OLYMPIA",
-      "ndyag": "ND:YAG laser",
-      "training": "Školenie a servis"
-    }
+    "kicker": "Showroom Skinlab · Érd, Maďarsko",
+    "title": "Žiarivá pleť pre tvoje klientky.",
+    "titleAccent": "Jednoducho ovládateľné prístroje pre teba.",
+    "text": "Ukážeme ti ich, zaškolíme ťa, a keď treba, opravíme ich. Príď a vyskúšaj si prístroje osobne.",
+    "cta": "Chcem bezplatnú konzultáciu",
+    "imageAlt": "Showroom Skinlab v Érde s tromi kozmetickými prístrojmi pred kvetinovou stenou",
+    "phoneCta": "Radšej zavolám",
+    "reassurance": "Prvá konzultácia je zadarmo a k ničomu ťa nezaväzuje.",
+    "googleRating": "Na základe hodnotení Google",
+    "googleRatingShort": "Hodnotenie Google"
   },
   "homeComparison": {
     "title": "Ktorý diódový laser je vhodný pre váš salón?",
@@ -1035,8 +1035,8 @@
     "cta": "Spoznajte celý náš príbeh"
   },
   "services": {
-    "title": "Viac ako e-shop",
-    "subtitle": "K prístrojom dostanete všetko, čo váš salón potrebuje: ošetrujúce prípravky, školenie, servis a osobnú ukážku.",
+    "title": "Všetko, čo potrebuješ",
+    "subtitle": "Prístroj je len začiatok. Ošetrujúce prípravky, školenie, servis aj osobnú ukážku dostaneš tiež od nás.",
     "consumables": {
       "title": "Ošetrujúce prípravky M'onduniq",
       "desc": "Profesionálne ošetrujúce prípravky a príslušenstvo k vašim prístrojom, od starostlivosti pred a po laserovom ošetrení až po ihlové moduly.",
@@ -1059,7 +1059,29 @@
       "title": "Showroom v Érde",
       "desc": "Pozrite si a vyskúšajte prístroje osobne, po predchádzajúcom dohovore.",
       "cta": "Showroom a kontakt",
-      "alt": "Showroom Skinlab so svietiacim logom a kozmetickým prístrojom"
-    }
+      "alt": "Showroom Skinlab v Érde s rokovacím stolom a svietiacim logom"
+    },
+    "titleAccent": "na prevádzku svojho salónu"
+  },
+  "trainingLife": {
+    "kicker": "Školenie a zaškolenie",
+    "title": "Nebudeš sa to učiť sama.",
+    "titleAccent": "Všetko ťa naučíme.",
+    "text": "K našim prístrojom dávame osobné zaškolenie: v skutočnom salóne, v malej skupine, s certifikátom FAR.",
+    "cta": "Naše školenia",
+    "alt1": "Školenie pri hydrodermabrázii",
+    "alt2": "Školenie permanentného make-upu",
+    "alt3": "Ukážka laserového ošetrenia",
+    "alt4": "Nácvik s hlavicou",
+    "alt5": "Laserová prax so študentkou",
+    "alt6": "Diagnostika pleti na školení"
+  },
+  "showroomCta": {
+    "title": "Príď a vyskúšaj si prístroje",
+    "titleAccent": "v našom showroome",
+    "text": "Osobne ti prístroje ukážeme a pomôžeme vybrať ten, ktorý sa hodí do tvojho salónu.",
+    "cta": "Chcem termín v showroome",
+    "phoneCta": "Radšej zavolám",
+    "imageAlt": "Showroom Skinlab v Érde: rokovací stôl, svietiace logo a roll-up The Frost"
   }
 }

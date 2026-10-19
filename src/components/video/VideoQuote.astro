@@ -17,9 +17,11 @@ interface Props {
   testimonial: VideoTestimonial['id'];
   /** Melyik oldalon legyen a videó desktopon. */
   videoSide?: 'left' | 'right';
+  /** Saját poszterkép a YouTube-bélyegkép helyett (pl. ahol a beszélő látszik). */
+  posterSrc?: string;
 }
 
-const { testimonial, videoSide = 'left' } = Astro.props;
+const { testimonial, videoSide = 'left', posterSrc } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const item = getVideoTestimonial(testimonial);
 const role = `${t(locale, item.roleKey)} · ${item.business}`;
@@ -54,6 +56,7 @@ const role = `${t(locale, item.roleKey)} · ${item.business}`;
           title={`${item.name} (${item.business})`}
           alt={`${item.name} – ${role}`}
           playLabel={`${t(locale, 'videoTestimonials.playLabel')}: ${item.name}`}
+          posterSrc={posterSrc}
           class="aspect-[9/16] rounded-2xl shadow-lg"
         >
           <span class="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold text-white pointer-events-none">{item.duration}</span>

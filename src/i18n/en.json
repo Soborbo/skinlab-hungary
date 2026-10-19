@@ -1003,16 +1003,16 @@
     "view": "View"
   },
   "homeHero": {
-    "prev": "Previous slide",
-    "next": "Next slide",
-    "goTo": "Slide {n}",
-    "upNext": "Up next:",
-    "slides": {
-      "empire": "EMPIRE diode laser",
-      "olympia": "OLYMPIA diode laser",
-      "ndyag": "ND:YAG laser",
-      "training": "Training and service"
-    }
+    "kicker": "Skinlab showroom · Érd, Hungary",
+    "title": "Radiant skin for your clients.",
+    "titleAccent": "Easy-to-use machines for you.",
+    "text": "We show you, we train you, and if anything breaks, we fix it. Come and try the machines in person.",
+    "cta": "Request a free consultation",
+    "imageAlt": "The Skinlab showroom in Érd with three cosmetic machines in front of a flower wall",
+    "phoneCta": "I'd rather call",
+    "reassurance": "The first consultation is free and comes with no obligation.",
+    "googleRating": "Based on Google reviews",
+    "googleRatingShort": "Google rating"
   },
   "homeComparison": {
     "title": "Which diode laser is right for your salon?",
@@ -1041,8 +1041,8 @@
     "cta": "Read our full story"
   },
   "services": {
-    "title": "More than a webshop",
-    "subtitle": "Alongside the machines you get everything your salon needs to run: treatment products, training, service and a personal demo.",
+    "title": "Everything you need",
+    "subtitle": "The machine is just the start. You also get treatment products, training, service and a personal demo from us.",
     "consumables": {
       "title": "M'onduniq treatment products",
       "desc": "Professional treatment products and supplies for your machines, from pre- and post-laser skincare to needle cartridges.",
@@ -1065,7 +1065,29 @@
       "title": "Showroom in Érd",
       "desc": "See and try the machines in person, by appointment.",
       "cta": "Showroom and contact",
-      "alt": "The Skinlab showroom with the illuminated logo and a cosmetic device"
-    }
+      "alt": "The Skinlab showroom in Érd with a meeting table and the illuminated logo"
+    },
+    "titleAccent": "to run your salon"
+  },
+  "trainingLife": {
+    "kicker": "Training and onboarding",
+    "title": "You won't learn it alone.",
+    "titleAccent": "We'll teach you everything.",
+    "text": "We give personal training with our machines: in a real salon setting, in small groups, with a FAR certificate.",
+    "cta": "Our trainings",
+    "alt1": "Training during a hydrodermabrasion treatment",
+    "alt2": "Permanent make-up training",
+    "alt3": "Laser treatment demonstration",
+    "alt4": "Practising with a handpiece",
+    "alt5": "Laser practice with a trainee",
+    "alt6": "Skin diagnostics at the training"
+  },
+  "showroomCta": {
+    "title": "Come and try the machines",
+    "titleAccent": "in our showroom",
+    "text": "We'll show you the machines in person and help you choose the one that suits your salon.",
+    "cta": "Book a showroom visit",
+    "phoneCta": "I'd rather call",
+    "imageAlt": "The Skinlab showroom in Érd: meeting table, illuminated logo and The Frost roll-up"
   }
 }

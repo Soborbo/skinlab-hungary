@@ -33,6 +33,13 @@ export const FOUNDERS = [
   { name: 'Horváth László', roleKey: 'technical', image: '/about/horvath-laszlo-skinlab-alapito' },
 ];
 
+/**
+ * A Skinlab Google-cégprofiljának átlagos értékelése, a főoldali hero
+ * Google-kártyájához. CSAK a valódi, Google-on látható érték kerülhet ide
+ * (kitalált értékelés tilos). `null` = a kártya nem jelenik meg.
+ */
+export const GOOGLE_RATING: { value: number } | null = { value: 4.6 };
+
 export const CONTACT = {
   phone: '+3613009280',
   phoneFormatted: '+36 1 300 9280',

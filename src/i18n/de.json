@@ -997,16 +997,16 @@
     "view": "Ansehen"
   },
   "homeHero": {
-    "prev": "Vorherige Folie",
-    "next": "Nächste Folie",
-    "goTo": "Folie {n}",
-    "upNext": "Als Nächstes:",
-    "slides": {
-      "empire": "EMPIRE Diodenlaser",
-      "olympia": "OLYMPIA Diodenlaser",
-      "ndyag": "ND:YAG-Laser",
-      "training": "Schulung und Service"
-    }
+    "kicker": "Skinlab Showroom · Érd, Ungarn",
+    "title": "Strahlende Haut für deine Kundinnen.",
+    "titleAccent": "Einfach zu bedienende Geräte für dich.",
+    "text": "Wir zeigen dir alles, schulen dich ein und reparieren, wenn nötig. Komm vorbei und probiere die Geräte persönlich aus.",
+    "cta": "Kostenlose Beratung anfordern",
+    "imageAlt": "Der Skinlab Showroom in Érd mit drei Kosmetikgeräten vor einer Blumenwand",
+    "phoneCta": "Lieber anrufen",
+    "reassurance": "Die erste Beratung ist kostenlos und unverbindlich.",
+    "googleRating": "Basierend auf Google-Bewertungen",
+    "googleRatingShort": "Google-Bewertung"
   },
   "homeComparison": {
     "title": "Welcher Diodenlaser passt zu Ihrem Salon?",
@@ -1035,8 +1035,8 @@
     "cta": "Lernen Sie unsere ganze Geschichte kennen"
   },
   "services": {
-    "title": "Mehr als ein Webshop",
-    "subtitle": "Zu den Geräten bekommen Sie alles, was Ihr Salon braucht: Behandlungsprodukte, Schulung, Service und eine persönliche Vorführung.",
+    "title": "Alles, was du",
+    "subtitle": "Das Gerät ist nur der Anfang. Pflegeprodukte, Schulung, Service und eine persönliche Vorführung bekommst du auch von uns.",
     "consumables": {
       "title": "M'onduniq Behandlungsprodukte",
       "desc": "Professionelle Behandlungsprodukte und Zubehör für Ihre Geräte, von der Pflege vor und nach Laserbehandlungen bis zu Nadelmodulen.",
@@ -1059,7 +1059,29 @@
       "title": "Showroom in Érd",
       "desc": "Sehen und testen Sie die Geräte persönlich, nach Terminvereinbarung.",
       "cta": "Showroom und Kontakt",
-      "alt": "Der Skinlab-Showroom mit dem beleuchteten Logo und einem Kosmetikgerät"
-    }
+      "alt": "Der Skinlab Showroom in Érd mit Besprechungstisch und leuchtendem Logo"
+    },
+    "titleAccent": "für deinen Salon brauchst"
+  },
+  "trainingLife": {
+    "kicker": "Schulung und Einweisung",
+    "title": "Du lernst es nicht allein.",
+    "titleAccent": "Wir bringen dir alles bei.",
+    "text": "Zu unseren Geräten gibt es eine persönliche Einweisung: in echter Salonumgebung, in kleinen Gruppen, mit FAR-Zertifikat.",
+    "cta": "Unsere Schulungen",
+    "alt1": "Schulung während einer Hydrodermabrasion",
+    "alt2": "PMU-Schulung",
+    "alt3": "Vorführung einer Laserbehandlung",
+    "alt4": "Üben mit dem Handstück",
+    "alt5": "Laserpraxis mit einer Teilnehmerin",
+    "alt6": "Hautdiagnose bei der Schulung"
+  },
+  "showroomCta": {
+    "title": "Komm vorbei und probiere die Geräte",
+    "titleAccent": "in unserem Showroom aus",
+    "text": "Wir zeigen dir die Geräte persönlich und helfen dir, das passende für deinen Salon zu finden.",
+    "cta": "Showroom-Termin anfragen",
+    "phoneCta": "Lieber anrufen",
+    "imageAlt": "Der Skinlab Showroom in Érd: Besprechungstisch, leuchtendes Logo und The-Frost-Roll-up"
   }
 }

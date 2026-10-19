@@ -1,63 +1,92 @@
 ---
+/**
+ * FinalCTA - záró blokk a főoldalon: meghívás a bemutatóterembe.
+ *
+ * Asztalon a showroom-fotó teljes szélességben, rajta balra egy fehér kártya
+ * (cím, rövid szöveg, cím és nyitvatartás, két gomb, visszahívási ígéret).
+ * Mobilon a fotó felül, a kártya alatta. A kártya a képernyőre érve beúszik.
+ */
+import { HeroImage } from '../images';
 import { CONTACT, LOCATIONS } from '../../lib/constants';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
-// Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-
-// Localized contact link
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
+const showroom = LOCATIONS.showroom;
 ---
 
-<section id="kapcsolat" class="bg-gradient-to-br from-[#ec3c6e] via-[#ce2252] to-[#a01c42] py-16 lg:py-20">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-      {t(locale, 'finalCta.title')}
-    </h2>
-    <p class="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-      {t(locale, 'finalCta.subtitle')}
-    </p>
+<section id="kapcsolat" class="relative bg-[#fbf3f2] lg:min-h-[720px] lg:flex lg:items-center">
+  <div class="relative aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0 overflow-hidden">
+    <HeroImage
+      src="@assets/skinlab-showroom-bejarat.jpg"
+      alt={t(locale, 'showroomCta.imageAlt')}
+      class="absolute inset-0 w-full h-full object-cover object-[center_60%]"
+    />
+  </div>
 
-    <div class="flex justify-center mb-8">
-      <a
-        href={contactLink}
-        data-event="home_final_consult_click"
-        class="bg-white text-primary-700 font-bold py-3 lg:py-4 px-8 lg:px-10 rounded-xl text-lg hover:bg-primary-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        {t(locale, 'finalCta.demoButton')}
-      </a>
-    </div>
+  <div class="relative w-full max-w-7xl mx-auto lg:px-8">
+    <div class="fcta-card bg-white px-5 py-8 sm:px-8 lg:p-12 lg:max-w-[32.5rem] lg:shadow-[0_24px_60px_rgba(0,0,0,0.25)]" data-fcta-card>
+      <h2 class="font-heading font-normal text-[1.9rem] leading-[1.15] lg:text-[2.5rem] lg:leading-[1.12] text-gray-900 mb-3 lg:mb-4">
+        {t(locale, 'showroomCta.title')}
+        <em class="text-primary-700">{t(locale, 'showroomCta.titleAccent')}</em>
+      </h2>
+      <p class="text-base lg:text-[17px] leading-relaxed text-gray-700 mb-5">{t(locale, 'showroomCta.text')}</p>
 
-    <div class="flex flex-wrap justify-center gap-6 lg:gap-8 text-white/90 text-sm mb-8">
-      <span class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        {t(locale, 'finalCta.noObligation')}
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        {t(locale, 'finalCta.inPersonOrOnline')}
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        {t(locale, 'finalCta.roiCalculation')}
-      </span>
-    </div>
+      <div class="flex flex-col gap-2 mb-6 text-[15px] text-gray-700">
+        <a href={showroom.googleMapsUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 hover:text-primary-700">
+          <svg class="w-[18px] h-[18px] shrink-0 text-primary-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+          {showroom.fullAddress}
+        </a>
+        <span class="inline-flex items-center gap-2.5">
+          <svg class="w-[18px] h-[18px] shrink-0 text-primary-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2" /></svg>
+          {showroom.openingHours}
+        </span>
+      </div>
 
-    <div class="pt-8 border-t border-white/20">
-      <p class="text-white/70 text-sm mb-2">{t(locale, 'finalCta.orCallDirectly')}</p>
-      <a href={CONTACT.phoneTel} data-event="home_final_phone_click" class="text-white text-2xl lg:text-3xl font-bold hover:underline">
-        {CONTACT.phoneDisplay}
-      </a>
-      <p class="mt-3 text-white/80 text-sm">{t(locale, 'finalCta.showroom', { address: LOCATIONS.showroom.fullAddress })}</p>
+      <div class="flex flex-col gap-2.5">
+        <a
+          href={contactLink}
+          data-event="home_final_consult_click"
+          class="flex items-center justify-center text-center min-h-[3.5rem] px-6 bg-primary-700 text-white font-semibold text-base lg:text-[17px] hover:bg-primary-800 active:scale-[0.98] transition-all"
+        >
+          {t(locale, 'showroomCta.cta')}
+        </a>
+        <a
+          href={CONTACT.phoneTel}
+          data-event="home_final_phone_click"
+          class="flex items-center justify-center gap-2 min-h-[3.5rem] px-6 border border-primary-700 text-primary-800 font-semibold text-base lg:text-[17px] hover:bg-primary-50 active:scale-[0.98] transition-all"
+        >
+          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          {t(locale, 'showroomCta.phoneCta')}
+        </a>
+      </div>
+      <p class="mt-4 flex items-center gap-2 text-sm text-gray-700">
+        <svg class="w-[18px] h-[18px] shrink-0 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7" /></svg>
+        {t(locale, 'founderConsult.responseTime')}
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+  @media (min-width: 1024px) {
+    .fcta-card[data-fcta-anim] { opacity: 0; transform: translateX(-30px); }
+    .fcta-card[data-fcta-run] { animation: fctaIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  }
+  @keyframes fctaIn { to { opacity: 1; transform: none; } }
+</style>
+
+<script is:inline>
+  (function () {
+    var card = document.querySelector('[data-fcta-card]');
+    if (!card || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    card.setAttribute('data-fcta-anim', '');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      card.setAttribute('data-fcta-run', '');
+      io.disconnect();
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(card);
+  })();
+</script>

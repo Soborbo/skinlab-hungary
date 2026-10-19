@@ -12,9 +12,10 @@ interface Props {
   alt: string;
   class?: string;
   priority?: boolean;
+  style?: string;
 }
 
-const { src, alt, class: className, priority = false } = Astro.props;
+const { src, alt, class: className, priority = false, style } = Astro.props;
 
 const widths = [320, 480, 640, 960, 1280, 1600];
 const sizes = '(min-width: 1024px) 50vw, 100vw';
@@ -26,6 +27,7 @@ const sizes = '(min-width: 1024px) 50vw, 100vw';
   widths={widths}
   sizes={sizes}
   class={className}
+  style={style}
   loading={priority ? 'eager' : 'lazy'}
   fetchpriority={priority ? 'high' : undefined}
   decoding={priority ? undefined : 'async'}
