@@ -205,7 +205,7 @@ const icons: Record<string, string> = {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 90;
+    z-index: 10000; /* a sütibanner (9998–9999) fölött, hogy az is a villanás alatt legyen */
   }
   :global(html.lz-intro) .lz-fx { display: block; }
   .lz-dark { background: #0b0508; animation: lzDark 1.05s linear both; }
