@@ -71,6 +71,7 @@ const story = [
     image: rolunk3,
     imageAlt: 'Gaszler Simonetta a Skinlab bemutatótermében, a skinlab logó előtt',
     imageLeft: false,
+    imagePosition: 'object-[50%_45%] sm:object-[50%_60%]',
   },
   {
     n: '05',
@@ -257,7 +258,7 @@ const whyUs = [
               <Image
                 src={item.image}
                 alt={item.imageAlt}
-                class="w-full h-64 sm:h-80 md:h-full object-cover"
+                class={`w-full h-64 sm:h-80 md:h-full object-cover ${item.imagePosition ?? ''}`}
                 loading="lazy"
               />
             </div>
