@@ -320,8 +320,8 @@ export const CATEGORIES = [
   },
   {
     id: 'sminktetovalas',
-    name: 'Sminktetováló eszközök',
-    nameShort: 'Sminktetováló',
+    name: 'PMU',
+    nameShort: 'PMU',
     slug: 'sminktetovalas',
     description: 'Sminktetováló gépek és tűmodulok.',
     icon: 'pen',
@@ -461,7 +461,7 @@ export const MEGA_MENU: {
     {
       titleKey: 'megaMenu.pmu',
       items: [
-        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 4, descriptionKey: 'megaMenu.pmuDesc', mobileLabelKey: 'megaMenu.pmuShort' },
+        { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 4, descriptionKey: 'megaMenu.pmuDesc' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
         { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 23, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
