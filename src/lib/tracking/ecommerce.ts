@@ -31,9 +31,11 @@ function pushEcommerceEvent(
   eventName: string,
   ecommerce: Record<string, unknown>,
   extra?: Record<string, unknown>,
+  marketingBasis = false,
 ): void {
   pushRaw({ ecommerce: null }); // GA4: clear previous ecommerce state
-  // Advanced mód, hozzájárulás nélkül: azonosítók le (lásd events.ts).
+  // Advanced mód, hozzájárulás nélkül: azonosítók le (lásd events.ts). A
+  // marketing-kapus rendelés (`marketingBasis`) marketing-hozzájárulással megtartja.
   pushRaw(stripIdentifiersWithoutConsent({
     event: eventName,
     ecommerce,
@@ -42,7 +44,7 @@ function pushEcommerceEvent(
     page_url: getPageUrl(),
     ...getAttribution(),
     ...extra,
-  }));
+  }, marketingBasis));
 }
 
 export interface EcommerceItem {
@@ -130,7 +132,8 @@ export function trackBeginCheckout(
 /** Lead generation funnel signal for a specific product (GA4 standard event) */
 export function trackGenerateLead(productName: string, productSku: string, productPrice?: number): void {
   if (!canPushDataLayer()) return;
-  pushRaw({
+  // Advanced mód, hozzájárulás nélkül: a session_id is lekerül (lásd events.ts).
+  pushRaw(stripIdentifiersWithoutConsent({
     event: 'generate_lead',
     product_name: productName,
     product_sku: productSku,
@@ -138,7 +141,7 @@ export function trackGenerateLead(productName: string, productSku: string, produ
     session_id: getSessionId(),
     device: getDevice(),
     page_url: getPageUrl(),
-  });
+  }));
 }
 
 // ── Order request (lead-style checkout, model A) ───────────────────
@@ -207,7 +210,7 @@ export function trackOrderRequestSubmit(params: OrderRequestSubmitParams): Order
   }, {
     event_id: eventId,
     ...(gclid && { gclid }),
-  });
+  }, true);
 
   return { success: true, consentBlocked: false, eventId, gclid, fbclid };
 }
