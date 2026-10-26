@@ -174,7 +174,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
 
     // 7b. Szállítási + fizetési mód szerveroldali ellenőrzése és újraszámolása.
     //    "Kellék-ág" (parcel tier) = SZERVEROLDALI árak per-tétel < 100k, mind
-    //    árazott, ÉS magyar nyelvű rendelés (Foxpost/MPL csak HU). Más nyelven
+    //    árazott, ÉS magyar nyelvű rendelés (Foxpost/GLS csak HU). Más nyelven
     //    csak egyeztetett ("visszahívós") szállítás van. Érvénytelen mód↔kosár
     //    kombináció vagy hiányzó Foxpost automata → validációs hiba.
     const shippable =

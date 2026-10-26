@@ -4,7 +4,7 @@
  * Kétszintű politika a kosár tartalma alapján, tételenkénti 500 000 Ft-os határral:
  *
  *  - "Kellék" ág  → ha MINDEN tétel árazott ÉS < 500 000 Ft:
- *      Foxpost automata (1 490 Ft) · MPL házhozszállítás (3 490 Ft) · személyes átvétel (ingyenes)
+ *      Foxpost automata (1 490 Ft) · GLS házhozszállítás (1 868 Ft) · személyes átvétel (ingyenes)
  *  - "Nagy értékű" ág → ha BÁRMELY tétel ≥ 500 000 Ft vagy ár egyeztetés alatt (null):
  *      nincs automatizált futár; személyes átvétel/ceremónia vagy egyeztetett kiszállítás
  *
@@ -18,7 +18,7 @@
  */
 export const SHIPPING_THRESHOLD = 500_000;
 
-export type ShippingMethodId = 'foxpost' | 'mpl' | 'personal_pickup' | 'arranged';
+export type ShippingMethodId = 'foxpost' | 'gls' | 'personal_pickup' | 'arranged';
 
 export interface ShippingMethodDef {
   id: ShippingMethodId;
@@ -30,7 +30,7 @@ export interface ShippingMethodDef {
 
 export const SHIPPING_METHODS: Record<ShippingMethodId, ShippingMethodDef> = {
   foxpost: { id: 'foxpost', fee: 1490, requiresPoint: true },
-  mpl: { id: 'mpl', fee: 3490, requiresPoint: false },
+  gls: { id: 'gls', fee: 1868, requiresPoint: false },
   personal_pickup: { id: 'personal_pickup', fee: 0, requiresPoint: false },
   arranged: { id: 'arranged', fee: 0, requiresPoint: false },
 };
@@ -76,14 +76,14 @@ export function shippingFeeFor(method: ShippingMethodId): number {
 export const HANDLING_DAYS = { min: 1, max: 2 } as const;
 
 /** Kézbesítési idő (munkanap) a feladástól, futáros módonként. */
-export const TRANSIT_DAYS: Record<'foxpost' | 'mpl', { min: number; max: number }> = {
+export const TRANSIT_DAYS: Record<'foxpost' | 'gls', { min: number; max: number }> = {
   foxpost: { min: 1, max: 2 },
-  // "következő munkanapos kézbesítés" - lásd SHIPPING_LABEL_HU.mpl
-  mpl: { min: 1, max: 1 },
+  // "jellemzően következő munkanapos kézbesítés" - lásd SHIPPING_LABEL_HU.gls
+  gls: { min: 1, max: 2 },
 };
 
 export interface CourierOption {
-  id: 'foxpost' | 'mpl';
+  id: 'foxpost' | 'gls';
   fee: number;
   handling: { min: number; max: number };
   transit: { min: number; max: number };
@@ -101,7 +101,7 @@ export interface CourierOption {
  */
 export function courierOptionsForPrice(price: number | null | undefined): CourierOption[] {
   if (typeof price !== 'number' || price >= SHIPPING_THRESHOLD) return [];
-  return (['foxpost', 'mpl'] as const).map((id) => ({
+  return (['foxpost', 'gls'] as const).map((id) => ({
     id,
     fee: SHIPPING_METHODS[id].fee,
     handling: { ...HANDLING_DAYS },
@@ -110,9 +110,9 @@ export function courierOptionsForPrice(price: number | null | undefined): Courie
 }
 
 /**
- * Az automatikus futáros szállítás (Foxpost/MPL) CSAK magyar nyelvű
+ * Az automatikus futáros szállítás (Foxpost/GLS) CSAK magyar nyelvű
  * rendelésnél érhető el. Minden más nyelven kizárólag egyeztetett ("visszahívós")
- * szállítás van - a Foxpost/MPL magyar szolgáltatások.
+ * szállítás van - a Foxpost/GLS magyar szolgáltatások.
  */
 export const PARCEL_LOCALE = 'hu';
 export function isParcelLocale(locale: string): boolean {
@@ -121,7 +121,7 @@ export function isParcelLocale(locale: string): boolean {
 
 /**
  * A kosár futárral szállítható-e ÉS magyar nyelvű-e (kellék-ág / "parcel tier").
- * Csak ekkor kínálunk Foxpost/MPL opciót és önkiszolgáló (díjbekérő/utánvét) flow-t.
+ * Csak ekkor kínálunk Foxpost/GLS opciót és önkiszolgáló (díjbekérő/utánvét) flow-t.
  */
 export function isParcelTier(items: ReadonlyArray<{ price: number | null }>, locale: string): boolean {
   return isParcelLocale(locale) && isCartShippable(items);
@@ -130,7 +130,7 @@ export function isParcelTier(items: ReadonlyArray<{ price: number | null }>, loc
 /** A kosár ágához + nyelvhez engedélyezett szállítási módok. */
 export function allowedMethods(shippable: boolean, locale: string): ShippingMethodId[] {
   if (!isParcelLocale(locale)) return ['personal_pickup', 'arranged'];
-  return shippable ? ['foxpost', 'mpl', 'personal_pickup'] : ['personal_pickup', 'arranged'];
+  return shippable ? ['foxpost', 'gls', 'personal_pickup'] : ['personal_pickup', 'arranged'];
 }
 
 /** A mód érvényes-e az adott kosár-ágban + nyelven? (szerveroldali ellenőrzés) */
@@ -160,7 +160,7 @@ export const PAYMENT_LABEL_HU: Record<PaymentMethodId, string> = {
  */
 export const SHIPPING_LABEL_HU: Record<ShippingMethodId, string> = {
   foxpost: 'Foxpost csomagautomata',
-  mpl: 'MPL házhozszállítás (következő munkanapos kézbesítés)',
+  gls: 'GLS házhozszállítás',
   personal_pickup: 'Személyes átvétel – Skinlab Showroom (Érd)',
   arranged: 'Kiszállítás személyes egyeztetés alapján',
 };

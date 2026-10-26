@@ -1,7 +1,7 @@
 /**
  * Google Merchant Center termékfeed építése a `products` kollekcióból.
  *
- * A feed a HU nyelvű oldalakra mutat: a futáros szállítás (Foxpost/MPL) csak
+ * A feed a HU nyelvű oldalakra mutat: a futáros szállítás (Foxpost/GLS) csak
  * magyar nyelvű rendelésnél érhető el (lásd lib/shipping/methods.ts →
  * `isParcelLocale`), és a Merchant Center fiók is HU/HUF célzású.
  *
