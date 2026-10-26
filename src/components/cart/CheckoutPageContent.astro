@@ -225,13 +225,13 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
               </label>
 
               <label class="flex items-start gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer transition-colors" data-ship-option>
-                <input type="radio" name="shippingMethod" value="mpl" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
+                <input type="radio" name="shippingMethod" value="gls" class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 cursor-pointer" data-ship-radio />
                 <span class="flex-1 min-w-0">
                   <span class="flex items-center justify-between gap-2">
-                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.mpl')}</span>
-                    <span class="text-sm font-bold text-gray-900 whitespace-nowrap">3 490 Ft</span>
+                    <span class="font-semibold text-gray-900">{t(locale, 'checkout.shipping.gls')}</span>
+                    <span class="text-sm font-bold text-gray-900 whitespace-nowrap">1 868 Ft</span>
                   </span>
-                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.mplDesc')}</span>
+                  <span class="block text-sm text-gray-500 mt-0.5">{t(locale, 'checkout.shipping.glsDesc')}</span>
                 </span>
               </label>
             </div>
@@ -617,7 +617,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
 
     function initShipping() {
       const s = getCartSummary();
-      // Kellék-ág (Foxpost/MPL) CSAK magyar nyelven; minden más nyelven egyeztetett szállítás.
+      // Kellék-ág (Foxpost/GLS) CSAK magyar nyelven; minden más nyelven egyeztetett szállítás.
       const parcelEligible = s.shippable && locale === 'hu';
       const active = parcelEligible ? shipParcel : shipHighValue;
       const inactive = parcelEligible ? shipHighValue : shipParcel;

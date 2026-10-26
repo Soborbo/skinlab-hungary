@@ -2,6 +2,7 @@
 import CategoryLayout from '../../layouts/CategoryLayout.astro';
 import { getCollection } from 'astro:content';
 import monduniqStand from '../../assets/monduniq-professzionalis-kozmetikumok.jpg';
+import monduniqHifusion from '../../assets/monduniq-hifusion-szalonban.jpg';
 
 const category = {
   name: "M'ONDUNIQ professzionális kozmetikumok",
@@ -79,7 +80,7 @@ const productGroups = [
 // arra nincs vállalásunk.
 const trustBadges = [
   { title: 'Eredeti, hivatalos termékek' },
-  { title: 'Foxpost vagy MPL szállítás' },
+  { title: 'Foxpost vagy GLS szállítás' },
   { title: 'Személyes átvétel Érden' },
 ];
 
@@ -102,7 +103,7 @@ const benefits = [
   {
     icon: 'truck',
     title: 'Kényelmes átvétel',
-    description: 'Foxpost automatába vagy MPL-lel házhoz, illetve személyes átvétel az érdi showroomban.',
+    description: 'Foxpost automatába vagy GLS-sel házhoz, illetve személyes átvétel az érdi showroomban.',
   },
 ];
 ---
@@ -113,6 +114,8 @@ const benefits = [
   productGroups={productGroups}
   twoUpMobileGrid
   benefits={benefits}
+  benefitsImage={monduniqHifusion}
+  benefitsImageAlt="M'ONDUNIQ HI'FUsion Longevity szérum és arckrém a szalonpulton, a háttérben arckezelő géppel"
   trustBadges={trustBadges}
   heroImage={monduniqStand}
   heroImageAlt="A Skinlab csapata a M'ONDUNIQ professzionális kozmetikumok standján"
