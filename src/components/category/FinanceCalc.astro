@@ -48,20 +48,20 @@ const noteFor = (price: number): string =>
 ---
 
 {initial && (
-  <section class="bg-white py-14 dt:py-[88px]">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 items-start gap-8 px-4 sm:px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
-      <div class="sl-reveal flex flex-col gap-4">
-        <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
-        <p class="m-0 text-gray-700">{lead}</p>
-        <ul class="mt-1.5 flex flex-col gap-2.5" role="list">
+  <section class="bg-white py-20 dt:py-[88px]">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
+      <div class="sl-reveal flex flex-col gap-5 dt:gap-4">
+        <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+        <p class="m-0 max-dt:leading-[1.7] text-gray-700">{lead}</p>
+        <ul class="mt-2 flex flex-col gap-3 dt:mt-1.5 dt:gap-2.5" role="list">
           {rules.map((rule) => (
-            <li class="flex justify-between gap-3 rounded-[14px] border border-[#f3e4e9] bg-white px-4 py-3.5 text-[14.5px]">
+            <li class="flex justify-between gap-3 rounded-[14px] border border-[#f3e4e9] bg-white px-5 py-4 text-[14.5px] dt:px-4 dt:py-3.5">
               <span class="text-gray-600">{rule.when}</span>
               <strong class="text-right text-gray-900">{rule.term}</strong>
             </li>
           ))}
         </ul>
-        <ul class="mt-1 flex flex-wrap gap-[18px] text-sm text-gray-700" role="list">
+        <ul class="mt-2 flex flex-wrap gap-x-5 gap-y-3 text-sm text-gray-700 dt:mt-1" role="list">
           {perks.map((perk) => (
             <li class="flex items-center gap-2">
               <ShowcaseIcon name="check" size={16} strokeWidth={2.4} class="text-primary-700" />
@@ -71,7 +71,7 @@ const noteFor = (price: number): string =>
         </ul>
       </div>
 
-      <div class="fc sl-reveal flex flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0_24px_60px_rgba(160,28,66,.12)] dt:p-7" data-finance-calc>
+      <div class="fc sl-reveal flex flex-col gap-7 rounded-3xl bg-white p-6 shadow-[0_24px_60px_rgba(160,28,66,.12)] dt:gap-5 dt:p-7" data-finance-calc>
         <div>
           <div class="mb-2.5 text-xs font-bold tracking-[0.08em] text-gray-500 uppercase" id="fc-model-label">1. Melyik gép?</div>
           <div class="grid grid-cols-2 gap-2.5 dt:grid-cols-4" role="group" aria-labelledby="fc-model-label">
@@ -108,7 +108,7 @@ const noteFor = (price: number): string =>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 gap-3.5 rounded-[18px] bg-sand p-5 text-plum dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
+        <div class="grid grid-cols-1 gap-4 rounded-[18px] bg-sand p-6 text-plum dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
           <div>
             <div class="text-[13px] text-[#6b5d52]">Havi részlet, <span data-fc="months">{months}</span> hónapon át</div>
             <div class="font-heading text-[42px] leading-[1.1] text-primary-700" data-fc="monthly">{formatHuf(info.monthly[months])}</div>

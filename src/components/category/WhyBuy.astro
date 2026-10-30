@@ -2,7 +2,6 @@
 /** „Miért éri meg?” - 4 érv saját, egyszínű ikonnal + kezelésfotó. Mobilon a kép felül. */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import ShowcaseIcon from './ShowcaseIcon.astro';
-import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import type { ShowcaseIconName } from '@/lib/types/category-showcase';
 
 interface Props {
@@ -16,12 +15,12 @@ interface Props {
 const { title, lead, image, imageAlt, items } = Astro.props;
 ---
 
-<section class="bg-blush py-14 dt:py-[88px]">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
+<section class="bg-blush py-20 dt:py-[88px]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
     <div class="sl-reveal order-2 dt:order-1">
-      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
-      <p class="mt-2.5 mb-7 text-gray-600">{lead}</p>
-      <ul class="flex flex-col gap-[22px]" role="list">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="mt-3 mb-9 text-gray-600 dt:mt-2.5 dt:mb-7">{lead}</p>
+      <ul class="flex flex-col gap-8 dt:gap-[22px]" role="list">
         {items.map((item) => (
           <li class="wb-item flex gap-4">
             <span class="wb-ico flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary-800">
@@ -29,13 +28,13 @@ const { title, lead, image, imageAlt, items } = Astro.props;
             </span>
             <div>
               <div class="font-semibold text-gray-900">{item.title}</div>
-              <div class="text-[14.5px] text-gray-600">{item.text}</div>
+              <div class="mt-1 text-[15px] max-dt:leading-[1.65] text-gray-600 dt:mt-0 dt:text-[14.5px]">{item.text}</div>
             </div>
           </li>
         ))}
       </ul>
     </div>
-    <div class:list={['sl-reveal order-1 dt:order-2', MOBILE_MEDIA_BLEED]}>
+    <div class="sl-reveal order-1 max-dt:-mx-3 max-dt:w-[calc(100%+1.5rem)] dt:order-2">
       <OptimizedPicture
         src={image}
         alt={imageAlt}

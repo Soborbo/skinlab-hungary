@@ -19,12 +19,12 @@ interface Props {
 const { title, lead, items } = Astro.props;
 ---
 
-<section class="bg-sand py-14 dt:py-[88px]">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-7 px-4 sm:px-6 dt:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] dt:items-start dt:gap-16 lg:px-8">
-    <div class="sl-reveal flex flex-col gap-3.5">
-      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-plum dt:text-[42px]">{title}</h2>
-      <p class="m-0 text-[#4a3f37]">{lead}</p>
-      <div class="group mt-2 flex flex-col gap-3.5 rounded-[18px] bg-white p-5">
+<section class="bg-sand py-20 dt:py-[88px]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 dt:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] dt:items-start dt:gap-16 lg:px-8">
+    <div class="sl-reveal flex flex-col gap-5 dt:gap-3.5">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-plum dt:text-[42px]">{title}</h2>
+      <p class="m-0 max-dt:leading-[1.7] text-[#4a3f37]">{lead}</p>
+      <div class="group mt-3 flex flex-col gap-4 rounded-[18px] bg-white p-6 dt:mt-2 dt:gap-3.5 dt:p-5">
         <div class="flex items-center gap-3">
           <FounderAvatars />
           <div class="text-[15px] font-semibold text-plum">Kérdésed van? Hívj minket.</div>
@@ -37,17 +37,17 @@ const { title, lead, items } = Astro.props;
       </div>
     </div>
 
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-4 dt:gap-3">
       {items.map((item, i) => (
         <details class="fq rounded-2xl border-[1.5px] bg-white" name="category-faq" open={i === 0}>
-          <summary class="flex cursor-pointer list-none items-center gap-4 px-5 py-5 text-base font-semibold text-plum dt:px-[26px] dt:py-[22px]">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-5 py-6 text-base font-semibold max-dt:leading-snug text-plum dt:px-[26px] dt:py-[22px]">
             <span class="fq-num min-w-[30px] font-heading text-xl font-normal">{String(i + 1).padStart(2, '0')}</span>
             <span>{item.question}</span>
             <span class="fq-icon ml-auto flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
             </span>
           </summary>
-          <p class="m-0 pr-5 pb-6 pl-[66px] text-[15px] text-[#4a3f37] dt:pr-[26px] dt:pl-[72px]">{item.answer}</p>
+          <p class="m-0 px-6 pb-7 text-[15px] max-dt:leading-[1.7] text-[#4a3f37] dt:pr-[26px] dt:pb-6 dt:pl-[72px]">{item.answer}</p>
         </details>
       ))}
     </div>
