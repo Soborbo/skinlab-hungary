@@ -83,7 +83,13 @@ function shortName(product: Product): string {
   return product.data.name.split(/\s+/)[0];
 }
 
-/** Galéria: főkép + fehér hátterű képek (contain), utánuk a hangulatfotók (cover). Alt a képmanifestből. */
+/**
+ * Galéria a termékoldal herójával azonos sorrendben: elöl a design fotók
+ * (cover), utánuk a fehér hátterű főkép és packshotok (contain). Így a nagy kép
+ * ugyanaz, mint a termékoldal hero-képe (ProductLayout: designImages[0] ?? image).
+ * A kategória-hero csempéi ettől függetlenül a fehér hátterű `image`-et kapják.
+ * Alt a képmanifestből.
+ */
 function buildImages(product: Product): ShowcaseImage[] {
   const { data } = product;
   const seen = new Set<string>();
@@ -93,8 +99,8 @@ function buildImages(product: Product): ShowcaseImage[] {
     seen.add(src);
     out.push({ src, fit, alt: getImageAlt(src, `${shortName(product)} - ${index}. kép`) });
   };
-  [data.image, ...(data.images ?? [])].forEach((src) => push(src, 'contain', out.length + 1));
   (data.designImages ?? []).forEach((src) => push(src, 'cover', out.length + 1));
+  [data.image, ...(data.images ?? [])].forEach((src) => push(src, 'contain', out.length + 1));
   return out;
 }
 
