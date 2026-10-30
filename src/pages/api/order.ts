@@ -19,12 +19,8 @@ import { errorResponse } from '@/lib/errors/respond';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { env as workerEnv } from 'cloudflare:workers';
 import { leadToGatewayAttribution, type FormTrackingContext } from '@/lib/forms/submit';
-import {
-  sendGatewayConversion,
-  readConsentFromCookie,
-  readSboConsentCookieHeader,
-  type GatewayEnv,
-} from '@/lib/tracking/gateway-dispatch';
+import { sendGatewayConversion, type GatewayEnv } from '@/lib/tracking/gateway-dispatch';
+import { readRequestConsent } from '@/lib/tracking/request-consent';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import {
   isCartShippable,
@@ -265,8 +261,8 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       const rawEventId = (body as Record<string, unknown>)?.event_id;
       const tracking: FormTrackingContext = {
         eventId: typeof rawEventId === 'string' && rawEventId ? rawEventId : crypto.randomUUID(),
-        consent: readConsentFromCookie(request.headers.get('cookie')),
-        consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
+        // consent + consentId + consentSources, a policy-verzióhoz kötve.
+        ...readRequestConsent(request.headers.get('cookie'), workerEnv as unknown as GatewayEnv),
         clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
         clientUserAgent: request.headers.get('user-agent') ?? undefined,
         eventSourceUrl: request.headers.get('referer') ?? undefined,
@@ -277,6 +273,19 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
           eventId: tracking.eventId,
           value: subtotal,
           currency: 'HUF',
+          // A bolt saját rendelésszáma (Meta-oldali join-kulcs), és a tételek a
+          // katalógus-azonosítóval: a Merchant-feed `g:id`-je az SKU
+          // (lib/merchant/feed.ts), ugyanaz, amit fent a kollekcióból feloldottunk.
+          orderId,
+          contents: items
+            .filter((i) => i.sku)
+            .map((i) => ({
+              id: i.sku,
+              quantity: i.qty,
+              ...(i.unitPrice !== null && { item_price: i.unitPrice }),
+            })),
+          contentType: 'product',
+          numItems: items.reduce((sum, i) => sum + i.qty, 0),
           userData: {
             email: data.email || undefined,
             phone_number: data.phone || undefined,
@@ -300,6 +309,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
           attribution: leadToGatewayAttribution(data),
           consent: tracking.consent,
           consentId: tracking.consentId,
+          consentSources: tracking.consentSources,
           eventSourceUrl: tracking.eventSourceUrl,
           clientIpAddress: tracking.clientIpAddress,
           clientUserAgent: tracking.clientUserAgent,

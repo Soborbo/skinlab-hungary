@@ -31,12 +31,16 @@
  * URL-ben utazik (`entryParamsForNavigation`), nem a lemezen.
  */
 
-import { getMarketingConsentState, type MarketingConsentState } from './consent';
+import {
+  ATTR_STORAGE_KEY,
+  getMarketingConsentState,
+  type MarketingConsentState,
+} from '../soborbo-tracking/lib';
 
 /** A gateway attribúciós blobja — SZÁNDÉKOSAN ugyanaz a kulcs. Egy store, egy
  *  consent-osztály; a belépési jelek `landing_page`/`referrer` néven ülnek
  *  benne, ahogy a `collectAttribution()` is várja őket. */
-const STORAGE_KEY = '__sb_attribution';
+const STORAGE_KEY = ATTR_STORAGE_KEY;
 
 /** Aláhúzás-prefix, hogy ne keveredjenek a kampánycímkékkel, és látszódjon:
  *  belső mechanika, nem a felhasználónak szól. */
@@ -175,9 +179,11 @@ export function captureEntrySignals(consent?: MarketingConsentState): void {
   const state = consent ?? getMarketingConsentState();
   const params = new URLSearchParams(window.location.search || '');
 
-  // DENIED alatt a store-t nem olvassuk vissza: a visszavonás a memóriában lévő
-  // olvasatra is álljon, ne csak az írásra.
-  const stored = state === 'DENIED' ? {} : readStore();
+  // A store-t CSAK GRANTED alatt olvassuk vissza. DENIED: a visszavonás a
+  // memóriában lévő olvasatra is álljon, ne csak az írásra. UNKNOWN (még nincs
+  // döntés): a terminál-tároló OLVASÁSA is PECR-hatály, tehát döntés előtt sem —
+  // a jel ilyenkor az URL-ben utazik (2026-10-19 handover, F2 4. pont).
+  const stored = state === 'GRANTED' ? readStore() : {};
 
   if (!entry.landing) {
     entry.landing =

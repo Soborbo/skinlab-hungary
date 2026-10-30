@@ -474,6 +474,7 @@ const sourceUrl = Astro.url.href;
 <script>
   import {
     trackContactSubmit, getAllTrackingData, getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    getStoredData,
     applyEntryAttributionToForm,
   } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
@@ -520,13 +521,9 @@ const sourceUrl = Astro.url.href;
     // paraméterek pedig a tracking-lib accessorain át — a `getFbc()` a `_fbc`
     // süti hiányában a tárolt fbclid-ből újraépíti a click ID-t.
     const urlParams = new URLSearchParams(window.location.search);
-    let storedTracking: Record<string, string | undefined> = {};
-    try {
-      const raw = localStorage.getItem('sb_tracking');
-      if (raw) storedTracking = JSON.parse(raw);
-    } catch {
-      /* private mode / quota - ignore */
-    }
+    // A kit consent-kapus olvasója: hozzájárulás nélkül null (PECR — a tároló
+    // OLVASÁSA is hozzájáruláshoz kötött), és a régi kettős klikk-ID-t is gyógyítja.
+    const storedTracking = (getStoredData() ?? {}) as Record<string, string | undefined>;
     const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
     // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az
     // garantálja, hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy

@@ -8,7 +8,9 @@ import type { APIRoute } from 'astro';
 import { validateConsultationForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { processConsultationSubmission, type FormTrackingContext } from '@/lib/forms/submit';
-import { readConsentFromCookie, readSboConsentCookieHeader } from '@/lib/tracking/gateway-dispatch';
+import { env as workerEnv } from 'cloudflare:workers';
+import { readRequestConsent } from '@/lib/tracking/request-consent';
+import type { GatewayEnv } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -109,11 +111,11 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     // Gateway server-leg context: the BROWSER's event_id (hidden field the
     // wizard set before the POST) keeps Meta Pixel↔CAPI dedup intact; consent
-    // is read from the same CookieYes cookie the browser reads.
+    // is read from the same sbo_consent cookie the browser reads.
     const tracking: FormTrackingContext = {
       eventId: String(data.event_id || '') || crypto.randomUUID(),
-      consent: readConsentFromCookie(request.headers.get('cookie')),
-      consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
+      // consent + consentId + consentSources, a policy-verzióhoz kötve.
+      ...readRequestConsent(request.headers.get('cookie'), workerEnv as unknown as GatewayEnv),
       clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
       clientUserAgent: userAgent,
       eventSourceUrl: request.headers.get('referer') ?? undefined,

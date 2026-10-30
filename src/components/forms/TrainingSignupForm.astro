@@ -254,7 +254,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 <script>
   import {
     trackTrainingSignupSubmit, waitForTracking, getAllTrackingData,
-    getFbc, getFbp, getExternalId, refreshMetaMatchKeys,
+    getFbc, getFbp, getExternalId, refreshMetaMatchKeys, getStoredData,
     applyEntryAttributionToForm,
   } from '@/lib/tracking';
   import { readJsonResponse, describeClientError } from '@/lib/forms/submit-client';
@@ -290,13 +290,9 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
     // Populate tracking hidden inputs from URL params + persisted tracking storage.
     // Mirrors the ContactForm logic so the Sheets row contains attribution.
     const urlParams = new URLSearchParams(window.location.search);
-    let storedTracking: Record<string, string | undefined> = {};
-    try {
-      const raw = localStorage.getItem('sb_tracking');
-      if (raw) storedTracking = JSON.parse(raw);
-    } catch {
-      /* private mode / quota - ignore */
-    }
+    // A kit consent-kapus olvasója: hozzájárulás nélkül null (PECR — a tároló
+    // OLVASÁSA is hozzájáruláshoz kötött), és a régi kettős klikk-ID-t is gyógyítja.
+    const storedTracking = (getStoredData() ?? {}) as Record<string, string | undefined>;
     const GOOGLE_CLICK_KEYS = ['gclid', 'gbraid', 'wbraid'];
     const sanitizedSrc = getAllTrackingData();
     const sanitized: Record<string, string | undefined> = {
