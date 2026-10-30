@@ -16,6 +16,10 @@ type Product = CollectionEntry<'products'>;
 
 /** Termékenkénti szerkesztői szöveg (a mérhető adat a JSON-ból jön). */
 export interface ShowcaseModelCopy {
+  /** Megjelenített név; alapból a termék nevének első szava (pl. „ATHENA”). */
+  name?: string;
+  /** Kulcsadat a csempén és a sorcímben; alapból a watt a specs-ből. */
+  keySpec?: string;
   /** Rövid, dőlt alcím a modellnév mellett (pl. „a kontroll és precizitás”). */
   tagline: string;
   /** Kinek való, egy sorban (csempén, táblázatban). */
@@ -23,6 +27,12 @@ export interface ShowcaseModelCopy {
   desc: string;
   /** „Neked való, ha…” pontok. */
   when: string[];
+  /**
+   * Összehasonlító cellák, amelyek a specs-ből nem jönnek ki tömören
+   * (pl. 11 kezelőfej felsorolása helyett „11 funkció”). Kulcs = CompareRow
+   * `copy` forrásának kulcsa.
+   */
+  compare?: Record<string, string>;
 }
 
 export interface ShowcaseImage {
@@ -38,8 +48,8 @@ export interface ShowcaseModel extends ShowcaseModelCopy {
   name: string;
   sku: string;
   price: number | null;
-  /** Kimeneti teljesítmény a specs-ből (pl. „1000W”), ha van. */
-  watt: string | null;
+  /** Kulcsadat (csempe, sorcím): a konfig `keySpec`-je, vagy a watt a specs-ből (pl. „1000W”). */
+  keySpec: string | null;
   specs: Record<string, string>;
   href: string;
   thumb: string;
@@ -52,6 +62,8 @@ export interface ShowcaseModel extends ShowcaseModelCopy {
 export type CompareSource =
   | { kind: 'price' }
   | { kind: 'forWho' }
+  /** A modell szerkesztői `compare[key]` értéke. */
+  | { kind: 'copy'; key: string }
   /** Az első létező specs-kulcs értéke; a `strip` mintát kitörli belőle. */
   | { kind: 'spec'; keys: string[]; strip?: RegExp };
 
@@ -119,10 +131,10 @@ export function buildShowcaseModels(
       return {
         ...copy[slug],
         slug,
-        name: shortName(product),
+        name: copy[slug].name ?? shortName(product),
         sku: data.sku || product.id,
         price: data.price ?? null,
-        watt: wattFromSpecs(specs),
+        keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
         specs,
         href: withTrailingSlash(productPath(data.categorySlug, slug)),
         thumb: data.image,
@@ -141,6 +153,8 @@ export function compareValue(model: ShowcaseModel, source: CompareSource): strin
       return model.price ? formatHuf(model.price) : 'Kérj ajánlatot';
     case 'forWho':
       return model.forWho;
+    case 'copy':
+      return model.compare?.[source.key] ?? '-';
     case 'spec': {
       const raw = specValue(model.specs, source.keys) ?? '-';
       return source.strip ? raw.replace(source.strip, '').trim() : raw;

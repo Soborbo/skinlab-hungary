@@ -17,7 +17,19 @@ export type ShowcaseIconName =
   | 'clock'
   | 'calendar'
   | 'play'
-  | 'check';
+  | 'check'
+  | 'sparkles'
+  | 'scan';
+
+/** Néma, ismétlődő hero-videó (HeroVideo.astro). Útvonalak a public/ alól. */
+export interface ShowcaseHeroVideo {
+  desktop: string;
+  mobile?: string;
+  /** Kiterjesztés nélkül; mellette .avif/.webp/.jpg. */
+  poster: string;
+  posterMobile?: string;
+  posterSize: { width: number; height: number };
+}
 
 /**
  * Egy kategóriaoldal teljes szerkesztői tartalma a CategoryShowcaseLayouthoz.
@@ -33,6 +45,7 @@ export interface ShowcaseConfig {
     /** @assets/… kép (képmanifestben). */
     image: string;
     imageAlt: string;
+    video?: ShowcaseHeroVideo;
   };
   usp: { icon: ShowcaseIconName; title: string; sub: string }[];
   models: { title: string; lead: string; copy: Record<string, ShowcaseModelCopy> };

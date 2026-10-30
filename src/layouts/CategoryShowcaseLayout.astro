@@ -58,6 +58,16 @@ if (page.faq && page.faq.items.length > 0) {
 
 const ogImage = (models[0] && getOgImagePath(models[0].thumb)) || '/og-image.jpg';
 
+// Hero-videónál a poszter az LCP-kép: előtöltjük (mobilon a négyzetes változatot).
+const heroVideo = page.hero.video;
+const preload = heroVideo
+  ? {
+      preloadImage: `${heroVideo.poster}.avif`,
+      preloadImageMobile: `${heroVideo.posterMobile ?? heroVideo.poster}.avif`,
+      preloadBreakpoint: 900,
+    }
+  : {};
+
 const trackItems = models.map((m, i) => ({
   item_id: m.sku,
   item_name: products.find((p) => (p.data.slug || p.id) === m.slug)?.data.name ?? m.name,
@@ -67,12 +77,13 @@ const trackItems = models.map((m, i) => ({
 }));
 ---
 
-<BaseLayout title={page.seo.name} description={page.seo.description} image={ogImage} schema={schema}>
+<BaseLayout title={page.seo.name} description={page.seo.description} image={ogImage} schema={schema} {...preload}>
   <SplitHero
     titleLines={page.hero.titleLines}
     lead={page.hero.lead}
     image={page.hero.image}
     imageAlt={page.hero.imageAlt}
+    video={page.hero.video}
     crumb={page.seo.nameShort}
     models={models}
     consultHref={consultHref}

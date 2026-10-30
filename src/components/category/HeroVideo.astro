@@ -1,0 +1,136 @@
+---
+/**
+ * Hero-videó a split hero kép-oszlopában: néma, ismétlődő hurok szünet gombbal.
+ *
+ * Tulajdonosi döntés (2026-10-30, hydrafacial oldal): itt a HARD-RULES
+ * „no autoplay” pontja alól kivétel van, ezekkel a feltételekkel:
+ * - hang nincs (a forrásból kivéve), a videó díszítő (aria-hidden), a
+ *   tartalmat a poszter alt szövege adja;
+ * - a poszter az LCP-kép; a videó csak az oldal betöltése után töltődik;
+ * - csökkentett mozgásnál és adatkímélő módban le sem töltődik;
+ * - látható szünet gomb (WCAG 2.2.2), és képernyőn kívül magától megáll.
+ * Mobilon (900px alatt) négyzetes, asztalon 16:9-es változat megy.
+ */
+interface Props {
+  /** 16:9 mp4 (asztal). */
+  desktop: string;
+  /** Négyzetes mp4 (mobil); ha nincs, a desktop megy mindenhol. */
+  mobile?: string;
+  /** Poszter kiterjesztés nélkül (avif/webp/jpg mellette). */
+  poster: string;
+  posterMobile?: string;
+  posterSize: { width: number; height: number };
+  alt: string;
+}
+
+const { desktop, mobile, poster, posterMobile, posterSize, alt } = Astro.props;
+const MOBILE_QUERY = '(max-width: 899px)';
+---
+
+<div class="absolute inset-0" data-hero-video data-src-desktop={desktop} data-src-mobile={mobile ?? desktop} data-mobile-query={MOBILE_QUERY}>
+  <picture>
+    {posterMobile && <source media={MOBILE_QUERY} type="image/avif" srcset={`${posterMobile}.avif`} />}
+    {posterMobile && <source media={MOBILE_QUERY} type="image/webp" srcset={`${posterMobile}.webp`} />}
+    {posterMobile && <source media={MOBILE_QUERY} srcset={`${posterMobile}.jpg`} />}
+    <source type="image/avif" srcset={`${poster}.avif`} />
+    <source type="image/webp" srcset={`${poster}.webp`} />
+    <img
+      src={`${poster}.jpg`}
+      alt={alt}
+      width={posterSize.width}
+      height={posterSize.height}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </picture>
+  <video
+    class="hv-video absolute inset-0 h-full w-full object-cover opacity-0"
+    muted
+    loop
+    playsinline
+    preload="none"
+    aria-hidden="true"
+    tabindex="-1"
+  ></video>
+  <button
+    type="button"
+    class="hv-toggle absolute right-3 bottom-3 hidden h-11 w-11 items-center justify-center rounded-full bg-white/90 text-gray-900 shadow-[0_6px_18px_rgba(0,0,0,.18)] dt:right-6 dt:bottom-6"
+    aria-label="Videó szüneteltetése"
+    aria-pressed="false"
+  >
+    <svg class="hv-icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+    <svg class="hv-icon-play hidden" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+  </button>
+</div>
+
+<style>
+  .hv-video { transition: opacity 0.6s ease; }
+  .hv-video.hv-on { opacity: 1; }
+  .hv-toggle { transition: transform 0.2s ease, background-color 0.2s ease; }
+  .hv-toggle:hover { transform: scale(1.08); background-color: #fff; }
+  .hv-toggle:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .hv-video, .hv-toggle { transition: none; }
+    .hv-toggle:hover { transform: none; }
+  }
+</style>
+
+<script>
+  type NetworkInfo = { saveData?: boolean };
+
+  function initHeroVideo(root: HTMLElement): void {
+    const video = root.querySelector<HTMLVideoElement>('video');
+    const toggle = root.querySelector<HTMLButtonElement>('.hv-toggle');
+    if (!video || !toggle) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = (navigator as Navigator & { connection?: NetworkInfo }).connection?.saveData === true;
+    if (reduce || saveData) return; // a poszter marad, videó nem töltődik
+
+    let userPaused = false;
+    const iconPause = toggle.querySelector('.hv-icon-pause');
+    const iconPlay = toggle.querySelector('.hv-icon-play');
+
+    const setState = (paused: boolean): void => {
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.setAttribute('aria-label', paused ? 'Videó lejátszása' : 'Videó szüneteltetése');
+      iconPause?.classList.toggle('hidden', paused);
+      iconPlay?.classList.toggle('hidden', !paused);
+    };
+
+    const start = (): void => {
+      const mobile = window.matchMedia(root.dataset.mobileQuery ?? '(max-width: 899px)').matches;
+      video.src = (mobile ? root.dataset.srcMobile : root.dataset.srcDesktop) ?? '';
+      video.addEventListener('playing', () => video.classList.add('hv-on'), { once: true });
+      video.play().catch(() => {
+        // Az autoplay-t a böngésző letiltotta: a poszter marad, a gomb indít.
+        userPaused = true;
+        setState(true);
+      });
+      toggle.classList.remove('hidden');
+      toggle.classList.add('flex');
+
+      // Képernyőn kívül ne fusson (CPU, akkumulátor).
+      new IntersectionObserver(([entry]) => {
+        if (userPaused) return;
+        if (entry.isIntersecting) void video.play().catch(() => undefined);
+        else video.pause();
+      }).observe(root);
+    };
+
+    toggle.addEventListener('click', () => {
+      userPaused = !video.paused;
+      if (userPaused) video.pause();
+      else void video.play().then(() => video.classList.add('hv-on')).catch(() => undefined);
+      setState(userPaused);
+    });
+
+    // Az LCP (poszter) után induljon, ne versenyezzen vele.
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-hero-video]').forEach(initHeroVideo);
+</script>

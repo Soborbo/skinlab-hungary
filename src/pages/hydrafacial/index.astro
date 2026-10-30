@@ -1,123 +1,16 @@
 ---
-import CategoryLayout from '../../layouts/CategoryLayout.astro';
+/**
+ * Hydrafacial kategóriaoldal (HU) - showcase-elrendezés, hero-videóval.
+ * Szöveg: src/data/categories/hydrafacial.ts; ár, specifikáció, kép: termék-JSON.
+ * A [locale] változatok egyelőre a régi CategoryLayouton maradnak.
+ */
+import CategoryShowcaseLayout from '../../layouts/CategoryShowcaseLayout.astro';
 import { getCollection } from 'astro:content';
-import hydrafacialKezeles from '../../assets/hydrafacial-kezeles.jpg';
-
-const category = {
-  name: 'Hidrodermabrázió és multifunkcionális gépek',
-  nameShort: 'Hydrafacial gépek',
-  slug: 'hydrafacial',
-  description: 'Hidrodermabráziós és kombinált kozmetikai kezelőgépek.',
-  heroDescription: 'Bőrmegújítás, mélytisztítás, anti-aging kezelések egy készülékben. AI bőrdiagnosztikával, azonnali látványos eredmény.',
-  badge: 'AI diagnosztika',
-  color: 'hydrafacial',
-};
+import { hydrafacialShowcase } from '../../data/categories/hydrafacial';
 
 const products = await getCollection('products', ({ data }) => {
   return data.categorySlug === 'hydrafacial' && !data.draft;
 });
-
-const benefits = [
-  {
-    icon: 'sparkles',
-    title: 'Azonnali eredmény',
-    description: 'Már az első kezelés után látványosan szebb, ragyogóbb bőr. Vendégeid azonnal érzik a különbséget.',
-  },
-  {
-    icon: 'microscope',
-    title: 'AI bőrdiagnosztika',
-    description: 'Személyre szabott kezelési tervek. Lenyűgöző high-tech élmény a vendégeknek.',
-  },
-  {
-    icon: 'target',
-    title: 'Sokoldalú kezelések',
-    description: 'Tisztítás, hidratálás, anti-aging, pigmentfolt kezelés – egy géppel mindent megoldhatsz.',
-  },
-  {
-    icon: 'coins',
-    title: 'Magas kezelési árak',
-    description: 'Hydrafacial kezelésekért 15-30.000 Ft-ot is elkérhetnek a szalonok. Gyors megtérülés.',
-  },
-];
-
-const faq = [
-  {
-    question: 'Mi a különbség a hagyományos arctisztítás és a hydrafacial között?',
-    answer: 'A hydrafacial vákuumos technológiával dolgozik, ami a mélytisztítás mellett szérum-infúziót is biztosít. Fájdalommentes, nincs kipirulás, a vendég azonnal mehet tovább. A hagyományos tisztítás után sokszor napokig piros az arc.',
-  },
-  {
-    question: 'Milyen gyakran lehet hydrafacial kezelést végezni?',
-    answer: 'Általában 4-6 hetente ajánlott a fenntartó kezelés. Kúraszerűen hetente is végezhető a bőrállapot javítására. Nagyon kíméletes eljárás.',
-  },
-  {
-    question: 'Minden bőrtípusra alkalmas?',
-    answer: 'Igen! A hydrafacial az egyik legkíméletesebb arckezelés, érzékeny bőrre, rozáceára is alkalmazható. Egyedül aktív gyulladásos aknénál nem javasolt.',
-  },
-];
-
-// Kategórián belüli modell-összehasonlítás (a tényleges, publikált gépek).
-// Alap: ár / AI bőranalízis / kezelőfejek / kijelző / garancia / kinek ajánlott.
-const comparison = {
-  features: ['Ár', 'AI bőranalízis', 'Kezelőfejek', 'Kijelző', 'Garancia', 'Ajánlott'],
-  products: [
-    {
-      name: 'HydraScan PRO+',
-      tag: '2026 csúcsmodell',
-      tagColor: 'purple',
-      highlighted: true,
-      link: '/hydrafacial/hydrascanpro',
-      specs: {
-        'Ár': '669 990 Ft',
-        'AI bőranalízis': '4K, három spektrumú kamera (~2 perc)',
-        'Kezelőfejek': '8 kezelőfej + LED maszk, Android',
-        'Kijelző': '10,1" (800×1280) érintő',
-        'Garancia': '2 év teljes körű',
-        'Ajánlott': 'Legfejlettebb AI-elemzés, prémium kabin',
-      },
-    },
-    {
-      name: 'HydraMIST Elite',
-      tag: '11 az 1-ben',
-      tagColor: 'orange',
-      link: '/hydrafacial/hidra-mist-elite',
-      specs: {
-        'Ár': '749 990 Ft',
-        'AI bőranalízis': '✗',
-        'Kezelőfejek': '11 funkció (UH, RF, vákuum, oxigén, LED, scrubber)',
-        'Kijelző': 'Érintőképernyő',
-        'Garancia': '2 év',
-        'Ajánlott': 'Sokfunkciós rendszer AI-elemzés nélkül',
-      },
-    },
-    {
-      name: 'HydraLUME V10',
-      tag: 'Újdonság 2026',
-      tagColor: 'blue',
-      link: '/hydrafacial/hydralume',
-      specs: {
-        'Ár': '1 299 990 Ft',
-        'AI bőranalízis': '✗',
-        'Kezelőfejek': '12 kezelőfej + 5 szárnyas LED-panel, vortex hydrodermabrázió',
-        'Kijelző': 'Nagy kijelző',
-        'Garancia': '2 év teljes körű',
-        'Ajánlott': 'Álló arcápoló központ LED-terápiával és fejbőrkezeléssel',
-      },
-    },
-  ],
-};
-
-const choicesHeading = 'Melyik hydrofacial gépet válaszd?';
-const choicesSubheading = 'A három publikált modell egy pillantás alatt – AI-elemzés, funkciók, ár';
 ---
 
-<CategoryLayout
-  category={category}
-  products={products}
-  benefits={benefits}
-  benefitsImage={hydrafacialKezeles}
-  benefitsImageAlt="Hidrodermabráziós arckezelés egy Skinlab készülékkel a szalonban"
-  faq={faq}
-  comparison={comparison}
-  choicesHeading={choicesHeading}
-  choicesSubheading={choicesSubheading}
-/>
+<CategoryShowcaseLayout page={hydrafacialShowcase} products={products} />
