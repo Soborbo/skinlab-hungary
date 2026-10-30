@@ -36,12 +36,12 @@ const photo = '/hero/hero-gepkezeloi-kepzes-foto';
         />
       </picture>
     </div>
-    <div class="flex flex-col gap-[18px] px-4 pt-8 pb-12 dt:order-1 dt:justify-center dt:py-[72px] dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
-      <h2 class="sl-reveal m-0 max-w-[600px] font-heading text-[30px] font-normal leading-[1.15] text-white dt:text-[42px]">
+    <div class="flex flex-col gap-6 px-6 pt-12 pb-20 dt:order-1 dt:gap-[18px] dt:justify-center dt:py-[72px] dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+      <h2 class="sl-reveal m-0 max-w-[600px] font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-white dt:text-[42px]">
         <span class="block dt:whitespace-nowrap">{titleLines[0]}</span>
         <span class="block text-primary-300 dt:whitespace-nowrap">{titleLines[1]}</span>
       </h2>
-      <p class="sl-reveal m-0 max-w-[600px] text-[#e5d5da]">{text}</p>
+      <p class="sl-reveal m-0 max-w-[600px] max-dt:leading-[1.7] text-[#e5d5da]">{text}</p>
       <a href={withTrailingSlash(href)} class="sl-btn sl-btn-white self-start">{cta}</a>
     </div>
   </div>

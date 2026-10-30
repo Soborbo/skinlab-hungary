@@ -35,7 +35,7 @@ const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, co
 // Csempeoszlopok asztalon a gépek számához igazítva (3 gépnél ne maradjon üres hely).
 // 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
 const three = models.length === 3;
-const tileCols = three ? 'grid-cols-3 gap-2 dt:grid-cols-3' : 'grid-cols-2 gap-2.5 dt:grid-cols-4';
+const tileCols = three ? 'grid-cols-3 gap-2.5 dt:grid-cols-3' : 'grid-cols-2 gap-3 dt:grid-cols-4';
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-delay:.6s]', '[animation-delay:.7s]'];
 ---
@@ -74,7 +74,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
       )}
     </div>
 
-    <div class="flex flex-col gap-4 px-4 py-6 dt:order-1 dt:justify-center dt:gap-5 dt:py-10 dt:pr-12 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-20">
+    <div class="flex flex-col gap-6 px-6 pt-9 pb-14 dt:order-1 dt:justify-center dt:gap-5 dt:py-10 dt:pr-12 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-20">
       <nav aria-label="Morzsamenü" class="text-[13px] text-gray-600">
         <ol class="flex flex-wrap items-center gap-1.5">
           <li><a href="/" class="text-gray-600 hover:text-primary-700">Főoldal</a></li>
@@ -83,14 +83,14 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         </ol>
       </nav>
 
-      <h1 class="m-0 font-heading text-[34px] font-normal leading-[1.1] tracking-[-0.01em] text-gray-900 dt:whitespace-nowrap dt:text-[clamp(2.1rem,3.35vw,3rem)]">
+      <h1 class="m-0 font-heading text-[36px] font-normal leading-[1.15] dt:leading-[1.1] tracking-[-0.01em] text-gray-900 dt:whitespace-nowrap dt:text-[clamp(2.1rem,3.35vw,3rem)]">
         <span class="block">{titleLines[0]}</span>
         <span class="block text-primary-700">{titleLines[1]}</span>
       </h1>
 
-      <p class="m-0 max-w-[560px] text-[17px] text-gray-700">{lead}</p>
+      <p class="m-0 max-w-[560px] text-[17px] max-dt:leading-[1.7] text-gray-700">{lead}</p>
 
-      <div class="sl-rise [animation-delay:.3s] grid max-w-[520px] grid-cols-2 gap-2.5 dt:gap-3">
+      <div class="sl-rise [animation-delay:.3s] grid max-w-[520px] grid-cols-2 gap-3">
         <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
           Ingyenes konzultáció
         </a>
@@ -102,7 +102,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         )}
       </div>
 
-      <ul class:list={['mt-1 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
+      <ul class:list={['mt-2 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
         {models.map((m, i) => (
           <li class:list={['sl-pop', delays[i % delays.length]]}>
             <a
@@ -119,7 +119,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
                   class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 />
               </span>
-              <span class:list={['flex grow flex-col gap-px border-t border-[#fbe3ea] pt-2 dt:px-2.5 dt:pb-2.5', three ? 'px-2 pb-2.5' : 'px-3 pb-3']}>
+              <span class:list={['flex grow flex-col gap-px border-t border-[#fbe3ea] pt-2 dt:px-2.5 dt:pb-2.5', three ? 'px-2.5 pt-2.5 pb-3 dt:pt-2' : 'px-4 pt-3 pb-4 dt:pt-2']}>
                 <span class:list={['font-bold dt:text-sm', three ? 'text-[13px] leading-tight' : 'text-sm']}>
                   {m.name} {m.keySpec && <span class:list={['text-xs font-medium whitespace-nowrap text-gray-500', three && 'block']}>{m.keySpec}</span>}
                 </span>

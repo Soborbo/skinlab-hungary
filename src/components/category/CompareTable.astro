@@ -20,14 +20,33 @@ interface Props {
 const { id, title, lead, rows, models, help, consultHref } = Astro.props;
 ---
 
-<section id={id} class="scroll-mt-24 bg-white py-14 dt:py-[88px]">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="sl-reveal mb-8 text-center">
-      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
-      <p class="mt-2.5 text-gray-600">{lead}</p>
+<section id={id} class="scroll-mt-24 bg-white py-20 dt:py-[88px]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="sl-reveal mb-10 text-center dt:mb-8">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="mt-3 text-gray-600 dt:mt-2.5">{lead}</p>
     </div>
 
-    <div class="sl-reveal overflow-x-auto rounded-2xl border border-[#f3e4e9] bg-white px-2 py-1 dt:px-5 dt:py-2">
+    {/* Mobil: gépenként egy kártya, oldalra húzható (a következő széle kilátszik). */}
+    <ul class="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 scrollbar-hide dt:hidden" role="list" aria-label={title}>
+      {models.map((m) => (
+        <li class="flex w-[82%] max-w-[340px] shrink-0 snap-start flex-col rounded-2xl border border-[#f3e4e9] bg-white p-6">
+          <div class="text-lg font-bold text-gray-900">{m.name}</div>
+          <div class="font-heading text-[15px] text-primary-800 italic">{m.tagline}</div>
+          <dl class="mt-5 mb-6 flex flex-col gap-4">
+            {rows.map((row) => (
+              <div>
+                <dt class="text-xs font-semibold tracking-[0.06em] text-gray-600 uppercase">{row.label}</dt>
+                <dd class="m-0 mt-1 text-[15px] leading-snug text-gray-900">{compareValue(m, row.source)}</dd>
+              </div>
+            ))}
+          </dl>
+          <a href={`#${m.slug}`} class="sl-tlink mt-auto self-start text-sm text-primary-700" data-scroll-center>Részletek</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="sl-reveal hidden overflow-x-auto rounded-2xl border border-[#f3e4e9] bg-white px-5 py-2 dt:block">
       <table class="ct w-full min-w-[760px] table-fixed border-collapse text-sm">
         <caption class="sr-only">{title}</caption>
         <thead>
@@ -62,11 +81,11 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
       </table>
     </div>
 
-    <div class="sl-reveal group mx-auto mt-8 flex max-w-[760px] flex-wrap items-center justify-center gap-x-5 gap-y-4 rounded-[18px] bg-blush px-5 py-[18px]">
+    <div class="sl-reveal group mx-auto mt-10 flex max-w-[760px] flex-col items-center gap-5 rounded-[18px] bg-blush px-6 py-8 text-center dt:mt-8 dt:flex-row dt:flex-wrap dt:justify-center dt:gap-x-5 dt:gap-y-4 dt:px-5 dt:py-[18px] dt:text-left">
       <FounderAvatars />
-      <div class="min-w-0 flex-[1_1_260px]">
+      <div class="min-w-0 dt:flex-[1_1_260px]">
         <div class="font-semibold text-gray-900">{help.title}</div>
-        <div class="text-[13.5px] text-gray-600">{help.text}</div>
+        <div class="mt-1 text-[14px] max-dt:leading-[1.6] text-gray-600 dt:mt-0 dt:text-[13.5px]">{help.text}</div>
       </div>
       <a href={consultHref} class="sl-btn sl-btn-pink" data-event="category-consultation-cta-click">Ingyenes konzultáció</a>
     </div>

@@ -36,13 +36,13 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
 
 <section class="bg-white">
   <div class="grid grid-cols-1 items-center dt:grid-cols-2">
-    <div class="sl-reveal flex flex-col gap-3.5 px-4 pt-12 pb-8 dt:py-16 dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
-      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+    <div class="sl-reveal flex flex-col gap-5 px-6 pt-16 pb-20 dt:gap-3.5 dt:py-16 dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
       <p class="m-0 max-w-[500px] text-gray-600">{text}</p>
 
       <ul class="m-0 mt-1 max-w-[500px] list-none p-0" role="list">
         {rows.map((row) => (
-          <li class="flex items-start gap-3.5 border-b border-[#f0e6ea] py-3">
+          <li class="flex items-start gap-4 border-b border-[#f0e6ea] py-4 dt:gap-3.5 dt:py-3">
             <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]">
               <ShowcaseIcon name={row.icon} size={18} />
             </span>
@@ -66,7 +66,7 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
         </button>
       </div>
 
-      <div class="mt-2 grid w-full max-w-[500px] grid-cols-2 gap-2.5">
+      <div class="mt-3 grid w-full max-w-[500px] grid-cols-2 gap-3 dt:mt-2 dt:gap-2.5">
         <a href={demoHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-consultation-cta-click">{demoCta}</a>
         <a href={directions} target="_blank" rel="noopener" class="sl-btn sl-btn-plum px-2.5" data-event="category-directions-click">
           <ShowcaseIcon name="pin" size={16} />
