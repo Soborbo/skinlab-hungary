@@ -1,0 +1,131 @@
+---
+/**
+ * Google-vélemények: 3 statikus kártya (videós vélemények nélkül).
+ *
+ * Szöveg szó szerint a src/data/google-reviews.ts-ből. A hosszú vélemény 6 sor
+ * után levágódik, a „Tovább olvasom” nyitja ki (JS nélkül teljes hosszon látszik).
+ *
+ * LAPOZÓ KIKAPCSOLVA, amíg 3-nál több szöveges Google-vélemény nincs.
+ * Visszakapcsolás: a lenti kikommentelt nyilak/pöttyök és a script végén a
+ * kikommentelt lapozó-logika visszavétele; a rácsban ekkor 3 kártya látszik
+ * egyszerre (mobilon 1).
+ */
+import GoogleMark from './GoogleMark.astro';
+import { GOOGLE_RATING } from '@/lib/constants';
+import { GOOGLE_REVIEWS } from '@/data/google-reviews';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
+const initials = (name: string): string => name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
+const reviews = GOOGLE_REVIEWS.slice(0, 3);
+---
+
+<section id="velemenyek" class="scroll-mt-24 bg-blush py-14 dt:py-[88px]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="sl-reveal mb-8 flex flex-col items-center gap-3.5 text-center">
+      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      {rating && (
+        <div class="inline-flex items-center gap-2.5 rounded-full bg-white py-[7px] pr-4 pl-2 text-gray-900">
+          <span class="flex h-8 w-8 items-center justify-center rounded-full shadow-[0_2px_8px_rgba(0,0,0,.08)]"><GoogleMark size={22} /></span>
+          <strong class="text-lg">{rating}</strong>
+          <span class="tracking-[1px] text-[#fbbc04]" aria-hidden="true">★★★★★</span>
+          <span class="text-[13px] text-gray-600">Google-értékelések</span>
+        </div>
+      )}
+    </div>
+
+    <div class="flex items-center justify-center gap-4">
+      {/*
+      <button type="button" class="rv-nav max-dt:hidden" data-rv-step="-1" aria-label="Előző vélemény">‹</button>
+      */}
+      <div class="grid max-w-[1080px] flex-1 grid-cols-1 items-stretch gap-5 dt:grid-cols-3" aria-live="polite" data-rv-grid>
+        {reviews.map((review, i) => (
+          <article class="rv-card sl-lift flex flex-col gap-3.5 rounded-[18px] bg-white p-6">
+            <div class="flex items-center gap-3">
+              {review.avatar ? (
+                <img src={review.avatar} alt="" width="44" height="44" loading="lazy" decoding="async" class="h-11 w-11 shrink-0 rounded-full object-cover" />
+              ) : (
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#efe6dc] text-sm font-bold text-[#5b4636]" aria-hidden="true">{initials(review.name)}</span>
+              )}
+              <div class="grow">
+                <div class="text-[15px] font-semibold text-gray-900">{review.name}</div>
+                <div class="text-xs tracking-[1px] text-[#fbbc04]" role="img" aria-label="5/5">★★★★★</div>
+              </div>
+              <GoogleMark size={18} />
+            </div>
+            <p class="rv-text m-0 whitespace-pre-line text-[15px] text-gray-700" lang="hu" id={`rv-text-${i}`}>{review.text}</p>
+            <button type="button" class="rv-more sl-tlink mt-auto hidden self-start text-sm text-primary-700" aria-controls={`rv-text-${i}`} aria-expanded="false">
+              Tovább olvasom
+            </button>
+          </article>
+        ))}
+      </div>
+      {/*
+      <button type="button" class="rv-nav max-dt:hidden" data-rv-step="1" aria-label="Következő vélemény">›</button>
+      */}
+    </div>
+    {/*
+    <div class="mt-6 flex items-center justify-center gap-3.5 dt:hidden">
+      <button type="button" class="rv-nav" data-rv-step="-1" aria-label="Előző vélemény">‹</button>
+      <div class="flex gap-2" data-rv-dots></div>
+      <button type="button" class="rv-nav" data-rv-step="1" aria-label="Következő vélemény">›</button>
+    </div>
+    */}
+  </div>
+</section>
+
+<style>
+  .rv-card[data-clamp] .rv-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  // Csak a ténylegesen hosszú véleményeket vágjuk le, és csak JS-sel.
+  document.querySelectorAll<HTMLElement>('.rv-card').forEach((card) => {
+    const text = card.querySelector<HTMLElement>('.rv-text');
+    const btn = card.querySelector<HTMLButtonElement>('.rv-more');
+    if (!text || !btn) return;
+    card.setAttribute('data-clamp', '');
+    if (text.scrollHeight <= text.clientHeight + 2) {
+      card.removeAttribute('data-clamp');
+      return;
+    }
+    btn.classList.remove('hidden');
+    btn.addEventListener('click', () => {
+      const clamped = card.toggleAttribute('data-clamp');
+      btn.setAttribute('aria-expanded', String(!clamped));
+      btn.textContent = clamped ? 'Tovább olvasom' : 'Kevesebb';
+    });
+  });
+
+  // LAPOZÓ (kikapcsolva, lásd a fájl tetején): 3 kártya látszik, a lépés
+  // körbeforgatja a sort, és a kártyák a lépés irányából becsúsznak.
+  // const grid = document.querySelector<HTMLElement>('[data-rv-grid]');
+  // const cards = grid ? Array.from(grid.children) as HTMLElement[] : [];
+  // let start = 0;
+  // const render = (dir: 'next' | 'prev'): void => {
+  //   cards.forEach((card, i) => {
+  //     const pos = (i - start + cards.length) % cards.length;
+  //     card.hidden = pos > 2;
+  //     card.style.order = String(pos);
+  //   });
+  //   grid?.classList.remove('rv-next', 'rv-prev');
+  //   void grid?.offsetWidth;
+  //   grid?.classList.add(dir === 'next' ? 'rv-next' : 'rv-prev');
+  // };
+  // document.querySelectorAll<HTMLButtonElement>('[data-rv-step]').forEach((btn) => {
+  //   btn.addEventListener('click', () => {
+  //     const step = Number(btn.dataset.rvStep);
+  //     start = (start + step + cards.length) % cards.length;
+  //     render(step > 0 ? 'next' : 'prev');
+  //   });
+  // });
+</script>

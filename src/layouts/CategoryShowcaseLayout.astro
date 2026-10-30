@@ -1,0 +1,154 @@
+---
+/**
+ * CategoryShowcaseLayout - az új kategóriaoldal-elrendezés (diódás Claude
+ * Design canvas, 1tR5gxCsz53ehibuSLPEGD). Először csak a /diodalezerek/ HU
+ * oldal használja; a többi kategória és a [locale] változatok a régi
+ * CategoryLayouton maradnak, amíg nem kapnak saját ShowcaseConfigot.
+ *
+ * Miért külön layout és nem CategoryLayout-prop: teljesen más a szekciósorrend,
+ * a régi layout már 4 fold-módot kezel, és így a többi kategóriához nem nyúlunk.
+ *
+ * Megtartja a régi oldal SEO-ját: cím/leírás, CollectionPage + ItemList,
+ * BreadcrumbList, FAQPage schema, OG-kép, view_item_list / select_item.
+ */
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import SplitHero from '../components/category/SplitHero.astro';
+import UspStrip from '../components/category/UspStrip.astro';
+import ModelRows from '../components/category/ModelRows.astro';
+import ReviewCards from '../components/category/ReviewCards.astro';
+import CompareTable from '../components/category/CompareTable.astro';
+import WhyBuy from '../components/category/WhyBuy.astro';
+import FinanceCalc from '../components/category/FinanceCalc.astro';
+import VideoSpotlight from '../components/category/VideoSpotlight.astro';
+import TrainingBand from '../components/category/TrainingBand.astro';
+import ConsultCard from '../components/category/ConsultCard.astro';
+import FaqCards from '../components/category/FaqCards.astro';
+import VisitCta from '../components/category/VisitCta.astro';
+import { SITE } from '../lib/constants';
+import { config } from '../config/siteConfig';
+import { collectionPageSchema, breadcrumbSchema, faqSchema } from '../config/schema';
+import { getOgImagePath } from '@/lib/resolve-image';
+import { withTrailingSlash } from '@/i18n/ui';
+import { buildShowcaseModels } from '@/lib/category-showcase';
+import type { ShowcaseConfig } from '@/lib/types/category-showcase';
+
+interface Props {
+  page: ShowcaseConfig;
+  products: CollectionEntry<'products'>[];
+}
+
+const { page, products } = Astro.props;
+const models = buildShowcaseModels(products, page.models.copy);
+const consultHref = withTrailingSlash(`/konzultacio?cat=${page.slug}`);
+const compareAnchor = page.compare ? 'osszehasonlitas' : undefined;
+
+// Schema: CollectionPage (+ ItemList) + Breadcrumb + FAQ, mint a régi layoutban.
+const pageUrl = SITE.url + withTrailingSlash(`/${page.slug}`);
+const schema = collectionPageSchema(
+  config,
+  pageUrl,
+  page.seo.name,
+  models.map((m) => SITE.url + m.href),
+);
+schema['@graph'].push(breadcrumbSchema(pageUrl, [{ name: 'Főoldal', url: SITE.url }, { name: page.seo.nameShort }]));
+if (page.faq && page.faq.items.length > 0) {
+  schema['@graph'].push(faqSchema(pageUrl, page.faq.items));
+}
+
+const ogImage = (models[0] && getOgImagePath(models[0].thumb)) || '/og-image.jpg';
+
+const trackItems = models.map((m, i) => ({
+  item_id: m.sku,
+  item_name: products.find((p) => (p.data.slug || p.id) === m.slug)?.data.name ?? m.name,
+  item_category: page.slug,
+  price: m.price ?? 0,
+  index: i,
+}));
+---
+
+<BaseLayout title={page.seo.name} description={page.seo.description} image={ogImage} schema={schema}>
+  <SplitHero
+    titleLines={page.hero.titleLines}
+    lead={page.hero.lead}
+    image={page.hero.image}
+    imageAlt={page.hero.imageAlt}
+    crumb={page.seo.nameShort}
+    models={models}
+    consultHref={consultHref}
+    compareAnchor={compareAnchor}
+  />
+  <UspStrip items={page.usp} />
+  <ModelRows title={page.models.title} lead={page.models.lead} models={models} />
+  {page.reviews && <ReviewCards title={page.reviews.title} />}
+  {page.compare && compareAnchor && (
+    <CompareTable
+      id={compareAnchor}
+      title={page.compare.title}
+      lead={page.compare.lead}
+      rows={page.compare.rows}
+      models={models}
+      help={page.compare.help}
+      consultHref={consultHref}
+    />
+  )}
+  {page.whyBuy && <WhyBuy {...page.whyBuy} />}
+  {page.finance && <FinanceCalc {...page.finance} models={models} consultHref={consultHref} />}
+  {page.video && <VideoSpotlight {...page.video} />}
+  {page.training && <TrainingBand {...page.training} />}
+  <ConsultCard {...page.consult} consultHref={consultHref} />
+  {page.faq && <FaqCards {...page.faq} />}
+  <VisitCta {...page.visit} demoHref={consultHref} />
+
+  <script
+    is:inline
+    define:vars={{ trackListId: page.slug, trackListName: page.seo.nameShort, trackItems }}
+  >
+    window.__trackCategoryData = { listId: trackListId, listName: trackListName, items: trackItems };
+  </script>
+</BaseLayout>
+
+<script>
+  import { trackViewItemList, trackSelectItem } from '@/lib/tracking';
+
+  type CategoryTrackData = {
+    listId: string;
+    listName: string;
+    items: { item_id: string; item_name: string; item_category: string; price: number; index: number }[];
+  };
+
+  function fireCategoryTracking(): void {
+    const w = window as unknown as { __trackCategoryData?: CategoryTrackData };
+    const data = w.__trackCategoryData;
+    if (!data) return;
+    trackViewItemList(data.listId, data.listName, data.items);
+    document.querySelectorAll<HTMLAnchorElement>('[data-select-item]').forEach((link) => {
+      const item = data.items.find((it) => it.item_id === link.dataset.selectItem);
+      if (!item) return;
+      link.addEventListener('click', () => trackSelectItem(data.listId, data.listName, item));
+    });
+    delete w.__trackCategoryData;
+  }
+
+  // Belső horgonyra ugráskor a cél a képernyő KÖZEPÉRE kerüljön (ne a tetejére tapadjon).
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-scroll-center]');
+    const hash = link?.getAttribute('href');
+    if (!link || !hash?.startsWith('#')) return;
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Kézi számítás: a scroll-margin (fejléc alatti horgony-fallback) a `block: center`-t elcsúsztatná.
+    // A képernyőnél magasabb cél a fejléc alá kerül, nem középre.
+    const rect = target.getBoundingClientRect();
+    const header = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+    const free = window.innerHeight - header;
+    const offset = rect.height < free ? header + (free - rect.height) / 2 : header;
+    window.scrollTo({ top: window.scrollY + rect.top - offset, behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', hash);
+  });
+
+  document.addEventListener('astro:page-load', fireCategoryTracking);
+  if (document.readyState !== 'loading') fireCategoryTracking();
+</script>

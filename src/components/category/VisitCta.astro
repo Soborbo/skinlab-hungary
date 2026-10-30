@@ -1,0 +1,117 @@
+---
+/**
+ * Záró CTA: bemutatóterem. Balra cím, nyitvatartás, bejelentkezés, telefon
+ * (constants.ts: LOCATIONS, OPENING_HOURS, CONTACT), kattintásra betöltő Google
+ * Maps térkép, gombok; jobbra a showroom-fotó max. 50%-on, vágás nélkül.
+ *
+ * A térkép-iframe csak kattintásra töltődik (nincs harmadik féltől jövő kérés
+ * oldalbetöltéskor), és a címre keres, nem a koordinátára.
+ */
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import { CONTACT, LOCATIONS, OPENING_HOURS } from '@/lib/constants';
+import { compactOpeningHours } from '@/lib/category-showcase';
+import type { ShowcaseIconName } from '@/lib/types/category-showcase';
+
+interface Props {
+  title: string;
+  text: string;
+  booking: string;
+  demoCta: string;
+  demoHref: string;
+}
+
+const { title, text, booking, demoCta, demoHref } = Astro.props;
+const address = LOCATIONS.showroom.fullAddress;
+const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+const showroom = '/hero/hero-skinlab-showroom-foto';
+
+const rows: { icon: ShowcaseIconName; label: string; value: string; href?: string }[] = [
+  { icon: 'pin', label: 'Cím', value: address },
+  { icon: 'clock', label: 'Nyitvatartás', value: compactOpeningHours(OPENING_HOURS) },
+  { icon: 'calendar', label: 'Bejelentkezés', value: booking },
+  { icon: 'phone', label: 'Telefon', value: CONTACT.phoneDisplay, href: CONTACT.phoneTel },
+];
+---
+
+<section class="bg-white">
+  <div class="grid grid-cols-1 items-center dt:grid-cols-2">
+    <div class="sl-reveal flex flex-col gap-3.5 px-4 pt-12 pb-8 dt:py-16 dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="m-0 max-w-[500px] text-gray-600">{text}</p>
+
+      <ul class="m-0 mt-1 max-w-[500px] list-none p-0" role="list">
+        {rows.map((row) => (
+          <li class="flex items-start gap-3.5 border-b border-[#f0e6ea] py-3">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]">
+              <ShowcaseIcon name={row.icon} size={18} />
+            </span>
+            <div>
+              <p class="m-0 text-xs font-semibold tracking-[0.06em] text-[#6b5d52] uppercase">{row.label}</p>
+              <p class="m-0 font-medium text-gray-900">
+                {row.href ? <a href={row.href} class="sl-tlink font-medium text-gray-900" data-event="category-callback-phone-click">{row.value}</a> : row.value}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <div class="vc-map relative mt-1.5 h-[200px] max-w-[500px] overflow-hidden rounded-2xl border border-[#ece3d9] bg-sand" data-map-embed={mapEmbed} data-map-title={`Térkép: ${address}`}>
+        <button type="button" class="vc-map-btn flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center" aria-label={`Térkép betöltése: ${address}`}>
+          <span class="vc-map-pin flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary-700 shadow-[0_6px_18px_rgba(160,28,66,.15)]">
+            <ShowcaseIcon name="pin" size={24} />
+          </span>
+          <span class="font-semibold text-gray-900">Térkép megnyitása</span>
+          <span class="text-xs text-[#6b5d52]">Betöltéskor a Google Térkép sütiket használhat.</span>
+        </button>
+      </div>
+
+      <div class="mt-2 grid w-full max-w-[500px] grid-cols-2 gap-2.5">
+        <a href={demoHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-consultation-cta-click">{demoCta}</a>
+        <a href={directions} target="_blank" rel="noopener" class="sl-btn sl-btn-plum px-2.5" data-event="category-directions-click">
+          <ShowcaseIcon name="pin" size={16} />
+          Útvonaltervezés
+        </a>
+      </div>
+    </div>
+
+    <picture class="order-first block dt:order-none">
+      <source type="image/avif" srcset={`${showroom}.avif`} />
+      <source type="image/webp" srcset={`${showroom}.webp`} />
+      <img
+        src={`${showroom}.jpg`}
+        alt="A Skinlab bemutatóterme Érden"
+        width="1434"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+        class="block h-auto w-full"
+      />
+    </picture>
+  </div>
+</section>
+
+<style>
+  .vc-map-pin { transition: transform 0.25s ease; }
+  .vc-map-btn { cursor: pointer; }
+  .vc-map-btn:hover .vc-map-pin { transform: translateY(-4px); }
+  .vc-map-btn:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: -3px; border-radius: 1rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .vc-map-pin { transition: none; }
+    .vc-map-btn:hover .vc-map-pin { transform: none; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-map-embed]').forEach((box) => {
+    box.querySelector('button')?.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = box.dataset.mapEmbed ?? '';
+      iframe.title = box.dataset.mapTitle ?? '';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.className = 'absolute inset-0 h-full w-full border-0';
+      box.replaceChildren(iframe);
+    });
+  });
+</script>

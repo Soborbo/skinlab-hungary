@@ -1,0 +1,185 @@
+---
+/**
+ * Termékgaléria a modellsorokban: nagy kép + egysoros bélyegképsor.
+ *
+ * 7-nél több képnél a bélyegképsor végtelenített: mindig 7 látszik, a
+ * kiválasztott középen, váltáskor a sor becsúszik. A rejtett nagy képek
+ * (`hidden`) nem töltődnek le, amíg nem kerülnek elő. JS nélkül az első kép
+ * látszik, a többi bélyegkép görgethető sorban.
+ */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import type { ShowcaseImage } from '@/lib/category-showcase';
+
+interface Props {
+  name: string;
+  images: ShowcaseImage[];
+}
+
+const { name, images } = Astro.props;
+const VISIBLE = 7;
+const wraps = images.length > VISIBLE;
+---
+
+<div class="sg flex w-full flex-col items-center gap-3.5" data-gallery data-visible={VISIBLE}>
+  <div class="relative aspect-square w-full max-w-[420px] overflow-hidden rounded-2xl bg-white">
+    {images.map((img, i) => (
+      <div class="sg-slide absolute inset-0" hidden={i !== 0} data-slide={i}>
+        <OptimizedPicture
+          src={img.src}
+          alt={img.alt}
+          widths={[480, 640, 828, 960]}
+          sizes="(min-width: 900px) 420px, calc(100vw - 24px)"
+          class:list={['h-full w-full', img.fit === 'contain' ? 'object-contain' : 'object-cover']}
+        />
+      </div>
+    ))}
+    {images.length > 1 && (
+      <>
+        <button type="button" class="sg-nav left-2.5" data-step="-1" aria-label="Előző kép">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+        <button type="button" class="sg-nav right-2.5" data-step="1" aria-label="Következő kép">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+        </button>
+      </>
+    )}
+  </div>
+
+  {images.length > 1 && (
+    <div class="w-full max-w-[420px] overflow-hidden">
+      <div
+        class:list={['sg-thumbs flex flex-nowrap gap-2', wraps ? 'justify-center' : 'justify-center overflow-x-auto scrollbar-hide']}
+        role="group"
+        aria-label={`${name} képei`}
+        data-wrap={wraps ? '' : undefined}
+      >
+        {images.map((img, i) => (
+          <button
+            type="button"
+            class="sg-thumb"
+            data-thumb={i}
+            aria-label={`${name} - ${i + 1}. kép`}
+            aria-current={i === 0 ? 'true' : 'false'}
+            hidden={wraps && i > 3 && i < images.length - 3 ? true : undefined}
+            style={wraps ? `order:${((i + 3) % images.length + images.length) % images.length}` : undefined}
+          >
+            <OptimizedPicture src={img.src} alt="" widths={[160]} sizes="52px" class="h-full w-full object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .sg-nav {
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  .sg-nav:hover { transform: scale(1.08); background: #fff; }
+  .sg-nav:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+
+  .sg-thumb {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #f3e4e9;
+    opacity: 0.75;
+    transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  }
+  .sg-thumb:hover { transform: translateY(-2px); opacity: 1; }
+  /* Mobilon 7 bélyegkép férjen ki egy sorban (7 × 44px + 6 × 6px = 344px). */
+  @media (max-width: 899px) {
+    .sg-thumbs { gap: 6px; }
+    .sg-thumb { width: 44px; height: 44px; border-radius: 8px; }
+  }
+  .sg-thumb[aria-current='true'] { border-color: var(--color-primary-700); opacity: 1; }
+  .sg-thumb:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+
+  .sg-slide.sg-in { animation: sg-fade 0.35s ease; }
+  .sg-thumbs.sg-next { animation: sg-next 0.35s ease both; }
+  .sg-thumbs.sg-prev { animation: sg-prev 0.35s ease both; }
+
+  @keyframes sg-fade { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+  @keyframes sg-next { from { transform: translateX(60px); opacity: 0.4; } to { transform: none; opacity: 1; } }
+  @keyframes sg-prev { from { transform: translateX(-60px); opacity: 0.4; } to { transform: none; opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sg-nav, .sg-thumb { transition: none; }
+    .sg-nav:hover, .sg-thumb:hover { transform: none; }
+    .sg-slide.sg-in, .sg-thumbs.sg-next, .sg-thumbs.sg-prev { animation: none; }
+  }
+</style>
+
+<script>
+  function initGallery(root: HTMLElement): void {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-slide]'));
+    const thumbs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-thumb]'));
+    const track = root.querySelector<HTMLElement>('.sg-thumbs');
+    const count = slides.length;
+    const half = Math.floor(Number(root.dataset.visible ?? 7) / 2);
+    const wraps = track?.hasAttribute('data-wrap') ?? false;
+    let current = 0;
+
+    const show = (next: number, dir: 'next' | 'prev'): void => {
+      const target = ((next % count) + count) % count;
+      if (target === current) return;
+      slides[current].hidden = true;
+      slides[target].hidden = false;
+      slides[target].classList.remove('sg-in');
+      void slides[target].offsetWidth;
+      slides[target].classList.add('sg-in');
+      current = target;
+
+      thumbs.forEach((thumb, j) => {
+        thumb.setAttribute('aria-current', j === target ? 'true' : 'false');
+        if (!wraps) return;
+        // Körkörös ablak: a kiválasztott kerül középre, a többi ±half helyre.
+        const offset = ((j - target + count + half) % count) - half;
+        thumb.hidden = offset > half;
+        thumb.style.order = String(offset + half);
+      });
+
+      if (wraps && track) {
+        track.classList.remove('sg-next', 'sg-prev');
+        void track.offsetWidth;
+        track.classList.add(dir === 'next' ? 'sg-next' : 'sg-prev');
+      } else {
+        thumbs[target]?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      }
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const step = Number(btn.dataset.step);
+        show(current + step, step > 0 ? 'next' : 'prev');
+      });
+    });
+
+    thumbs.forEach((thumb, j) => {
+      thumb.addEventListener('click', () => {
+        const forward = wraps ? Number(thumb.style.order) > half : j > current;
+        show(j, forward ? 'next' : 'prev');
+      });
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(initGallery);
+</script>

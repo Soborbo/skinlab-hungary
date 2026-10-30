@@ -1,0 +1,83 @@
+---
+/**
+ * Konzultációs kártya: homok háttér, rózsaszín csak a fő gombon. Asztalon bal
+ * oldalt László fotója névkártyával, mobilon kis kerek avatar a cím fölött.
+ */
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import { CONTACT } from '@/lib/constants';
+
+interface Props {
+  title: string;
+  text: string;
+  needs: string[];
+  note: string;
+  consultHref: string;
+}
+
+const { title, text, needs, note, consultHref } = Astro.props;
+const expert = { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth László', role: 'Skinlab alapító · technikai szakértő' };
+---
+
+<section id="konzultacio" class="scroll-mt-24 bg-white py-14 dt:py-[88px]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="sl-reveal mx-auto grid max-w-[1100px] grid-cols-1 overflow-hidden rounded-3xl bg-sand dt:grid-cols-[320px_minmax(0,1fr)]">
+      <div class="relative hidden dt:block">
+        <picture>
+          <source type="image/avif" srcset={`${expert.base}.avif`} />
+          <source type="image/webp" srcset={`${expert.base}.webp`} />
+          <img src={`${expert.base}.jpg`} alt={`${expert.name}, a Skinlab alapítója`} width="960" height="960" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-[center_15%]" />
+        </picture>
+        <div class="absolute right-3.5 bottom-3.5 left-3.5 rounded-xl bg-white px-3.5 py-2.5">
+          <div class="text-[15px] font-semibold text-gray-900">{expert.name}</div>
+          <div class="text-[12.5px] text-gray-500">{expert.role}</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-[18px] px-5 pt-7 pb-8 dt:px-12 dt:py-11">
+        <div class="flex items-center gap-3 dt:hidden">
+          <picture>
+            <source type="image/avif" srcset={`${expert.base}.avif`} />
+            <source type="image/webp" srcset={`${expert.base}.webp`} />
+            <img src={`${expert.base}.jpg`} alt={expert.name} width="56" height="56" loading="lazy" decoding="async" class="h-14 w-14 rounded-full border-[3px] border-white object-cover" />
+          </picture>
+          <div>
+            <div class="text-[15px] font-semibold text-gray-900">{expert.name}</div>
+            <div class="text-[12.5px] text-gray-500">{expert.role}</div>
+          </div>
+        </div>
+        <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-plum dt:text-[42px]">{title}</h2>
+        <p class="m-0 text-[#4a3f37]">{text}</p>
+        <ul class="grid grid-cols-2 gap-2.5" role="list">
+          {needs.map((need) => (
+            <li class="cc-need flex items-start gap-2.5 rounded-xl bg-white px-3.5 py-3 text-sm text-gray-900">
+              <ShowcaseIcon name="check" size={18} strokeWidth={2.2} class="mt-0.5 shrink-0 text-[#5b4636]" />
+              {need}
+            </li>
+          ))}
+        </ul>
+        <div class="grid max-w-[520px] grid-cols-1 gap-2.5 min-[420px]:grid-cols-2">
+          <a href={consultHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-callback-cta-click">Ingyenes konzultáció</a>
+          <a href={CONTACT.phoneTel} class="sl-btn sl-btn-plum px-2.5" data-event="category-callback-phone-click">
+            <ShowcaseIcon name="phone" size={16} />
+            {CONTACT.phoneDisplay}
+          </a>
+        </div>
+        <p class="m-0 text-[13px] text-[#6b5d52]">{note}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cc-need {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .cc-need:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(160, 28, 66, 0.1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cc-need { transition: none; }
+    .cc-need:hover { transform: none; }
+  }
+</style>

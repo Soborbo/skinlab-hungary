@@ -1,0 +1,66 @@
+---
+/**
+ * Modellek 50/50 váltakozó sorokban: galéria + szöveg, ár, részletek gomb.
+ * Mobilon a galéria felül. Minden sor `id`-ja a termék slugja, erre görgetnek
+ * a hero csempéi és a táblázat „Részletek” linkjei (középre).
+ */
+import ModelGallery from './ModelGallery.astro';
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+
+interface Props {
+  title: string;
+  lead: string;
+  models: ShowcaseModel[];
+}
+
+const { title, lead, models } = Astro.props;
+---
+
+<section id="modellek" class="bg-white pt-14">
+  <div class="sl-reveal mx-auto max-w-7xl px-4 pb-10 text-center sm:px-6 lg:px-8">
+    <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+    <p class="mx-auto mt-2.5 max-w-[620px] text-gray-600">{lead}</p>
+  </div>
+
+  {models.map((m, i) => (
+    <article id={m.slug} class="grid scroll-mt-24 grid-cols-1 dt:min-h-[600px] dt:grid-cols-2">
+      <div class:list={['flex items-center justify-center bg-white px-3 pt-6 pb-2 dt:p-12', i % 2 === 1 && 'dt:order-2']}>
+        <ModelGallery name={m.name} images={m.images} />
+      </div>
+      <div class:list={['flex items-center px-4 pt-6 pb-12 dt:justify-center dt:p-16', i % 2 === 0 ? 'bg-blush' : 'bg-white']}>
+        <div class="sl-reveal flex max-w-[520px] flex-col gap-4">
+          <div class="text-xs font-semibold tracking-[0.08em] text-primary-700 uppercase">
+            {String(i + 1).padStart(2, '0')}{m.watt && ` · ${m.watt}`} · {m.forWho}
+          </div>
+          <h3 class="m-0 font-heading text-[36px] font-normal leading-[1.1] text-gray-900">
+            {m.name} <em class="text-primary-700">{m.tagline}</em>
+          </h3>
+          <p class="m-0 text-gray-700">{m.desc}</p>
+          <div class="mt-1 text-sm font-semibold text-gray-900">Neked való, ha…</div>
+          <ul class="m-0 flex list-none flex-col gap-2 p-0" role="list">
+            {m.when.map((w) => (
+              <li class="flex gap-2.5 text-[15px] text-gray-700">
+                <ShowcaseIcon name="check" size={18} strokeWidth={2.2} class="mt-[3px] shrink-0 text-primary-700" />
+                {w}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-2 flex flex-wrap items-center gap-x-5 gap-y-4">
+            <div>
+              <div class="text-2xl font-bold text-gray-900">{m.price ? formatHuf(m.price) : 'Kérj ajánlatot'}</div>
+              {m.installment && (
+                <div class="text-[12.5px] text-gray-500">
+                  vagy 50% előleg + {formatHuf(m.installment.monthly)}/hó ({m.installment.months} hó)
+                </div>
+              )}
+            </div>
+            <a href={m.href} class="sl-btn sl-btn-plum min-h-[50px] text-sm" data-select-item={m.sku}>
+              {m.name} részletei
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  ))}
+</section>

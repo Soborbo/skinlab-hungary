@@ -1,0 +1,103 @@
+---
+/**
+ * Műszaki összehasonlítás. Hoverre a sor és az oszlop is kiemelődik
+ * (CSS :has(), JS nélkül). Az értékek a termék-JSON-ból jönnek (compareValue).
+ * Alatta a „Segítünk kiválasztani” sor az alapítók kerek avatarjával.
+ */
+import FounderAvatars from './FounderAvatars.astro';
+import { compareValue, type CompareRow, type ShowcaseModel } from '@/lib/category-showcase';
+
+interface Props {
+  id: string;
+  title: string;
+  lead: string;
+  rows: CompareRow[];
+  models: ShowcaseModel[];
+  help: { title: string; text: string };
+  consultHref: string;
+}
+
+const { id, title, lead, rows, models, help, consultHref } = Astro.props;
+---
+
+<section id={id} class="scroll-mt-24 bg-white py-14 dt:py-[88px]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="sl-reveal mb-8 text-center">
+      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="mt-2.5 text-gray-600">{lead}</p>
+    </div>
+
+    <div class="sl-reveal overflow-x-auto rounded-2xl border border-[#f3e4e9] bg-white px-2 py-1 dt:px-5 dt:py-2">
+      <table class="ct w-full min-w-[760px] table-fixed border-collapse text-sm">
+        <caption class="sr-only">{title}</caption>
+        <thead>
+          <tr>
+            <td class="w-[16%]"></td>
+            {models.map((m) => (
+              <th scope="col" class="rounded-t-xl px-3 py-[18px] text-center align-bottom">
+                <div class="text-base font-bold text-gray-900">{m.name}</div>
+                <div class="font-heading text-sm text-primary-800 italic">{m.tagline}</div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr class="ct-row border-t border-[#f3e4e9]">
+              <th scope="row" class="px-3 py-4 text-left font-medium text-gray-500">{row.label}</th>
+              {models.map((m) => (
+                <td class="px-3 py-4 text-center text-gray-900">{compareValue(m, row.source)}</td>
+              ))}
+            </tr>
+          ))}
+          <tr>
+            <td></td>
+            {models.map((m) => (
+              <td class="rounded-b-xl px-2.5 pt-3.5 pb-[18px] text-center">
+                <a href={`#${m.slug}`} class="sl-tlink text-sm text-primary-700" data-scroll-center>Részletek</a>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sl-reveal group mx-auto mt-8 flex max-w-[760px] flex-wrap items-center justify-center gap-x-5 gap-y-4 rounded-[18px] bg-blush px-5 py-[18px]">
+      <FounderAvatars />
+      <div class="min-w-0 flex-[1_1_260px]">
+        <div class="font-semibold text-gray-900">{help.title}</div>
+        <div class="text-[13.5px] text-gray-600">{help.text}</div>
+      </div>
+      <a href={consultHref} class="sl-btn sl-btn-pink" data-event="category-consultation-cta-click">Ingyenes konzultáció</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ct th,
+  .ct td {
+    transition: background-color 0.2s ease, color 0.15s ease;
+  }
+  .ct .ct-row:hover {
+    background-color: #fff4f7;
+  }
+  .ct .ct-row:hover th {
+    color: var(--color-primary-800);
+  }
+  /* Oszlopkiemelés: a hover alatti cella oszlopa (2. oszloptól; legfeljebb 6 gép). */
+  .ct:has(:is(td, th):nth-child(2):hover) :is(td, th[scope='col']):nth-child(2),
+  .ct:has(:is(td, th):nth-child(3):hover) :is(td, th[scope='col']):nth-child(3),
+  .ct:has(:is(td, th):nth-child(4):hover) :is(td, th[scope='col']):nth-child(4),
+  .ct:has(:is(td, th):nth-child(5):hover) :is(td, th[scope='col']):nth-child(5),
+  .ct:has(:is(td, th):nth-child(6):hover) :is(td, th[scope='col']):nth-child(6),
+  .ct:has(:is(td, th):nth-child(7):hover) :is(td, th[scope='col']):nth-child(7) {
+    background-color: var(--color-blush);
+    font-weight: 600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ct th,
+    .ct td {
+      transition: none;
+    }
+  }
+</style>

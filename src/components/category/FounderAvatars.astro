@@ -1,0 +1,39 @@
+---
+/**
+ * Az alapítók egymásra csúsztatott kerek avatarjai („segítünk választani”
+ * sorokhoz). A szülő `group` hoverjére finoman megemelkednek.
+ * Képek: public/about/ (előre generált avif/webp/jpg, 960×960).
+ */
+interface Props {
+  size?: number;
+}
+
+const { size = 48 } = Astro.props;
+
+const founders = [
+  { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth László' },
+  { base: '/about/gaszler-simonetta-skinlab-alapito', name: 'Gaszler Szimonetta' },
+];
+---
+
+<div class="flex shrink-0">
+  {founders.map((f, i) => (
+    <picture>
+      <source type="image/avif" srcset={`${f.base}.avif`} />
+      <source type="image/webp" srcset={`${f.base}.webp`} />
+      <img
+        src={`${f.base}.jpg`}
+        alt={f.name}
+        width={size}
+        height={size}
+        loading="lazy"
+        decoding="async"
+        class:list={[
+          'rounded-full border-[3px] border-white object-cover shadow-[0_4px_12px_rgba(0,0,0,.1)] transition-transform duration-[250ms] group-hover:-translate-y-[3px] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0',
+          i > 0 && '-ml-3.5',
+        ]}
+        style={`width:${size}px;height:${size}px`}
+      />
+    </picture>
+  ))}
+</div>

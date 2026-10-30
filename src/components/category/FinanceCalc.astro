@@ -1,0 +1,203 @@
+---
+/**
+ * Finanszírozás: szabálykártyák + kalkulátor (gépképválasztó, futamidő).
+ *
+ * A számítás a közös lib/installment.ts-ből jön (50% előleg, ársávos
+ * futamidő, 0 Ft kamat) - ugyanaz, mint a termékoldali kalkulátoré. A havi
+ * részlet világos homok panelen jelenik meg, nem sötét dobozban.
+ */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import {
+  getInstallmentInfo,
+  INSTALLMENT_MIN,
+  SIX_MONTH_THRESHOLD,
+  TWELVE_MONTH_THRESHOLD,
+  type InstallmentMonths,
+} from '@/lib/installment';
+import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+
+interface Props {
+  title: string;
+  lead: string;
+  perks: string[];
+  models: ShowcaseModel[];
+  defaultSlug: string;
+  cta: string;
+  consultHref: string;
+}
+
+const { title, lead, perks, models, defaultSlug, cta, consultHref } = Astro.props;
+const priced = models.filter((m) => m.price && getInstallmentInfo(m.price).available);
+const initial = priced.find((m) => m.slug === defaultSlug) ?? priced[0];
+const info = getInstallmentInfo(initial?.price);
+const ALL_MONTHS: InstallmentMonths[] = [3, 6, 12];
+const preferred: InstallmentMonths = 6;
+const months: InstallmentMonths = info.months.includes(preferred) ? preferred : info.months[info.months.length - 1];
+
+const rules = [
+  { when: `${formatHuf(INSTALLMENT_MIN)} felett`, term: '3 hónap' },
+  { when: `${formatHuf(SIX_MONTH_THRESHOLD)} felett`, term: '3 vagy 6 hónap' },
+  { when: `${formatHuf(TWELVE_MONTH_THRESHOLD)} felett, vagy 2 gép együtt`, term: '3, 6 vagy 12 hónap' },
+];
+
+const noteFor = (price: number): string =>
+  price > TWELVE_MONTH_THRESHOLD
+    ? `A 12 havi részlet ${formatHuf(TWELVE_MONTH_THRESHOLD)} feletti vásárlásnál elérhető. Pontos ajánlatot a konzultáción adunk.`
+    : `A 12 havi részlet ${formatHuf(TWELVE_MONTH_THRESHOLD)} felett, vagy két gép együttes vásárlásakor érhető el. Pontos ajánlatot a konzultáción adunk.`;
+---
+
+{initial && (
+  <section class="bg-white py-14 dt:py-[88px]">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-start gap-8 px-4 sm:px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
+      <div class="sl-reveal flex flex-col gap-4">
+        <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+        <p class="m-0 text-gray-700">{lead}</p>
+        <ul class="mt-1.5 flex flex-col gap-2.5" role="list">
+          {rules.map((rule) => (
+            <li class="flex justify-between gap-3 rounded-[14px] border border-[#f3e4e9] bg-white px-4 py-3.5 text-[14.5px]">
+              <span class="text-gray-600">{rule.when}</span>
+              <strong class="text-right text-gray-900">{rule.term}</strong>
+            </li>
+          ))}
+        </ul>
+        <ul class="mt-1 flex flex-wrap gap-[18px] text-sm text-gray-700" role="list">
+          {perks.map((perk) => (
+            <li class="flex items-center gap-2">
+              <ShowcaseIcon name="check" size={16} strokeWidth={2.4} class="text-primary-700" />
+              {perk}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="fc sl-reveal flex flex-col gap-5 rounded-3xl bg-white p-5 shadow-[0_24px_60px_rgba(160,28,66,.12)] dt:p-7" data-finance-calc>
+        <div>
+          <div class="mb-2.5 text-xs font-bold tracking-[0.08em] text-gray-500 uppercase" id="fc-model-label">1. Melyik gép?</div>
+          <div class="grid grid-cols-2 gap-2.5 dt:grid-cols-4" role="group" aria-labelledby="fc-model-label">
+            {priced.map((m) => (
+              <button
+                type="button"
+                class="fc-model flex flex-col items-center gap-1 rounded-[14px] border-2 px-2 pt-2.5 pb-3"
+                aria-pressed={m.slug === initial.slug ? 'true' : 'false'}
+                data-price={m.price}
+                data-note={noteFor(m.price!)}
+              >
+                <OptimizedPicture src={m.thumb} alt="" widths={[160]} sizes="72px" class="h-16 w-[72px] object-contain" />
+                <span class="text-[13px] font-bold text-gray-900">{m.name}</span>
+                <span class="text-xs text-gray-500">{formatHuf(m.price!)}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-2.5 text-xs font-bold tracking-[0.08em] text-gray-500 uppercase" id="fc-months-label">2. Hány hónap alatt?</div>
+          <div class="grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1" role="group" aria-labelledby="fc-months-label">
+            {ALL_MONTHS.map((n) => (
+              <button
+                type="button"
+                class="fc-month h-[42px] rounded-[9px] text-sm font-semibold"
+                data-months={n}
+                aria-pressed={n === months ? 'true' : 'false'}
+                disabled={!info.months.includes(n)}
+              >
+                {n} hónap
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-3.5 rounded-[18px] bg-sand p-5 text-plum dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
+          <div>
+            <div class="text-[13px] text-[#6b5d52]">Havi részlet, <span data-fc="months">{months}</span> hónapon át</div>
+            <div class="font-heading text-[42px] leading-[1.1] text-primary-700" data-fc="monthly">{formatHuf(info.monthly[months])}</div>
+          </div>
+          <dl class="m-0 flex flex-col gap-2 text-sm">
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Előleg (50%)</dt><dd class="m-0 font-bold" data-fc="down">{formatHuf(info.downPayment)}</dd></div>
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Összesen</dt><dd class="m-0 font-bold" data-fc="price">{formatHuf(initial.price!)}</dd></div>
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Kamat</dt><dd class="m-0 font-bold text-cta">0&nbsp;Ft</dd></div>
+          </dl>
+        </div>
+
+        <a href={consultHref} class="sl-btn sl-btn-pink" data-event="category-finance-cta-click">{cta}</a>
+        <p class="-mt-1.5 text-center text-[12.5px] text-gray-500" data-fc="note">{noteFor(initial.price!)}</p>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .fc-model {
+    border-color: #f3e4e9;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+  .fc-model:hover { transform: translateY(-2px); }
+  .fc-model[aria-pressed='true'] { border-color: var(--color-primary-700); background: var(--color-blush); }
+  .fc-month {
+    color: #374151;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  }
+  .fc-month[aria-pressed='true'] { background: #fff; color: var(--color-primary-700); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+  .fc-month:disabled { color: #b8bcc4; cursor: not-allowed; }
+  .fc-model:focus-visible, .fc-month:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .fc-model, .fc-month { transition: none; }
+    .fc-model:hover { transform: none; }
+  }
+</style>
+
+<script>
+  import { getInstallmentInfo, type InstallmentMonths } from '@/lib/installment';
+
+  const huf = (value: number): string => `${new Intl.NumberFormat('hu-HU').format(value)} Ft`;
+
+  document.querySelectorAll<HTMLElement>('[data-finance-calc]').forEach((calc) => {
+    const modelButtons = Array.from(calc.querySelectorAll<HTMLButtonElement>('.fc-model'));
+    const monthButtons = Array.from(calc.querySelectorAll<HTMLButtonElement>('.fc-month'));
+    const out = (key: string): HTMLElement | null => calc.querySelector<HTMLElement>(`[data-fc="${key}"]`);
+    const pressed = <T extends HTMLElement>(list: T[]): T | undefined => list.find((b) => b.getAttribute('aria-pressed') === 'true');
+
+    const render = (): void => {
+      const model = pressed(modelButtons);
+      if (!model) return;
+      const price = Number(model.dataset.price);
+      const info = getInstallmentInfo(price);
+      const wanted = Number(pressed(monthButtons)?.dataset.months) as InstallmentMonths;
+      const months = info.months.includes(wanted) ? wanted : info.months[info.months.length - 1];
+
+      monthButtons.forEach((btn) => {
+        const n = Number(btn.dataset.months) as InstallmentMonths;
+        btn.disabled = !info.months.includes(n);
+        btn.setAttribute('aria-pressed', String(n === months));
+      });
+      const set = (key: string, text: string): void => {
+        const el = out(key);
+        if (el) el.textContent = text;
+      };
+      set('months', String(months));
+      set('monthly', huf(info.monthly[months]));
+      set('down', huf(info.downPayment));
+      set('price', huf(price));
+      set('note', model.dataset.note ?? '');
+    };
+
+    modelButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        modelButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        render();
+      });
+    });
+    monthButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        monthButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        render();
+      });
+    });
+  });
+</script>
