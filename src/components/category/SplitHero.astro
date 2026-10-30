@@ -11,14 +11,18 @@
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import GoogleMark from './GoogleMark.astro';
+import HeroVideo from './HeroVideo.astro';
 import { GOOGLE_RATING } from '@/lib/constants';
 import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+import type { ShowcaseHeroVideo } from '@/lib/types/category-showcase';
 
 interface Props {
   titleLines: [string, string];
   lead: string;
   image: string;
   imageAlt: string;
+  /** Ha van, a kép helyett néma, ismétlődő hero-videó megy (poszterrel). */
+  video?: ShowcaseHeroVideo;
   /** Morzsamenü: a kategória rövid neve. */
   crumb: string;
   models: ShowcaseModel[];
@@ -27,7 +31,11 @@ interface Props {
   compareAnchor?: string;
 }
 
-const { titleLines, lead, image, imageAlt, crumb, models, consultHref, compareAnchor } = Astro.props;
+const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor } = Astro.props;
+// Csempeoszlopok asztalon a gépek számához igazítva (3 gépnél ne maradjon üres hely).
+// 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
+const three = models.length === 3;
+const tileCols = three ? 'grid-cols-3 gap-2 dt:grid-cols-3' : 'grid-cols-2 gap-2.5 dt:grid-cols-4';
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-delay:.6s]', '[animation-delay:.7s]'];
 ---
@@ -35,15 +43,19 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
 <section class="bg-blush">
   <div class="grid grid-cols-1 dt:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] dt:min-h-[600px]">
     <div class="relative aspect-square overflow-hidden bg-plum dt:order-2 dt:aspect-auto">
-      <OptimizedPicture
-        src={image}
-        alt={imageAlt}
-        widths={[480, 640, 828, 960, 1200]}
-        sizes="(min-width: 900px) 44vw, 100vw"
-        loading="eager"
-        fetchpriority="high"
-        class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
-      />
+      {video ? (
+        <HeroVideo {...video} alt={imageAlt} />
+      ) : (
+        <OptimizedPicture
+          src={image}
+          alt={imageAlt}
+          widths={[480, 640, 828, 960, 1200]}
+          sizes="(min-width: 900px) 44vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+        />
+      )}
       {rating && (
         <a
           href="#velemenyek"
@@ -90,7 +102,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         )}
       </div>
 
-      <ul class="mt-1 grid max-w-[600px] grid-cols-2 gap-2.5 dt:mt-2 dt:grid-cols-4" role="list">
+      <ul class:list={['mt-1 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
         {models.map((m, i) => (
           <li class:list={['sl-pop', delays[i % delays.length]]}>
             <a
@@ -98,7 +110,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               data-scroll-center
               class="sl-lift group flex h-full flex-col overflow-hidden rounded-[14px] bg-white text-gray-900"
             >
-              <span class="flex h-[104px] items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full">
+              <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[84px]' : 'h-[104px]']}>
                 <OptimizedPicture
                   src={m.thumb}
                   alt={`${m.name} diódalézer`}
@@ -107,11 +119,11 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
                   class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 />
               </span>
-              <span class="flex flex-col gap-px border-t border-[#fbe3ea] px-3 pt-2 pb-3 dt:px-2.5 dt:pb-2.5">
-                <span class="text-sm font-bold">
-                  {m.name} {m.watt && <span class="text-xs font-medium text-gray-500">{m.watt}</span>}
+              <span class:list={['flex grow flex-col gap-px border-t border-[#fbe3ea] pt-2 dt:px-2.5 dt:pb-2.5', three ? 'px-2 pb-2.5' : 'px-3 pb-3']}>
+                <span class:list={['font-bold dt:text-sm', three ? 'text-[13px] leading-tight' : 'text-sm']}>
+                  {m.name} {m.keySpec && <span class:list={['text-xs font-medium whitespace-nowrap text-gray-500', three && 'block']}>{m.keySpec}</span>}
                 </span>
-                <span class="text-[13px] font-semibold">{m.price ? formatHuf(m.price) : 'Kérj ajánlatot'}</span>
+                <span class="mt-auto text-[13px] font-semibold">{m.price ? formatHuf(m.price) : 'Kérj ajánlatot'}</span>
               </span>
             </a>
           </li>
