@@ -1,0 +1,62 @@
+---
+/** „Miért éri meg?” - 4 érv saját, egyszínű ikonnal + kezelésfotó. Mobilon a kép felül. */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
+import type { ShowcaseIconName } from '@/lib/types/category-showcase';
+
+interface Props {
+  title: string;
+  lead: string;
+  image: string;
+  imageAlt: string;
+  items: { icon: ShowcaseIconName; title: string; text: string }[];
+}
+
+const { title, lead, image, imageAlt, items } = Astro.props;
+---
+
+<section class="bg-blush py-14 dt:py-[88px]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 dt:grid-cols-2 dt:gap-16 lg:px-8">
+    <div class="sl-reveal order-2 dt:order-1">
+      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="mt-2.5 mb-7 text-gray-600">{lead}</p>
+      <ul class="flex flex-col gap-[22px]" role="list">
+        {items.map((item) => (
+          <li class="wb-item flex gap-4">
+            <span class="wb-ico flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary-800">
+              <ShowcaseIcon name={item.icon} size={22} strokeWidth={1.9} />
+            </span>
+            <div>
+              <div class="font-semibold text-gray-900">{item.title}</div>
+              <div class="text-[14.5px] text-gray-600">{item.text}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class:list={['sl-reveal order-1 dt:order-2', MOBILE_MEDIA_BLEED]}>
+      <OptimizedPicture
+        src={image}
+        alt={imageAlt}
+        widths={[480, 640, 828, 960]}
+        sizes="(min-width: 900px) 45vw, 100vw"
+        class="block aspect-[4/5] w-full rounded-2xl object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .wb-ico {
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .wb-item:hover .wb-ico {
+    transform: rotate(-6deg) scale(1.06);
+    background-color: var(--color-primary-100);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wb-ico { transition: none; }
+    .wb-item:hover .wb-ico { transform: none; }
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+/**
+ * GYIK: balra cím + kapcsolatkártya, jobbra számozott fehér kártyák.
+ * A nyitott kérdést keret, pink szám és × jelöli (nem sötét kitöltés).
+ * JS nélkül: <details name> (egyszerre egy nyitva), a nyitás animált, ahol a
+ * böngésző támogatja (::details-content + interpolate-size), máshol azonnali.
+ * A FAQ schema a layoutban készül ugyanebből a listából.
+ */
+import FounderAvatars from './FounderAvatars.astro';
+import ShowcaseIcon from './ShowcaseIcon.astro';
+import { CONTACT } from '@/lib/constants';
+
+interface Props {
+  title: string;
+  lead: string;
+  items: { question: string; answer: string }[];
+}
+
+const { title, lead, items } = Astro.props;
+---
+
+<section class="bg-sand py-14 dt:py-[88px]">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-7 px-4 sm:px-6 dt:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] dt:items-start dt:gap-16 lg:px-8">
+    <div class="sl-reveal flex flex-col gap-3.5">
+      <h2 class="m-0 font-heading text-[30px] font-normal leading-[1.15] text-plum dt:text-[42px]">{title}</h2>
+      <p class="m-0 text-[#4a3f37]">{lead}</p>
+      <div class="group mt-2 flex flex-col gap-3.5 rounded-[18px] bg-white p-5">
+        <div class="flex items-center gap-3">
+          <FounderAvatars />
+          <div class="text-[15px] font-semibold text-plum">Kérdésed van? Hívj minket.</div>
+        </div>
+        <a href={CONTACT.phoneTel} class="sl-btn sl-btn-plum min-h-12" data-event="category-callback-phone-click">
+          <ShowcaseIcon name="phone" size={16} />
+          {CONTACT.phoneDisplay}
+        </a>
+        <a href={`mailto:${CONTACT.email}`} class="sl-tlink self-center text-sm text-plum">{CONTACT.email}</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      {items.map((item, i) => (
+        <details class="fq rounded-2xl border-[1.5px] bg-white" name="category-faq" open={i === 0}>
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-5 py-5 text-base font-semibold text-plum dt:px-[26px] dt:py-[22px]">
+            <span class="fq-num min-w-[30px] font-heading text-xl font-normal">{String(i + 1).padStart(2, '0')}</span>
+            <span>{item.question}</span>
+            <span class="fq-icon ml-auto flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="m-0 pr-5 pb-6 pl-[66px] text-[15px] text-[#4a3f37] dt:pr-[26px] dt:pl-[72px]">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .fq {
+    border-color: #ece3d9;
+    interpolate-size: allow-keywords;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .fq:hover { box-shadow: 0 10px 26px rgba(31, 20, 24, 0.08); }
+  .fq[open] { border-color: var(--color-plum); }
+  .fq summary::-webkit-details-marker { display: none; }
+  .fq summary:focus-visible { outline: 3px solid var(--color-primary-300); outline-offset: 2px; border-radius: 1rem; }
+
+  .fq-num { color: #776858; transition: color 0.3s ease; }
+  .fq[open] .fq-num { color: var(--color-primary-700); }
+
+  .fq-icon { background: var(--color-sand); color: #5b4636; transition: transform 0.35s ease, background-color 0.3s ease, color 0.3s ease; }
+  .fq[open] .fq-icon { transform: rotate(45deg); background: var(--color-plum); color: #fff; }
+
+  .fq::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: block-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.35s ease, content-visibility 0.4s allow-discrete;
+  }
+  .fq[open]::details-content { block-size: auto; opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fq, .fq-num, .fq-icon, .fq::details-content { transition: none; }
+  }
+</style>
