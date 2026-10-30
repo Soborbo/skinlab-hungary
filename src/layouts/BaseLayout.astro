@@ -6,9 +6,10 @@ import MobileStickyCta from '../components/layout/MobileStickyCta.astro';
 import DesktopContactWidget from '../components/layout/DesktopContactWidget.astro';
 import CartDrawer from '../components/cart/CartDrawer.astro';
 import { LCPTracker } from '../components/images';
-import Tracking from '../components/tracking/Tracking.astro';
-import TrackingNoscript from '../components/tracking/TrackingNoscript.astro';
-import ConsentBanner from '../components/tracking/ConsentBanner.astro';
+// A vendorolt soborbo-tracking kit komponensei (bájtra azonosak a kiadással).
+import Tracking from '../lib/soborbo-tracking/components/Tracking.astro';
+import TrackingNoscript from '../lib/soborbo-tracking/components/TrackingNoscript.astro';
+import ConsentBanner from '../lib/soborbo-tracking/components/ConsentBanner.astro';
 import { isSboConsentProvider } from '@/lib/tracking/config';
 import { SITE, SEO_DEFAULTS } from '../lib/constants';
 import {
@@ -249,9 +250,20 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
       kattintás-figyelő dev alatt egyáltalán nem létezne, és a funkció csak
       élesben lenne kipróbálható — pont a legdrágább helyen. */}
   <script>
-    import { initEntryAttribution } from '@/lib/tracking/entry-attribution';
+    import {
+      initEntryAttribution,
+      getEntryLandingUrl,
+      getEntryReferrer,
+    } from '@/lib/tracking/entry-attribution';
+    import { setEntryContextProvider } from '@/lib/soborbo-tracking/lib';
     initEntryAttribution();
     document.addEventListener('astro:page-load', initEntryAttribution);
+    // A böngésző-láb (gateway first touch) ugyanazt a belépési oldalt és külső
+    // hivatkozót jelentse, mint az űrlapok rejtett mezői — egy forrás, két láb.
+    setEntryContextProvider(() => ({
+      landing_page: getEntryLandingUrl(),
+      referrer: getEntryReferrer(),
+    }));
   </script>
 
   {/* Tracking: saját CMP (sbo) + Consent Mode v2 + GTM (soborbo-tracking).

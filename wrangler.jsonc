@@ -27,5 +27,18 @@
     // Daily smoke lead at 04:48 UTC — minute staggered per site so the
     // gateway logs stay readable (painless/beautyflow/lomtalan use others).
     "crons": ["48 4 * * *"]
+  },
+  // A kanonikus kit szerver-lába (soborbo-tracking 6.17.4) ezekből dolgozik.
+  // Nem titkok. A `keep_vars` miatt a dashboard többi változója megmarad.
+  "vars": {
+    // A napi smoke-lead site-azonosítója — a gateway SMOKE_SITES-ében "skinlab".
+    // Nélküle a kit 6.14+ smoke-ja NEM fut, és a digest napi hamis riasztást ad.
+    "TRACKING_SITE_ID": "skinlab",
+    // sbo alatt a szerver-láb KIZÁRÓLAG a saját sütit olvassa (nincs CookieYes-
+    // visszaesés), és a régi tájékoztatóra adott döntést nem fogadja el.
+    "TRACKING_CONSENT_PROVIDER": "sbo",
+    // UGYANAZ, mint a .env.production PUBLIC_TRACKING_POLICY_VERSION-je — a két
+    // láb ugyanarról a sütiről nem gondolhat mást (tests/tracking-config-parity).
+    "TRACKING_POLICY_VERSION": "2026-09-18-a"
   }
 }

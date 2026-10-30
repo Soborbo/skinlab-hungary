@@ -12,13 +12,13 @@
  * the server leg is dispatched by /api/order via gateway-dispatch with the
  * same event_id (server-ingress-only contract).
  */
-import { hasAnalyticsConsent, hasMarketingConsent } from './consent';
+import { hasAnalyticsConsent, hasMarketingConsent } from '../soborbo-tracking/lib/consent';
 import {
   getSessionId, getDevice, getAttribution, getPageUrl, getGclid, getFbclid,
   normalizeEmail, normalizePhone, sanitizeName,
-} from './persistence';
-import { generateEventId, setUserDataForEC } from './events';
-import { trackingConfig } from './config';
+} from '../soborbo-tracking/lib/persistence';
+import { generateEventId, setUserDataForEC } from '../soborbo-tracking/lib/events';
+import { trackingConfig } from '../soborbo-tracking/lib/config';
 
 function pushRaw(data: Record<string, unknown>): void {
   window.dataLayer = window.dataLayer || [];
@@ -63,9 +63,9 @@ export interface EcommerceItem {
 export function trackViewItem(item: EcommerceItem): void {
   if (!hasAnalyticsConsent()) return;
   pushEcommerceEvent('view_item', {
-    currency: item.currency || 'HUF',
+    currency: item.currency || trackingConfig.currency,
     value: item.price || 0,
-    items: [{ ...item, currency: item.currency || 'HUF', quantity: 1 }],
+    items: [{ ...item, currency: item.currency || trackingConfig.currency, quantity: 1 }],
   });
 }
 
@@ -77,7 +77,7 @@ export function trackViewItemList(listId: string, listName: string, items: Ecomm
     item_list_name: listName,
     items: items.map((item, i) => ({
       ...item,
-      currency: item.currency || 'HUF',
+      currency: item.currency || trackingConfig.currency,
       index: item.index ?? i,
       quantity: 1,
     })),
@@ -90,7 +90,7 @@ export function trackSelectItem(listId: string, listName: string, item: Ecommerc
   pushEcommerceEvent('select_item', {
     item_list_id: listId,
     item_list_name: listName,
-    items: [{ ...item, currency: item.currency || 'HUF', quantity: 1 }],
+    items: [{ ...item, currency: item.currency || trackingConfig.currency, quantity: 1 }],
   });
 }
 
@@ -98,9 +98,9 @@ export function trackSelectItem(listId: string, listName: string, item: Ecommerc
 export function trackAddToCart(item: EcommerceItem): void {
   if (!hasAnalyticsConsent()) return;
   pushEcommerceEvent('add_to_cart', {
-    currency: item.currency || 'HUF',
+    currency: item.currency || trackingConfig.currency,
     value: (item.price || 0) * (item.quantity || 1),
-    items: [{ ...item, currency: item.currency || 'HUF', quantity: item.quantity || 1 }],
+    items: [{ ...item, currency: item.currency || trackingConfig.currency, quantity: item.quantity || 1 }],
   });
 }
 
@@ -114,7 +114,7 @@ export function trackAddToCart(item: EcommerceItem): void {
 export function trackBeginCheckout(
   items: EcommerceItem[],
   value: number,
-  currency = 'HUF',
+  currency = trackingConfig.currency,
   eventId?: string,
 ): void {
   if (!hasAnalyticsConsent()) return;
@@ -132,7 +132,7 @@ export function trackGenerateLead(productName: string, productSku: string, produ
     event: 'generate_lead',
     product_name: productName,
     product_sku: productSku,
-    ...(productPrice != null && { value: productPrice, currency: 'HUF' }),
+    ...(productPrice != null && { value: productPrice, currency: trackingConfig.currency }),
     session_id: getSessionId(),
     device: getDevice(),
     page_url: getPageUrl(),
@@ -180,7 +180,12 @@ export function trackOrderRequestSubmit(params: OrderRequestSubmitParams): Order
 
   const currency = params.currency || trackingConfig.currency;
   const ud: Record<string, string> = {};
-  if (params.email) ud.email = normalizeEmail(params.email);
+  if (params.email) {
+    // A kit normalizeEmail-je érvénytelen címre undefined-ot ad — ilyenkor a
+    // mező kimarad, nem megy üres/hibás érték az EC user_data-ba.
+    const email = normalizeEmail(params.email);
+    if (email) ud.email = email;
+  }
   if (params.phone && params.phone.length >= 8) ud.phone_number = normalizePhone(params.phone);
   if (params.firstName) ud.first_name = sanitizeName(params.firstName);
   if (params.lastName) ud.last_name = sanitizeName(params.lastName);

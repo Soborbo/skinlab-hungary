@@ -25,7 +25,7 @@ const defaultLabel = type === 'email' ? 'Show email' : 'Show phone';
 </button>
 
 <script>
-  import { trackEmailConversion, trackPhoneConversion } from '@/lib/tracking';
+  import { trackEmailConversion, trackPhoneConversion } from '../lib';
   function bind() {
     document.querySelectorAll<HTMLButtonElement>('[data-reveal-contact]').forEach((btn) => {
       if (btn.dataset.trackBound) return;

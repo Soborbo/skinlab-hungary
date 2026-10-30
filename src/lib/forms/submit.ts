@@ -13,6 +13,7 @@ import { generateLeadId, anonymizeIp } from './schemas';
 import { readEnv } from '@/lib/env';
 import {
   sendGatewayConversion,
+  type ConsentSourcesPayload,
   type ConsentState,
   type GatewayEnv,
   type GatewayEventName,
@@ -36,7 +37,7 @@ function escapeHtml(str: string): string {
  * Per-request tracking context for the gateway (server) leg of form
  * conversions. Built by the API route from the incoming request:
  * `eventId` is the BROWSER's event_id (hidden field / payload) so the Meta
- * Pixel↔CAPI pair dedups; consent is read from the same CookieYes cookie the
+ * Pixel↔CAPI pair dedups; consent is read from the same sbo_consent cookie the
  * browser reads, so the two legs cannot disagree.
  */
 export interface FormTrackingContext {
@@ -44,6 +45,11 @@ export interface FormTrackingContext {
   consent?: ConsentState;
   /** Saját CMP döntés-lánc azonosító (sbo_consent) → consent_receipts.consent_id. */
   consentId?: string;
+  /**
+   * A consent-források pillanatfelvétele (source_used='sbo_cookie', consent_age_s)
+   * → consent_receipts. Nélküle a receipt `source_used='none'`-t mutat.
+   */
+  consentSources?: ConsentSourcesPayload;
   clientIpAddress?: string;
   clientUserAgent?: string;
   eventSourceUrl?: string;
@@ -87,6 +93,7 @@ async function dispatchGatewayLeadConversion(
       attribution: leadToGatewayAttribution(leadData),
       consent: tracking.consent,
       consentId: tracking.consentId,
+      consentSources: tracking.consentSources,
       eventSourceUrl: tracking.eventSourceUrl,
       clientIpAddress: tracking.clientIpAddress,
       clientUserAgent: tracking.clientUserAgent,

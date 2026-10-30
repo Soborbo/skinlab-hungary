@@ -458,7 +458,7 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
   import {
     trackOrderRequestSubmit, generateEventId, waitForTracking, getAllTrackingData,
     trackBeginCheckout, trackServerEvent,
-    getFbc, getFbp, getExternalId,
+    getFbc, getFbp, getExternalId, getStoredData,
     getEntryLandingUrl, getEntryReferrer, type EcommerceItem,
   } from '@/lib/tracking';
   import {
@@ -989,13 +989,9 @@ const labelClass = 'block text-sm font-medium text-gray-700 mb-1.5';
         // Attribution stack - URL params → persisted tracking
         ...(() => {
           const urlParams = new URLSearchParams(window.location.search);
-          let stored: Record<string, string | undefined> = {};
-          try {
-            const raw = localStorage.getItem('sb_tracking');
-            if (raw) stored = JSON.parse(raw);
-          } catch {
-            /* private mode / quota - ignore */
-          }
+          // A kit consent-kapus olvasója: hozzájárulás nélkül null (PECR — a tároló
+          // OLVASÁSA is hozzájáruláshoz kötött), és a régi kettős klikk-ID-t is gyógyítja.
+          const stored = (getStoredData() ?? {}) as Record<string, string | undefined>;
           const pick = (key: string) => urlParams.get(key) || stored[key] || '';
           // A Google klikk-ID-ket KIZÁRÓLAG a szanitizált accessor adhatja: az garantálja,
           // hogy egyszerre csak EGY (gclid VAGY gbraid VAGY wbraid) megy ki. A nyers

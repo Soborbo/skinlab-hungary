@@ -1,0 +1,168 @@
+{
+  "_comment": "GENERÁLT — ne szerkeszd kézzel. Forrás: scripts/gen-dist-manifest.mjs. A `version` a package.json-é; a hash-ek sorvég-normalizáltak (CRLF→LF).",
+  "name": "soborbo-tracking",
+  "version": "6.17.4",
+  "file_count": 32,
+  "files": {
+    "lib/config.ts": {
+      "sha256": "a8c96cf76296a7edc019954f4ab8573d995718e89ab49bdcfddd96114f62a276",
+      "bytes": 6594,
+      "role": "browser"
+    },
+    "lib/consent-banner-a11y.ts": {
+      "sha256": "97423924644ad503658a8065fc96dfc2d5396491a4d815bf00bb1189cd4a3290",
+      "bytes": 3099,
+      "role": "browser"
+    },
+    "lib/consent-banner-ui.ts": {
+      "sha256": "802068cf392aee7e5b7725782a1e3ea1c44ba21c72c66b43631793d54e20a056",
+      "bytes": 15330,
+      "role": "browser"
+    },
+    "lib/consent-migration.ts": {
+      "sha256": "ba798f7d3070a6732f0076bebee8bffce608afca363b36d63bd3ff1105ae8e79",
+      "bytes": 4078,
+      "role": "browser"
+    },
+    "lib/consent-sbo-state.ts": {
+      "sha256": "e5cfa1b2a4b1b5cb8f19d7f6ba71a0e8cb9f5db31387ecf99f9076cd2de00197",
+      "bytes": 7514,
+      "role": "browser"
+    },
+    "lib/consent-sbo.ts": {
+      "sha256": "fc53d0e8208924742b845cb63305d2ff431f97febd089071c3fd3e3e6ed1f916",
+      "bytes": 20696,
+      "role": "browser"
+    },
+    "lib/consent-vendors.ts": {
+      "sha256": "cc75d96f120ed1ed1aa2d1814ce375541c116e49347d7550ef7fb8c08e8728fc",
+      "bytes": 8791,
+      "role": "browser"
+    },
+    "lib/consent.ts": {
+      "sha256": "859c0b914b8934d8272835f425bfceb7872aceab055a5ba07af259aef061ca8d",
+      "bytes": 7931,
+      "role": "browser"
+    },
+    "lib/conversion-commit.ts": {
+      "sha256": "0e9d87381102441bd9f8109d88289916a45fa469485fcb6e55aeb9b60fac6f48",
+      "bytes": 11752,
+      "role": "browser"
+    },
+    "lib/email-identity.ts": {
+      "sha256": "0a4393fc8088c25b16eba1b140f931e9c49ae7d00b474ba6d6e5ac7eb13daab9",
+      "bytes": 5437,
+      "role": "browser"
+    },
+    "lib/event-contract.ts": {
+      "sha256": "0ecb36dceb4a30cc41ba4eebdff03c0bfb98c26ad1a233e0b4e97f73de272ce0",
+      "bytes": 2935,
+      "role": "browser"
+    },
+    "lib/events.ts": {
+      "sha256": "92226b73b56f856d490fbdcfd5c3049881926898d746843b7e602b23667f08d8",
+      "bytes": 19541,
+      "role": "browser"
+    },
+    "lib/gateway.ts": {
+      "sha256": "d0803d9ec4dabfb6b1b6949f2179b4feca032310329f9ac5db9778c3900d26a5",
+      "bytes": 37062,
+      "role": "browser"
+    },
+    "lib/google-click-id.ts": {
+      "sha256": "e2ec4da62ba0e8139e45fdf335071a049f5465ac9b72c53a9ba6eacddc4eeabc",
+      "bytes": 7580,
+      "role": "browser"
+    },
+    "lib/index.ts": {
+      "sha256": "059f4776bd093a87c927ea11ab559261fd1e5d5dd351c19e7ad64c5257c97295",
+      "bytes": 30697,
+      "role": "browser"
+    },
+    "lib/observability.ts": {
+      "sha256": "05ec3cd844aa0a10609945ad0d066308dca613cceff3ae0258093d2e476b0134",
+      "bytes": 8840,
+      "role": "browser"
+    },
+    "lib/persistence.ts": {
+      "sha256": "5e4262f3873193faaf9ecc6fbdbb09deb639ee7f889891583e7e6d475be7dea8",
+      "bytes": 39831,
+      "role": "browser"
+    },
+    "lib/submit.ts": {
+      "sha256": "79872b7f69a52e63643f1ed619ce639b26b4aa7dc4704d42ee7ac8986d8638a2",
+      "bytes": 5558,
+      "role": "browser"
+    },
+    "lib/uuid.ts": {
+      "sha256": "2b28c4066dd357559901983828199663e73c42c39f251f70c68e46ffcc9d9775",
+      "bytes": 1115,
+      "role": "browser"
+    },
+    "components/CallbackButton.astro": {
+      "sha256": "16591b6d85e54fd83bb6161547fe3598339fa72e00441ba09aa0399977de4905",
+      "bytes": 2162,
+      "role": "browser"
+    },
+    "components/ConsentBanner.astro": {
+      "sha256": "2f912410e1aca3d6d11ff99bc29a97e3a7d05b7882aabf364b71deeb821015ca",
+      "bytes": 12586,
+      "role": "browser"
+    },
+    "components/ConversionCommit.astro": {
+      "sha256": "22d407ec30a0eae84683a1c05fadfcb97998a876046614925813d40da3447e85",
+      "bytes": 4536,
+      "role": "browser"
+    },
+    "components/CookiePolicy.astro": {
+      "sha256": "b3bb75004cc55b08fb970e7d39c686a50fd691ba94278fefb81bae1c118d9796",
+      "bytes": 8480,
+      "role": "browser"
+    },
+    "components/CookieYesEqualButtons.astro": {
+      "sha256": "b4ea40d4454e0b36b213240faa839b2842af2d9935b836022ff9c61b86f0c745",
+      "bytes": 4389,
+      "role": "browser"
+    },
+    "components/PhoneLink.astro": {
+      "sha256": "53d2db832b925d857919334ab8efef14c0a8282d4489a24f5f1bab0025d716ae",
+      "bytes": 696,
+      "role": "browser"
+    },
+    "components/RevealContact.astro": {
+      "sha256": "cea1fbd4f81697d8a88c3108a70b3bd51252261601ccb813ca5749daab64aab7",
+      "bytes": 2730,
+      "role": "browser"
+    },
+    "components/TrackedForm.astro": {
+      "sha256": "4d2ddae03a5aaf2aaae1b14bf2181985da2527a45819f310f6325b1671c32943",
+      "bytes": 11946,
+      "role": "browser"
+    },
+    "components/Tracking.astro": {
+      "sha256": "9d240a903aa84e30a152edb4ba02d3cb5dc17733db56e5661ab7c0c9a296624a",
+      "bytes": 9739,
+      "role": "browser"
+    },
+    "components/TrackingNoscript.astro": {
+      "sha256": "0cc18e189cc98653349d41fe439a5f7d6b28f34ed3435a1de5adc1a9c3684626",
+      "bytes": 902,
+      "role": "browser"
+    },
+    "server/backend/gateway-dispatch.ts": {
+      "sha256": "61955fda2e7ddeec04fd4362abe706635c308c2b1b4328c90cfb62e6c88dd89d",
+      "bytes": 38515,
+      "role": "backend"
+    },
+    "server/backend/smoke.ts": {
+      "sha256": "dc37d2e788e9b4d70636f488eefe5d2f1eccdb29bf451c4c34a71f1b98d29859",
+      "bytes": 5311,
+      "role": "backend"
+    },
+    "server/backend/worker.ts": {
+      "sha256": "28f54c27d13c6f67af46c85a4d7804099bd69915e87914a05c8138caaa64f270",
+      "bytes": 2079,
+      "role": "backend"
+    }
+  }
+}

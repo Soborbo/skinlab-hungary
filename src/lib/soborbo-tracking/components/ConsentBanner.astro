@@ -20,19 +20,22 @@ import {
   variantTextVersion,
   type BannerVariantB,
   type ConsentBannerTexts,
-} from '@/lib/tracking/consent-banner-ui';
-import { trackingConfig } from '@/lib/tracking/config';
-import { composeBannerTexts, parseVendors, type VendorTextTemplate } from '@/lib/tracking/consent-vendors';
-import huTexts from '@/lib/tracking/consent-texts/2026-09-a/hu.json';
-import enTexts from '@/lib/tracking/consent-texts/2026-09-a/en.json';
+} from '../lib/consent-banner-ui';
+import { trackingConfig } from '../lib/config';
+import { composeBannerTexts, parseVendors, type VendorTextTemplate } from '../lib/consent-vendors';
+import huTexts from '../consent-texts/2026-09-a/hu.json';
+import enTexts from '../consent-texts/2026-09-a/en.json';
 
 interface Props {
   /** Az adatkezelési tájékoztató útvonala (a panel alján hivatkozva). */
   policyHref?: string;
   /**
-   * A banner nyelve (skinlab-kiegészítés): a site 9 nyelvű, a kit szövege
-   * magyar és angol. A magyar oldalakon magyar, minden más nyelven angol.
-   * Alapból a build-szintű trackingConfig.locale.
+   * A banner szövegének nyelve (6.14.0). A kit szövege magyar és angol; egy
+   * többnyelvű site (skinlab: 9 nyelv, egy build) oldalanként adja át — a
+   * magyar oldalakon `hu`, minden más nyelven `en`. Alapból a build-szintű
+   * `trackingConfig.locale` (PUBLIC_TRACKING_LOCALE), tehát egynyelvű site-on
+   * nincs teendő. A consent_log `lang` oszlopa ettől FÜGGETLENÜL az OLDAL
+   * nyelvét kapja (`<html lang>`), lásd a szkriptben.
    */
   lang?: 'hu' | 'en';
 }
@@ -49,33 +52,46 @@ const titleB = (import.meta.env.PUBLIC_TRACKING_BANNER_B_TITLE ?? '').trim();
 const variantB: BannerVariantB | undefined = titleB
   ? { title: titleB, textVersion: variantTextVersion(texts.version, titleB) }
   : undefined;
-const html = renderConsentBannerHtml(texts, policyHref, variantB);
-const css = consentBannerCss();
+// Kiemelt Elfogadom — opt-in (PUBLIC_TRACKING_CONSENT_ACCEPT_EMPHASIS=1), lásd
+// lib/consent-banner-ui.ts SBO_BANNER_EMPHASIS_SUFFIX.
+const renderOpts = { acceptEmphasis: trackingConfig.acceptEmphasis };
+const html = renderConsentBannerHtml(texts, policyHref, variantB, renderOpts);
+const css = consentBannerCss(renderOpts);
 ---
 
 <style is:global set:html={css}></style>
 <Fragment set:html={html} />
 
 <script>
-  import { isSboConsentProvider } from '@/lib/tracking/config';
-  import { readSboConsent, type SboConsentState } from '@/lib/tracking/consent-sbo-state';
+  import { isSboConsentProvider, trackingConfig } from '../lib/config';
+  import { readSboConsent, type SboConsentState } from '../lib/consent-sbo-state';
   import {
     applySboDecision,
     flushPendingSboConsent,
     postBannerShown,
-  } from '@/lib/tracking/consent-sbo';
-  import { getDevice } from '@/lib/tracking/persistence';
+  } from '../lib/consent-sbo';
+  import { getDevice } from '../lib/persistence';
   // A11y: fókuszcsapda + ESC + fókusz-visszaadás. KÜLÖN modulban, hogy
   // tesztelhető legyen — a komponens bundle-ölt szkriptjét jsdom nem tudja
   // futtatni, tehát itt bent NULLA fedés lenne rajta.
-  import { createPanelKeydownHandler, panelFocusables, restoreFocus } from '@/lib/tracking/consent-banner-a11y';
-  import { pickBannerVariant } from '@/lib/tracking/consent-banner-ui';
+  import { createPanelKeydownHandler, panelFocusables, restoreFocus } from '../lib/consent-banner-a11y';
+  import { pickBannerVariant } from '../lib/consent-banner-ui';
 
   declare global {
     interface Window {
       sboConsent?: { open: () => void };
       __sboLoadGtm?: () => void;
     }
+  }
+
+  // A banner láthatósága az AKTÍV tájékoztató-verzióhoz kötött — ugyanaz a kapu,
+  // mint a <head>-beli consent-boot és a mérés olvasói (lib/consent.ts). Verzió
+  // nélküli olvasással egy RÉGI szövegre adott döntés elrejtette a bannert, míg a
+  // mérés már nem fogadta el: a visszatérő látogató új kérdés nélkül esett ki
+  // (2026-10-18 review R10). A verziófüggetlen olvasás (consent_id/revision
+  // folytonosság) a lib/consent-sbo.ts applySboDecision-é marad.
+  function readCurrentDecision(): SboConsentState | null {
+    return readSboConsent(trackingConfig.policyVersion);
   }
 
   function qs<T extends HTMLElement>(sel: string): T | null {
@@ -100,7 +116,10 @@ const css = consentBannerCss();
     const catMarketing = root.querySelector<HTMLInputElement>('[data-sb-category="marketing"]')!;
     const bannerVersion = root.dataset.bannerVersion || 'unknown';
     const textVersion = root.dataset.textVersion || 'unknown';
-    // A consent_log `lang` mezője az oldal nyelve (skinlab: 9 nyelv, egy build).
+    // A consent_log `lang` mezője az OLDAL nyelve (`<html lang>`), nem a
+    // banner-szövegé: egy többnyelvű site-on (skinlab, 9 nyelv) a döntés
+    // bizonyítéka azt rögzíti, milyen nyelvű oldalon született. Hiányzó
+    // attribútumnál a lib a build-szintű locale-ra esik vissza.
     const ctx = { bannerVersion, consentTextVersion: textVersion, lang: document.documentElement.lang || undefined };
 
     // 503 után őrzött döntések újraküldése — minden oldalletöltésen.
@@ -137,9 +156,21 @@ const css = consentBannerCss();
         ad_personalization: g(s.marketing),
         analytics_storage: g(s.analytics),
       });
+      // GTM-trigger horog (a CookieYes `cookie_consent_update` párja): advanced
+      // módban a GTM már az oldalbetöltéskor elindult, a consent-kapus tagek
+      // (pl. Meta Pixel base) az akkori denied állapot miatt kimaradtak, és a
+      // GTM magától nem indítja újra őket. Erre az eseményre kötve ugyanezen az
+      // oldalon lefutnak. PII nincs benne, csak a kategória-döntés.
+      w.dataLayer.push({
+        event: 'sbo_consent_update',
+        consent_analytics: s.analytics,
+        consent_marketing: s.marketing,
+      });
       // Basic mód: a GTM CSAK pozitív döntés után indul. reject_all/withdrawn
       // mellett el sem indul ezen az oldalletöltésen; ha egy KORÁBBI letöltésen
       // már betöltött, a consent update deny-ja fogja a tageket.
+      // Advanced mód: a GTM a <head>-ben már elindult — a hívás idempotens
+      // no-op, a fenti update élőben átállítja a futó tageket.
       if (s.analytics || s.marketing) window.__sboLoadGtm?.();
     }
 
@@ -170,7 +201,7 @@ const css = consentBannerCss();
 
     function openPanel(): void {
       lastFocused = document.activeElement;
-      const current = readSboConsent();
+      const current = readCurrentDecision();
       // A panel a JELENLEGI állapotot mutatja; döntés híján mindkettő OFF
       // (default: elutasítva — a kapcsolók alapból nem lehetnek bepipálva).
       catAnalytics.checked = current?.analytics === true;
@@ -190,7 +221,7 @@ const css = consentBannerCss();
       panel.hidden = true;
       overlay.hidden = true;
       document.removeEventListener('keydown', onPanelKeydown, true);
-      if (readSboConsent() === null) {
+      if (readCurrentDecision() === null) {
         showBanner();
       } else {
         root.hidden = true;
@@ -229,7 +260,7 @@ const css = consentBannerCss();
     // Nincs érvényes döntés → banner. Van → semmi dolgunk (a GTM-ről a
     // <head>-beli consent-boot már döntött, szinkron). A megjelenés-ping a
     // döntéskor vagy a pagehide-on megy el — egy megjelenés = egy sor.
-    if (readSboConsent() === null) showBanner();
+    if (readCurrentDecision() === null) showBanner();
   }
 
   document.addEventListener('astro:page-load', init);

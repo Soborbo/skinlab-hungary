@@ -8,7 +8,9 @@ import type { APIRoute } from 'astro';
 import { validateContactForm, generateLeadId } from '@/lib/forms/schemas';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { processFormSubmission, type FormTrackingContext } from '@/lib/forms/submit';
-import { readConsentFromCookie, readSboConsentCookieHeader } from '@/lib/tracking/gateway-dispatch';
+import { env as workerEnv } from 'cloudflare:workers';
+import { readRequestConsent } from '@/lib/tracking/request-consent';
+import type { GatewayEnv } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
 
@@ -96,12 +98,12 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     recordFormSubmission(clientAddress, 'contact');
     const userAgent = request.headers.get('user-agent') ?? undefined;
 
-    // Gateway server-leg context (browser event_id + CookieYes consent) —
+    // Gateway server-leg context (browser event_id + saját CMP consent) —
     // contact_form_submitted is server-ingress-only, this is its only route.
     const tracking: FormTrackingContext = {
       eventId: String(data.event_id || '') || crypto.randomUUID(),
-      consent: readConsentFromCookie(request.headers.get('cookie')),
-      consentId: readSboConsentCookieHeader(request.headers.get('cookie'))?.consentId,
+      // consent + consentId + consentSources, a policy-verzióhoz kötve.
+      ...readRequestConsent(request.headers.get('cookie'), workerEnv as unknown as GatewayEnv),
       clientIpAddress: request.headers.get('cf-connecting-ip') ?? clientAddress,
       clientUserAgent: userAgent,
       eventSourceUrl: request.headers.get('referer') ?? undefined,

@@ -22,7 +22,7 @@ const { class: cls, type = 'button', form, ...rest } = Astro.props;
 </button>
 
 <script>
-  import { trackCallbackConversion, attachEventIdToForm } from '@/lib/tracking';
+  import { trackCallbackConversion, attachEventIdToForm } from '../lib';
   function bind() {
     document.querySelectorAll<HTMLButtonElement>('[data-tracking-callback]').forEach(btn => {
       if (btn.dataset.trackBound) return;

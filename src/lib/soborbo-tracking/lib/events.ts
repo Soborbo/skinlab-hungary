@@ -4,11 +4,17 @@
  * Every event checks consent before pushing.
  * Analytics events need analytics consent.
  * Conversion events need marketing consent (checked in index.ts).
+ *
+ * Advanced Consent Mode kivétel (isCookielessPingAllowed — csak sbo + advanced):
+ * hozzájárulás nélkül is megy push, de AZONOSÍTÓK NÉLKÜL (lásd
+ * stripIdentifiersWithoutConsent — analytics- és marketing-ID külön kapun) — a Google-tagek ebből süti nélküli pinget
+ * küldenek a modellezéshez.
  */
 
-import { hasAnalyticsConsent, hasMarketingConsent } from './consent';
-import { getSessionId, getDevice, getAttribution, getPageUrl, normalizeEmail, normalizePhone, sanitizeName } from './persistence';
+import { hasAnalyticsConsent, hasMarketingConsent, isCookielessPingAllowed } from './consent';
+import { getSessionId, getDevice, getAttribution, getPageUrl, normalizeEmail, normalizePhone, sanitizeName, registerMarketingPurgeHook } from './persistence';
 import { report, redactPii, enableDiagDebug } from './observability';
+import { generateUUID } from './uuid';
 
 declare global {
   interface Window {
@@ -22,7 +28,44 @@ let debugMode = false;
 
 export function enableDebug(): void { debugMode = true; enableDiagDebug(); }
 
-function push(data: Record<string, unknown>): void {
+/**
+ * A pushból kimarad minden azonosító, amihez nincs hozzájárulás — a két
+ * kategória KÜLÖN kapun megy:
+ *  - analytics (`session_id`, `client_id`, `user_id`): analytics-hozzájárulás;
+ *  - marketing (klikk-ID-k, Meta-ID-k, a tárolt first_/last_ attribúció):
+ *    marketing-hozzájárulás. Ezek a marketing-tárolóból jönnek, és a
+ *    konverziós push (trackLeadSubmit/trackContactSubmit) épp a marketing-
+ *    hozzájárulás alapján megy ki — egy közös analytics-kapu marketing-only
+ *    hozzájárulásnál a konverzió attribúcióját dobta el (Codex, #89).
+ * Az event_id marad: eseményenként új UUID, a Google Ads ebből deduplikál
+ * (orderId), nem köt össze semmit. Az oldal URL-jét és UTM-jeit a Google-tag a
+ * süti nélküli pingben amúgy is látja.
+ */
+const ANALYTICS_ID_KEY_RE = /^(session_id|client_id|user_id)$/;
+// A first_/last_ csak a tárolt attribúció (`getAttribution`); a `last_field`
+// (form_abandoned) a fókuszált mező NEVE, analytics-adat — nem eshet ki.
+const MARKETING_ID_KEY_RE = /^(external_id|fbp|fbc|gclid|gbraid|wbraid|fbclid|msclkid|ttclid|li_fat_id|(first|last)_(utm_.+|gclid|gbraid|wbraid|fbclid))$/;
+
+function stripIdentifiersWithoutConsent(data: Record<string, unknown>): Record<string, unknown> {
+  const analytics = hasAnalyticsConsent();
+  const marketing = hasMarketingConsent();
+  if (analytics && marketing) return data;
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(data)) {
+    if (!analytics && ANALYTICS_ID_KEY_RE.test(k)) continue;
+    if (!marketing && MARKETING_ID_KEY_RE.test(k)) continue;
+    out[k] = v;
+  }
+  return out;
+}
+
+/** dataLayer-push engedély: analytics-hozzájárulás, vagy advanced mód (azonosító nélkül). */
+function canPush(): boolean {
+  return hasAnalyticsConsent() || isCookielessPingAllowed();
+}
+
+function push(raw: Record<string, unknown>): void {
+  const data = stripIdentifiersWithoutConsent(raw);
   // Defense in depth: PII must never reach the dataLayer (it goes to the hidden
   // side-channel). If a future change leaks a PII-shaped key, strip it AND report
   // it (TRK-3001) so the regression is visible instead of becoming a GDPR incident.
@@ -35,34 +78,61 @@ function push(data: Record<string, unknown>): void {
 
 // ── Event ID ───────────────────────────────────────────────────────
 
+/**
+ * Az `event_id` — a dedup-kulcs, amit a Meta Pixel és a CAPI ugyanarra az
+ * eseményre kap.
+ *
+ * ── MIÉRT NEM SAJÁT TARTALÉKÁG ───────────────────────────────────────────────
+ * Ez a függvény korábban SAJÁT tartalékággal rendelkezett, ami NEM UUID-t adott:
+ * `${Date.now().toString(36)}-${Math.random()…}`. Két baj volt vele:
+ *
+ *   1. A csomag SAJÁT `uuid.ts`-e pont ezt a hibaosztályt utasítja el
+ *      („collisions cause silent dedup failures and ROAS distortion"), tehát a
+ *      csomagon belül KÉT, egymásnak ellentmondó szabály élt ugyanarra a
+ *      kulcsra. Az egyik elvből dobott, a másik némán gyengébbet adott.
+ *   2. A CLAUDE.md 2. pontja `event_id`-t „plain UUID"-ként írja le. Egy
+ *      `m1abc-x8f2k3lq-…` alak a gateway regexén átmegy (`[a-zA-Z0-9_-]+`),
+ *      tehát SEMMI nem jelezte volna, hogy nem UUID.
+ *
+ * Mostantól a kanonikus `generateUUID()` crypto-útjait használja. Az utolsó
+ * mentsvár SZÁNDÉKOSAN v4-ALAKÚ (nem dobás): egy elveszett konverzió rosszabb,
+ * mint egy gyengébb entrópiájú — de továbbra is 122 bites és ütközésmentes
+ * gyakorlatban — azonosító. A `uuid.ts` dobó viselkedése ott marad, ahol a
+ * hívó fel van készülve rá.
+ */
 export function generateEventId(): string {
-  const uuid = typeof crypto !== 'undefined' && crypto.randomUUID
-    ? crypto.randomUUID()
-    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}-${Math.random().toString(36).slice(2, 10)}`;
-  return uuid;
+  try {
+    return generateUUID();
+  } catch {
+    // Nem biztonságos kontextus (http://, régi böngésző): v4-ALAKÚ tartalék.
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      const r = (Math.random() * 16) | 0;
+      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+    });
+  }
 }
 
 // ── Calculator / Quiz ──────────────────────────────────────────────
 
 export function trackCalculatorStart(name: string): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPush()) return;
   push({ event: 'quote_calculator_opened', calculator_name: name, session_id: getSessionId(), device: getDevice() });
 }
 
 export function trackCalculatorStep(stepId: string, stepIndex: number, totalSteps?: number): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPush()) return;
   push({ event: 'quote_calculator_step_completed', step_id: stepId, step_index: stepIndex,
     ...(totalSteps != null && { total_steps: totalSteps }), session_id: getSessionId() });
 }
 
 export function trackCalculatorOption(stepId: string, value: string | string[]): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPush()) return;
   push({ event: 'quote_calculator_option_selected', step_id: stepId,
     option_value: Array.isArray(value) ? value.join(',') : value, session_id: getSessionId() });
 }
 
 export function trackCalculatorComplete(name: string): void {
-  if (!hasAnalyticsConsent()) return;
+  if (!canPush()) return;
   // Canonical: the calculator completion IS the quote conversion (quote_calculator_submitted).
   // NOTE: the conversion-grade emission (event_id + value + PII side-channel + gateway) comes
   // from trackLeadSubmit/trackServerEvent; this milestone shares the canonical name. Wire ONE
@@ -101,8 +171,37 @@ export const USER_DATA_ELEMENT_ID = '__sb_user_data__';
 
 declare global {
   interface Window {
+    /**
+     * @deprecated A meglévő GTM-konténerek Custom JS változója ezt olvassa,
+     * ezért egyelőre MARAD — de új konténer a `window.sbTracking
+     * .getUserDataForEC()` getterrel dolgozzon. A nyers globális bárki számára
+     * enumerálható; a getter mögött a tár modul-privát, és a visszavonás
+     * determinisztikusan üríti (nem csak egy 5 mp-es időzítő).
+     */
     __sbUserData?: Record<string, string>;
+    /** Package-owned EC-felület (P6.2). Lásd `getUserDataForEC`. */
+    sbTracking?: { getUserDataForEC: () => Record<string, string> | null };
   }
+}
+
+/**
+ * MODUL-PRIVÁT EC-tár. A getter ebből olvas; a `window.__sbUserData` csak a
+ * régi konténerek miatt íródik mellé, és a takarítás MINDKETTŐT elviszi.
+ */
+let ecUserData: Record<string, string> | null = null;
+
+/**
+ * A GTM „User-Provided Data" változójának KANONIKUS forrása.
+ *
+ * Miért getter és nem globális objektum: a globálist bármelyik third-party
+ * szkript megtalálja egy `Object.keys(window)` sepréssel, és a tartalma
+ * `JSON.stringify`-jal kimenthető. A függvény mögött a tár nem enumerálható,
+ * és — ami fontosabb — EGY helyen van, ahonnan a consent-visszavonás
+ * determinisztikusan ki tudja ütni.
+ */
+export function getUserDataForEC(): Record<string, string> | null {
+  // Másolatot adunk: a hívó (GTM Custom JS) ne tudja a belső állapotot mutálni.
+  return ecUserData ? { ...ecUserData } : null;
 }
 
 /** How long the EC PII stays readable before the auto-clear sweeps it (ms).
@@ -111,16 +210,25 @@ declare global {
 const EC_CLEAR_DELAY_MS = 5_000;
 let ecClearTimer: ReturnType<typeof setTimeout> | null = null;
 
-/** Wipe the Enhanced-Conversions side-channel (window object + hidden element). */
+/** Wipe the Enhanced-Conversions side-channel (module store + window + hidden element). */
 export function clearUserDataForEC(): void {
+  ecUserData = null;
   if (typeof window === 'undefined') return;
   try { delete window.__sbUserData; } catch { /* */ }
   try { document.getElementById(USER_DATA_ELEMENT_ID)?.remove(); } catch { /* */ }
 }
 
+// A visszavonás a TÁROLT adaton túl az EPHEMERAL identityt is elviszi. Eddig
+// ezt csak az 5 mp-es időzítő tette, tehát a visszavonás pillanatában a nyers
+// e-mail/telefon ott maradt a lapon — a látogató épp azt kérte, hogy ne.
+registerMarketingPurgeHook(clearUserDataForEC);
+
 export function setUserDataForEC(ud: Record<string, string>): void {
   if (!hasMarketingConsent()) return;
+  ecUserData = { ...ud };
   if (typeof window === 'undefined') return;
+  // Package-owned felület — ezt olvassa az ÚJ GTM-változó.
+  window.sbTracking = { ...(window.sbTracking ?? {}), getUserDataForEC };
   window.__sbUserData = ud;
   try {
     let el = document.getElementById(USER_DATA_ELEMENT_ID);
@@ -140,7 +248,13 @@ export function setUserDataForEC(ud: Record<string, string>): void {
 }
 
 function buildConversionPayload(data: ConversionData): Record<string, unknown> {
-  const ud: Record<string, string> = { email: normalizeEmail(data.email) };
+  // Az e-mail mostantól ELDOBHATÓ: `@` nélküli vagy 254 oktetnél hosszabb cím
+  // nem identitás. Korábban a csonkított/érvénytelen alak is bekerült, és a
+  // böngésző-láb olyan `em`-et hashelt, amit a szerver eldobott — aszimmetrikus
+  // user_data ugyanarra az eventre.
+  const ud: Record<string, string> = {};
+  const normalizedEmail = normalizeEmail(data.email);
+  if (normalizedEmail) ud.email = normalizedEmail;
   if (data.phone && data.phone.length >= 8) ud.phone_number = normalizePhone(data.phone);
   if (data.firstName) ud.first_name = sanitizeName(data.firstName);
   if (data.lastName) ud.last_name = sanitizeName(data.lastName);
@@ -172,22 +286,24 @@ export function pushContactConversion(data: ConversionData): void {
 }
 
 /**
- * Konzultáció-kérés (többlépéses varázsló) — SAJÁT kanonikus esemény, Meta `Schedule`.
+ * Konzultáció-kérés (többlépéses varázsló) — kanonikus leadgen-esemény, Meta
+ * `Schedule` (events.json 6.13.1). Ugyanaz a szerződés, mint a kapcsolati
+ * űrlapé: a PII az EC rejtett csatornájába megy, a dataLayer PII-mentes, és az
+ * esemény server-ingress-only — a szerver-lábat a site backendje küldi a
+ * böngésző `event_id`-jével.
  *
- * Miért nem a `quote_calculator_submitted`: azt a többi Soborbo-site (lomtalan,
- * painless, olcsokontenerhaz) fő lead-eseményként használja, Meta `Lead`-re
- * képezve, és a gateway `mapEventName`-jének NINCS site-onkénti felülírása — a
- * térkép átírása mind az 5 site-ot átállítaná.
+ * Miért nem a `quote_calculator_submitted`: azt a többi site fő lead-eseményként
+ * használja (Meta `Lead`), és a gateway `mapEventName`-jének nincs site-onkénti
+ * felülírása — a konzultáció ezért saját nevet kapott.
  */
 export function pushConsultationConversion(data: ConversionData): void {
   push({ event: 'consultation_request_submitted', ...buildConversionPayload(data) });
 }
 
 /**
- * Képzésre jelentkezés — SAJÁT kanonikus esemény, Meta `CompleteRegistration`.
- * Korábban ez is `contact_form_submitted`-ként ment, ezért a Metában
- * megkülönböztethetetlen volt a kapcsolati űrlaptól (a Sheets-ben viszont külön
- * fülre került — a két rendszer szétcsúszott).
+ * Képzésre jelentkezés — kanonikus leadgen-esemény, Meta `CompleteRegistration`.
+ * Korábban `contact_form_submitted`-ként ment, ezért a Metában
+ * megkülönböztethetetlen volt a kapcsolati űrlaptól.
  */
 export function pushTrainingSignupConversion(data: ConversionData): void {
   push({ event: 'training_signup_submitted', ...buildConversionPayload(data) });
@@ -226,7 +342,7 @@ export function markClickFired(name: string): void {
  * also dispatch server-side.
  */
 export function trackPhoneClick(eventId?: string, dedup = true): boolean {
-  if (!hasAnalyticsConsent()) return false;
+  if (!canPush()) return false;
   // `dedup=false` is passed by the conversion layer (index.ts), which owns the
   // session dedup so it can cover BOTH channels even when analytics consent is off.
   if (dedup) {
@@ -238,19 +354,19 @@ export function trackPhoneClick(eventId?: string, dedup = true): boolean {
 }
 
 export function trackCallbackClick(eventId?: string): boolean {
-  if (!hasAnalyticsConsent()) return false;
+  if (!canPush()) return false;
   push({ event: 'callback_request_submitted', ...(eventId && { event_id: eventId }), session_id: getSessionId(), device: getDevice() });
   return true;
 }
 
 export function trackEmailClick(eventId?: string): boolean {
-  if (!hasAnalyticsConsent()) return false;
+  if (!canPush()) return false;
   push({ event: 'email_address_clicked', ...(eventId && { event_id: eventId }), session_id: getSessionId(), device: getDevice() });
   return true;
 }
 
 export function trackWhatsappClick(eventId?: string): boolean {
-  if (!hasAnalyticsConsent()) return false;
+  if (!canPush()) return false;
   push({ event: 'whatsapp_button_clicked', ...(eventId && { event_id: eventId }), session_id: getSessionId(), device: getDevice() });
   return true;
 }
@@ -265,7 +381,7 @@ export function initFormAbandonTracking(
   let started = false;
 
   const onFocus = (e: FocusEvent) => {
-    if (!hasAnalyticsConsent()) return;
+    if (!canPush()) return;
     const name = (e.target as HTMLElement).getAttribute('name');
     if (!name) return;
     lastField = name;
@@ -305,7 +421,7 @@ export function initScrollTracking(): void {
   const thresholds = [25, 50, 75, 100];
 
   const handler = () => {
-    if (!hasAnalyticsConsent()) return;
+    if (!canPush()) return;
     const h = document.documentElement.scrollHeight - window.innerHeight;
     if (h <= 0) return;
     const pct = Math.round((window.scrollY / h) * 100);

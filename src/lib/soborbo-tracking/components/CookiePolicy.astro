@@ -31,9 +31,9 @@
  * A komponens SZÁNDÉKOSAN nem ír jogi bevezetőt: az adatkezelő neve, a jogalap
  * és a jogorvoslat site-onként más. Ez a tábla, nem a teljes tájékoztató.
  */
-import inventory from '@/lib/tracking/consent-texts/cookie-inventory.json';
-import { trackingConfig, type ConsentProvider } from '@/lib/tracking/config';
-import { inventoryVendorsFor } from '@/lib/tracking/consent-vendors';
+import inventory from '../consent-texts/cookie-inventory.json';
+import { trackingConfig, type ConsentProvider } from '../lib/config';
+import { inventoryVendorsFor } from '../lib/consent-vendors';
 
 interface Props {
   /** A tábla nyelve. Alapértelmezés: magyar. */

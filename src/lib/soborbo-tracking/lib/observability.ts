@@ -28,11 +28,33 @@ export const TRACKING_CODES = {
   GATEWAY_REJECTED:        { code: 'TRK-1006', severity: 'error', message: 'Gateway rejected the dispatch (non-2xx HTTP status) — the conversion did NOT land' },
   // 3xxx — data integrity
   PII_IN_DATALAYER:        { code: 'TRK-3001', severity: 'error', message: 'PII-shaped key blocked from a dataLayer push' },
-  // 4xxx — saját CMP (sbo) consent-rögzítés (kit 6.9.0)
+  // 4xxx — saját CMP (Fázis 2). A consent-POST kudarca SOSEM néma: a kliens az
+  // egyetlen őrzője a döntésnek, amíg a gateway 204-gyel nem igazolta a tárolást.
   CONSENT_STORED:          { code: 'TRK-4000', severity: 'info',  message: 'Consent decision stored by the gateway (204)' },
   CONSENT_POST_RETRYABLE:  { code: 'TRK-4001', severity: 'warn',  message: 'Consent POST not stored (429/5xx/network) — decision kept pending, resent later with the SAME consent_event_id' },
   CONSENT_POST_REJECTED:   { code: 'TRK-4002', severity: 'error', message: 'Consent POST rejected (4xx) — dropped from the pending queue; the cookie state still applies locally' },
+  // INV-008 — ISMERETLEN consent mellett engedtünk, mert a site EXPLICIT kérte a
+  // dev-kényelmet. Prodban ez sosem fordulhat elő (DEV=false); ha mégis látod
+  // éles logban, a build rossz flaggel készült.
   CONSENT_DEV_FALLBACK_ALLOW: { code: 'TRK-4003', severity: 'warn', message: 'Unknown consent ALLOWED by the explicit dev fallback (PUBLIC_TRACKING_DEV_CONSENT_ALLOW=1) — must never happen in production' },
+  // 5xxx — P5 `commit-after-business-success`. A böngésző-konverzió a backend
+  // SIKERE után ég el; ezek a kódok mondják meg, mi lett a letett konverzióval.
+  CONVERSION_COMMITTED:    { code: 'TRK-5000', severity: 'info',  message: 'Staged browser conversion committed after backend success' },
+  CONVERSION_COMMIT_CONSENT_REVOKED: { code: 'TRK-5001', severity: 'warn', message: 'Staged conversion dropped: marketing consent was withdrawn between submit and success page' },
+  // A konverzió elmegy, de Enhanced-Conversions identity nélkül — gyengébb
+  // match-rate. Navigációs (PRG) úton ez azt jelenti, hogy a siker-oldal nem
+  // adott át identityt a szerver-oldali renderből. NEM néma degradáció.
+  CONVERSION_COMMIT_WITHOUT_IDENTITY: { code: 'TRK-5002', severity: 'warn', message: 'Conversion committed without Enhanced-Conversions identity — weaker match; the success page passed no identity' },
+  // fetch-út: a backend válaszát nem lehetett a siker-kontraktus szerint
+  // értelmezni. Fail-closed: NEM commitolunk. Egy „majd csak sikerült" ág itt
+  // pontosan azt a fantom-konverziót termelné újra, amiért a P5 készült.
+  CONVERSION_SUBMIT_RESPONSE_INVALID: { code: 'TRK-5003', severity: 'error', message: 'Form submit response did not match the success contract ({ok:true,event_id}) — no conversion committed' },
+  // fetch-út: a backend elutasított vagy a hálózat elszállt.
+  CONVERSION_SUBMIT_FAILED: { code: 'TRK-5004', severity: 'warn',  message: 'Form submit failed (non-2xx or network) — no conversion committed' },
+  // fetch-út: a backend MÁS event_id-t igazolt vissza, mint amit a böngésző
+  // letett. Ez szerződésszegés (a backendnek a rejtett mező id-jét kell
+  // visszaadnia), és dedup-törést jelentene — nem commitolunk.
+  CONVERSION_SUBMIT_EVENT_ID_MISMATCH: { code: 'TRK-5005', severity: 'error', message: 'Backend confirmed a different event_id than the browser staged — Meta dedup would break; no conversion committed' },
 } as const satisfies Record<string, CodeDef>;
 
 export type TrackingCodeKey = keyof typeof TRACKING_CODES;
