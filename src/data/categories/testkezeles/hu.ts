@@ -6,6 +6,7 @@
  */
 import type { ShowcaseModelCopy } from '@/lib/category-showcase';
 import type { ShowcaseCopy } from '@/lib/types/category-showcase';
+import { compareHelp, consult, financeTexts, reviews, visit } from '../common.hu';
 
 const models: Record<string, ShowcaseModelCopy> = {
   'freeze-me-slim': {
@@ -64,15 +65,12 @@ export const hu: ShowcaseCopy = {
     lead: 'A FREEZE ME SLIM célzottan a zsírpárnákra dolgozik, a THE SHAPER négy technológiával a teljes alakformálásra.',
     copy: models,
   },
-  reviews: { title: 'Akik már velünk dolgoznak' },
+  reviews,
   compare: {
     title: 'Összehasonlítás',
     lead: 'Egy pillantás alatt a fő különbségek',
     labels: ['Ár', 'Technológia', 'Kezelőfejek', 'Kezelt terület', 'Kinek ajánljuk'],
-    help: {
-      title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
-      text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
-    },
+    help: compareHelp,
   },
   whyBuy: {
     title: 'Miért éri meg testkezelő gépet venni?',
@@ -98,22 +96,10 @@ export const hu: ShowcaseCopy = {
     ],
   },
   finance: {
-    title: 'Nem kell egy összegben kifizetned.',
+    ...financeTexts,
     lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3 vagy 6 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
-    perks: ['0% THM', 'Nincs kezelési díj', 'Nincs rejtett költség'],
-    cta: 'Pontos ajánlatot kérek',
   },
-  consult: {
-    title: 'Nem tudod, melyik gép való neked?',
-    text: 'Bármelyik is igaz rád, szeretettel segítünk. Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.',
-    needs: [
-      'Nem tudod, melyiket válaszd',
-      'Pontos infót kérsz a gépekről',
-      'Megbeszélnéd a vásárlás részleteit',
-      'Csak egy jó tanácsra van szükséged',
-    ],
-    note: 'Általában 1 munkanapon belül visszahívunk.',
-  },
+  consult,
   faq: {
     title: 'Gyakori kérdések',
     lead: 'A leggyakoribb kérdések a testkezelő gépekről. Ha nem találod a választ, kérdezz minket közvetlenül.',
@@ -140,10 +126,5 @@ export const hu: ShowcaseCopy = {
       },
     ],
   },
-  visit: {
-    title: 'Nézd meg személyesen Érden.',
-    text: 'Gyere el a bemutatótermünkbe, és megmutatjuk a gépeket. Előtte egyeztessünk időpontot, hogy a választott gép biztosan ott legyen.',
-    booking: 'Előzetes időpontfoglalással',
-    demoCta: 'Bemutatót kérek',
-  },
+  visit,
 };

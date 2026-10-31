@@ -34,7 +34,7 @@ const ui = showcaseUi(getLocaleFromUrl(Astro.url));
       <div class:list={['flex items-center px-6 pt-10 pb-20 dt:justify-center dt:p-16', i % 2 === 0 ? 'bg-blush' : 'bg-white']}>
         <div class="sl-reveal flex max-w-[520px] flex-col gap-5 dt:gap-4">
           <div class="text-xs font-semibold tracking-[0.08em] text-primary-700 uppercase max-dt:hidden">
-            {String(i + 1).padStart(2, '0')}{m.keySpec && ` · ${m.keySpec}`} · {m.forWho}
+            {[models.length > 1 && String(i + 1).padStart(2, '0'), m.keySpec, m.forWho].filter(Boolean).join(' · ')}
           </div>
           <h3 class="m-0 font-heading text-[38px] font-normal leading-[1.1] text-balance text-gray-900 dt:text-[36px]">
             {m.name} <em class="text-primary-700 max-dt:hidden">{m.tagline}</em>

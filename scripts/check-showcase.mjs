@@ -10,7 +10,8 @@
  * Opciók: BASE_URL (alap: http://localhost:4399), CHROME_PATH (saját Chromium).
  *
  * Mit néz: a H1 asztalon pontosan 2, mobilon legfeljebb 3 sor; nincs árva szó
- * a címek (h1-h3) utolsó sorában; nincs vízszintes túlcsordulás; a nem törő (nowrap) elemek kiférnek; nincs JS-hiba. Az oldalakat
+ * a címek (h1-h3) utolsó sorában; nem törik két sorba gomb; nincs vízszintes
+ * túlcsordulás; a nem törő (nowrap) elemek kiférnek; nincs JS-hiba. Az oldalakat
  * a dist-ből gyűjti (amelyikben van #modellek szekció), így egy új kategória
  * vagy nyelv magától bekerül.
  */
@@ -88,6 +89,8 @@ for (const path of pages) {
         const rows = [...widths.entries()].sort((x, y) => x[0] - y[0]).map(([, w]) => w);
         return el.offsetParent !== null && rows.length > 1 && rows[rows.length - 1] < Math.max(...rows) * 0.2;
       });
+      // Két sorba törő gomb (a .sl-btn felirata egy sorban kell, hogy elférjen).
+      const wrappedButtons = [...document.querySelectorAll('main .sl-btn')].filter((el) => el.offsetParent !== null && lines(el) > 1);
       const h1 = document.querySelector('h1');
       const nowrap = [...document.querySelectorAll('main *')].filter((el) => {
         const style = getComputedStyle(el);
@@ -98,6 +101,7 @@ for (const path of pages) {
         overflow: document.documentElement.scrollWidth - window.innerWidth,
         nowrap: [...new Set(nowrap.map((el) => el.textContent.trim().slice(0, 40)))].slice(0, 3),
         orphans: orphans.map((el) => el.textContent.trim().replace(/\s+/g, ' ').slice(0, 50)),
+        wrappedButtons: [...new Set(wrappedButtons.map((el) => el.textContent.trim().replace(/\s+/g, ' ')))],
       };
     });
 
@@ -106,6 +110,7 @@ for (const path of pages) {
     if (result.h1Lines > vp.h1Max) failures.push(`${where}: a H1 ${result.h1Lines} soros, legfeljebb ${vp.h1Max} lehet`);
     if (result.overflow > 0) failures.push(`${where}: ${result.overflow}px vízszintes túlcsordulás`);
     for (const text of result.nowrap) failures.push(`${where}: nem fér ki a nem törő szöveg: „${text}”`);
+    for (const text of result.wrappedButtons) failures.push(`${where}: két sorba törő gomb: „${text}”`);
     for (const text of result.orphans) failures.push(`${where}: árva szó a cím utolsó sorában: „${text}”`);
     for (const message of errors) failures.push(`${where}: JS-hiba: ${message}`);
     console.log(`${failures.length ? '…' : 'ok'} ${where}: H1 ${result.h1Lines} sor`);

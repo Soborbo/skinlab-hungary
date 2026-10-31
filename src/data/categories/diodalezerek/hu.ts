@@ -7,6 +7,7 @@
  */
 import type { ShowcaseModelCopy } from '@/lib/category-showcase';
 import type { ShowcaseCopy } from '@/lib/types/category-showcase';
+import { compareHelp, consult, financeTexts, reviews } from '../common.hu';
 
 const models: Record<string, ShowcaseModelCopy> = {
   athena: {
@@ -73,15 +74,12 @@ export const hu: ShowcaseCopy = {
     lead: 'Mind a négy 4 hullámhosszú. A különbség a tempóban, a kezelési módban és abban, hogy mennyit dokumentálsz.',
     copy: models,
   },
-  reviews: { title: 'Akik már velünk dolgoznak' },
+  reviews,
   compare: {
     title: 'Műszaki összehasonlítás',
     lead: 'Egy pillantás alatt a fő paraméterek',
     labels: ['Ár', 'Teljesítmény', 'Hullámhosszak', 'Spotméret', 'Hűtés', 'Kinek ajánljuk'],
-    help: {
-      title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
-      text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
-    },
+    help: compareHelp,
   },
   whyBuy: {
     title: 'Miért éri meg diódalézert venni?',
@@ -107,27 +105,15 @@ export const hu: ShowcaseCopy = {
     ],
   },
   finance: {
-    title: 'Nem kell egy összegben kifizetned.',
+    ...financeTexts,
     lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3, 6 vagy 12 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
-    perks: ['0% THM', 'Nincs kezelési díj', 'Nincs rejtett költség'],
-    cta: 'Pontos ajánlatot kérek',
   },
   training: {
     titleLines: ['Nem egyedül tanulod meg.', 'Mindent megtanítunk neked.'],
     text: '8 órás helyszíni betanítás a saját szalonodban, utána 6 hónap utánkövetés. FAR-tanúsított gépkezelői képzés, hivatalos tanúsítvánnyal.',
     cta: 'Képzéseink',
   },
-  consult: {
-    title: 'Nem tudod, melyik gép való neked?',
-    text: 'Bármelyik is igaz rád, szeretettel segítünk. Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.',
-    needs: [
-      'Nem tudod, melyiket válaszd',
-      'Pontos infót kérsz a gépekről',
-      'Megbeszélnéd a vásárlás részleteit',
-      'Csak egy jó tanácsra van szükséged',
-    ],
-    note: 'Általában 1 munkanapon belül visszahívunk.',
-  },
+  consult,
   faq: {
     title: 'Gyakori kérdések',
     lead: 'A leggyakoribb kérdések a diódalézerekről. Ha nem találod a választ, kérdezz minket közvetlenül.',

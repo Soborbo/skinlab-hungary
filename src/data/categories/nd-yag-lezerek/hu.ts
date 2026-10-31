@@ -6,6 +6,7 @@
  */
 import type { ShowcaseModelCopy } from '@/lib/category-showcase';
 import type { ShowcaseCopy } from '@/lib/types/category-showcase';
+import { compareHelp, consult, financeTexts, reviews, visit } from '../common.hu';
 
 const models: Record<string, ShowcaseModelCopy> = {
   pixelcarbonlezer: {
@@ -66,15 +67,12 @@ export const hu: ShowcaseCopy = {
     lead: 'Mindkettő Q-kapcsolt ND:YAG lézer. A különbség a hullámhosszak számában, a kezelőfelületben és a hűtésben van.',
     copy: models,
   },
-  reviews: { title: 'Akik már velünk dolgoznak' },
+  reviews,
   compare: {
     title: 'Műszaki összehasonlítás',
     lead: 'Egy pillantás alatt a fő különbségek',
     labels: ['Ár', 'Hullámhosszak', 'Kijelző', 'Kezelőfej-hűtés', 'Kinek ajánljuk'],
-    help: {
-      title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
-      text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
-    },
+    help: compareHelp,
   },
   whyBuy: {
     title: 'Miért éri meg ND:YAG lézert venni?',
@@ -100,27 +98,15 @@ export const hu: ShowcaseCopy = {
     ],
   },
   finance: {
-    title: 'Nem kell egy összegben kifizetned.',
+    ...financeTexts,
     lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3 vagy 6 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
-    perks: ['0% THM', 'Nincs kezelési díj', 'Nincs rejtett költség'],
-    cta: 'Pontos ajánlatot kérek',
   },
   training: {
     titleLines: ['Nem egyedül tanulod meg.', 'Mindent megtanítunk neked.'],
     text: 'Q-kapcsolt ND:YAG lézerkezelői képzés legfeljebb 4 fővel: a hullámhosszak és a paraméterek helyes megválasztása, carbon peeling, sminktetoválás- és pigmentfolt-eltávolítás, modelles gyakorlattal. FAR-jegyzett, B-számos tanúsítványt kapsz.',
     cta: 'A képzés részletei',
   },
-  consult: {
-    title: 'Nem tudod, melyik gép való neked?',
-    text: 'Bármelyik is igaz rád, szeretettel segítünk. Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.',
-    needs: [
-      'Nem tudod, melyiket válaszd',
-      'Pontos infót kérsz a gépekről',
-      'Megbeszélnéd a vásárlás részleteit',
-      'Csak egy jó tanácsra van szükséged',
-    ],
-    note: 'Általában 1 munkanapon belül visszahívunk.',
-  },
+  consult,
   faq: {
     title: 'Gyakori kérdések',
     lead: 'A leggyakoribb kérdések az ND:YAG lézerekről. Ha nem találod a választ, kérdezz minket közvetlenül.',
@@ -143,10 +129,5 @@ export const hu: ShowcaseCopy = {
       },
     ],
   },
-  visit: {
-    title: 'Nézd meg személyesen Érden.',
-    text: 'Gyere el a bemutatótermünkbe, és megmutatjuk a gépeket. Előtte egyeztessünk időpontot, hogy a választott gép biztosan ott legyen.',
-    booking: 'Előzetes időpontfoglalással',
-    demoCta: 'Bemutatót kérek',
-  },
+  visit,
 };

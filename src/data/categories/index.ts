@@ -3,6 +3,11 @@
  * CategoryShowcaseLayouton jelenik meg minden olyan nyelven, amelyhez van
  * szövegfájl; a többi nyelv és kategória a régi CategoryLayouton marad.
  *
+ * NEM kerülhet ide a CATEGORY_AS_PRODUCT kategória (src/lib/product-url.ts:
+ * hidegplazma, bordiagnosztika, arckezelo-rendszerek): ott a kategória URL-jén
+ * maga a termékoldal áll (tulajdonosi döntés), a showcase elvenné a vásárlást.
+ * A teszt (tests/showcase-config.test.ts) ezt ellenőrzi.
+ *
  * Új nyelv egy kategóriához:
  *   1. src/i18n/showcase.ts: a nyelv fix feliratai (egyszer, minden kategóriának).
  *   2. src/data/categories/<slug>/<nyelv>.ts: a hu.ts lefordítva (ShowcaseCopy).
@@ -15,6 +20,7 @@ import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 import { antiAging } from './anti-aging';
 import { diodalezerek } from './diodalezerek';
 import { hydrafacial } from './hydrafacial';
+import { mezoterapia } from './mezoterapia';
 import { ndYagLezerek } from './nd-yag-lezerek';
 import { sminktetovalas } from './sminktetovalas';
 import { testkezeles } from './testkezeles';
@@ -23,6 +29,7 @@ export const SHOWCASE_CATEGORIES: Record<string, ShowcaseCategory> = {
   'anti-aging': antiAging,
   diodalezerek,
   hydrafacial,
+  mezoterapia,
   'nd-yag-lezerek': ndYagLezerek,
   sminktetovalas,
   testkezeles,

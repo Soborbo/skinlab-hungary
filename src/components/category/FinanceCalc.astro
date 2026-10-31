@@ -76,7 +76,8 @@ const noteFor = (price: number): string =>
       </div>
 
       <div class="fc sl-reveal flex flex-col gap-7 dt:gap-5 dt:rounded-3xl dt:bg-white dt:p-7 dt:shadow-[0_24px_60px_rgba(160,28,66,.12)]" data-finance-calc>
-        <div>
+        {/* Egyetlen gépnél nincs mit választani: a gombsor rejtve marad (a számítás ugyanúgy belőle olvas). */}
+        <div hidden={priced.length === 1}>
           <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-model-label"><span class="max-dt:hidden">1. </span>{f.pickModel}</div>
           <div class="grid grid-cols-2 gap-2.5 dt:grid-cols-4" role="group" aria-labelledby="fc-model-label">
             {priced.map((m) => (
@@ -96,7 +97,7 @@ const noteFor = (price: number): string =>
         </div>
 
         <div>
-          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-months-label"><span class="max-dt:hidden">2. </span>{f.pickMonths}</div>
+          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-months-label">{priced.length > 1 && <span class="max-dt:hidden">2. </span>}{f.pickMonths}</div>
           <div class="grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1" role="group" aria-labelledby="fc-months-label">
             {ALL_MONTHS.map((n) => (
               <button

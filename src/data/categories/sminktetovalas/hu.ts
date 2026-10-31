@@ -9,6 +9,7 @@
  */
 import type { ShowcaseModelCopy } from '@/lib/category-showcase';
 import type { ShowcaseCopy } from '@/lib/types/category-showcase';
+import { compareHelp, consult, reviews } from '../common.hu';
 
 const models: Record<string, ShowcaseModelCopy> = {
   'mast-nano-2': {
@@ -103,15 +104,12 @@ export const hu: ShowcaseCopy = {
     lead: 'Három sminktetováló gép és egy tetoválógép. A különbség a súlyban, a lökethosszban és a motorban van.',
     copy: models,
   },
-  reviews: { title: 'Akik már velünk dolgoznak' },
+  reviews,
   compare: {
     title: 'Műszaki összehasonlítás',
     lead: 'Egy pillantás alatt a fő különbségek',
     labels: ['Ár', 'Lökethossz', 'Motor', 'Súly', 'Kinek ajánljuk'],
-    help: {
-      title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
-      text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
-    },
+    help: compareHelp,
   },
   whyBuy: {
     title: 'Mire figyelj gépválasztáskor?',
@@ -137,15 +135,13 @@ export const hu: ShowcaseCopy = {
     ],
   },
   consult: {
-    title: 'Nem tudod, melyik gép való neked?',
-    text: 'Bármelyik is igaz rád, szeretettel segítünk. Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.',
+    ...consult,
     needs: [
       'Nem tudod, melyiket válaszd',
       'Pontos infót kérsz a gépekről',
       'Kérdésed van a tűmodulokról',
       'Csak egy jó tanácsra van szükséged',
     ],
-    note: 'Általában 1 munkanapon belül visszahívunk.',
   },
   faq: {
     title: 'Gyakori kérdések',
