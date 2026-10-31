@@ -25,20 +25,20 @@ const poster = posterSrc ?? shortsPoster(video.videoId);
 <section class="overflow-hidden bg-sand py-20 dt:py-[88px]">
   <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 dt:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] dt:gap-[72px] lg:px-8">
     <div class="sl-reveal order-2 flex flex-col gap-7 dt:order-1 dt:gap-[22px]">
-      <span class="self-start rounded-full bg-white px-3.5 py-1.5 text-[13px] font-semibold text-[#5b4636]">Videós vélemény · {video.duration}</span>
+      <span class="self-start rounded-full bg-white px-3.5 py-1.5 text-[13px] font-semibold text-[#5b4636] max-dt:hidden">Videós vélemény · {video.duration}</span>
       <blockquote class="m-0 font-heading text-[27px] leading-[1.4] text-plum dt:leading-[1.3] dt:text-[34px]">
         <p class="m-0">„{t('hu', video.quoteKey)}”</p>
       </blockquote>
       <div class="flex items-center gap-3.5">
-        <img src={poster} alt="" width="56" height="56" loading="lazy" decoding="async" class="h-14 w-14 rounded-full border-[3px] border-white object-cover object-[center_20%]" />
+        <img src={poster} alt="" width="56" height="56" loading="lazy" decoding="async" class="h-14 w-14 rounded-full max-dt:hidden border-[3px] border-white object-cover object-[center_20%]" />
         <div>
           <div class="font-semibold text-plum">{video.name}</div>
-          <div class="text-sm text-[#6b5d52]">{role} · {video.business}</div>
+          <div class="text-sm text-[#6b5d52]">{role}<span class="max-dt:hidden"> · </span><span class="max-dt:block">{video.business}</span></div>
         </div>
       </div>
       <button type="button" class="sl-btn sl-btn-plum self-start" data-video-play-for={video.videoId}>
         <ShowcaseIcon name="play" size={16} />
-        Nézd meg a videót
+        Nézd meg a videót<span class="dt:hidden">&nbsp;({video.duration})</span>
       </button>
     </div>
 

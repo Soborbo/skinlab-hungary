@@ -42,21 +42,21 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
 
       <ul class="m-0 mt-1 max-w-[500px] list-none p-0" role="list">
         {rows.map((row) => (
-          <li class="flex items-start gap-4 border-b border-[#f0e6ea] py-4 dt:gap-3.5 dt:py-3">
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]">
+          <li class="flex items-start gap-3.5 py-2.5 dt:border-b dt:border-[#f0e6ea] dt:py-3">
+            <span class="mt-0.5 flex shrink-0 items-center justify-center text-primary-700 dt:mt-0 dt:h-9 dt:w-9 dt:rounded-[10px] dt:bg-sand dt:text-[#5b4636]">
               <ShowcaseIcon name={row.icon} size={18} />
             </span>
             <div>
-              <p class="m-0 text-xs font-semibold tracking-[0.06em] text-[#6b5d52] uppercase">{row.label}</p>
+              <p class="m-0 text-[13.5px] text-gray-500 dt:text-xs dt:font-semibold dt:tracking-[0.06em] dt:text-[#6b5d52] dt:uppercase">{row.label}</p>
               <p class="m-0 font-medium text-gray-900">
-                {row.href ? <a href={row.href} class="sl-tlink font-medium text-gray-900" data-event="category-callback-phone-click">{row.value}</a> : row.value}
+                {row.href ? <a href={row.href} class="sl-tlink font-medium text-gray-900" data-event="category-callback-phone-click">{row.value}</a> : row.value.split(' · ').map((part, j) => <span class="block dt:inline">{j > 0 && <span class="hidden dt:inline"> · </span>}{part}</span>)}
               </p>
             </div>
           </li>
         ))}
       </ul>
 
-      <div class="vc-map relative mt-1.5 h-[200px] max-w-[500px] overflow-hidden rounded-2xl border border-[#ece3d9] bg-sand" data-map-embed={mapEmbed} data-map-title={`Térkép: ${address}`}>
+      <div class="vc-map relative mt-1.5 h-[200px] max-w-[500px] overflow-hidden rounded-[14px] bg-sand dt:rounded-2xl dt:border dt:border-[#ece3d9]" data-map-embed={mapEmbed} data-map-title={`Térkép: ${address}`}>
         <button type="button" class="vc-map-btn flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center" aria-label={`Térkép betöltése: ${address}`}>
           <span class="vc-map-pin flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary-700 shadow-[0_6px_18px_rgba(160,28,66,.15)]">
             <ShowcaseIcon name="pin" size={24} />

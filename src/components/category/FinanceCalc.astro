@@ -55,13 +55,13 @@ const noteFor = (price: number): string =>
         <p class="m-0 max-dt:leading-[1.7] text-gray-700">{lead}</p>
         <ul class="mt-2 flex flex-col gap-3 dt:mt-1.5 dt:gap-2.5" role="list">
           {rules.map((rule) => (
-            <li class="flex justify-between gap-3 rounded-[14px] border border-[#f3e4e9] bg-white px-5 py-4 text-[14.5px] dt:px-4 dt:py-3.5">
+            <li class="flex justify-between gap-3 py-1 text-[15px] dt:rounded-[14px] dt:border dt:border-[#f3e4e9] dt:bg-white dt:px-4 dt:py-3.5 dt:text-[14.5px]">
               <span class="text-gray-600">{rule.when}</span>
               <strong class="text-right text-gray-900">{rule.term}</strong>
             </li>
           ))}
         </ul>
-        <ul class="mt-2 flex flex-wrap gap-x-5 gap-y-3 text-sm text-gray-700 dt:mt-1" role="list">
+        <ul class="mt-1 hidden flex-wrap gap-x-5 gap-y-3 text-sm text-gray-700 dt:flex" role="list">
           {perks.map((perk) => (
             <li class="flex items-center gap-2">
               <ShowcaseIcon name="check" size={16} strokeWidth={2.4} class="text-primary-700" />
@@ -71,9 +71,9 @@ const noteFor = (price: number): string =>
         </ul>
       </div>
 
-      <div class="fc sl-reveal flex flex-col gap-7 rounded-3xl bg-white p-6 shadow-[0_24px_60px_rgba(160,28,66,.12)] dt:gap-5 dt:p-7" data-finance-calc>
+      <div class="fc sl-reveal flex flex-col gap-7 dt:gap-5 dt:rounded-3xl dt:bg-white dt:p-7 dt:shadow-[0_24px_60px_rgba(160,28,66,.12)]" data-finance-calc>
         <div>
-          <div class="mb-2.5 text-xs font-bold tracking-[0.08em] text-gray-500 uppercase" id="fc-model-label">1. Melyik gép?</div>
+          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-model-label"><span class="max-dt:hidden">1. </span>Melyik gép?</div>
           <div class="grid grid-cols-2 gap-2.5 dt:grid-cols-4" role="group" aria-labelledby="fc-model-label">
             {priced.map((m) => (
               <button
@@ -92,7 +92,7 @@ const noteFor = (price: number): string =>
         </div>
 
         <div>
-          <div class="mb-2.5 text-xs font-bold tracking-[0.08em] text-gray-500 uppercase" id="fc-months-label">2. Hány hónap alatt?</div>
+          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-months-label"><span class="max-dt:hidden">2. </span>Hány hónap alatt?</div>
           <div class="grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1" role="group" aria-labelledby="fc-months-label">
             {ALL_MONTHS.map((n) => (
               <button
@@ -108,10 +108,10 @@ const noteFor = (price: number): string =>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 rounded-[18px] bg-sand p-6 text-plum dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
+        <div class="grid grid-cols-1 gap-4 rounded-[14px] bg-sand p-6 text-plum dt:rounded-[18px] dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
           <div>
             <div class="text-[13px] text-[#6b5d52]">Havi részlet, <span data-fc="months">{months}</span> hónapon át</div>
-            <div class="font-heading text-[42px] leading-[1.1] text-primary-700" data-fc="monthly">{formatHuf(info.monthly[months])}</div>
+            <div class="font-heading text-[46px] leading-[1.1] text-primary-700 dt:text-[42px]" data-fc="monthly">{formatHuf(info.monthly[months])}</div>
           </div>
           <dl class="m-0 flex flex-col gap-2 text-sm">
             <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Előleg (50%)</dt><dd class="m-0 font-bold" data-fc="down">{formatHuf(info.downPayment)}</dd></div>

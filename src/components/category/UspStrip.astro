@@ -12,13 +12,13 @@ const { items } = Astro.props;
 <section class="border-b border-[#f3e4e9] bg-white">
   <ul class="mx-auto grid max-w-7xl grid-cols-2 gap-x-5 gap-y-8 px-6 py-10 dt:grid-cols-4 dt:gap-6 dt:py-[22px] lg:px-8" role="list">
     {items.map((item) => (
-      <li class="flex items-start gap-3">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blush text-primary-700">
+      <li class="flex items-start gap-2.5 dt:gap-3">
+        <span class="mt-0.5 flex shrink-0 items-center justify-center text-primary-700 dt:mt-0 dt:h-9 dt:w-9 dt:rounded-full dt:bg-blush">
           <ShowcaseIcon name={item.icon} size={18} />
         </span>
         <div>
-          <div class="text-sm font-semibold text-gray-900">{item.title}</div>
-          <div class="text-[12.5px] text-gray-500">{item.sub}</div>
+          <div class="text-[15px] leading-snug font-semibold text-gray-900 dt:text-sm dt:leading-5">{item.title}</div>
+          <div class="mt-1 text-[13.5px] text-gray-500 dt:mt-0 dt:text-[12.5px]">{item.sub}</div>
         </div>
       </li>
     ))}

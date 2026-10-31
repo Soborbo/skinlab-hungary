@@ -91,7 +91,7 @@ const trackItems = models.map((m, i) => ({
   />
   <UspStrip items={page.usp} />
   <ModelRows title={page.models.title} lead={page.models.lead} models={models} />
-  {page.reviews && <ReviewCards title={page.reviews.title} />}
+  {page.reviews && <ReviewCards title={page.reviews.title} ctaHref={consultHref} />}
   {page.compare && compareAnchor && (
     <CompareTable
       id={compareAnchor}
@@ -103,7 +103,7 @@ const trackItems = models.map((m, i) => ({
       consultHref={consultHref}
     />
   )}
-  {page.whyBuy && <WhyBuy {...page.whyBuy} />}
+  {page.whyBuy && <WhyBuy {...page.whyBuy} ctaHref={consultHref} />}
   {page.finance && <FinanceCalc {...page.finance} models={models} consultHref={consultHref} />}
   {page.video && <VideoSpotlight {...page.video} />}
   {page.training && <TrainingBand {...page.training} />}
