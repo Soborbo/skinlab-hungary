@@ -130,6 +130,7 @@ export function buildShowcaseModels(
   products: Product[],
   copy: Record<string, ShowcaseModelCopy>,
   locale: Locale,
+  thumbs: Record<string, string> = {},
 ): ShowcaseModel[] {
   const ui = showcaseUi(locale);
   return products
@@ -151,7 +152,7 @@ export function buildShowcaseModels(
         keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
         specs,
         href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
-        thumb: data.image,
+        thumb: thumbs[slug] ?? data.image,
         images: buildImages(product, ui.gallery.image),
         installment: longest
           ? { months: longest, monthly: info.monthly[longest], downPayment: info.downPayment }
@@ -236,6 +237,7 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
 
   return {
     slug: base.slug,
+    thumbs: base.thumbs,
     seo: copy.seo,
     hero: { ...copy.hero, ...base.hero },
     usp: zip(at('usp'), base.usp, copy.usp, (icon, text) => ({ icon, ...text })),

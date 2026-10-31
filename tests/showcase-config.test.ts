@@ -44,6 +44,7 @@ describe.each(cases)('$slug / $locale', ({ slug, locale, category }) => {
   it('csak létező, publikált termékre hivatkozik', () => {
     for (const model of Object.keys(page.models.copy)) expect(live).toContain(model);
     if (page.finance) expect(Object.keys(page.models.copy)).toContain(page.finance.defaultSlug);
+    for (const model of Object.keys(page.thumbs ?? {})) expect(Object.keys(page.models.copy)).toContain(model);
   });
 
   it('minden modellnél megvan a táblázat szöveges cellája', () => {

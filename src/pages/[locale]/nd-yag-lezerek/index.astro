@@ -1,8 +1,10 @@
 ---
-import CategoryLayout from '../../../layouts/CategoryLayout.astro';
-import { getCollection } from 'astro:content';
-import { locales, defaultLocale } from '../../../i18n/ui';
-import { getCategoryTranslation } from '../../../data/category-translations';
+/**
+ * ND:YAG lézer kategóriaoldal, nem magyar nyelvek. Ahol van szövegfájl
+ * (src/data/categories/nd-yag-lezerek/<nyelv>.ts), az új elrendezés jelenik meg, máshol a régi.
+ */
+import CategoryPage from '../../../layouts/CategoryPage.astro';
+import { locales, defaultLocale, type Locale } from '../../../i18n/ui';
 
 export function getStaticPaths() {
   return locales
@@ -10,12 +12,7 @@ export function getStaticPaths() {
     .map((locale) => ({ params: { locale } }));
 }
 
-const { locale } = Astro.params;
-const category = getCategoryTranslation(locale!, 'nd-yag-lezerek');
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'nd-yag-lezerek' && !data.draft;
-});
+const locale = Astro.params.locale as Locale;
 ---
 
-<CategoryLayout category={category} products={products} />
+<CategoryPage slug="nd-yag-lezerek" locale={locale} />

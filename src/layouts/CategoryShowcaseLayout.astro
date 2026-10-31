@@ -46,7 +46,7 @@ interface Props {
 
 const { page, locale, products } = Astro.props;
 const ui = showcaseUi(locale);
-const models = buildShowcaseModels(products, page.models.copy, locale);
+const models = buildShowcaseModels(products, page.models.copy, locale, page.thumbs);
 const consultHref = getLocalizedUrl(locale, `/konzultacio?cat=${page.slug}`);
 const compareAnchor = page.compare ? 'osszehasonlitas' : undefined;
 

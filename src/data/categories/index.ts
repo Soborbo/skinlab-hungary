@@ -12,10 +12,18 @@
  * Ellenőrzés: npm test (tartalom) és npm run check:showcase (H1, túlcsordulás).
  */
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
+import { antiAging } from './anti-aging';
 import { diodalezerek } from './diodalezerek';
 import { hydrafacial } from './hydrafacial';
+import { ndYagLezerek } from './nd-yag-lezerek';
+import { sminktetovalas } from './sminktetovalas';
+import { testkezeles } from './testkezeles';
 
 export const SHOWCASE_CATEGORIES: Record<string, ShowcaseCategory> = {
+  'anti-aging': antiAging,
   diodalezerek,
   hydrafacial,
+  'nd-yag-lezerek': ndYagLezerek,
+  sminktetovalas,
+  testkezeles,
 };
