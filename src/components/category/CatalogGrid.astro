@@ -1,0 +1,79 @@
+---
+/**
+ * Katalógus-változat termékrácsa (fogyóanyag, kellék): csoportonként cím,
+ * alcím és kártyák. Mobilon 2, asztalon 4 oszlop. A kártya a termékoldalra
+ * visz, a kosárba gomb (QuickAddButton) a helyén teszi kosárba a terméket,
+ * a link elnavigálása nélkül.
+ */
+import OptimizedPicture from '../images/OptimizedPicture.astro';
+import QuickAddButton from '../cart/QuickAddButton.astro';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { formatHuf, type CatalogItem } from '@/lib/category-showcase';
+import { showcaseUi } from '@/i18n/showcase';
+
+interface Props {
+  id: string;
+  title: string;
+  lead: string;
+  groups: { title: string; subtitle?: string; items: CatalogItem[] }[];
+}
+
+const { id, title, lead, groups } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const ui = showcaseUi(locale);
+---
+
+<section id={id} class="scroll-mt-24 bg-white py-20 dt:py-[88px]">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="sl-reveal mb-12 text-center dt:mb-10">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] dt:leading-[1.15] text-gray-900 dt:text-[42px]">{title}</h2>
+      <p class="mx-auto mt-3 max-w-[620px] text-gray-600 dt:mt-2.5">{lead}</p>
+    </div>
+
+    <div class="flex flex-col gap-16 dt:gap-14">
+      {groups.map((group) => (
+        <div>
+          <div class="sl-reveal mb-6 max-w-[760px]">
+            <h3 class="m-0 font-heading text-[26px] font-normal leading-[1.25] text-balance text-gray-900 dt:text-[28px]">{group.title}</h3>
+            {group.subtitle && <p class="mt-2 max-dt:leading-[1.65] text-gray-600">{group.subtitle}</p>}
+          </div>
+          <ul class="grid grid-cols-2 gap-3 dt:grid-cols-4 dt:gap-5" role="list">
+            {group.items.map((item) => (
+              <li class="sl-lift flex flex-col overflow-hidden rounded-[14px] border border-[#f3e4e9] bg-white">
+                <a href={item.href} class="group flex grow flex-col text-gray-900" data-select-item={item.sku}>
+                  <span class="flex aspect-square items-center justify-center p-3 [&>picture]:block [&>picture]:h-full [&>picture]:w-full">
+                    <OptimizedPicture
+                      src={item.image}
+                      alt={item.name}
+                      widths={[320, 480]}
+                      sizes="(min-width: 900px) 280px, 45vw"
+                      class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </span>
+                  <span class="flex grow flex-col gap-2 border-t border-[#fbe3ea] px-3 pt-3 pb-2 dt:px-4">
+                    <span class="text-sm leading-snug font-semibold dt:text-[15px]">{item.name}</span>
+                    <span class="mt-auto text-[15px] font-bold">{item.price ? formatHuf(item.price) : ui.askPrice}</span>
+                  </span>
+                </a>
+                <div class="px-3 pb-3 dt:px-4 dt:pb-4">
+                  <QuickAddButton
+                    locale={locale}
+                    slug={item.slug}
+                    sku={item.sku}
+                    name={item.name}
+                    categorySlug={item.categorySlug}
+                    image={item.image}
+                    price={item.price}
+                    availability={item.availability}
+                    variants={item.variants}
+                    class="min-h-11 w-full"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

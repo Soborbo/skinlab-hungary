@@ -20,6 +20,7 @@ import BaseLayout from './BaseLayout.astro';
 import SplitHero from '../components/category/SplitHero.astro';
 import UspStrip from '../components/category/UspStrip.astro';
 import ModelRows from '../components/category/ModelRows.astro';
+import CatalogGrid from '../components/category/CatalogGrid.astro';
 import ReviewCards from '../components/category/ReviewCards.astro';
 import CompareTable from '../components/category/CompareTable.astro';
 import WhyBuy from '../components/category/WhyBuy.astro';
@@ -35,7 +36,7 @@ import { collectionPageSchema, breadcrumbSchema, faqSchema } from '../config/sch
 import { getOgImagePath } from '@/lib/resolve-image';
 import { getLocalizedUrl, type Locale } from '@/i18n/ui';
 import { showcaseUi } from '@/i18n/showcase';
-import { buildShowcaseModels } from '@/lib/category-showcase';
+import { buildCatalogGroups, buildShowcaseModels } from '@/lib/category-showcase';
 import type { ShowcaseConfig } from '@/lib/types/category-showcase';
 
 interface Props {
@@ -46,7 +47,12 @@ interface Props {
 
 const { page, locale, products } = Astro.props;
 const ui = showcaseUi(locale);
-const models = buildShowcaseModels(products, page.models.copy, locale, page.thumbs);
+const models = page.models ? buildShowcaseModels(products, page.models.copy, locale, page.thumbs) : [];
+// Katalógus-változat (fogyóanyag, kellék): gépsor helyett csoportosított termékrács.
+const catalogGroups = page.catalog ? buildCatalogGroups(products, page.catalog.groups, locale, ui.catalogRest) : [];
+const catalogItems = catalogGroups.flatMap((g) => g.items);
+const catalogAnchor = page.catalog ? 'termekek' : undefined;
+const listed = models.length ? models.map((m) => ({ sku: m.sku, slug: m.slug, name: m.name, price: m.price, href: m.href, image: m.thumb })) : catalogItems;
 const consultHref = getLocalizedUrl(locale, `/konzultacio?cat=${page.slug}`);
 const compareAnchor = page.compare ? 'osszehasonlitas' : undefined;
 
@@ -56,14 +62,14 @@ const schema = collectionPageSchema(
   config,
   pageUrl,
   page.seo.name,
-  models.map((m) => SITE.url + m.href),
+  listed.map((item) => SITE.url + item.href),
 );
 schema['@graph'].push(breadcrumbSchema(pageUrl, [{ name: ui.home, url: SITE.url + getLocalizedUrl(locale, '/') }, { name: page.seo.nameShort }]));
 if (page.faq && page.faq.items.length > 0) {
   schema['@graph'].push(faqSchema(pageUrl, page.faq.items));
 }
 
-const ogImage = (models[0] && getOgImagePath(models[0].thumb)) || '/og-image.jpg';
+const ogImage = (listed[0] && getOgImagePath(listed[0].image)) || '/og-image.jpg';
 
 // Hero-videónál a poszter az LCP-kép: előtöltjük (mobilon a négyzetes változatot).
 const heroVideo = page.hero.video;
@@ -75,7 +81,7 @@ const preload = heroVideo
     }
   : {};
 
-const trackItems = models.map((m, i) => ({
+const trackItems = listed.map((m, i) => ({
   item_id: m.sku,
   item_name: products.find((p) => (p.data.slug || p.id) === m.slug)?.data.name ?? m.name,
   item_category: page.slug,
@@ -95,9 +101,13 @@ const trackItems = models.map((m, i) => ({
     models={models}
     consultHref={consultHref}
     compareAnchor={compareAnchor}
+    catalogAnchor={catalogAnchor}
   />
   <UspStrip items={page.usp} />
-  <ModelRows title={page.models.title} lead={page.models.lead} models={models} />
+  {page.models && <ModelRows title={page.models.title} lead={page.models.lead} models={models} />}
+  {page.catalog && catalogAnchor && (
+    <CatalogGrid id={catalogAnchor} title={page.catalog.title} lead={page.catalog.lead} groups={catalogGroups} />
+  )}
   {page.reviews && <ReviewCards title={page.reviews.title} ctaHref={consultHref} />}
   {page.compare && compareAnchor && (
     <CompareTable

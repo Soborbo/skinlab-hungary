@@ -31,9 +31,11 @@ interface Props {
   consultHref: string;
   /** Az összehasonlító szekció horgonya; ha nincs, a sötét gomb elmarad. */
   compareAnchor?: string;
+  /** Katalógus-változat: a termékrács horgonya. Ilyenkor a fő gomb oda visz, a konzultáció a második. */
+  catalogAnchor?: string;
 }
 
-const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor } = Astro.props;
+const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor, catalogAnchor } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url);
 const ui = showcaseUi(locale);
 // Csempeoszlopok asztalon a gépek számához igazítva (ne maradjon üres hely).
@@ -50,7 +52,7 @@ const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') 
 const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-delay:.6s]', '[animation-delay:.7s]'];
 ---
 
-<section class="bg-blush">
+<section class="bg-blush" data-showcase-hero>
   <div class="grid grid-cols-1 dt:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] dt:min-h-[600px]">
     <div class="relative aspect-[39/46] bg-plum dt:order-2 dt:aspect-auto dt:overflow-hidden">
       {video ? (
@@ -102,10 +104,21 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
       <p class="m-0 max-w-[560px] text-[17px] max-dt:leading-[1.7] text-gray-700">{lead}</p>
 
       <div class="sl-rise [animation-delay:.3s] grid max-w-[520px] grid-cols-2 gap-3">
+        {catalogAnchor ? (
+          <>
+            <a href={`#${catalogAnchor}`} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-scroll-center>
+              {ui.catalogCta}
+            </a>
+            <a href={consultHref} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
+              {ui.consultCta}
+            </a>
+          </>
+        ) : (
         <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
           {ui.consultCta}
         </a>
-        {compareAnchor ? (
+        )}
+        {catalogAnchor ? null : compareAnchor ? (
           <a href={`#${compareAnchor}`} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-scroll-center>
             <ShowcaseIcon name="table" size={18} />
             {ui.compareCta}
@@ -136,7 +149,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
             <span class="mt-1.5 text-sm font-semibold">{single.price ? formatHuf(single.price) : ui.askPrice}</span>
           </span>
         </a>
-      ) : (
+      ) : models.length > 1 && (
       <ul class:list={['mt-2 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
         {models.map((m, i) => (
           <li class:list={['sl-pop', delays[i % delays.length]]}>

@@ -9,6 +9,7 @@ import { describe, it, expect } from 'vitest';
 import { SHOWCASE_CATEGORIES } from '@/data/categories';
 import { buildShowcaseConfig } from '@/lib/category-showcase';
 import { CATEGORY_AS_PRODUCT } from '@/lib/product-url';
+import manifest from '@/lib/image-manifest.json';
 import { showcaseUi } from '@/i18n/showcase';
 import type { Locale } from '@/i18n/ui';
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
@@ -43,14 +44,16 @@ describe.each(cases)('$slug / $locale', ({ slug, locale, category }) => {
   });
 
   it('csak létező, publikált termékre hivatkozik', () => {
-    for (const model of Object.keys(page.models.copy)) expect(live).toContain(model);
-    if (page.finance) expect(Object.keys(page.models.copy)).toContain(page.finance.defaultSlug);
-    for (const model of Object.keys(page.thumbs ?? {})) expect(Object.keys(page.models.copy)).toContain(model);
+    const modelSlugs = Object.keys(page.models?.copy ?? {});
+    for (const model of modelSlugs) expect(live).toContain(model);
+    if (page.finance) expect(modelSlugs).toContain(page.finance.defaultSlug);
+    for (const model of Object.keys(page.thumbs ?? {})) expect(modelSlugs).toContain(model);
+    for (const slug of (page.catalog?.groups ?? []).flatMap((g) => g.slugs)) expect(live, `katalógus: ${slug}`).toContain(slug);
   });
 
   it('minden modellnél megvan a táblázat szöveges cellája', () => {
     const keys = (page.compare?.rows ?? []).flatMap((r) => (r.source.kind === 'copy' ? [r.source.key] : []));
-    for (const [model, copy] of Object.entries(page.models.copy)) {
+    for (const [model, copy] of Object.entries(page.models?.copy ?? {})) {
       for (const key of keys) expect(copy.compare?.[key], `${model}.compare.${key}`).toBeTruthy();
     }
   });
@@ -65,6 +68,17 @@ describe('SHOWCASE_CATEGORIES', () => {
     // CATEGORY_AS_PRODUCT: ott a kategória URL-je maga a termékoldal (kosárral);
     // a showcase elérhetetlenné tenné a terméket.
     expect(Object.keys(SHOWCASE_CATEGORIES).filter((slug) => slug in CATEGORY_AS_PRODUCT)).toEqual([]);
+  });
+
+  it('minden kategóriakép szerepel a képmanifestben (különben törött kép)', () => {
+    // Az OptimizedPicture a manifestből dolgozik; hiányzó bejegyzésnél a nyers
+    // @assets/… útvonal kerül az oldalra. Új kép: scripts/generate-optimized-images.cjs.
+    const images = Object.values(SHOWCASE_CATEGORIES).flatMap(({ base }) => [
+      base.hero.image,
+      ...(base.whyBuy ? [base.whyBuy.image] : []),
+      ...Object.values(base.thumbs ?? {}),
+    ]);
+    expect(images.filter((src) => !(src in manifest))).toEqual([]);
   });
 });
 
