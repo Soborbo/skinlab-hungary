@@ -1,13 +1,8 @@
 ---
-import CategoryLayout from '../../layouts/CategoryLayout.astro';
-import { getCollection } from 'astro:content';
-import { getCategoryTranslation } from '../../data/category-translations';
-
-const category = getCategoryTranslation('hu', 'testkezeles');
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'testkezeles' && !data.draft;
-});
+/**
+ * Testkezelő kategóriaoldal (HU). Tartalom: src/data/categories/testkezeles/.
+ */
+import CategoryPage from '../../layouts/CategoryPage.astro';
 ---
 
-<CategoryLayout category={category} products={products} />
+<CategoryPage slug="testkezeles" locale="hu" />

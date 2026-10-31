@@ -47,6 +47,12 @@ export interface ShowcaseBase {
     image: string;
     video?: ShowcaseHeroVideo;
   };
+  /**
+   * Csempekép termékenként (slug → @assets/… fehér hátterű packshot), ha a
+   * termék fő képe (`image`) nem fehér hátterű. Ez megy a hero-csempére, a
+   * táblázat mobilkártyájára és a kalkulátorra.
+   */
+  thumbs?: Record<string, string>;
   /** USP-pontok ikonjai, sorrendben. */
   usp: ShowcaseIconName[];
   /** Összehasonlító sorok adatforrása, sorrendben (a címkék a szövegfájlban). */
@@ -106,6 +112,7 @@ export interface ShowcaseCategory {
  */
 export interface ShowcaseConfig {
   slug: string;
+  thumbs?: ShowcaseBase['thumbs'];
   seo: ShowcaseCopy['seo'];
   hero: ShowcaseCopy['hero'] & ShowcaseBase['hero'];
   usp: { icon: ShowcaseIconName; title: string; sub: string }[];

@@ -36,10 +36,14 @@ interface Props {
 const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url);
 const ui = showcaseUi(locale);
-// Csempeoszlopok asztalon a gépek számához igazítva (3 gépnél ne maradjon üres hely).
+// Csempeoszlopok asztalon a gépek számához igazítva (ne maradjon üres hely).
 // 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
 const three = models.length === 3;
-const tileCols = three ? 'grid-cols-3 gap-2.5 dt:grid-cols-3' : 'grid-cols-2 gap-3 dt:grid-cols-4';
+const tileCols = three
+  ? 'grid-cols-3 gap-2.5 dt:grid-cols-3'
+  : models.length === 2
+    ? 'grid-cols-2 gap-3 dt:max-w-[400px]'
+    : 'grid-cols-2 gap-3 dt:grid-cols-4';
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-delay:.6s]', '[animation-delay:.7s]'];
 ---
