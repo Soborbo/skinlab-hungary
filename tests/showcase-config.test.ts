@@ -9,6 +9,7 @@ import { describe, it, expect } from 'vitest';
 import { SHOWCASE_CATEGORIES } from '@/data/categories';
 import { buildShowcaseConfig } from '@/lib/category-showcase';
 import { CATEGORY_AS_PRODUCT } from '@/lib/product-url';
+import manifest from '@/lib/image-manifest.json';
 import { showcaseUi } from '@/i18n/showcase';
 import type { Locale } from '@/i18n/ui';
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
@@ -67,6 +68,17 @@ describe('SHOWCASE_CATEGORIES', () => {
     // CATEGORY_AS_PRODUCT: ott a kategória URL-je maga a termékoldal (kosárral);
     // a showcase elérhetetlenné tenné a terméket.
     expect(Object.keys(SHOWCASE_CATEGORIES).filter((slug) => slug in CATEGORY_AS_PRODUCT)).toEqual([]);
+  });
+
+  it('minden kategóriakép szerepel a képmanifestben (különben törött kép)', () => {
+    // Az OptimizedPicture a manifestből dolgozik; hiányzó bejegyzésnél a nyers
+    // @assets/… útvonal kerül az oldalra. Új kép: scripts/generate-optimized-images.cjs.
+    const images = Object.values(SHOWCASE_CATEGORIES).flatMap(({ base }) => [
+      base.hero.image,
+      ...(base.whyBuy ? [base.whyBuy.image] : []),
+      ...Object.values(base.thumbs ?? {}),
+    ]);
+    expect(images.filter((src) => !(src in manifest))).toEqual([]);
   });
 });
 
