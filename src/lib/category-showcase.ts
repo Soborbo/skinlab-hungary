@@ -234,6 +234,10 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
   const whyBuy = pair(at('whyBuy'), base.whyBuy, copy.whyBuy);
   const finance = pair(at('finance'), base.finance, copy.finance);
   const training = pair(at('training'), base.training, copy.training);
+  const catalog = pair(at('catalog'), base.catalog, copy.catalog);
+  if (!copy.models === !catalog) {
+    throw new Error(`[showcase] ${at('models/catalog')}: pontosan az egyik kell (gépsor vagy katalógus)`);
+  }
 
   return {
     slug: base.slug,
@@ -242,6 +246,11 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
     hero: { ...copy.hero, ...base.hero },
     usp: zip(at('usp'), base.usp, copy.usp, (icon, text) => ({ icon, ...text })),
     models: copy.models,
+    catalog: catalog && {
+      title: catalog[1].title,
+      lead: catalog[1].lead,
+      groups: zip(at('catalog'), catalog[0].groups, catalog[1].groups, (slugs, text) => ({ ...text, slugs })),
+    },
     reviews: copy.reviews,
     compare: compare && {
       title: compare[1].title,
@@ -263,4 +272,61 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
     faq: copy.faq,
     visit: copy.visit,
   };
+}
+
+/** Egy katalóguskártya: a termék adatai a kosárba gombhoz és a listához. */
+export interface CatalogItem {
+  slug: string;
+  name: string;
+  sku: string;
+  price: number | null;
+  href: string;
+  image: string;
+  categorySlug: string;
+  availability: Product['data']['availability'];
+  variants: { sku: string; available?: boolean }[];
+}
+
+/**
+ * Katalógus-csoportok a konfig sorrendjében, csak publikált termékkel. A
+ * csoportba nem sorolt termékek a végén egy `restTitle` című csoportba
+ * kerülnek (ár szerint), így egy új termék sem tűnik el az oldalról.
+ */
+export function buildCatalogGroups(
+  products: Product[],
+  groups: { title: string; subtitle?: string; slugs: string[] }[],
+  locale: Locale,
+  restTitle: string,
+): { title: string; subtitle?: string; items: CatalogItem[] }[] {
+  const bySlug = new Map(products.map((p) => [p.data.slug || p.id, p]));
+  const toItem = (product: Product): CatalogItem => {
+    const { data } = product;
+    const slug = data.slug || product.id;
+    return {
+      slug,
+      name: data.name,
+      sku: data.sku || product.id,
+      price: data.price ?? null,
+      href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
+      image: data.image,
+      categorySlug: data.categorySlug,
+      availability: data.availability,
+      variants: data.variants ?? [],
+    };
+  };
+  const placed = new Set(groups.flatMap((g) => g.slugs));
+  const rest = products
+    .filter((p) => !placed.has(p.data.slug || p.id))
+    .sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity));
+  return [
+    ...groups.map((g) => ({
+      title: g.title,
+      subtitle: g.subtitle,
+      items: g.slugs.flatMap((slug) => {
+        const product = bySlug.get(slug);
+        return product ? [toItem(product)] : [];
+      }),
+    })),
+    ...(rest.length ? [{ title: restTitle, items: rest.map(toItem) }] : []),
+  ].filter((g) => g.items.length > 0);
 }

@@ -42,14 +42,16 @@ describe.each(cases)('$slug / $locale', ({ slug, locale, category }) => {
   });
 
   it('csak létező, publikált termékre hivatkozik', () => {
-    for (const model of Object.keys(page.models.copy)) expect(live).toContain(model);
-    if (page.finance) expect(Object.keys(page.models.copy)).toContain(page.finance.defaultSlug);
-    for (const model of Object.keys(page.thumbs ?? {})) expect(Object.keys(page.models.copy)).toContain(model);
+    const modelSlugs = Object.keys(page.models?.copy ?? {});
+    for (const model of modelSlugs) expect(live).toContain(model);
+    if (page.finance) expect(modelSlugs).toContain(page.finance.defaultSlug);
+    for (const model of Object.keys(page.thumbs ?? {})) expect(modelSlugs).toContain(model);
+    for (const slug of (page.catalog?.groups ?? []).flatMap((g) => g.slugs)) expect(live, `katalógus: ${slug}`).toContain(slug);
   });
 
   it('minden modellnél megvan a táblázat szöveges cellája', () => {
     const keys = (page.compare?.rows ?? []).flatMap((r) => (r.source.kind === 'copy' ? [r.source.key] : []));
-    for (const [model, copy] of Object.entries(page.models.copy)) {
+    for (const [model, copy] of Object.entries(page.models?.copy ?? {})) {
       for (const key of keys) expect(copy.compare?.[key], `${model}.compare.${key}`).toBeTruthy();
     }
   });

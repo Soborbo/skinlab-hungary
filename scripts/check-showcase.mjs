@@ -12,7 +12,7 @@
  * Mit néz: a H1 asztalon pontosan 2, mobilon legfeljebb 3 sor; nincs árva szó
  * a címek (h1-h3) utolsó sorában; nem törik két sorba gomb; nincs vízszintes
  * túlcsordulás; a nem törő (nowrap) elemek kiférnek; nincs JS-hiba. Az oldalakat
- * a dist-ből gyűjti (amelyikben van #modellek szekció), így egy új kategória
+ * a dist-ből gyűjti (amelyikben van showcase hero: data-showcase-hero), így egy új kategória
  * vagy nyelv magától bekerül.
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs';
@@ -30,7 +30,7 @@ function showcasePages(dir) {
   for (const name of readdirSync(dir)) {
     const path = join(dir, name);
     if (statSync(path).isDirectory()) out.push(...showcasePages(path));
-    else if (name === 'index.html' && readFileSync(path, 'utf8').includes('id="modellek"')) {
+    else if (name === 'index.html' && readFileSync(path, 'utf8').includes('data-showcase-hero')) {
       out.push('/' + relative(DIST, dir).split(sep).join('/') + '/');
     }
   }

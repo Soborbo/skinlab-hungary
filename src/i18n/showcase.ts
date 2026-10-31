@@ -21,6 +21,10 @@ export interface ShowcaseUi {
   modelDetails: (name: string) => string;
   /** Egytermékes hero második gombja (a név a kártyán áll, a gomb rövid marad). */
   singleDetails: string;
+  /** Katalógus-változat: a hero gombja a termékrácshoz. */
+  catalogCta: string;
+  /** A csoportba nem sorolt termékek csoportja. */
+  catalogRest: string;
   whenTitle: string;
   installmentTeaser: (monthly: string, months: number) => string;
   reviewsCta: string;
@@ -80,6 +84,8 @@ const hu: ShowcaseUi = {
   details: 'Részletek',
   modelDetails: (name) => `${name} részletei`,
   singleDetails: 'A gép részletei',
+  catalogCta: 'A termékek',
+  catalogRest: 'További termékek',
   whenTitle: 'Neked való, ha…',
   installmentTeaser: (monthly, months) => `vagy 50% előleg + ${monthly}/hó (${months} hó)`,
   reviewsCta: 'Én is ilyen gépet szeretnék',

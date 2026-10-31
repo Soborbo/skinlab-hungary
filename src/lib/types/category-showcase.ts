@@ -20,7 +20,8 @@ export type ShowcaseIconName =
   | 'play'
   | 'check'
   | 'sparkles'
-  | 'scan';
+  | 'scan'
+  | 'truck';
 
 /** Néma, ismétlődő hero-videó (HeroVideo.astro). Útvonalak a public/ alól. */
 export interface ShowcaseHeroVideo {
@@ -53,6 +54,13 @@ export interface ShowcaseBase {
    * táblázat mobilkártyájára és a kalkulátorra.
    */
   thumbs?: Record<string, string>;
+  /**
+   * Katalógus-változat (fogyóanyag, kellék): gépsor helyett csoportosított
+   * termékrács kosárba gombbal. Csoportonként a termékek slugja a megjelenítés
+   * sorrendjében; a csoportcímek a szövegfájlban. A csoportba nem sorolt
+   * publikált termék a „További termékek” csoportba kerül, nem tűnik el.
+   */
+  catalog?: { groups: string[][] };
   /** USP-pontok ikonjai, sorrendben. */
   usp: ShowcaseIconName[];
   /** Összehasonlító sorok adatforrása, sorrendben (a címkék a szövegfájlban). */
@@ -78,7 +86,9 @@ export interface ShowcaseCopy {
     imageAlt: string;
   };
   usp: { title: string; sub: string }[];
-  models: { title: string; lead: string; copy: Record<string, ShowcaseModelCopy> };
+  /** Gépes kategória: modellsorok. Katalógus-változatnál helyette `catalog`. */
+  models?: { title: string; lead: string; copy: Record<string, ShowcaseModelCopy> };
+  catalog?: { title: string; lead: string; groups: { title: string; subtitle?: string }[] };
   reviews?: { title: string };
   compare?: {
     title: string;
@@ -116,7 +126,8 @@ export interface ShowcaseConfig {
   seo: ShowcaseCopy['seo'];
   hero: ShowcaseCopy['hero'] & ShowcaseBase['hero'];
   usp: { icon: ShowcaseIconName; title: string; sub: string }[];
-  models: ShowcaseCopy['models'];
+  models?: ShowcaseCopy['models'];
+  catalog?: { title: string; lead: string; groups: { title: string; subtitle?: string; slugs: string[] }[] };
   reviews?: { title: string };
   compare?: {
     title: string;
