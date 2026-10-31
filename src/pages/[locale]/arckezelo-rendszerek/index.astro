@@ -1,10 +1,10 @@
 ---
-/**
- * Arckezelő rendszerek kategóriaoldal, nem magyar nyelvek. Ahol van szövegfájl
- * (src/data/categories/arckezelo-rendszerek/<nyelv>.ts), az új elrendezés jelenik meg, máshol a régi.
- */
-import CategoryPage from '../../../layouts/CategoryPage.astro';
-import { locales, defaultLocale, type Locale } from '../../../i18n/ui';
+import CategoryLayout from '../../../layouts/CategoryLayout.astro';
+import { getCollection } from 'astro:content';
+import { locales, defaultLocale } from '../../../i18n/ui';
+import { getCategoryTranslation } from '../../../data/category-translations';
+import ProductLayout from '../../../layouts/ProductLayout.astro';
+import { buildProductData } from '../../../lib/product-data';
 
 export function getStaticPaths() {
   return locales
@@ -12,7 +12,19 @@ export function getStaticPaths() {
     .map((locale) => ({ params: { locale } }));
 }
 
-const locale = Astro.params.locale as Locale;
+const { locale } = Astro.params;
+const category = getCategoryTranslation(locale!, 'arckezelo-rendszerek');
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === 'arckezelo-rendszerek' && !data.draft;
+});
+
+// Egyetlen élő termék = a termékoldal áll a kategória URL-jén (lásd a HU route-ot).
+const soleProduct = products.length === 1 ? products[0] : undefined;
 ---
 
-<CategoryPage slug="arckezelo-rendszerek" locale={locale} />
+{soleProduct ? (
+  <ProductLayout product={buildProductData(soleProduct)} />
+) : (
+  <CategoryLayout category={category} products={products} />
+)}

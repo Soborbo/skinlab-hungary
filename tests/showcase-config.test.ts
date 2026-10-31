@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { SHOWCASE_CATEGORIES } from '@/data/categories';
 import { buildShowcaseConfig } from '@/lib/category-showcase';
+import { CATEGORY_AS_PRODUCT } from '@/lib/product-url';
 import { showcaseUi } from '@/i18n/showcase';
 import type { Locale } from '@/i18n/ui';
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
@@ -58,6 +59,14 @@ describe.each(cases)('$slug / $locale', ({ slug, locale, category }) => {
 
   it('nincs benne em-dash (gondolatjel helyett kötőjel)', () => {
     expect(strings(category.copy[locale]).filter((s) => s.includes('—'))).toEqual([]);
+  });
+});
+
+describe('SHOWCASE_CATEGORIES', () => {
+  it('nem tartalmaz olyan kategóriát, amelynek URL-jén a termékoldal áll', () => {
+    // CATEGORY_AS_PRODUCT: ott a kategória URL-je maga a termékoldal (kosárral);
+    // a showcase elérhetetlenné tenné a terméket.
+    expect(Object.keys(SHOWCASE_CATEGORIES).filter((slug) => slug in CATEGORY_AS_PRODUCT)).toEqual([]);
   });
 });
 
