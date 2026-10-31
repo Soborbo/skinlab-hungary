@@ -7,6 +7,8 @@
 import FounderAvatars from './FounderAvatars.astro';
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { compareValue, type CompareRow, type ShowcaseModel } from '@/lib/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   id: string;
@@ -19,6 +21,7 @@ interface Props {
 }
 
 const { id, title, lead, rows, models, help, consultHref } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 ---
 
 <section id={id} class="scroll-mt-24 bg-white py-20 dt:py-[88px]">
@@ -41,11 +44,11 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
             {rows.map((row) => (
               <div>
                 <dt class="text-[13.5px] text-gray-500">{row.label}</dt>
-                <dd class="m-0 mt-1 text-[15px] leading-snug text-gray-900">{compareValue(m, row.source)}</dd>
+                <dd class="m-0 mt-1 text-[15px] leading-snug text-gray-900">{compareValue(m, row.source, ui.askPrice)}</dd>
               </div>
             ))}
           </dl>
-          <a href={`#${m.slug}`} class="sl-tlink mt-auto self-start text-sm text-primary-700" data-scroll-center>Részletek</a>
+          <a href={`#${m.slug}`} class="sl-tlink mt-auto self-start text-sm text-primary-700" data-scroll-center>{ui.details}</a>
         </li>
       ))}
     </ul>
@@ -69,7 +72,7 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
             <tr class="ct-row border-t border-[#f3e4e9]">
               <th scope="row" class="px-3 py-4 text-left font-medium text-gray-500">{row.label}</th>
               {models.map((m) => (
-                <td class="px-3 py-4 text-center text-gray-900">{compareValue(m, row.source)}</td>
+                <td class="px-3 py-4 text-center text-gray-900">{compareValue(m, row.source, ui.askPrice)}</td>
               ))}
             </tr>
           ))}
@@ -77,7 +80,7 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
             <td></td>
             {models.map((m) => (
               <td class="rounded-b-xl px-2.5 pt-3.5 pb-[18px] text-center">
-                <a href={`#${m.slug}`} class="sl-tlink text-sm text-primary-700" data-scroll-center>Részletek</a>
+                <a href={`#${m.slug}`} class="sl-tlink text-sm text-primary-700" data-scroll-center>{ui.details}</a>
               </td>
             ))}
           </tr>
@@ -91,7 +94,7 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
         <div class="font-semibold text-gray-900">{help.title}</div>
         <div class="mt-1 text-[14px] max-dt:leading-[1.6] text-gray-600 dt:mt-0 dt:text-[13.5px]">{help.text}</div>
       </div>
-      <a href={consultHref} class="sl-btn sl-btn-pink" data-event="category-consultation-cta-click">Ingyenes konzultáció</a>
+      <a href={consultHref} class="sl-btn sl-btn-pink" data-event="category-consultation-cta-click">{ui.consultCta}</a>
     </div>
   </div>
 </section>

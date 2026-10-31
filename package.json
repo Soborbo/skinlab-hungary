@@ -10,6 +10,7 @@
     "typecheck": "astro check",
     "test": "vitest run",
     "test:watch": "vitest",
+    "check:showcase": "node scripts/check-showcase.mjs",
     "deploy": "wrangler deploy --config dist/server/wrangler.json --keep-vars",
     "deploy:dry": "wrangler deploy --config dist/server/wrangler.json --keep-vars --dry-run",
     "generate:images": "node scripts/generate-optimized-images.cjs",

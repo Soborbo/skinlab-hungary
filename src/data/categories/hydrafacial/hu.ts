@@ -1,13 +1,13 @@
 /**
- * Hydrafacial kategóriaoldal (HU) - szerkesztői szöveg a CategoryShowcaseLayouthoz.
+ * Hydrafacial kategóriaoldal - magyar szöveg (képek, ikonok, adatforrások: ./index.ts).
  *
  * A diódás canvas (1tR5gxCsz53ehibuSLPEGD) sablonja szerint. Saját canvas nincs:
  * a szöveg a korábbi kategóriaoldal jóváhagyott tartalmából (előnyök, GYIK,
  * összehasonlítás), a termék-JSON-okból és a hero-videó felirataiból készült.
  * Ár, specifikáció és kép a termék-JSON-okból jön.
  */
-import type { CompareRow, ShowcaseModelCopy } from '@/lib/category-showcase';
-import type { ShowcaseConfig } from '@/lib/types/category-showcase';
+import type { ShowcaseModelCopy } from '@/lib/category-showcase';
+import type { ShowcaseCopy } from '@/lib/types/category-showcase';
 
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
@@ -63,17 +63,7 @@ const models: Record<string, ShowcaseModelCopy> = {
   },
 };
 
-const compareRows: CompareRow[] = [
-  { label: 'Ár', source: { kind: 'price' } },
-  { label: 'Technológia', source: { kind: 'copy', key: 'tech' } },
-  { label: 'Kezelőfejek', source: { kind: 'copy', key: 'heads' } },
-  { label: 'AI bőranalízis', source: { kind: 'copy', key: 'ai' } },
-  { label: 'Garancia', source: { kind: 'spec', keys: ['Garancia'] } },
-  { label: 'Kinek ajánljuk', source: { kind: 'forWho' } },
-];
-
-export const hydrafacialShowcase: ShowcaseConfig = {
-  slug: 'hydrafacial',
+export const hu: ShowcaseCopy = {
   seo: {
     name: 'Hidrodermabrázió és multifunkcionális gépek',
     nameShort: 'Hydrafacial gépek',
@@ -82,21 +72,13 @@ export const hydrafacialShowcase: ShowcaseConfig = {
   hero: {
     titleLines: ['Hydrafacial gép, amitől', 'ragyog a vendég bőre.'],
     lead: 'Mélytisztítás, hidratálás és bőrfiatalítás egy készülékben, látványos eredménnyel már az első kezelés után. Segítünk kiválasztani a szalonodhoz illő gépet, betanítunk, és ha kell, megjavítjuk.',
-    image: '@assets/hydrafacial-kezeles.jpg',
     imageAlt: 'HydraScan PRO+ gépkezelői képzés a Skinlab bemutatótermében',
-    video: {
-      desktop: '/videos/hydrafacial/hydrafacial-kepzes-1280.mp4',
-      mobile: '/videos/hydrafacial/hydrafacial-kepzes-720sq.mp4',
-      poster: '/videos/hydrafacial/hydrafacial-kepzes-poster',
-      posterMobile: '/videos/hydrafacial/hydrafacial-kepzes-poster-sq',
-      posterSize: { width: 1280, height: 720 },
-    },
   },
   usp: [
-    { icon: 'shield', title: '2 év teljes körű garancia', sub: 'minden új gépre' },
-    { icon: 'academic', title: 'Egyéni gépkezelői képzés', sub: 'a bemutatótermünkben' },
-    { icon: 'wrench', title: 'Saját magyar szerviz', sub: 'gyors javítás Érden' },
-    { icon: 'wallet', title: '0% THM részletfizetés', sub: '50% előleg + havi részletek' },
+    { title: '2 év teljes körű garancia', sub: 'minden új gépre' },
+    { title: 'Egyéni gépkezelői képzés', sub: 'a bemutatótermünkben' },
+    { title: 'Saját magyar szerviz', sub: 'gyors javítás Érden' },
+    { title: '0% THM részletfizetés', sub: '50% előleg + havi részletek' },
   ],
   models: {
     title: 'Melyik illik a te szalonodhoz?',
@@ -107,7 +89,7 @@ export const hydrafacialShowcase: ShowcaseConfig = {
   compare: {
     title: 'Műszaki összehasonlítás',
     lead: 'Egy pillantás alatt a fő különbségek',
-    rows: compareRows,
+    labels: ['Ár', 'Technológia', 'Kezelőfejek', 'AI bőranalízis', 'Garancia', 'Kinek ajánljuk'],
     help: {
       title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
       text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
@@ -116,26 +98,21 @@ export const hydrafacialShowcase: ShowcaseConfig = {
   whyBuy: {
     title: 'Miért éri meg hydrafacial gépet venni?',
     lead: 'Amit a vásárlás előtt érdemes végiggondolni.',
-    image: '@assets/hydrafacial-kezeles.jpg',
     imageAlt: 'Hidrodermabráziós arckezelés egy Skinlab készülékkel a szalonban',
     items: [
       {
-        icon: 'sparkles',
         title: 'Azonnali eredmény',
         text: 'Már az első kezelés után látványosan szebb, ragyogóbb a bőr. A vendég azonnal érzi a különbséget.',
       },
       {
-        icon: 'layers',
         title: 'Sokoldalú kezelések',
         text: 'Tisztítás, hidratálás, anti-aging és pigmentfolt-kezelés egy géppel.',
       },
       {
-        icon: 'banknote',
         title: 'Jól árazható kezelés',
         text: 'Hydrafacial kezelésért 15-30 000 Ft-ot is elkérhetnek a szalonok, így a gép gyorsan megtérülhet.',
       },
       {
-        icon: 'scan',
         title: 'Bőranalízis a vendég előtt',
         text: 'A HydraScan PRO+ 4K kamerája megmutatja a bőr állapotát, és ez alapján ajánl kezelést és otthoni rutint.',
       },
@@ -145,15 +122,12 @@ export const hydrafacialShowcase: ShowcaseConfig = {
     title: 'Nem kell egy összegben kifizetned.',
     lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3 vagy 6 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
     perks: ['0% THM', 'Nincs kezelési díj', 'Nincs rejtett költség'],
-    defaultSlug: 'hydralume',
     cta: 'Pontos ajánlatot kérek',
   },
-  video: { id: 'adri', posterSrc: '/images/video/zsidai-adri-poster.jpg' },
   training: {
     titleLines: ['Nem egyedül tanulod meg.', 'Mindent megtanítunk neked.'],
     text: 'Egyéni gépkezelői képzés a bemutatótermünkben: átadjuk a saját, bevált technikánkat, és a képzés után is számíthatsz a szakmai támogatásunkra.',
     cta: 'Képzéseink',
-    href: '/kepzesek',
   },
   consult: {
     title: 'Nem tudod, melyik gép való neked?',

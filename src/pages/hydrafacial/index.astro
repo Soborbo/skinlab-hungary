@@ -1,16 +1,8 @@
 ---
 /**
- * Hydrafacial kategóriaoldal (HU) - showcase-elrendezés, hero-videóval.
- * Szöveg: src/data/categories/hydrafacial.ts; ár, specifikáció, kép: termék-JSON.
- * A [locale] változatok egyelőre a régi CategoryLayouton maradnak.
+ * Hydrafacial kategóriaoldal (HU). Tartalom: src/data/categories/hydrafacial/.
  */
-import CategoryShowcaseLayout from '../../layouts/CategoryShowcaseLayout.astro';
-import { getCollection } from 'astro:content';
-import { hydrafacialShowcase } from '../../data/categories/hydrafacial';
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'hydrafacial' && !data.draft;
-});
+import CategoryPage from '../../layouts/CategoryPage.astro';
 ---
 
-<CategoryShowcaseLayout page={hydrafacialShowcase} products={products} />
+<CategoryPage slug="hydrafacial" locale="hu" />

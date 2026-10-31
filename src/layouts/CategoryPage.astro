@@ -1,0 +1,36 @@
+---
+/**
+ * Kategória-indexoldal belépési pontja (HU és [locale] oldalak).
+ *
+ * Ha a kategória szerepel a src/data/categories/index.ts-ben, és az adott
+ * nyelvhez van szövegfájl, az új CategoryShowcaseLayout jelenik meg; minden
+ * más esetben a régi CategoryLayout a category-translations szövegével. Így
+ * egy kategória nyelvenként, egy szövegfájl hozzáadásával vált át.
+ */
+import { getCollection } from 'astro:content';
+import CategoryLayout from './CategoryLayout.astro';
+import CategoryShowcaseLayout from './CategoryShowcaseLayout.astro';
+import { SHOWCASE_CATEGORIES } from '@/data/categories';
+import { getCategoryTranslation } from '@/data/category-translations';
+import { buildShowcaseConfig } from '@/lib/category-showcase';
+import type { Locale } from '@/i18n/ui';
+
+interface Props {
+  slug: string;
+  locale: Locale;
+}
+
+const { slug, locale } = Astro.props;
+const showcase = SHOWCASE_CATEGORIES[slug];
+const page = showcase ? buildShowcaseConfig(showcase, locale) : null;
+
+const products = await getCollection('products', ({ data }) => {
+  return data.categorySlug === slug && !data.draft;
+});
+---
+
+{page ? (
+  <CategoryShowcaseLayout page={page} locale={locale} products={products} />
+) : (
+  <CategoryLayout category={getCategoryTranslation(locale, slug)} products={products} />
+)}

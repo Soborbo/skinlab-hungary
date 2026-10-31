@@ -15,6 +15,8 @@ import HeroVideo from './HeroVideo.astro';
 import { GOOGLE_RATING } from '@/lib/constants';
 import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
 import type { ShowcaseHeroVideo } from '@/lib/types/category-showcase';
+import { getLocaleFromUrl, getLocalizedUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   titleLines: [string, string];
@@ -32,6 +34,8 @@ interface Props {
 }
 
 const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const ui = showcaseUi(locale);
 // Csempeoszlopok asztalon a gépek számához igazítva (3 gépnél ne maradjon üres hely).
 // 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
 const three = models.length === 3;
@@ -68,16 +72,16 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               <strong class="text-[22px] text-gray-900">{rating}</strong>
               <span class="text-[15px] tracking-[1px] text-[#fbbc04]" aria-hidden="true">★★★★★</span>
             </span>
-            <span class="text-xs text-gray-600">Google-értékelések</span>
+            <span class="text-xs text-gray-600">{ui.googleReviews}</span>
           </span>
         </a>
       )}
     </div>
 
     <div class="flex flex-col gap-6 px-6 pt-[58px] pb-14 dt:order-1 dt:justify-center dt:gap-5 dt:py-10 dt:pr-12 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-20">
-      <nav aria-label="Morzsamenü" class="text-[13px] text-gray-600">
+      <nav aria-label={ui.breadcrumb} class="text-[13px] text-gray-600">
         <ol class="flex flex-wrap items-center gap-1.5">
-          <li><a href="/" class="text-gray-600 hover:text-primary-700">Főoldal</a></li>
+          <li><a href={getLocalizedUrl(locale, '/')} class="text-gray-600 hover:text-primary-700">{ui.home}</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-gray-900" aria-current="page">{crumb}</li>
         </ol>
@@ -93,12 +97,12 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
 
       <div class="sl-rise [animation-delay:.3s] grid max-w-[520px] grid-cols-2 gap-3">
         <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
-          Ingyenes konzultáció
+          {ui.consultCta}
         </a>
         {compareAnchor && (
           <a href={`#${compareAnchor}`} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-scroll-center>
             <ShowcaseIcon name="table" size={18} />
-            Összehasonlítás
+            {ui.compareCta}
           </a>
         )}
       </div>
@@ -114,7 +118,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[100px]' : 'h-[140px]']}>
                 <OptimizedPicture
                   src={m.thumb}
-                  alt={`${m.name} diódalézer`}
+                  alt={m.fullName}
                   widths={[160, 320]}
                   sizes="150px"
                   class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -124,7 +128,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
                 <span class:list={['font-bold dt:text-sm', three ? 'text-[13px] leading-tight' : 'text-sm']}>
                   {m.name} {m.keySpec && <span class:list={['text-xs font-medium whitespace-nowrap text-gray-500', three && 'block']}>{m.keySpec}</span>}
                 </span>
-                <span class="mt-auto text-[13px] font-semibold">{m.price ? formatHuf(m.price) : 'Kérj ajánlatot'}</span>
+                <span class="mt-auto text-[13px] font-semibold">{m.price ? formatHuf(m.price) : ui.askPrice}</span>
               </span>
             </a>
           </li>

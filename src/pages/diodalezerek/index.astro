@@ -1,16 +1,8 @@
 ---
 /**
- * Diódalézerek kategóriaoldal (HU) - új showcase-elrendezés.
- * Szöveg: src/data/categories/diodalezerek.ts; ár, specifikáció, kép: termék-JSON.
- * A [locale] változatok egyelőre a régi CategoryLayouton maradnak.
+ * Diódalézerek kategóriaoldal (HU). Tartalom: src/data/categories/diodalezerek/.
  */
-import CategoryShowcaseLayout from '../../layouts/CategoryShowcaseLayout.astro';
-import { getCollection } from 'astro:content';
-import { diodalezerekShowcase } from '../../data/categories/diodalezerek';
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'diodalezerek' && !data.draft;
-});
+import CategoryPage from '../../layouts/CategoryPage.astro';
 ---
 
-<CategoryShowcaseLayout page={diodalezerekShowcase} products={products} />
+<CategoryPage slug="diodalezerek" locale="hu" />
