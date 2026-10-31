@@ -16,9 +16,11 @@ import { GOOGLE_REVIEWS } from '@/data/google-reviews';
 
 interface Props {
   title: string;
+  /** Mobilon a szekció végén megjelenő CTA célja. */
+  ctaHref?: string;
 }
 
-const { title } = Astro.props;
+const { title, ctaHref } = Astro.props;
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const initials = (name: string): string => name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 const reviews = GOOGLE_REVIEWS.slice(0, 3);
@@ -44,8 +46,10 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
       */}
       <div class="grid max-w-[1080px] flex-1 grid-cols-1 items-stretch gap-6 dt:grid-cols-3 dt:gap-5" aria-live="polite" data-rv-grid>
         {reviews.map((review, i) => (
-          <article class="rv-card sl-lift flex flex-col gap-4 rounded-[18px] bg-white p-7 dt:gap-3.5 dt:p-6">
-            <div class="flex items-center gap-3">
+          <article class="rv-card sl-lift flex flex-col gap-4 rounded-[14px] bg-white p-7 dt:gap-3.5 dt:rounded-[18px] dt:p-6">
+            <div class="relative h-8 dt:hidden" aria-hidden="true"><span class="absolute -top-10 left-0 font-heading text-[80px] leading-none text-primary-300">„</span></div>
+            {/* Mobilon a szerző a kártya végére kerül. */}
+            <div class="flex items-center gap-3 max-dt:order-last max-dt:mt-1">
               {review.avatar ? (
                 <img src={review.avatar} alt="" width="44" height="44" loading="lazy" decoding="async" class="h-11 w-11 shrink-0 rounded-full object-cover" />
               ) : (
@@ -57,7 +61,7 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
               </div>
               <GoogleMark size={18} />
             </div>
-            <p class="rv-text m-0 whitespace-pre-line text-[15px] max-dt:leading-[1.7] text-gray-700" lang="hu" id={`rv-text-${i}`}>{review.text}</p>
+            <p class="rv-text m-0 whitespace-pre-line text-base max-dt:leading-[1.7] dt:text-[15px] text-gray-700" lang="hu" id={`rv-text-${i}`}>{review.text}</p>
             <button type="button" class="rv-more sl-tlink mt-auto hidden self-start text-sm text-primary-700" aria-controls={`rv-text-${i}`} aria-expanded="false">
               Tovább olvasom
             </button>
@@ -68,6 +72,9 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
       <button type="button" class="rv-nav max-dt:hidden" data-rv-step="1" aria-label="Következő vélemény">›</button>
       */}
     </div>
+    {ctaHref && (
+      <a href={ctaHref} class="sl-btn sl-btn-pink mt-8 w-full dt:hidden" data-event="category-consultation-cta-click">Én is ilyen gépet szeretnék</a>
+    )}
     {/*
     <div class="mt-6 flex items-center justify-center gap-3.5 dt:hidden">
       <button type="button" class="rv-nav" data-rv-step="-1" aria-label="Előző vélemény">‹</button>

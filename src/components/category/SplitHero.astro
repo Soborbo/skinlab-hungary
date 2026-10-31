@@ -42,7 +42,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
 
 <section class="bg-blush">
   <div class="grid grid-cols-1 dt:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] dt:min-h-[600px]">
-    <div class="relative aspect-square overflow-hidden bg-plum dt:order-2 dt:aspect-auto">
+    <div class="relative aspect-[39/46] bg-plum dt:order-2 dt:aspect-auto dt:overflow-hidden">
       {video ? (
         <HeroVideo {...video} alt={imageAlt} />
       ) : (
@@ -60,7 +60,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         <a
           href="#velemenyek"
           data-scroll-center
-          class="sl-rise [animation-delay:.5s] absolute bottom-3 left-3 flex items-center gap-3 rounded-[14px] bg-white px-3.5 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,.18)] dt:bottom-6 dt:left-6 dt:px-[18px] dt:py-3"
+          class="sl-rise [animation-delay:.5s] absolute -bottom-[26px] left-6 z-10 flex items-center gap-3 rounded-[14px] bg-white px-[18px] py-3 shadow-[0_10px_30px_rgba(0,0,0,.14)] dt:bottom-6 dt:left-6 dt:px-[18px] dt:py-3"
         >
           <GoogleMark size={30} />
           <span class="flex flex-col leading-tight">
@@ -74,7 +74,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
       )}
     </div>
 
-    <div class="flex flex-col gap-6 px-6 pt-9 pb-14 dt:order-1 dt:justify-center dt:gap-5 dt:py-10 dt:pr-12 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-20">
+    <div class="flex flex-col gap-6 px-6 pt-[58px] pb-14 dt:order-1 dt:justify-center dt:gap-5 dt:py-10 dt:pr-12 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-20">
       <nav aria-label="Morzsamenü" class="text-[13px] text-gray-600">
         <ol class="flex flex-wrap items-center gap-1.5">
           <li><a href="/" class="text-gray-600 hover:text-primary-700">Főoldal</a></li>
@@ -83,9 +83,10 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         </ol>
       </nav>
 
-      <h1 class="m-0 font-heading text-[36px] font-normal leading-[1.15] dt:leading-[1.1] tracking-[-0.01em] text-gray-900 dt:whitespace-nowrap dt:text-[clamp(2.1rem,3.35vw,3rem)]">
-        <span class="block">{titleLines[0]}</span>
-        <span class="block text-primary-700">{titleLines[1]}</span>
+      <h1 class="m-0 font-heading text-[40px] font-normal leading-[1.15] dt:leading-[1.1] tracking-[-0.01em] text-gray-900 dt:whitespace-nowrap dt:text-[clamp(2.1rem,3.35vw,3rem)]">
+        {/* Mobilon egy folyó mondat (max. 3 sor), asztalon fixen 2 sor. */}
+        <span class="dt:block">{titleLines[0]}</span>{' '}
+        <span class="dt:block dt:text-primary-700">{titleLines[1]}</span>
       </h1>
 
       <p class="m-0 max-w-[560px] text-[17px] max-dt:leading-[1.7] text-gray-700">{lead}</p>
@@ -110,7 +111,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               data-scroll-center
               class="sl-lift group flex h-full flex-col overflow-hidden rounded-[14px] bg-white text-gray-900"
             >
-              <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[84px]' : 'h-[104px]']}>
+              <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[100px]' : 'h-[140px]']}>
                 <OptimizedPicture
                   src={m.thumb}
                   alt={`${m.name} diódalézer`}

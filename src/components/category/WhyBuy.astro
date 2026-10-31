@@ -5,6 +5,8 @@ import ShowcaseIcon from './ShowcaseIcon.astro';
 import type { ShowcaseIconName } from '@/lib/types/category-showcase';
 
 interface Props {
+  /** Mobilon a szekció végén megjelenő CTA célja. */
+  ctaHref?: string;
   title: string;
   lead: string;
   image: string;
@@ -12,7 +14,7 @@ interface Props {
   items: { icon: ShowcaseIconName; title: string; text: string }[];
 }
 
-const { title, lead, image, imageAlt, items } = Astro.props;
+const { title, lead, image, imageAlt, items, ctaHref } = Astro.props;
 ---
 
 <section class="bg-blush py-20 dt:py-[88px]">
@@ -23,16 +25,19 @@ const { title, lead, image, imageAlt, items } = Astro.props;
       <ul class="flex flex-col gap-8 dt:gap-[22px]" role="list">
         {items.map((item) => (
           <li class="wb-item flex gap-4">
-            <span class="wb-ico flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary-800">
+            <span class="wb-ico mt-0.5 flex shrink-0 items-center justify-center text-primary-800 dt:mt-0 dt:h-11 dt:w-11 dt:rounded-xl dt:bg-white">
               <ShowcaseIcon name={item.icon} size={22} strokeWidth={1.9} />
             </span>
             <div>
-              <div class="font-semibold text-gray-900">{item.title}</div>
+              <div class="text-[17px] font-semibold text-gray-900 dt:text-base">{item.title}</div>
               <div class="mt-1 text-[15px] max-dt:leading-[1.65] text-gray-600 dt:mt-0 dt:text-[14.5px]">{item.text}</div>
             </div>
           </li>
         ))}
       </ul>
+      {ctaHref && (
+        <a href={ctaHref} class="sl-btn sl-btn-plum mt-10 w-full dt:hidden" data-event="category-consultation-cta-click">Beszéljük meg a megtérülést</a>
+      )}
     </div>
     <div class="sl-reveal order-1 max-dt:-mx-3 max-dt:w-[calc(100%+1.5rem)] dt:order-2">
       <OptimizedPicture
@@ -40,7 +45,7 @@ const { title, lead, image, imageAlt, items } = Astro.props;
         alt={imageAlt}
         widths={[480, 640, 828, 960]}
         sizes="(min-width: 900px) 45vw, 100vw"
-        class="block aspect-[4/5] w-full rounded-2xl object-cover"
+        class="block h-auto w-full dt:aspect-[4/5] dt:rounded-2xl dt:object-cover"
       />
     </div>
   </div>
@@ -52,7 +57,9 @@ const { title, lead, image, imageAlt, items } = Astro.props;
   }
   .wb-item:hover .wb-ico {
     transform: rotate(-6deg) scale(1.06);
-    background-color: var(--color-primary-100);
+  }
+  @media (min-width: 900px) {
+    .wb-item:hover .wb-ico { background-color: var(--color-primary-100); }
   }
   @media (prefers-reduced-motion: reduce) {
     .wb-ico { transition: none; }

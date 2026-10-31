@@ -5,6 +5,7 @@
  * Alatta a „Segítünk kiválasztani” sor az alapítók kerek avatarjával.
  */
 import FounderAvatars from './FounderAvatars.astro';
+import OptimizedPicture from '../images/OptimizedPicture.astro';
 import { compareValue, type CompareRow, type ShowcaseModel } from '@/lib/category-showcase';
 
 interface Props {
@@ -30,13 +31,16 @@ const { id, title, lead, rows, models, help, consultHref } = Astro.props;
     {/* Mobil: gépenként egy kártya, oldalra húzható (a következő széle kilátszik). */}
     <ul class="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 scrollbar-hide dt:hidden" role="list" aria-label={title}>
       {models.map((m) => (
-        <li class="flex w-[82%] max-w-[340px] shrink-0 snap-start flex-col rounded-2xl border border-[#f3e4e9] bg-white p-6">
-          <div class="text-lg font-bold text-gray-900">{m.name}</div>
-          <div class="font-heading text-[15px] text-primary-800 italic">{m.tagline}</div>
+        <li class="flex w-[82%] max-w-[340px] shrink-0 snap-start flex-col rounded-[14px] border border-[#f3e4e9] bg-white p-6">
+          <div class="mb-4 flex h-[132px] items-center justify-center [&>picture]:block [&>picture]:h-full">
+            <OptimizedPicture src={m.thumb} alt="" widths={[320]} sizes="160px" class="h-full w-auto object-contain" />
+          </div>
+          <div class="text-xl font-bold text-gray-900">{m.name}</div>
+          <div class="mt-0.5 text-sm text-gray-500">{m.tagline.charAt(0).toUpperCase() + m.tagline.slice(1)}</div>
           <dl class="mt-5 mb-6 flex flex-col gap-4">
             {rows.map((row) => (
               <div>
-                <dt class="text-xs font-semibold tracking-[0.06em] text-gray-600 uppercase">{row.label}</dt>
+                <dt class="text-[13.5px] text-gray-500">{row.label}</dt>
                 <dd class="m-0 mt-1 text-[15px] leading-snug text-gray-900">{compareValue(m, row.source)}</dd>
               </div>
             ))}

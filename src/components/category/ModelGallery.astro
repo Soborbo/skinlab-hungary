@@ -21,7 +21,7 @@ const wraps = images.length > VISIBLE;
 ---
 
 <div class="sg flex w-full flex-col items-center gap-3.5" data-gallery data-visible={VISIBLE}>
-  <div class="relative aspect-square w-full max-w-[420px] overflow-hidden rounded-2xl bg-white">
+  <div class="relative aspect-square w-full max-w-[420px] overflow-hidden bg-white dt:rounded-2xl">
     {images.map((img, i) => (
       <div class="sg-slide absolute inset-0" hidden={i !== 0} data-slide={i}>
         <OptimizedPicture
