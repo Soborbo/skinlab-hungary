@@ -1,9 +1,13 @@
 ---
 /**
  * CategoryShowcaseLayout - az új kategóriaoldal-elrendezés (diódás Claude
- * Design canvas, 1tR5gxCsz53ehibuSLPEGD). Először csak a /diodalezerek/ HU
- * oldal használja; a többi kategória és a [locale] változatok a régi
- * CategoryLayouton maradnak, amíg nem kapnak saját ShowcaseConfigot.
+ * Design canvas, 1tR5gxCsz53ehibuSLPEGD). Közvetlenül nem oldal használja,
+ * hanem a CategoryPage: az dönti el kategóriánként és nyelvenként, hogy ez
+ * vagy a régi CategoryLayout jelenik meg (src/data/categories/index.ts).
+ *
+ * Minden kategória és nyelv ugyanezeket a komponenseket kapja, így egy
+ * dizájnmódosítás mindenhol egyszerre jelenik meg. Fix feliratok:
+ * src/i18n/showcase.ts; kategóriaszöveg: src/data/categories/<slug>/<nyelv>.ts.
  *
  * Miért külön layout és nem CategoryLayout-prop: teljesen más a szekciósorrend,
  * a régi layout már 4 fold-módot kezel, és így a többi kategóriához nem nyúlunk.
@@ -29,29 +33,32 @@ import { SITE } from '../lib/constants';
 import { config } from '../config/siteConfig';
 import { collectionPageSchema, breadcrumbSchema, faqSchema } from '../config/schema';
 import { getOgImagePath } from '@/lib/resolve-image';
-import { withTrailingSlash } from '@/i18n/ui';
+import { getLocalizedUrl, type Locale } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 import { buildShowcaseModels } from '@/lib/category-showcase';
 import type { ShowcaseConfig } from '@/lib/types/category-showcase';
 
 interface Props {
   page: ShowcaseConfig;
+  locale: Locale;
   products: CollectionEntry<'products'>[];
 }
 
-const { page, products } = Astro.props;
-const models = buildShowcaseModels(products, page.models.copy);
-const consultHref = withTrailingSlash(`/konzultacio?cat=${page.slug}`);
+const { page, locale, products } = Astro.props;
+const ui = showcaseUi(locale);
+const models = buildShowcaseModels(products, page.models.copy, locale);
+const consultHref = getLocalizedUrl(locale, `/konzultacio?cat=${page.slug}`);
 const compareAnchor = page.compare ? 'osszehasonlitas' : undefined;
 
 // Schema: CollectionPage (+ ItemList) + Breadcrumb + FAQ, mint a régi layoutban.
-const pageUrl = SITE.url + withTrailingSlash(`/${page.slug}`);
+const pageUrl = SITE.url + getLocalizedUrl(locale, `/${page.slug}`);
 const schema = collectionPageSchema(
   config,
   pageUrl,
   page.seo.name,
   models.map((m) => SITE.url + m.href),
 );
-schema['@graph'].push(breadcrumbSchema(pageUrl, [{ name: 'Főoldal', url: SITE.url }, { name: page.seo.nameShort }]));
+schema['@graph'].push(breadcrumbSchema(pageUrl, [{ name: ui.home, url: SITE.url + getLocalizedUrl(locale, '/') }, { name: page.seo.nameShort }]));
 if (page.faq && page.faq.items.length > 0) {
   schema['@graph'].push(faqSchema(pageUrl, page.faq.items));
 }

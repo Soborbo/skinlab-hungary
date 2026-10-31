@@ -6,7 +6,8 @@
  * TODO: a fotó (public/hero/hero-gepkezeloi-kepzes-foto, 999×666) pixeles; a
  * tulajdonos nagyobb felbontásút szerez. Felskálázni nem szabad.
  */
-import { withTrailingSlash } from '@/i18n/ui';
+import { getLocaleFromUrl, getLocalizedUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   titleLines: [string, string];
@@ -16,6 +17,8 @@ interface Props {
 }
 
 const { titleLines, text, cta, href } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const ui = showcaseUi(locale);
 const photo = '/hero/hero-gepkezeloi-kepzes-foto';
 ---
 
@@ -27,7 +30,7 @@ const photo = '/hero/hero-gepkezeloi-kepzes-foto';
         <source type="image/webp" srcset={`${photo}.webp`} />
         <img
           src={`${photo}.jpg`}
-          alt="Skinlab gépkezelői képzés a bemutatóteremben"
+          alt={ui.trainingAlt}
           width="999"
           height="666"
           loading="lazy"
@@ -42,7 +45,7 @@ const photo = '/hero/hero-gepkezeloi-kepzes-foto';
         <span class="block dt:whitespace-nowrap dt:text-primary-300">{titleLines[1]}</span>
       </h2>
       <p class="sl-reveal m-0 max-w-[600px] max-dt:leading-[1.7] text-[#e5d5da]">{text}</p>
-      <a href={withTrailingSlash(href)} class="sl-btn sl-btn-white self-start">{cta}</a>
+      <a href={getLocalizedUrl(locale, href)} class="sl-btn sl-btn-white self-start">{cta}</a>
     </div>
   </div>
 </section>

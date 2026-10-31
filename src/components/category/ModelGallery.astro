@@ -9,6 +9,8 @@
  */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import type { ShowcaseImage } from '@/lib/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   name: string;
@@ -16,6 +18,7 @@ interface Props {
 }
 
 const { name, images } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 const VISIBLE = 7;
 const wraps = images.length > VISIBLE;
 ---
@@ -35,10 +38,10 @@ const wraps = images.length > VISIBLE;
     ))}
     {images.length > 1 && (
       <>
-        <button type="button" class="sg-nav left-2.5" data-step="-1" aria-label="Előző kép">
+        <button type="button" class="sg-nav left-2.5" data-step="-1" aria-label={ui.gallery.prev}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
         </button>
-        <button type="button" class="sg-nav right-2.5" data-step="1" aria-label="Következő kép">
+        <button type="button" class="sg-nav right-2.5" data-step="1" aria-label={ui.gallery.next}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
         </button>
       </>
@@ -50,7 +53,7 @@ const wraps = images.length > VISIBLE;
       <div
         class:list={['sg-thumbs flex flex-nowrap gap-2', wraps ? 'justify-center' : 'justify-center overflow-x-auto scrollbar-hide']}
         role="group"
-        aria-label={`${name} képei`}
+        aria-label={ui.gallery.images(name)}
         data-wrap={wraps ? '' : undefined}
       >
         {images.map((img, i) => (
@@ -58,7 +61,7 @@ const wraps = images.length > VISIBLE;
             type="button"
             class="sg-thumb"
             data-thumb={i}
-            aria-label={`${name} - ${i + 1}. kép`}
+            aria-label={ui.gallery.image(name, i + 1)}
             aria-current={i === 0 ? 'true' : 'false'}
             hidden={wraps && i > 3 && i < images.length - 3 ? true : undefined}
             style={wraps ? `order:${((i + 3) % images.length + images.length) % images.length}` : undefined}

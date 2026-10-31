@@ -5,6 +5,8 @@
  */
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import { CONTACT } from '@/lib/constants';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   title: string;
@@ -15,7 +17,8 @@ interface Props {
 }
 
 const { title, text, needs, note, consultHref } = Astro.props;
-const expert = { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth László', role: 'Skinlab alapító · technikai szakértő' };
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
+const expert = { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth László', role: ui.expertRole };
 ---
 
 <section id="konzultacio" class="scroll-mt-24 bg-sand py-20 dt:bg-white dt:py-[88px]">
@@ -26,7 +29,7 @@ const expert = { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth 
         <picture>
           <source type="image/avif" srcset={`${expert.base}.avif`} />
           <source type="image/webp" srcset={`${expert.base}.webp`} />
-          <img src={`${expert.base}.jpg`} alt={`${expert.name}, a Skinlab alapítója`} width="960" height="960" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-[center_15%]" />
+          <img src={`${expert.base}.jpg`} alt={ui.expertAlt(expert.name)} width="960" height="960" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-[center_15%]" />
         </picture>
         <div class="absolute right-3.5 bottom-3.5 left-3.5 rounded-xl bg-white px-3.5 py-2.5">
           <div class="text-[15px] font-semibold text-gray-900">{expert.name}</div>
@@ -57,7 +60,7 @@ const expert = { base: '/about/horvath-laszlo-skinlab-alapito', name: 'Horváth 
           ))}
         </ul>
         <div class="mt-2 grid max-w-[520px] grid-cols-1 gap-3 dt:mt-0 dt:grid-cols-2 dt:gap-2.5">
-          <a href={consultHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-callback-cta-click">Ingyenes konzultáció</a>
+          <a href={consultHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-callback-cta-click">{ui.consultCta}</a>
           <a href={CONTACT.phoneTel} class="sl-btn sl-btn-plum px-2.5" data-event="category-callback-phone-click">
             <ShowcaseIcon name="phone" size={16} />
             {CONTACT.phoneDisplay}

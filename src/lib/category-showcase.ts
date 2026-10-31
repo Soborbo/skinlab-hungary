@@ -9,8 +9,11 @@
 import type { CollectionEntry } from 'astro:content';
 import { getInstallmentInfo, type InstallmentMonths } from './installment';
 import { productPath } from './product-url';
-import { withTrailingSlash } from '@/i18n/ui';
+import { getLocalizedUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 import { getImageAlt } from './resolve-image';
+import type { Locale } from '@/i18n/ui';
+import type { ShowcaseCategory, ShowcaseConfig } from './types/category-showcase';
 
 type Product = CollectionEntry<'products'>;
 
@@ -42,10 +45,12 @@ export interface ShowcaseImage {
   fit: 'contain' | 'cover';
 }
 
-export interface ShowcaseModel extends ShowcaseModelCopy {
+export interface ShowcaseModel extends Omit<ShowcaseModelCopy, 'keySpec'> {
   slug: string;
   /** Rövid név a termék nevéből (pl. „ATHENA”). */
   name: string;
+  /** A termék teljes neve (pl. „ATHENA 1000W diódalézer”), képek alt szövegéhez. */
+  fullName: string;
   sku: string;
   price: number | null;
   /** Kulcsadat (csempe, sorcím): a konfig `keySpec`-je, vagy a watt a specs-ből (pl. „1000W”). */
@@ -102,14 +107,14 @@ function shortName(product: Product): string {
  * A kategória-hero csempéi ettől függetlenül a fehér hátterű `image`-et kapják.
  * Alt a képmanifestből.
  */
-function buildImages(product: Product): ShowcaseImage[] {
+function buildImages(product: Product, fallbackAlt: (name: string, n: number) => string): ShowcaseImage[] {
   const { data } = product;
   const seen = new Set<string>();
   const out: ShowcaseImage[] = [];
   const push = (src: string, fit: ShowcaseImage['fit'], index: number) => {
     if (!src || seen.has(src)) return;
     seen.add(src);
-    out.push({ src, fit, alt: getImageAlt(src, `${shortName(product)} - ${index}. kép`) });
+    out.push({ src, fit, alt: getImageAlt(src, fallbackAlt(shortName(product), index)) });
   };
   (data.designImages ?? []).forEach((src) => push(src, 'cover', out.length + 1));
   [data.image, ...(data.images ?? [])].forEach((src) => push(src, 'contain', out.length + 1));
@@ -124,7 +129,9 @@ function buildImages(product: Product): ShowcaseImage[] {
 export function buildShowcaseModels(
   products: Product[],
   copy: Record<string, ShowcaseModelCopy>,
+  locale: Locale,
 ): ShowcaseModel[] {
+  const ui = showcaseUi(locale);
   return products
     .filter((p) => copy[p.data.slug || p.id])
     .sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity))
@@ -138,13 +145,14 @@ export function buildShowcaseModels(
         ...copy[slug],
         slug,
         name: copy[slug].name ?? shortName(product),
+        fullName: data.name,
         sku: data.sku || product.id,
         price: data.price ?? null,
         keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
         specs,
-        href: withTrailingSlash(productPath(data.categorySlug, slug)),
+        href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
         thumb: data.image,
-        images: buildImages(product),
+        images: buildImages(product, ui.gallery.image),
         installment: longest
           ? { months: longest, monthly: info.monthly[longest], downPayment: info.downPayment }
           : null,
@@ -153,10 +161,10 @@ export function buildShowcaseModels(
 }
 
 /** Egy összehasonlító cella értéke. */
-export function compareValue(model: ShowcaseModel, source: CompareSource): string {
+export function compareValue(model: ShowcaseModel, source: CompareSource, askPrice: string): string {
   switch (source.kind) {
     case 'price':
-      return model.price ? formatHuf(model.price) : 'Kérj ajánlatot';
+      return model.price ? formatHuf(model.price) : askPrice;
     case 'forWho':
       return model.forWho;
     case 'copy':
@@ -168,33 +176,89 @@ export function compareValue(model: ShowcaseModel, source: CompareSource): strin
   }
 }
 
-const SHORT_DAY: Record<string, string> = {
-  Hétfő: 'H',
-  Kedd: 'K',
-  Szerda: 'Sze',
-  Csütörtök: 'Cs',
-  Péntek: 'P',
-  Szombat: 'Szo',
-  Vasárnap: 'V',
-};
-
 /**
  * Nyitvatartás egy sorban az OPENING_HOURS-ból, az egymást követő azonos
  * napokat összevonva: „H–P 10:00–18:00 · Szo 10:00–14:00 · V zárva”.
+ * `days`: magyar napnév → rövid nap az oldal nyelvén; `closed`: „zárva”.
  */
-export function compactOpeningHours(rows: { day: string; hours: string }[]): string {
+export function compactOpeningHours(
+  rows: { day: string; hours: string }[],
+  days: Record<string, string>,
+  closed: string,
+): string {
   const groups: { from: string; to: string; hours: string }[] = [];
   for (const row of rows) {
-    const day = SHORT_DAY[row.day] ?? row.day;
+    const day = days[row.day] ?? row.day;
     const last = groups[groups.length - 1];
     if (last && last.hours === row.hours) last.to = day;
     else groups.push({ from: day, to: day, hours: row.hours });
   }
   return groups
     .map((g) => {
-      const days = g.from === g.to ? g.from : `${g.from}–${g.to}`;
-      const hours = g.hours.toLowerCase() === 'zárva' ? 'zárva' : g.hours;
-      return `${days} ${hours}`;
+      const span = g.from === g.to ? g.from : `${g.from}–${g.to}`;
+      const hours = g.hours.toLowerCase() === 'zárva' ? closed : g.hours;
+      return `${span} ${hours}`;
     })
     .join(' · ');
+}
+
+/** Két párhuzamos tömb összefésülése; eltérő hossznál build-hiba. */
+function zip<A, B, R>(where: string, a: A[], b: B[], join: (a: A, b: B) => R): R[] {
+  if (a.length !== b.length) {
+    throw new Error(`[showcase] ${where}: a közös részben ${a.length}, a szövegben ${b.length} elem van`);
+  }
+  return a.map((item, i) => join(item, b[i]));
+}
+
+/** Az opcionális szekció mindkét oldalon megvan, vagy egyiken sem. */
+function pair<A, B>(where: string, a: A | undefined, b: B | undefined): [A, B] | undefined {
+  if (!a !== !b) {
+    throw new Error(`[showcase] ${where}: csak az egyik oldalon szerepel (közös rész / szöveg)`);
+  }
+  return a && b ? [a, b] : undefined;
+}
+
+/**
+ * Kategóriaoldal tartalma egy nyelven: a nyelvfüggetlen ShowcaseBase és az
+ * adott nyelvű ShowcaseCopy összefésülve. Ha az adott nyelvhez nincs szöveg,
+ * null (az oldal ilyenkor a régi CategoryLayouton marad).
+ */
+export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale): ShowcaseConfig | null {
+  const { base } = category;
+  const copy = category.copy[locale];
+  if (!copy) return null;
+  const at = (section: string) => `${base.slug}/${locale} ${section}`;
+
+  const compare = pair(at('compare'), base.compare, copy.compare);
+  const whyBuy = pair(at('whyBuy'), base.whyBuy, copy.whyBuy);
+  const finance = pair(at('finance'), base.finance, copy.finance);
+  const training = pair(at('training'), base.training, copy.training);
+
+  return {
+    slug: base.slug,
+    seo: copy.seo,
+    hero: { ...copy.hero, ...base.hero },
+    usp: zip(at('usp'), base.usp, copy.usp, (icon, text) => ({ icon, ...text })),
+    models: copy.models,
+    reviews: copy.reviews,
+    compare: compare && {
+      title: compare[1].title,
+      lead: compare[1].lead,
+      help: compare[1].help,
+      rows: zip(at('compare'), compare[0], compare[1].labels, (source, label) => ({ label, source })),
+    },
+    whyBuy: whyBuy && {
+      title: whyBuy[1].title,
+      lead: whyBuy[1].lead,
+      image: whyBuy[0].image,
+      imageAlt: whyBuy[1].imageAlt,
+      items: zip(at('whyBuy'), whyBuy[0].icons, whyBuy[1].items, (icon, text) => ({ icon, ...text })),
+    },
+    finance: finance && { ...finance[1], ...finance[0] },
+    video: base.video,
+    training: training && { ...training[1], ...training[0] },
+    consult: copy.consult,
+    faq: copy.faq,
+    visit: copy.visit,
+  };
 }

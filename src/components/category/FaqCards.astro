@@ -9,6 +9,8 @@
 import FounderAvatars from './FounderAvatars.astro';
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import { CONTACT } from '@/lib/constants';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   title: string;
@@ -17,6 +19,7 @@ interface Props {
 }
 
 const { title, lead, items } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 ---
 
 <section class="bg-sand py-20 dt:py-[88px]">
@@ -27,7 +30,7 @@ const { title, lead, items } = Astro.props;
       <div class="group mt-3 flex flex-col gap-4 rounded-[18px] bg-white p-6 dt:mt-2 dt:gap-3.5 dt:p-5">
         <div class="flex items-center gap-3">
           <FounderAvatars />
-          <div class="text-[15px] font-semibold text-plum">Kérdésed van? Hívj minket.</div>
+          <div class="text-[15px] font-semibold text-plum">{ui.faqContact}</div>
         </div>
         <a href={CONTACT.phoneTel} class="sl-btn sl-btn-plum min-h-12" data-event="category-callback-phone-click">
           <ShowcaseIcon name="phone" size={16} />

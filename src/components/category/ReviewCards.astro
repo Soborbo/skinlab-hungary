@@ -13,6 +13,8 @@
 import GoogleMark from './GoogleMark.astro';
 import { GOOGLE_RATING } from '@/lib/constants';
 import { GOOGLE_REVIEWS } from '@/data/google-reviews';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   title: string;
@@ -21,6 +23,7 @@ interface Props {
 }
 
 const { title, ctaHref } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const initials = (name: string): string => name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 const reviews = GOOGLE_REVIEWS.slice(0, 3);
@@ -35,7 +38,7 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
           <span class="flex h-8 w-8 items-center justify-center rounded-full shadow-[0_2px_8px_rgba(0,0,0,.08)]"><GoogleMark size={22} /></span>
           <strong class="text-lg">{rating}</strong>
           <span class="tracking-[1px] text-[#fbbc04]" aria-hidden="true">★★★★★</span>
-          <span class="text-[13px] text-gray-600">Google-értékelések</span>
+          <span class="text-[13px] text-gray-600">{ui.googleReviews}</span>
         </div>
       )}
     </div>
@@ -62,8 +65,8 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
               <GoogleMark size={18} />
             </div>
             <p class="rv-text m-0 whitespace-pre-line text-base max-dt:leading-[1.7] dt:text-[15px] text-gray-700" lang="hu" id={`rv-text-${i}`}>{review.text}</p>
-            <button type="button" class="rv-more sl-tlink mt-auto hidden self-start text-sm text-primary-700" aria-controls={`rv-text-${i}`} aria-expanded="false">
-              Tovább olvasom
+            <button type="button" class="rv-more sl-tlink mt-auto hidden self-start text-sm text-primary-700" aria-controls={`rv-text-${i}`} aria-expanded="false" data-more={ui.readMore} data-less={ui.readLess}>
+              {ui.readMore}
             </button>
           </article>
         ))}
@@ -73,7 +76,7 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
       */}
     </div>
     {ctaHref && (
-      <a href={ctaHref} class="sl-btn sl-btn-pink mt-8 w-full dt:hidden" data-event="category-consultation-cta-click">Én is ilyen gépet szeretnék</a>
+      <a href={ctaHref} class="sl-btn sl-btn-pink mt-8 w-full dt:hidden" data-event="category-consultation-cta-click">{ui.reviewsCta}</a>
     )}
     {/*
     <div class="mt-6 flex items-center justify-center gap-3.5 dt:hidden">
@@ -109,7 +112,7 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
     btn.addEventListener('click', () => {
       const clamped = card.toggleAttribute('data-clamp');
       btn.setAttribute('aria-expanded', String(!clamped));
-      btn.textContent = clamped ? 'Tovább olvasom' : 'Kevesebb';
+      btn.textContent = (clamped ? btn.dataset.more : btn.dataset.less) ?? '';
     });
   });
 

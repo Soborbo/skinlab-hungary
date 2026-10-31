@@ -3,6 +3,8 @@
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import type { ShowcaseIconName } from '@/lib/types/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   /** Mobilon a szekció végén megjelenő CTA célja. */
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const { title, lead, image, imageAlt, items, ctaHref } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 ---
 
 <section class="bg-blush py-20 dt:py-[88px]">
@@ -36,7 +39,7 @@ const { title, lead, image, imageAlt, items, ctaHref } = Astro.props;
         ))}
       </ul>
       {ctaHref && (
-        <a href={ctaHref} class="sl-btn sl-btn-plum mt-10 w-full dt:hidden" data-event="category-consultation-cta-click">Beszéljük meg a megtérülést</a>
+        <a href={ctaHref} class="sl-btn sl-btn-plum mt-10 w-full dt:hidden" data-event="category-consultation-cta-click">{ui.whyBuyCta}</a>
       )}
     </div>
     <div class="sl-reveal order-1 max-dt:-mx-3 max-dt:w-[calc(100%+1.5rem)] dt:order-2">

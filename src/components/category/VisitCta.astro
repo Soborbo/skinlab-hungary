@@ -10,6 +10,8 @@
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import { CONTACT, LOCATIONS, OPENING_HOURS } from '@/lib/constants';
 import { compactOpeningHours } from '@/lib/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 import type { ShowcaseIconName } from '@/lib/types/category-showcase';
 
 interface Props {
@@ -21,16 +23,17 @@ interface Props {
 }
 
 const { title, text, booking, demoCta, demoHref } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 const address = LOCATIONS.showroom.fullAddress;
 const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 const showroom = '/hero/hero-skinlab-showroom-foto';
 
 const rows: { icon: ShowcaseIconName; label: string; value: string; href?: string }[] = [
-  { icon: 'pin', label: 'Cím', value: address },
-  { icon: 'clock', label: 'Nyitvatartás', value: compactOpeningHours(OPENING_HOURS) },
-  { icon: 'calendar', label: 'Bejelentkezés', value: booking },
-  { icon: 'phone', label: 'Telefon', value: CONTACT.phoneDisplay, href: CONTACT.phoneTel },
+  { icon: 'pin', label: ui.visit.address, value: address },
+  { icon: 'clock', label: ui.visit.hours, value: compactOpeningHours(OPENING_HOURS, ui.visit.days, ui.visit.closed) },
+  { icon: 'calendar', label: ui.visit.booking, value: booking },
+  { icon: 'phone', label: ui.visit.phone, value: CONTACT.phoneDisplay, href: CONTACT.phoneTel },
 ];
 ---
 
@@ -56,13 +59,13 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
         ))}
       </ul>
 
-      <div class="vc-map relative mt-1.5 h-[200px] max-w-[500px] overflow-hidden rounded-[14px] bg-sand dt:rounded-2xl dt:border dt:border-[#ece3d9]" data-map-embed={mapEmbed} data-map-title={`Térkép: ${address}`}>
-        <button type="button" class="vc-map-btn flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center" aria-label={`Térkép betöltése: ${address}`}>
+      <div class="vc-map relative mt-1.5 h-[200px] max-w-[500px] overflow-hidden rounded-[14px] bg-sand dt:rounded-2xl dt:border dt:border-[#ece3d9]" data-map-embed={mapEmbed} data-map-title={ui.visit.mapTitle(address)}>
+        <button type="button" class="vc-map-btn flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center" aria-label={ui.visit.mapLoad(address)}>
           <span class="vc-map-pin flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary-700 shadow-[0_6px_18px_rgba(160,28,66,.15)]">
             <ShowcaseIcon name="pin" size={24} />
           </span>
-          <span class="font-semibold text-gray-900">Térkép megnyitása</span>
-          <span class="text-xs text-[#6b5d52]">Betöltéskor a Google Térkép sütiket használhat.</span>
+          <span class="font-semibold text-gray-900">{ui.visit.mapOpen}</span>
+          <span class="text-xs text-[#6b5d52]">{ui.visit.mapCookies}</span>
         </button>
       </div>
 
@@ -70,7 +73,7 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
         <a href={demoHref} class="sl-btn sl-btn-pink px-2.5" data-event="category-consultation-cta-click">{demoCta}</a>
         <a href={directions} target="_blank" rel="noopener" class="sl-btn sl-btn-plum px-2.5" data-event="category-directions-click">
           <ShowcaseIcon name="pin" size={16} />
-          Útvonaltervezés
+          {ui.visit.directions}
         </a>
       </div>
     </div>
@@ -80,7 +83,7 @@ const rows: { icon: ShowcaseIconName; label: string; value: string; href?: strin
       <source type="image/webp" srcset={`${showroom}.webp`} />
       <img
         src={`${showroom}.jpg`}
-        alt="A Skinlab bemutatóterme Érden"
+        alt={ui.visit.showroomAlt}
         width="1434"
         height="1024"
         loading="lazy"

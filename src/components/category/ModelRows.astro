@@ -7,6 +7,8 @@
 import ModelGallery from './ModelGallery.astro';
 import ShowcaseIcon from './ShowcaseIcon.astro';
 import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   title: string;
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const { title, lead, models } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
 ---
 
 <section id="modellek" class="bg-white pt-20 dt:pt-14">
@@ -39,7 +42,7 @@ const { title, lead, models } = Astro.props;
           {/* Mobilon a cím egy stílusban áll, a tagline és a kulcsadat egyszerű alcím. */}
           <div class="-mt-2 text-[17px] text-gray-600 dt:hidden">{m.tagline.charAt(0).toUpperCase() + m.tagline.slice(1)}{m.keySpec && `, ${m.keySpec}`}</div>
           <p class="m-0 max-dt:leading-[1.7] text-gray-700">{m.desc}</p>
-          <div class="mt-1 text-base font-semibold text-gray-900 dt:text-sm">Neked való, ha…</div>
+          <div class="mt-1 text-base font-semibold text-gray-900 dt:text-sm">{ui.whenTitle}</div>
           <ul class="m-0 flex flex-col gap-3 p-0 max-dt:list-disc max-dt:pl-5 max-dt:marker:text-primary-700 dt:list-none dt:gap-2" role="list">
             {m.when.map((w) => (
               <li class="text-base text-gray-700 max-dt:list-item max-dt:leading-[1.55] dt:flex dt:gap-2.5 dt:text-[15px]">
@@ -50,15 +53,15 @@ const { title, lead, models } = Astro.props;
           </ul>
           <div class="mt-4 flex flex-col gap-5 dt:mt-2 dt:flex-row dt:flex-wrap dt:items-center dt:gap-x-5 dt:gap-y-4">
             <div>
-              <div class="font-heading text-[32px] leading-tight font-normal text-gray-900 dt:font-sans dt:text-2xl dt:leading-8 dt:font-bold">{m.price ? formatHuf(m.price) : 'Kérj ajánlatot'}</div>
+              <div class="font-heading text-[32px] leading-tight font-normal text-gray-900 dt:font-sans dt:text-2xl dt:leading-8 dt:font-bold">{m.price ? formatHuf(m.price) : ui.askPrice}</div>
               {m.installment && (
                 <div class="mt-1 text-[13.5px] text-gray-500 dt:mt-0 dt:text-[12.5px]">
-                  vagy 50% előleg + {formatHuf(m.installment.monthly)}/hó ({m.installment.months} hó)
+                  {ui.installmentTeaser(formatHuf(m.installment.monthly), m.installment.months)}
                 </div>
               )}
             </div>
             <a href={m.href} class="sl-btn sl-btn-plum min-h-14 dt:min-h-[50px] dt:text-sm" data-select-item={m.sku}>
-              {m.name} részletei
+              {ui.modelDetails(m.name)}
             </a>
           </div>
         </div>

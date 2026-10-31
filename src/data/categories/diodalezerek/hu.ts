@@ -1,12 +1,12 @@
 /**
- * Diódalézer kategóriaoldal (HU) - szerkesztői szöveg a CategoryShowcaseLayouthoz.
+ * Diódalézer kategóriaoldal - magyar szöveg (képek, ikonok, adatforrások: ./index.ts).
  *
  * Forrás: a jóváhagyott Claude Design canvas (1tR5gxCsz53ehibuSLPEGD, 2026-10-30).
  * Ár, watt, specifikáció és kép NEM kerülhet ide: azok a termék-JSON-okból jönnek
  * (src/content/products/{athena,olympia,helios,empire}.json).
  */
-import type { CompareRow, ShowcaseModelCopy } from '@/lib/category-showcase';
-import type { ShowcaseConfig } from '@/lib/types/category-showcase';
+import type { ShowcaseModelCopy } from '@/lib/category-showcase';
+import type { ShowcaseCopy } from '@/lib/types/category-showcase';
 
 const models: Record<string, ShowcaseModelCopy> = {
   athena: {
@@ -51,17 +51,7 @@ const models: Record<string, ShowcaseModelCopy> = {
   },
 };
 
-const compareRows: CompareRow[] = [
-  { label: 'Ár', source: { kind: 'price' } },
-  { label: 'Teljesítmény', source: { kind: 'spec', keys: ['Teljesítmény'], strip: /\s*\(kimeneti\)/ } },
-  { label: 'Hullámhosszak', source: { kind: 'spec', keys: ['Hullámhossz'], strip: /\s*\(4WAVE\)/ } },
-  { label: 'Spotméret', source: { kind: 'spec', keys: ['Spotméret', 'Spot méret'] } },
-  { label: 'Hűtés', source: { kind: 'spec', keys: ['Hűtési rendszer'] } },
-  { label: 'Kinek ajánljuk', source: { kind: 'forWho' } },
-];
-
-export const diodalezerekShowcase: ShowcaseConfig = {
-  slug: 'diodalezerek',
+export const hu: ShowcaseCopy = {
   seo: {
     name: 'Professzionális diódalézerek',
     nameShort: 'Diódalézerek',
@@ -70,14 +60,13 @@ export const diodalezerekShowcase: ShowcaseConfig = {
   hero: {
     titleLines: ['Diódalézer, ami', 'visszahozza a vendégeket.'],
     lead: 'Tartós szőrtelenítés 4 hullámhosszú technológiával, minden bőr- és szőrtípusra. Segítünk kiválasztani a szalonodhoz illő gépet, betanítunk, és ha kell, megjavítjuk.',
-    image: '@assets/diodalezer-kezeles.jpg',
     imageAlt: 'Diódalézeres szőrtelenítés OLYMPIA géppel a szalonban',
   },
   usp: [
-    { icon: 'shield', title: '2 év teljes körű garancia', sub: 'minden új gépre' },
-    { icon: 'academic', title: '8 órás helyszíni betanítás', sub: '+ 6 hónap utánkövetés' },
-    { icon: 'wrench', title: 'Saját magyar szerviz', sub: 'gyors javítás Érden' },
-    { icon: 'wallet', title: '0% THM részletfizetés', sub: '50% előleg + havi részletek' },
+    { title: '2 év teljes körű garancia', sub: 'minden új gépre' },
+    { title: '8 órás helyszíni betanítás', sub: '+ 6 hónap utánkövetés' },
+    { title: 'Saját magyar szerviz', sub: 'gyors javítás Érden' },
+    { title: '0% THM részletfizetés', sub: '50% előleg + havi részletek' },
   ],
   models: {
     title: 'Melyik illik a te szalonodhoz?',
@@ -88,7 +77,7 @@ export const diodalezerekShowcase: ShowcaseConfig = {
   compare: {
     title: 'Műszaki összehasonlítás',
     lead: 'Egy pillantás alatt a fő paraméterek',
-    rows: compareRows,
+    labels: ['Ár', 'Teljesítmény', 'Hullámhosszak', 'Spotméret', 'Hűtés', 'Kinek ajánljuk'],
     help: {
       title: 'Nem tudod eldönteni? Segítünk kiválasztani.',
       text: 'László és Szimonetta, a Skinlab alapítói személyesen tanácsot adnak.',
@@ -97,26 +86,21 @@ export const diodalezerekShowcase: ShowcaseConfig = {
   whyBuy: {
     title: 'Miért éri meg diódalézert venni?',
     lead: 'Amit a vásárlás előtt érdemes végiggondolni.',
-    image: '@assets/products/olympia-oktatas-2.jpg',
     imageAlt: 'OLYMPIA diódalézer kezelőfeje kezelés közben',
     items: [
       {
-        icon: 'banknote',
         title: 'Gyors megtérülés',
         text: 'Napi 5 vendéggel, átlag 12 000 Ft/kezelés áron havonta kb. 1,3 M Ft bevétel. A gép 3-4 hónap alatt kitermelheti az árát.',
       },
       {
-        icon: 'repeat',
         title: 'Visszatérő vendégek',
         text: 'A vendégek 6-8 alkalmas kúrát vesznek, aztán évente fenntartó kezelésre járnak.',
       },
       {
-        icon: 'bolt',
         title: 'Hatékonyabb az IPL-nél',
         text: 'Célzottabb, mélyebbre hat, kevesebb alkalom kell. A vendég hamarabb látja az eredményt.',
       },
       {
-        icon: 'layers',
         title: 'Minden bőrtípusra',
         text: 'A 4 hullámhossz világos és sötét bőrön, vékony és vastag szőrön is hatékony.',
       },
@@ -126,15 +110,12 @@ export const diodalezerekShowcase: ShowcaseConfig = {
     title: 'Nem kell egy összegben kifizetned.',
     lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3, 6 vagy 12 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
     perks: ['0% THM', 'Nincs kezelési díj', 'Nincs rejtett költség'],
-    defaultSlug: 'olympia',
     cta: 'Pontos ajánlatot kérek',
   },
-  video: { id: 'adri', posterSrc: '/images/video/zsidai-adri-poster.jpg' },
   training: {
     titleLines: ['Nem egyedül tanulod meg.', 'Mindent megtanítunk neked.'],
     text: '8 órás helyszíni betanítás a saját szalonodban, utána 6 hónap utánkövetés. FAR-tanúsított gépkezelői képzés, hivatalos tanúsítvánnyal.',
     cta: 'Képzéseink',
-    href: '/kepzesek',
   },
   consult: {
     title: 'Nem tudod, melyik gép való neked?',

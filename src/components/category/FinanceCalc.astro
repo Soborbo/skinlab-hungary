@@ -16,6 +16,8 @@ import {
   type InstallmentMonths,
 } from '@/lib/installment';
 import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+import { getLocaleFromUrl } from '@/i18n/ui';
+import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   title: string;
@@ -28,6 +30,8 @@ interface Props {
 }
 
 const { title, lead, perks, models, defaultSlug, cta, consultHref } = Astro.props;
+const ui = showcaseUi(getLocaleFromUrl(Astro.url));
+const f = ui.finance;
 const priced = models.filter((m) => m.price && getInstallmentInfo(m.price).available);
 const initial = priced.find((m) => m.slug === defaultSlug) ?? priced[0];
 const info = getInstallmentInfo(initial?.price);
@@ -36,15 +40,15 @@ const preferred: InstallmentMonths = 6;
 const months: InstallmentMonths = info.months.includes(preferred) ? preferred : info.months[info.months.length - 1];
 
 const rules = [
-  { when: `${formatHuf(INSTALLMENT_MIN)} felett`, term: '3 hónap' },
-  { when: `${formatHuf(SIX_MONTH_THRESHOLD)} felett`, term: '3 vagy 6 hónap' },
-  { when: `${formatHuf(TWELVE_MONTH_THRESHOLD)} felett, vagy 2 gép együtt`, term: '3, 6 vagy 12 hónap' },
+  { when: f.over(formatHuf(INSTALLMENT_MIN)), term: f.terms[3] },
+  { when: f.over(formatHuf(SIX_MONTH_THRESHOLD)), term: f.terms[6] },
+  { when: f.overOrTwo(formatHuf(TWELVE_MONTH_THRESHOLD)), term: f.terms[12] },
 ];
 
 const noteFor = (price: number): string =>
   price > TWELVE_MONTH_THRESHOLD
-    ? `A 12 havi részlet ${formatHuf(TWELVE_MONTH_THRESHOLD)} feletti vásárlásnál elérhető. Pontos ajánlatot a konzultáción adunk.`
-    : `A 12 havi részlet ${formatHuf(TWELVE_MONTH_THRESHOLD)} felett, vagy két gép együttes vásárlásakor érhető el. Pontos ajánlatot a konzultáción adunk.`;
+    ? f.note12(formatHuf(TWELVE_MONTH_THRESHOLD))
+    : f.note12OrTwo(formatHuf(TWELVE_MONTH_THRESHOLD));
 ---
 
 {initial && (
@@ -73,7 +77,7 @@ const noteFor = (price: number): string =>
 
       <div class="fc sl-reveal flex flex-col gap-7 dt:gap-5 dt:rounded-3xl dt:bg-white dt:p-7 dt:shadow-[0_24px_60px_rgba(160,28,66,.12)]" data-finance-calc>
         <div>
-          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-model-label"><span class="max-dt:hidden">1. </span>Melyik gép?</div>
+          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-model-label"><span class="max-dt:hidden">1. </span>{f.pickModel}</div>
           <div class="grid grid-cols-2 gap-2.5 dt:grid-cols-4" role="group" aria-labelledby="fc-model-label">
             {priced.map((m) => (
               <button
@@ -92,7 +96,7 @@ const noteFor = (price: number): string =>
         </div>
 
         <div>
-          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-months-label"><span class="max-dt:hidden">2. </span>Hány hónap alatt?</div>
+          <div class="mb-3 text-base font-semibold text-gray-900 dt:mb-2.5 dt:text-xs dt:font-bold dt:tracking-[0.08em] dt:text-gray-500 dt:uppercase" id="fc-months-label"><span class="max-dt:hidden">2. </span>{f.pickMonths}</div>
           <div class="grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1" role="group" aria-labelledby="fc-months-label">
             {ALL_MONTHS.map((n) => (
               <button
@@ -102,7 +106,7 @@ const noteFor = (price: number): string =>
                 aria-pressed={n === months ? 'true' : 'false'}
                 disabled={!info.months.includes(n)}
               >
-                {n} hónap
+                {f.months(n)}
               </button>
             ))}
           </div>
@@ -110,13 +114,13 @@ const noteFor = (price: number): string =>
 
         <div class="grid grid-cols-1 gap-4 rounded-[14px] bg-sand p-6 text-plum dt:rounded-[18px] dt:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] dt:items-center dt:p-6" aria-live="polite">
           <div>
-            <div class="text-[13px] text-[#6b5d52]">Havi részlet, <span data-fc="months">{months}</span> hónapon át</div>
+            <div class="text-[13px] text-[#6b5d52]">{f.monthlyLabel[0]}<span data-fc="months">{months}</span>{f.monthlyLabel[1]}</div>
             <div class="font-heading text-[46px] leading-[1.1] text-primary-700 dt:text-[42px]" data-fc="monthly">{formatHuf(info.monthly[months])}</div>
           </div>
           <dl class="m-0 flex flex-col gap-2 text-sm">
-            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Előleg (50%)</dt><dd class="m-0 font-bold" data-fc="down">{formatHuf(info.downPayment)}</dd></div>
-            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Összesen</dt><dd class="m-0 font-bold" data-fc="price">{formatHuf(initial.price!)}</dd></div>
-            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">Kamat</dt><dd class="m-0 font-bold text-cta">0&nbsp;Ft</dd></div>
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">{f.downPayment}</dt><dd class="m-0 font-bold" data-fc="down">{formatHuf(info.downPayment)}</dd></div>
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">{f.total}</dt><dd class="m-0 font-bold" data-fc="price">{formatHuf(initial.price!)}</dd></div>
+            <div class="flex justify-between gap-2.5"><dt class="text-[#6b5d52]">{f.interest}</dt><dd class="m-0 font-bold text-cta">0&nbsp;Ft</dd></div>
           </dl>
         </div>
 
