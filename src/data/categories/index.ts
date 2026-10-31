@@ -13,16 +13,24 @@
  */
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 import { antiAging } from './anti-aging';
+import { arckezeloRendszerek } from './arckezelo-rendszerek';
+import { bordiagnosztika } from './bordiagnosztika';
 import { diodalezerek } from './diodalezerek';
+import { hidegplazma } from './hidegplazma';
 import { hydrafacial } from './hydrafacial';
+import { mezoterapia } from './mezoterapia';
 import { ndYagLezerek } from './nd-yag-lezerek';
 import { sminktetovalas } from './sminktetovalas';
 import { testkezeles } from './testkezeles';
 
 export const SHOWCASE_CATEGORIES: Record<string, ShowcaseCategory> = {
   'anti-aging': antiAging,
+  'arckezelo-rendszerek': arckezeloRendszerek,
+  bordiagnosztika,
   diodalezerek,
+  hidegplazma,
   hydrafacial,
+  mezoterapia,
   'nd-yag-lezerek': ndYagLezerek,
   sminktetovalas,
   testkezeles,

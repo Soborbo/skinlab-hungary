@@ -39,6 +39,8 @@ const ui = showcaseUi(locale);
 // Csempeoszlopok asztalon a gépek számához igazítva (ne maradjon üres hely).
 // 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
 const three = models.length === 3;
+// Egytermékes kategória: csempesor helyett egy fekvő kártya, a második gomb a termékoldalra visz.
+const single = models.length === 1 ? models[0] : null;
 const tileCols = three
   ? 'grid-cols-3 gap-2.5 dt:grid-cols-3'
   : models.length === 2
@@ -103,14 +105,38 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
         <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
           {ui.consultCta}
         </a>
-        {compareAnchor && (
+        {compareAnchor ? (
           <a href={`#${compareAnchor}`} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-scroll-center>
             <ShowcaseIcon name="table" size={18} />
             {ui.compareCta}
           </a>
+        ) : single && (
+          <a href={single.href} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-select-item={single.sku}>
+            {ui.singleDetails}
+          </a>
         )}
       </div>
 
+      {single ? (
+        <a
+          href={`#${single.slug}`}
+          data-scroll-center
+          class="sl-pop sl-lift group mt-2 flex max-w-[420px] items-center gap-4 overflow-hidden rounded-[14px] bg-white p-3 pr-5 text-gray-900 [animation-delay:.4s] [&>picture]:block [&>picture]:shrink-0"
+        >
+          <OptimizedPicture
+            src={single.thumb}
+            alt={single.fullName}
+            widths={[160, 320]}
+            sizes="120px"
+            class="h-[110px] w-[110px] object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          />
+          <span class="flex flex-col gap-0.5">
+            <span class="text-base font-bold">{single.name}</span>
+            {single.keySpec && <span class="text-[13px] text-gray-500">{single.keySpec}</span>}
+            <span class="mt-1.5 text-sm font-semibold">{single.price ? formatHuf(single.price) : ui.askPrice}</span>
+          </span>
+        </a>
+      ) : (
       <ul class:list={['mt-2 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
         {models.map((m, i) => (
           <li class:list={['sl-pop', delays[i % delays.length]]}>
@@ -138,6 +164,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
           </li>
         ))}
       </ul>
+      )}
     </div>
   </div>
 </section>

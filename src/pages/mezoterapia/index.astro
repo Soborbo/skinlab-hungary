@@ -1,13 +1,8 @@
 ---
-import CategoryLayout from '../../layouts/CategoryLayout.astro';
-import { getCollection } from 'astro:content';
-import { getCategoryTranslation } from '../../data/category-translations';
-
-const category = getCategoryTranslation('hu', 'mezoterapia');
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'mezoterapia' && !data.draft;
-});
+/**
+ * Mezoterápia kategóriaoldal (HU, egytermékes). Tartalom: src/data/categories/mezoterapia/.
+ */
+import CategoryPage from '../../layouts/CategoryPage.astro';
 ---
 
-<CategoryLayout category={category} products={products} />
+<CategoryPage slug="mezoterapia" locale="hu" />

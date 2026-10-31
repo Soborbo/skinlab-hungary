@@ -19,6 +19,8 @@ export interface ShowcaseUi {
   googleReviews: string;
   details: string;
   modelDetails: (name: string) => string;
+  /** Egytermékes hero második gombja (a név a kártyán áll, a gomb rövid marad). */
+  singleDetails: string;
   whenTitle: string;
   installmentTeaser: (monthly: string, months: number) => string;
   reviewsCta: string;
@@ -77,6 +79,7 @@ const hu: ShowcaseUi = {
   googleReviews: 'Google-értékelések',
   details: 'Részletek',
   modelDetails: (name) => `${name} részletei`,
+  singleDetails: 'A gép részletei',
   whenTitle: 'Neked való, ha…',
   installmentTeaser: (monthly, months) => `vagy 50% előleg + ${monthly}/hó (${months} hó)`,
   reviewsCta: 'Én is ilyen gépet szeretnék',

@@ -1,14 +1,10 @@
 ---
 /**
- * /{locale}/bordiagnosztika/ - a HU oldal párja: a kategória URL-jén maga a
- * termékoldal áll (lásd pages/bordiagnosztika/index.astro).
+ * Bőrdiagnosztika kategóriaoldal, nem magyar nyelvek. Ahol van szövegfájl
+ * (src/data/categories/bordiagnosztika/<nyelv>.ts), az új elrendezés jelenik meg, máshol a régi.
  */
-import CategoryLayout from '../../../layouts/CategoryLayout.astro';
-import ProductLayout from '../../../layouts/ProductLayout.astro';
-import { getCollection } from 'astro:content';
-import { locales, defaultLocale } from '../../../i18n/ui';
-import { getCategoryTranslation } from '../../../data/category-translations';
-import { buildProductData } from '../../../lib/product-data';
+import CategoryPage from '../../../layouts/CategoryPage.astro';
+import { locales, defaultLocale, type Locale } from '../../../i18n/ui';
 
 export function getStaticPaths() {
   return locales
@@ -16,18 +12,7 @@ export function getStaticPaths() {
     .map((locale) => ({ params: { locale } }));
 }
 
-const { locale } = Astro.params;
-const category = getCategoryTranslation(locale!, 'bordiagnosztika');
-
-const products = await getCollection('products', ({ data }) => {
-  return data.categorySlug === 'bordiagnosztika' && !data.draft;
-});
-
-const soleProduct = products.length === 1 ? products[0] : undefined;
+const locale = Astro.params.locale as Locale;
 ---
 
-{soleProduct ? (
-  <ProductLayout product={buildProductData(soleProduct)} />
-) : (
-  <CategoryLayout category={category} products={products} />
-)}
+<CategoryPage slug="bordiagnosztika" locale={locale} />
