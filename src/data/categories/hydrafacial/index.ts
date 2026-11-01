@@ -10,12 +10,12 @@ export const hydrafacial: ShowcaseCategory = {
     slug: 'hydrafacial',
     hero: {
       image: '@assets/hydrafacial-kezeles.jpg',
+      // Asztalon is a négyzetes változat: a split hero kép-oszlopa álló vagy
+      // közel négyzetes, a 16:9-es videóból 1024-1440px között csak 42-59% látszott.
       video: {
-        desktop: '/videos/hydrafacial/hydrafacial-kepzes-1280.mp4',
-        mobile: '/videos/hydrafacial/hydrafacial-kepzes-720sq.mp4',
-        poster: '/videos/hydrafacial/hydrafacial-kepzes-poster',
-        posterMobile: '/videos/hydrafacial/hydrafacial-kepzes-poster-sq',
-        posterSize: { width: 1280, height: 720 },
+        desktop: '/videos/hydrafacial/hydrafacial-kepzes-720sq.mp4',
+        poster: '/videos/hydrafacial/hydrafacial-kepzes-poster-sq',
+        posterSize: { width: 720, height: 720 },
       },
     },
     usp: ['shield', 'academic', 'wrench', 'wallet'],

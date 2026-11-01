@@ -2,9 +2,13 @@
 /**
  * Kategória split hero (showcase).
  *
- * Mobilon a kép felül (négyzetes, teljes szélesség), alatta a szöveg; 900px-től
- * a szöveg balra a fejléc logójának vonalához igazodik, a kép jobbra a
- * képernyő széléig fut, padding, kerekítés és hover-effekt nélkül.
+ * Mobilon a kép felül (teljes szélesség), alatta a szöveg; 900px-től a szöveg
+ * balra a fejléc logójának vonalához igazodik, a kép jobbra a képernyő széléig
+ * fut, padding, kerekítés és hover-effekt nélkül.
+ *
+ * Kivágás: a kép-doboz a kép saját arányát követi, így a cover-vágás minden
+ * szélességen legfeljebb ~15% (MAX_CROP). Asztalon a hero magassága és a
+ * kép-oszlop szélessége is a képarányból jön (600-760px, 30-56vw között).
  * A cím asztalon fixen 2 sor. A gépcsempék a modellsorra görgetnek középre
  * (data-scroll-center, a CategoryShowcaseLayout scriptje kezeli).
  */
@@ -13,7 +17,8 @@ import ShowcaseIcon from './ShowcaseIcon.astro';
 import GoogleMark from './GoogleMark.astro';
 import HeroVideo from './HeroVideo.astro';
 import { GOOGLE_RATING } from '@/lib/constants';
-import { formatHuf, type ShowcaseModel } from '@/lib/category-showcase';
+import { formatHuf, type CatalogGroup, type ShowcaseModel } from '@/lib/category-showcase';
+import { getImageEntry } from '@/lib/resolve-image';
 import type { ShowcaseHeroVideo } from '@/lib/types/category-showcase';
 import { getLocaleFromUrl, getLocalizedUrl } from '@/i18n/ui';
 import { showcaseUi } from '@/i18n/showcase';
@@ -33,28 +38,56 @@ interface Props {
   compareAnchor?: string;
   /** Katalógus-változat: a termékrács horgonya. Ilyenkor a fő gomb oda visz, a konzultáció a második. */
   catalogAnchor?: string;
+  /** Katalógus-változat: a csempével rendelkező csoportok (a csempe a csoportra görget). */
+  catalogGroups?: CatalogGroup[];
 }
 
-const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor, catalogAnchor } = Astro.props;
+const { titleLines, lead, image, imageAlt, video, crumb, models, consultHref, compareAnchor, catalogAnchor, catalogGroups = [] } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url);
 const ui = showcaseUi(locale);
-// Csempeoszlopok asztalon a gépek számához igazítva (ne maradjon üres hely).
-// 3 gépnél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
-const three = models.length === 3;
 // Egytermékes kategória: csempesor helyett egy fekvő kártya, a második gomb a termékoldalra visz.
 const single = models.length === 1 ? models[0] : null;
+// Katalóguscsempe alja: a csoport legolcsóbb tétele („… Ft-tól”).
+function groupFoot(g: CatalogGroup): string {
+  const prices = g.items.flatMap((item) => (item.price ? [item.price] : []));
+  return prices.length ? ui.priceFrom(formatHuf(Math.min(...prices))) : ui.askPrice;
+}
+// Hero-csempék: gépes oldalon a gépek, katalógusnál a termékcsoportok.
+const tiles = models.length > 1
+  ? models.map((m) => ({ href: `#${m.slug}`, thumb: m.thumb, alt: m.fullName, name: m.name, spec: m.keySpec, foot: m.price ? formatHuf(m.price) : ui.askPrice }))
+  : catalogGroups.flatMap((g) => g.tile && g.anchor
+      ? [{ href: `#${g.anchor}`, thumb: g.tile.image, alt: g.title, name: g.tile.name, spec: undefined, foot: groupFoot(g) }]
+      : []);
+// Csempeoszlopok asztalon a csempék számához igazítva (ne maradjon üres hely).
+// 3 csempénél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
+const three = tiles.length === 3;
 const tileCols = three
   ? 'grid-cols-3 gap-2.5 dt:grid-cols-3'
-  : models.length === 2
+  : tiles.length === 2
     ? 'grid-cols-2 gap-3 dt:max-w-[400px]'
     : 'grid-cols-2 gap-3 dt:grid-cols-4';
+
+// Képarány (szélesség/magasság): videónál a poszteré, képnél a manifestből.
+const MAX_CROP = 0.85;
+const entry = getImageEntry(image);
+const ar = video ? video.posterSize.width / video.posterSize.height : entry ? entry.width / entry.height : 1;
+// Mobil: a doboz a kép arányát veszi fel, 3:4 (álló) és 1:1 között.
+const mobileAr = Math.min(1, Math.max(0.75, ar));
+// Asztal: magasság = a 44vw-s oszlophoz illő magasság (600-760px), a szélesség
+// pedig ehhez a magassághoz igazodik úgy, hogy a vágás max. 15% legyen (30-56vw).
+const heroH = `clamp(600px, calc(44vw / ${ar.toFixed(4)}), 760px)`;
+const heroStyle = [
+  `--hero-m-ar: ${mobileAr.toFixed(4)}`,
+  `--hero-h: ${heroH}`,
+  `--hero-img-w: clamp(min(calc(var(--hero-h) * ${(ar * MAX_CROP).toFixed(4)}), 56vw), 44vw, max(30vw, min(calc(var(--hero-h) * ${(ar / MAX_CROP).toFixed(4)}), 56vw)))`,
+].join('; ');
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-delay:.6s]', '[animation-delay:.7s]'];
 ---
 
-<section class="bg-blush" data-showcase-hero>
-  <div class="grid grid-cols-1 dt:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] dt:min-h-[600px]">
-    <div class="relative aspect-[39/46] bg-plum dt:order-2 dt:aspect-auto dt:overflow-hidden">
+<section class="bg-blush" data-showcase-hero style={heroStyle}>
+  <div class="grid grid-cols-1 dt:grid-cols-[minmax(0,1fr)_var(--hero-img-w)] dt:min-h-(--hero-h)">
+    <div class="relative aspect-(--hero-m-ar) bg-plum dt:order-2 dt:aspect-auto dt:overflow-hidden">
       {video ? (
         <HeroVideo {...video} alt={imageAlt} />
       ) : (
@@ -62,7 +95,7 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
           src={image}
           alt={imageAlt}
           widths={[480, 640, 828, 960, 1200]}
-          sizes="(min-width: 900px) 44vw, 100vw"
+          sizes="(min-width: 900px) 56vw, 100vw"
           loading="eager"
           fetchpriority="high"
           class="absolute inset-0 h-full w-full object-cover object-[center_30%]"
@@ -149,19 +182,19 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
             <span class="mt-1.5 text-sm font-semibold">{single.price ? formatHuf(single.price) : ui.askPrice}</span>
           </span>
         </a>
-      ) : models.length > 1 && (
+      ) : tiles.length > 1 && (
       <ul class:list={['mt-2 grid max-w-[600px] dt:mt-2 dt:gap-2.5', tileCols]} role="list">
-        {models.map((m, i) => (
+        {tiles.map((m, i) => (
           <li class:list={['sl-pop', delays[i % delays.length]]}>
             <a
-              href={`#${m.slug}`}
+              href={m.href}
               data-scroll-center
               class="sl-lift group flex h-full flex-col overflow-hidden rounded-[14px] bg-white text-gray-900"
             >
               <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[100px]' : 'h-[140px]']}>
                 <OptimizedPicture
                   src={m.thumb}
-                  alt={m.fullName}
+                  alt={m.alt}
                   widths={[160, 320]}
                   sizes="150px"
                   class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -169,9 +202,9 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               </span>
               <span class:list={['flex grow flex-col gap-px border-t border-[#fbe3ea] pt-2 dt:px-2.5 dt:pb-2.5', three ? 'px-2.5 pt-2.5 pb-3 dt:pt-2' : 'px-4 pt-3 pb-4 dt:pt-2']}>
                 <span class:list={['font-bold dt:text-sm', three ? 'text-[13px] leading-tight' : 'text-sm']}>
-                  {m.name} {m.keySpec && <span class:list={['text-xs font-medium whitespace-nowrap text-gray-500', three && 'block']}>{m.keySpec}</span>}
+                  {m.name} {m.spec && <span class:list={['text-xs font-medium whitespace-nowrap text-gray-500', three && 'block']}>{m.spec}</span>}
                 </span>
-                <span class="mt-auto text-[13px] font-semibold">{m.price ? formatHuf(m.price) : ui.askPrice}</span>
+                <span class="mt-auto text-[13px] font-semibold">{m.foot}</span>
               </span>
             </a>
           </li>

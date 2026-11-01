@@ -14,6 +14,7 @@ export const kellekek: ShowcaseCategory = {
         ['faviamo-tumodul', 'mast-oceanheart-tumodul-030mm-1rl'],
         ['carbon-peeling-fust-elszivo-keszulek-815'],
       ],
+      tiles: ['@assets/misc/tumodulok-csempe.jpg', '@assets/products/carbonpeelingelszivo.webp'],
     },
     whyBuy: {
       image: '@assets/products/faviamo-tumodul-design-3.jpg',

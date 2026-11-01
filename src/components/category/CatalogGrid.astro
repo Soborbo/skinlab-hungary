@@ -8,14 +8,14 @@
 import OptimizedPicture from '../images/OptimizedPicture.astro';
 import QuickAddButton from '../cart/QuickAddButton.astro';
 import { getLocaleFromUrl } from '@/i18n/ui';
-import { formatHuf, type CatalogItem } from '@/lib/category-showcase';
+import { formatHuf, type CatalogGroup } from '@/lib/category-showcase';
 import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
   id: string;
   title: string;
   lead: string;
-  groups: { title: string; subtitle?: string; items: CatalogItem[] }[];
+  groups: CatalogGroup[];
 }
 
 const { id, title, lead, groups } = Astro.props;
@@ -32,7 +32,7 @@ const ui = showcaseUi(locale);
 
     <div class="flex flex-col gap-16 dt:gap-14">
       {groups.map((group) => (
-        <div>
+        <div id={group.anchor} class="scroll-mt-24">
           <div class="sl-reveal mb-6 max-w-[760px]">
             <h3 class="m-0 font-heading text-[26px] font-normal leading-[1.25] text-balance text-gray-900 dt:text-[28px]">{group.title}</h3>
             {group.subtitle && <p class="mt-2 max-dt:leading-[1.65] text-gray-600">{group.subtitle}</p>}

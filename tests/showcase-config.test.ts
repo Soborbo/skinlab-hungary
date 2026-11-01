@@ -77,6 +77,7 @@ describe('SHOWCASE_CATEGORIES', () => {
       base.hero.image,
       ...(base.whyBuy ? [base.whyBuy.image] : []),
       ...Object.values(base.thumbs ?? {}),
+      ...(base.catalog?.tiles ?? []),
     ]);
     expect(images.filter((src) => !(src in manifest))).toEqual([]);
   });
@@ -87,6 +88,15 @@ describe('buildShowcaseConfig', () => {
 
   it('hiányzó nyelvnél null (az oldal a régi layouton marad)', () => {
     expect(buildShowcaseConfig({ ...first, copy: {} }, 'en')).toBeNull();
+  });
+
+  it('katalógus-csempénél a csoportszám és a rövid név kötelező', () => {
+    const catalog = SHOWCASE_CATEGORIES.kezeloanyagok;
+    const tiles = catalog.base.catalog?.tiles ?? [];
+    expect(() => buildShowcaseConfig({ ...catalog, base: { ...catalog.base, catalog: { ...catalog.base.catalog!, tiles: tiles.slice(1) } } }, 'hu')).toThrow();
+    const hu = catalog.copy.hu!;
+    const groups = hu.catalog!.groups.map(({ short: _, ...g }) => g);
+    expect(() => buildShowcaseConfig({ ...catalog, copy: { hu: { ...hu, catalog: { ...hu.catalog!, groups } } } }, 'hu')).toThrow();
   });
 
   it('eltérő elemszámnál build-hiba', () => {

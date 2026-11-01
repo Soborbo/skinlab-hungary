@@ -23,6 +23,15 @@ export type ShowcaseIconName =
   | 'scan'
   | 'truck';
 
+/** Egy katalógus-csoport a nyelvfüggetlen és a szöveges rész összefésülése után. */
+export interface CatalogGroupConfig {
+  title: string;
+  subtitle?: string;
+  slugs: string[];
+  /** Hero-csempe: kép + rövid név (ShowcaseBase.catalog.tiles + copy `short`). */
+  tile?: { image: string; name: string };
+}
+
 /** Néma, ismétlődő hero-videó (HeroVideo.astro). Útvonalak a public/ alól. */
 export interface ShowcaseHeroVideo {
   desktop: string;
@@ -59,8 +68,11 @@ export interface ShowcaseBase {
    * termékrács kosárba gombbal. Csoportonként a termékek slugja a megjelenítés
    * sorrendjében; a csoportcímek a szövegfájlban. A csoportba nem sorolt
    * publikált termék a „További termékek” csoportba kerül, nem tűnik el.
+   * `tiles`: csoportonként egy fehér hátterű packshot (@assets/…) a hero
+   * csempéihez; ha van, minden csoportnak kell, és a szövegben a csoport `short`
+   * neve is kötelező.
    */
-  catalog?: { groups: string[][] };
+  catalog?: { groups: string[][]; tiles?: string[] };
   /** USP-pontok ikonjai, sorrendben. */
   usp: ShowcaseIconName[];
   /** Összehasonlító sorok adatforrása, sorrendben (a címkék a szövegfájlban). */
@@ -88,7 +100,7 @@ export interface ShowcaseCopy {
   usp: { title: string; sub: string }[];
   /** Gépes kategória: modellsorok. Katalógus-változatnál helyette `catalog`. */
   models?: { title: string; lead: string; copy: Record<string, ShowcaseModelCopy> };
-  catalog?: { title: string; lead: string; groups: { title: string; subtitle?: string }[] };
+  catalog?: { title: string; lead: string; groups: { title: string; subtitle?: string; /** Rövid név a hero-csempére. */ short?: string }[] };
   reviews?: { title: string };
   compare?: {
     title: string;
@@ -127,7 +139,7 @@ export interface ShowcaseConfig {
   hero: ShowcaseCopy['hero'] & ShowcaseBase['hero'];
   usp: { icon: ShowcaseIconName; title: string; sub: string }[];
   models?: ShowcaseCopy['models'];
-  catalog?: { title: string; lead: string; groups: { title: string; subtitle?: string; slugs: string[] }[] };
+  catalog?: { title: string; lead: string; groups: CatalogGroupConfig[] };
   reviews?: { title: string };
   compare?: {
     title: string;
