@@ -13,7 +13,7 @@ import { getLocalizedUrl } from '@/i18n/ui';
 import { showcaseUi } from '@/i18n/showcase';
 import { getImageAlt } from './resolve-image';
 import type { Locale } from '@/i18n/ui';
-import type { ShowcaseCategory, ShowcaseConfig } from './types/category-showcase';
+import type { CatalogGroupConfig, ShowcaseCategory, ShowcaseConfig } from './types/category-showcase';
 
 type Product = CollectionEntry<'products'>;
 
@@ -204,11 +204,11 @@ export function compactOpeningHours(
 }
 
 /** Két párhuzamos tömb összefésülése; eltérő hossznál build-hiba. */
-function zip<A, B, R>(where: string, a: A[], b: B[], join: (a: A, b: B) => R): R[] {
+function zip<A, B, R>(where: string, a: A[], b: B[], join: (a: A, b: B, i: number) => R): R[] {
   if (a.length !== b.length) {
     throw new Error(`[showcase] ${where}: a közös részben ${a.length}, a szövegben ${b.length} elem van`);
   }
-  return a.map((item, i) => join(item, b[i]));
+  return a.map((item, i) => join(item, b[i], i));
 }
 
 /** Az opcionális szekció mindkét oldalon megvan, vagy egyiken sem. */
@@ -235,6 +235,9 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
   const finance = pair(at('finance'), base.finance, copy.finance);
   const training = pair(at('training'), base.training, copy.training);
   const catalog = pair(at('catalog'), base.catalog, copy.catalog);
+  if (catalog?.[0].tiles && catalog[0].tiles.length !== catalog[0].groups.length) {
+    throw new Error(`[showcase] ${at('catalog')}: ${catalog[0].groups.length} csoporthoz ${catalog[0].tiles.length} csempekép tartozik`);
+  }
   if (!copy.models === !catalog) {
     throw new Error(`[showcase] ${at('models/catalog')}: pontosan az egyik kell (gépsor vagy katalógus)`);
   }
@@ -249,7 +252,12 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
     catalog: catalog && {
       title: catalog[1].title,
       lead: catalog[1].lead,
-      groups: zip(at('catalog'), catalog[0].groups, catalog[1].groups, (slugs, text) => ({ ...text, slugs })),
+      groups: zip(at('catalog'), catalog[0].groups, catalog[1].groups, (slugs, { short, ...text }, i) => {
+        const image = catalog[0].tiles?.[i];
+        if (!image) return { ...text, slugs };
+        if (!short) throw new Error(`[showcase] ${at('catalog')}: a(z) ${i + 1}. csoport csempéjéhez rövid név (short) kell`);
+        return { ...text, slugs, tile: { image, name: short } };
+      }),
     },
     reviews: copy.reviews,
     compare: compare && {
@@ -287,6 +295,15 @@ export interface CatalogItem {
   variants: { sku: string; available?: boolean }[];
 }
 
+export interface CatalogGroup {
+  title: string;
+  subtitle?: string;
+  /** Horgony a hero-csempékhez; a „További termékek” csoportnak nincs. */
+  anchor?: string;
+  tile?: CatalogGroupConfig['tile'];
+  items: CatalogItem[];
+}
+
 /**
  * Katalógus-csoportok a konfig sorrendjében, csak publikált termékkel. A
  * csoportba nem sorolt termékek a végén egy `restTitle` című csoportba
@@ -294,10 +311,10 @@ export interface CatalogItem {
  */
 export function buildCatalogGroups(
   products: Product[],
-  groups: { title: string; subtitle?: string; slugs: string[] }[],
+  groups: CatalogGroupConfig[],
   locale: Locale,
   restTitle: string,
-): { title: string; subtitle?: string; items: CatalogItem[] }[] {
+): CatalogGroup[] {
   const bySlug = new Map(products.map((p) => [p.data.slug || p.id, p]));
   const toItem = (product: Product): CatalogItem => {
     const { data } = product;
@@ -319,9 +336,11 @@ export function buildCatalogGroups(
     .filter((p) => !placed.has(p.data.slug || p.id))
     .sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity));
   return [
-    ...groups.map((g) => ({
+    ...groups.map((g, i) => ({
       title: g.title,
       subtitle: g.subtitle,
+      anchor: `termekcsoport-${i + 1}`,
+      tile: g.tile,
       items: g.slugs.flatMap((slug) => {
         const product = bySlug.get(slug);
         return product ? [toItem(product)] : [];

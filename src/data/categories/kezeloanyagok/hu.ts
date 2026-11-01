@@ -18,7 +18,7 @@ export const hu: ShowcaseCopy = {
   hero: {
     titleLines: ["M'ONDUNIQ kezelőanyagok", 'a gépeid mellé.'],
     lead: 'Aqua-peeling hydra-liquidek, hatóanyag-koktélok, exoszómás készítmények és a teljes LaserIQ carbon peeling protokoll. Hivatalos forgalmazóként eredeti termékeket adunk.',
-    imageAlt: "A Skinlab csapata a M'ONDUNIQ professzionális kozmetikumok standján",
+    imageAlt: "M'ONDUNIQ AquametiQ Acid Prime kezelőfolyadék kőlapon, zöld ággal",
   },
   usp: [
     { title: 'Eredeti, hivatalos termékek', sub: 'hivatalos forgalmazótól' },
@@ -32,18 +32,22 @@ export const hu: ShowcaseCopy = {
     groups: [
       {
         title: "M'ONDUNIQ LaserIQ: carbon peeling és lézeres protokoll",
+        short: 'LaserIQ protokoll',
         subtitle: 'A kezelési protokoll lépéssorrendjében: bőrelőkészítés, a carbon peeling kezelés, az azonnali regeneráció, végül az otthon folytatható ápolás.',
       },
       {
         title: 'AquametiQ hydra-liquidek: aqua-peeling kezelőfolyadékok',
+        short: 'AquametiQ liquidek',
         subtitle: 'Hidrodermabráziós és aqua-peeling gépekbe töltendő hatóanyagos kezelőfolyadékok. Négy változat: savas előkészítő, hidratáló, világosító és ozmotikus öblítővíz.',
       },
       {
         title: 'Hatóanyag-koktélok, szérumok és maszkok',
+        short: 'Koktélok, szérumok',
         subtitle: 'Mikrotűs mezoterápiához, nano kezelésekhez, elektroporációhoz, oxigéninfúzióhoz és hidegplazmás protokollokhoz.',
       },
       {
         title: 'Savas hámlasztás és anti-aging arcápolás',
+        short: 'Anti-aging ápolás',
         subtitle: "A 10% fitinsavas koncentrátum a kabinos hámlasztáshoz; a HI'FUsion Longevity szérum és krém, a LEPIREV™ szemkörnyékápoló és a Vitamino'MASK fiatalító arcmaszk a bőr hidratálására és a ráncok láthatóságának mérséklésére.",
       },
     ],

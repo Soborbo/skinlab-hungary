@@ -25,6 +25,8 @@ export interface ShowcaseUi {
   catalogCta: string;
   /** A csoportba nem sorolt termékek csoportja. */
   catalogRest: string;
+  /** Katalógus hero-csempéje: a csoport legalacsonyabb ára („12 990 Ft-tól”). */
+  priceFrom: (amount: string) => string;
   whenTitle: string;
   installmentTeaser: (monthly: string, months: number) => string;
   reviewsCta: string;
@@ -86,6 +88,7 @@ const hu: ShowcaseUi = {
   singleDetails: 'A gép részletei',
   catalogCta: 'A termékek',
   catalogRest: 'További termékek',
+  priceFrom: (amount) => `${amount}-tól`,
   whenTitle: 'Neked való, ha…',
   installmentTeaser: (monthly, months) => `vagy 50% előleg + ${monthly}/hó (${months} hó)`,
   reviewsCta: 'Én is ilyen gépet szeretnék',

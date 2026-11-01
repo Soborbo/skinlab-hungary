@@ -31,10 +31,12 @@ export const hu: ShowcaseCopy = {
     groups: [
       {
         title: 'Tűmodulok',
+        short: 'Tűmodulok',
         subtitle: 'Steril, egyenként csomagolt, egyszer használatos tűmodulok sminktetováló gépekhez, több méretben, 1RL és 3RL kiszerelésben.',
       },
       {
         title: 'Carbon peeling kiegészítők',
+        short: 'Füstelszívó',
         subtitle: 'Füstelszívó lézeres és carbon peeling kezelésekhez, HEPA és aktív szén szűrővel.',
       },
     ],

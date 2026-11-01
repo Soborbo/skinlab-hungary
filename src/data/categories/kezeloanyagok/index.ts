@@ -11,7 +11,7 @@ import { hu } from './hu';
 export const kezeloanyagok: ShowcaseCategory = {
   base: {
     slug: 'kezeloanyagok',
-    hero: { image: '@assets/monduniq-professzionalis-kozmetikumok.jpg' },
+    hero: { image: '@assets/products/monduniq-aquametiq-hydra-prime-a-design-1.webp' },
     usp: ['shield', 'truck', 'pin', 'layers'],
     catalog: {
       groups: [
@@ -44,6 +44,13 @@ export const kezeloanyagok: ShowcaseCategory = {
           'monduniq-lepirev-szemkornyekapolo-krem',
           'monduniq-vitamino-mask-arcmaszk',
         ],
+      ],
+      // Az AquametiQ-nek nincs fehér hátterű packshotja, csak a szatén hátterű.
+      tiles: [
+        '@assets/misc/monduniq-laseriq-csempe.jpg',
+        '@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp',
+        '@assets/misc/monduniq-koktelok-csempe.jpg',
+        '@assets/misc/monduniq-anti-aging-csempe.jpg',
       ],
     },
     whyBuy: {
