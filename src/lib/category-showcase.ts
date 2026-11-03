@@ -256,7 +256,7 @@ export function buildShowcaseConfig(category: ShowcaseCategory, locale: Locale):
         const image = catalog[0].tiles?.[i];
         if (!image) return { ...text, slugs };
         if (!short) throw new Error(`[showcase] ${at('catalog')}: a(z) ${i + 1}. csoport csempéjéhez rövid név (short) kell`);
-        return { ...text, slugs, tile: { image, name: short } };
+        return { ...text, slugs, tile: { image, name: short, photo: catalog[0].photoTiles } };
       }),
     },
     reviews: copy.reviews,

@@ -29,7 +29,7 @@ export interface CatalogGroupConfig {
   subtitle?: string;
   slugs: string[];
   /** Hero-csempe: kép + rövid név (ShowcaseBase.catalog.tiles + copy `short`). */
-  tile?: { image: string; name: string };
+  tile?: { image: string; name: string; photo?: boolean };
 }
 
 /** Néma, ismétlődő hero-videó (HeroVideo.astro). Útvonalak a public/ alól. */
@@ -70,9 +70,10 @@ export interface ShowcaseBase {
    * publikált termék a „További termékek” csoportba kerül, nem tűnik el.
    * `tiles`: csoportonként egy fehér hátterű packshot (@assets/…) a hero
    * csempéihez; ha van, minden csoportnak kell, és a szövegben a csoport `short`
-   * neve is kötelező.
+   * neve is kötelező. `photoTiles`: a csempék színes dizájnfotók, nem
+   * packshotok; ilyenkor a kép kitölti a csempe felső részét (object-cover).
    */
-  catalog?: { groups: string[][]; tiles?: string[] };
+  catalog?: { groups: string[][]; tiles?: string[]; photoTiles?: boolean };
   /** USP-pontok ikonjai, sorrendben. */
   usp: ShowcaseIconName[];
   /** Összehasonlító sorok adatforrása, sorrendben (a címkék a szövegfájlban). */
