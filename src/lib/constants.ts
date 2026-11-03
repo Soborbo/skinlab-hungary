@@ -34,6 +34,22 @@ export const FOUNDERS = [
 ];
 
 /**
+ * A Rólunk oldal csapata, megjelenési sorrendben (az alapítók is, egyforma
+ * kártyán). Szöveg: about.member.<roleKey>, alapítóknál about.founder.<roleKey>
+ * + about.bio.<roleKey>. Fotó nélkül (`image: null`) monogramos avatar jelenik meg.
+ */
+export const TEAM: { name: string; roleKey: string; bioKey: string; image: string | null; initials: string }[] = [
+  { name: 'Gaszler Szimonetta', roleKey: 'founder.treatment', bioKey: 'bio.treatment', image: '/about/gaszler-simonetta-skinlab-alapito', initials: 'GSz' },
+  { name: 'Horváth László', roleKey: 'founder.technical', bioKey: 'bio.technical', image: '/about/horvath-laszlo-skinlab-alapito', initials: 'HL' },
+  { name: 'Huszár László', roleKey: 'member.service', bioKey: 'member.serviceBio', image: '/about/huszar-laszlo-skinlab-szerviz', initials: 'HL' },
+  // Tulajdonosi döntés (2026-11-03): Rebeka, Ádám és Anna hamarosan felkerül, addig kikommentelve (a fordításaik megvannak).
+  // { name: 'Kanalas Rebeka', roleKey: 'member.support', bioKey: 'member.supportBioRebeka', image: null, initials: 'KR' },
+  // { name: 'Ádám', roleKey: 'member.support', bioKey: 'member.supportBioAdam', image: null, initials: 'Á' },
+  // { name: 'Anna', roleKey: 'member.handover', bioKey: 'member.handoverBio', image: null, initials: 'A' },
+  { name: 'Kokó', roleKey: 'member.mascot', bioKey: 'member.mascotBio', image: '/about/koko-skinlab-csapat', initials: 'K' },
+];
+
+/**
  * A Skinlab Google-cégprofiljának átlagos értékelése, a főoldali hero
  * Google-kártyájához. CSAK a valódi, Google-on látható érték kerülhet ide
  * (kitalált értékelés tilos). `null` = a kártya nem jelenik meg.
