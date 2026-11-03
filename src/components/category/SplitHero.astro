@@ -54,9 +54,9 @@ function groupFoot(g: CatalogGroup): string {
 }
 // Hero-csempék: gépes oldalon a gépek, katalógusnál a termékcsoportok.
 const tiles = models.length > 1
-  ? models.map((m) => ({ href: `#${m.slug}`, thumb: m.thumb, alt: m.fullName, name: m.name, spec: m.keySpec, foot: m.price ? formatHuf(m.price) : ui.askPrice }))
+  ? models.map((m) => ({ href: `#${m.slug}`, thumb: m.thumb, alt: m.fullName, name: m.name, spec: m.keySpec, foot: m.price ? formatHuf(m.price) : ui.askPrice, photo: false }))
   : catalogGroups.flatMap((g) => g.tile && g.anchor
-      ? [{ href: `#${g.anchor}`, thumb: g.tile.image, alt: g.title, name: g.tile.name, spec: undefined, foot: groupFoot(g) }]
+      ? [{ href: `#${g.anchor}`, thumb: g.tile.image, alt: g.title, name: g.tile.name, spec: undefined, foot: groupFoot(g), photo: !!g.tile.photo }]
       : []);
 // Csempeoszlopok asztalon a csempék számához igazítva (ne maradjon üres hely).
 // 3 csempénél mobilon is egy sor (ne maradjon árva csempe), kisebb képpel és betűvel.
@@ -191,13 +191,13 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
               data-scroll-center
               class="sl-lift group flex h-full flex-col overflow-hidden rounded-[14px] bg-white text-gray-900"
             >
-              <span class:list={['flex items-center justify-center p-2 dt:h-[84px] dt:p-1.5 [&>picture]:block [&>picture]:h-full [&>picture]:w-full', three ? 'h-[100px]' : 'h-[140px]']}>
+              <span class:list={['flex items-center justify-center [&>picture]:block [&>picture]:h-full [&>picture]:w-full', m.photo ? 'overflow-hidden dt:h-[120px]' : 'p-2 dt:h-[84px] dt:p-1.5', three ? 'h-[100px]' : 'h-[140px]']}>
                 <OptimizedPicture
                   src={m.thumb}
                   alt={m.alt}
                   widths={[160, 320]}
                   sizes="150px"
-                  class="h-full w-full object-contain transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  class={`h-full w-full ${m.photo ? 'object-cover' : 'object-contain'} transition-transform duration-[350ms] group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100`}
                 />
               </span>
               <span class:list={['flex grow flex-col gap-px border-t border-[#fbe3ea] pt-2 dt:px-2.5 dt:pb-2.5', three ? 'px-2.5 pt-2.5 pb-3 dt:pt-2' : 'px-4 pt-3 pb-4 dt:pt-2']}>

@@ -45,13 +45,15 @@ export const kezeloanyagok: ShowcaseCategory = {
           'monduniq-vitamino-mask-arcmaszk',
         ],
       ],
-      // Az AquametiQ-nek nincs fehér hátterű packshotja, csak a szatén hátterű.
+      // Egységesen a szatén hátterű, szívecskés dizájnfotók, csoportonként más
+      // háttérszínnel (zöld, rózsaszín, kék, bézs).
       tiles: [
-        '@assets/misc/monduniq-laseriq-csempe.jpg',
+        '@assets/products/monduniq-nyugtato-erfalerosito-krem-50ml-design-1.jpg',
         '@assets/products/monduniq-aquametiq-hydra-prime-a-1.webp',
-        '@assets/misc/monduniq-koktelok-csempe.jpg',
-        '@assets/misc/monduniq-anti-aging-csempe.jpg',
+        '@assets/products/monduniq-dermoaktiv-szerum-design-1.webp',
+        '@assets/products/monduniq-vitamino-mask-arcmaszk-design-1.webp',
       ],
+      photoTiles: true,
     },
     whyBuy: {
       image: '@assets/monduniq-hifusion-szalonban.jpg',
