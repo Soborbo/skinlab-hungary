@@ -1,406 +1,335 @@
 ---
+/**
+ * Rólunk oldal a kategóriaoldalak (showcase) dizájnnyelvén: blush split hero,
+ * USP-sáv, homok idézetsáv, váltakozó történet-sorok, „miben vagyunk mások”,
+ * egyforma csapatkártyák, videós vélemények, látogatás-blokk.
+ * Terv: https://claude.ai/artifact/UTGfvFWWnoEmGbBkGsg2wY
+ *
+ * Szöveg: about.* az i18n JSON-okban. A történet bekezdései (storySection*)
+ * egyelőre csak magyarul vannak meg, a többi nyelven magyarra esnek vissza.
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VideoTestimonials from '../sections/VideoTestimonials.astro';
 import OptimizedPicture from '../images/OptimizedPicture.astro';
-import { Image } from 'astro:assets';
-import rolunk2 from '../../assets/rolunk2.jpg';
-import rolunk3 from '../../assets/rolunk-szimi-skinlab.jpg';
-import rolunk4 from '../../assets/rolunk4.jpg';
-import rolunk5 from '../../assets/rolunk5.jpg';
-import rolunk6 from '../../assets/rolunk6.jpg';
-import rolunk7 from '../../assets/rolunk-showroom.jpg';
-import { SITE, COMPANY, FOUNDERS, CONTACT } from '../../lib/constants';
+import UspStrip from '../category/UspStrip.astro';
+import GoogleMark from '../category/GoogleMark.astro';
+import ShowcaseIcon from '../category/ShowcaseIcon.astro';
+import { SITE, COMPANY, CONTACT, GOOGLE_RATING, LOCATIONS, TEAM } from '../../lib/constants';
+import { getImageEntry } from '../../lib/resolve-image';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 import { config } from '../../config/siteConfig';
 import { aboutPageSchema } from '../../config/schema';
-import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
-// Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
+const a = (key: string, params?: Record<string, string | number>) => t(locale, `about.${key}`, params);
+const brand = { companyName: COMPANY.brand };
 
-// Localized contact link
-const contactLink = getLocalizedUrl(locale, '/konzultacio');
-
-// Page URL for schema
+const consultHref = getLocalizedUrl(locale, '/konzultacio');
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, '/rolunk')}`;
+const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
+const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(LOCATIONS.showroom.fullAddress)}`;
+const founders = TEAM.slice(0, 2);
 
-// Split the about title at "? " so "A skinlab. története" sits on its own line.
-const aboutTitle = t(locale, 'about.title', { companyName: COMPANY.brand });
-const titleParts = aboutTitle.split('? ');
-const titleLine1 = titleParts.length > 1 ? `${titleParts[0]}?` : aboutTitle;
-const titleLine2 = titleParts.length > 1 ? titleParts.slice(1).join('? ') : '';
+// Hero: a kép-doboz a fotó arányát követi (mint a SplitHero), így a vágás kicsi marad.
+const HERO_IMAGE = '@assets/rolunk2.jpg';
+const heroEntry = getImageEntry(HERO_IMAGE);
+const heroAr = heroEntry ? heroEntry.width / heroEntry.height : 4 / 3;
+const heroStyle = [
+  `--about-h: clamp(480px, calc(50vw / ${heroAr.toFixed(4)}), 700px)`,
+  `--about-img-w: clamp(min(calc(var(--about-h) * ${(heroAr * 0.85).toFixed(4)}), 56vw), 50vw, min(calc(var(--about-h) * ${(heroAr / 0.85).toFixed(4)}), 56vw))`,
+].join('; ');
 
-// Story as a full-bleed checkerboard — same copy, alternating image/text.
-// `imageLeft` alternates (kép-szöveg / szöveg-kép). On mobile DOM order is
-// always text→image. rolunk3 → "skinlab ma" (háttérben a skinlab feliratos kijelző).
+// Történet: váltakozó sorok, a kép a képernyő széléig; az álló fotó keskenyebb oszlopot kap.
 const story = [
   {
-    n: '01',
-    title: t(locale, 'about.storySection1Title'),
-    paras: [t(locale, 'about.storySection1')],
-    image: rolunk5,
-    imageAlt: 'Gaszler Simonetta egy nemzetközi kozmetikai szakkiállításon',
-    imageLeft: true,
+    title: a('storySection1Title'),
+    paras: [a('storySection1')],
+    image: '@assets/rolunk5.jpg',
+    imageAlt: 'Gaszler Szimonetta egy nemzetközi kozmetikai szakkiállításon',
   },
   {
-    n: '02',
-    title: t(locale, 'about.storySection2Title'),
-    paras: [
-      t(locale, 'about.storySection2a'),
-      t(locale, 'about.storySection2b', { companyName: COMPANY.brand }),
-    ],
-    image: rolunk4,
-    imageAlt: 'Horváth László a Skinlab showroomban',
-    imageLeft: false,
+    title: a('storySection2Title'),
+    paras: [a('storySection2a'), a('storySection2b', brand)],
+    image: '@assets/rolunk4.jpg',
+    imageAlt: 'Horváth László a Skinlab bemutatótermében',
   },
   {
-    n: '03',
-    title: t(locale, 'about.storySection3Title'),
-    paras: [t(locale, 'about.storySection3')],
-    image: rolunk2,
-    imageAlt: 'Gaszler Simonetta és Horváth László lézeres kezelést mutatnak be',
-    imageLeft: true,
-  },
-  {
-    n: '04',
-    title: t(locale, 'about.storySection4Title', { companyName: COMPANY.brand }),
-    paras: [
-      t(locale, 'about.storySection4a', { companyName: COMPANY.brand }),
-      t(locale, 'about.storySection4b', { companyName: COMPANY.brand }),
-    ],
-    image: rolunk3,
-    imageAlt: 'Gaszler Simonetta a Skinlab bemutatótermében, a skinlab logó előtt',
-    imageLeft: false,
-    imagePosition: 'object-[50%_45%] sm:object-[50%_60%]',
-  },
-  {
-    n: '05',
-    title: t(locale, 'about.storySection5Title'),
-    paras: [
-      t(locale, 'about.storySection5a'),
-      t(locale, 'about.storySection5b'),
-      t(locale, 'about.storySection5c'),
-      t(locale, 'about.storySection5d'),
-    ],
-    image: rolunk6,
+    title: a('storySection3Title'),
+    paras: [a('storySection3')],
+    image: '@assets/rolunk6.jpg',
     imageAlt: 'A Skinlab csapata egy szakkiállítási standon, skinlab márkás készülékekkel',
-    imageLeft: true,
+  },
+  {
+    title: a('storySection4Title', brand),
+    paras: [a('storySection4a', brand), a('storySection4b', brand)],
+    image: '@assets/rolunk-szimi-skinlab.jpg',
+    imageAlt: 'Gaszler Szimonetta a Skinlab bemutatótermében, a skinlab logó előtt',
+    portrait: true,
   },
 ];
 
-// "Why us" benefits — elegant single-tone grey icons, icon on the left.
-const whyUs = [
-  {
-    paths: ['M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
-    title: 'about.benefit1Title',
-    desc: 'about.benefit1Desc',
-  },
-  {
-    paths: ['M13 10V3L4 14h7v7l9-11h-7z'],
-    title: 'about.benefit2Title',
-    desc: 'about.benefit2Desc',
-  },
-  {
-    paths: ['M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],
-    title: 'about.benefit3Title',
-    desc: 'about.benefit3Desc',
-  },
-  {
-    paths: ['M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
-    title: 'about.benefit4Title',
-    desc: 'about.benefit4Desc',
-  },
-  {
-    paths: [
-      'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
-      'M15 12a3 3 0 11-6 0 3 3 0 016 0z',
-    ],
-    title: 'about.benefit5Title',
-    desc: 'about.benefit5Desc',
-  },
-  {
-    paths: ['M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
-    title: 'about.benefit6Title',
-    desc: 'about.benefit6Desc',
-  },
-];
+const values = [
+  { icon: 'check', n: 1 },
+  { icon: 'wrench', n: 2 },
+  { icon: 'phone', n: 3 },
+  { icon: 'sparkles', n: 4 },
+] as const;
 ---
 
 <BaseLayout
-  title={t(locale, 'about.title', { companyName: COMPANY.brand })}
-  description={t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
+  title={t(locale, 'about.title', brand)}
+  description={t(locale, 'about.subtitle', brand)}
   schema={aboutPageSchema(config, pageUrl)}
 >
-  <div class="bg-white">
-
-    <!-- ============================================================= -->
-    <!-- Hero — focus stays LEFT (shop lead); text panel sits centre-   -->
-    <!-- right (40/60) with a readable frosted dark panel behind it     -->
-    <!-- ============================================================= -->
-    <!-- Mobile: photo is a real block on top (left-focused, fully visible),    -->
-    <!-- text sits BELOW it. Desktop: photo is the full background, text overlaid -->
-    <!-- on the right — unchanged.                                               -->
-    <section class="relative overflow-hidden md:min-h-[600px] lg:min-h-[680px] md:flex md:items-center">
-      <div class="relative flex md:absolute md:inset-0">
+  {/* 1. Hero: blush split, szöveg balra a logó vonalához, kép jobbra a képernyő széléig */}
+  <section class="bg-blush" style={heroStyle}>
+    <div class="grid grid-cols-1 dt:min-h-(--about-h) dt:grid-cols-[minmax(0,1fr)_var(--about-img-w)]">
+      <div class="relative aspect-[4/3] bg-plum dt:order-2 dt:aspect-auto">
         <OptimizedPicture
-          src="@assets/rolunk-foto.jpg"
-          alt={t(locale, 'about.heroPhotoAlt')}
-          widths={[640, 828, 1080, 1200, 1600, 1920, 2560]}
-          sizes="100vw"
-          class="block w-full h-64 sm:h-80 md:h-full object-cover object-left"
+          src={HERO_IMAGE}
+          alt={a('heroAlt')}
+          widths={[480, 640, 828, 960, 1200, 1600]}
+          sizes="(min-width: 900px) 56vw, 100vw"
           loading="eager"
           fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover object-[center_35%]"
         />
-        <!-- Desktop only: darken the right ~60%, keep the left clear -->
-        <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-gray-900/85 from-25% via-gray-900/45 via-55% to-transparent to-75%"></div>
+        {rating && (
+          <a
+            href="#velemenyek"
+            class="sl-rise [animation-delay:.5s] absolute -bottom-[26px] left-6 z-10 flex items-center gap-3 rounded-[14px] bg-white px-[18px] py-3 shadow-[0_10px_30px_rgba(0,0,0,.14)] dt:bottom-6"
+          >
+            <GoogleMark size={30} />
+            <span class="flex flex-col leading-tight">
+              <span class="flex items-center gap-2">
+                <strong class="text-[22px] text-gray-900">{rating}</strong>
+                <span class="text-[15px] tracking-[1px] text-[#fbbc04]" aria-hidden="true">★★★★★</span>
+              </span>
+              <span class="text-xs text-gray-600">{t(locale, 'homeHero.googleRating')}</span>
+            </span>
+          </a>
+        )}
       </div>
 
-      <div class="relative w-full max-w-7xl mx-auto px-0 py-0 md:px-6 lg:px-8 md:py-16 lg:py-24">
-        <div class="md:grid md:grid-cols-5">
-          <div class="hidden md:block md:col-span-2"></div>
-          <div class="md:col-span-3">
-            <!-- Mobile: full-bleed dark band (no card framing — flush top/sides/bottom).
-                 Desktop (md+): floating frosted card overlaid on the photo. -->
-            <div class="bg-gray-900 md:bg-gray-900/45 md:rounded-2xl md:ring-1 ring-white/10 md:backdrop-blur-md px-6 py-9 md:p-7 lg:p-9 text-white">
-              <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4 leading-[1.1] tracking-tight">
-                {titleLine1}{titleLine2 && (<><br />{titleLine2}</>)}
-              </h1>
+      <div class="flex flex-col gap-6 px-6 pt-[58px] pb-14 dt:order-1 dt:justify-center dt:gap-5 dt:py-12 dt:pr-10 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] xl:pr-14">
+        <nav aria-label="Breadcrumb" class="text-[13px] text-gray-600">
+          <ol class="flex flex-wrap items-center gap-1.5">
+            <li><a href={getLocalizedUrl(locale, '/')} class="text-gray-600 hover:text-primary-700">{t(locale, 'nav.home')}</a></li>
+            <li aria-hidden="true">/</li>
+            <li class="text-gray-900" aria-current="page">{t(locale, 'nav.about')}</li>
+          </ol>
+        </nav>
 
-              <p class="text-lg text-gray-100 leading-relaxed">
-                {t(locale, 'about.subtitle', { companyName: COMPANY.brand })}
-              </p>
+        <h1 class="m-0 font-heading text-[38px] font-normal leading-[1.15] tracking-[-0.01em] text-balance text-gray-900 dt:text-[clamp(2.1rem,3.3vw,3rem)] dt:leading-[1.1]">
+          <span class="dt:block">{a('heroLine1')}</span>{' '}
+          <span class="dt:block dt:text-primary-700">{a('heroLine2')}</span>
+        </h1>
 
-              <div class="mt-7 flex flex-col sm:flex-row gap-3.5">
-                <a
-                  href={contactLink}
-                  class="inline-flex items-center justify-center px-6 py-3.5 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors shadow-lg shadow-primary-700/25"
-                >
-                  {t(locale, 'header.freeConsultation')}
-                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-                <a
-                  href={CONTACT.phoneTel}
-                  class="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 text-white font-semibold rounded-xl ring-1 ring-white/30 hover:bg-white/20 transition-colors"
-                >
-                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  {CONTACT.phoneDisplay}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <p class="m-0 max-w-[560px] text-[17px] text-gray-700 max-dt:leading-[1.7]">{a('heroLead')}</p>
 
-    <!-- ============================================================= -->
-    <!-- Mission quote — prominent designed band (replaces stats)       -->
-    <!-- ============================================================= -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-cta to-cta-hover py-16 lg:py-24">
-      <div class="absolute -top-20 -left-16 w-72 h-72 rounded-full bg-white/10"></div>
-      <div class="absolute -bottom-24 -right-16 w-80 h-80 rounded-full bg-white/10"></div>
-      <div class="relative max-w-4xl mx-auto px-6 text-center">
-        <svg class="w-12 h-12 mx-auto mb-6 text-white/40" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-        </svg>
-        <p class="text-2xl lg:text-3xl font-semibold text-white leading-relaxed">
-          {t(locale, 'about.storyClosing')}
-        </p>
-        <div class="mt-8 flex items-center justify-center gap-3 text-white/80">
-          <span class="h-px w-10 bg-white/40"></span>
-          <span class="font-medium">{COMPANY.brand}</span>
-          <span class="h-px w-10 bg-white/40"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- Video testimonials — site-wide social proof                    -->
-    <!-- ============================================================= -->
-    <VideoTestimonials />
-
-    <!-- ============================================================= -->
-    <!-- Story — full-bleed checkerboard. Images go wall-to-wall, sharp -->
-    <!-- corners that meet between rows. Mobile: szöveg → kép.           -->
-    <!-- ============================================================= -->
-    <section class="py-16 lg:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto -mt-5 mb-12 lg:mb-16">
-          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.story')}</span>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">
-            {titleLine1}{titleLine2 && (<><br />{titleLine2}</>)}
-          </h2>
-        </div>
-      </div>
-
-      <!-- Rows: full width, no gaps, no rounding -->
-      <div>
-        {story.map((item) => (
-          <div class="grid md:grid-cols-2 md:min-h-[24rem] lg:min-h-[30rem]">
-            <!-- Text (DOM-first → mobile shows text then image) -->
-            <div class={`flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-16 ${item.imageLeft ? 'md:order-2' : 'md:order-1'}`}>
-              <div class="max-w-xl mx-auto md:mx-0">
-                <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 text-sm font-bold mb-4">
-                  {item.n}
-                </span>
-                <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">{item.title}</h3>
-                <div class="space-y-3 text-gray-600 leading-relaxed">
-                  {item.paras.map((p) => <p>{p}</p>)}
-                </div>
-              </div>
-            </div>
-
-            <!-- Image: fills its half to the wall, sharp corners -->
-            <div class={item.imageLeft ? 'md:order-1' : 'md:order-2'}>
-              <Image
-                src={item.image}
-                alt={item.imageAlt}
-                class={`w-full h-64 sm:h-80 md:h-full object-cover ${item.imagePosition ?? ''}`}
-                loading="lazy"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- Founders — compact horizontal cards (smaller, equal images)    -->
-    <!-- ============================================================= -->
-    <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.team')}</span>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.foundersTitle')}</h2>
+        <div class="sl-rise [animation-delay:.2s] grid max-w-[520px] grid-cols-2 gap-3">
+          <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm xl:text-[15px]" data-event="about-consultation-cta-click">{t(locale, 'header.freeConsultation')}</a>
+          <a href="#csapat" class="sl-btn sl-btn-plum px-2.5 text-sm xl:text-[15px]">{a('teamCta')}</a>
         </div>
 
-        <div class="max-w-3xl mx-auto space-y-6">
-          {FOUNDERS.map((founder) => (
-            <article class="flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-100 hover:shadow-md hover:ring-cta/20 transition-all">
-              <!-- small, fixed-size portrait → both identical -->
-              <div class="sm:w-44 lg:w-52 shrink-0 aspect-[4/5] sm:aspect-auto overflow-hidden">
-                <picture>
-                  <source type="image/avif" srcset={`${founder.image}.avif`} />
-                  <source type="image/webp" srcset={`${founder.image}.webp`} />
-                  <img
-                    src={`${founder.image}.jpg`}
-                    alt={founder.name}
-                    class="w-full h-full object-cover object-top"
-                    width="800"
-                    height="1000"
-                    loading="lazy"
-                  />
+        {/* 900-1279px között rejtve: ott a hero magasabb lenne a képnél, és a fotóból sok veszne el. */}
+        <ul class="mt-1 grid max-w-[520px] grid-cols-1 gap-2.5 dt:hidden xl:grid xl:grid-cols-2" role="list">
+          {founders.map((f, i) => (
+            <li class="sl-pop" style={`animation-delay:${0.3 + i * 0.1}s`}>
+              <a href="#csapat" class="sl-lift flex items-center gap-3 rounded-[14px] bg-white px-3.5 py-2.5 text-gray-900">
+                <picture class="shrink-0">
+                  <source type="image/avif" srcset={`${f.image}.avif`} />
+                  <source type="image/webp" srcset={`${f.image}.webp`} />
+                  <img src={`${f.image}.jpg`} alt="" width="52" height="52" loading="eager" class="h-[52px] w-[52px] rounded-full object-cover object-[center_20%]" />
                 </picture>
-              </div>
-              <div class="p-6 lg:p-7 flex flex-col">
-                <h3 class="text-xl font-bold text-gray-900 whitespace-nowrap">{founder.name}</h3>
-                <p class="inline-flex self-start items-center mt-1.5 mb-3 px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-medium">
-                  {t(locale, `about.founder.${founder.roleKey}`)}
-                </p>
-                <p class="text-gray-600 text-sm leading-relaxed">
-                  {t(locale, `about.founder.${founder.roleKey}Bio`)}
-                </p>
-              </div>
-            </article>
+                <span class="flex flex-col leading-snug">
+                  <strong class="text-[15px]">{f.name}</strong>
+                  <span class="text-[13px] text-gray-500">{a(f.roleKey)}</span>
+                </span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ============================================================= -->
-    <!-- Why us — image + grey icon rows, vertically centred            -->
-    <!-- ============================================================= -->
-    <section class="py-16 lg:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Mobile only: image goes ABOVE the "Küldetésünk" eyebrow. -->
-        <div class:list={['lg:hidden mb-10 rounded-2xl overflow-hidden shadow-lg', MOBILE_MEDIA_BLEED]}>
-          <Image
-            src={rolunk7}
-            alt="A Skinlab bemutatóterme a készülékekkel és a skinlab virágfallal"
-            class="w-full h-auto"
-            loading="lazy"
-          />
+  {/* 2. USP-sáv, a kategóriaoldalak komponense */}
+  <UspStrip
+    items={[
+      { icon: 'wrench', title: a('uspServiceTitle'), sub: a('uspServiceSub') },
+      { icon: 'academic', title: a('uspTrainingTitle'), sub: a('uspTrainingSub') },
+      { icon: 'pin', title: a('uspShowroomTitle'), sub: a('uspShowroomSub') },
+      { icon: 'shield', title: a('uspWarrantyTitle'), sub: a('uspWarrantySub') },
+    ]}
+  />
+
+  {/* 3. Idézet: homok sáv, serif idézet, az alapítók avatarjaival */}
+  <section class="bg-sand py-20 dt:py-24">
+    <figure class="sl-reveal mx-auto flex max-w-[880px] flex-col items-center gap-7 px-6 text-center">
+      <svg width="40" height="32" viewBox="0 0 40 32" aria-hidden="true"><path fill="#fe6893" d="M0 32V19.2C0 8.6 5.4 2.2 16.2 0l1.6 4.2C12 6 9.2 9.6 8.8 14.4H16V32H0zm22 0V19.2C22 8.6 27.4 2.2 38.2 0l1.6 4.2C34 6 31.2 9.6 30.8 14.4H38V32H22z" /></svg>
+      <blockquote class="m-0 font-heading text-[26px] leading-[1.4] text-plum dt:text-[30px]">{a('storyClosing')}</blockquote>
+      <figcaption class="flex items-center gap-3.5 text-left">
+        <span class="flex">
+          {founders.map((f, i) => (
+            <img src={`${f.image}.jpg`} alt="" width="52" height="52" loading="lazy" class:list={['h-[52px] w-[52px] rounded-full border-[3px] border-sand object-cover object-[center_20%] shadow-[0_4px_12px_rgba(0,0,0,.1)]', i > 0 && '-ml-3.5']} />
+          ))}
+        </span>
+        <span class="leading-snug">
+          <strong class="block text-[15px] text-plum">{founders.map((f) => f.name).join(' & ')}</strong>
+          <span class="text-[13px] text-[#6b5d52]">{a('quoteRole')}</span>
+        </span>
+      </figcaption>
+    </figure>
+  </section>
+
+  {/* 4. Történet: váltakozó osztott sorok, sorszám-jelvények nélkül */}
+  <section id="tortenet" class="bg-white">
+    <div class="sl-reveal mx-auto max-w-[680px] px-6 pt-20 pb-12 text-center dt:pt-24">
+      <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] text-gray-900 dt:text-[42px]">{a('storyTitle')}</h2>
+      <p class="mt-3 text-gray-600 max-dt:leading-[1.7]">{a('storyLead')}</p>
+    </div>
+    {story.map((chapter, i) => {
+      const flip = i % 2 === 1;
+      // A kép-doboz a fotó arányát veszi fel; 1280px fölött a sor magasságáig nyúlik (a vágás így kicsi marad),
+      // alatta a hosszabb szöveg mellett függőlegesen középre kerül, hogy ne vágjon sokat.
+      return (
+        <div class:list={['grid grid-cols-1', chapter.portrait ? 'dt:grid-cols-[minmax(0,1fr)_min(36%,520px)]' : 'dt:grid-cols-2']}>
+          <div class:list={['relative overflow-hidden dt:self-center xl:self-stretch', chapter.portrait ? 'aspect-[4/5] dt:aspect-[3/4]' : 'aspect-[4/3]', flip && 'dt:order-2']}>
+            <OptimizedPicture
+              src={chapter.image}
+              alt={chapter.imageAlt}
+              widths={[480, 640, 828, 960, 1200]}
+              sizes={chapter.portrait ? '(min-width: 900px) 36vw, 100vw' : '(min-width: 900px) 50vw, 100vw'}
+              class:list={['absolute inset-0 h-full w-full object-cover', chapter.portrait && 'object-[center_40%]']}
+            />
+          </div>
+          <div class:list={['sl-reveal flex flex-col justify-center gap-3.5 px-6 pt-9 pb-14 dt:py-16', flip ? 'dt:pr-14 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]' : 'dt:px-16 xl:px-20']}>
+            <h3 class="m-0 max-w-[540px] font-heading text-[28px] font-normal leading-[1.2] text-gray-900 dt:text-[34px]">{chapter.title}</h3>
+            {chapter.paras.map((p) => <p class="m-0 max-w-[540px] leading-[1.75] text-gray-600">{p}</p>)}
+            {i === story.length - 1 && (
+              <div class="mt-2"><a href={consultHref} class="sl-btn sl-btn-pink">{t(locale, 'header.freeConsultation')}</a></div>
+            )}
+          </div>
         </div>
+      );
+    })}
+  </section>
 
-        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <span class="text-sm font-semibold tracking-wide uppercase text-cta">{t(locale, 'about.mission')}</span>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">{t(locale, 'about.whyUsTitle')}</h2>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <!-- Image: natural ratio, not cropped (desktop only — mobile copy is above) -->
-          <div class="hidden lg:block order-2 lg:order-1">
-            <div class="rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={rolunk7}
-                alt="A Skinlab bemutatóterme a készülékekkel és a skinlab virágfallal"
-                class="w-full h-auto"
-                loading="lazy"
-              />
+  {/* 5. Miben vagyunk mások: homok felület, lista hajszálvonalakkal */}
+  <section class="bg-sand py-20 dt:py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-9 px-6 dt:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] dt:gap-[72px] lg:px-8">
+      <div class="sl-reveal flex flex-col gap-4">
+        <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] text-gray-900 dt:text-[42px]">{a('diffTitle')}</h2>
+        <p class="m-0 text-gray-600 max-dt:leading-[1.7]">{a('diffLead')}</p>
+        <div class="mt-2"><a href="#csapat" class="sl-btn sl-btn-plum">{a('teamCta')}</a></div>
+      </div>
+      <ul class="grid grid-cols-1 dt:grid-cols-2 dt:gap-x-10" role="list">
+        {values.map((v) => (
+          <li class="group flex items-start gap-4 border-t border-[#e9ddd0] py-[22px]">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-plum transition-[transform,background-color] duration-[250ms] group-hover:-rotate-6 group-hover:scale-[1.06] group-hover:bg-primary-100 motion-reduce:transition-none">
+              <ShowcaseIcon name={v.icon} size={22} />
+            </span>
+            <div>
+              <strong class="block text-base text-gray-900">{a(`value${v.n}Title`)}</strong>
+              <p class="mt-1.5 mb-0 text-[15px] leading-[1.65] text-gray-600">{a(`value${v.n}Text`)}</p>
             </div>
-          </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
 
-          <!-- Grey icon rows -->
-          <div class="order-1 lg:order-2 space-y-5">
-            {whyUs.map((b) => (
-              <div class="flex gap-4 items-start">
-                <div class="w-11 h-11 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {b.paths.map((d) => (
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={d} />
-                    ))}
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">{t(locale, b.title)}</h3>
-                  <p class="text-gray-600 text-sm leading-relaxed">{t(locale, b.desc)}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+  {/* 6. Csapat: mindenki egyforma kártyán; fotó nélkül monogramos avatar. Asztalon soronként 4, a csonka sor középen. */}
+  <section id="csapat" class="scroll-mt-24 bg-white py-20 dt:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="sl-reveal mx-auto mb-12 max-w-[640px] text-center">
+        <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] text-gray-900 dt:text-[42px]">{a('teamTitle')}</h2>
+        <p class="mt-3 text-gray-600 max-dt:leading-[1.7]">{a('teamLead')}</p>
       </div>
-    </section>
-
-    <!-- ============================================================= -->
-    <!-- CTA — teal band                                                -->
-    <!-- ============================================================= -->
-    <section class="py-16 lg:py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cta to-cta-hover px-6 py-12 lg:px-16 lg:py-16 text-center">
-          <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10"></div>
-          <div class="absolute -bottom-20 -left-10 w-56 h-56 rounded-full bg-white/10"></div>
-          <div class="relative">
-            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
-              {t(locale, 'about.ctaTitle')}
-            </h2>
-            <p class="text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              {t(locale, 'about.ctaSubtitle')}
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={CONTACT.phoneTel}
-                class="inline-flex items-center justify-center px-6 py-3.5 bg-white text-cta-hover font-semibold rounded-xl hover:bg-gray-50 transition-colors shadow-md"
-              >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                {CONTACT.phoneDisplay}
-              </a>
-              <a
-                href={contactLink}
-                class="inline-flex items-center justify-center px-6 py-3.5 bg-white/15 backdrop-blur-sm text-white font-semibold rounded-xl ring-1 ring-white/40 hover:bg-white/25 transition-colors"
-              >
-                {t(locale, 'nav.contact')}
-              </a>
+      <ul class="grid grid-cols-1 gap-4 dt:flex dt:flex-wrap dt:justify-center dt:gap-6" role="list">
+        {TEAM.map((m) => (
+          <li class="sl-lift group flex items-start overflow-hidden rounded-[20px] border border-[#f3e4e9] bg-white dt:w-[calc((100%-72px)/4)] dt:flex-col dt:items-stretch">
+            <div class="m-4 mr-0 h-[112px] w-[112px] shrink-0 overflow-hidden rounded-[14px] bg-plum dt:m-0 dt:aspect-square dt:h-auto dt:w-full dt:rounded-none">
+              {m.image ? (
+                <picture>
+                  <source type="image/avif" srcset={`${m.image}.avif`} />
+                  <source type="image/webp" srcset={`${m.image}.webp`} />
+                  <img src={`${m.image}.jpg`} alt={m.name} width="960" height="960" loading="lazy" class="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none" />
+                </picture>
+              ) : (
+                <div class="flex h-full w-full items-center justify-center bg-sand" role="img" aria-label={m.name}>
+                  <span class="font-heading text-[34px] text-[#6b5d52] dt:text-[64px]" aria-hidden="true">{m.initials}</span>
+                </div>
+              )}
             </div>
+            <div class="flex flex-col gap-1 px-[18px] pt-4 pb-[18px] dt:px-[22px] dt:pt-[22px] dt:pb-[26px]">
+              <h3 class="m-0 font-heading text-2xl font-normal text-gray-900">{m.name}</h3>
+              <span class="text-[13px] leading-snug font-semibold text-primary-700">{a(m.roleKey)}</span>
+              <p class="mt-1.5 mb-0 text-sm leading-[1.65] text-gray-600">{a(m.bioKey)}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div class="sl-reveal mt-10 flex flex-wrap items-center justify-center gap-4">
+        <span class="flex">
+          {founders.map((f, i) => (
+            <img src={`${f.image}.jpg`} alt="" width="48" height="48" loading="lazy" class:list={['h-12 w-12 rounded-full border-[3px] border-white object-cover object-[center_20%] shadow-[0_4px_12px_rgba(0,0,0,.1)]', i > 0 && '-ml-3.5']} />
+          ))}
+        </span>
+        <span class="text-[15px] font-semibold text-plum">{a('helpText')}</span>
+        <a href={CONTACT.phoneTel} class="sl-btn sl-btn-plum h-12">
+          <ShowcaseIcon name="phone" size={16} />
+          {CONTACT.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* 7. Videós vélemények (márkaszintű bizonyíték), showcase stílusban */}
+  <VideoTestimonials quotes showcase />
+
+  {/* 8. Látogatás: cím, nyitvatartás, telefon, e-mail, térkép; jobbra a bemutatóterem, vágás nélkül */}
+  <section class="bg-white">
+    <div class="grid grid-cols-1 items-center dt:grid-cols-2">
+      <div class="sl-reveal flex flex-col gap-4 px-6 pt-20 pb-10 dt:py-24 dt:pr-16 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+        <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] text-gray-900 dt:text-[42px]">{a('visitTitle')}</h2>
+        <p class="m-0 max-w-[500px] leading-[1.7] text-gray-600">{a('visitText')}</p>
+        <dl class="m-0 mt-1 max-w-[500px]">
+          {[
+            { icon: 'pin', label: a('visitAddress'), value: LOCATIONS.showroom.fullAddress },
+            { icon: 'clock', label: t(locale, 'contact.openingHours'), value: a('visitHours') },
+          ].map((row) => (
+            <div class="flex items-start gap-3.5 border-b border-[#f0e6ea] py-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]"><ShowcaseIcon name={row.icon as 'pin'} size={18} /></span>
+              <div><dt class="text-[13px] text-[#6b5d52]">{row.label}</dt><dd class="m-0 font-medium text-gray-900">{row.value}</dd></div>
+            </div>
+          ))}
+          <div class="flex items-start gap-3.5 border-b border-[#f0e6ea] py-3">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]"><ShowcaseIcon name="phone" size={18} /></span>
+            <div><dt class="text-[13px] text-[#6b5d52]">{t(locale, 'contact.phone')}</dt><dd class="m-0"><a href={CONTACT.phoneTel} class="sl-tlink font-medium text-gray-900">{CONTACT.phoneDisplay}</a></dd></div>
           </div>
+          <div class="flex items-start gap-3.5 border-b border-[#f0e6ea] py-3">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-sand text-[#5b4636]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+            </span>
+            <div><dt class="text-[13px] text-[#6b5d52]">{t(locale, 'contact.email')}</dt><dd class="m-0"><a href={`mailto:${CONTACT.email}`} class="sl-tlink font-medium text-gray-900">{CONTACT.email}</a></dd></div>
+          </div>
+        </dl>
+        <a href={directions} target="_blank" rel="noopener" class="sl-lift relative mt-1.5 block h-[200px] max-w-[500px] overflow-hidden rounded-2xl border border-[#ece3d9]" aria-label={t(locale, 'contact.getDirections')}>
+          <OptimizedPicture src="@assets/misc/showroom-map.webp" alt={a('mapAlt')} widths={[480, 640, 980]} sizes="500px" class="block h-full w-full object-cover" />
+          <span class="absolute right-2 bottom-1.5 rounded bg-white/85 px-1.5 text-[10px] text-gray-600">© OpenStreetMap</span>
+        </a>
+        <div class="mt-2 grid w-full max-w-[500px] grid-cols-2 gap-2.5">
+          <a href={consultHref} class="sl-btn sl-btn-pink px-2.5">{a('visitCta')}</a>
+          <a href={directions} target="_blank" rel="noopener" class="sl-btn sl-btn-plum px-2.5"><ShowcaseIcon name="pin" size={16} />{t(locale, 'contact.getDirections')}</a>
         </div>
       </div>
-    </section>
-
-  </div>
+      <picture>
+        <source type="image/avif" srcset="/hero/hero-skinlab-showroom-foto.avif" />
+        <source type="image/webp" srcset="/hero/hero-skinlab-showroom-foto.webp" />
+        <img src="/hero/hero-skinlab-showroom-foto.jpg" alt={a('showroomAlt')} width="1434" height="1024" loading="lazy" class="block h-auto w-full" />
+      </picture>
+    </div>
+  </section>
 </BaseLayout>
