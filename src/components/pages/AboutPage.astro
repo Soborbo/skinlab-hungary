@@ -39,7 +39,7 @@ const heroStyle = [
   `--about-img-w: clamp(min(calc(var(--about-h) * ${(heroAr * 0.85).toFixed(4)}), 56vw), 50vw, min(calc(var(--about-h) * ${(heroAr / 0.85).toFixed(4)}), 56vw))`,
 ].join('; ');
 
-// Történet: váltakozó sorok, a kép a képernyő széléig; az álló fotó keskenyebb oszlopot kap.
+// Történet: váltakozó sorok, a kép a képernyő széléig.
 const story = [
   {
     title: a('storySection1Title'),
@@ -62,9 +62,8 @@ const story = [
   {
     title: a('storySection4Title', brand),
     paras: [a('storySection4a', brand), a('storySection4b', brand)],
-    image: '@assets/rolunk-szimi-skinlab.jpg',
-    imageAlt: 'Gaszler Szimonetta a Skinlab bemutatótermében, a skinlab logó előtt',
-    portrait: true,
+    image: '@assets/skinlab-csapat-milano.jpg',
+    imageAlt: 'A Skinlab csapata Milánóban',
   },
 ];
 
@@ -194,14 +193,14 @@ const values = [
       // A kép-doboz a fotó arányát veszi fel; 1280px fölött a sor magasságáig nyúlik (a vágás így kicsi marad),
       // alatta a hosszabb szöveg mellett függőlegesen középre kerül, hogy ne vágjon sokat.
       return (
-        <div class:list={['grid grid-cols-1', chapter.portrait ? 'dt:grid-cols-[minmax(0,1fr)_min(36%,520px)]' : 'dt:grid-cols-2']}>
-          <div class:list={['relative overflow-hidden dt:self-center xl:self-stretch', chapter.portrait ? 'aspect-[4/5] dt:aspect-[3/4]' : 'aspect-[4/3]', flip && 'dt:order-2']}>
+        <div class="grid grid-cols-1 dt:grid-cols-2">
+          <div class:list={['relative aspect-[4/3] overflow-hidden dt:self-center xl:self-stretch', flip && 'dt:order-2']}>
             <OptimizedPicture
               src={chapter.image}
               alt={chapter.imageAlt}
               widths={[480, 640, 828, 960, 1200]}
-              sizes={chapter.portrait ? '(min-width: 900px) 36vw, 100vw' : '(min-width: 900px) 50vw, 100vw'}
-              class:list={['absolute inset-0 h-full w-full object-cover', chapter.portrait && 'object-[center_40%]']}
+              sizes="(min-width: 900px) 50vw, 100vw"
+              class="absolute inset-0 h-full w-full object-cover"
             />
           </div>
           <div class:list={['sl-reveal flex flex-col justify-center gap-3.5 px-6 pt-9 pb-14 dt:py-16', flip ? 'dt:pr-14 dt:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]' : 'dt:px-16 xl:px-20']}>
