@@ -42,10 +42,10 @@ export const TEAM: { name: string; roleKey: string; bioKey: string; image: strin
   { name: 'Gaszler Szimonetta', roleKey: 'founder.treatment', bioKey: 'bio.treatment', image: '/about/gaszler-simonetta-skinlab-alapito', initials: 'GSz' },
   { name: 'Horváth László', roleKey: 'founder.technical', bioKey: 'bio.technical', image: '/about/horvath-laszlo-skinlab-alapito', initials: 'HL' },
   { name: 'Huszár László', roleKey: 'member.service', bioKey: 'member.serviceBio', image: '/about/huszar-laszlo-skinlab-szerviz', initials: 'HL' },
-  // Tulajdonosi döntés (2026-11-03): Rebeka, Ádám és Anna hamarosan felkerül, addig kikommentelve (a fordításaik megvannak).
-  // { name: 'Kanalas Rebeka', roleKey: 'member.support', bioKey: 'member.supportBioRebeka', image: null, initials: 'KR' },
-  // { name: 'Ádám', roleKey: 'member.support', bioKey: 'member.supportBioAdam', image: null, initials: 'Á' },
-  // { name: 'Anna', roleKey: 'member.handover', bioKey: 'member.handoverBio', image: null, initials: 'A' },
+  // Tóth Ádámnak és Solti Annának még nincs fotója: addig monogramos helytöltő.
+  { name: 'Kanalas Fanni Rebeka', roleKey: 'member.social', bioKey: 'member.socialBio', image: '/about/kanalas-fanni-rebeka-skinlab-csapat', initials: 'KR' },
+  { name: 'Tóth Ádám', roleKey: 'member.operations', bioKey: 'member.operationsBio', image: null, initials: 'TÁ' },
+  { name: 'Solti Anna', roleKey: 'member.trainer', bioKey: 'member.trainerBio', image: null, initials: 'SA' },
   { name: 'Kokó', roleKey: 'member.mascot', bioKey: 'member.mascotBio', image: '/about/koko-skinlab-csapat', initials: 'K' },
 ];
 
