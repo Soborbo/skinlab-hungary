@@ -246,10 +246,10 @@ const values = [
         <h2 class="m-0 font-heading text-[32px] font-normal leading-[1.2] text-gray-900 dt:text-[42px]">{a('teamTitle')}</h2>
         <p class="mt-3 text-gray-600 max-dt:leading-[1.7]">{a('teamLead')}</p>
       </div>
-      <ul class="grid grid-cols-1 gap-4 dt:flex dt:flex-wrap dt:justify-center dt:gap-6" role="list">
+      <ul class="-mx-3 grid grid-cols-1 gap-4 dt:mx-0 dt:flex dt:flex-wrap dt:justify-center dt:gap-6" role="list">
         {TEAM.map((m) => (
-          <li class="sl-lift group flex items-start overflow-hidden rounded-[20px] border border-[#f3e4e9] bg-white dt:w-[calc((100%-72px)/4)] dt:flex-col dt:items-stretch">
-            <div class="m-4 mr-0 h-[112px] w-[112px] shrink-0 overflow-hidden rounded-[14px] bg-plum dt:m-0 dt:aspect-square dt:h-auto dt:w-full dt:rounded-none">
+          <li class="sl-lift group flex flex-col overflow-hidden rounded-[20px] border border-[#f3e4e9] bg-white dt:w-[calc((100%-72px)/4)]">
+            <div class="aspect-square w-full overflow-hidden bg-plum">
               {m.image ? (
                 <picture>
                   <source type="image/avif" srcset={`${m.image}.avif`} />
@@ -258,11 +258,11 @@ const values = [
                 </picture>
               ) : (
                 <div class="flex h-full w-full items-center justify-center bg-sand" role="img" aria-label={m.name}>
-                  <span class="font-heading text-[34px] text-[#6b5d52] dt:text-[64px]" aria-hidden="true">{m.initials}</span>
+                  <span class="font-heading text-[64px] text-[#6b5d52]" aria-hidden="true">{m.initials}</span>
                 </div>
               )}
             </div>
-            <div class="flex flex-col gap-1 px-[18px] pt-4 pb-[18px] dt:px-[22px] dt:pt-[22px] dt:pb-[26px]">
+            <div class="flex flex-col gap-1 px-6 pt-5 pb-6 dt:px-[22px] dt:pt-[22px] dt:pb-[26px]">
               <h3 class="m-0 font-heading text-2xl font-normal text-gray-900">{m.name}</h3>
               <span class="text-[13px] leading-snug font-semibold text-primary-700">{a(m.roleKey)}</span>
               <p class="mt-1.5 mb-0 text-sm leading-[1.65] text-gray-600">{a(m.bioKey)}</p>
