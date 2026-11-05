@@ -292,10 +292,8 @@
     "storyParagraph3": "Zato smo stvorili Skinlab: da ponudimo pouzdanog partnera koji ne samo da prodaje opremu, vec pruza sveobuhvatnu podrsku za uspesan rad salona.",
     "foundersTitle": "Osnivaci",
     "founder": {
-      "technical": "Osnivač Skinlaba, tehnički stručnjak",
-      "technicalBio": "Од тинејџерских дана поправљао сам и туниирао аутомобиле – свет машина ми је одувек био близак. Тај практични, инжењерски приступ одређује и мој рад у Скинлабу: моја је одговорност да сваки уређај стигне до наших клијената у беспрекорном техничком стању. Ако се појави проблем, решавамо га интерно, брзо и професионално – уз заменски уређај за време поправке. Ласерска технологија је током година постала моја специјалност и слободно могу рећи да не постоји квар са којим се нисам сусрео. То искуство даје нашим клијентима прави мир јер знају да је њихов уређај у добрим рукама.",
-      "treatment": "Osnivačica Skinlaba, stručnjakinja za tretmane",
-      "treatmentBio": "Долазим из лекарске породице и индустрија лепоте ме привлачила од малих ногу. Медицинско окружење ме научило важну ствар: третмани морају почивати на једнако строгим стручним темељима као и медицина. Није довољно да нешто функционише – мора бити и безбедно. За мене је најважније да настају не само лепи, него и здрави резултати, те да никада не прелазимо границе стручне компетенције. Ту филозофију уносимо у сваку консултацију и препоруку производа јер нудимо само оно иза чега у потпуности стојимо."
+      "technical": "Suosnivač Skinlaba, direktor",
+      "treatment": "Suosnivačica Skinlaba, stručnjakinja za lasersku i aparaturnu kozmetiku"
     },
     "whyUsTitle": "Zasto izabrati nas?",
     "benefit1Title": "Postene cene",
@@ -358,12 +356,12 @@
     "mapAlt": "Mapa: Skinlab izložbeni salon, Érd, Bajcsy-Zsilinszky út 156.",
     "showroomAlt": "Skinlab izložbeni salon u Érdu",
     "bio": {
-      "treatment": "Potiče iz lekarske porodice, pa veruje da nije dovoljno da tretman deluje, mora biti i bezbedan. Sa takvim pristupom savetuje na svakoj konsultaciji.",
-      "technical": "Mašine popravlja još od tinejdžerskih dana. Njegova je odgovornost da svaki uređaj do vas stigne tehnički besprekoran."
+      "treatment": "U industriju lepote prešla je iz zdravstva. Učila je od ruskog laserskog tima, ruskog lekara i brazilskog stručnjaka za plazmu i od tada se stalno usavršava.",
+      "technical": "Rukovodilac sa tehničkim načinom razmišljanja: uređaji, tehnologija i pouzdana podrška su njegova oblast."
     },
     "member": {
-      "service": "Serviser",
-      "serviceBio": "Radi u našem servisu: kod njega završavaju uređaji koji nam stignu na održavanje i popravku.",
+      "service": "Inženjer elektrotehnike, rukovodilac servisa",
+      "serviceBio": "Sa laserskim uređajima ima više iskustva od bilo koga od nas i okosnica je našeg servisnog tima.",
       "social": "Društvene mreže i vizuelni identitet",
       "socialBio": "Diplomirala je film na Budapest Metropolitan University i o nama priča na društvenim mrežama.",
       "operations": "Operativni saradnik",
@@ -566,7 +564,7 @@
       "q2": "Za koje tipove kože su pogodni diodni laseri?",
       "a2": "Multi-talasni diodni laseri (npr. 755/808/1064 nm) bezbedni su za većinu tipova kože tokom cele godine. Za neke ND:YAG tretmane mogu postojati sezonske preporuke - određujemo ih individualno prema stručnom protokolu.",
       "q3": "Koliki je vek trajanja laserske glave?",
-      "a3": "Većina profesionalnih dioda laserskih glava traje 1–3 miliona pulseva, ND:YAG glave 1,2–1,8 miliona. Vek trajanja zavisi od podešavanja energije i hlađenja. Glave su zamenljive - naš servisni tim ugrađuje originalne ili kompatibilne delove.",
+      "a3": "Vek trajanja ručnih nastavaka diodnih lasera razlikuje se od uređaja do uređaja: OLYMPIA, na primer, garantovano daje punu snagu do 100 miliona pulseva. Kod ND:YAG lasera vek trajanja nastavka je 1,2–1,8 miliona pulseva. Vek trajanja zavisi od podešavanja energije i korišćenog hlađenja. Nastavci su zamenljivi, a originalne ili kompatibilne zamenske nastavke ugrađuje naš servisni tim.",
       "q4": "Koliko su bezbedni uređaji koje prodajete?",
       "a4": "Svaki uređaj ima CE sertifikat, verodostojnu dokumentaciju i prošao je bezbednosne testove. Uz odgovarajuću obuku i redovno održavanje (preporučen pregled svakih 6–12 meseci) rad je bezbedan i dugoročno pouzdan."
     },
@@ -1006,7 +1004,7 @@
   },
   "founderConsult": {
     "badge": "Lična pomoć",
-    "expertRole": "Osnivač Skinlaba, tehnički stručnjak",
+    "expertRole": "Suosnivač Skinlaba, direktor",
     "heading": {
       "category": {
         "pre": "Ne znate",
@@ -1080,11 +1078,11 @@
     "intro": "Skinlab smo osnovali nas dvoje: Szimonetta je došla iz industrije lepote, sa iskustvom u zdravstvu, a László iz sveta tehnike i uređaja. Pokrenuo nas je jedan tretman u inostranstvu: videli smo sa kakvim uređajima rade na Zapadu i odlučili smo da taj kvalitet - i znanje koje stoji iza njega - donesemo i mađarskim salonima.",
     "quote": "Ne želimo da prodajemo uređaje, već da pružimo primenljivo stručno znanje, sigurnost i ljudsku podršku. Prodajemo samo uređaje koje i sami poznajemo, volimo i od srca preporučujemo - a ni posle kupovine ne ostavljamo svoje partnere same.",
     "simonettaName": "Gaszler Szimonetta",
-    "simonettaRole": "Osnivačica Skinlaba",
-    "simonettaSpec": "Stručnjakinja za tretmane",
+    "simonettaRole": "Suosnivačica Skinlaba",
+    "simonettaSpec": "Stručnjakinja za lasersku i aparaturnu kozmetiku",
     "laszloName": "Horváth László",
-    "laszloRole": "Osnivač Skinlaba",
-    "laszloSpec": "Tehnički stručnjak",
+    "laszloRole": "Suosnivač Skinlaba",
+    "laszloSpec": "Direktor",
     "cta": "Upoznajte celu našu priču"
   },
   "services": {

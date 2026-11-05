@@ -1,14 +1,14 @@
 {
   "name": "PIXEL Q-switched ND:YAG Laser",
-  "shortDescription": "Professional carbon laser system for beauty salons: Q-switched ND:YAG technology with 1064 nm and 532 nm treatment heads plus a Carbon (Black Doll) head. Compact desktop design, 4.3\" touchscreen, closed-loop water cooling.",
+  "shortDescription": "Professional carbon laser system for beauty salons: Q-switched ND:YAG technology with 4 treatment heads: 532, 755, 1064 and 1320 nm (Carbon / Black Doll). Compact desktop design, 4.3\" touchscreen, closed-loop water cooling.",
   "description": "The PIXEL carbon laser is a high-precision laser device based on ND:YAG technology, developed specifically for non-invasive cosmetic treatments.\n\nIt is an ideal choice for carbon peeling, skin-texture improvement and sebum-regulating treatments, where the aim is not to destroy tissue but to trigger a controlled biological response.\n\nThanks to its stable operation, precise energy control and multiple wavelength options, the system delivers a high level of safety and predictable results in professional cosmetic practice.",
   "metaTitle": "PIXEL Q-switched ND:YAG Laser | Carbon peeling device for salons",
-  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG device with 1064 nm, 532 nm and Carbon (Black Doll) heads for carbon peeling and skin-texture improvement. Compact, closed-loop water cooling.",
+  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG device with 4 heads (532, 755, 1064, 1320 nm) for carbon peeling, skin-texture improvement and tattoo and PMU fading. Compact, closed-loop water cooling.",
   "stats": [
     {
-      "value": "1064 / 532",
+      "value": "532–1320",
       "unit": "nm",
-      "label": "ND:YAG wavelength",
+      "label": "Wavelength (4 heads)",
       "icon": "wave"
     },
     {
@@ -18,7 +18,7 @@
       "icon": "zap"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Treatment heads",
       "icon": "layers"
     },
@@ -67,8 +67,8 @@
         "image": "@assets/products/pixel-1.jpg"
       },
       {
-        "title": "Three treatment heads: 1064 nm, 532 nm and Carbon",
-        "description": "The device comes with a 1064 nm and a 532 nm laser head, plus a Carbon (Black Doll) treatment head. The 1064 nm head penetrates deeper with low melanin absorption; the 532 nm head can be used for superficial pigments, in line with the applicable legal regulations.",
+        "title": "Four treatment heads: 532, 755, 1064 and 1320 nm",
+        "description": "The device comes with 4 treatment heads: 532 nm, 755 nm, 1064 nm and 1320 nm (Carbon / Black Doll). The 1064 nm head penetrates deeper with low melanin absorption; the 532 nm head can be used for superficial pigments, in line with the applicable legal regulations.",
         "highlight": "The use of pigment-destroying and therapeutic treatments is subject to legal requirements that differ from country to country.",
         "image": "@assets/products/pixel-2.jpg"
       },
@@ -91,7 +91,7 @@
     "intro": "An official, certified training course registered in the FAR system is available for the PIXEL ND:YAG laser. The curriculum was developed under the mentorship of a certified instructor from the healthcare sector and is based on professional materials from a Russian laser specialist physician.",
     "items": [
       "How the Q-switched ND:YAG laser works",
-      "Using and setting up the treatment heads (1064 nm, 532 nm, Carbon)",
+      "Using and setting up the 4 treatment heads (532, 755, 1064, 1320 nm)",
       "Carbon peeling in practice",
       "Reading skin reactions correctly, contraindications",
       "Scope of practice in real life: what a cosmetician may and may not treat",
@@ -118,13 +118,13 @@
   "expertQuote": {
     "quote": "Safe laser use is not about pushing the limits of the technology, but about respecting the biological limits of the skin. That is why we recommend the PIXEL for carbon peeling and skin-texture improvement, within cosmetic competence.",
     "author": "Horváth László",
-    "role": "Skinlab founder, technical expert",
+    "role": "Skinlab co-founder, managing director",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Laser type": "Q-switched ND:YAG",
-    "Wavelength": "1064 nm / 532 nm",
-    "Treatment heads": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Wavelength": "532 nm / 755 nm / 1064 nm / 1320 nm",
+    "Treatment heads": "532 nm · 755 nm · 1064 nm · 1320 nm (Carbon / Black Doll)",
     "Max. pulse energy (1064 nm)": "1200 mJ",
     "Max. pulse energy (532 nm)": "600 mJ",
     "Frequency": "1–10 Hz",
@@ -170,7 +170,7 @@
     },
     {
       "question": "Which treatment heads come with the device?",
-      "answer": "Three: a 1064 nm and a 532 nm laser head, plus a Carbon (Black Doll) treatment head for carbon peeling."
+      "answer": "Four: a 532 nm, a 755 nm, a 1064 nm and a 1320 nm head. The 1320 nm Carbon (Black Doll) head is used for carbon peeling."
     },
     {
       "question": "Can it be used to fade pigment or tattoos?",
@@ -196,9 +196,10 @@
   "whatsIncluded": [
     "Main laser unit",
     "Handpiece",
-    "1064 nm laser head",
     "532 nm laser head",
-    "Carbon (Black Doll) treatment head",
+    "755 nm laser head",
+    "1064 nm laser head",
+    "1320 nm Carbon (Black Doll) treatment head",
     "Foot switch",
     "Safety goggles (for operator and client)",
     "Water filling kit and accessories",

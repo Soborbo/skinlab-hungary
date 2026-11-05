@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Lungime de undă",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Dimensiune spot",
       "icon": "layers"
     },
     {
-      "value": "Inteligent",
-      "label": "Sistem de control",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Impulsuri garantate",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Lungime de undă",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Acolo unde performanța învinge",
@@ -114,7 +114,7 @@
   "expertQuote": {
     "quote": "OLYMPIA face exact ceea ce trebuie să facă un laser cu diodă de 1200W - rapid, eficient, fiabil. Combinația dintre cele 5 dimensiuni de spot și sistemul inteligent de control o ridică deasupra mediei, iar prețul rămâne accesibil. Această mașină este campionul calitate-preț al categoriei sale.",
     "author": "Horváth László",
-    "role": "Fondator Skinlab, expert tehnic",
+    "role": "Cofondator Skinlab, director general",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
@@ -164,15 +164,15 @@
     },
     {
       "question": "În cât timp se amortizează?",
-      "answer": "Un client mediu beneficiază de un tratament cu laser cu diodă în valoare de aproximativ 50.000 Ft. Deja cu 20 de clienți se pot realiza venituri de aproximativ 1.000.000 Ft. Puterea de 1200W și timpul rapid de tratament permit utilizarea continuă a dispozitivului."
+      "answer": "Exemplu ilustrativ: la un tarif de 12.000 Ft pe tratament, un cost de 2.000 Ft pe tratament și aproximativ 3-4 clienți pe zi lucrătoare, 70 de tratamente pe lună aduc o marjă de contribuție de aproximativ 700.000 Ft. Astfel, aparatul se poate amortiza în aproximativ 3,6 luni, iar în 24 de luni poate genera aproximativ 14,3 mil. Ft marjă netă. Este un calcul ilustrativ, nu o promisiune financiară - solicită o calculație personalizată!"
     },
     {
-      "question": "Care este diferența dintre OLYMPIA, ATHENA și HELIOS?",
-      "answer": "Toate trei sunt configurații diferite ale aceleiași platforme: ATHENA (1000W) - precizie și control, OLYMPIA (1200W) - alegere inteligentă, campion calitate-preț, HELIOS (1600W) - categorie superioară, performanță maximă. OLYMPIA este cea mai puternică versiune din categoria de mijloc la un preț realist."
+      "question": "Care este diferența dintre OLYMPIA, ATHENA, HELIOS și EMPIRE 4WAVE?",
+      "answer": "Toate cele patru lasere cu diodă ale noastre combină aceleași patru lungimi de undă (755 / 808 / 940 / 1064 nm) într-un singur aplicator; diferența stă în ritm și inteligență: ATHENA (1000W) - precizie și control, OLYMPIA (1200W) - alegere inteligentă, campion calitate-preț, HELIOS (1600W) - categorie superioară, performanță maximă, EMPIRE 4WAVE (1200W) - diagnostic AI cu microcameră, interfață Android și fișă digitală a clientului. OLYMPIA este cea mai puternică versiune din categoria de mijloc la un preț realist."
     },
     {
       "question": "Ce este inclus în preț?",
-      "answer": "Prețul include instruirea completă pentru operare, certificatul FAR, garanție de 2 ani și manualul de utilizare în limba maghiară. Termenul de livrare este de 2-6 săptămâni. Pentru prețul exact, solicită o consultanță."
+      "answer": "Prețul include instruirea completă pentru operare, certificatul FAR, garanție de 2 ani și manualul de utilizare în limba maghiară. Termenul de livrare este de aproximativ 15 zile lucrătoare. Pentru prețul exact, solicită o consultanță."
     }
   ],
   "whatsIncluded": [

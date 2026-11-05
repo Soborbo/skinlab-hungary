@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Valovna dolžina",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Velikost spota",
       "icon": "layers"
     },
     {
-      "value": "Pameten",
-      "label": "Krmilni sistem",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Zajamčenih impulzov",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Valovna dolžina",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Tam, kjer zmaga zmogljivost",
@@ -114,7 +114,7 @@
   "expertQuote": {
     "quote": "OLYMPIA dela točno to, kar mora 1200W diodni laser delati - hitro, učinkovito, zanesljivo. Kombinacija 5 velikosti spota in pametnega krmilnega sistema jo dviga nad povprečje, cena pa ostaja dostopna. Ta stroj je prvak razmerja med ceno in kakovostjo v svoji kategoriji.",
     "author": "Horváth László",
-    "role": "Ustanovitelj Skinlaba, tehnični strokovnjak",
+    "role": "Soustanovitelj Skinlaba, direktor",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
@@ -164,15 +164,15 @@
     },
     {
       "question": "V kakšnem času se povrne?",
-      "answer": "Povprečna stranka uporabi diodni laserski tretma v vrednosti pribl. 50.000 Ft. Že pri 20 strankah je mogoče realizirati prihodek pribl. 1.000.000 Ft. Moč 1200W in hiter čas tretmaja omogočata neprekinjeno uporabo naprave."
+      "answer": "Ponazoritveni primer: pri ceni obravnave 12.000 Ft, strošku 2.000 Ft na obravnavo in približno 3-4 strankah na delovni dan 70 obravnav na mesec prinese približno 700.000 Ft pokritja. Naprava se tako lahko povrne v približno 3,6 mesecih, v 24 mesecih pa ustvari približno 14,3 mio. Ft neto pokritja. To je ponazoritveni izračun, ne finančna obljuba - zahtevajte izračun po meri!"
     },
     {
-      "question": "Kakšna je razlika med OLYMPIA, ATHENA in HELIOS?",
-      "answer": "Vse tri so različne konfiguracije iste platforme: ATHENA (1000W) - natančnost in nadzor, OLYMPIA (1200W) - pametna izbira, prvak cena/kakovost, HELIOS (1600W) - višja kategorija, maksimalna zmogljivost. OLYMPIA je najmočnejša različica srednje kategorije po realni ceni."
+      "question": "Kakšna je razlika med OLYMPIA, ATHENA, HELIOS in EMPIRE 4WAVE?",
+      "answer": "Vsi štirje naši diodni laserji združujejo iste štiri valovne dolžine (755 / 808 / 940 / 1064 nm) v enem ročniku; razlika je v hitrosti in pametnosti: ATHENA (1000W) - natančnost in nadzor, OLYMPIA (1200W) - pametna izbira, prvak cena/kakovost, HELIOS (1600W) - višja kategorija, maksimalna zmogljivost, EMPIRE 4WAVE (1200W) - AI diagnostika z mikrokamero, vmesnik Android in digitalni karton stranke. OLYMPIA je najmočnejša različica srednje kategorije po realni ceni."
     },
     {
       "question": "Kaj je vključeno v ceno?",
-      "answer": "Cena vključuje celovito usposabljanje upravljavca naprave, certifikat FAR, 2-letno garancijo in madžarsko navodilo za uporabo. Dobavni rok je 2-6 tednov. Za točno ceno zahtevajte posvet."
+      "answer": "Cena vključuje celovito usposabljanje upravljavca naprave, certifikat FAR, 2-letno garancijo in madžarsko navodilo za uporabo. Dobavni rok je približno 15 delovnih dni. Za točno ceno zahtevajte posvet."
     }
   ],
   "whatsIncluded": [

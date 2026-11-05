@@ -1,14 +1,14 @@
 {
   "name": "PIXEL Q-Switched ND:YAG Laser",
-  "shortDescription": "Professionelles Carbon-Lasersystem für Kosmetikstudios: Q-Switched ND:YAG-Technologie mit 1064-nm- und 532-nm-Handstück sowie Carbon-(Black Doll)-Aufsatz. Kompaktes Tischgerät, 4,3\" Touchscreen, geschlossene Wasserkühlung.",
+  "shortDescription": "Professionelles Carbon-Lasersystem für Kosmetikstudios: Q-Switched ND:YAG-Technologie mit 4 Aufsätzen: 532, 755, 1064 und 1320 nm (Carbon / Black Doll). Kompaktes Tischgerät, 4,3\" Touchscreen, geschlossene Wasserkühlung.",
   "description": "Der PIXEL Carbon-Laser ist ein hochpräzises Lasergerät auf ND:YAG-Basis, das speziell für nicht-invasive kosmetische Behandlungen entwickelt wurde.\n\nEr ist die ideale Wahl für Carbon Peeling, Hautbildverbesserung und talgregulierende Behandlungen, bei denen es nicht um Gewebezerstörung geht, sondern um eine kontrollierte biologische Reaktion.\n\nDank stabilem Betrieb, präziser Energiesteuerung und mehreren Wellenlängen bietet das System ein hohes Maß an Sicherheit und vorhersehbare Ergebnisse in der professionellen Kosmetikpraxis.",
   "metaTitle": "PIXEL Q-Switched ND:YAG Laser | Carbon-Peeling-Gerät für Studios",
-  "metaDescription": "PIXEL Carbon-Laser: Q-Switched ND:YAG-Gerät mit 1064-nm-, 532-nm- und Carbon-(Black Doll)-Aufsatz für Carbon Peeling und Hautbildverbesserung. Kompakt, geschlossene Wasserkühlung.",
+  "metaDescription": "PIXEL Carbon-Laser: Q-Switched ND:YAG-Gerät mit 4 Aufsätzen (532, 755, 1064, 1320 nm) für Carbon Peeling, Hautbildverbesserung sowie Tattoo- und PMU-Aufhellung. Kompakt, geschlossene Wasserkühlung.",
   "stats": [
     {
-      "value": "1064 / 532",
+      "value": "532–1320",
       "unit": "nm",
-      "label": "ND:YAG-Wellenlänge",
+      "label": "Wellenlänge (4 Aufsätze)",
       "icon": "wave"
     },
     {
@@ -18,7 +18,7 @@
       "icon": "zap"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Behandlungsaufsätze",
       "icon": "layers"
     },
@@ -67,8 +67,8 @@
         "image": "@assets/products/pixel-1.jpg"
       },
       {
-        "title": "Drei Aufsätze: 1064 nm, 532 nm und Carbon",
-        "description": "Zum Gerät gehören ein 1064-nm- und ein 532-nm-Laseraufsatz sowie ein Carbon-(Black Doll)-Aufsatz. 1064 nm dringt tiefer ein und wird kaum von Melanin absorbiert; 532 nm kann gemäß den geltenden rechtlichen Vorschriften für oberflächliche Pigmente eingesetzt werden.",
+        "title": "Vier Aufsätze: 532, 755, 1064 und 1320 nm",
+        "description": "Zum Gerät gehören 4 Aufsätze: 532 nm, 755 nm, 1064 nm und 1320 nm (Carbon / Black Doll). 1064 nm dringt tiefer ein und wird kaum von Melanin absorbiert; 532 nm kann gemäß den geltenden rechtlichen Vorschriften für oberflächliche Pigmente eingesetzt werden.",
         "highlight": "Pigmentzerstörende und therapeutische Behandlungen unterliegen länderspezifisch unterschiedlichen rechtlichen Voraussetzungen.",
         "image": "@assets/products/pixel-2.jpg"
       },
@@ -91,7 +91,7 @@
     "intro": "Für den PIXEL ND:YAG Laser ist eine offizielle, im FAR-System registrierte zertifizierte Schulung verfügbar. Der Lehrplan wurde unter der Betreuung eines zertifizierten Ausbilders aus dem Gesundheitswesen entwickelt und basiert auf Fachmaterialien eines russischen Laserspezialisten.",
     "items": [
       "Funktionsprinzip des Q-Switched ND:YAG-Lasers",
-      "Einsatz und Parametrierung der Aufsätze (1064 nm, 532 nm, Carbon)",
+      "Einsatz und Parametrierung der 4 Aufsätze (532, 755, 1064, 1320 nm)",
       "Carbon Peeling in der Praxis",
       "Hautreaktionen richtig deuten, Kontraindikationen",
       "Kompetenzgrenzen in der Praxis: was eine Kosmetikerin behandeln darf und was nicht",
@@ -118,13 +118,13 @@
   "expertQuote": {
     "quote": "Sichere Laseranwendung heißt nicht, die Grenzen der Technik auszureizen, sondern die biologischen Grenzen der Haut zu respektieren. Deshalb empfehlen wir den PIXEL für Carbon Peeling und Hautbildverbesserung, im Rahmen der kosmetischen Kompetenz.",
     "author": "Horváth László",
-    "role": "Skinlab-Gründer, technischer Experte",
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Lasertyp": "Q-Switched ND:YAG",
-    "Wellenlänge": "1064 nm / 532 nm",
-    "Aufsätze": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Wellenlänge": "532 nm / 755 nm / 1064 nm / 1320 nm",
+    "Aufsätze": "532 nm · 755 nm · 1064 nm · 1320 nm (Carbon / Black Doll)",
     "Max. Impulsenergie (1064 nm)": "1200 mJ",
     "Max. Impulsenergie (532 nm)": "600 mJ",
     "Frequenz": "1–10 Hz",
@@ -170,7 +170,7 @@
     },
     {
       "question": "Welche Aufsätze gehören zum Gerät?",
-      "answer": "Drei: ein 1064-nm- und ein 532-nm-Laseraufsatz sowie ein Carbon-(Black Doll)-Aufsatz für das Carbon Peeling."
+      "answer": "Vier: ein 532-nm-, ein 755-nm-, ein 1064-nm- und ein 1320-nm-Aufsatz. Der 1320-nm-Carbon-(Black Doll)-Aufsatz dient dem Carbon Peeling."
     },
     {
       "question": "Kann er zur Aufhellung von Pigmenten oder Tattoos eingesetzt werden?",
@@ -196,9 +196,10 @@
   "whatsIncluded": [
     "Laser-Hauptgerät",
     "Handstück",
-    "1064-nm-Laseraufsatz",
     "532-nm-Laseraufsatz",
-    "Carbon-(Black Doll)-Aufsatz",
+    "755-nm-Laseraufsatz",
+    "1064-nm-Laseraufsatz",
+    "1320-nm-Carbon-(Black Doll)-Aufsatz",
     "Fußschalter",
     "Schutzbrillen (für Anwender und Kunden)",
     "Wasserbefüllset und Zubehör",

@@ -88,7 +88,7 @@ export const hu: ShowcaseCopy = {
     items: [
       {
         title: 'Gyors megtérülés',
-        text: 'Napi 5 vendéggel, átlag 12 000 Ft/kezelés áron havonta kb. 1,3 M Ft bevétel. A gép 3-4 hónap alatt kitermelheti az árát.',
+        text: 'Kb. 3-4 vendéggel munkanaponként, 12 000 Ft-os kezelési díjjal és 2 000 Ft kezelésenkénti költséggel havonta 600-800 E Ft fedezet marad. Így a gép kb. 3,3-3,7 hónap alatt megtérülhet. Szemléltető számítás, nem pénzügyi ígéret.',
       },
       {
         title: 'Visszatérő vendégek',

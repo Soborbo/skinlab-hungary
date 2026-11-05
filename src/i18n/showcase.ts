@@ -116,7 +116,7 @@ const hu: ShowcaseUi = {
     play: (who) => `Videó lejátszása: ${who}`,
   },
   trainingAlt: 'Skinlab gépkezelői képzés a bemutatóteremben',
-  expertRole: 'Skinlab alapító · technikai szakértő',
+  expertRole: 'Skinlab társalapító, ügyvezető',
   expertAlt: (name) => `${name}, a Skinlab alapítója`,
   faqContact: 'Kérdésed van? Hívj minket.',
   visit: {

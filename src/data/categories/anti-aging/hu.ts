@@ -14,7 +14,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     keySpec: 'EMS + LED',
     tagline: 'a mobil mikrotűs pen',
     forWho: 'Belépő, mobil kezelések',
-    desc: 'Vezeték nélküli mikrotűs pen EMS elektroporációval és kék/vörös LED fényterápiával. Kis befektetéssel indíthatod el a mikrotűs bőrmegújító és hatóanyag-bevitel kezeléseket.',
+    desc: 'Vezeték nélküli mikrotűs pen EMS elektroporációval, kék/vörös LED fényterápiával és 7 kidolgozott kezelési programmal. Kis befektetéssel indíthatod el a mikrotűs bőrmegújító és hatóanyag-bevitel kezeléseket.',
     when: [
       'most vezetnéd be a mikrotűs kezeléseket',
       'hatóanyag-bevitelre is használnád',
@@ -42,7 +42,7 @@ const models: Record<string, ShowcaseModelCopy> = {
       tech: 'Vákuumos mikrotűs RF',
       form: 'Asztali platform',
       extra: 'AI Educator + ANG™ tűvezérlés',
-      use: 'Ráncok, aknés hegek, striák, textúra',
+      use: 'Finom ráncok, bőrlazulás, tágult pórusok, aknés hegek, striák',
     },
   },
 };
@@ -126,7 +126,7 @@ export const hu: ShowcaseCopy = {
       },
       {
         question: 'Mikor látható az eredmény?',
-        answer: 'Közvetlenül a kezelés után enyhe feszesedés érezhető, a valódi eredmény a kollagén újraképződésével 4-6 hét alatt alakul ki. Kúraszerű kezeléssel a hatás fokozható.',
+        answer: 'Közvetlenül a kezelés után enyhe feszesedés érezhető. Az AESTIQ AI mikrotűs RF kezelésénél a valódi eredmény a kollagén újraképződésével 3-6 hónap alatt érik be, egy kúra 3-4 alkalomból áll.',
       },
     ],
   },

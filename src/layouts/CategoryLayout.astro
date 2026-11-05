@@ -235,9 +235,9 @@ gridSections.reduce((acc, s, i) => { sectionOffsets[i] = acc; return acc + s.ite
 // Alapértelmezett: Horváth László (alapító) - oldalanként felülírható az `expert` proppal.
 const defaultExpert: Expert = {
   name: 'Horváth László',
-  role: 'Skinlab alapító · technikai szakértő',
+  role: 'Skinlab társalapító, ügyvezető',
   image: '/about/horvath-laszlo-skinlab-alapito.jpg',
-  imageAlt: 'Horváth László, Skinlab alapító',
+  imageAlt: 'Horváth László, Skinlab társalapító',
 };
 const resolvedExpert: Expert = expert ?? defaultExpert;
 const showFounderSection = heroMode !== 'classic';

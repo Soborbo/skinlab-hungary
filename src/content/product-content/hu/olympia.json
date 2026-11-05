@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Hullámhossz",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Spotméret",
       "icon": "layers"
     },
     {
-      "value": "Okos",
-      "label": "Kezelőrendszer",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Garantált lövésélet",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Hullámhossz",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Ahol a teljesítmény győz",
@@ -115,7 +115,7 @@
   "expertQuote": {
     "quote": "Az OLYMPIA pontosan azt csinálja, amit egy 1200W-os diódalézernek csinálnia kell - gyorsan, hatékonyan, megbízhatóan. Az 5 spotméret és az okos kezelőrendszer kombinációja kiemeli az átlag fölé, az ár pedig elérhető marad. Ez a gép a kategória ár-érték bajnoka.",
     "author": "Horváth László",
-    "role": "Skinlab alapító, technikai szakértő",
+    "role": "Skinlab társalapító, ügyvezető",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
@@ -165,15 +165,15 @@
     },
     {
       "question": "Mennyi idő alatt térül meg?",
-      "answer": "Egy átlagos vendég kb. 50.000 Ft értékben vesz igénybe diódalézeres kezelést. Már 20 vendég esetén kb. 1.000.000 Ft bevétel realizálható. Az 1200W teljesítmény és a gyors kezelési idő lehetővé teszi, hogy a készülék folyamatosan kihasználható legyen."
+      "answer": "Szemléltető példa: 12 000 Ft-os kezelési díjjal és kezelésenként 2 000 Ft költséggel számolva, kb. 3-4 vendéggel munkanaponként havi 70 kezelés kb. 700 000 Ft fedezetet hoz. Így az OLYMPIA kb. 3,6 hónap alatt megtérülhet, 24 hónap alatt pedig kb. 14,3 M Ft nettó fedezetet termel. Ez szemléltető számítás, nem pénzügyi ígéret - kérd személyre szabott kalkulációnkat!"
     },
     {
-      "question": "Mi a különbség az OLYMPIA, ATHENA és HELIOS között?",
-      "answer": "Mindhárom ugyanannak a platformnak a különböző konfigurációja: ATHENA (1000W) - precizitás és kontroll, OLYMPIA (1200W) - okos választás, ár-érték bajnok, HELIOS (1600W) - felső kategória, maximális teljesítmény. Az OLYMPIA a középkategória legerősebb verziója reális áron."
+      "question": "Mi a különbség az OLYMPIA, ATHENA, HELIOS és EMPIRE 4WAVE között?",
+      "answer": "Mind a négy diódalézerünk ugyanazt a négy hullámhosszt (755 / 808 / 940 / 1064 nm) egyesíti egy kezelőfejben, a különbség a tempóban és az okosságban van: ATHENA (1000W) - precizitás és kontroll, OLYMPIA (1200W) - okos választás, ár-érték bajnok, HELIOS (1600W) - felső kategória, maximális teljesítmény, EMPIRE 4WAVE (1200W) - mikrokamerás AI-diagnosztika, Android-kezelőfelület és digitális vendégkarton. Az OLYMPIA a középkategória legerősebb verziója reális áron."
     },
     {
       "question": "Mi van benne az árban?",
-      "answer": "Az ár tartalmazza a teljes körű gépkezelői oktatást, FAR tanúsítványt, 2 év garanciát, és a magyar nyelvű használati útmutatót. A szállítási idő 2-6 hét. A pontos árért kérj konzultációt."
+      "answer": "Az ár tartalmazza a teljes körű gépkezelői oktatást, FAR tanúsítványt, 2 év garanciát, és a magyar nyelvű használati útmutatót. A szállítási idő kb. 15 munkanap. A pontos árért kérj konzultációt."
     }
   ],
   "whatsIncluded": [

@@ -1,14 +1,14 @@
 {
   "name": "PIXEL Q-switched ND:YAG laser",
-  "shortDescription": "Profesionalni carbon laserski sistem za kozmetične salone: Q-switched ND:YAG tehnologija z glavama 1064 nm in 532 nm ter glavo Carbon (Black Doll). Kompaktna namizna izvedba, 4,3\" zaslon na dotik, zaprto vodno hlajenje.",
+  "shortDescription": "Profesionalni carbon laserski sistem za kozmetične salone: Q-switched ND:YAG tehnologija s 4 glavami: 532, 755, 1064 in 1320 nm (Carbon / Black Doll). Kompaktna namizna izvedba, 4,3\" zaslon na dotik, zaprto vodno hlajenje.",
   "description": "PIXEL carbon laser je visoko natančna laserska naprava na osnovi tehnologije ND:YAG, razvita posebej za neinvazivne kozmetične tretmaje.\n\nJe idealna izbira za carbon peeling, izboljšanje videza kože in tretmaje za uravnavanje sebuma, kjer cilj ni uničevanje tkiva, temveč sprožitev nadzorovanega biološkega odziva.\n\nZaradi stabilnega delovanja, natančnega nadzora energije in več valovnih dolžin sistem zagotavlja visoko raven varnosti in predvidljive rezultate v profesionalni kozmetični praksi.",
   "metaTitle": "PIXEL Q-switched ND:YAG laser | Naprava za carbon peeling za salone",
-  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG naprava z glavami 1064 nm, 532 nm in Carbon (Black Doll) za carbon peeling in izboljšanje videza kože. Kompaktna, zaprto vodno hlajenje.",
+  "metaDescription": "PIXEL carbon laser: Q-switched ND:YAG naprava s 4 glavami (532, 755, 1064, 1320 nm) za carbon peeling, izboljšanje videza kože ter bledenje tetovaž in trajnega ličenja. Kompaktna, zaprto vodno hlajenje.",
   "stats": [
     {
-      "value": "1064 / 532",
+      "value": "532–1320",
       "unit": "nm",
-      "label": "Valovna dolžina ND:YAG",
+      "label": "Valovna dolžina (4 glave)",
       "icon": "wave"
     },
     {
@@ -18,7 +18,7 @@
       "icon": "zap"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Glave za tretma",
       "icon": "layers"
     },
@@ -67,8 +67,8 @@
         "image": "@assets/products/pixel-1.jpg"
       },
       {
-        "title": "Tri glave: 1064 nm, 532 nm in Carbon",
-        "description": "Napravi so priložene laserski glavi 1064 nm in 532 nm ter glava Carbon (Black Doll). Valovna dolžina 1064 nm prodre globlje ob nizki absorpciji v melaninu; 532 nm se lahko v skladu z veljavnimi predpisi uporablja za površinske pigmente.",
+        "title": "Štiri glave: 532, 755, 1064 in 1320 nm",
+        "description": "Napravi so priložene 4 glave: 532 nm, 755 nm, 1064 nm in 1320 nm (Carbon / Black Doll). Valovna dolžina 1064 nm prodre globlje ob nizki absorpciji v melaninu; 532 nm se lahko v skladu z veljavnimi predpisi uporablja za površinske pigmente.",
         "highlight": "Izvajanje tretmajev, ki uničujejo pigment, in terapevtskih tretmajev je vezano na pravne pogoje, ki se razlikujejo od države do države.",
         "image": "@assets/products/pixel-2.jpg"
       },
@@ -91,7 +91,7 @@
     "intro": "Za PIXEL ND:YAG laser je na voljo uradno certificirano usposabljanje, registrirano v sistemu FAR. Učni načrt je bil razvit pod mentorstvom certificiranega inštruktorja iz zdravstvenega sektorja in temelji na strokovnih materialih ruskega laserskega specialista.",
     "items": [
       "Načelo delovanja Q-switched ND:YAG laserja",
-      "Uporaba in nastavitev glav (1064 nm, 532 nm, Carbon)",
+      "Uporaba in nastavitev 4 glav (532, 755, 1064, 1320 nm)",
       "Carbon peeling v praksi",
       "Pravilno razumevanje odzivov kože, kontraindikacije",
       "Meje pristojnosti v praksi: kaj kozmetičarka sme in česa ne sme tretirati",
@@ -118,13 +118,13 @@
   "expertQuote": {
     "quote": "Temelj varne uporabe laserja ni premikanje meja tehnologije, temveč spoštovanje bioloških meja kože. Zato PIXEL priporočamo za carbon peeling in izboljšanje videza kože, v okviru kozmetičnih pristojnosti.",
     "author": "Horváth László",
-    "role": "Ustanovitelj Skinlaba, tehnični strokovnjak",
+    "role": "Soustanovitelj Skinlaba, direktor",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Vrsta laserja": "Q-switched ND:YAG",
-    "Valovna dolžina": "1064 nm / 532 nm",
-    "Glave za tretma": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Valovna dolžina": "532 nm / 755 nm / 1064 nm / 1320 nm",
+    "Glave za tretma": "532 nm · 755 nm · 1064 nm · 1320 nm (Carbon / Black Doll)",
     "Najv. energija pulza (1064 nm)": "1200 mJ",
     "Najv. energija pulza (532 nm)": "600 mJ",
     "Frekvenca": "1–10 Hz",
@@ -170,7 +170,7 @@
     },
     {
       "question": "Katere glave so priložene napravi?",
-      "answer": "Tri: laserski glavi 1064 nm in 532 nm ter glava Carbon (Black Doll) za carbon peeling."
+      "answer": "Štiri: glave 532 nm, 755 nm, 1064 nm in 1320 nm. Glava Carbon (Black Doll) 1320 nm je namenjena carbon peelingu."
     },
     {
       "question": "Ali se lahko uporablja za posvetlitev pigmenta ali tetovaž?",
@@ -196,9 +196,10 @@
   "whatsIncluded": [
     "Glavna enota laserja",
     "Ročnik",
-    "Laserska glava 1064 nm",
     "Laserska glava 532 nm",
-    "Glava Carbon (Black Doll)",
+    "Laserska glava 755 nm",
+    "Laserska glava 1064 nm",
+    "Glava Carbon (Black Doll) 1320 nm",
     "Nožno stikalo",
     "Zaščitna očala (za operaterja in stranko)",
     "Komplet za polnjenje vode in dodatki",

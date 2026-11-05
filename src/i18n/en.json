@@ -292,10 +292,8 @@
     "storyParagraph3": "{companyName} grew out of that shared passion, and it quickly became clear there was a real demand for it. Finally, someone was bringing world-class standards to Hungary: professional equipment at fair prices, with in-house service and the kind of support where you're never left on your own after the purchase.",
     "foundersTitle": "Founders",
     "founder": {
-      "technical": "Skinlab founder, technical expert",
-      "technicalBio": "I've been taking apart and tuning cars since I was a teenager, so the world of machines has always been second nature to me. That hands-on, engineering mindset defines my work at Skinlab too: I'm responsible for making sure every device reaches our clients in flawless technical condition. If any issue comes up, we handle it in-house, quickly and professionally, with a loaner device for longer repairs. Laser technology has become my specialty over the years, and I can confidently say there's no malfunction I haven't encountered before. That kind of experience gives our clients real peace of mind, because they know their equipment is in safe hands.",
-      "treatment": "Skinlab founder, treatment expert",
-      "treatmentBio": "I come from a medical family, and the beauty industry has fascinated me since I was very young. My medical background, however, taught me something essential: treatments must meet the same rigorous standards as medicine itself. It's not enough for something to work, it has to be safe. What matters most to me is that results are not only beautiful but also healthy, and that we never cross the boundaries of professional competence. We bring this philosophy into every consultation and product recommendation, because we only offer what we can stand behind with full confidence."
+      "technical": "Skinlab co-founder, managing director",
+      "treatment": "Skinlab co-founder, laser and device-based cosmetics expert"
     },
     "whyUsTitle": "Why Choose Us?",
     "benefit1Title": "Fair Prices",
@@ -358,12 +356,12 @@
     "mapAlt": "Map: the Skinlab showroom, Érd, Bajcsy-Zsilinszky út 156.",
     "showroomAlt": "The Skinlab showroom in Érd",
     "bio": {
-      "treatment": "She comes from a family of doctors, so she believes it is not enough for a treatment to work, it also has to be safe. That is the mindset she brings to every consultation.",
-      "technical": "He has been fixing machines since his teens. It is his job to make sure every device reaches you in technically flawless condition."
+      "treatment": "She moved into the beauty industry from healthcare. She trained with a Russian laser team, a Russian doctor and a Brazilian plasma expert, and she has kept developing her skills ever since.",
+      "technical": "A technically minded leader: machines, technology and reliable back-up are his territory."
     },
     "member": {
-      "service": "Service technician",
-      "serviceBio": "He works in our service department: devices that come in for maintenance and repair go to him.",
+      "service": "Electrical engineer, head of service",
+      "serviceBio": "He has more experience with laser equipment than any of us, and he is the backbone of our service team.",
       "social": "Social media and branding",
       "socialBio": "She graduated in film from Budapest Metropolitan University, and she is the one telling our story on social media.",
       "operations": "Operations",
@@ -566,7 +564,7 @@
       "q2": "Which skin types are diode lasers suitable for?",
       "a2": "Multi-wavelength diode lasers (e.g. 755/808/1064 nm) are safe on most skin types year-round. For certain ND:YAG treatments there may be seasonal recommendations - these are always decided individually based on professional protocol.",
       "q3": "What is the lifespan of a laser handpiece?",
-      "a3": "Most professional diode laser handpieces last 1–3 million shots, ND:YAG handpieces 1.2–1.8 million. Lifespan depends on energy settings and the cooling system. Handpieces are replaceable - our service team installs factory or compatible replacements.",
+      "a3": "The lifetime of diode laser handpieces varies by machine: OLYMPIA, for example, is guaranteed to deliver full power for up to 100 million shots. For ND:YAG lasers the handpiece lifetime is 1.2–1.8 million shots. Lifetime depends on the energy settings and the cooling used. Handpieces are replaceable, and our service team installs original or compatible replacement heads.",
       "q4": "How safe are the machines you sell?",
       "a4": "Every machine has CE certification, authentic documentation and passed safety testing. With proper training and regular maintenance (6–12 month inspection recommended), operation is safe and reliable over the long term."
     },
@@ -1012,7 +1010,7 @@
   },
   "founderConsult": {
     "badge": "Personal help",
-    "expertRole": "Skinlab founder, technical expert",
+    "expertRole": "Skinlab co-founder, managing director",
     "heading": {
       "category": {
         "pre": "Not sure",
@@ -1086,11 +1084,11 @@
     "intro": "The two of us founded Skinlab: Szimonetta came from the beauty industry with a healthcare background, László from the world of technology and machines. A treatment abroad set us on our way: we saw the level of devices they work with in the West, and we decided to bring this quality - and the know-how behind it - to Hungarian salons too.",
     "quote": "We don't want to sell machines; we want to provide usable expertise, safety and human support. We only sell devices that we know ourselves, like and recommend wholeheartedly - and we don't let go of our partners' hands after the purchase either.",
     "simonettaName": "Gaszler Szimonetta",
-    "simonettaRole": "Skinlab founder",
-    "simonettaSpec": "Treatment expert",
+    "simonettaRole": "Skinlab co-founder",
+    "simonettaSpec": "Laser and device-based cosmetics expert",
     "laszloName": "Horváth László",
-    "laszloRole": "Skinlab founder",
-    "laszloSpec": "Technical expert",
+    "laszloRole": "Skinlab co-founder",
+    "laszloSpec": "Managing director",
     "cta": "Read our full story"
   },
   "services": {

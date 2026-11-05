@@ -1,7 +1,7 @@
 {
   "name": "Bio Pen Q2 EMS mikrotűs pen",
   "shortDescription": "Vezeték nélküli, prémium EMS mikrotűs kezelőgép LED fényterápiával: microneedling, EMS elektroporáció és kék/vörös LED egyetlen készülékben.",
-  "description": "A Bio Pen Q2 a microneedlinget, az EMS elektroporációs mikroáramot és a kék/vörös LED fényterápiát egyesíti egyetlen vezeték nélküli készülékben. Aktiválja a bőr regenerációját, fokozza a kollagéntermelést, mélyebbre juttatja a hatóanyagokat – arc-, szemkörnyék-, fejbőr- és testkezelésekhez.",
+  "description": "A Bio Pen Q2 a microneedlinget, az EMS elektroporációs mikroáramot és a kék/vörös LED fényterápiát egyesíti egyetlen vezeték nélküli készülékben. Aktiválja a bőr regenerációját, fokozza a kollagéntermelést, mélyebbre juttatja a hatóanyagokat – arc-, szemkörnyék-, fejbőr- és testkezelésekhez. 7 kidolgozott kezelési programmal dolgozhatsz, a glass skintől a felületes hegekig.",
   "stats": [
     { "value": "3", "label": "Technológia egyben", "icon": "spray" },
     { "value": "5", "label": "Sebességfokozat", "icon": "bolt" },
@@ -43,17 +43,26 @@
       "answer": "Arc (anti-aging, ránccsökkentés, pórusösszehúzás, pigmentfolt-halványítás), szemkörnyék, hajas fejbőr (hajritkulás támogatása), nyak és dekoltázs, valamint testkezelések (striák, laza bőr feszesítése)."
     },
     {
+      "question": "Jár képzés a Bio Pen Q2-höz?",
+      "answer": "Igen, az ár tartalmazza az alap gépkezelői képzést. Ha szeretnéd, opcionális 1:1 képzést is kérhetsz élő modellel, érdi bemutatótermünkben."
+    },
+    {
+      "question": "Milyen kezelési programok vannak a készülékben?",
+      "answer": "7 kidolgozott kezelési program segíti a munkát, a glass skin kezeléstől a felületes hegek kezeléséig. A tűmélység 0–1,5 mm között állítható, az EMS 3 szinten szabályozható, a kezelőfejben piros és kék LED működik."
+    },
+    {
       "question": "Mikor nem javasolt a kezelés?",
       "answer": "Aktív gyulladás, fertőzés, vérzékenység, rosacea fellángolás, terhesség, autoimmun betegségek és bizonyos gyógyszeres kezelések esetén. A cartridge minden vendégnél új, és nem sterilizálható újra; kezelés előtt és után a készülék fertőtlenítése javasolt."
     }
   ],
   "whatsIncluded": [
     "1 db Bio Pen Q2 készülék",
-    "1 db indukciós tartóállvány",
+    "1 db indukciós töltőtalp (tartóállvány)",
     "2 db 25 tűs cartridge",
     "1 db USB kábel",
     "1 db adapter",
-    "1 db használati útmutató"
+    "1 db használati útmutató",
+    "Alap gépkezelői képzés (az ár tartalmazza)"
   ],
   "cta": {
     "afterVideo": {

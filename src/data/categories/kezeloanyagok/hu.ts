@@ -33,7 +33,7 @@ export const hu: ShowcaseCopy = {
       {
         title: "M'ONDUNIQ LaserIQ: carbon peeling és lézeres protokoll",
         short: 'LaserIQ protokoll',
-        subtitle: 'A kezelési protokoll lépéssorrendjében: bőrelőkészítés, a carbon peeling kezelés, az azonnali regeneráció, végül az otthon folytatható ápolás.',
+        subtitle: 'Minden Nd:YAG lézerünkhöz (PIXEL, MOSAIC, THE FRAME), a kezelési protokoll lépéssorrendjében: bőrelőkészítés, a carbon peeling kezelés, az azonnali regeneráció, végül az otthon folytatható ápolás.',
       },
       {
         title: 'AquametiQ hydra-liquidek: aqua-peeling kezelőfolyadékok',
@@ -92,7 +92,7 @@ export const hu: ShowcaseCopy = {
     items: [
       {
         question: 'Melyik kezelőanyag illik a gépemhez?',
-        answer: 'Carbon peelinghez és ND:YAG lézerhez a LaserIQ vonal, hidrodermabráziós és aqua-peeling gépekhez az AquametiQ hydra-liquidek valók. A hatóanyag-koktélok mikrotűs, mezoterápiás, elektroporációs, oxigénes és hidegplazmás kezelésekhez készültek.',
+        answer: 'Carbon peelinghez és Nd:YAG lézerhez a LaserIQ vonal, hidrodermabráziós és aqua-peeling gépekhez az AquametiQ hydra-liquidek valók. A hatóanyag-koktélok mikrotűs, mezoterápiás, elektroporációs, oxigénes és hidegplazmás kezelésekhez készültek.',
       },
       {
         question: 'Hogyan kapom meg a rendelést?',

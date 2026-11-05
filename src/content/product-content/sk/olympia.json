@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Vlnová dĺžka",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Veľkosť spotu",
       "icon": "layers"
     },
     {
-      "value": "Inteligentný",
-      "label": "Riadiaci systém",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Garantovaných výstrelov",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Vlnová dĺžka",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Tam, kde víťazí výkon",
@@ -114,7 +114,7 @@
   "expertQuote": {
     "quote": "OLYMPIA robí presne to, čo má 1200W diódový laser robiť - rýchlo, efektívne, spoľahlivo. Kombinácia 5 veľkostí spotu a inteligentného riadiaceho systému ju vyzdvihuje nad priemer a cena zostáva dostupná. Tento stroj je šampiónom pomeru cena/výkon vo svojej kategórii.",
     "author": "Horváth László",
-    "role": "Zakladateľ Skinlab, technický expert",
+    "role": "Spoluzakladateľ Skinlab, konateľ",
     "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
@@ -164,15 +164,15 @@
     },
     {
       "question": "Za aký čas sa vráti investícia?",
-      "answer": "Priemerný klient využije diódové laserové ošetrenie v hodnote cca 50.000 Ft. Už pri 20 klientoch je možné realizovať tržby cca 1.000.000 Ft. Výkon 1200W a rýchly čas ošetrenia umožňuje nepretržité využitie prístroja."
+      "answer": "Ilustračný príklad: pri cene ošetrenia 12.000 Ft, nákladoch 2.000 Ft na ošetrenie a cca 3-4 klientoch za pracovný deň prinesie 70 ošetrení mesačne krycí príspevok cca 700.000 Ft. Prístroj sa tak môže vrátiť približne za 3,6 mesiaca a za 24 mesiacov vytvoriť cca 14,3 mil. Ft čistého krycieho príspevku. Ide o ilustračný výpočet, nie finančný sľub - vyžiadajte si individuálnu kalkuláciu!"
     },
     {
-      "question": "Aký je rozdiel medzi OLYMPIA, ATHENA a HELIOS?",
-      "answer": "Všetky tri sú rôzne konfigurácie tej istej platformy: ATHENA (1000W) - precíznosť a kontrola, OLYMPIA (1200W) - chytrá voľba, šampión cena/výkon, HELIOS (1600W) - vyššia kategória, maximálny výkon. OLYMPIA je najsilnejšia verzia strednej kategórie za reálnu cenu."
+      "question": "Aký je rozdiel medzi OLYMPIA, ATHENA, HELIOS a EMPIRE 4WAVE?",
+      "answer": "Všetky štyri naše diódové lasery spájajú rovnaké štyri vlnové dĺžky (755 / 808 / 940 / 1064 nm) v jednej hlavici; rozdiel je v tempe a inteligencii: ATHENA (1000W) - precíznosť a kontrola, OLYMPIA (1200W) - chytrá voľba, šampión cena/výkon, HELIOS (1600W) - vyššia kategória, maximálny výkon, EMPIRE 4WAVE (1200W) - AI diagnostika mikrokamerou, rozhranie Android a digitálna karta klienta. OLYMPIA je najsilnejšia verzia strednej kategórie za reálnu cenu."
     },
     {
       "question": "Čo je v cene?",
-      "answer": "Cena zahŕňa kompletné školenie obsluhy prístroja, certifikát FAR, 2-ročnú záruku a maďarský návod na použitie. Dodacia lehota je 2-6 týždňov. Pre presnú cenu si vyžiadajte konzultáciu."
+      "answer": "Cena zahŕňa kompletné školenie obsluhy prístroja, certifikát FAR, 2-ročnú záruku a maďarský návod na použitie. Dodacia lehota je cca 15 pracovných dní. Pre presnú cenu si vyžiadajte konzultáciu."
     }
   ],
   "whatsIncluded": [

@@ -123,12 +123,12 @@ Ezeket nem tudtuk eldönteni, ezért a szöveg óvatosan fogalmaz vagy mindkét 
 | **AquametiQ Hydra Prime B** | A `B` doksi szerint a Hydra Prime B **az 1. lépés**, az `A` doksi szerint viszont a **3. (célzott) lépés**. Kell egy hivatalos, egyértelmű lépéssorrend. |
 | **AquametiQ Lumio Prime C** | Nincs leírva, hogy a C után is kötelező-e ismételten az Osmo Prime D. |
 | **AquametiQ (mind)** | A doksik csak „AquametiQ Hydra Prime és más professzionális hydra-rendszerek"-et említenek. **Nincs kimondva, hogy a Skinlab saját gépeivel (HydraScan PRO / PRO+ / HydraMIST) kompatibilis-e** — pedig cross-sell szempontból ez a legerősebb kapcsolódás. |
-| **PREP FOAM** | Termékvonal: a hivatalos név `M'andelic PREP FOAM`, de a doksi 4. bekezdése „LaserIQ PREP FOAM"-ként hivatkozik rá. Melyik vonalhoz tartozik? |
+| ~~**PREP FOAM**~~ | ✅ 2026-11-05: a katalógus `M'andelic PREP FOAM` néven, a LaserIQ protokoll 1. (előkészítő) lépéseként hozza, az oldal így is mutatja. |
 | **PREP FOAM** | „Használata": leöblítést nem igényel, a bőrön hagyható — ugyanakkor a „Felhasználási területek" közt szerepel a „Napi otthoni arctisztítás". Tisztítóként is leöblítés nélkül? |
 | **Dragon Blood** | A dobozon `POUR USAGE PROFESSIONNEL` (kizárólag professzionális), a doksi viszont otthoni használatról is ír. |
 | **Dragon Blood** | Termékvonal: a csomagoláson `Sang de Dragon` / `Dragon'ÉCL`, a doksi ezt nem említi. |
-| **BOTOPAX** | Névkonfliktus: a csomagoláson `Dermié BOOST` vonal + `Boto'PAX` írásmód, az ampullacímkén `GENEX FORMULA`. A doksi csak „BOTOPAX™"-ot ír. Mi a kanonikus írásmód? |
-| **AquametiQ árazás** | A/B/C **200 ml**, D **1000 ml**, mégis **mind 6 990 Ft**. Változtatás nélkül átvettük — ellenőrizendő. |
+| ~~**BOTOPAX**~~ | ✅ 2026-11-05: a nyomtatott katalógus (a tulajdonos szerint ez a forrás) „BOTOPAX™ peptid koktél"-t ír, a név ennek megfelelően javítva. ~~Névkonfliktus: a csomagoláson `Dermié BOOST` vonal + `Boto'PAX` írásmód, az ampullacímkén `GENEX FORMULA`.~~ |
+| ~~**AquametiQ árazás**~~ | ✅ 2026-11-05: a tulajdonos döntése szerint az oldalon marad mind a négy 6 990 Ft-on (a katalógus az A, C, D árát „kérd tőlünk"-ként írja, ezt szándékosan nem vettük át). |
 | **Krém / SPF 50/150 ml** | Nincs megmondva, hogy a 150 ml a kabinos és az 50 ml a vendégnek továbbadható retail kiszerelés-e. |
 | **BOTOPAX, GENEXEM maszk** | Nincs kimondva a „kizárólag professzionális felhasználásra" kikötés, pedig a Dragon Blood dobozán explicit `POUR USAGE PROFESSIONNEL` szerepel. Egységesíteni kell, mely termék adható tovább a vendégnek. |
 

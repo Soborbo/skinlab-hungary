@@ -311,10 +311,8 @@
     "storyClosing": "A skinlab. azért született, hogy a szépségipari szakemberek olyan technológiához jussanak, amely mögött mélyreható szaktudás, gyakorlati tapasztalat és személyes támogatás áll.",
     "foundersTitle": "Alapítók",
     "founder": {
-      "technical": "Skinlab alapító, technikai szakértő",
-      "technicalBio": "Kamaszkórom óta autókat szereltem és tuningoltam, úgyhogy a gépek világa mindig is közel állt hozzám. Ez a gyakorlatias, mérnöki szemlélet határozza meg a munkámat a Skinlabnál is: az én felelősségem, hogy minden készülék műszakilag kifogástalan állapotban kerüljön az ügyfeleinkhez. Ha bármi probléma adódik, házon belül oldjuk meg, gyorsan és szakszerűen – hosszabb javítás esetén cseregéppel. A lézertechnológia az évek során a specialitásommá vált, és bátran mondhatom, hogy nincs olyan meghibásodás, amivel ne találkoztam volna. Ez az a fajta tapasztalat, ami igazi nyugalmat ad ügyfeleinknek, mert tudják, hogy a gépük jó kezekben van.",
-      "treatment": "Skinlab alapító, kezelési szakértő",
-      "treatmentBio": "Orvoscsaládból származom, és egészen fiatal korom óta vonz a szépségipar. Az orvosi háttér viszont egy fontos dolgot belém nevelt: a kezeléseknek ugyanolyan szigorú szakmai alapokon kell állniuk, mint az orvostudománynak. Nem elég, ha valami működik, biztonságosnak is kell lennie. Számomra az a legfontosabb, hogy ne csak szép, hanem egészséges eredmények szülessenek, és soha ne lépjük át a szakmai kompetencia határait. Ezt a szemléletet visszük bele minden konzultációba és minden termékajánlásba is, mert csak olyat kínálunk, ami mögött teljes meggyőződéssel állunk."
+      "technical": "Skinlab társalapító, ügyvezető",
+      "treatment": "Skinlab társalapító, lézer- és gépes kozmetikai szakértő"
     },
     "whyUsTitle": "Miért válassz minket?",
     "benefit1Title": "Tisztességes árak",
@@ -377,12 +375,12 @@
     "mapAlt": "Térkép: a Skinlab bemutatóterme, Érd, Bajcsy-Zsilinszky út 156.",
     "showroomAlt": "A Skinlab bemutatóterme Érden",
     "bio": {
-      "treatment": "Orvoscsaládból jön, ezért vallja: nem elég, ha egy kezelés működik, biztonságosnak is kell lennie. Ezzel a szemlélettel ad tanácsot minden konzultáción.",
-      "technical": "Kamaszkora óta szerel gépeket. Az ő felelőssége, hogy minden készülék műszakilag kifogástalanul érkezzen meg hozzád."
+      "treatment": "Az egészségügyből ívelt át a szépségiparba; orosz lézeres csapattól, orosz orvostól és brazil plazmaszakértőtől tanult, és azóta is folyamatosan fejleszti magát.",
+      "technical": "Műszaki szemléletű vezető: a gépek, a technológia és a megbízható háttér az ő terepe."
     },
     "member": {
-      "service": "Szerviztechnikus",
-      "serviceBio": "A szervizünk munkatársa: hozzá kerülnek a karbantartásra és javításra beérkező készülékek.",
+      "service": "Villamosmérnök, szervizvezető",
+      "serviceBio": "Mindannyiunknál több tapasztalattal rendelkezik a lézeres berendezések terén - ő a szervizcsapatunk gerince.",
       "social": "Social media és arculat",
       "socialBio": "A Budapesti Metropolitan Egyetem filmes szakán végzett; ő mesél rólunk a social médiában.",
       "operations": "Üzemeltetési munkatárs",
@@ -673,7 +671,7 @@
       "q2": "Milyen bőrtípusokon használhatók a diódalézerek?",
       "a2": "A több hullámhosszal rendelkező diódalézerek (pl. 755/808/1064 nm) a legtöbb bőrtípuson biztonságosan használhatók, egész évben. ND:YAG gépeknél bizonyos kezelésekhez szezonális ajánlás lehet érvényben – ezt minden esetben egyénre szabva, szakmai protokoll alapján határozzuk meg.",
       "q3": "Mennyi a lézerfej élettartama?",
-      "a3": "A legtöbb professzionális diódalézer kezelőfej élettartama 1–3 millió lövés, ND:YAG lézereknél pedig 1,2–1,8 millió lövés. Az élettartam függ az energia-beállításoktól és a használt hűtéstől. A fejek cserélhetők – gyári vagy kompatibilis cserefejet szerviz csapatunk telepít.",
+      "a3": "A diódalézer kezelőfejek élettartama gépenként eltér: az OLYMPIA például 100 millió lövésig garantáltan a maximális teljesítményt nyújtja. ND:YAG lézereknél a kezelőfej élettartama 1,2–1,8 millió lövés. Az élettartam függ az energia-beállításoktól és a használt hűtéstől. A fejek cserélhetők, a gyári vagy kompatibilis cserefejet szervizcsapatunk telepíti.",
       "q4": "Mennyire biztonságosak a forgalmazott gépek?",
       "a4": "Minden gépünk rendelkezik CE minősítéssel, hiteles dokumentációval és biztonsági tesztekkel. Megfelelő szakmai képzés és rendszeres karbantartás (ajánlott 6–12 havonta átvizsgálás) mellett a használat biztonságos és hosszú távon is megbízható."
     },
@@ -712,11 +710,11 @@
     "intro": "A Skinlabot ketten alapítottuk: Szimonetta a szépségiparból, egészségügyi háttérrel, László a technika és a gépek világából érkezett. Egy külföldi kezelés indított el minket: láttuk, milyen szintű készülékekkel dolgoznak nyugaton, és elhatároztuk, hogy ezt a minőséget - és a mögötte lévő tudást - elhozzuk a magyar szalonoknak is.",
     "quote": "Nem gépeket akarunk eladni, hanem használható szaktudást, biztonságot és emberi támogatást adni. Csak olyan készüléket forgalmazunk, amelyet mi magunk is ismerünk, szeretünk és jó szívvel ajánlunk - és a vásárlás után sem engedjük el a partnereink kezét.",
     "simonettaName": "Gaszler Szimonetta",
-    "simonettaRole": "Skinlab alapító",
-    "simonettaSpec": "Kezelési szakértő",
+    "simonettaRole": "Skinlab társalapító",
+    "simonettaSpec": "Lézer- és gépes kozmetikai szakértő",
     "laszloName": "Horváth László",
-    "laszloRole": "Skinlab alapító",
-    "laszloSpec": "Technikai szakértő",
+    "laszloRole": "Skinlab társalapító",
+    "laszloSpec": "Ügyvezető",
     "cta": "Ismerd meg a teljes történetünket"
   },
   "search": {
@@ -1098,7 +1096,7 @@
   },
   "founderConsult": {
     "badge": "Személyes segítség",
-    "expertRole": "Skinlab alapító, technikai szakértő",
+    "expertRole": "Skinlab társalapító, ügyvezető",
     "heading": {
       "category": {
         "pre": "Nem tudod,",

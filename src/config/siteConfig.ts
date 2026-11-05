@@ -130,7 +130,7 @@ export const config: SiteConfig = SiteConfigSchema.parse({
     {
       name: 'Gaszler Szimonetta',
       slug: 'gaszler-simonetta',
-      jobTitle: 'Társalapító',
+      jobTitle: 'Társalapító, lézer- és gépes kozmetikai szakértő',
       image: `${siteUrl}/about/gaszler-simonetta-skinlab-alapito.jpg`,
       sameAs: [
         'https://www.linkedin.com/in/szimonetta-gaszler-551997193/',
@@ -141,7 +141,7 @@ export const config: SiteConfig = SiteConfigSchema.parse({
     {
       name: 'Horváth László',
       slug: 'horvath-laszlo',
-      jobTitle: 'Társalapító',
+      jobTitle: 'Társalapító, ügyvezető',
       image: `${siteUrl}/about/horvath-laszlo-skinlab-alapito.jpg`,
       sameAs: [],
     },
