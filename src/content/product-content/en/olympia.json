@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Wavelength",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Spot size",
       "icon": "layers"
     },
     {
-      "value": "Smart",
-      "label": "Control system",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Guaranteed shot life",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Wavelength",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Where performance wins",
@@ -164,15 +164,15 @@
     },
     {
       "question": "How quickly does it pay off?",
-      "answer": "An average client takes a diode laser treatment worth approximately 50,000 Ft. With just 20 clients, revenue of approximately 1,000,000 Ft can be realized. The 1200W power and fast treatment time make continuous use of the device possible."
+      "answer": "An illustrative example: with a treatment fee of 12,000 Ft, a cost of 2,000 Ft per treatment and about 3-4 clients per working day, 70 treatments a month leave a contribution margin of about 700,000 Ft. On that basis the device can pay for itself in about 3.6 months and generate about 14.3 M Ft net contribution over 24 months. This is an illustrative calculation, not a financial promise - ask for a personalised calculation!"
     },
     {
-      "question": "What is the difference between OLYMPIA, ATHENA and HELIOS?",
-      "answer": "All three are different configurations of the same platform: ATHENA (1000W) - precision and control, OLYMPIA (1200W) - the smart choice, value-for-money champion, HELIOS (1600W) - top tier, maximum performance. OLYMPIA is the most powerful version of the mid-range at a realistic price."
+      "question": "What is the difference between OLYMPIA, ATHENA, HELIOS and EMPIRE 4WAVE?",
+      "answer": "All four of our diode lasers combine the same four wavelengths (755 / 808 / 940 / 1064 nm) in one handpiece; the difference is in speed and intelligence: ATHENA (1000W) - precision and control, OLYMPIA (1200W) - the smart choice, value-for-money champion, HELIOS (1600W) - top tier, maximum performance, EMPIRE 4WAVE (1200W) - AI micro-camera diagnostics, Android interface and digital client records. OLYMPIA is the most powerful version of the mid-range at a realistic price."
     },
     {
       "question": "What is included in the price?",
-      "answer": "The price includes comprehensive operator training, FAR certificate, 2-year warranty and the Hungarian-language user manual. Delivery time is 2-6 weeks. For an exact price, request a consultation."
+      "answer": "The price includes comprehensive operator training, FAR certificate, 2-year warranty and the Hungarian-language user manual. Delivery time is about 15 working days. For an exact price, request a consultation."
     }
   ],
   "whatsIncluded": [

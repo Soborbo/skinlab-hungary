@@ -137,6 +137,21 @@
       "icon": "bubbles",
       "name": "Pórusok és textúra",
       "description": "Pórusméret, sűrűség és felszíni egyenetlenségek vizsgálata."
+    },
+    {
+      "icon": "brain",
+      "name": "AI-asszisztens",
+      "description": "Beépített AI-asszisztens, magyar menüvel."
+    },
+    {
+      "icon": "chart",
+      "name": "Öregedési előrejelzés",
+      "description": "Megmutatja, hogyan alakulhat a bőr állapota az évek során."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Protokolltervező",
+      "description": "Kezelési tervet állít össze a szalon saját kínálatából."
     }
   ],
   "specs": {
@@ -148,6 +163,7 @@
     "Adattárolás": "Felhőalapú, több eszközről elérhető",
     "Kiegészítő": "Scalp- és arcmikroszkóp (tartozék)",
     "Szoftver": "Magyar nyelvű felhasználói felület",
+    "AI-funkciók": "Beépített AI-asszisztens, öregedési előrejelzés, protokolltervező a szalon saját kínálatából",
     "Méret": "300 × 260 × 450 mm",
     "Súly": "kb. 6,5 kg",
     "Tápellátás": "AC 100-240V, 50/60Hz"

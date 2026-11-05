@@ -11,17 +11,17 @@ import { compareHelp, consult, financeTexts, reviews, visit } from '../common.hu
 const models: Record<string, ShowcaseModelCopy> = {
   pixelcarbonlezer: {
     name: 'PIXEL',
-    keySpec: '1064 + 532 nm',
+    keySpec: '4 fej · 1200 mJ',
     tagline: 'a kompakt carbon-lézer',
     forWho: 'Kompakt belépő, carbon peeling',
-    desc: 'Asztali Q-kapcsolt ND:YAG lézer 1064 és 532 nm-es kezelőfejjel, valamint carbon (Black Doll) fejjel. Zárt vízhűtés, 4,3"-os érintőképernyő, kis helyen is elfér.',
+    desc: 'Asztali Q-kapcsolt ND:YAG lézer 4 kezelőfejjel (532, 755, 1064 és 1320 nm): carbon peeling, bőrképjavítás, pigment- és tetoválás-halványítás egy rendszerben. Zárt vízhűtés, 4,3"-os érintőképernyő, kis helyen is elfér.',
     when: [
       'carbon peelinggel bővítenéd a kínálatod',
       'kevés a hely a kezelőben',
       'kisebb befektetéssel indulnál',
     ],
     compare: {
-      waves: '1064 + 532 nm + carbon fej',
+      waves: '532 + 755 + 1064 + 1320 nm (4 fej)',
       screen: '4,3" érintőképernyő',
       cooling: 'Zárt vízhűtéses rendszer',
     },
@@ -113,7 +113,7 @@ export const hu: ShowcaseCopy = {
     items: [
       {
         question: 'Melyik gépet válasszam?',
-        answer: 'A PIXEL kompakt asztali gép 1064 és 532 nm-es kezelőfejjel és carbon fejjel, jó belépő a carbon peelinghez. A FRAME 4 hullámhosszal, androidos érintőképernyővel és beépített kezelőfej-hűtéssel a tetoválás-, pigmentfolt- és carbon-kezeléseket is kiszolgálja.',
+        answer: 'A PIXEL kompakt asztali belépő gép 4 kezelőfejjel (532, 755, 1064 és 1320 nm): carbon peeling, bőrképjavítás, pigment- és tetoválás-halványítás egy rendszerben. A FRAME 4 hullámhosszal, androidos érintőképernyővel és beépített kezelőfej-hűtéssel a tetoválás-, pigmentfolt- és carbon-kezeléseket is kiszolgálja.',
       },
       {
         question: 'Hány alkalom kell egy tetoválás teljes eltávolításához?',

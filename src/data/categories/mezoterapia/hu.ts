@@ -6,7 +6,7 @@
  */
 import type { ShowcaseModelCopy } from '@/lib/category-showcase';
 import type { ShowcaseCopy } from '@/lib/types/category-showcase';
-import { consultSingle, financeTexts, reviews, visitSingle } from '../common.hu';
+import { consultSingle, reviews, visitSingle } from '../common.hu';
 
 const models: Record<string, ShowcaseModelCopy> = {
   dermatechplus_noneedle_mesotherapy: {
@@ -37,7 +37,7 @@ export const hu: ShowcaseCopy = {
   usp: [
     { title: '2 év teljes körű garancia', sub: 'minden új gépre' },
     { title: 'Saját magyar szerviz', sub: 'gyors javítás Érden' },
-    { title: '0% THM részletfizetés', sub: '50% előleg + havi részletek' },
+    { title: 'Teljes körű oktatás az árban', sub: 'betanítunk a gépre' },
     { title: 'Személyes tanácsadás', sub: 'az alapítóktól' },
   ],
   models: {
@@ -69,10 +69,6 @@ export const hu: ShowcaseCopy = {
       },
     ],
   },
-  finance: {
-    ...financeTexts,
-    lead: 'Kamatmentes részletfizetés 0% THM mellett: 50% előleg, a fennmaradó összeg 3 havi részletben. Nincs kezelési díj és nincs rejtett költség.',
-  },
   consult: consultSingle,
   faq: {
     title: 'Gyakori kérdések',
@@ -93,6 +89,10 @@ export const hu: ShowcaseCopy = {
       {
         question: 'Miért használható nyáron is?',
         answer: 'Mert a kezelés nem sérti a bőrt, nincs szúrás és hámlás, így a bőr nem válik fényérzékennyé. A tűs mezoterápiával szemben erős napsütésben is biztonságosan használható.',
+      },
+      {
+        question: 'Hány kezelésből áll egy kúra?',
+        answer: 'Egy kúra 3-6 kezelésből áll, havonta egy alkalommal. Egy kezelés 25-30 percig tart.',
       },
     ],
   },

@@ -12,23 +12,23 @@
       "icon": "zap"
     },
     {
-      "value": "4",
-      "label": "Talasna dužina",
-      "icon": "wave"
-    },
-    {
       "value": "5",
       "label": "Veličina spota",
       "icon": "layers"
     },
     {
-      "value": "Pametan",
-      "label": "Upravljački sistem",
-      "icon": "brain"
+      "value": "100M",
+      "label": "Garantovanih impulsa",
+      "icon": "shield"
+    },
+    {
+      "value": "4",
+      "label": "Talasna dužina",
+      "icon": "wave"
     }
   ],
   "roi": {
-    "defaultTreatmentPrice": 50000
+    "defaultTreatmentPrice": 12000
   },
   "videoDescription": {
     "headline": "OLYMPIA – Tamo gde učinak pobeđuje",
@@ -164,15 +164,15 @@
     },
     {
       "question": "Za koje vreme se isplati?",
-      "answer": "Prosečni klijent koristi diodni laserski tretman u vrednosti od oko 50.000 Ft. Već sa 20 klijenata moguće je ostvariti prihod od oko 1.000.000 Ft. Snaga 1200W i brzo vreme tretmana omogućavaju neprekidno korišćenje uređaja."
+      "answer": "Ilustrativni primer: uz cenu tretmana od 12.000 Ft, trošak od 2.000 Ft po tretmanu i oko 3-4 klijenta po radnom danu, 70 tretmana mesečno donosi bruto maržu od oko 700.000 Ft. Uređaj se tako može isplatiti za otprilike 3,6 meseca, a za 24 meseca ostvariti oko 14,3 mil. Ft neto marže. Ovo je ilustrativni proračun, a ne finansijsko obećanje - zatražite proračun prilagođen vama!"
     },
     {
-      "question": "U čemu je razlika između OLYMPIA, ATHENA i HELIOS?",
-      "answer": "Sve tri su različite konfiguracije iste platforme: ATHENA (1000W) - preciznost i kontrola, OLYMPIA (1200W) - pametan izbor, šampion odnosa cena/kvalitet, HELIOS (1600W) - viša kategorija, maksimalan učinak. OLYMPIA je najsnažnija verzija srednje kategorije po realnoj ceni."
+      "question": "U čemu je razlika između OLYMPIA, ATHENA, HELIOS i EMPIRE 4WAVE?",
+      "answer": "Sva četiri naša diodna lasera objedinjuju iste četiri talasne dužine (755 / 808 / 940 / 1064 nm) u jednoj glavi; razlika je u tempu i inteligenciji: ATHENA (1000W) - preciznost i kontrola, OLYMPIA (1200W) - pametan izbor, šampion odnosa cena/kvalitet, HELIOS (1600W) - viša kategorija, maksimalan učinak, EMPIRE 4WAVE (1200W) - AI dijagnostika mikrokamerom, Android interfejs i digitalni karton klijenta. OLYMPIA je najsnažnija verzija srednje kategorije po realnoj ceni."
     },
     {
       "question": "Šta je uključeno u cenu?",
-      "answer": "Cena uključuje sveobuhvatnu obuku za rukovanje uređajem, FAR sertifikat, 2 godine garancije i mađarsko korisničko uputstvo. Rok isporuke je 2-6 nedelja. Za tačnu cenu zatražite konsultaciju."
+      "answer": "Cena uključuje sveobuhvatnu obuku za rukovanje uređajem, FAR sertifikat, 2 godine garancije i mađarsko korisničko uputstvo. Rok isporuke je oko 15 radnih dana. Za tačnu cenu zatražite konsultaciju."
     }
   ],
   "whatsIncluded": [

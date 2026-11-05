@@ -1,14 +1,14 @@
 {
   "name": "Laser PIXEL Q-switched ND:YAG",
-  "shortDescription": "Sistem laser carbon profesional pentru saloane de înfrumusețare: tehnologie Q-switched ND:YAG cu capete de tratament de 1064 nm și 532 nm, plus cap Carbon (Black Doll). Design compact de birou, ecran tactil de 4,3\", răcire cu apă în circuit închis.",
+  "shortDescription": "Sistem laser carbon profesional pentru saloane de înfrumusețare: tehnologie Q-switched ND:YAG cu 4 capete de tratament: 532, 755, 1064 și 1320 nm (Carbon / Black Doll). Design compact de birou, ecran tactil de 4,3\", răcire cu apă în circuit închis.",
   "description": "Laserul carbon PIXEL este un dispozitiv laser de înaltă precizie bazat pe tehnologia ND:YAG, dezvoltat special pentru tratamente cosmetice neinvazive.\n\nEste alegerea ideală pentru carbon peeling, îmbunătățirea aspectului pielii și tratamente de reglare a sebumului, unde scopul nu este distrugerea țesutului, ci declanșarea unui răspuns biologic controlat.\n\nDatorită funcționării stabile, controlului precis al energiei și mai multor lungimi de undă, sistemul oferă un nivel ridicat de siguranță și rezultate previzibile în practica cosmetică profesională.",
   "metaTitle": "Laser PIXEL Q-switched ND:YAG | Aparat carbon peeling pentru saloane",
-  "metaDescription": "Laser carbon PIXEL: aparat Q-switched ND:YAG cu capete de 1064 nm, 532 nm și Carbon (Black Doll) pentru carbon peeling și îmbunătățirea aspectului pielii. Compact, răcire cu apă în circuit închis.",
+  "metaDescription": "Laser carbon PIXEL: aparat Q-switched ND:YAG cu 4 capete (532, 755, 1064, 1320 nm) pentru carbon peeling, îmbunătățirea aspectului pielii și estomparea tatuajelor și a machiajului permanent. Compact, răcire cu apă în circuit închis.",
   "stats": [
     {
-      "value": "1064 / 532",
+      "value": "532–1320",
       "unit": "nm",
-      "label": "Lungime de undă ND:YAG",
+      "label": "Lungime de undă (4 capete)",
       "icon": "wave"
     },
     {
@@ -18,7 +18,7 @@
       "icon": "zap"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Capete de tratament",
       "icon": "layers"
     },
@@ -67,8 +67,8 @@
         "image": "@assets/products/pixel-1.jpg"
       },
       {
-        "title": "Trei capete: 1064 nm, 532 nm și Carbon",
-        "description": "Aparatul vine cu capete laser de 1064 nm și 532 nm, precum și cu un cap Carbon (Black Doll). Lungimea de undă de 1064 nm pătrunde mai adânc, cu absorbție redusă în melanină; 532 nm poate fi folosită pentru pigmenții superficiali, în conformitate cu reglementările legale.",
+        "title": "Patru capete: 532, 755, 1064 și 1320 nm",
+        "description": "Aparatul vine cu 4 capete de tratament: 532 nm, 755 nm, 1064 nm și 1320 nm (Carbon / Black Doll). Lungimea de undă de 1064 nm pătrunde mai adânc, cu absorbție redusă în melanină; 532 nm poate fi folosită pentru pigmenții superficiali, în conformitate cu reglementările legale.",
         "highlight": "Aplicarea tratamentelor care distrug pigmentul și a tratamentelor terapeutice este supusă unor condiții legale care diferă de la o țară la alta.",
         "image": "@assets/products/pixel-2.jpg"
       },
@@ -91,7 +91,7 @@
     "intro": "Pentru laserul PIXEL ND:YAG este disponibil un curs oficial de instruire certificat, înregistrat în sistemul FAR. Programa a fost dezvoltată sub îndrumarea unui instructor certificat din sectorul sănătății și se bazează pe materiale profesionale ale unui medic specialist laser rus.",
     "items": [
       "Principiul de funcționare al laserului Q-switched ND:YAG",
-      "Utilizarea și setarea capetelor (1064 nm, 532 nm, Carbon)",
+      "Utilizarea și setarea celor 4 capete (532, 755, 1064, 1320 nm)",
       "Carbon peeling în practică",
       "Interpretarea corectă a reacțiilor pielii, contraindicații",
       "Limitele competenței în practică: ce poate și ce nu poate trata o cosmeticiană",
@@ -123,8 +123,8 @@
   },
   "specs": {
     "Tip laser": "Q-switched ND:YAG",
-    "Lungime de undă": "1064 nm / 532 nm",
-    "Capete de tratament": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Lungime de undă": "532 nm / 755 nm / 1064 nm / 1320 nm",
+    "Capete de tratament": "532 nm · 755 nm · 1064 nm · 1320 nm (Carbon / Black Doll)",
     "Energie max. a pulsului (1064 nm)": "1200 mJ",
     "Energie max. a pulsului (532 nm)": "600 mJ",
     "Frecvență": "1–10 Hz",
@@ -170,7 +170,7 @@
     },
     {
       "question": "Ce capete de tratament vin cu aparatul?",
-      "answer": "Trei: capete laser de 1064 nm și 532 nm, plus un cap Carbon (Black Doll) pentru carbon peeling."
+      "answer": "Patru: capete de 532 nm, 755 nm, 1064 nm și 1320 nm. Capul Carbon (Black Doll) de 1320 nm se folosește pentru carbon peeling."
     },
     {
       "question": "Poate fi folosit pentru estomparea pigmentului sau a tatuajelor?",
@@ -196,9 +196,10 @@
   "whatsIncluded": [
     "Unitatea principală a laserului",
     "Piesă de mână",
-    "Cap laser 1064 nm",
     "Cap laser 532 nm",
-    "Cap Carbon (Black Doll)",
+    "Cap laser 755 nm",
+    "Cap laser 1064 nm",
+    "Cap Carbon (Black Doll) 1320 nm",
     "Pedală",
     "Ochelari de protecție (pentru operator și client)",
     "Kit de umplere cu apă și accesorii",

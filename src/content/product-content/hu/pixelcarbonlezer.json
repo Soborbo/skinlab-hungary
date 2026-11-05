@@ -1,14 +1,14 @@
 {
   "name": "PIXEL Q-kapcsolt ND:YAG lézer",
-  "shortDescription": "Professzionális Carbon-lézer rendszer kozmetikai szalonoknak: Q-kapcsolt ND:YAG technológia 1064 nm és 532 nm kezelőfejjel, valamint Carbon (Black Doll) fejjel. Kompakt asztali kivitel, 4,3\" érintőképernyő, zárt vízhűtés.",
+  "shortDescription": "Professzionális Carbon-lézer rendszer kozmetikai szalonoknak: Q-kapcsolt ND:YAG technológia 4 kezelőfejjel: 532, 755, 1064 és 1320 nm (Carbon / Black Doll). Kompakt asztali kivitel, 4,3\" érintőképernyő, zárt vízhűtés.",
   "description": "A PIXEL Carbon-lézer készülék egy ND:YAG technológián alapuló, nagy pontosságú lézerberendezés, amelyet kifejezetten kozmetikai célú, nem invazív kezelésekhez fejlesztettek.\n\nA készülék ideális választás carbon peeling, bőrképjavító és faggyúszabályozó kezelésekhez, ahol a cél nem a szövetroncsolás, hanem a kontrollált biológiai válasz kiváltása.\n\nA rendszer stabil működése, pontos energiakontrollja és több hullámhosszú lehetősége révén magas szintű biztonságot és kiszámítható eredményeket nyújt a professzionális kozmetikai gyakorlatban.",
   "metaTitle": "PIXEL Q-kapcsolt ND:YAG lézer | Carbon peeling készülék szalonoknak",
-  "metaDescription": "PIXEL Carbon-lézer: Q-kapcsolt ND:YAG készülék 1064 nm, 532 nm és Carbon (Black Doll) kezelőfejjel, carbon peelinghez és bőrképjavításhoz. Kompakt, zárt vízhűtéses.",
+  "metaDescription": "PIXEL Carbon-lézer: Q-kapcsolt ND:YAG készülék 4 kezelőfejjel (532, 755, 1064, 1320 nm) carbon peelinghez, bőrképjavításhoz, tetoválás- és sminktetoválás-halványításhoz. Kompakt, zárt vízhűtéses.",
   "stats": [
     {
-      "value": "1064 / 532",
+      "value": "532–1320",
       "unit": "nm",
-      "label": "ND:YAG hullámhossz",
+      "label": "Hullámhossz (4 fej)",
       "icon": "wave"
     },
     {
@@ -18,7 +18,7 @@
       "icon": "zap"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Kezelőfej",
       "icon": "layers"
     },
@@ -67,8 +67,8 @@
         "image": "@assets/products/pixel-1.jpg"
       },
       {
-        "title": "Három kezelőfej: 1064 nm, 532 nm és Carbon",
-        "description": "A készülékhez 1064 nm-es és 532 nm-es lézerfej, valamint Carbon (Black Doll) kezelőfej tartozik. Az 1064 nm mélyebbre hatol, alacsony melaninabszorpcióval; az 532 nm a felszíni pigmentekhez használható, a jogi szabályozás szerint.",
+        "title": "Négy kezelőfej: 532, 755, 1064 és 1320 nm",
+        "description": "A készülékhez 4 kezelőfej tartozik: 532 nm, 755 nm, 1064 nm és 1320 nm (Carbon / Black Doll). Az 1064 nm mélyebbre hatol, alacsony melaninabszorpcióval; az 532 nm a felszíni pigmentekhez használható, a jogi szabályozás szerint.",
         "highlight": "A pigmentromboló és terápiás kezelések alkalmazása országonként eltérő jogszabályi feltételekhez kötött.",
         "image": "@assets/products/pixel-2.jpg"
       },
@@ -91,7 +91,7 @@
     "intro": "A PIXEL ND:YAG lézerhez hivatalos, B-számos képzés is elérhető, amely a FAR rendszerben regisztrált. A tananyag kidolgozását egészségügyi szférában tevékenykedő, vizsgáztatói jogosultsággal rendelkező oktató mentorálta, továbbá orosz lézerspecialista orvos szakmai információs anyagán alapul.",
     "items": [
       "A Q-kapcsolt ND:YAG lézer működési elve",
-      "A kezelőfejek (1064 nm, 532 nm, Carbon) használata és paraméterezése",
+      "A 4 kezelőfej (532, 755, 1064, 1320 nm) használata és paraméterezése",
       "Carbon peeling kezelés gyakorlata",
       "A bőrreakciók helyes értelmezése, kontraindikációk",
       "Kompetenciahatárok a gyakorlatban: mit kezelhet és mit nem a kozmetikus",
@@ -123,8 +123,8 @@
   },
   "specs": {
     "Lézertípus": "Q-kapcsolt ND:YAG",
-    "Hullámhossz": "1064 nm / 532 nm",
-    "Kezelőfejek": "1064 nm · 532 nm · Carbon (Black Doll)",
+    "Hullámhossz": "532 nm / 755 nm / 1064 nm / 1320 nm",
+    "Kezelőfejek": "532 nm · 755 nm · 1064 nm · 1320 nm (Carbon / Black Doll)",
     "Max. impulzusenergia (1064 nm)": "1200 mJ",
     "Max. impulzusenergia (532 nm)": "600 mJ",
     "Frekvencia": "1–10 Hz",
@@ -170,7 +170,7 @@
     },
     {
       "question": "Milyen kezelőfejek tartoznak a készülékhez?",
-      "answer": "Három: egy 1064 nm-es és egy 532 nm-es lézerfej, valamint egy Carbon (Black Doll) kezelőfej a carbon peelinghez."
+      "answer": "Négy: 532 nm-es, 755 nm-es, 1064 nm-es és 1320 nm-es kezelőfej. Az 1320 nm-es Carbon (Black Doll) fej a carbon peelinghez való."
     },
     {
       "question": "Használható pigment- vagy tetoválás-halványításra?",
@@ -196,9 +196,10 @@
   "whatsIncluded": [
     "Lézerkészülék főegység",
     "Kezelőkar",
-    "1064 nm lézerfej",
     "532 nm lézerfej",
-    "Carbon (Black Doll) kezelőfej",
+    "755 nm lézerfej",
+    "1064 nm lézerfej",
+    "1320 nm Carbon (Black Doll) kezelőfej",
     "Lábkapcsoló",
     "Védőszemüvegek (kezelő és vendég részére)",
     "Vízbetöltő készlet és kiegészítők",
