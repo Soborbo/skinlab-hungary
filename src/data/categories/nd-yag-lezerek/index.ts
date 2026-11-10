@@ -8,7 +8,7 @@ import { hu } from './hu';
 export const ndYagLezerek: ShowcaseCategory = {
   base: {
     slug: 'nd-yag-lezerek',
-    hero: { image: '@assets/ndyag-lezer-kezeles.jpg' },
+    hero: { image: '@assets/ndyag-carbon-peeling-pixel.jpg' },
     usp: ['shield', 'academic', 'wrench', 'wallet'],
     compare: [
       { kind: 'price' },

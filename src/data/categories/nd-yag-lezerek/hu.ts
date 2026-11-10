@@ -54,7 +54,7 @@ export const hu: ShowcaseCopy = {
   hero: {
     titleLines: ['ND:YAG lézer, amivel', 'a tetoválás is eltűnik.'],
     lead: 'Tetoválás- és pigmentfolt-eltávolítás, carbon peeling Q-kapcsolt technológiával. Segítünk kiválasztani a szalonodhoz illő gépet, betanítunk, és ha kell, megjavítjuk.',
-    imageAlt: 'ND:YAG lézeres kezelés a szalonban, védőszemüveggel',
+    imageAlt: 'Carbon peeling kezelés PIXEL ND:YAG lézerrel, védőszemüveggel',
   },
   usp: [
     { title: '2 év teljes körű garancia', sub: 'minden új gépre' },
