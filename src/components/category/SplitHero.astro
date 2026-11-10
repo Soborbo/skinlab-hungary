@@ -139,25 +139,25 @@ const delays = ['[animation-delay:.4s]', '[animation-delay:.5s]', '[animation-de
       <div class="sl-rise [animation-delay:.3s] grid max-w-[520px] grid-cols-2 gap-3">
         {catalogAnchor ? (
           <>
-            <a href={`#${catalogAnchor}`} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-scroll-center>
+            <a href={`#${catalogAnchor}`} class="sl-btn sl-btn-pink px-1.5 text-[13px] min-[400px]:px-2.5 min-[400px]:text-sm dt:text-[15px]" data-scroll-center>
               {ui.catalogCta}
             </a>
-            <a href={consultHref} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
+            <a href={consultHref} class="sl-btn sl-btn-plum px-1.5 text-[13px] min-[400px]:px-2.5 min-[400px]:text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
               {ui.consultCta}
             </a>
           </>
         ) : (
-        <a href={consultHref} class="sl-btn sl-btn-pink px-2.5 text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
+        <a href={consultHref} class="sl-btn sl-btn-pink px-1.5 text-[13px] min-[400px]:px-2.5 min-[400px]:text-sm dt:text-[15px]" data-event="category-consultation-cta-click">
           {ui.consultCta}
         </a>
         )}
         {catalogAnchor ? null : compareAnchor ? (
-          <a href={`#${compareAnchor}`} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-scroll-center>
+          <a href={`#${compareAnchor}`} class="sl-btn sl-btn-plum px-1.5 text-[13px] min-[400px]:px-2.5 min-[400px]:text-sm dt:text-[15px]" data-scroll-center>
             <ShowcaseIcon name="table" size={18} />
             {ui.compareCta}
           </a>
         ) : single && (
-          <a href={single.href} class="sl-btn sl-btn-plum px-2.5 text-sm dt:text-[15px]" data-select-item={single.sku}>
+          <a href={single.href} class="sl-btn sl-btn-plum px-1.5 text-[13px] min-[400px]:px-2.5 min-[400px]:text-sm dt:text-[15px]" data-select-item={single.sku}>
             {ui.singleDetails}
           </a>
         )}
