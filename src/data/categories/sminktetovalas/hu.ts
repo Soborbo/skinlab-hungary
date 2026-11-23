@@ -84,8 +84,8 @@ const models: Record<string, ShowcaseModelCopy> = {
 
 export const hu: ShowcaseCopy = {
   seo: {
-    name: 'Sminktetováló és tetoválógépek',
-    nameShort: 'Sminktetováló gépek',
+    name: 'PMU és sminktetováló gépek',
+    nameShort: 'PMU',
     description: 'Vezetékes és vezeték nélküli sminktetováló gépek, tetoválógépek és tartozékok.',
   },
   hero: {
