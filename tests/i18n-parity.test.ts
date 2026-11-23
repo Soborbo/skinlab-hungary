@@ -14,9 +14,6 @@ import hr from '../src/i18n/hr.json';
 import sl from '../src/i18n/sl.json';
 import sr from '../src/i18n/sr.json';
 
-// shortcut: remove once agents B/D1 are merged
-const PENDING_NAMESPACES = ['about', 'shipping', 'training', 'trainingDetail', 'privacy', 'product'];
-
 type Json = { [k: string]: unknown };
 
 function flatten(obj: Json, prefix = ''): Map<string, unknown> {
@@ -32,8 +29,7 @@ function flatten(obj: Json, prefix = ''): Map<string, unknown> {
   return out;
 }
 
-const tracked = (key: string) => !PENDING_NAMESPACES.includes(key.split('.')[0]);
-const huKeys = [...flatten(hu as Json).keys()].filter(tracked);
+const huKeys = [...flatten(hu as Json).keys()];
 const locales: Record<string, Json> = { en, de, cs, sk, ro, hr, sl, sr };
 
 describe('i18n kulcs-paritás a hu.json-nal', () => {
@@ -51,7 +47,7 @@ describe('i18n kulcs-paritás a hu.json-nal', () => {
 
     it(`${locale}: nincs a hu.json-ban nem létező kulcs`, () => {
       const huAll = flatten(hu as Json);
-      const extra = [...flat.keys()].filter((k) => tracked(k) && !huAll.has(k));
+      const extra = [...flat.keys()].filter((k) => !huAll.has(k));
       expect(extra).toEqual([]);
     });
   }
