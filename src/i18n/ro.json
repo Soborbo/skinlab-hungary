@@ -1730,6 +1730,25 @@
     "unexpectedResponse": "Am primit un răspuns neașteptat de la server. Vă rugăm să încercați din nou mai târziu.",
     "offline": "Nu există conexiune la internet. Verificați rețeaua și încercați din nou.",
     "timeout": "Cererea a fost întreruptă din cauza depășirii timpului. Vă rugăm să încercați din nou.",
-    "network": "A apărut o eroare de rețea la trimitere. Vă rugăm să încercați din nou."
+    "network": "A apărut o eroare de rețea la trimitere. Vă rugăm să încercați din nou.",
+    "fields": {
+      "name": "Te rugăm să introduci numele",
+      "lastName": "Te rugăm să introduci numele de familie",
+      "firstName": "Te rugăm să introduci prenumele",
+      "email": "Introdu o adresă de e-mail validă",
+      "phone": "Introdu un număr de telefon valid",
+      "consent": "Acordul pentru prelucrarea datelor este obligatoriu",
+      "tooFast": "Formularul a fost completat prea repede",
+      "captcha": "Te rugăm să completezi verificarea CAPTCHA",
+      "category": "Alege o categorie",
+      "timing": "Alege un interval de timp",
+      "businessType": "Alege tipul afacerii",
+      "experience": "Alege nivelul de experiență",
+      "country": "Te rugăm să introduci țara",
+      "postcode": "Te rugăm să introduci codul poștal",
+      "city": "Te rugăm să introduci localitatea",
+      "street": "Te rugăm să introduci strada și numărul",
+      "cartEmpty": "Coșul este gol"
+    }
   }
 }

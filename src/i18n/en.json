@@ -1730,6 +1730,25 @@
     "unexpectedResponse": "We received an unexpected response from the server. Please try again later.",
     "offline": "No internet connection. Check your network and try again.",
     "timeout": "The request timed out. Please try again.",
-    "network": "A network error occurred while submitting. Please try again."
+    "network": "A network error occurred while submitting. Please try again.",
+    "fields": {
+      "name": "Please enter your name",
+      "lastName": "Please enter your last name",
+      "firstName": "Please enter your first name",
+      "email": "Please enter a valid email address",
+      "phone": "Please enter a valid phone number",
+      "consent": "Consent to data processing is required",
+      "tooFast": "The form was filled in too quickly",
+      "captcha": "Please complete the CAPTCHA",
+      "category": "Please choose a category",
+      "timing": "Please choose a timeframe",
+      "businessType": "Please choose your business type",
+      "experience": "Please choose your experience level",
+      "country": "Please enter your country",
+      "postcode": "Please enter your postcode",
+      "city": "Please enter your city",
+      "street": "Please enter your street and house number",
+      "cartEmpty": "Your cart is empty"
+    }
   }
 }

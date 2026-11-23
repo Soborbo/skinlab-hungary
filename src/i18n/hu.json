@@ -1727,6 +1727,25 @@
     "unexpectedResponse": "Váratlan szerverválasz érkezett. Kérlek, próbáld újra később.",
     "offline": "Nincs internetkapcsolat. Ellenőrizd a hálózatot, és próbáld újra.",
     "timeout": "A kérés időtúllépés miatt megszakadt. Kérlek, próbáld újra.",
-    "network": "Hálózati hiba történt a beküldés során. Kérlek, próbáld újra."
+    "network": "Hálózati hiba történt a beküldés során. Kérlek, próbáld újra.",
+    "fields": {
+      "name": "A név megadása kötelező",
+      "lastName": "A vezetéknév megadása kötelező",
+      "firstName": "A keresztnév megadása kötelező",
+      "email": "Érvényes e-mail cím szükséges",
+      "phone": "Érvényes telefonszám szükséges",
+      "consent": "Az adatkezelési hozzájárulás kötelező",
+      "tooFast": "A form túl gyorsan lett kitöltve",
+      "captcha": "CAPTCHA ellenőrzés szükséges",
+      "category": "Válassz kategóriát",
+      "timing": "Válassz időzítést",
+      "businessType": "Válaszd ki a vállalkozás típusát",
+      "experience": "Válaszd ki a tapasztalati szintet",
+      "country": "Az ország megadása kötelező",
+      "postcode": "Az irányítószám megadása kötelező",
+      "city": "A város megadása kötelező",
+      "street": "Az utca, házszám megadása kötelező",
+      "cartEmpty": "A kosár üres"
+    }
   }
 }

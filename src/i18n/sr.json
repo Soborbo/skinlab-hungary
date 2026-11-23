@@ -1730,6 +1730,25 @@
     "unexpectedResponse": "Primljen je neočekivan odgovor servera. Molimo pokušajte ponovo kasnije.",
     "offline": "Nema internet veze. Proverite mrežu i pokušajte ponovo.",
     "timeout": "Zahtev je prekinut zbog isteka vremena. Molimo pokušajte ponovo.",
-    "network": "Prilikom slanja došlo je do mrežne greške. Molimo pokušajte ponovo."
+    "network": "Prilikom slanja došlo je do mrežne greške. Molimo pokušajte ponovo.",
+    "fields": {
+      "name": "Unesite svoje ime",
+      "lastName": "Unesite prezime",
+      "firstName": "Unesite ime",
+      "email": "Unesite ispravnu imejl adresu",
+      "phone": "Unesite ispravan broj telefona",
+      "consent": "Saglasnost za obradu podataka je obavezna",
+      "tooFast": "Obrazac je popunjen prebrzo",
+      "captcha": "Dovršite CAPTCHA proveru",
+      "category": "Izaberite kategoriju",
+      "timing": "Izaberite vremenski okvir",
+      "businessType": "Izaberite vrstu delatnosti",
+      "experience": "Izaberite nivo iskustva",
+      "country": "Unesite državu",
+      "postcode": "Unesite poštanski broj",
+      "city": "Unesite grad",
+      "street": "Unesite ulicu i kućni broj",
+      "cartEmpty": "Korpa je prazna"
+    }
   }
 }

@@ -1730,6 +1730,25 @@
     "unexpectedResponse": "Unerwartete Antwort vom Server. Bitte versuchen Sie es später erneut.",
     "offline": "Keine Internetverbindung. Bitte prüfen Sie Ihr Netzwerk und versuchen Sie es erneut.",
     "timeout": "Die Anfrage wurde wegen Zeitüberschreitung abgebrochen. Bitte versuchen Sie es erneut.",
-    "network": "Beim Senden ist ein Netzwerkfehler aufgetreten. Bitte versuchen Sie es erneut."
+    "network": "Beim Senden ist ein Netzwerkfehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "fields": {
+      "name": "Bitte gib deinen Namen ein",
+      "lastName": "Bitte gib deinen Nachnamen ein",
+      "firstName": "Bitte gib deinen Vornamen ein",
+      "email": "Bitte gib eine gültige E-Mail-Adresse ein",
+      "phone": "Bitte gib eine gültige Telefonnummer ein",
+      "consent": "Die Einwilligung zur Datenverarbeitung ist erforderlich",
+      "tooFast": "Das Formular wurde zu schnell ausgefüllt",
+      "captcha": "Bitte bestätige das CAPTCHA",
+      "category": "Bitte wähle eine Kategorie",
+      "timing": "Bitte wähle einen Zeitraum",
+      "businessType": "Bitte wähle die Art deines Unternehmens",
+      "experience": "Bitte wähle deine Erfahrungsstufe",
+      "country": "Bitte gib dein Land ein",
+      "postcode": "Bitte gib deine Postleitzahl ein",
+      "city": "Bitte gib deinen Ort ein",
+      "street": "Bitte gib Straße und Hausnummer ein",
+      "cartEmpty": "Dein Warenkorb ist leer"
+    }
   }
 }

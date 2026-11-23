@@ -1730,6 +1730,25 @@
     "unexpectedResponse": "Server vrátil neočekávanou odpověď. Zkuste to prosím později.",
     "offline": "Nejste připojeni k internetu. Zkontrolujte síť a zkuste to znovu.",
     "timeout": "Požadavek byl přerušen kvůli vypršení časového limitu. Zkuste to prosím znovu.",
-    "network": "Při odesílání došlo k chybě sítě. Zkuste to prosím znovu."
+    "network": "Při odesílání došlo k chybě sítě. Zkuste to prosím znovu.",
+    "fields": {
+      "name": "Zadejte prosím své jméno",
+      "lastName": "Zadejte prosím příjmení",
+      "firstName": "Zadejte prosím křestní jméno",
+      "email": "Zadejte platnou e-mailovou adresu",
+      "phone": "Zadejte platné telefonní číslo",
+      "consent": "Souhlas se zpracováním údajů je povinný",
+      "tooFast": "Formulář byl vyplněn příliš rychle",
+      "captcha": "Dokončete prosím ověření CAPTCHA",
+      "category": "Vyberte kategorii",
+      "timing": "Vyberte časový horizont",
+      "businessType": "Vyberte typ podnikání",
+      "experience": "Vyberte úroveň zkušeností",
+      "country": "Zadejte prosím zemi",
+      "postcode": "Zadejte prosím PSČ",
+      "city": "Zadejte prosím město",
+      "street": "Zadejte prosím ulici a číslo domu",
+      "cartEmpty": "Košík je prázdný"
+    }
   }
 }

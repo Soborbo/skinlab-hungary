@@ -13,7 +13,7 @@ import { readRequestConsent } from '@/lib/tracking/request-consent';
 import type { GatewayEnv } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
-import { requestLocale, formError } from '@/lib/forms/error-messages';
+import { requestLocale, formError, localizeFieldErrors } from '@/lib/forms/error-messages';
 
 export const prerender = false;
 
@@ -90,7 +90,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
       }
       return errorResponse('FORM-ZOD-002', {
         userMessage: formError(loc, 'validation'),
-        errors: validation.errors,
+        errors: localizeFieldErrors(loc, validation.errors),
         context: { formId: 'consultation' },
       });
     }

@@ -16,7 +16,7 @@ import { processOrder } from '@/lib/order/submit';
 import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
-import { requestLocale, formError } from '@/lib/forms/error-messages';
+import { requestLocale, formError, localizeFieldErrors } from '@/lib/forms/error-messages';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { env as workerEnv } from 'cloudflare:workers';
 import { leadToGatewayAttribution, type FormTrackingContext } from '@/lib/forms/submit';
@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     if (!validation.success || !validation.data) {
       return errorResponse('ORDER-ZOD-001', {
         userMessage: formError(loc, 'validation'),
-        errors: validation.errors,
+        errors: localizeFieldErrors(loc, validation.errors),
         context: { formId: 'order' },
       });
     }
