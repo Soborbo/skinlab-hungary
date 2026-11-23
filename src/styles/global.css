@@ -380,9 +380,10 @@
   /* Belépő animációk */
   .sl-rise { animation: sl-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .sl-pop { animation: sl-pop 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.15) both; }
-  @supports (animation-timeline: view()) {
+  /* Csak egeres eszközön: iOS Safariban a view() timeline beragad opacity:0-n → üres blokkok görgetéskor */
+  @supports (animation-timeline: view()) { @media (hover: hover) and (pointer: fine) {
     .sl-reveal { animation: sl-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
-  }
+  } }
 
   @media (prefers-reduced-motion: reduce) {
     .sl-btn, .sl-btn::after, .sl-lift, .sl-btn svg { transition: none; }
