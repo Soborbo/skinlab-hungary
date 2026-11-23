@@ -58,7 +58,7 @@ const specs = [
         {d.image && hasImage(d.image) && (
           <ContentImage
             src={d.image}
-            alt={getImageAlt(d.image, name)}
+            alt={getImageAlt(d.image, name, locale)}
             class="w-full h-full object-contain p-6 group-hover:scale-[1.03] transition-transform duration-500"
           />
         )}

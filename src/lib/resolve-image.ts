@@ -64,12 +64,32 @@ export function hasImage(imgPath: string): boolean {
   return !!getImageEntry(imgPath);
 }
 
+// Nem-magyar alt szövegek: product-content/<locale>/<slug>.json `imageAlts`
+// ({ "fájlnév.jpg": "alt" }), nyelvenként egy fájlnév → alt térképbe fésülve.
+// A manifest alt-ja magyar (products/<slug>.json `imageAlts`), ezért más nyelven
+// SOSEM azt adjuk vissza. Ütközésnél az ábécében első termék nyer, mint a manifestben.
+const productContentFiles = import.meta.glob<{ imageAlts?: Record<string, string> }>(
+  '/src/content/product-content/*/*.json',
+  { eager: true, import: 'default' }
+);
+const localeAlts: Record<string, Record<string, string>> = {};
+for (const [path, data] of Object.entries(productContentFiles).sort(([a], [b]) => a.localeCompare(b))) {
+  const locale = path.split('/')[4];
+  if (locale === 'hu' || !data?.imageAlts) continue;
+  const map = (localeAlts[locale] ??= {});
+  for (const [file, alt] of Object.entries(data.imageAlts)) map[file] ??= alt;
+}
+
 /**
- * Get alt text for an image. Returns manifest alt or fallback.
+ * Get alt text for an image.
+ * HU: manifest alt or fallback (unchanged behaviour).
+ * Other locales: the locale's product-content `imageAlts` entry for the file,
+ * else the (localized or neutral) fallback - never the Hungarian manifest alt.
  */
-export function getImageAlt(imgPath: string, fallback = ''): string {
-  const entry = getImageEntry(imgPath);
-  return entry?.alt || fallback;
+export function getImageAlt(imgPath: string, fallback = '', locale = 'hu'): string {
+  if (locale === 'hu') return getImageEntry(imgPath)?.alt || fallback;
+  const file = normalizeImagePath(imgPath).split('/').pop() ?? '';
+  return localeAlts[locale]?.[file] || fallback;
 }
 
 /**

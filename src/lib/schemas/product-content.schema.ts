@@ -116,6 +116,13 @@ export const productContentVideoDescriptionSchema = z.object({
   paragraphs: z.array(z.string()),
 });
 
+/** Variáns-szöveg fordítása, a products/<slug>.json variants[].sku a kulcs. */
+export const productContentVariantSchema = z.object({
+  name: z.string().optional(),
+  description: z.string().optional(),
+  specs: z.record(z.string(), z.string()).optional(),
+});
+
 // --- Main schemas ---
 
 export const productContentSchema = z.object({
@@ -137,6 +144,8 @@ export const productContentSchema = z.object({
   expertQuote: productContentExpertQuoteSchema.optional(),
   // Zod v4: z.record requires explicit key + value schemas
   specs: z.record(z.string(), z.string()).optional(),
+  imageAlts: z.record(z.string(), z.string()).optional(),
+  variants: z.record(z.string(), productContentVariantSchema).optional(),
   functionCards: z.array(productContentFunctionCardSchema).optional(),
   faq: z.array(productContentFAQItemSchema).optional(),
   buyerChecklist: productContentBuyerChecklistSchema.optional(),

@@ -123,7 +123,15 @@ export interface ProductContent {
   testimonials?: ProductContentTestimonial[];
   expertQuote?: ProductContentExpertQuote;
   ownerStory?: ProductContentOwnerStory;
+  /** Műszaki adatok: nem-HU fájlban a HU forrással azonos számú és sorrendű,
+   *  lefordított kulcs-érték pár. */
   specs?: Record<string, string>;
+  /** Képek alt szövege fájlnév szerint (nem-HU nyelveken; a HU forrás a
+   *  products/<slug>.json `imageAlts`, azonos kulcsokkal). */
+  imageAlts?: Record<string, string>;
+  /** Variáns-szövegek fordítása, kulcs = products/<slug>.json variants[].sku.
+   *  `specs`: a HU variáns specs-szel azonos számú és sorrendű pár. */
+  variants?: Record<string, { name?: string; description?: string; specs?: Record<string, string> }>;
   functionCards?: ProductContentFunctionCard[];
   faq?: ProductContentFAQItem[];
   buyerChecklist?: ProductContentBuyerChecklist;
