@@ -111,14 +111,11 @@ describe('buildShowcaseConfig', () => {
 });
 
 describe('nyelvi lefedettség', () => {
-  // shortcut: remove pending list once C2/C3 merged (ezek fordítása párhuzamos ágon készül).
-  const PENDING = ['anti-aging', 'nd-yag-lezerek', 'sminktetovalas'];
-
   it('minden nyelvhez van showcase-felirat', () => {
     for (const locale of locales) expect(() => showcaseUi(locale), locale).not.toThrow();
   });
 
-  it.each(Object.keys(SHOWCASE_CATEGORIES).filter((slug) => !PENDING.includes(slug)))('%s: mind a 9 nyelv megvan', (slug) => {
+  it.each(Object.keys(SHOWCASE_CATEGORIES))('%s: mind a 9 nyelv megvan', (slug) => {
     expect(Object.keys(SHOWCASE_CATEGORIES[slug].copy).sort()).toEqual([...locales].sort());
   });
 });
