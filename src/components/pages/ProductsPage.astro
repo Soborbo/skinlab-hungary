@@ -1,0 +1,99 @@
+---
+/**
+ * Összes termék oldal (HU: /termekek/, más nyelv: /<nyelv>/termekek/).
+ * Szöveg: productsPage.* (i18n); terméknév és alt a nyelv product-content-jéből.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES } from '@/lib/constants';
+import { getLocaleFromUrl, getLocalizedUrl, defaultLocale, t, type Locale } from '@/i18n/ui';
+import { productPath } from '@/lib/product-url';
+import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
+import { hasImage, getImageAlt } from '@/lib/resolve-image';
+import QuickAddButton from '@/components/cart/QuickAddButton.astro';
+import { loadProductContent } from '@/lib/load-product-content';
+import { getCategoryTranslation } from '@/data/category-translations';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const isHu = locale === defaultLocale;
+const products = await getCollection('products', ({ data }) => !data.draft);
+
+const productsByCategory = CATEGORIES.map((cat) => ({
+  ...cat,
+  name: isHu ? cat.name : (getCategoryTranslation(locale, cat.slug)?.name ?? t(locale, `categories.${cat.slug}`)),
+  products: products
+    .filter((p) => p.data.categorySlug === cat.slug)
+    .map((p) => ({
+      data: p.data,
+      name: isHu ? p.data.name : (loadProductContent(locale, p.data.slug, cat.slug).content.name || p.data.name),
+    })),
+})).filter((cat) => cat.products.length > 0);
+---
+
+<BaseLayout title={t(locale, 'productsPage.metaTitle')} description={t(locale, 'productsPage.metaDescription')}>
+  <div class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{t(locale, 'productsPage.title')}</h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">{t(locale, 'productsPage.subtitle')}</p>
+      </div>
+
+      {productsByCategory.map((category) => (
+        <section class="mb-16">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">{category.name}</h2>
+            <a href={getLocalizedUrl(locale, `/${category.slug}/`)} class="text-primary-600 hover:text-primary-700 font-medium">
+              {t(locale, 'productsPage.viewAll')} →
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {category.products.slice(0, 4).map(({ data, name }) => (
+              <div class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <a href={getLocalizedUrl(locale, productPath(category.slug, data.slug))} class="flex flex-col flex-1">
+                  <div class="aspect-square bg-white relative overflow-hidden">
+                    {hasImage(data.image) ? (
+                      <OptimizedPicture
+                        src={data.image}
+                        alt={getImageAlt(data.image, name, locale)}
+                        widths={[320, 480, 640]}
+                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <span class="text-gray-400">{t(locale, 'productsPage.noImage')}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="p-4 flex flex-col flex-1">
+                    <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 line-clamp-2">{name}</h3>
+                    {data.price && (
+                      <p class="mt-2 text-lg font-bold text-gray-900">
+                        {new Intl.NumberFormat('hu-HU').format(data.price)} Ft
+                      </p>
+                    )}
+                  </div>
+                </a>
+                <div class="px-4 pb-4">
+                  <QuickAddButton
+                    locale={locale}
+                    slug={data.slug}
+                    sku={data.sku}
+                    name={name}
+                    categorySlug={category.slug}
+                    image={data.image}
+                    price={data.price}
+                    availability={data.availability}
+                    variants={data.variants}
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

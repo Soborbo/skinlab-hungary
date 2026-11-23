@@ -18,8 +18,8 @@ import type { CatalogGroupConfig, ShowcaseCategory, ShowcaseConfig } from './typ
 
 type Product = CollectionEntry<'products'>;
 
-/** Nyelvenkénti termékszöveg (csak a `specs` kell belőle). */
-const productContentFiles = import.meta.glob<{ specs?: Record<string, string> }>('/src/content/product-content/*/*.json', {
+/** Nyelvenkénti termékszöveg (a `specs` és a `name` kell belőle). */
+const productContentFiles = import.meta.glob<{ name?: string; specs?: Record<string, string> }>('/src/content/product-content/*/*.json', {
   eager: true,
   import: 'default',
 });
@@ -122,6 +122,12 @@ function wattFromSpecs(specs: Record<string, string>): string | null {
   return match ? match[0].replace(/\s/g, '') : null;
 }
 
+/** A termék neve a nyelv product-content-jéből; ha nincs, a termék JSON (HU) neve. */
+function localizedName(locale: Locale, slug: string, fallback: string): string {
+  if (locale === 'hu') return fallback;
+  return productContentFiles[`/src/content/product-content/${locale}/${slug}.json`]?.name || fallback;
+}
+
 /** A termék nevének első szava (márkanév), pl. „EMPIRE 4WAVE 1200W …” → „EMPIRE”. */
 function shortName(product: Product): string {
   return product.data.name.split(/\s+/)[0];
@@ -173,7 +179,7 @@ export function buildShowcaseModels(
         ...copy[slug],
         slug,
         name: copy[slug].name ?? shortName(product),
-        fullName: data.name,
+        fullName: localizedName(locale, slug, data.name),
         sku: data.sku || product.id,
         price: data.price ?? null,
         keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
@@ -363,7 +369,7 @@ export function buildCatalogGroups(
     const slug = data.slug || product.id;
     return {
       slug,
-      name: data.name,
+      name: localizedName(locale, slug, data.name),
       sku: data.sku || product.id,
       price: data.price ?? null,
       href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
