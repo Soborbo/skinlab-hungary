@@ -4,6 +4,19 @@
   "description": "Olympia war der Ort, an dem nur die Besten zählten. Wo es nicht darauf ankam, woher jemand kam - sondern darauf, was er wirklich konnte. Genau das verkörpert der OLYMPIA Diodenlaser: die Leistung, die zählt. Realistischer Preis, starkes Gerät, echte Ergebnisse.",
   "metaTitle": "OLYMPIA 1200W Diodenlaser | 4 Wellenlängen, 5 Spotgrößen, Preis-Leistungs-Sieger",
   "metaDescription": "OLYMPIA – 1200W professioneller Diodenlaser mit 4 Wellenlängen und 5 einstellbaren Spotgrößen. Preis-Leistungs-Verhältnis auf europäischem Niveau, intelligente Steuerung.",
+  "specs": {
+    "Lasertyp": "Diodenlaser",
+    "Wellenlänge": "755 / 808 / 940 / 1064 nm",
+    "Leistung": "1200W (Ausgangsleistung)",
+    "Garantierte Schusslebensdauer": "100 Millionen Schüsse - bis dahin garantiert volle Leistung",
+    "Spotgröße": "In 5 Größen einstellbares Kristall-Handstück",
+    "Display": "Farb-Touchscreen",
+    "Kühlsystem": "Mehrstufig: TEC + Wasser + Luft",
+    "Hautkühlung": "Saphir-Kontaktkühlung in 3 Stufen",
+    "Bediensystem": "Intelligente integrierte Protokolle",
+    "Stromversorgung": "110V / 220V",
+    "Lieferzeit": "ca. 15 Arbeitstage"
+  },
   "stats": [
     {
       "value": "1200",
@@ -46,7 +59,8 @@
     "afterFeatures": {
       "headline": "Möchten Sie OLYMPIA live sehen?",
       "subtitle": "Kommen Sie in unseren Showroom in Érd und probieren Sie es persönlich aus!",
-      "buttonLabel": "Termin buchen"
+      "buttonLabel": "Termin buchen",
+      "showroomDriveFolderId": "1ry9sZcnEcK7xK-khjp8pCGRNK4M4im2U"
     },
     "final": {
       "headline": "Interessieren Sie sich für den OLYMPIA 1200W Diodenlaser?",
@@ -182,6 +196,14 @@
     "Ungarisches Benutzerhandbuch",
     "Bedienerschulung (FAR-Zertifikat)",
     "2 Jahre umfassende Garantie",
-    "Ersatzgerät während der Reparaturzeit"
-  ]
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ],
+  "imageAlts": {
+    "olympia-design-1.jpg": "OLYMPIA 1200W Diodenlasergerät in stilisierter Umgebung mit antiken Säulen",
+    "olympia-design-2.jpg": "Handstück des OLYMPIA Diodenlasers mit eigenem Display",
+    "olympia-design-3.jpg": "Austauschbare Spotgrößen-Aufsätze des OLYMPIA Diodenlasers in der Geschenkbox",
+    "olympia-3.jpeg": "OLYMPIA Diodenlaser in stilisierter Umgebung mit Säulenhalle",
+    "olympia-oktatas-1.jpg": "OLYMPIA Bedienerschulung – Diodenlaserbehandlung am Modell",
+    "olympia-oktatas-2.jpg": "Handstück des OLYMPIA Diodenlasers während der Behandlung, im Hintergrund der Touchscreen"
+  }
 }

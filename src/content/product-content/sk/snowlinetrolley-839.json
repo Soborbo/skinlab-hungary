@@ -1,61 +1,78 @@
 {
   "name": "SnowlineTrolley",
-  "shortDescription": "Biely kozmeticky vozik s hliníkovym ramom a tromi policami z kaleneho skla. Styri kolieska, moznost uchytenia lupy, jednoducho cistitelny.",
-  "description": "SnowlineTrolley je prakticky a funkcny kozmeticky stolik navrhnuty specialne pre kozmeticke salony, SPA a esteticke osetrovne.\n\nTri police z kaleneho skla su idealne na systematicke ulozenie kozmetiky, osetrovacich nastrojov a prislusenstva. Cisty biely hliníkovy ram zabezpecuje moderny vzhlad a hladke povrchy sa jednoducho cistia.\n\nVybaveny styrmi plynulymi kolieskami, takze sa jednoducho presuvat z jednej miestnosti do druhej. Konstrukcia ramu umoznuje aj uchytenie lupy s lampou.",
-  "metaTitle": "SnowlineTrolley | Kozmeticky vozik so sklenenymi policami",
-  "metaDescription": "SnowlineTrolley kozmeticky vozik s bielym hliníkovym ramom a tromi policami z kaleneho skla. S kolieskami, jednoducho prenosny, moznost uchytenia lupy.",
+  "shortDescription": "Biely kozmetický vozík s hliníkovým rámom a tromi policami z kaleného skla. Štyri kolieska, možnosť uchytenia lupy, jednoducho čistiteľný.",
+  "description": "SnowlineTrolley je praktický a funkčný kozmetický stolík navrhnutý špeciálne pre kozmetické salóny, SPA a estetické ošetrovne.\n\nTri police z kaleného skla sú ideálne na systematické uloženie kozmetiky, ošetrovacích nástrojov a príslušenstva. Čistý biely hliníkový rám zabezpečuje moderný vzhľad a hladké povrchy sa jednoducho čistia.\n\nVybavený štyrmi plynulými kolieskami, takže sa dá jednoducho presúvať z jednej miestnosti do druhej. Konštrukcia rámu umožňuje aj uchytenie lupy s lampou.",
+  "metaTitle": "SnowlineTrolley | Kozmetický vozík so sklenenými policami",
+  "metaDescription": "SnowlineTrolley kozmetický vozík s bielym hliníkovým rámom a tromi policami z kaleného skla. S kolieskami, jednoducho prenosný, možnosť uchytenia lupy.",
   "stats": [
-    { "value": "3", "label": "Polica z kaleneho skla", "icon": "layers" },
-    { "value": "4", "label": "Koliesko", "icon": "refresh" },
-    { "value": "ALU", "label": "Hliníkovy ram", "icon": "shield" },
-    { "value": "1", "unit": "rokov", "label": "Zaruka", "icon": "award" }
+    {
+      "value": "3",
+      "label": "Police z kaleného skla",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Kolieska",
+      "icon": "refresh"
+    },
+    {
+      "value": "ALU",
+      "label": "Hliníkový rám",
+      "icon": "shield"
+    },
+    {
+      "value": "1",
+      "unit": "rok",
+      "label": "Záruka",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
-      "headline": "Zaujima vas SnowlineTrolley?",
-      "subtitle": "Poziadajte o bezplatnu konzultaciu alebo si priamo objednajte!",
-      "buttonLabel": "Poziadat o konzultaciu"
+      "headline": "Zaujíma vás SnowlineTrolley?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu alebo si priamo objednajte!",
+      "buttonLabel": "Požiadať o konzultáciu"
     }
   },
   "featureRows": {
-    "headline": "Preco SnowlineTrolley?",
-    "subtitle": "Prakticky, moderny a spolahlivy kozmeticky vozik",
+    "headline": "Prečo SnowlineTrolley?",
+    "subtitle": "Praktický, moderný a spoľahlivý kozmetický vozík",
     "features": [
       {
-        "title": "Tri police z kaleneho skla",
-        "description": "Tri priesvitne police z kaleneho skla su idealne na prehladne a systematicke ulozenie kozmetiky, osetrovacich nastrojov a prislusenstva. Vsetko mate okamzite po ruke.",
+        "title": "Tri police z kaleného skla",
+        "description": "Tri priesvitné police z kaleného skla sú ideálne na prehľadné a systematické uloženie kozmetiky, ošetrovacích nástrojov a príslušenstva. Všetko máte okamžite po ruke.",
         "image": "@assets/products/Mary2.webp"
       },
       {
-        "title": "Moderny dizajn a jednoducha manipulacia",
-        "description": "Biely hlinikovy ram zabezpecuje cisty, moderny vzhlad. Vdaka styrom plynulym kolieskam sa vozik jednoducho presuvat po salone.",
+        "title": "Moderný dizajn a jednoduchá manipulácia",
+        "description": "Biely hliníkový rám zabezpečuje čistý, moderný vzhľad. Vďaka štyrom plynulým kolieskam sa vozík dá jednoducho presúvať po salóne.",
         "image": "@assets/products/Mary1.webp"
       }
     ]
   },
   "faq": [
     {
-      "question": "Je potrebna montaz voziku?",
-      "answer": "Ano, je potrebna minimalna montaz: na ram treba nasadit sklenene police a pripevnit kolieska. Montaz zvladnete za par minut."
+      "question": "Je potrebná montáž vozíka?",
+      "answer": "Áno, je potrebná minimálna montáž: na rám treba nasadiť sklenené police a pripevniť kolieska. Montáž zvládnete za pár minút."
     },
     {
-      "question": "Aku hmotnost znesie jedna polica?",
-      "answer": "Police z kaleneho skla su odolne a trvanlivy, vhodne na ulozenie kozmetiky, mensich pristrojov a osetrovacich nastrojov."
+      "question": "Akú hmotnosť znesie jedna polica?",
+      "answer": "Police z kaleného skla sú odolné a trvanlivé, vhodné na uloženie kozmetiky, menších prístrojov a ošetrovacích nástrojov."
     },
     {
-      "question": "Ako sa cisti?",
-      "answer": "Sklenene police a hliníkovy ram sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou. Skleneny povrch je vzdy hygienicky a jednoducho udrzovatelny."
+      "question": "Ako sa čistí?",
+      "answer": "Sklenené police a hliníkový rám sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou. Sklenený povrch je vždy hygienický a jednoducho udržiavateľný."
     },
     {
-      "question": "Da sa na vozik uchytit lupa s lampou?",
-      "answer": "Ano, konstrukcia ramu umoznuje uchytenie lupy s lampou, cim sa SnowlineTrolley stava este vsestranejsim."
+      "question": "Dá sa na vozík uchytiť lupa s lampou?",
+      "answer": "Áno, konštrukcia rámu umožňuje uchytenie lupy s lampou, čím sa SnowlineTrolley stáva ešte všestrannejším."
     }
   ],
   "whatsIncluded": [
-    "SnowlineTrolley hliníkovy ram",
-    "3 ks polica z kaleneho skla",
+    "SnowlineTrolley hliníkový rám",
+    "3 ks polica z kaleného skla",
     "4 ks koliesko",
-    "Navod na montaz",
-    "1-rocna zaruka"
+    "Návod na montáž",
+    "1-ročná záruka"
   ]
 }

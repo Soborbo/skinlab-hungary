@@ -1,0 +1,229 @@
+{
+  "name": "HydraMIST Elite 11 v 1 hydrofacial",
+  "shortDescription": "Multifunkčný hydrofacial systém 11 v 1: vákuová hydradermabrázia, kyslíková aplikácia účinných látok, RF, LED-kyslíková kupola a oveľa viac na jednej platforme.",
+  "description": "HydraMIST Elite je multifunkčný elektrokozmetický systém, ktorý spája 11 technológií ošetrenia pleti na jednej platforme: vákuová hydradermabrázia, ultrazvukový peeling, čistenie CO₂ bublinkami, kyslíková a ultrazvuková aplikácia účinných látok, multipolárne RF spevnenie pleti, iónový lifting, LED + kyslíková kupola a studená terapeutická hlavica. Na profesionálne použitie v salóne.",
+  "stats": [
+    {
+      "value": "11",
+      "label": "Ošetrení v jednom prístroji",
+      "icon": "spray"
+    },
+    {
+      "value": "0–80",
+      "unit": "kPa",
+      "label": "Nastaviteľné vákuum",
+      "icon": "chart"
+    },
+    {
+      "value": "0–6",
+      "unit": "bar",
+      "label": "Tlak kyslíka",
+      "icon": "bubbles"
+    },
+    {
+      "value": "3",
+      "label": "Nádoby na roztoky (A/B/C)",
+      "icon": "droplet"
+    }
+  ],
+  "videoDescription": {
+    "headline": "HydraMIST Elite – 11 technológií na jednej platforme",
+    "paragraphs": [
+      "HydraMIST Elite ponúka v jednom prístroji to, na čo salón zvyčajne potrebuje viac prístrojov: hĺbkové čistenie, hydratáciu, aplikáciu účinných látok, spevnenie pleti a upokojujúce ukončenie. Medzi funkciami prepínate na dotykovej obrazovke, takže v rámci jedného ošetrenia môžete zostaviť komplexný protokol prispôsobený pleti klienta.",
+      "Základom je vákuová hydradermabrázia: tekutina a vákuum spoločne čistia póry, odstraňujú odumreté kožné bunky a hydratujú. Na ňu nadväzuje bezihlová kyslíková a ultrazvuková aplikácia účinných látok, multipolárne RF a LED-kyslíková kupola. Všetky funkcie nájdete nižšie v časti Funkcie ošetrenia."
+    ]
+  },
+  "featureRows": {
+    "headline": "Prečo HydraMIST Elite?",
+    "subtitle": "Komplexné ošetrenie tváre jedným, dobre premysleným prístrojom",
+    "features": [
+      {
+        "title": "Priehľadná kyslíková kupola s 360° pokrytím tváre",
+        "description": "Kupola je vyrobená z prémiového materiálu PC: je odolná, priehľadná a ľahko sa čistí. Ergonomicky kopíruje líniu tváre a zo všetkých uhlov zabezpečuje rovnomernú aplikáciu účinných látok. Integrovaný ochranný štít zabraňuje úniku spreja, takže ošetrenie zostáva čisté a bezpečné.",
+        "highlight": "Vďaka multimediálnemu systému zabudovanému do kupoly môže počas ošetrenia hrať aj hudba.",
+        "image": "@assets/products/hydramist-elite-info-bura.png"
+      },
+      {
+        "title": "Intuitívna dotyková obrazovka, všetky funkcie na jednom mieste",
+        "description": "Všetky režimy ošetrenia sú dostupné cez prehľadné ikony na dotykovej obrazovke s vysokým rozlíšením. Intenzitu a dĺžku trvania je možné nastaviť pre každé ošetrenie, obľúbené nastavenia sa dajú uložiť pomocou funkcie pamäte. Modrý LED indikátor stavu ukazuje, kedy je prístroj pripravený na ošetrenie.",
+        "highlight": "Rýchle nastavenie, takže zostane viac času na klienta.",
+        "image": "@assets/products/hydramist-elite-info-kijelzo.png"
+      },
+      {
+        "title": "Presné dávkovanie, rovnomerný prietok tekutiny",
+        "description": "Profesionálny systém prívodu tekutiny dopravuje účinnú látku do pleti so stabilným tlakom a rovnomerným prietokom. Regulačným krúžkom na dávkovacej hadičke je možné presne nastaviť požadované množstvo tekutiny. Uzavretý systém je hygienický, nádoby sa vymieňajú rýchlo a jednoducho.",
+        "highlight": "3 nádoby na roztoky (A/B/C) a samostatná nádoba na odpad.",
+        "image": "@assets/products/hydramist-elite-info-adagolas.png"
+      }
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "spray",
+      "name": "Vákuová hydradermabrázia",
+      "description": "Hlavná funkcia: tekutina a vákuum spoločne čistia póry a hydratujú."
+    },
+    {
+      "icon": "sound",
+      "name": "Skin scrubber",
+      "description": "Ultrazvukový peeling, odstránenie odumretých kožných buniek a čiernych bodiek."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Ošetrenie CO₂ bublinkami",
+      "description": "Čistenie pórov a podpora okysličenia pleti."
+    },
+    {
+      "icon": "droplet",
+      "name": "Vysokotlakový kyslíkový injektor",
+      "description": "Bezihlová, rýchla aplikácia účinných látok do horných vrstiev pokožky."
+    },
+    {
+      "icon": "spray",
+      "name": "Kyslíková rozprašovacia pištoľ",
+      "description": "Jemný sprej na osvieženie, hydratáciu, pre citlivú pleť."
+    },
+    {
+      "icon": "droplet",
+      "name": "Precízne kyslíkové pero",
+      "description": "Cielené ošetrenie malých plôch, napríklad okolia očí."
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuková aplikácia účinných látok",
+      "description": "Sonoforéza 1–3 MHz pre lepšie vstrebávanie."
+    },
+    {
+      "icon": "bolt",
+      "name": "7-pólová rádiofrekvencia",
+      "description": "Hĺbkové teplo pre obnovu kolagénu: spevnenie, redukcia vrások."
+    },
+    {
+      "icon": "bolt",
+      "name": "Iónový valček",
+      "description": "Mikroprúdová masáž, svalový tonus a jemný liftingový efekt."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Studené kladivko",
+      "description": "Sťahovanie pórov, upokojenie, ukončenie ošetrenia."
+    },
+    {
+      "icon": "bubbles",
+      "name": "LED-kyslíková kupola",
+      "description": "Svetelná terapia s viacerými vlnovými dĺžkami s kyslíkom, so zabudovanou hudbou."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Čo znamená 11 v 1?",
+      "answer": "11 samostatných ošetrovacích hlavíc a technológií v jednom prístroji, od vákuovej hydradermabrázie cez rádiofrekvenciu až po LED-kyslíkovú kupolu. Na jednom prístroji tak môžete vykonať čistenie, aplikáciu účinných látok, spevnenie aj upokojujúce ukončenie. Každú z nich predstavujeme vyššie v časti Funkcie ošetrenia."
+    },
+    {
+      "question": "Pre koho je odporúčaný?",
+      "answer": "Pre kozmetické salóny a odborníkov, ktorí vykonávajú ošetrenia pleti – pre začiatočníkov aj pokročilých. Je určený na profesionálne použitie v salóne a vyžaduje primerané odborné znalosti."
+    },
+    {
+      "question": "Ako dlho trvá jedno ošetrenie?",
+      "answer": "V závislosti od zvoleného protokolu zvyčajne 60–90 minút."
+    },
+    {
+      "question": "Pre aký typ pleti je vhodný?",
+      "answer": "Takmer pre všetky typy pleti: suchú, dehydratovanú, mastnú, zmiešanú aj matnú pleť. Intenzitu treba vždy prispôsobiť stavu pleti klienta, pri prvom ošetrení nižším stupňom."
+    },
+    {
+      "question": "Potrebuje klient čas na zotavenie?",
+      "answer": "Nie. Ošetrenie je neinvazívne a bezbolestné, klient sa môže hneď potom vrátiť k svojim každodenným činnostiam. Môže sa objaviť mierne začervenanie, ktoré zvyčajne v krátkom čase zmizne."
+    },
+    {
+      "question": "Ako často sa odporúča ošetrenie?",
+      "answer": "Na udržiavanie pleti každé 3–4 týždne. Pri intenzívnejšom programe obnovy pleti zostaví ošetrujúci odborník individuálny plán."
+    },
+    {
+      "question": "Je to zdravotnícka pomôcka?",
+      "answer": "Nie. Prístroj je určený na kozmetické použitie, nie je zdravotníckou pomôckou a nie je vhodný na diagnostiku ani liečbu ochorení."
+    },
+    {
+      "question": "Aká je dodacia lehota a je súčasťou aj školenie?",
+      "answer": "Dodacia lehota je 2–6 týždňov. Ku kúpe patrí kompletné odborné školenie (študijný materiál v maďarčine, protokoly ošetrení, bezpečnostné pokyny). Na požiadanie je k dispozícii aj praktické školenie na živom modeli (69.990 Ft)."
+    }
+  ],
+  "training": {
+    "headline": "Školenie k HydraMIST Elite",
+    "badge": "Školenie v maďarčine",
+    "intro": "K prístroju dostanete kompletný odborný študijný materiál, aby ste mohli bezpečne a s istotou používať všetky funkcie.",
+    "items": [
+      "Podrobný študijný materiál v maďarčine",
+      "Protokoly ošetrení pre rôzne typy pleti",
+      "Postupy ošetrenia zostavené krok za krokom",
+      "Návod na používanie prístroja",
+      "Vzor informovaného súhlasu klienta",
+      "Hygienické a bezpečnostné pokyny"
+    ],
+    "closingParagraphs": [
+      "Na požiadanie sa môžete zúčastniť aj praktického školenia na živom modeli, kde si techniky osvojíte v reálnom prostredí ošetrenia pod odborným vedením. Toto odporúčame najmä začiatočníkom."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "praktické školenie na živom modeli",
+    "duration": "V dohodnutom termíne",
+    "ctaText": "Mám záujem o školenie"
+  },
+  "whatsIncluded": [
+    "Prístroj HydraMIST Elite",
+    "3 ks nádob na roztoky (A/B/C) + nádoba na odpad",
+    "Študijný materiál a protokoly ošetrení v maďarčine",
+    "Vzor informovaného súhlasu klienta",
+    "Hygienické a bezpečnostné pokyny",
+    "Návod na používanie prístroja"
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Máte otázky o HydraMIST Elite? Radi vám pomôžeme!",
+      "buttonLabel": "Žiadosť o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "final": {
+      "headline": "Zaujíma vás HydraMIST Elite?",
+      "subtitle": "Vyžiadajte si bezplatnú konzultáciu alebo predvedenie v showroome a pomôžeme vám vybrať protokoly ošetrení, ktoré sa hodia do vášho salónu.",
+      "buttonLabel": "Žiadosť o konzultáciu"
+    }
+  },
+  "specs": {
+    "Typ prístroja": "Multifunkčný elektrokozmetický systém (11 v 1)",
+    "Ošetrovacie hlavice": "Vákuová hlavica na hydradermabráziu, skin scrubber, hlavica s CO₂ bublinkami, vysokotlakový kyslíkový injektor, kyslíková rozprašovacia pištoľ, precízne kyslíkové pero, ultrazvuková aplikačná hlavica, 7-pólová RF hlavica, iónový valček, studené kladivko, LED-kyslíková kupola",
+    "Displej": "Dotyková obrazovka",
+    "Vstupné napätie": "220–240 V / 50–60 Hz",
+    "Výkon": "150–300 W",
+    "Sila vákua": "0–80 kPa (nastaviteľná)",
+    "Prietok tekutiny": "Regulovateľný vo viacerých stupňoch",
+    "Tlak kyslíka": "0–6 bar",
+    "Frekvencia ultrazvuku": "1–3 MHz",
+    "Rádiofrekvencia": "0,3–1 MHz (multipolárna)",
+    "LED svetelná terapia": "viac vlnových dĺžok (cca 415–640 nm)",
+    "Skin scrubber": "cca 25–30 kHz",
+    "Nádoby na roztoky": "3 ks (A/B/C) + nádoba na odpad",
+    "Kapacita nádoby": "cca 250–500 ml / nádoba",
+    "Systém hadičiek": "Uzavretý, vymeniteľný",
+    "Materiál krytu": "Plast ABS + kovové prvky",
+    "Hlučnosť": "< 60 dB",
+    "Hmotnosť": "15–25 kg",
+    "Prevádzková teplota": "10–30 °C",
+    "Záruka": "2-ročná plná záruka"
+  },
+  "imageAlts": {
+    "hydramist-elite-1.png": "Hydrofacial prístroj HydraMIST Elite 11 v 1 s kyslíkovou kupolou a ošetrovacími hlavicami",
+    "hydramist-elite-2.png": "Hydrofacial prístroj HydraMIST Elite spredu, s dotykovou obrazovkou a LED-kyslíkovou kupolou",
+    "hydramist-elite-3.png": "Hydrofacial prístroj HydraMIST Elite z boku, s nádobami na roztoky",
+    "hydramist-elite-design-1.jpg": "Hydrofacial prístroj HydraMIST Elite v showroome Skinlab",
+    "hydramist-elite-design-2.jpg": "HydraMIST Elite so zapnutou LED-kyslíkovou kupolou a ošetrovacími hlavicami",
+    "hydramist-elite-design-3.jpg": "Hydrofacial prístroj HydraMIST Elite s osvetlenou nádobou na roztok",
+    "hydramist-elite-design-4.jpg": "Ošetrovacia hlavica HydraMIST Elite s okrúhlou kovovou hlavou v ruke",
+    "hydramist-elite-design-5.jpg": "Vymeniteľná ošetrovacia hlavica HydraMIST Elite v ruke",
+    "hydramist-elite-design-6.jpg": "Ošetrovacia hlavica HydraMIST Elite s dvoma guľôčkovými valčekmi v ruke",
+    "hydramist-elite-info-bura.png": "Priehľadná kyslíková kupola HydraMIST Elite: 360° pokrytie tváre, integrovaný ochranný štít",
+    "hydramist-elite-info-kijelzo.png": "Dotyková obrazovka HydraMIST Elite s menu na výber funkcií, nastaviteľnou intenzitou a dĺžkou trvania",
+    "hydramist-elite-info-adagolas.png": "Systém prívodu tekutiny HydraMIST Elite s nastaviteľným prietokom tekutiny",
+    "hydramist-elite-oktatas-1.jpg": "Nácvik ošetrenia s HydraMIST Elite na školení obsluhy prístroja",
+    "hydramist-elite-oktatas-2.jpg": "Školenie obsluhy prístroja HydraMIST Elite v showroome Skinlab"
+  }
+}

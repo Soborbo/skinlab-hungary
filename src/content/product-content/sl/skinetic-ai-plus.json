@@ -78,15 +78,16 @@
     ]
   },
   "specs": {
-    "Slikovni senzor": "15 MP kamera visoke ločljivosti",
-    "Načini slikanja": "8 načinov (naravna, polarizirana, križno polarizirana, UV, Woodova svetloba, rdeča cona, rjava cona, analiza vlažnosti)",
-    "Zaslon": "15,6\" tablica na dotik",
+    "Slikovni senzor": "Kamera visoke ločljivosti 15 MP",
+    "Načini slikanja": "8 načinov (naravno, polarizirano, navzkrižno polarizirano, UV, Woodova svetloba, rdeča cona, rjava cona, analiza vlažnosti)",
+    "Zaslon": "Tablica z zaslonom na dotik 15,6\"",
     "Povezljivost": "WiFi / HDMI / USB",
-    "Poročila": "Izvoz in deljenje v PDF",
+    "Poročilo": "Izvoz v PDF in deljenje",
     "Shranjevanje podatkov": "V oblaku, dostopno z več naprav",
-    "Dodatek": "Mikroskop za lasišče in obraz (vključen)",
+    "Dodatek": "Mikroskop za lasišče in obraz (priložen)",
+    "Programska oprema": "Uporabniški vmesnik v madžarščini",
     "AI funkcije": "Vgrajen AI asistent, napoved staranja, načrtovalec protokolov iz lastne ponudbe salona",
-    "Dimenzije": "300 × 260 × 450 mm",
+    "Velikost": "300 × 260 × 450 mm",
     "Teža": "pribl. 6,5 kg",
     "Napajanje": "AC 100-240V, 50/60Hz"
   },
@@ -121,6 +122,18 @@
     "Napajalni kabel in dodatki",
     "Usposabljanje za upravljanje (s certifikatom)",
     "2-letna polna garancija",
-    "Program nadomestne naprave za daljša popravila"
-  ]
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "Naprava za AI diagnostiko kože SKINETIC AI+ z 15,6-palčnim zaslonom na dotik in programsko opremo v madžarščini",
+    "skinetic-ai-plus-oldalnezet.jpg": "Analizator kože SKINETIC AI+ s strani, z zasenčenim prostorom za pregled in tablico",
+    "skinetic-ai-plus-mikroszkop.png": "Naprava SKINETIC AI+ s priloženim mikroskopom za lasišče in obraz, z menijem v madžarščini",
+    "skinetic-ai-plus-allvany.jpg": "Sistem za diagnostiko kože SKINETIC AI+ na stojalu s kolesi, z ročnim mikroskopom",
+    "skinetic-ai-plus-showroom.jpg": "Analizator kože SKINETIC AI+ v Skinlab razstavnem prostoru v Érdu, s posteljo za tretmaje",
+    "skinetic-ai-plus-design-2.jpg": "Naprava za diagnostiko kože SKINETIC AI+ s tablico, pred steno iz vrtnic",
+    "skinetic-ai-plus-design-3.jpg": "AI analizator kože SKINETIC AI+ s strani, pred steno iz vrtnic",
+    "skinetic-ai-plus-design-4.jpg": "Mikroskop za lasišče in obraz SKINETIC AI+ v roki, pred logotipom Skinlab",
+    "skinetic-ai-plus-kupola.jpg": "Slikovna kupola SKINETIC AI+ od blizu",
+    "skinetic-ai-plus-tablet.jpg": "Vmesnik SKINETIC AI+ v madžarščini na tablici"
+  }
 }

@@ -14,6 +14,7 @@ import { t } from '@/i18n';
 import { getLocalizedUrl, formatPrice } from '@/i18n/ui';
 import { CATEGORIES } from '../../lib/constants';
 import { productPath } from '@/lib/product-url';
+import { loadProductContent } from '@/lib/load-product-content';
 
 interface Props {
   locale: Locale;
@@ -31,7 +32,9 @@ const { locale, currentSlug, categorySlug, maxProducts = 4, subtitle } = Astro.p
 
 // Get category info
 const category = CATEGORIES.find(c => c.slug === categorySlug);
-const categoryName = category?.nameShort || categorySlug;
+const categoryName = locale === 'hu'
+  ? category?.nameShort || categorySlug
+  : t(locale, `categories.${categorySlug}`);
 
 // Fetch other products from the same category
 const allProducts = await getCollection('products', ({ data }) => {
@@ -73,6 +76,10 @@ const displayPrice = (price: number | null) => {
         {relatedProducts.map((product) => {
           const productUrl = getLocalizedUrl(locale, productPath(product.data.categorySlug, product.data.slug));
           const imgExists = hasImage(product.data.image);
+          // HU: a termék JSON szövege (változatlan); más nyelven a product-content.
+          const c = locale === 'hu' ? undefined : loadProductContent(locale, product.data.slug, product.data.categorySlug).content;
+          const name = c?.name || product.data.name;
+          const shortDescription = c ? c.shortDescription : product.data.shortDescription;
 
           return (
             <a
@@ -84,7 +91,7 @@ const displayPrice = (price: number | null) => {
                 {imgExists ? (
                   <OptimizedPicture
                     src={product.data.image}
-                    alt={getImageAlt(product.data.image, product.data.name)}
+                    alt={getImageAlt(product.data.image, name, locale)}
                     widths={[200, 400, 600]}
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
@@ -103,12 +110,12 @@ const displayPrice = (price: number | null) => {
               <!-- Content -->
               <div class="p-4 flex flex-col flex-grow">
                 <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors">
-                  {product.data.name}
+                  {name}
                 </h3>
 
-                {product.data.shortDescription && (
+                {shortDescription && (
                   <p class="text-sm text-gray-500 mb-3 line-clamp-2 flex-grow">
-                    {product.data.shortDescription}
+                    {shortDescription}
                   </p>
                 )}
 

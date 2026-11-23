@@ -4,6 +4,18 @@
   "description": "Das ElitePodSystem™ ist mehr als ein kosmetisches Gerät – es ist eine revolutionäre, multifunktionale Plattform zur Hauterneuerung, die die modernsten Technologien in einem einzigen Premium-Gerät vereint. Das System kombiniert innovative Sauerstoffaktivierungstechnologie, Radiofrequenz, ultraschallgestützte Wirkstoffeinschleusung und eine Hautanalyse in Echtzeit, damit jede Behandlung personalisierte, spektakuläre und sofortige Ergebnisse liefert.",
   "metaTitle": "ElitePodSystem | 4-in-1 intelligentes Gesichtsbehandlungssystem mit KI-Hautanalyse",
   "metaDescription": "ElitePodSystem™ – Sauerstoffaktivierung, TriPolar RF, Ultraschall und Vibrationsrevitalisierung in einem Premium-Gerät mit integrierter KI-Hautanalyse. Glass-Skin-Effekt.",
+  "specs": {
+    "Modell": "AM183",
+    "Systemtyp": "Multifunktionale, modulare Hauterneuerungsplattform",
+    "Gewicht": "~6,4 kg",
+    "Bauweise": "Kompaktes Premium-Gehäuse",
+    "Stromversorgung": "DC 24V",
+    "Leistung": "12W",
+    "Betriebstemperatur": "5 – 30 °C",
+    "Luftfeuchtigkeit": "20% – 80%",
+    "Technologien": "Sauerstoffaktivierung (Bohr), TriPolar RF, Ultraschall, Vibration",
+    "Hautanalyse": "Integrierte Kamera + KI"
+  },
   "stats": [
     {
       "value": "4",
@@ -171,7 +183,7 @@
     },
     {
       "question": "Welche Schulung und Garantie bieten Sie?",
-      "answer": "Im Gerätepreis enthalten sind die vollständige Bediener-Basisschulung, detailliertes Schulungsmaterial, Behandlungsprotokolle und Beispiel-Kundendokumentation. Auf Wunsch ist auch eine Praxisschulung am lebenden Modell verfügbar (+59.990 Ft). Wir gewähren 2 Jahre volle Garantie und stellen während der Reparatur ein Ersatzgerät zur Verfügung."
+      "answer": "Im Gerätepreis enthalten sind die vollständige Bediener-Basisschulung, detailliertes Schulungsmaterial, Behandlungsprotokolle und Beispiel-Kundendokumentation. Auf Wunsch ist auch eine Praxisschulung am lebenden Modell verfügbar (+59.990 Ft). Wir gewähren 2 Jahre volle Garantie. Dauert eine Reparatur länger als 10 Arbeitstage, stellen wir – abhängig vom verfügbaren Bestand – ein Ersatzgerät bereit."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +199,19 @@
     "Kundendokumentations- und Edukationsmaterialien",
     "Bedienungsanleitung in deutscher Sprache",
     "2 Jahre volle Garantie",
-    "Ersatzgerät während der Reparatur"
-  ]
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ],
+  "imageAlts": {
+    "elitepod-webshop-1.png": "ElitePod System Gesichtsbehandlungsgerät von vorne, mit Touchscreen und zwei Handstücken",
+    "elitepod-webshop-2.png": "ElitePod System Gesichtsbehandlungsgerät in Schrägansicht, auf dem Ständer",
+    "elitepod-webshop-3.png": "ElitePod System Handstück mit austauschbarem Kapselkopf",
+    "elitepod-webshop-4.png": "Lila ElitePod System Handstück in Nahaufnahme",
+    "elitepod-1.png": "ElitePod System Gerät mit den Handstücken",
+    "elitepod-2.png": "ElitePod System Hautanalyse auf dem Display des Geräts",
+    "elitepod-design-1.jpg": "ElitePod System Gesichtsbehandlungsgerät zwischen weißen Orchideen",
+    "elitepod-design-2.jpg": "ElitePod System Gerät in der Seitenansicht, mit Orchideen",
+    "elitepod-design-3.jpg": "ElitePod System auf einem Rollwagen im Skinlab-Showroom",
+    "elitepod-design-4.jpg": "Lila ElitePod System Handstück in der Hand, vor Orchideen",
+    "elitepod-design-5.jpg": "ElitePod System Kapsel-Handstück in der Hand, vor Orchideen"
+  }
 }

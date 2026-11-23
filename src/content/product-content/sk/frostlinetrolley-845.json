@@ -1,57 +1,74 @@
 {
   "name": "FrostLineTrolley",
-  "shortDescription": "Moderny biely kozmeticky vozik s masivnym kovovym ramom. Dvojpolicova konstrukcia, aretovatelne kolieska, hygienicke povrchy.",
-  "description": "FrostLineTrolley je moderny biely kozmeticky vozik, ktory kombinuje poriadok a profesionalny vzhlad.\n\nSilna kovova konstrukcia zaruciuje spolahlívost a trvacnost. Dvojpolicova konstrukcia umoznuje prehladne a systematicke ulozenie pristrojov a doplnkov.\n\nVybaveny styrmi kolieskami, ktore sa daju aj aretovat, takze pri pouzivani stabilne stoji. Hladke povrchy sa daju jednoducho udrziavat v cistote, snehobiela farba a minimalisticke tvary zabezpecuju elegantny vzhlad.",
-  "metaTitle": "FrostLineTrolley | Moderny kozmeticky vozik",
-  "metaDescription": "FrostLineTrolley biely kozmeticky vozik s masivnym kovovym ramom. Dve police, aretovatelne kolieska, jednoducho cistitelny. Profesionalny salonovy nabytok.",
+  "shortDescription": "Moderný biely kozmetický vozík s masívnym kovovým rámom. Dvojpolicová konštrukcia, aretovateľné kolieska, hygienické povrchy.",
+  "description": "FrostLineTrolley je moderný biely kozmetický vozík, ktorý kombinuje poriadok a profesionálny vzhľad.\n\nSilná kovová konštrukcia zaručuje spoľahlivosť a trvácnosť. Dvojpolicová konštrukcia umožňuje prehľadné a systematické uloženie prístrojov a doplnkov.\n\nVybavený štyrmi kolieskami, ktoré sa dajú aj aretovať, takže pri používaní stabilne stojí. Hladké povrchy sa dajú jednoducho udržiavať v čistote, snehobiela farba a minimalistické tvary zabezpečujú elegantný vzhľad.",
+  "metaTitle": "FrostLineTrolley | Moderný kozmetický vozík",
+  "metaDescription": "FrostLineTrolley biely kozmetický vozík s masívnym kovovým rámom. Dve police, aretovateľné kolieska, jednoducho čistiteľný. Profesionálny salónový nábytok.",
   "stats": [
-    { "value": "2", "label": "Polica", "icon": "layers" },
-    { "value": "4", "label": "Aretovatelne koliesko", "icon": "refresh" },
-    { "value": "KOV", "label": "Masivny ram", "icon": "shield" },
-    { "value": "1", "unit": "rokov", "label": "Zaruka", "icon": "award" }
+    {
+      "value": "2",
+      "label": "Police",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Aretovateľné kolieska",
+      "icon": "refresh"
+    },
+    {
+      "value": "KOV",
+      "label": "Masívny rám",
+      "icon": "shield"
+    },
+    {
+      "value": "1",
+      "unit": "rok",
+      "label": "Záruka",
+      "icon": "award"
+    }
   ],
   "cta": {
     "final": {
-      "headline": "Zaujima vas FrostLineTrolley?",
-      "subtitle": "Poziadajte o bezplatnu konzultaciu alebo si priamo objednajte!",
-      "buttonLabel": "Poziadat o konzultaciu"
+      "headline": "Zaujíma vás FrostLineTrolley?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu alebo si priamo objednajte!",
+      "buttonLabel": "Požiadať o konzultáciu"
     }
   },
   "featureRows": {
-    "headline": "Preco FrostLineTrolley?",
-    "subtitle": "Stabilny, moderny a prakticky vozik",
+    "headline": "Prečo FrostLineTrolley?",
+    "subtitle": "Stabilný, moderný a praktický vozík",
     "features": [
       {
-        "title": "Aretovatelne kolieska pre maximalnu stabilitu",
-        "description": "Styri kolieska nezabezpecuju len jednoduchu manipulaciu, ale sa daju aj aretovat, takze vozik pri pouzivani stabilne stoji. Idealny na bezpecne umiestnenie pristrojov a nastrojov.",
+        "title": "Aretovateľné kolieska pre maximálnu stabilitu",
+        "description": "Štyri kolieska nezabezpečujú len jednoduchú manipuláciu, ale sa dajú aj aretovať, takže vozík pri používaní stabilne stojí. Ideálny na bezpečné umiestnenie prístrojov a nástrojov.",
         "image": "@assets/products/MADDISON2.webp"
       },
       {
-        "title": "Dvojpolicove systematicke ulozenie",
-        "description": "Dve police umoznuju prehladne ulozenie pristrojov a doplnkov. Hygienicke, jednoducho cistitelne povrchy zabezpecuju vzdy bezchybny vzhlad.",
+        "title": "Dvojpolicové systematické uloženie",
+        "description": "Dve police umožňujú prehľadné uloženie prístrojov a doplnkov. Hygienické, jednoducho čistiteľné povrchy zabezpečujú vždy bezchybný vzhľad.",
         "image": "@assets/products/M1.webp"
       }
     ]
   },
   "faq": [
     {
-      "question": "Je potrebna montaz?",
-      "answer": "Ano, je potrebna minimalna montaz: na ram treba nasadit police a pripevnit kolieska. Montaz zvladnete za par minut."
+      "question": "Je potrebná montáž?",
+      "answer": "Áno, je potrebná minimálna montáž: na rám treba nasadiť police a pripevniť kolieska. Montáž zvládnete za pár minút."
     },
     {
-      "question": "V com sa lisi od SnowlineTrolley a ArcticTrolley?",
-      "answer": "FrostLineTrolley ma dvojpolicovu konstrukciu s aretovateľnymi kolieskami. SnowlineTrolley ma tri police z kaleneho skla s hliníkovym ramom, zatial co ArcticTrolley ma otvoreny policovy system s masivnou kovovou konstrukciou. Vsetky tri voziky su navrhnuté na profesionalne salonove pouzitie."
+      "question": "V čom sa líši od SnowlineTrolley a ArcticTrolley?",
+      "answer": "FrostLineTrolley má dvojpolicovú konštrukciu s aretovateľnými kolieskami. SnowlineTrolley má tri police z kaleného skla s hliníkovým rámom, zatiaľ čo ArcticTrolley má otvorený policový systém s masívnou kovovou konštrukciou. Všetky tri vozíky sú navrhnuté na profesionálne salónové použitie."
     },
     {
-      "question": "Ako sa cisti?",
-      "answer": "Hladke povrchy sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou. Biela farba a minimalisticka konstrukcia vzdy zabezpecuje cisty vzhlad."
+      "question": "Ako sa čistí?",
+      "answer": "Hladké povrchy sa jednoducho utru vlhkou utierkou alebo povrchovou dezinfekciou. Biela farba a minimalistická konštrukcia vždy zabezpečuje čistý vzhľad."
     }
   ],
   "whatsIncluded": [
-    "FrostLineTrolley kovovy ram",
+    "FrostLineTrolley kovový rám",
     "2 ks polica",
-    "4 ks aretovatelne koliesko",
-    "Navod na montaz",
-    "1-rocna zaruka"
+    "4 ks aretovateľné koliesko",
+    "Návod na montáž",
+    "1-ročná záruka"
   ]
 }

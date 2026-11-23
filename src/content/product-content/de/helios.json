@@ -4,6 +4,18 @@
   "description": "Der HELIOS Diodenlaser ist nach dem Sonnengott der griechischen Mythologie benannt – der jeden Tag Licht bringt, alles sieht und vor dem nichts verborgen bleibt. Genau das verkörpert das Gerät: Kraft, Licht und kompromisslose Präzision. Mit 1600W Ausgangsleistung, 4 Wellenlängen (755/808/940/1064 nm) und einem in 5 Größen einstellbaren Saphir-Spot gehört es zum Spitzensegment des Marktes.",
   "metaTitle": "HELIOS 1600W Diodenlaser | 4 Wellenlängen, einstellbare Spotgröße",
   "metaDescription": "HELIOS – 1600W Premium-Diodenlaser mit 4 Wellenlängen, in 5 Größen einstellbarer Saphir-Spotgröße und mehrstufiger Kühlung. Professionelle Haarentfernung auf klinischem Niveau.",
+  "specs": {
+    "Lasertyp": "Diodenlaser",
+    "Wellenlänge": "755 / 808 / 940 / 1064 nm",
+    "Leistung": "1600W (Ausgangsleistung)",
+    "Display": "10.4-Zoll-Farb-Touchscreen",
+    "Spotgröße": "In 5 Größen einstellbares Saphirkristall-Handstück",
+    "Kühlsystem": "TEC + Wasser + Luft (mehrstufig)",
+    "Kühltemperatur": "Saphir-Kontakt bis nahe -16°C",
+    "Spannung": "110V / 220V",
+    "Gewicht": "ca. 25 kg",
+    "Lieferzeit": "2-6 Wochen"
+  },
   "stats": [
     {
       "value": "1600",
@@ -181,6 +193,11 @@
     "Bedienungsanleitung in ungarischer Sprache",
     "Bedienerschulung (FAR-Zertifikat)",
     "2 Jahre umfassende Garantie",
-    "Ersatzgerät während der Reparatur"
-  ]
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ],
+  "imageAlts": {
+    "helios-design-foto-1.jpg": "HELIOS 1600W Diodenlaser in stilisierter Umgebung",
+    "helios-design-foto-2.jpg": "HELIOS 1600W Diodenlaser mit Handstück und Display",
+    "helios-design-foto-3.jpg": "Austauschbare Spotgrößen-Aufsätze des HELIOS Diodenlasers"
+  }
 }

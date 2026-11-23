@@ -148,7 +148,7 @@
     },
     {
       "question": "Kakva garancija važi za uređaj?",
-      "answer": "Za MAST P60 važi garancija od 1 godine. Tokom popravke obezbeđujemo zamenu uređaja."
+      "answer": "Za MAST P60 važi garancija od 1 godine. Ako popravka verovatno traje duže od 10 radnih dana, za vreme popravke obezbeđujemo zamenski uređaj, u zavisnosti od zaliha."
     }
   ],
   "whatsIncluded": [
@@ -157,6 +157,12 @@
     "Type-C kabl za punjenje",
     "Uputstvo za upotrebu",
     "1 godina garancija",
-    "Zamena uređaja tokom popravke"
-  ]
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
+  ],
+  "imageAlts": {
+    "mast-p60-arany-design.jpg": "MAST P60 uređaj za trajnu šminku u zlatnoj boji, na pozadini od zlatne svile",
+    "mast-p60-rosegold-design.jpg": "MAST P60 uređaj za trajnu šminku u rose gold boji, na pozadini od roze svile",
+    "mast-p60-lila-design.jpg": "MAST P60 uređaj za trajnu šminku u ljubičastoj boji, na pozadini od ljubičaste svile",
+    "mast-p60-tiffany-design.jpg": "MAST P60 uređaj za trajnu šminku u Tiffany boji, na pozadini od tirkizne svile"
+  }
 }

@@ -5,24 +5,72 @@
   "metaTitle": "MAST Nano 2 stroj za trajnu šminku – Lagan, tih i precizan",
   "metaDescription": "Kompaktni stroj za trajnu šminku od 66 g za profesionalne i početnike. Minimalne vibracije, precizan rad na kapcima, snažne i pouzdane performanse.",
   "stats": [
-    {"value": "66", "unit": "g", "label": "Ultralagan", "icon": "layers"},
-    {"value": "2,7", "unit": "mm", "label": "Duljina hoda", "icon": "zap"},
-    {"value": "10000", "unit": "RPM", "label": "Brzina motora", "icon": "award"},
-    {"value": "18,8", "unit": "mm", "label": "Promjer", "icon": "clock"}
+    {
+      "value": "66",
+      "unit": "g",
+      "label": "Ultralagan",
+      "icon": "layers"
+    },
+    {
+      "value": "2,7",
+      "unit": "mm",
+      "label": "Duljina hoda",
+      "icon": "zap"
+    },
+    {
+      "value": "10000",
+      "unit": "RPM",
+      "label": "Brzina motora",
+      "icon": "award"
+    },
+    {
+      "value": "18,8",
+      "unit": "mm",
+      "label": "Promjer",
+      "icon": "clock"
+    }
   ],
   "cta": {
-    "afterVideo": {"text": "Imate pitanja o Mast Nano 2? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
-    "afterFeatures": {"headline": "Želite isprobati Mast Nano 2?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
-    "final": {"headline": "Zanima vas Mast Nano 2?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+    "afterVideo": {
+      "text": "Imate pitanja o Mast Nano 2? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite isprobati Mast Nano 2?",
+      "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima vas Mast Nano 2?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
   },
   "featureRows": {
     "headline": "Zašto umjetnici trajne šminke biraju Mast Nano 2?",
     "subtitle": "Najlakši stroj koji ne štedi na performansama",
     "features": [
-      {"title": "Samo 66 grama – najlakši u svojoj kategoriji", "description": "Izuzetno niska težina Mast Nano 2 gotovo je neprimjetna u ruci. Promjer od 18,8 mm i visina od 127,9 mm pružaju vitak, olovci sličan hvat, što je posebno važno za precizan rad – na primjer pri izradi linije na kapku.", "image": "@assets/products/mastnano2.webp"},
-      {"title": "Snažan coreless motor s minimalnim vibracijama", "description": "Coreless motor brzine 10.000 RPM pruža dinamične i stabilne performanse. Minimalna buka i vibracije ne služe samo udobnosti umjetnika, već klijentu pružaju ugodnije iskustvo na osjetljivim područjima.", "image": "@assets/products/mastnano1.webp"},
-      {"title": "Posebno idealan za rad na kapcima", "description": "Mast Nano 2 je zahvaljujući maloj veličini i niskoj težini jedan od najboljih izbora za područje kapaka. Precizan motor bez vibracija omogućuje točnu izradu najtanjih linija čak i na najosjetljivijim područjima.", "image": "@assets/products/mastnano2.webp"},
-      {"title": "Za početnike i profesionalce podjednako", "description": "Fiksna duljina hoda od 2,7 mm i raspon radnog napona od 5–9V osiguravaju jednostavno rukovanje. Nema potrebe za kompliciranim podešavanjima – Nano 2 je odmah spreman za rad i pouzdano radi u svakoj situaciji.", "image": "@assets/products/mastnano1.webp"}
+      {
+        "title": "Samo 66 grama – najlakši u svojoj kategoriji",
+        "description": "Izuzetno niska težina Mast Nano 2 gotovo je neprimjetna u ruci. Promjer od 18,8 mm i visina od 127,9 mm pružaju vitak, olovci sličan hvat, što je posebno važno za precizan rad – na primjer pri izradi linije na kapku.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Snažan coreless motor s minimalnim vibracijama",
+        "description": "Coreless motor brzine 10.000 RPM pruža dinamične i stabilne performanse. Minimalna buka i vibracije ne služe samo udobnosti umjetnika, već klijentu pružaju ugodnije iskustvo na osjetljivim područjima.",
+        "image": "@assets/products/mastnano1.webp"
+      },
+      {
+        "title": "Posebno idealan za rad na kapcima",
+        "description": "Mast Nano 2 je zahvaljujući maloj veličini i niskoj težini jedan od najboljih izbora za područje kapaka. Precizan motor bez vibracija omogućuje točnu izradu najtanjih linija čak i na najosjetljivijim područjima.",
+        "image": "@assets/products/mastnano2.webp"
+      },
+      {
+        "title": "Za početnike i profesionalce podjednako",
+        "description": "Fiksna duljina hoda od 2,7 mm i raspon radnog napona od 5–9V osiguravaju jednostavno rukovanje. Nema potrebe za kompliciranim podešavanjima – Nano 2 je odmah spreman za rad i pouzdano radi u svakoj situaciji.",
+        "image": "@assets/products/mastnano1.webp"
+      }
     ]
   },
   "training": {
@@ -72,17 +120,35 @@
     "Radni napon": "5–9V"
   },
   "faq": [
-    {"question": "Po čemu se Nano 2 razlikuje od MAST P60?", "answer": "Nano 2 je lakši (66 g nasuprot 121 g), manji i kompaktniji. Ima fiksnu duljinu hoda od 2,7 mm (P60 ima 5 stupnjeva podesivosti) i žičan je (nije na bateriju). Nano 2 je posebno idealan za područje kapaka i precizne, fine radove, dok je P60 svestraniji."},
-    {"question": "S kojim modulima igala je kompatibilan?", "answer": "Mast Nano 2 koristi univerzalni patronski sustav. Odlično radi s MAST Oceanheart i WJX modulima igala. Za liniju na kapku idealni su moduli igala 1RL (0,18–0,25 mm)."},
-    {"question": "Je li Nano 2 preporučljiv i za početnike?", "answer": "Da! Jednostavno rukovanje i fiksna duljina hoda olakšavaju učenje. Zahvaljujući laganoj težini ruka se ne umara tijekom vježbanja. Uz kupnju stroja dostupna je besplatna obuka koja pomaže pri sigurnom startu."},
-    {"question": "Može li se Nano 2 koristiti samo za kapke?", "answer": "Ne, Nano 2 je pogodan za sve tehnike trajne šminke – obrve, usne, kapci. Međutim, zbog male veličine i niske težine posebno je jedan od najboljih izbora na tržištu za područje kapaka."},
-    {"question": "Kakvo jamstvo ide uz stroj?", "answer": "Uz Mast Nano 2 ide 1 godina jamstva. Za vrijeme popravka osiguravamo zamjenski uređaj kako vaš rad ne bi stao."}
+    {
+      "question": "Po čemu se Nano 2 razlikuje od MAST P60?",
+      "answer": "Nano 2 je lakši (66 g nasuprot 121 g), manji i kompaktniji. Ima fiksnu duljinu hoda od 2,7 mm (P60 ima 5 stupnjeva podesivosti) i žičan je (nije na bateriju). Nano 2 je posebno idealan za područje kapaka i precizne, fine radove, dok je P60 svestraniji."
+    },
+    {
+      "question": "S kojim modulima igala je kompatibilan?",
+      "answer": "Mast Nano 2 koristi univerzalni patronski sustav. Odlično radi s MAST Oceanheart i WJX modulima igala. Za liniju na kapku idealni su moduli igala 1RL (0,18–0,25 mm)."
+    },
+    {
+      "question": "Je li Nano 2 preporučljiv i za početnike?",
+      "answer": "Da! Jednostavno rukovanje i fiksna duljina hoda olakšavaju učenje. Zahvaljujući laganoj težini ruka se ne umara tijekom vježbanja. Uz kupnju stroja dostupna je besplatna obuka koja pomaže pri sigurnom startu."
+    },
+    {
+      "question": "Može li se Nano 2 koristiti samo za kapke?",
+      "answer": "Ne, Nano 2 je pogodan za sve tehnike trajne šminke – obrve, usne, kapci. Međutim, zbog male veličine i niske težine posebno je jedan od najboljih izbora na tržištu za područje kapaka."
+    },
+    {
+      "question": "Kakvo jamstvo ide uz stroj?",
+      "answer": "Uz Mast Nano 2 ide 1 godina jamstva. Ako popravak vjerojatno traje dulje od 10 radnih dana, za vrijeme popravka osiguravamo zamjenski uređaj, ovisno o zalihama, kako vaš rad ne bi stao."
+    }
   ],
   "whatsIncluded": [
     "Mast Nano 2.0 stroj za trajnu šminku",
     "Kabel za spajanje",
     "Korisnički priručnik",
     "1 godina jamstva",
-    "Zamjenski uređaj za vrijeme popravka"
-  ]
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
+  ],
+  "imageAlts": {
+    "mast-nano-2-design.jpg": "Dva Mast Nano 2.0 uređaja za trajnu šminku na pozadini od ružičasto-zlatne svile"
+  }
 }

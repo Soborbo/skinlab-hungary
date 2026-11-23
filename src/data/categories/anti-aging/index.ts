@@ -4,6 +4,14 @@
  */
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 import { hu } from './hu';
+import { en } from './en';
+import { de } from './de';
+import { cs } from './cs';
+import { sk } from './sk';
+import { ro } from './ro';
+import { hr } from './hr';
+import { sl } from './sl';
+import { sr } from './sr';
 
 export const antiAging: ShowcaseCategory = {
   base: {
@@ -25,5 +33,5 @@ export const antiAging: ShowcaseCategory = {
     finance: { defaultSlug: 'aestiq-ai' },
     video: { id: 'anna' },
   },
-  copy: { hu },
+  copy: { hu, en, de, cs, sk, ro, hr, sl, sr },
 };

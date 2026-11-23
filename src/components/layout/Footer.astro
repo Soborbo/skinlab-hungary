@@ -1,5 +1,6 @@
 ---
-import { COMPANY, CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
+import { CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
+import { openingHoursLine } from '../../lib/category-showcase';
 import { BLOG_ENABLED } from '../../config/features';
 import { Logo } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
@@ -7,6 +8,7 @@ const skinlabLogo = '@assets/logo.png';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
+const hoursLine = openingHoursLine(locale);
 ---
 
 <footer class="bg-gray-900 text-gray-300 pb-20 lg:pb-0">
@@ -16,7 +18,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
       
       <!-- Brand column -->
       <div class="col-span-2 lg:col-span-1">
-        <a href="/" class="inline-block mb-4">
+        <a href={getLocalizedUrl(locale, '/')} class="inline-block mb-4">
           <Logo
             src={skinlabLogo}
             alt="Skinlab Hungary - laser&beauty equipment"
@@ -26,7 +28,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
           />
         </a>
         <p class="text-sm text-gray-400 mb-6 leading-relaxed">
-          {COMPANY.descriptionShort}
+          {t(locale, 'footer.tagline')}
         </p>
         <!-- Social links -->
         <div class="flex gap-3">
@@ -155,7 +157,7 @@ const locale = getLocaleFromUrl(Astro.url) as Locale;
             <div class="text-sm">
               <div class="text-white font-medium">{LOCATIONS.showroom.name}</div>
               <div class="text-gray-400">{LOCATIONS.showroom.fullAddress}</div>
-              <div class="text-gray-500 text-xs mt-1">{LOCATIONS.showroom.openingHoursNote}</div>
+              <div class="text-gray-500 text-xs mt-1">{hoursLine}</div>
             </div>
           </li>
           <li>

@@ -5,10 +5,27 @@
   "metaTitle": "Uređaj za odsisavanje dima za carbon peeling | S LED osvjetljenjem",
   "metaDescription": "Profesionalni uređaj za odsisavanje dima za laserske tretmane. HEPA i filtar s aktivnim ugljenom, ugrađeno LED osvjetljenje, CE certifikat. Univerzalno pričvršćivanje.",
   "stats": [
-    { "value": "HEPA", "label": "Sustav filtracije", "icon": "shield" },
-    { "value": "LED", "label": "Ugrađeno osvjetljenje", "icon": "zap" },
-    { "value": "1", "unit": "kg", "label": "Težina", "icon": "layers" },
-    { "value": "CE", "label": "Certifikat", "icon": "award" }
+    {
+      "value": "HEPA",
+      "label": "Sustav filtracije",
+      "icon": "shield"
+    },
+    {
+      "value": "LED",
+      "label": "Ugrađeno osvjetljenje",
+      "icon": "zap"
+    },
+    {
+      "value": "1",
+      "unit": "kg",
+      "label": "Težina",
+      "icon": "layers"
+    },
+    {
+      "value": "CE",
+      "label": "Certifikat",
+      "icon": "award"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -23,13 +40,13 @@
     }
   },
   "specs": {
-    "Tápfeszültség": "220–240V",
-    "Zajszint": "0 dB",
-    "Szűrőrendszer": "HEPA i aktivni ugljen",
-    "Súly": "1 kg",
-    "Világítás": "Ugrađena LED bijele svjetlosti",
-    "Rögzítés": "Univerzalno, na sve površine",
-    "Tanúsítványok": "CE"
+    "Napon napajanja": "220–240V",
+    "Razina buke": "0 dB",
+    "Sustav filtracije": "HEPA i aktivni ugljen",
+    "Težina": "1 kg",
+    "Rasvjeta": "Ugrađena LED bijele svjetlosti",
+    "Pričvršćivanje": "Univerzalno, na sve površine",
+    "Certifikati": "CE"
   },
   "faq": [
     {

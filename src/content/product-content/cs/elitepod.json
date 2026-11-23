@@ -4,6 +4,18 @@
   "description": "ElitePodSystem™ není jen kosmetický přístroj – je to revoluční, multifunkční platforma pro obnovu pleti, která spojuje nejmodernější technologie v jednom prémiovém zařízení. Systém kombinuje inovativní technologii kyslíkové aktivace, radiofrekvenci, ultrazvukovou aplikaci účinných látek a analýzu pleti v reálném čase tak, aby každé ošetření přinášelo personalizované, viditelné a okamžité výsledky.",
   "metaTitle": "ElitePodSystem | Chytrý systém péče o pleť 4 v 1 s AI analýzou pleti",
   "metaDescription": "ElitePodSystem™ – Kyslíková aktivace, TriPolar RF, ultrazvuk a vibrační revitalizace v jediném prémiovém přístroji s vestavěnou AI analýzou pleti. Efekt glass skin.",
+  "specs": {
+    "Model": "AM183",
+    "Typ systému": "multifunkční modulární platforma pro obnovu pleti",
+    "Hmotnost": "~6,4 kg",
+    "Provedení": "kompaktní, prémiový kryt",
+    "Napájení": "DC 24V",
+    "Výkon": "12W",
+    "Provozní teplota": "5 – 30 °C",
+    "Vlhkost": "20% – 80%",
+    "Technologie": "Aktivace kyslíku (Bohr), TriPolar RF, ultrazvuk, vibrace",
+    "Analýza pleti": "vestavěná kamera + AI"
+  },
   "stats": [
     {
       "value": "4",
@@ -171,7 +183,7 @@
     },
     {
       "question": "Jaké školení a záruku poskytujete?",
-      "answer": "V ceně přístroje je zahrnuto kompletní základní školení obsluhy, podrobný studijní materiál, protokoly ošetření a vzorová dokumentace klientů. Na vyžádání je k dispozici i praktické školení na živém modelu (+59 990 Ft). Poskytujeme 2 roky plné záruky a po dobu opravy zajistíme náhradní přístroj."
+      "answer": "V ceně přístroje je zahrnuto kompletní základní školení obsluhy, podrobný studijní materiál, protokoly ošetření a vzorová dokumentace klientů. Na vyžádání je k dispozici i praktické školení na živém modelu (+59 990 Ft). Poskytujeme 2 roky plné záruky. Pokud oprava trvá déle než 10 pracovních dnů, poskytneme náhradní přístroj v závislosti na dostupnosti."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +199,19 @@
     "Dokumentace klientů a edukační materiály",
     "Návod k použití v češtině",
     "2 roky plné záruky",
-    "Náhradní přístroj po dobu opravy"
-  ]
+    "Program náhradního přístroje při delší opravě"
+  ],
+  "imageAlts": {
+    "elitepod-webshop-1.png": "Přístroj na ošetření obličeje ElitePod System zepředu, s dotykovou obrazovkou a dvěma aplikátory",
+    "elitepod-webshop-2.png": "Přístroj na ošetření obličeje ElitePod System šikmo zboku, na stojanu",
+    "elitepod-webshop-3.png": "Aplikátor ElitePod System s vyměnitelnou kapslovou hlavicí",
+    "elitepod-webshop-4.png": "Fialový aplikátor ElitePod System zblízka",
+    "elitepod-1.png": "Přístroj ElitePod System s aplikátory",
+    "elitepod-2.png": "Analýza pleti na displeji přístroje ElitePod System",
+    "elitepod-design-1.jpg": "Přístroj na ošetření obličeje ElitePod System mezi bílými orchidejemi",
+    "elitepod-design-2.jpg": "Přístroj ElitePod System z boku, s orchidejemi",
+    "elitepod-design-3.jpg": "ElitePod System na pojízdném vozíku v showroomu Skinlab",
+    "elitepod-design-4.jpg": "Fialový aplikátor ElitePod System v ruce, před orchidejemi",
+    "elitepod-design-5.jpg": "Kapslový aplikátor ElitePod System v ruce, před orchidejemi"
+  }
 }

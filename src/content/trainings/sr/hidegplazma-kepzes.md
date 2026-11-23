@@ -82,7 +82,7 @@ Nakon uspešnog završetka dobijate sertifikat o obuci sa B-brojem generisan u s
 
 ## Prijava i zakazivanje termina
 
-Prijava postaje konačna uplatom 50% cene obuke kao avansa. Nakon prijema avansa naš saradnik će Vas kontaktirati i zajedno ćemo dogovoriti 4-časovni termin pre podne ili po podne. Preostali iznos može se izmiriti prema dogovorenim uslovima.
+Prijava postaje konačna uplatom 50% cene obuke kao avansa. Nakon prijema avansa naš saradnik će vas kontaktirati i zajedno ćemo dogovoriti 4-časovni termin pre podne ili po podne. Preostali iznos može se izmiriti prema dogovorenim uslovima.
 
 ## Lokacija
 

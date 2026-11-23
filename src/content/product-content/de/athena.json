@@ -4,6 +4,20 @@
   "description": "„Die Kraft, die aus Wissen geboren wird.“ ATHENA war nicht die Göttin der rohen Kraft, sondern Symbol für Strategie, Präzision und bewusstes Handeln. Der ATHENA Diodenlaser steht für genau das: stabiler Betrieb, vorhersehbare Ergebnisse, Kontrolle in jeder Situation. Hat eine Göttin Ihnen jemals während der Arbeit die Hand gehalten? Jetzt könnten Sie die Gelegenheit dazu haben.",
   "metaTitle": "ATHENA 1000W Diodenlaser | Intelligente Software, stabile Präzision",
   "metaDescription": "ATHENA – 1000W professioneller Diodenlaser mit 4 Wellenlängen und intelligentem Behandlungssystem. Stabil, vorhersehbar, kosteneffizient.",
+  "specs": {
+    "Lasertyp": "Diodenlaser",
+    "Wellenlänge": "755 / 808 / 940 / 1064 nm",
+    "Spotgröße": "12 × 20 mm (fest)",
+    "Leistung": "1000W (Ausgangsleistung)",
+    "Handstück": "Groß, ergonomisch, mit Saphir-Kontaktkühlung",
+    "Kühlsystem": "Mehrstufig: TEC + Wasser + Luft",
+    "Hautkühlung": "Saphir-Kontaktkühlung",
+    "Display": "Großer Farb-Touchscreen",
+    "Bediensystem": "Intelligente Software - automatische Haut- und Haartyperkennung",
+    "Beleuchtung": "Rosafarbene LED-Ambientebeleuchtung",
+    "Stromversorgung": "110V / 220V",
+    "Lieferzeit": "2-6 Wochen"
+  },
   "stats": [
     {
       "value": "1000",
@@ -46,7 +60,8 @@
     "afterFeatures": {
       "headline": "Möchten Sie ATHENA live sehen?",
       "subtitle": "Kommen Sie in unseren Showroom in Érd und probieren Sie es persönlich aus!",
-      "buttonLabel": "Termin buchen"
+      "buttonLabel": "Termin buchen",
+      "showroomDriveFolderId": "1HVYoNvH5tJBN8ZPWqTuXNETFw0UU9QfF"
     },
     "final": {
       "headline": "Interessieren Sie sich für den ATHENA 1000W Diodenlaser?",
@@ -180,6 +195,10 @@
       "answer": "Im Handgriff kühlt ein echter Saphirkristall die Hautoberfläche direkt während der Behandlung, dahinter arbeitet eine dreistufige Kühlung: TEC-Halbleiter, Wasser und Luft. Das senkt das Wärmeempfinden, macht die Energieabgabe gleichmäßiger und hält das Gerät auch bei längeren Behandlungsserien stabil – weniger Zwangspausen, schnelleres Arbeiten."
     },
     {
+      "question": "Kann man die ATHENA in Raten kaufen?",
+      "answer": "Ja. Beim Kauf ist eine Anzahlung von 50% zu leisten, den Restbetrag können Sie auf 3 oder 6 Monate verteilen – bei einem Gerätewert zwischen 1 und 3 Millionen Forint stehen diese beiden Laufzeiten zur Verfügung. Wenn Sie mehrere Geräte gleichzeitig kaufen, ist auch eine längere Laufzeit möglich. Die genaue Anzahlung und die monatliche Rate können Sie mit dem Rechner auf der Produktseite berechnen."
+    },
+    {
       "question": "Wie lange dauert die Lieferung, und ab wann kann ich damit arbeiten?",
       "answer": "Die voraussichtliche Lieferzeit beträgt 2–6 Wochen. Die Geräteschulung ist im Preis enthalten und an die Übergabe gekoppelt: Nach dem eintägigen Intensivkurs stellen wir ein FAR-Zertifikat aus. Die Einschulung ist damit Teil des Ablaufs und kein separat zu organisierender Schritt."
     },
@@ -199,6 +218,23 @@
     "Ungarisches Benutzerhandbuch",
     "Bedienerschulung (FAR-Zertifikat)",
     "2 Jahre umfassende Garantie",
-    "Ersatzgerät während der Reparaturzeit"
-  ]
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ],
+  "ownerStory": {
+    "ownerName": "Mila Derma",
+    "intro": "Im Studio Mila Derma endete unsere Arbeit nicht mit der Lieferung: Wir haben das Gerät vor Ort aufgebaut und dort auch die Bedienerschulung durchgeführt – von der Parametrierung bis zur Wartung. Die folgenden Bilder sind bei dieser Übergabe entstanden."
+  },
+  "imageAlts": {
+    "athena-1.png": "ATHENA 1000W Diodenlasergerät mit den Behandlungsparametern auf dem Display",
+    "athena-2.png": "ATHENA Diodenlaser in der Seitenansicht, mit Handstückhalter",
+    "athena-3.png": "Handstück des ATHENA Diodenlasers in der Hand, mit eigenem Display",
+    "athena-4.png": "Touchscreen des ATHENA Diodenlasers mit dem Behandlungsmenü",
+    "athena-5.png": "Handstück des ATHENA Diodenlasers mit dem Austrittsfenster mit Saphir-Kontaktkühlung",
+    "athena-6.png": "ATHENA 1000W Diodenlasergerät mit dem Behandlungsmenü nach Körperregionen",
+    "athena-design-1.jpg": "ATHENA 1000W Diodenlasergerät in Salonumgebung",
+    "athena-design-2.jpg": "Handstück des ATHENA Diodenlasers mit eingestellter Frequenz und Energiestufe",
+    "athena-design-3.jpg": "Handstück des ATHENA Diodenlasers in Nahaufnahme, mit goldenem Saphirfenster",
+    "athena-oktatas-1.jpg": "Bedienerschulung für den ATHENA Diodenlaser mit der Skinlab-Trainerin",
+    "athena-oktatas-2.jpg": "Vorführung des ATHENA Diodenlaser-Handstücks während der Schulung"
+  }
 }

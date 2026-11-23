@@ -5,12 +5,32 @@
   "metaTitle": "Moonlight Hydrofacial | Večfunkcijska naprava 10 v 1 za tretma obraza",
   "metaDescription": "Moonlight Hydrofacial 10 v 1: 10 tretmanskih glav, globinsko čiščenje, vlaženje, lifting, obnova kože. 2 leti garancije.",
   "stats": [
-    { "value": "10", "label": "Tretmanskih glav", "icon": "layers" },
-    { "value": "15%+", "label": "Povečanje vlažnosti", "icon": "droplet" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" },
-    { "value": "~40", "unit": "min", "label": "Čas tretmaja", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Tretmanskih glav",
+      "icon": "layers"
+    },
+    {
+      "value": "15%+",
+      "label": "Povečanje vlažnosti",
+      "icon": "droplet"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Čas tretmaja",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Moonlight Hydrofacial – premium nega kože z 10 tretmanskimi glavami",
     "paragraphs": [
@@ -90,16 +110,56 @@
     "role": "Soustanovitelj Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Bubble pen", "description": "Hidrodermabrazija – globinsko čiščenje" },
-    { "icon": "snowflake", "name": "Ice head", "description": "Hlajenje, zmanjšanje vnetja in draženja" },
-    { "icon": "sound", "name": "Ultrazvočna glava", "description": "Vnos aktivnih sestavin in utrjevanje (obraz + predel oči)" },
-    { "icon": "sparkle", "name": "Magic ball", "description": "Mikrotokovna pomirjujoča in stimulativna nega" },
-    { "icon": "bolt", "name": "Suction pen", "description": "Vakuumsko čiščenje por" },
-    { "icon": "zap", "name": "Lifting head", "description": "Mikrostimulacija za dvig kontur" },
-    { "icon": "layers", "name": "Facial ultrasound", "description": "Globinski ultrazvočni tretma" },
-    { "icon": "chart", "name": "Line glava", "description": "RF/EMS za izboljšanje tonusa" },
-    { "icon": "spray", "name": "Product spray", "description": "Razpršilna glava za fino porazdelitev aktivnih sestavin" },
-    { "icon": "clipboard", "name": "UH lopatka", "description": "Odstranjevanje odmrlih celic, čistilni piling" }
+    {
+      "icon": "droplet",
+      "name": "Bubble pen",
+      "description": "Hidrodermabrazija – globinsko čiščenje"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ice head",
+      "description": "Hlajenje, zmanjšanje vnetja in draženja"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvočna glava",
+      "description": "Vnos aktivnih sestavin in utrjevanje (obraz + predel oči)"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Magic ball",
+      "description": "Mikrotokovna pomirjujoča in stimulativna nega"
+    },
+    {
+      "icon": "bolt",
+      "name": "Suction pen",
+      "description": "Vakuumsko čiščenje por"
+    },
+    {
+      "icon": "zap",
+      "name": "Lifting head",
+      "description": "Mikrostimulacija za dvig kontur"
+    },
+    {
+      "icon": "layers",
+      "name": "Facial ultrasound",
+      "description": "Globinski ultrazvočni tretma"
+    },
+    {
+      "icon": "chart",
+      "name": "Line glava",
+      "description": "RF/EMS za izboljšanje tonusa"
+    },
+    {
+      "icon": "spray",
+      "name": "Product spray",
+      "description": "Razpršilna glava za fino porazdelitev aktivnih sestavin"
+    },
+    {
+      "icon": "clipboard",
+      "name": "UH lopatka",
+      "description": "Odstranjevanje odmrlih celic, čistilni piling"
+    }
   ],
   "faq": [
     {
@@ -145,6 +205,6 @@
     "Tretmanska glava ultrazvočna lopatka",
     "Uporabniški priročnik",
     "2 leti polne garancije",
-    "Nadomestna naprava med popravilom"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

@@ -5,6 +5,8 @@
  */
 import { CONTACT } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+import { clientErrorMessages } from '@/lib/forms/error-messages';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '@/i18n/ui';
 
 interface Props {
   class?: string;
@@ -18,6 +20,8 @@ const { class: className = '', product = 'kepzesek', heading } = Astro.props;
 
 const turnstileSiteKey = getTurnstileSiteKey();
 const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const s = (key: string) => t(locale, `training.signup.${key}`);
 ---
 
 <div class:list={['training-signup-banner', className]}>
@@ -30,14 +34,14 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          Következő képzés hamarosan
+          {s('badge')}
         </div>
 
         <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight text-white">
-          {heading || 'Jelentkezz képzéseinkre!'}
+          {heading || s('heading')}
         </h2>
         <p class="text-primary-100 text-lg leading-relaxed mb-8">
-          Add meg adataidat és felvesszük veled a kapcsolatot a részletekkel.
+          {s('lead')}
         </p>
 
         <!-- Trust signals -->
@@ -48,7 +52,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
-            <span class="text-white/90">FAR-jegyzett, B-számos tanúsítvány</span>
+            <span class="text-white/90">{s('trust1')}</span>
           </div>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -56,7 +60,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
-            <span class="text-white/90">Gyakorlatorientált, mély szakmai tudás</span>
+            <span class="text-white/90">{s('trust2')}</span>
           </div>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -64,13 +68,13 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span class="text-white/90">Gépvásárlási kötelezettség nélkül</span>
+            <span class="text-white/90">{s('trust3')}</span>
           </div>
         </div>
 
         <!-- Phone CTA -->
         <div class="flex items-center gap-3 pt-6 border-t border-white/20">
-          <span class="text-primary-200 text-sm">Kérdésed van?</span>
+          <span class="text-primary-200 text-sm">{s('question')}</span>
           <a
             href={`tel:${CONTACT.phone}`}
             class="inline-flex items-center gap-2 text-white font-semibold hover:text-primary-200 transition-colors"
@@ -86,8 +90,8 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
       <!-- Right: Form -->
       <div class="bg-white flex items-center py-12 lg:py-20 px-6 sm:px-10 lg:px-16 xl:px-24">
         <div class="w-full max-w-lg mx-auto lg:mx-0">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Jelentkezés képzésre</h3>
-          <p class="text-gray-500 mb-8">Töltsd ki az alábbi űrlapot és felvesszük veled a kapcsolatot</p>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{s('formTitle')}</h3>
+          <p class="text-gray-500 mb-8">{s('formLead')}</p>
 
           <form
             id={formId}
@@ -95,6 +99,11 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             method="POST"
             novalidate
             data-training-form
+            data-submitting={s('submitting')}
+            data-submit-text={s('submit')}
+            data-error-fallback={s('errorFallback')}
+            data-client-errors={JSON.stringify(clientErrorMessages(locale))}
+            data-thanks-url={getLocalizedUrl(locale, '/koszonjuk')}
           >
             <!-- Hidden fields -->
             <input type="hidden" name="sourceUrl" value={Astro.url.href} />
@@ -127,14 +136,14 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
             <div class="space-y-4">
               <!-- Name -->
               <div>
-                <label for={`${formId}-name`} class="block text-sm font-medium text-gray-700 mb-1.5">Név <span class="text-red-500">*</span></label>
+                <label for={`${formId}-name`} class="block text-sm font-medium text-gray-700 mb-1.5">{s('name')} <span class="text-red-500">*</span></label>
                 <input
                   id={`${formId}-name`}
                   type="text"
                   name="name"
                   required
                   autocomplete="name"
-                  placeholder="Teljes neved"
+                  placeholder={s('namePlaceholder')}
                   class="block w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-white"
                 />
                 <p class="mt-1 text-xs text-red-600 hidden" data-error="name"></p>
@@ -142,14 +151,14 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
               <!-- Phone -->
               <div>
-                <label for={`${formId}-phone`} class="block text-sm font-medium text-gray-700 mb-1.5">Telefon <span class="text-red-500">*</span></label>
+                <label for={`${formId}-phone`} class="block text-sm font-medium text-gray-700 mb-1.5">{s('phone')} <span class="text-red-500">*</span></label>
                 <input
                   id={`${formId}-phone`}
                   type="tel"
                   name="phone"
                   required
                   autocomplete="tel"
-                  placeholder="+36 30 123 4567"
+                  placeholder={s('phonePlaceholder')}
                   class="block w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-white"
                 />
                 <p class="mt-1 text-xs text-red-600 hidden" data-error="phone"></p>
@@ -157,14 +166,14 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
               <!-- Email -->
               <div>
-                <label for={`${formId}-email`} class="block text-sm font-medium text-gray-700 mb-1.5">Email cím <span class="text-red-500">*</span></label>
+                <label for={`${formId}-email`} class="block text-sm font-medium text-gray-700 mb-1.5">{s('email')} <span class="text-red-500">*</span></label>
                 <input
                   id={`${formId}-email`}
                   type="email"
                   name="email"
                   required
                   autocomplete="email"
-                  placeholder="email@pelda.hu"
+                  placeholder={s('emailPlaceholder')}
                   class="block w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-white"
                 />
                 <p class="mt-1 text-xs text-red-600 hidden" data-error="email"></p>
@@ -197,7 +206,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                     data-gdpr-checkbox
                   />
                   <span class="text-sm text-gray-600 leading-snug">
-                    Elfogadom az <a href="/adatvedelem/" target="_blank" class="text-primary-600 font-medium hover:underline">adatvédelmi tájékoztatót</a> <span class="text-red-500">*</span>
+                    {s('gdprPrefix')} <a href={getLocalizedUrl(locale, '/adatvedelem')} target="_blank" class="text-primary-600 font-medium hover:underline">{s('gdprLink')}</a> <span class="text-red-500">*</span>
                   </span>
                 </label>
               </div>
@@ -208,7 +217,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 class="w-full inline-flex items-center justify-center px-6 py-4 font-bold rounded-xl bg-primary-600 text-white text-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary-600/25 hover:shadow-xl hover:shadow-primary-600/30"
                 data-submit-button
               >
-                <span data-button-text>Jelentkezem</span>
+                <span data-button-text>{s('submit')}</span>
                 <svg class="hidden ml-2 h-5 w-5 animate-spin" data-loading-spinner viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
@@ -217,7 +226,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
               <!-- Micro-copy under button -->
               <p class="text-center text-xs text-gray-400">
-                Nem kötelez semmire.<br />Felvesszük veled a kapcsolatot 24 órán belül.
+                {s('micro1')}<br />{s('micro2')}
               </p>
             </div>
 
@@ -227,7 +236,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span class="font-medium">Köszönjük a jelentkezésed! Hamarosan keresünk.</span>
+                <span class="font-medium">{s('success')}</span>
               </div>
             </div>
 
@@ -237,7 +246,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
                 <svg class="h-6 w-6 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span data-error-text>Hiba történt, kérjük próbáld újra.</span>
+                <span data-error-text>{s('error')}</span>
               </div>
             </div>
           </form>
@@ -358,7 +367,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
       // Show loading state
       submitButton.disabled = true;
-      buttonText.textContent = 'Küldés...';
+      buttonText.textContent = formEl.dataset.submitting || '';
       spinner?.classList.remove('hidden');
 
       try {
@@ -407,7 +416,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
 
           // Wait for the beacon to flush, then redirect
           await waitForTracking(600);
-          window.location.href = `/koszonjuk?lead=${result.leadId}`;
+          window.location.href = `${formEl.dataset.thanksUrl}?lead=${result.leadId}`;
         } else {
           if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] training:', result);
           // Show field errors
@@ -431,11 +440,11 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
           errorMessage?.classList.remove('hidden');
           if (errorText) {
             const code = result.code ? '[' + result.code + '] ' : '';
-            errorText.textContent = code + (result.error || 'Ellenőrizd az adatokat.');
+            errorText.textContent = code + (result.error || formEl.dataset.errorFallback || '');
           }
         }
       } catch (error) {
-        const info = describeClientError(error);
+        const info = describeClientError(error, JSON.parse(formEl.dataset.clientErrors || '{}'));
         if (window.__slDebug) console.error('[' + info.code + '] training submit error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {
@@ -443,7 +452,7 @@ const formId = `training-signup-${Math.random().toString(36).slice(2, 8)}`;
         }
       } finally {
         submitButton.disabled = false;
-        buttonText.textContent = 'Jelentkezem';
+        buttonText.textContent = formEl.dataset.submitText || '';
         spinner?.classList.add('hidden');
       }
     });

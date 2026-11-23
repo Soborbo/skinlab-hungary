@@ -5,12 +5,32 @@
   "metaTitle": "Moonlight Hydrofacial | Multifunkčné zariadenie 10 v 1 na ošetrenie tváre",
   "metaDescription": "Moonlight Hydrofacial 10 v 1: 10 ošetrovacích hlavíc, hĺbkové čistenie, hydratácia, lifting, obnova pleti. 2 roky záruky.",
   "stats": [
-    { "value": "10", "label": "Ošetrovacích hlavíc", "icon": "layers" },
-    { "value": "15%+", "label": "Nárast hydratácie", "icon": "droplet" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" },
-    { "value": "~40", "unit": "min", "label": "Doba ošetrenia", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Ošetrovacích hlavíc",
+      "icon": "layers"
+    },
+    {
+      "value": "15%+",
+      "label": "Nárast hydratácie",
+      "icon": "droplet"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Doba ošetrenia",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Moonlight Hydrofacial – prémiová starostlivosť o pleť s 10 ošetrovacími hlavicami",
     "paragraphs": [
@@ -87,19 +107,60 @@
   "expertQuote": {
     "quote": "Moonlight Hydrofacial s 10 ošetrovacími hlavicami a klinicky preukázanými výsledkami predstavuje vynikajúcu hodnotu. Kompletné ošetrenie tváre jediným zariadením.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Bubble pen", "description": "Hydrodermabrázia – hĺbkové čistenie" },
-    { "icon": "snowflake", "name": "Ice head", "description": "Chladenie, zníženie zápalu a podráždenia" },
-    { "icon": "sound", "name": "Ultrazvuková hlavica", "description": "Vpravovanie účinných látok a spevnenie (tvár + očné okolie)" },
-    { "icon": "sparkle", "name": "Magic ball", "description": "Mikroprúdové upokojujúce a stimulačné ošetrenie" },
-    { "icon": "bolt", "name": "Suction pen", "description": "Vákuové čistenie pórov" },
-    { "icon": "zap", "name": "Lifting head", "description": "Mikrostimulácia na zdvihnutie kontúr" },
-    { "icon": "layers", "name": "Facial ultrasound", "description": "Hĺbkové ultrazvukové ošetrenie" },
-    { "icon": "chart", "name": "Line hlavica", "description": "RF/EMS na zlepšenie tonusu" },
-    { "icon": "spray", "name": "Product spray", "description": "Rozprašovacia hlavica na jemné rozptýlenie účinných látok" },
-    { "icon": "clipboard", "name": "UH špachtľa", "description": "Odstránenie odumretých buniek, čistiaci peeling" }
+    {
+      "icon": "droplet",
+      "name": "Bubble pen",
+      "description": "Hydrodermabrázia – hĺbkové čistenie"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ice head",
+      "description": "Chladenie, zníženie zápalu a podráždenia"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuková hlavica",
+      "description": "Vpravovanie účinných látok a spevnenie (tvár + očné okolie)"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Magic ball",
+      "description": "Mikroprúdové upokojujúce a stimulačné ošetrenie"
+    },
+    {
+      "icon": "bolt",
+      "name": "Suction pen",
+      "description": "Vákuové čistenie pórov"
+    },
+    {
+      "icon": "zap",
+      "name": "Lifting head",
+      "description": "Mikrostimulácia na zdvihnutie kontúr"
+    },
+    {
+      "icon": "layers",
+      "name": "Facial ultrasound",
+      "description": "Hĺbkové ultrazvukové ošetrenie"
+    },
+    {
+      "icon": "chart",
+      "name": "Line hlavica",
+      "description": "RF/EMS na zlepšenie tonusu"
+    },
+    {
+      "icon": "spray",
+      "name": "Product spray",
+      "description": "Rozprašovacia hlavica na jemné rozptýlenie účinných látok"
+    },
+    {
+      "icon": "clipboard",
+      "name": "UH špachtľa",
+      "description": "Odstránenie odumretých buniek, čistiaci peeling"
+    }
   ],
   "faq": [
     {
@@ -145,6 +206,6 @@
     "Ošetrovacia hlavica ultrazvuková špachtľa",
     "Používateľský manuál",
     "2 roky plnej záruky",
-    "Náhradné zariadenie počas opravy"
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

@@ -4,6 +4,19 @@
   "description": "Olympie byla místem, kde se počítali jen ti nejlepší. Kde nezáleželo na tom, odkud kdo přišel - ale na tom, co skutečně umí. Přesně to představuje diodový laser OLYMPIA: výkon, který se počítá. Reálná cena, silný stroj, skutečné výsledky.",
   "metaTitle": "OLYMPIA 1200W diodový laser | 4 vlnové délky, 5 velikostí spotu, šampion poměru cena/výkon",
   "metaDescription": "OLYMPIA – 1200W profesionální diodový laser se 4 vlnovými délkami a 5 nastavitelnými velikostmi spotu. Evropský poměr cena/výkon, inteligentní řídicí systém.",
+  "specs": {
+    "Typ laseru": "Diodový laser",
+    "Vlnová délka": "755 / 808 / 940 / 1064 nm",
+    "Výkon": "1200W (výstupní)",
+    "Garantovaná životnost": "100 milionů výstřelů – po celou dobu garantovaně podává maximální výkon",
+    "Velikost spotu": "Krystalový aplikátor nastavitelný v 5 velikostech",
+    "Displej": "Barevná dotyková obrazovka",
+    "Chladicí systém": "Vícestupňový TEC + voda + vzduch",
+    "Chlazení pokožky": "Safírové kontaktní chlazení ve 3 stupních",
+    "Ovládací systém": "Chytré vestavěné protokoly",
+    "Napájení": "110V / 220V",
+    "Dodací lhůta": "cca 15 pracovních dnů"
+  },
   "stats": [
     {
       "value": "1200",
@@ -46,7 +59,8 @@
     "afterFeatures": {
       "headline": "Chcete vidět OLYMPIA naživo?",
       "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ji osobně!",
-      "buttonLabel": "Rezervace termínu"
+      "buttonLabel": "Rezervace termínu",
+      "showroomDriveFolderId": "1ry9sZcnEcK7xK-khjp8pCGRNK4M4im2U"
     },
     "final": {
       "headline": "Zaujal vás diodový laser OLYMPIA 1200W?",
@@ -182,6 +196,14 @@
     "Maďarský návod k použití",
     "Školení obsluhy přístroje (certifikát FAR)",
     "2letá kompletní záruka",
-    "Náhradní stroj po dobu opravy"
-  ]
+    "Program náhradního přístroje při delší opravě"
+  ],
+  "imageAlts": {
+    "olympia-design-1.jpg": "Diodový laser OLYMPIA 1200W ve stylizovaném prostředí s antickými sloupy",
+    "olympia-design-2.jpg": "Aplikátor diodového laseru OLYMPIA s vlastním displejem",
+    "olympia-design-3.jpg": "Vyměnitelné nástavce pro velikost spotu diodového laseru OLYMPIA v dárkové krabici",
+    "olympia-3.jpeg": "Diodový laser OLYMPIA ve stylizovaném prostředí se sloupovou halou",
+    "olympia-oktatas-1.jpg": "Školení obsluhy OLYMPIA – ošetření diodovým laserem na modelce",
+    "olympia-oktatas-2.jpg": "Aplikátor diodového laseru OLYMPIA během ošetření, v pozadí dotyková obrazovka"
+  }
 }

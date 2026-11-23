@@ -117,7 +117,7 @@ Sodobna tehnologija diodnega laserja ob ustrezni uporabi:
 - Omogoča hitro obravnavo večjih predelov
 - Je vse leto izjemno iskana storitev
 
-Med usposabljanjem vam pokažemo praktične prijeme in nastavitve, s katerimi lahko delate varno in učinkovito. Učite se tako, kot delajo uspešni strokovnjaki mednarodnega trga, in z profesionalnimi laserskimi obravnavami zgradite stabilen krog vračajočih se strank.
+Med usposabljanjem vam pokažemo praktične prijeme in nastavitve, s katerimi lahko delate varno in učinkovito. Učite se tako, kot delajo uspešni strokovnjaki mednarodnega trga, in s profesionalnimi laserskimi obravnavami zgradite stabilen krog vračajočih se strank.
 
 ## Lokacija
 

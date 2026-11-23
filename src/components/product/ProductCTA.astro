@@ -97,7 +97,7 @@ const displayPhone = t(locale, 'cta.defaultPhone');
 
     {hasShowroomPhotos && productSlug && (
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ShowroomGallery slug={productSlug} eyebrow="Pillanatképek az érdi showroomból" />
+        <ShowroomGallery slug={productSlug} altName={productName} eyebrow={t(locale, 'product.showroomEyebrow')} />
       </div>
     )}
   </div>

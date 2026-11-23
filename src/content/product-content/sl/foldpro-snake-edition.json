@@ -5,10 +5,28 @@
   "metaTitle": "Dragonhawk Fold Pro Snake Edition – Brezžični profesionalni tattoo aparat",
   "metaDescription": "Dragonhawk Fold Pro brezžični tattoo aparat s 3000 mAh baterijo, nastavljivim hodom, idealen za konture in senčenje.",
   "stats": [
-    { "value": "3000", "unit": "mAh", "label": "Baterija", "icon": "zap" },
-    { "value": "2,4–4,2", "unit": "mm", "label": "Nastavljiv hod", "icon": "award" },
-    { "value": "Pro", "label": "Kakovost", "icon": "shield" },
-    { "value": "Snake", "label": "Limitiran dizajn", "icon": "layers" }
+    {
+      "value": "3000",
+      "unit": "mAh",
+      "label": "Baterija",
+      "icon": "zap"
+    },
+    {
+      "value": "2,4–4,2",
+      "unit": "mm",
+      "label": "Nastavljiv hod",
+      "icon": "award"
+    },
+    {
+      "value": "Pro",
+      "label": "Kakovost",
+      "icon": "shield"
+    },
+    {
+      "value": "Snake",
+      "label": "Limitiran dizajn",
+      "icon": "layers"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -91,12 +109,12 @@
     "role": "Soustanovitelj Skinlaba, direktor"
   },
   "specs": {
-    "Akkumulátor": "3000 mAh",
-    "Állítható lökethossz": "2,4–4,2 mm",
-    "Motor": "Csendes, erőteljes motor",
-    "Kialakítás": "Kompakt, összecsukható",
-    "Csatlakozó": "Type-C",
-    "Dizájn": "Year of Snake limitált kiadás"
+    "Baterija": "3000 mAh",
+    "Nastavljiva dolžina giba": "2,4–4,2 mm",
+    "Motor": "Tih, zmogljiv motor",
+    "Izvedba": "Kompaktna, zložljiva",
+    "Priključek": "Type-C",
+    "Dizajn": "Year of Snake omejena izdaja"
   },
   "faq": [
     {
@@ -121,7 +139,7 @@
     },
     {
       "question": "Kakšna garancija velja za aparat?",
-      "answer": "Za Dragonhawk Fold Pro velja 1-letna garancija. V času popravila zagotovimo nadomestni aparat."
+      "answer": "Za Dragonhawk Fold Pro velja 1-letna garancija. Če bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, glede na zalogo."
     }
   ],
   "whatsIncluded": [
@@ -130,6 +148,6 @@
     "Type-C polnilni kabel",
     "Navodila za uporabo",
     "1-letna garancija",
-    "Nadomestni aparat v času popravila"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

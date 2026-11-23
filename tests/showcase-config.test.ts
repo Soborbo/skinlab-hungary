@@ -7,11 +7,11 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { SHOWCASE_CATEGORIES } from '@/data/categories';
-import { buildShowcaseConfig } from '@/lib/category-showcase';
+import { buildShowcaseConfig, compareValue, localizedSpecs, type CompareSource, type ShowcaseModel } from '@/lib/category-showcase';
 import { CATEGORY_AS_PRODUCT } from '@/lib/product-url';
 import manifest from '@/lib/image-manifest.json';
 import { showcaseUi } from '@/i18n/showcase';
-import type { Locale } from '@/i18n/ui';
+import { locales, type Locale } from '@/i18n/ui';
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 
 const productsDir = join(__dirname, '../src/content/products');
@@ -107,5 +107,36 @@ describe('buildShowcaseConfig', () => {
   it('csak az egyik oldalon meglévő szekciónál build-hiba', () => {
     const broken: ShowcaseCategory = { ...first, base: { ...first.base, whyBuy: undefined } };
     expect(() => buildShowcaseConfig(broken, 'hu')).toThrow(/whyBuy/);
+  });
+});
+
+describe('nyelvi lefedettség', () => {
+  it('minden nyelvhez van showcase-felirat', () => {
+    for (const locale of locales) expect(() => showcaseUi(locale), locale).not.toThrow();
+  });
+
+  it.each(Object.keys(SHOWCASE_CATEGORIES))('%s: mind a 9 nyelv megvan', (slug) => {
+    expect(Object.keys(SHOWCASE_CATEGORIES[slug].copy).sort()).toEqual([...locales].sort());
+  });
+});
+
+describe('lokalizált specs (táblázat)', () => {
+  const model = (specs: Record<string, string>, specsLocal: Record<string, string>) =>
+    ({ specs, specsLocal, price: null, forWho: '', compare: {} }) as unknown as ShowcaseModel;
+
+  it('a magyar kulcs index szerint párosul a fordítással', () => {
+    const local = localizedSpecs('en', 'nyxqueen_4wave_diodalezer', {});
+    expect(local['Teljesítmény']).toBe('600W');
+    expect(local['Hullámhosszak']).toBe('755 nm / 808 nm / 940 nm / 1064 nm');
+    expect(localizedSpecs('hu', 'nyxqueen_4wave_diodalezer', {})).toEqual({});
+    expect(localizedSpecs('en', 'nincs-ilyen-termek', { A: 'b' })).toEqual({});
+  });
+
+  it('fordítás nélkül a magyar érték marad, a strip a fordítás záró zárójelére is hat', () => {
+    const strip: CompareSource = { kind: 'spec', keys: ['Teljesítmény'], strip: /\s*\(kimeneti\)/ };
+    expect(compareValue(model({ Teljesítmény: '1000W (kimeneti)' }, {}), strip, '')).toBe('1000W');
+    expect(compareValue(model({ Teljesítmény: '1000W (kimeneti)' }, { Teljesítmény: '1000W (output)' }), strip, '')).toBe('1000W');
+    expect(compareValue(model({ Hűtés: 'Víz' }, { Hűtés: 'Water' }), { kind: 'spec', keys: ['Hűtés'] }, '')).toBe('Water');
+    expect(compareValue(model({}, {}), { kind: 'spec', keys: ['X'] }, '')).toBe('-');
   });
 });

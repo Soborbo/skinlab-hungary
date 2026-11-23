@@ -4,6 +4,18 @@
   "description": "ElitePodSystem™ nie je iba kozmetický prístroj – je to revolučná, multifunkčná platforma na obnovu pleti, ktorá spája najmodernejšie technológie v jedinom prémiovom zariadení. Systém kombinuje inovatívnu technológiu kyslíkovej aktivácie, rádiofrekvenciu, ultrazvukovú aplikáciu účinných látok a analýzu pleti v reálnom čase, aby každé ošetrenie prinášalo personalizované, viditeľné a okamžité výsledky.",
   "metaTitle": "ElitePodSystem | Inteligentný systém starostlivosti o pleť 4 v 1 s AI analýzou",
   "metaDescription": "ElitePodSystem™ – Kyslíková aktivácia, TriPolar RF, ultrazvuk a vibračná revitalizácia v jedinom prémiovom prístroji s vstavanou AI analýzou pleti. Efekt glass skin.",
+  "specs": {
+    "Model": "AM183",
+    "Typ systému": "multifunkčná, modulárna platforma na obnovu pleti",
+    "Hmotnosť": "~6,4 kg",
+    "Prevedenie": "kompaktný, prémiový kryt",
+    "Napájanie": "DC 24V",
+    "Výkon": "12W",
+    "Prevádzková teplota": "5 – 30 °C",
+    "Vlhkosť": "20% – 80%",
+    "Technológie": "Aktivácia kyslíka (Bohr), TriPolar RF, ultrazvuk, vibrácie",
+    "Analýza pleti": "zabudovaná kamera + AI"
+  },
   "stats": [
     {
       "value": "4",
@@ -171,7 +183,7 @@
     },
     {
       "question": "Aké školenie a záruku poskytujete?",
-      "answer": "V cene prístroja je zahrnuté kompletné základné školenie obsluhy, podrobný študijný materiál, protokoly ošetrení a vzorová dokumentácia klientov. Na vyžiadanie je k dispozícii aj praktické školenie na živom modeli (+59 990 Ft). Poskytujeme 2 roky plnej záruky a počas opravy zabezpečíme náhradný prístroj."
+      "answer": "V cene prístroja je zahrnuté kompletné základné školenie obsluhy, podrobný študijný materiál, protokoly ošetrení a vzorová dokumentácia klientov. Na vyžiadanie je k dispozícii aj praktické školenie na živom modeli (+59 990 Ft). Poskytujeme 2 roky plnej záruky. Ak oprava trvá dlhšie ako 10 pracovných dní, poskytneme náhradný prístroj v závislosti od dostupnosti."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +199,19 @@
     "Dokumentácia klientov a edukačné materiály",
     "Návod na použitie v slovenčine",
     "2 roky plnej záruky",
-    "Náhradný prístroj počas opravy"
-  ]
+    "Program náhradného prístroja pri dlhšej oprave"
+  ],
+  "imageAlts": {
+    "elitepod-webshop-1.png": "Prístroj na ošetrenie tváre ElitePod System spredu, s dotykovou obrazovkou a dvoma hlavicami",
+    "elitepod-webshop-2.png": "Prístroj na ošetrenie tváre ElitePod System zošikma, na stojane",
+    "elitepod-webshop-3.png": "Hlavica ElitePod System s vymeniteľnou kapsulovou koncovkou",
+    "elitepod-webshop-4.png": "Fialová hlavica ElitePod System zblízka",
+    "elitepod-1.png": "Prístroj ElitePod System s ošetrovacími hlavicami",
+    "elitepod-2.png": "Analýza pleti ElitePod System na displeji prístroja",
+    "elitepod-design-1.jpg": "Prístroj na ošetrenie tváre ElitePod System medzi bielymi orchideami",
+    "elitepod-design-2.jpg": "Prístroj ElitePod System z boku, s orchideami",
+    "elitepod-design-3.jpg": "ElitePod System na pojazdnom vozíku v showroome Skinlab",
+    "elitepod-design-4.jpg": "Fialová hlavica ElitePod System v ruke, pred orchideami",
+    "elitepod-design-5.jpg": "Kapsulová hlavica ElitePod System v ruke, pred orchideami"
+  }
 }

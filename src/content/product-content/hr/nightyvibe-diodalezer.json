@@ -5,12 +5,32 @@
   "metaTitle": "NightyVibe Diodni laser | 2500W, SAFE-OPTION, inteligentno upravljanje",
   "metaDescription": "NightyVibe 2500W inteligentni diodni laser s 4 valne duljine i SAFE-OPTION tehnologijom. 40M impulsa, digitalna ručka, stručna edukacija. Certificirano.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Snaga", "icon": "zap" },
-    { "value": "4", "label": "Valne duljine", "icon": "wave" },
-    { "value": "40M", "label": "Vijek trajanja impulsa", "icon": "clock" },
-    { "value": "2", "unit": "godine", "label": "Jamstvo", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Snaga",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Valne duljine",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Vijek trajanja impulsa",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "godine",
+      "label": "Jamstvo",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NightyVibe – Pametni laser za profesionalce",
     "paragraphs": [
@@ -111,12 +131,36 @@
     "role": "Suosnivač Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "zap", "name": "2500W snaga", "description": "Jedna od najviših snaga na tržištu." },
-    { "icon": "sun", "name": "4 valne duljine", "description": "755, 808, 940, 1064 nm – za svaki tip kože." },
-    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Sprječava pogrešne ili opasne postavke." },
-    { "icon": "chart", "name": "Brojač impulsa", "description": "Digitalna ručka s ugrađenim brojačem." },
-    { "icon": "brain", "name": "Inteligentno upravljanje", "description": "Klinički optimizirane postavke." },
-    { "icon": "clipboard", "name": "Poslovni paket", "description": "Marketinški plan, strategija cijena, privlačenje klijenata." }
+    {
+      "icon": "zap",
+      "name": "2500W snaga",
+      "description": "Jedna od najviših snaga na tržištu."
+    },
+    {
+      "icon": "sun",
+      "name": "4 valne duljine",
+      "description": "755, 808, 940, 1064 nm – za svaki tip kože."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Sprječava pogrešne ili opasne postavke."
+    },
+    {
+      "icon": "chart",
+      "name": "Brojač impulsa",
+      "description": "Digitalna ručka s ugrađenim brojačem."
+    },
+    {
+      "icon": "brain",
+      "name": "Inteligentno upravljanje",
+      "description": "Klinički optimizirane postavke."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Poslovni paket",
+      "description": "Marketinški plan, strategija cijena, privlačenje klijenata."
+    }
   ],
   "faq": [
     {
@@ -141,7 +185,7 @@
     },
     {
       "question": "Kakvo jamstvo dobivam?",
-      "answer": "Pružamo 2-godišnje sveobuhvatno jamstvo. Imamo vlastiti servisni tim i pružamo zamjenski uređaj tijekom popravaka kako rad vašeg salona nikada ne bi bio prekinut."
+      "answer": "Pružamo 2-godišnje sveobuhvatno jamstvo. Imamo vlastiti servisni tim. Ako popravak vjerojatno traje dulje od 10 radnih dana, za vrijeme popravka osiguravamo zamjenski uređaj, ovisno o zalihama, kako rad vašeg salona ne bi stao."
     }
   ],
   "whatsIncluded": [
@@ -153,6 +197,6 @@
     "Korisnički priručnik",
     "Edukacija operatera (certificirani certifikat)",
     "2 godine sveobuhvatnog jamstva",
-    "Zamjenski uređaj tijekom popravka"
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
   ]
 }

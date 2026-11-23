@@ -21,7 +21,6 @@ export const COMPANY = {
   vatId: 'HU32871580',
   slogan: 'laser&beauty equipment',
   description: 'Professzionális kozmetikai berendezések forgalmazása Magyarországon. Diódalézerek, sminktetováló gépek, ND:YAG lézerek és multifunkcionális kezelőgépek 2 év garanciával, ingyenes betanítással és azonnali szervizháttérrel.',
-  descriptionShort: 'Professzionális kozmetikai gépek és lézerek forgalmazása 2 év garanciával.',
   priceRange: '€€€€',
   areaServed: ['HU', 'SK', 'RO'],
   currenciesAccepted: ['HUF', 'EUR'],
@@ -98,8 +97,6 @@ export const LOCATIONS = {
     country: 'HU',
     countryName: 'Magyarország',
     fullAddress: '2030 Érd, Bajcsy-Zsilinszky út 156.',
-    openingHours: 'H–P: 10:00–18:00 · Szo: 10:00–14:00',
-    openingHoursNote: 'H–P 10:00–18:00, Szo 10:00–14:00, vasárnap zárva',
     geo: {
       latitude: 47.4074715,
       longitude: 18.8915312,
@@ -108,16 +105,17 @@ export const LOCATIONS = {
   },
 };
 
-// Opening hours - single source of truth (contact page list, footer note, schema).
-// Order: Monday → Sunday.
+// Opening hours - single source of truth (contact page list, footer, category visit block).
+// Order: Monday → Sunday. Locale-neutral: `day` → openingHours.days/daysShort.<day>,
+// `hours: 'closed'` → openingHours.closed (render via i18n).
 export const OPENING_HOURS = [
-  { day: 'Hétfő', hours: '10:00–18:00' },
-  { day: 'Kedd', hours: '10:00–18:00' },
-  { day: 'Szerda', hours: '10:00–18:00' },
-  { day: 'Csütörtök', hours: '10:00–18:00' },
-  { day: 'Péntek', hours: '10:00–18:00' },
-  { day: 'Szombat', hours: '10:00–14:00' },
-  { day: 'Vasárnap', hours: 'Zárva' },
+  { day: 'mon', hours: '10:00–18:00' },
+  { day: 'tue', hours: '10:00–18:00' },
+  { day: 'wed', hours: '10:00–18:00' },
+  { day: 'thu', hours: '10:00–18:00' },
+  { day: 'fri', hours: '10:00–18:00' },
+  { day: 'sat', hours: '10:00–14:00' },
+  { day: 'sun', hours: 'closed' },
 ];
 
 export const SOCIAL = {
@@ -396,36 +394,6 @@ export const CATEGORY_CARD_IMAGE: Record<string, string> = {
   // ami a termekoldalak fokepe). Ez a map fehér hatteru kepeket ker.
   kezeloanyagok: '/images/opt/products/monduniq-botopax-peptid-koktel-feher-szarvasgombaval-2-800w.avif',
 };
-
-export const TRUST_BADGES = [
-  {
-    icon: 'shield-check',
-    title: '2 év garancia',
-    description: 'Teljes körű garancia minden készülékre',
-  },
-  {
-    icon: 'truck',
-    title: '15-20 munkanap',
-    description: 'Megbízható, hiteles vámkezelésű szállítás',
-  },
-  {
-    icon: 'graduation-cap',
-    title: 'FAR tanúsítvány',
-    description: 'Hivatalos gépkezelői képzés',
-  },
-  {
-    icon: 'wrench',
-    title: 'Saját szerviz',
-    description: 'Gyors javítás, cseregép-program',
-  },
-];
-
-export const STATS = [
-  { key: 'soldUnits', value: '150+', label: 'Eladott készülék' },
-  { key: 'warranty', value: '2 év', label: 'Garancia' },
-  { key: 'deliveryTime', value: '15-20 nap', label: 'Szállítási idő' },
-  { key: 'hungarianService', value: '100%', label: 'Magyar szerviz' },
-];
 
 // Mega Menu Navigation Structure
 // All labels use i18n translation keys - resolve with t(locale, key) in components

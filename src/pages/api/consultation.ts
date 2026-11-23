@@ -13,6 +13,7 @@ import { readRequestConsent } from '@/lib/tracking/request-consent';
 import type { GatewayEnv } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
+import { requestLocale, formError, localizeFieldErrors } from '@/lib/forms/error-messages';
 
 export const prerender = false;
 
@@ -28,6 +29,7 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
+  const loc = requestLocale(request);
   // Astro v6 removed `locals.runtime.ctx` (it is now a *throwing* getter) and
   // moved the Cloudflare execution context to `locals.cfContext`. Resolve the
   // `waitUntil` hook defensively so a missing/renamed binding can never crash
@@ -49,7 +51,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
     // Rate limit - max 5 feldolgozott beküldés / IP / óra
     if (isFormRateLimited(clientAddress, 'consultation')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'rateLimited'),
         context: { endpoint: '/api/consultation', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -87,8 +89,8 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
         );
       }
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.',
-        errors: validation.errors,
+        userMessage: formError(loc, 'validation'),
+        errors: localizeFieldErrors(loc, validation.errors),
         context: { formId: 'consultation' },
       });
     }
@@ -99,7 +101,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.',
+        userMessage: formError(loc, 'captcha'),
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'consultation' },
       });
@@ -129,7 +131,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
       // Keep internal error details server-side only - userMessage is generic
       // so we don't leak stack/host/IP info into the browser response.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: 'Nem sikerült elküldeni a konzultációs kérést. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'submitFailed'),
         context: { formId: 'consultation', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -152,7 +154,7 @@ export const POST: APIRoute = async ({ request, clientAddress, locals }) => {
 
     // Internal error details stay in the log context - do not echo into userMessage.
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a konzultációs űrlap feldolgozása közben. Kérjük, próbáld újra később.',
+      userMessage: formError(loc, 'unexpected'),
       context: { formId: 'consultation', errorMessage: message },
     });
   }

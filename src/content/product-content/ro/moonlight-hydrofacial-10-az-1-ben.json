@@ -5,12 +5,32 @@
   "metaTitle": "Moonlight Hydrofacial | Dispozitiv multifuncțional 10 în 1 pentru tratamente faciale",
   "metaDescription": "Moonlight Hydrofacial 10 în 1: 10 capete de tratament, curățare profundă, hidratare, lifting, regenerarea pielii. Garanție 2 ani.",
   "stats": [
-    { "value": "10", "label": "Capete de tratament", "icon": "layers" },
-    { "value": "15%+", "label": "Creșterea hidratării", "icon": "droplet" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" },
-    { "value": "~40", "unit": "min", "label": "Durata tratamentului", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Capete de tratament",
+      "icon": "layers"
+    },
+    {
+      "value": "15%+",
+      "label": "Creșterea hidratării",
+      "icon": "droplet"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Durata tratamentului",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Moonlight Hydrofacial – îngrijire premium a pielii cu 10 capete de tratament",
     "paragraphs": [
@@ -90,16 +110,56 @@
     "role": "Cofondator Skinlab, director general"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Bubble pen", "description": "Hidrodermabraziune – curățare profundă" },
-    { "icon": "snowflake", "name": "Ice head", "description": "Răcire, reducerea inflamației și iritațiilor" },
-    { "icon": "sound", "name": "Cap ultrasonic", "description": "Livrare ingrediente active și tonifiere (față + zona ochilor)" },
-    { "icon": "sparkle", "name": "Magic ball", "description": "Tratament calmant și stimulant cu microcurenți" },
-    { "icon": "bolt", "name": "Suction pen", "description": "Curățarea porilor prin vacuum" },
-    { "icon": "zap", "name": "Lifting head", "description": "Microstimulare pentru ridicarea contururilor" },
-    { "icon": "layers", "name": "Facial ultrasound", "description": "Tratament cu ultrasunete profunde" },
-    { "icon": "chart", "name": "Cap Line", "description": "RF/EMS pentru îmbunătățirea tonusului" },
-    { "icon": "spray", "name": "Product spray", "description": "Cap de pulverizare pentru distribuția fină a ingredientelor active" },
-    { "icon": "clipboard", "name": "Spatulă UH", "description": "Îndepărtarea celulelor moarte, peeling de curățare" }
+    {
+      "icon": "droplet",
+      "name": "Bubble pen",
+      "description": "Hidrodermabraziune – curățare profundă"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ice head",
+      "description": "Răcire, reducerea inflamației și iritațiilor"
+    },
+    {
+      "icon": "sound",
+      "name": "Cap ultrasonic",
+      "description": "Livrare ingrediente active și tonifiere (față + zona ochilor)"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Magic ball",
+      "description": "Tratament calmant și stimulant cu microcurenți"
+    },
+    {
+      "icon": "bolt",
+      "name": "Suction pen",
+      "description": "Curățarea porilor prin vacuum"
+    },
+    {
+      "icon": "zap",
+      "name": "Lifting head",
+      "description": "Microstimulare pentru ridicarea contururilor"
+    },
+    {
+      "icon": "layers",
+      "name": "Facial ultrasound",
+      "description": "Tratament cu ultrasunete profunde"
+    },
+    {
+      "icon": "chart",
+      "name": "Cap Line",
+      "description": "RF/EMS pentru îmbunătățirea tonusului"
+    },
+    {
+      "icon": "spray",
+      "name": "Product spray",
+      "description": "Cap de pulverizare pentru distribuția fină a ingredientelor active"
+    },
+    {
+      "icon": "clipboard",
+      "name": "Spatulă UH",
+      "description": "Îndepărtarea celulelor moarte, peeling de curățare"
+    }
   ],
   "faq": [
     {
@@ -145,6 +205,6 @@
     "Cap de tratament spatulă ultrasonică",
     "Manual de utilizare",
     "Garanție completă de 2 ani",
-    "Dispozitiv de înlocuire pe perioada reparației"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }

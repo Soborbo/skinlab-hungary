@@ -5,12 +5,32 @@
   "metaTitle": "NightyVibe Diodni laser | 2500W, SAFE-OPTION, inteligentno krmiljenje",
   "metaDescription": "NightyVibe 2500W inteligentni diodni laser s 4 valovnimi dolžinami in tehnologijo SAFE-OPTION. 40M impulzov, digitalni nastavek, strokovno usposabljanje. Certificiran.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Moč", "icon": "zap" },
-    { "value": "4", "label": "Valovne dolžine", "icon": "wave" },
-    { "value": "40M", "label": "Življenjska doba impulzov", "icon": "clock" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Moč",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Življenjska doba impulzov",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NightyVibe – Pametni laser za profesionalce",
     "paragraphs": [
@@ -111,12 +131,36 @@
     "role": "Soustanovitelj Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "zap", "name": "2500W moč", "description": "Ena najvišjih moči na trgu." },
-    { "icon": "sun", "name": "4 valovne dolžine", "description": "755, 808, 940, 1064 nm – za vsak tip kože." },
-    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Preprečuje napačne ali nevarne nastavitve." },
-    { "icon": "chart", "name": "Števec impulzov", "description": "Digitalni nastavek z vgrajenim števcem." },
-    { "icon": "brain", "name": "Inteligentno krmiljenje", "description": "Klinično optimizirane nastavitve." },
-    { "icon": "clipboard", "name": "Poslovni paket", "description": "Marketinški načrt, cenovna strategija, pridobivanje strank." }
+    {
+      "icon": "zap",
+      "name": "2500W moč",
+      "description": "Ena najvišjih moči na trgu."
+    },
+    {
+      "icon": "sun",
+      "name": "4 valovne dolžine",
+      "description": "755, 808, 940, 1064 nm – za vsak tip kože."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Preprečuje napačne ali nevarne nastavitve."
+    },
+    {
+      "icon": "chart",
+      "name": "Števec impulzov",
+      "description": "Digitalni nastavek z vgrajenim števcem."
+    },
+    {
+      "icon": "brain",
+      "name": "Inteligentno krmiljenje",
+      "description": "Klinično optimizirane nastavitve."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Poslovni paket",
+      "description": "Marketinški načrt, cenovna strategija, pridobivanje strank."
+    }
   ],
   "faq": [
     {
@@ -141,7 +185,7 @@
     },
     {
       "question": "Kakšno garancijo dobim?",
-      "answer": "Zagotavljamo 2-letno celovito garancijo. Imamo lastno servisno ekipo in med popravili zagotavljamo nadomestno napravo, da delovanje vašega salona nikoli ni prekinjeno."
+      "answer": "Zagotavljamo 2-letno celovito garancijo. Imamo lastno servisno ekipo. Če bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, glede na zalogo, da delovanje vašega salona ni prekinjeno."
     }
   ],
   "whatsIncluded": [
@@ -153,6 +197,6 @@
     "Navodila za uporabo",
     "Usposabljanje operaterjev (certificiran certifikat)",
     "2 leti celovite garancije",
-    "Nadomestna naprava med popravilom"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

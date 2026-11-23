@@ -78,13 +78,14 @@
     ]
   },
   "specs": {
-    "Senzor slike": "Kamera od 15 MP visoke rezolucije",
-    "Režimi snimanja": "8 režima (prirodno, polarizovano, ukršteno polarizovano, UV, Vudovo svetlo, crvena zona, braon zona, analiza vlažnosti)",
-    "Ekran": "15,6\" tablet osetljiv na dodir",
-    "Povezivost": "WiFi / HDMI / USB",
-    "Izveštaji": "PDF izvoz i deljenje",
-    "Čuvanje podataka": "U klaudu, dostupno sa više uređaja",
-    "Dodatak": "Mikroskop za skalp i lice (uključen)",
+    "Senzor slike": "Kamera visoke rezolucije od 15 MP",
+    "Režimi snimanja": "8 režima (prirodno, polarizovano, unakrsno polarizovano, UV, Vudovo svetlo, crvena zona, braon zona, analiza vlažnosti)",
+    "Ekran": "Tablet sa ekranom osetljivim na dodir od 15,6\"",
+    "Povezivanje": "WiFi / HDMI / USB",
+    "Izveštaj": "PDF izvoz i deljenje",
+    "Skladištenje podataka": "U oblaku, dostupno sa više uređaja",
+    "Dodatak": "Mikroskop za vlasište i lice (u kompletu)",
+    "Softver": "Korisnički interfejs na mađarskom jeziku",
     "AI funkcije": "Ugrađeni AI asistent, predviđanje starenja, planer protokola iz sopstvene ponude salona",
     "Dimenzije": "300 × 260 × 450 mm",
     "Težina": "oko 6,5 kg",
@@ -121,6 +122,18 @@
     "Kabl za napajanje i pribor",
     "Obuka za rukovanje (sa sertifikatom)",
     "2 godine pune garancije",
-    "Program zamenskog uređaja za duže popravke"
-  ]
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "SKINETIC AI+ uređaj za AI dijagnostiku kože sa ekranom osetljivim na dodir od 15,6 inča i softverom na mađarskom jeziku",
+    "skinetic-ai-plus-oldalnezet.jpg": "SKINETIC AI+ analizator kože sa strane, sa zasenčenim prostorom za pregled i tabletom",
+    "skinetic-ai-plus-mikroszkop.png": "SKINETIC AI+ uređaj sa priloženim mikroskopom za vlasište i lice, sa menijem na mađarskom",
+    "skinetic-ai-plus-allvany.jpg": "SKINETIC AI+ sistem za dijagnostiku kože na postolju sa točkićima, sa ručnim mikroskopom",
+    "skinetic-ai-plus-showroom.jpg": "SKINETIC AI+ analizator kože u Skinlab šourumu u Erdu, sa krevetom za tretmane",
+    "skinetic-ai-plus-design-2.jpg": "SKINETIC AI+ uređaj za dijagnostiku kože sa tabletom, ispred zida od ruža",
+    "skinetic-ai-plus-design-3.jpg": "SKINETIC AI+ AI analizator kože sa strane, ispred zida od ruža",
+    "skinetic-ai-plus-design-4.jpg": "SKINETIC AI+ mikroskop za vlasište i lice u ruci, ispred Skinlab logoa",
+    "skinetic-ai-plus-kupola.jpg": "SKINETIC AI+ kupola za snimanje izbliza",
+    "skinetic-ai-plus-tablet.jpg": "SKINETIC AI+ interfejs na mađarskom jeziku na tabletu"
+  }
 }

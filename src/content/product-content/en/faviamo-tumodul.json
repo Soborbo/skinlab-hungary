@@ -4,6 +4,13 @@
   "description": "A precise, stable needle cartridge for professional permanent makeup. Its distinctive heart-shaped design gives it a truly feminine, unique look, while ensuring even pigment delivery and well-controlled work.\n\nAvailable sizes: 0.25 mm 1RL, 0.25 mm 3RL, 0.30 mm 1RL, 0.30 mm 3RL, 0.35 mm 1RL.\n\nEach box contains 20 single-use needle cartridges, individually sterile-packed.",
   "metaTitle": "Faviamo needle cartridge – 20 sterile PMU needles, 1RL and 3RL",
   "metaDescription": "Faviamo needle cartridges for professional PMU: even pigment delivery, feminine heart-shaped design. 20 pcs/box, individually sterile, 0.25–0.35 mm.",
+  "specs": {
+    "Size": "20 pcs/box",
+    "Packaging": "Individually sterile",
+    "Use": "Single use",
+    "Needle size": "0.25 / 0.30 / 0.35 mm",
+    "Type": "1RL, 3RL"
+  },
   "faq": [
     {
       "question": "Which sizes are available?",
@@ -21,5 +28,48 @@
   "whatsIncluded": [
     "20 Faviamo needle cartridges in the selected size",
     "Individually sterile packaging"
-  ]
+  ],
+  "imageAlts": {
+    "faviamo-tumodul-1.jpg": "Faviamo needle cartridge in a purple-pink gift box, with two sterile-packed cartridges",
+    "faviamo-tumodul-design-1.jpg": "Faviamo needle cartridge in a gloved hand, in front of the open gift box, with autumn decoration",
+    "faviamo-tumodul-design-2.jpg": "Faviamo needle cartridge box and sterile-packed cartridge, next to decorative pumpkins",
+    "faviamo-tumodul-design-3.jpg": "Faviamo needle cartridges in the open box, on a colourful fur background"
+  },
+  "variants": {
+    "fav-025-1rl": {
+      "name": "0.25 mm 1RL",
+      "specs": {
+        "Needle size": "0.25 mm",
+        "Type": "1RL"
+      }
+    },
+    "fav-025-3rl": {
+      "name": "0.25 mm 3RL",
+      "specs": {
+        "Needle size": "0.25 mm",
+        "Type": "3RL"
+      }
+    },
+    "fav-030-1rl": {
+      "name": "0.30 mm 1RL",
+      "specs": {
+        "Needle size": "0.30 mm",
+        "Type": "1RL"
+      }
+    },
+    "fav-030-3rl": {
+      "name": "0.30 mm 3RL",
+      "specs": {
+        "Needle size": "0.30 mm",
+        "Type": "3RL"
+      }
+    },
+    "fav-035-1rl": {
+      "name": "0.35 mm 1RL",
+      "specs": {
+        "Needle size": "0.35 mm",
+        "Type": "1RL"
+      }
+    }
+  }
 }

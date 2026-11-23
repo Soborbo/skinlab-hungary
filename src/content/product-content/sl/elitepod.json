@@ -171,7 +171,7 @@
     },
     {
       "question": "Kakšno izobraževanje in garancijo ponujate?",
-      "answer": "V ceno naprave je vključeno celovito osnovno izobraževanje upravljavca, podrobno učno gradivo, protokoli tretmajev in vzorci dokumentacije strank. Po želji je na voljo tudi praktično izobraževanje na živem modelu (+59.990 Ft). Zagotavljamo 2 leti polne garancije in v času popravila zagotovimo nadomestno napravo."
+      "answer": "V ceno naprave je vključeno celovito osnovno izobraževanje upravljavca, podrobno učno gradivo, protokoli tretmajev in vzorci dokumentacije strank. Po želji je na voljo tudi praktično izobraževanje na živem modelu (+59.990 Ft). Zagotavljamo 2 leti polne garancije. Če bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, glede na zalogo."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +187,31 @@
     "Dokumentacija strank in izobraževalna gradiva",
     "Navodila za uporabo v slovenščini",
     "2 leti polne garancije",
-    "Nadomestna naprava med popravilom"
-  ]
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
+  ],
+  "specs": {
+    "Model": "AM183",
+    "Vrsta sistema": "večnamenska, modularna platforma za obnovo kože",
+    "Teža": "~6,4 kg",
+    "Izvedba": "kompaktno, ohišje vrhunske kakovosti",
+    "Napajanje": "DC 24V",
+    "Moč": "12W",
+    "Delovna temperatura": "5 – 30 °C",
+    "Vlažnost": "20% – 80%",
+    "Tehnologije": "Aktivacija kisika (Bohr), TriPolar RF, ultrazvok, vibracija",
+    "Analiza kože": "vgrajena kamera + AI"
+  },
+  "imageAlts": {
+    "elitepod-webshop-1.png": "Naprava za obrazne tretmaje ElitePod System od spredaj, z zaslonom na dotik in dvema ročnikoma",
+    "elitepod-webshop-2.png": "Naprava ElitePod System poševno, na stojalu",
+    "elitepod-webshop-3.png": "Ročnik ElitePod System z zamenljivo kapsulo",
+    "elitepod-webshop-4.png": "Vijoličen ročnik ElitePod System od blizu",
+    "elitepod-1.png": "Naprava ElitePod System z ročniki",
+    "elitepod-2.png": "Analiza kože ElitePod System na zaslonu naprave",
+    "elitepod-design-1.jpg": "Naprava za obrazne tretmaje ElitePod System med belimi orhidejami",
+    "elitepod-design-2.jpg": "Naprava ElitePod System s strani, z orhidejami",
+    "elitepod-design-3.jpg": "ElitePod System na vozičku v Skinlab razstavnem prostoru",
+    "elitepod-design-4.jpg": "Vijoličen ročnik ElitePod System v roki, pred orhidejami",
+    "elitepod-design-5.jpg": "Ročnik s kapsulo ElitePod System v roki, pred orhidejami"
+  }
 }

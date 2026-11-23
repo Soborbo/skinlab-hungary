@@ -9,13 +9,20 @@
 import type { CollectionEntry } from 'astro:content';
 import { getInstallmentInfo, type InstallmentMonths } from './installment';
 import { productPath } from './product-url';
-import { getLocalizedUrl } from '@/i18n/ui';
+import { getLocalizedUrl, t } from '@/i18n/ui';
+import { OPENING_HOURS } from './constants';
 import { showcaseUi } from '@/i18n/showcase';
 import { getImageAlt } from './resolve-image';
 import type { Locale } from '@/i18n/ui';
 import type { CatalogGroupConfig, ShowcaseCategory, ShowcaseConfig } from './types/category-showcase';
 
 type Product = CollectionEntry<'products'>;
+
+/** Nyelvenkénti termékszöveg (a `specs` és a `name` kell belőle). */
+const productContentFiles = import.meta.glob<{ name?: string; specs?: Record<string, string> }>('/src/content/product-content/*/*.json', {
+  eager: true,
+  import: 'default',
+});
 
 /** Termékenkénti szerkesztői szöveg (a mérhető adat a JSON-ból jön). */
 export interface ShowcaseModelCopy {
@@ -55,7 +62,10 @@ export interface ShowcaseModel extends Omit<ShowcaseModelCopy, 'keySpec'> {
   price: number | null;
   /** Kulcsadat (csempe, sorcím): a konfig `keySpec`-je, vagy a watt a specs-ből (pl. „1000W”). */
   keySpec: string | null;
+  /** Magyar specs (a táblázat-konfig ezekre a kulcsokra hivatkozik). */
   specs: Record<string, string>;
+  /** Magyar kulcs → az oldal nyelvén lefordított érték (localizedSpecs); magyarul üres. */
+  specsLocal: Record<string, string>;
   href: string;
   thumb: string;
   images: ShowcaseImage[];
@@ -89,10 +99,33 @@ export function specValue(specs: Record<string, string>, keys: string[]): string
   return null;
 }
 
+/**
+ * A specs lefordított értékei a magyar kulcsokhoz rendelve. Szerződés: a
+ * product-content/<nyelv>/<slug>.json `specs`-e ugyanannyi sort tartalmaz, ugyanabban
+ * a sorrendben, mint a magyar forrás (product-content/hu `specs`, ha van, különben
+ * a termék-JSON `specs`-e), így a párosítás index szerint történik. Ha a nyelvhez
+ * nincs saját fájl, nincs benne specs, vagy eltér a sorszám, üres (magyar érték marad).
+ */
+export function localizedSpecs(locale: Locale, slug: string, productSpecs: Record<string, string>): Record<string, string> {
+  if (locale === 'hu') return {};
+  const local = productContentFiles[`/src/content/product-content/${locale}/${slug}.json`]?.specs;
+  if (!local) return {};
+  const huKeys = Object.keys(productContentFiles[`/src/content/product-content/hu/${slug}.json`]?.specs ?? productSpecs);
+  const values = Object.values(local);
+  if (values.length !== huKeys.length) return {};
+  return Object.fromEntries(huKeys.map((key, i) => [key, values[i]]));
+}
+
 function wattFromSpecs(specs: Record<string, string>): string | null {
   const raw = specValue(specs, ['Teljesítmény']);
   const match = raw?.match(/\d[\d\s.]*\s?W/);
   return match ? match[0].replace(/\s/g, '') : null;
+}
+
+/** A termék neve a nyelv product-content-jéből; ha nincs, a termék JSON (HU) neve. */
+function localizedName(locale: Locale, slug: string, fallback: string): string {
+  if (locale === 'hu') return fallback;
+  return productContentFiles[`/src/content/product-content/${locale}/${slug}.json`]?.name || fallback;
 }
 
 /** A termék nevének első szava (márkanév), pl. „EMPIRE 4WAVE 1200W …” → „EMPIRE”. */
@@ -105,16 +138,16 @@ function shortName(product: Product): string {
  * (cover), utánuk a fehér hátterű főkép és packshotok (contain). Így a nagy kép
  * ugyanaz, mint a termékoldal hero-képe (ProductLayout: designImages[0] ?? image).
  * A kategória-hero csempéi ettől függetlenül a fehér hátterű `image`-et kapják.
- * Alt a képmanifestből.
+ * Alt: HU a képmanifestből, más nyelven a product-content imageAlts-ból.
  */
-function buildImages(product: Product, fallbackAlt: (name: string, n: number) => string): ShowcaseImage[] {
+function buildImages(product: Product, fallbackAlt: (name: string, n: number) => string, locale: Locale): ShowcaseImage[] {
   const { data } = product;
   const seen = new Set<string>();
   const out: ShowcaseImage[] = [];
   const push = (src: string, fit: ShowcaseImage['fit'], index: number) => {
     if (!src || seen.has(src)) return;
     seen.add(src);
-    out.push({ src, fit, alt: getImageAlt(src, fallbackAlt(shortName(product), index)) });
+    out.push({ src, fit, alt: getImageAlt(src, fallbackAlt(shortName(product), index), locale) });
   };
   (data.designImages ?? []).forEach((src) => push(src, 'cover', out.length + 1));
   [data.image, ...(data.images ?? [])].forEach((src) => push(src, 'contain', out.length + 1));
@@ -146,14 +179,15 @@ export function buildShowcaseModels(
         ...copy[slug],
         slug,
         name: copy[slug].name ?? shortName(product),
-        fullName: data.name,
+        fullName: localizedName(locale, slug, data.name),
         sku: data.sku || product.id,
         price: data.price ?? null,
         keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
         specs,
+        specsLocal: localizedSpecs(locale, slug, specs),
         href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
         thumb: thumbs[slug] ?? data.image,
-        images: buildImages(product, ui.gallery.image),
+        images: buildImages(product, ui.gallery.image, locale),
         installment: longest
           ? { months: longest, monthly: info.monthly[longest], downPayment: info.downPayment }
           : null,
@@ -171,8 +205,16 @@ export function compareValue(model: ShowcaseModel, source: CompareSource, askPri
     case 'copy':
       return model.compare?.[source.key] ?? '-';
     case 'spec': {
-      const raw = specValue(model.specs, source.keys) ?? '-';
-      return source.strip ? raw.replace(source.strip, '').trim() : raw;
+      const key = source.keys.find((k) => model.specs[k]);
+      if (!key) return '-';
+      const raw = model.specs[key];
+      const stripped = source.strip ? raw.replace(source.strip, '').trim() : raw;
+      const local = model.specsLocal[key];
+      if (!local) return stripped;
+      // A `strip` minta magyar; ha a magyar értékről egy záró zárójeles részt vágott le
+      // (pl. „(kimeneti)”), a fordításról is a záró zárójeles rész megy le.
+      // shortcut: csak záró zárójelre működik; más mintánál nyelvenkénti strip kell.
+      return stripped !== raw && raw.startsWith(stripped) ? local.replace(/\s*\([^)]*\)\s*$/, '').trim() : local;
     }
   }
 }
@@ -180,7 +222,7 @@ export function compareValue(model: ShowcaseModel, source: CompareSource, askPri
 /**
  * Nyitvatartás egy sorban az OPENING_HOURS-ból, az egymást követő azonos
  * napokat összevonva: „H–P 10:00–18:00 · Szo 10:00–14:00 · V zárva”.
- * `days`: magyar napnév → rövid nap az oldal nyelvén; `closed`: „zárva”.
+ * `days`: napkulcs (mon…sun) → rövid nap az oldal nyelvén; `closed`: „zárva”.
  */
 export function compactOpeningHours(
   rows: { day: string; hours: string }[],
@@ -197,10 +239,16 @@ export function compactOpeningHours(
   return groups
     .map((g) => {
       const span = g.from === g.to ? g.from : `${g.from}–${g.to}`;
-      const hours = g.hours.toLowerCase() === 'zárva' ? closed : g.hours;
+      const hours = g.hours === 'closed' ? closed : g.hours;
       return `${span} ${hours}`;
     })
     .join(' · ');
+}
+
+/** Az OPENING_HOURS egy sorban, az i18n openingHours.* kulcsaival (lábléc, főoldali záró blokk). */
+export function openingHoursLine(locale: Locale): string {
+  const days = Object.fromEntries(OPENING_HOURS.map((r) => [r.day, t(locale, `openingHours.daysShort.${r.day}`)]));
+  return compactOpeningHours(OPENING_HOURS, days, t(locale, 'openingHours.closed').toLowerCase());
 }
 
 /** Két párhuzamos tömb összefésülése; eltérő hossznál build-hiba. */
@@ -321,7 +369,7 @@ export function buildCatalogGroups(
     const slug = data.slug || product.id;
     return {
       slug,
-      name: data.name,
+      name: localizedName(locale, slug, data.name),
       sku: data.sku || product.id,
       price: data.price ?? null,
       href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),

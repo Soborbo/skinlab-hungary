@@ -5,12 +5,33 @@
   "metaTitle": "NovaLite ND:YAG laser | Tetovaže, pigmentacije in carbon peeling",
   "metaDescription": "NovaLite Q-switched ND:YAG laser: kompaktna, prenosna naprava s 6 tretmanskimi glavami, 3500 mJ energije. Odstranjevanje tetovaž, tretma pigmentacij, carbon peeling. CE certifikat, 2 leti garancije.",
   "stats": [
-    { "value": "6", "label": "Tretmanske glave", "icon": "layers" },
-    { "value": "3500", "unit": "mJ", "label": "Maks. energija", "icon": "zap" },
-    { "value": "2500", "unit": "W", "label": "Moč", "icon": "wave" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Tretmanske glave",
+      "icon": "layers"
+    },
+    {
+      "value": "3500",
+      "unit": "mJ",
+      "label": "Maks. energija",
+      "icon": "zap"
+    },
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Moč",
+      "icon": "wave"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NovaLite – Kompaktna moč, premium kakovost",
     "paragraphs": [
@@ -101,12 +122,36 @@
     "role": "Soustanovitelj Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranjevanje tetovaž", "description": "Učinkovito odstranjevanje črnih in barvnih tetovaž na valovnih dolžinah 1064 nm in 532 nm" },
-    { "icon": "sun", "name": "Tretma rdečih pigmentov", "description": "Odstranjevanje rdečkastih, oranžnih in toplo rjavih pigmentov na valovni dolžini 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Globinsko čiščenje, stiskanje por in pomlajevanje kože s tretmansko glavo 1320 nm" },
-    { "icon": "droplet", "name": "Tretma pigmentnih peg", "description": "Tretma starostnih peg, sončnih peg, peg, jetrnih peg in hiperpigmentacije" },
-    { "icon": "eye", "name": "Odstranjevanje trajne ličke", "description": "Korekcija trajne ličke obrvi in ustnic z glavami No Scar" },
-    { "icon": "bolt", "name": "Anti-aging tretma", "description": "Zmanjševanje gub, utrditev kože in stimulacija kolagena s tretmansko glavo 755 nm" }
+    {
+      "icon": "zap",
+      "name": "Odstranjevanje tetovaž",
+      "description": "Učinkovito odstranjevanje črnih in barvnih tetovaž na valovnih dolžinah 1064 nm in 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Tretma rdečih pigmentov",
+      "description": "Odstranjevanje rdečkastih, oranžnih in toplo rjavih pigmentov na valovni dolžini 532 nm"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Globinsko čiščenje, stiskanje por in pomlajevanje kože s tretmansko glavo 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Tretma pigmentnih peg",
+      "description": "Tretma starostnih peg, sončnih peg, peg, jetrnih peg in hiperpigmentacije"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranjevanje trajne ličke",
+      "description": "Korekcija trajne ličke obrvi in ustnic z glavami No Scar"
+    },
+    {
+      "icon": "bolt",
+      "name": "Anti-aging tretma",
+      "description": "Zmanjševanje gub, utrditev kože in stimulacija kolagena s tretmansko glavo 755 nm"
+    }
   ],
   "faq": [
     {
@@ -150,6 +195,6 @@
     "Uporabniški priročnik",
     "Usposabljanje operaterja (FAR certifikat)",
     "2 leti polne garancije",
-    "Nadomestna naprava med popravilom"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

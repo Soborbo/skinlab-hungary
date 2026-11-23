@@ -9,6 +9,8 @@
  */
 import type { ImageMetadata } from 'astro';
 import manifest from '@/lib/image-manifest.json';
+import { getImageAlt } from '@/lib/resolve-image';
+import { getLocaleFromUrl } from '@/i18n/ui';
 
 interface ManifestEntry {
   seoSlug: string;
@@ -84,8 +86,8 @@ const manifestData = manifest as Record<string, ManifestEntry>;
 const key = getManifestKey(src);
 const entry = key ? manifestData[key] : null;
 
-// Determine alt text: prop > manifest > empty
-const altText = altProp || entry?.alt || '';
+// Determine alt text: prop > manifest (HU) / product-content imageAlts (other locales) > empty
+const altText = altProp || (key ? getImageAlt(key, '', getLocaleFromUrl(Astro.url)) : '');
 
 // Get applicable widths
 const availableWidths = entry?.widths || [];

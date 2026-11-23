@@ -1,0 +1,203 @@
+{
+  "name": "EMPIRE 4WAVE 1200W diode laser",
+  "shortDescription": "Intelligent professional diode laser with 4 wavelengths, 1200W output power, micro-camera hair and skin diagnostics and digital client records.",
+  "description": "EMPIRE 4WAVE is a new-generation professional diode laser hair removal system: 1200W output power, four wavelengths and intelligent treatment support in a single device.",
+  "metaTitle": "EMPIRE 4WAVE 1200W diode laser | Micro-camera diagnostics, digital client records",
+  "metaDescription": "EMPIRE 4WAVE – 1200W professional diode laser with 4 wavelengths (755/808/940/1064 nm), micro-camera hair and skin diagnostics, digital client records and 3 treatment modes.",
+  "stats": [
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Output power",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Wavelengths",
+      "icon": "wave"
+    },
+    {
+      "value": "3",
+      "label": "Treatment modes",
+      "icon": "layers"
+    },
+    {
+      "value": "Android 11",
+      "label": "Smart control",
+      "icon": "brain"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 12000
+  },
+  "videoDescription": {
+    "headline": "EMPIRE 4WAVE – not simply more powerful, but smarter",
+    "paragraphs": [
+      "EMPIRE 4WAVE combines high 1200W output power, the combined use of four wavelengths and modern treatment-support functions in a single device.",
+      "The Android-based interface keeps digital client records, treatment history and before–after photos in one profile, while the micro-camera diagnostic head provides magnified hair and skin analysis – and the system recommends treatment parameters based on these."
+    ]
+  },
+  "featureRows": {
+    "headline": "Why choose EMPIRE?",
+    "subtitle": "1200W power, 4 wavelengths, micro-camera diagnostics and digital client records – a smarter system for professional hair removal.",
+    "features": [
+      {
+        "title": "4WAVE technology – four wavelengths in one device",
+        "description": "755 nm supports the treatment of finer hairs richer in melanin, 808 nm is the classic, versatile wavelength of diode laser hair removal, 940 nm further broadens the treatment spectrum, and 1064 nm offers deeper penetration – an important element of a treatment strategy tailored to skin type. The system's scope of application is Fitzpatrick skin types I–VI.",
+        "image": "@assets/products/empire-1.png"
+      },
+      {
+        "title": "Micro-camera hair and skin diagnostics",
+        "description": "The separate diagnostic head, with its own LED illumination, provides magnified hair and skin analysis and digital photo capture. You don't have to determine the treatment parameters from memory: the system recommends settings based on skin type, body area, mode and treatment area.",
+        "image": "@assets/products/empire-4.png",
+        "highlight": "You see what you are treating – and you document it too."
+      },
+      {
+        "title": "Digital client records",
+        "description": "Treatment history and before–after photos stored in one client profile, directly on the device. Every time, you can see which parameters you worked with last time, and the client's results can be tracked.",
+        "image": "@assets/products/empire-kijelzo.jpg"
+      },
+      {
+        "title": "3 professional treatment modes",
+        "description": "<strong>SHR STACK</strong> (4–45 J, 2–5 pulses): stacked pulses determined automatically based on the client's sex, body area and skin type. <strong>SHR</strong> (4–100 J, 1–20 Hz): optimised pulse energy, frequency and total energy based on the treatment area. <strong>HR</strong> (4–100 J, 1–20 Hz): traditional spot-by-spot treatment.",
+        "image": "@assets/products/empire-3.png"
+      },
+      {
+        "title": "Comprehensive cooling and safety system",
+        "description": "Water and air cooling, semiconductor skin cooling with a sapphire contact surface. Key start, emergency stop, interlock, protection against cooling failure, overheating and low water flow, plus overload and short-circuit protection. The device continuously monitors water temperature and flow, and automatically stops laser emission in the event of an abnormality.",
+        "image": "@assets/products/empire-2.png",
+        "highlight": "An automatic self-check runs at power-on."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Operator training – part of the purchase",
+    "badge": "With official certificate",
+    "intro": "The price of the EMPIRE device includes comprehensive operator training. You will learn how to use the three treatment modes, the micro-camera diagnostics and the digital client records.",
+    "items": [
+      "The device's operating principle and safety system",
+      "The Android-based interface and digital client records",
+      "Micro-camera hair and skin analysis, photo documentation",
+      "SHR STACK, SHR and HR treatment modes",
+      "Parameter settings by skin type and treatment area",
+      "Maintenance: cooling water and filter replacement, cleaning"
+    ],
+    "closingParagraphs": [
+      "Live model practical training with your own model +59.990 Ft – particularly recommended for those who want to master the treatment protocols in a real treatment situation.",
+      "The basic operator training is free with the machine purchase, and we issue a FAR certificate for successful completion."
+    ],
+    "price": "59.990 Ft",
+    "priceNote": "live model training (optional)",
+    "freeText": "Basic training FREE with machine purchase!",
+    "duration": "One-day intensive training",
+    "ctaText": "I'm interested in the training"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "1200W power",
+      "description": "High output power for fast treatments."
+    },
+    {
+      "icon": "sun",
+      "name": "4 wavelengths",
+      "description": "755, 808, 940, 1064 nm – Fitzpatrick I–VI."
+    },
+    {
+      "icon": "layers",
+      "name": "3 treatment modes",
+      "description": "SHR STACK, SHR and HR with parameter recommendations."
+    },
+    {
+      "icon": "chart",
+      "name": "Micro-camera diagnostics",
+      "description": "Magnified hair and skin analysis, photo capture."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Digital client records",
+      "description": "History and before–after photos in one profile."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Comprehensive cooling",
+      "description": "Water and air cooling, semiconductor skin cooling, sapphire."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How is EMPIRE different from our other diode lasers?",
+      "answer": "Besides power, EMPIRE is built around treatment support: micro-camera hair and skin diagnostics, digital client records with before–after photos, and parameters recommended based on skin type, body area, mode and treatment area – all on an Android-based interface."
+    },
+    {
+      "question": "What can the micro-camera diagnostic head do?",
+      "answer": "With its own LED illumination it performs magnified hair and skin analysis and captures photos digitally. The images are saved to the client's digital record, so treatments can be documented before and after."
+    },
+    {
+      "question": "What is the difference between SHR STACK, SHR and HR modes?",
+      "answer": "SHR STACK (4–45 J, 2–5 pulses): stacked pulses, determined automatically based on the client's sex, body area and skin type. SHR (4–100 J, 1–20 Hz): optimised individual pulse energy and frequency based on the treatment area. HR (4–100 J, 1–20 Hz): traditional spot-by-spot treatment."
+    },
+    {
+      "question": "Which skin types can it be used on?",
+      "answer": "The system's scope of application is Fitzpatrick skin types I–VI. Parameters must always be determined based on the current skin condition and the treatment area – the parameter recommendations and the operator training both help with this."
+    },
+    {
+      "question": "How many spot sizes does it work with?",
+      "answer": "3 interchangeable spot sizes. The treatment area can be set to 25, 50, 100 or 300 cm², and the laser pulse can be fired with the handpiece switch or a foot switch."
+    },
+    {
+      "question": "What maintenance does it require?",
+      "answer": "According to the manufacturer's recommendation: energy calibration every 12 months, cooling water and filter replacement every 2–3 months, cleaning the device weekly, cleaning the light-emitting surface before and after every treatment, and software updates as needed."
+    },
+    {
+      "question": "What conditions are required for operation?",
+      "answer": "A temperature of 15–30 °C, a maximum relative humidity of 80%, an air pressure of 860–1060 hPa, and at least 60 cm of free space around the device."
+    },
+    {
+      "question": "Can EMPIRE be bought in instalments?",
+      "answer": "Yes. With a 50% deposit, and the remaining amount spread over 3, 6 or 12 months – we agree the exact terms during a consultation. You can use the calculator on this page to work out the monthly instalment in advance."
+    }
+  ],
+  "whatsIncluded": [
+    "EMPIRE 4WAVE 1200W diode laser device",
+    "Diode laser handpiece with 3 interchangeable spot sizes",
+    "Micro-camera diagnostic head",
+    "Foot switch",
+    "Operator training (FAR certificate)",
+    "2-year comprehensive warranty",
+    "Replacement device for repairs over 10 business days (subject to stock availability)"
+  ],
+  "specs": {
+    "Laser type": "Professional semiconductor diode laser",
+    "Wavelength": "755 / 808 / 940 / 1064 nm (4WAVE)",
+    "Power": "1200W (output)",
+    "Spot size": "3 interchangeable spot sizes",
+    "Energy": "4–100 J, in 1 J steps",
+    "Pulse width": "5–105 ms",
+    "Frequency": "1–20 Hz",
+    "Treatment modes": "SHR STACK / SHR / HR",
+    "Treatment area": "25 / 50 / 100 / 300 cm²",
+    "Display": "Android 11 touchscreen, 1920 × 1080 px",
+    "Diagnostics": "Micro-camera hair and skin diagnostics",
+    "Management system": "Digital client records, before–after photos, parameter recommendations",
+    "Cooling system": "Water and air cooling",
+    "Skin cooling": "Semiconductor contact cooling, sapphire contact surface",
+    "Water tank": "2 litres",
+    "Scope of application": "Fitzpatrick skin types I–VI",
+    "Safety class": "Class I, applied part: Type B"
+  },
+  "imageAlts": {
+    "empire-1.png": "EMPIRE 4WAVE diode laser front view, with the touchscreen showing the treatment modes",
+    "empire-2.png": "EMPIRE diode laser handpiece holder with the laser and micro-camera handpieces",
+    "empire-3.png": "EMPIRE diode laser handpiece with digital display and pulse counter",
+    "empire-4.png": "EMPIRE micro-camera diagnostic head for hair and skin analysis",
+    "empire-design-1.jpg": "EMPIRE 4WAVE diode laser with autumn decoration",
+    "empire-design-2.jpg": "EMPIRE 4WAVE diode laser touchscreen from the side",
+    "empire-design-3.jpg": "EMPIRE diode laser handpieces in the holder, in an autumn setting",
+    "empire-design-4.jpg": "EMPIRE diode laser handpiece in hand, among autumn leaves",
+    "empire-design-5.jpg": "EMPIRE micro-camera diagnostic head in hand, among autumn leaves",
+    "empire-kijelzo.jpg": "EMPIRE diode laser touchscreen interface with client name and treatment modes",
+    "empire-oktatas-1.jpg": "EMPIRE operator training with the handpiece and the touchscreen",
+    "empire-oktatas-2.jpg": "EMPIRE treatment manual and certificate after the operator training"
+  }
+}

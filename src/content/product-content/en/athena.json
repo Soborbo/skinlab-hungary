@@ -4,6 +4,20 @@
   "description": "\"The strength born of knowledge.\" ATHENA was not the goddess of brute force, but the symbol of strategy, precision and conscious operation. The ATHENA diode laser represents this: stable operation, predictable results, control in every situation. Has a goddess ever held your hand during work? Now you may have the chance.",
   "metaTitle": "ATHENA 1000W diode laser | Smart software, stable precision",
   "metaDescription": "ATHENA – 1000W professional diode laser with 4 wavelengths and a smart treatment system. Stable, predictable, cost-efficient.",
+  "specs": {
+    "Laser type": "Diode laser",
+    "Wavelength": "755 / 808 / 940 / 1064 nm",
+    "Spot size": "12 × 20 mm (fixed)",
+    "Power": "1000W (output)",
+    "Treatment head": "Large, ergonomic, with sapphire contact cooling",
+    "Cooling system": "Multi-stage TEC + water + air",
+    "Skin cooling": "Sapphire contact cooling",
+    "Display": "Large colour touchscreen",
+    "Operating system": "Smart software - automatic skin and hair type detection",
+    "Lighting": "Pink LED ambient lighting",
+    "Power supply": "110V / 220V",
+    "Delivery time": "2-6 weeks"
+  },
   "stats": [
     {
       "value": "1000",
@@ -46,7 +60,8 @@
     "afterFeatures": {
       "headline": "Want to see ATHENA in person?",
       "subtitle": "Come to our showroom in Érd and try it yourself!",
-      "buttonLabel": "Book an appointment"
+      "buttonLabel": "Book an appointment",
+      "showroomDriveFolderId": "1HVYoNvH5tJBN8ZPWqTuXNETFw0UU9QfF"
     },
     "final": {
       "headline": "Interested in the ATHENA 1000W diode laser?",
@@ -180,6 +195,10 @@
       "answer": "A real sapphire crystal in the handpiece cools the skin surface directly during treatment, backed by three-stage cooling: TEC semiconductor, water and air. This reduces the sensation of heat for the client, makes energy delivery more even, and keeps the device stable through longer treatment series – fewer forced breaks, faster work."
     },
     {
+      "question": "Can I buy the ATHENA in instalments?",
+      "answer": "Yes. You pay a 50% deposit at purchase and can spread the remaining amount over 3 or 6 months – these two terms are available for devices priced between 1 and 3 million forints. If you buy several devices at once, a longer term may also be possible. You can calculate the exact deposit and monthly instalment with the calculator on the product page."
+    },
+    {
       "question": "How long until the device arrives, and when can I start working with it?",
       "answer": "Expected delivery time is 2–6 weeks. Operator training is included in the price of the device and is tied to the handover: after the one-day intensive course we issue a FAR certificate. Training is therefore part of the process, not a separate step you have to arrange."
     },
@@ -199,6 +218,23 @@
     "Hungarian-language user manual",
     "Operator training (FAR certificate)",
     "2-year comprehensive warranty",
-    "Replacement machine during repair"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "ownerStory": {
+    "ownerName": "Mila Derma",
+    "intro": "At the Mila Derma studio, our work didn't end with delivery: we assembled the device on site and held the operator training there too – from parameter settings to maintenance. The photos below were taken at this handover."
+  },
+  "imageAlts": {
+    "athena-1.png": "ATHENA 1000W diode laser device with the treatment parameters on the display",
+    "athena-2.png": "ATHENA diode laser in side view, with handpiece holder",
+    "athena-3.png": "ATHENA diode laser handpiece in hand, with its own display",
+    "athena-4.png": "ATHENA diode laser touchscreen with the treatment menu",
+    "athena-5.png": "ATHENA diode laser handpiece with the sapphire contact-cooled treatment window",
+    "athena-6.png": "ATHENA 1000W diode laser device with the body-area treatment menu",
+    "athena-design-1.jpg": "ATHENA 1000W diode laser device in a salon setting",
+    "athena-design-2.jpg": "ATHENA diode laser handpiece showing the set frequency and energy level",
+    "athena-design-3.jpg": "ATHENA diode laser handpiece close up, with gold sapphire window",
+    "athena-oktatas-1.jpg": "ATHENA diode laser operator training with the Skinlab trainer",
+    "athena-oktatas-2.jpg": "ATHENA diode laser handpiece demonstration during training"
+  }
 }

@@ -1,13 +1,91 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Disponibil în curând.",
-  "description": "Descrierea detaliată a Frame va fi disponibilă în curând.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Disponibil în curând. Pentru informații detaliate, solicitați o consultație!",
+  "name": "Aparat laser FRAME ND:YAG",
+  "shortDescription": "Laser ND:YAG inteligent cu Android și ecran tactil de 13.3\". Răcire integrată în capul de tratament, 4 lungimi de undă, îndepărtarea tatuajelor și a pigmentării.",
+  "description": "Aparat laser inteligent Q-switched Nd:YAG controlat prin Android, pentru îndepărtarea tatuajelor, tratamentul pigmentării, carbon peeling și întinerirea pielii, cu răcire integrată în capul de tratament și ecran tactil color de 13,3\".",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Densitate max. de energie",
+      "icon": "zap"
+    },
+    {
+      "value": "13,3\"",
+      "label": "Ecran tactil",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Frecvența impulsurilor",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – laser ND:YAG inteligent cu Android pentru saloanele profesionale",
+    "paragraphs": [
+      "FRAME este un aparat laser inteligent Q-switched Nd:YAG controlat prin Android, care oferă o soluție de top în îndepărtarea tatuajelor, tratamentul pigmentării și întinerirea pielii. Sistemul de operare Android asigură o utilizare ușoară și setări personalizabile.",
+      "Sistemul unic de răcire integrat în capul de tratament răcește pielea instantaneu, reducând la minimum durerea și riscul de afectare a pielii – pentru confortul maxim al clientului.",
+      "Datorită celor patru lungimi de undă, este extrem de versatil: 1064 nm și 532 nm pentru toate culorile de tatuaj, 755 nm pentru pete pigmentare, pistrui și pete solare, iar 1320 nm pentru carbon peeling (curățarea profundă a pielii, strângerea porilor).",
+      "Impulsurile laser de mare energie (10–2000 mJ/cm²) și frecvența de 1–10 Hz oferă rezultate spectaculoase și rapide, iar ecranul tactil color de 13,3\" face tratamentul simplu și clar."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Pentru toate culorile – la 1064 nm și 532 nm."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Tratamentul pigmentării",
+      "description": "Pete pigmentare, pistrui, pete solare – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon peeling",
+      "description": "Curățarea profundă a pielii și strângerea porilor – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Control prin Android",
+      "description": "Software inteligent, setări personalizabile."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Răcire integrată",
+      "description": "Răcirea capului de tratament pentru un tratament confortabil, cu durere redusă."
+    },
+    {
+      "icon": "chart",
+      "name": "Performanță profesională",
+      "description": "10–2000 mJ/cm², frecvența impulsurilor 1–10 Hz."
+    }
+  ],
+  "specs": {
+    "Tip laser": "Q-switched Nd:YAG",
+    "Lungimi de undă": "1064 nm, 532 nm, 755 nm, 1320 nm (carbon peeling)",
+    "Densitate de energie": "10–2000 mJ/cm²",
+    "Frecvența impulsurilor": "1–10 Hz",
+    "Dimensiune spot": "2–6 mm (reglabilă)",
+    "Afișaj": "Ecran tactil color de 13,3\"",
+    "Răcire": "Răcire integrată în capul de tratament, putere de răcire 15 W",
+    "Control": "Sistem de operare Android"
+  },
   "cta": {
+    "afterVideo": {
+      "text": "Aveți întrebări despre laserul FRAME ND:YAG? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
     "final": {
-      "headline": "Vă interesează Frame?",
-      "subtitle": "Solicitați o consultație gratuită și vă vom anunța imediat ce devine disponibil!",
+      "headline": "Vă interesează laserul FRAME ND:YAG?",
+      "subtitle": "Solicitați o consultație gratuită sau o demonstrație în showroom și vă ajutăm cu setările potrivite salonului dumneavoastră.",
       "buttonLabel": "Solicitați o consultație"
     }
   }

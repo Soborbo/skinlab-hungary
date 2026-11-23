@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formular-tip de retragere / reziliere – Skinlab</title>
+  <meta name="description" content="Formular-tip de retragere/reziliere conform Hotărârii Guvernului Ungariei nr. 45/2014 (II.26.) – Skinlab Beauty Equipment Kft." />
+  <style>
+    :root { --accent: #ce2252; --ink: #222; --muted: #666; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      background: #fff;
+    }
+    .toolbar {
+      display: flex; justify-content: flex-end; gap: 12px; margin-bottom: 24px;
+    }
+    .btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px; font-weight: 600;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; padding: 10px 18px; cursor: pointer;
+      text-decoration: none; display: inline-block;
+    }
+    .btn:hover { background: #a01c42; }
+    h1 { font-size: 22px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+    .note { font-size: 14px; color: var(--muted); font-style: italic; margin: 0 0 28px; }
+    .addressee { background: #faf3f6; border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin-bottom: 28px; }
+    .addressee strong { color: var(--accent); }
+    .field { margin: 18px 0; }
+    .field .label { font-weight: bold; display: block; margin-bottom: 6px; }
+    .line { border-bottom: 1px solid #999; min-height: 1.6em; display: block; }
+    .small { font-size: 13px; color: var(--muted); }
+    footer { margin-top: 40px; font-size: 12px; color: var(--muted); border-top: 1px solid #eee; padding-top: 16px; }
+    @media print {
+      .toolbar { display: none; }
+      body { padding: 0; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">Tipărire / salvare ca PDF</button>
+  </div>
+
+  <h1>Formular-tip de retragere / reziliere</h1>
+  <p class="note">Aceasta este o traducere; versiunea în limba maghiară este cea obligatorie din punct de vedere juridic.</p>
+  <p class="note">
+    (Completați și returnați acest formular furnizorului doar dacă doriți să vă retrageți din contract / să îl reziliați. Conform Anexei 2 la Hotărârea Guvernului Ungariei nr. 45/2014 (II.26.).)
+  </p>
+
+  <div class="addressee">
+    <strong>Către:</strong><br />
+    Skinlab Beauty Equipment Kft.<br />
+    2030 Érd, Bajcsy-Zsilinszky út 156.<br />
+    E-mail: hello@skinlabhungary.hu<br />
+    Telefon: +36 1 300 9280
+  </div>
+
+  <p>
+    Prin prezenta vă informez/informăm că îmi/ne exercit/exercităm dreptul de retragere / reziliere din contractul de vânzare a următoarelor produse sau de prestare a următorului serviciu:
+  </p>
+
+  <div class="field">
+    <span class="label">Denumirea produsului (produselor) / serviciului comandat:</span>
+    <span class="line">&nbsp;</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Numărul comenzii (dacă este cunoscut):</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Data încheierii contractului / a primirii produsului:</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Numele consumatorului (consumatorilor):</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Adresa consumatorului (consumatorilor):</span>
+    <span class="line">&nbsp;</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Numărul de cont pentru rambursare (opțional):</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Locul și data:</span>
+    <span class="line">&nbsp;</span>
+  </div>
+
+  <div class="field">
+    <span class="label">Semnătura consumatorului (consumatorilor) (doar în cazul formularului pe hârtie):</span>
+    <span class="line" style="min-height:2.4em;">&nbsp;</span>
+  </div>
+
+  <p class="small">
+    Dreptul de retragere poate fi exercitat în termen de 14 zile de la primire, fără a indica motivul. Formularul poate fi trimis și prin e-mail la adresa hello@skinlabhungary.hu. Informații detaliate despre dreptul de retragere găsiți pe paginile Skinlab Retragere și Termeni și condiții.
+  </p>
+
+  <footer>
+    Skinlab Beauty Equipment Kft. · Nr. de înregistrare: 13-09-2420 · Cod fiscal: 32871580-2-13 ·
+    2030 Érd, Bajcsy-Zsilinszky út 156. · hello@skinlabhungary.hu
+  </footer>
+</body>
+</html>

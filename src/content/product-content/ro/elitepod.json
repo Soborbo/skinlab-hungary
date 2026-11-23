@@ -171,7 +171,7 @@
     },
     {
       "question": "Ce instruire și garanție oferiți?",
-      "answer": "În prețul aparatului este inclusă instruirea de bază completă a operatorului, materialul de curs detaliat, protocoalele de tratament și modelele de documentație pentru clienți. La cerere este disponibilă și instruirea practică pe model viu (+59.990 Ft). Oferim 2 ani garanție completă și asigurăm un aparat de schimb pe perioada reparației."
+      "answer": "În prețul aparatului este inclusă instruirea de bază completă a operatorului, materialul de curs detaliat, protocoalele de tratament și modelele de documentație pentru clienți. La cerere este disponibilă și instruirea practică pe model viu (+59.990 Ft). Oferim 2 ani garanție completă. Dacă reparația durează probabil mai mult de 10 zile lucrătoare, asigurăm un aparat de schimb pe durata reparației, în funcție de stoc."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +187,31 @@
     "Documentație pentru clienți și materiale educative",
     "Manual de utilizare în limba română",
     "2 ani garanție completă",
-    "Aparat de schimb pe perioada reparației"
-  ]
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
+  ],
+  "specs": {
+    "Model": "AM183",
+    "Tip sistem": "platformă multifuncțională, modulară de reînnoire a pielii",
+    "Greutate": "~6,4 kg",
+    "Design": "compact, carcasă de calitate premium",
+    "Alimentare": "DC 24V",
+    "Putere": "12W",
+    "Temperatură de funcționare": "5 – 30 °C",
+    "Umiditate": "20% – 80%",
+    "Tehnologii": "Activare cu oxigen (Bohr), RF TriPolar, ultrasunete, vibrație",
+    "Analiza pielii": "cameră integrată + AI"
+  },
+  "imageAlts": {
+    "elitepod-webshop-1.png": "Aparatul de tratament facial ElitePod System din față, cu ecran tactil și două capete de tratament",
+    "elitepod-webshop-2.png": "Aparatul ElitePod System din unghi, pe suport",
+    "elitepod-webshop-3.png": "Cap de tratament ElitePod System cu capsulă interschimbabilă",
+    "elitepod-webshop-4.png": "Capul de tratament mov ElitePod System de aproape",
+    "elitepod-1.png": "Aparatul ElitePod System cu capetele de tratament",
+    "elitepod-2.png": "Analiza pielii ElitePod System pe ecranul aparatului",
+    "elitepod-design-1.jpg": "Aparatul de tratament facial ElitePod System printre orhidee albe",
+    "elitepod-design-2.jpg": "Aparatul ElitePod System din profil, cu orhidee",
+    "elitepod-design-3.jpg": "ElitePod System pe cărucior în showroomul Skinlab",
+    "elitepod-design-4.jpg": "Capul de tratament mov ElitePod System în mână, în fața orhideelor",
+    "elitepod-design-5.jpg": "Capul de tratament cu capsulă ElitePod System în mână, în fața orhideelor"
+  }
 }

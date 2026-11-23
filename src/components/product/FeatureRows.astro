@@ -96,7 +96,7 @@ const { locale, content, id = 'funkciok', tone = 'white' } = Astro.props;
             ) : feature.image && hasImage(feature.image) ? (
               <OptimizedPicture
                 src={feature.image}
-                alt={getImageAlt(feature.image, feature.title)}
+                alt={getImageAlt(feature.image, feature.title, locale)}
                 widths={[400, 600, 800]}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 class="w-full aspect-[4/3] object-contain max-sm:aspect-auto max-sm:h-auto max-sm:max-h-[150vw]"

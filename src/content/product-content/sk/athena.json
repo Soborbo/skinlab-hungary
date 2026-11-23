@@ -4,6 +4,20 @@
   "description": "„Sila zrodená z poznania.“ ATHENA nebola bohyňou hrubej sily, ale symbolom stratégie, presnosti a uvedomelého fungovania. Diódový laser ATHENA toto predstavuje: stabilná prevádzka, predvídateľné výsledky, kontrola v každej situácii. Držala vás niekedy bohyňa za ruku počas práce? Teraz na to môžete mať príležitosť.",
   "metaTitle": "ATHENA 1000W diódový laser | Inteligentný softvér, stabilná precíznosť",
   "metaDescription": "ATHENA – 1000W profesionálny diódový laser so 4 vlnovými dĺžkami a inteligentným ošetrovacím systémom. Stabilný, predvídateľný, nákladovo efektívny.",
+  "specs": {
+    "Typ lasera": "Diódový laser",
+    "Vlnová dĺžka": "755 / 808 / 940 / 1064 nm",
+    "Veľkosť spotu": "12 × 20 mm (pevná)",
+    "Výkon": "1000W (výstupný)",
+    "Ošetrovacia hlavica": "Veľká, ergonomická, so zafírovým kontaktným chladením",
+    "Chladiaci systém": "Viacstupňový TEC + voda + vzduch",
+    "Chladenie pleti": "Zafírové kontaktné chladenie",
+    "Displej": "Veľká farebná dotyková obrazovka",
+    "Systém ošetrenia": "Inteligentný softvér - automatické rozpoznanie typu pleti a chĺpkov",
+    "Osvetlenie": "Ružové LED ambientné osvetlenie",
+    "Napájanie": "110V / 220V",
+    "Dodacia lehota": "2-6 týždňov"
+  },
   "stats": [
     {
       "value": "1000",
@@ -46,7 +60,8 @@
     "afterFeatures": {
       "headline": "Chcete vidieť ATHENA naživo?",
       "subtitle": "Príďte do nášho showroomu v Érde a vyskúšajte si ju osobne!",
-      "buttonLabel": "Rezervácia termínu"
+      "buttonLabel": "Rezervácia termínu",
+      "showroomDriveFolderId": "1HVYoNvH5tJBN8ZPWqTuXNETFw0UU9QfF"
     },
     "final": {
       "headline": "Zaujal vás diódový laser ATHENA 1000W?",
@@ -180,6 +195,10 @@
       "answer": "V rukoväti chladí skutočný zafírový kryštál priamo povrch pokožky počas ošetrenia, za ním pracuje trojstupňové chladenie: TEC polovodič, voda a vzduch. Znižuje to pocit tepla u klientky, robí odovzdávanie energie rovnomernejším a udržuje prístroj stabilný aj pri dlhších sériách ošetrení – menej nútených prestávok, rýchlejšia práca."
     },
     {
+      "question": "Dá sa ATHENA kúpiť na splátky?",
+      "answer": "Áno. Pri kúpe je potrebné zaplatiť 50 % zálohu a zvyšnú sumu môžete rozložiť na 3 alebo 6 mesiacov – pri hodnote prístroja medzi 1 a 3 miliónmi forintov sú dostupné tieto dve doby splácania. Ak kúpite viac prístrojov naraz, do úvahy prichádza aj dlhšia doba splácania. Presnú zálohu a mesačnú splátku si môžete vypočítať v kalkulačke na stránke produktu."
+    },
+    {
       "question": "Ako dlho trvá dodanie a odkedy s prístrojom môžem pracovať?",
       "answer": "Predpokladaná dodacia lehota je 2–6 týždňov. Školenie obsluhy je súčasťou ceny prístroja a viaže sa na odovzdanie: po jednodňovom intenzívnom kurze vystavíme certifikát FAR. Zaškolenie teda nie je samostatný krok, ktorý by ste museli organizovať."
     },
@@ -199,6 +218,23 @@
     "Maďarský návod na použitie",
     "Školenie obsluhy prístroja (certifikát FAR)",
     "2-ročná kompletná záruka",
-    "Náhradný stroj na čas opravy"
-  ]
+    "Program náhradného prístroja pri dlhšej oprave"
+  ],
+  "ownerStory": {
+    "ownerName": "Mila Derma",
+    "intro": "V štúdiu Mila Derma sa naša práca neskončila doručením: prístroj sme zložili priamo na mieste a tam sme uskutočnili aj školenie obsluhy – od nastavenia parametrov až po údržbu. Nasledujúce fotografie vznikli pri tomto odovzdaní."
+  },
+  "imageAlts": {
+    "athena-1.png": "Diódový laser ATHENA 1000W s parametrami ošetrenia na displeji",
+    "athena-2.png": "Diódový laser ATHENA z boku, s držiakom hlavice",
+    "athena-3.png": "Hlavica diódového lasera ATHENA v ruke, s vlastným displejom",
+    "athena-4.png": "Dotyková obrazovka diódového lasera ATHENA s menu ošetrení",
+    "athena-5.png": "Hlavica diódového lasera ATHENA s výstupným okienkom so zafírovým kontaktným chladením",
+    "athena-6.png": "Diódový laser ATHENA 1000W s menu ošetrení podľa partií tela",
+    "athena-design-1.jpg": "Diódový laser ATHENA 1000W v salónnom prostredí",
+    "athena-design-2.jpg": "Hlavica diódového lasera ATHENA s nastavenou frekvenciou a úrovňou energie",
+    "athena-design-3.jpg": "Hlavica diódového lasera ATHENA zblízka, so zlatým zafírovým okienkom",
+    "athena-oktatas-1.jpg": "Školenie obsluhy diódového lasera ATHENA s lektorkou Skinlab",
+    "athena-oktatas-2.jpg": "Predstavenie hlavice diódového lasera ATHENA počas školenia"
+  }
 }

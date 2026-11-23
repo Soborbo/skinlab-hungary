@@ -5,12 +5,33 @@
   "metaTitle": "NovaLite ND:YAG laser | Tetovanie, pigmentácia a carbon peeling",
   "metaDescription": "NovaLite Q-switched ND:YAG laser: kompaktné, prenosné zariadenie so 6 ošetrovacími hlavicami, 3500 mJ energia. Odstránenie tetovania, liečba pigmentácií, carbon peeling. CE certifikácia, 2 roky záruky.",
   "stats": [
-    { "value": "6", "label": "Ošetrovacie hlavice", "icon": "layers" },
-    { "value": "3500", "unit": "mJ", "label": "Max. energia", "icon": "zap" },
-    { "value": "2500", "unit": "W", "label": "Výkon", "icon": "wave" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Ošetrovacie hlavice",
+      "icon": "layers"
+    },
+    {
+      "value": "3500",
+      "unit": "mJ",
+      "label": "Max. energia",
+      "icon": "zap"
+    },
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "wave"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NovaLite – Kompaktná sila, prémiová kvalita",
     "paragraphs": [
@@ -98,15 +119,40 @@
   "expertQuote": {
     "quote": "So 6 ošetrovacími hlavicami a energiou 3500 mJ je NovaLite jedným z najvýkonnejších zariadení v kategórii kompaktných ND:YAG. Hlavice No Scar sú obzvlášť cenné pre korekcie permanentného make-upu.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstránenie tetovania", "description": "Efektívne odstránenie čiernych a farebných tetovaní na vlnových dĺžkach 1064 nm a 532 nm" },
-    { "icon": "sun", "name": "Ošetrenie červených pigmentov", "description": "Odstránenie načervenalých, oranžových a teplých hnedých pigmentov na vlnovej dĺžke 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hĺbkové čistenie, stiahnutie pórov a omladzovanie pleti s ošetrovacou hlavicou 1320 nm" },
-    { "icon": "droplet", "name": "Ošetrenie pigmentových škvŕn", "description": "Ošetrenie stareckých škvŕn, slnečných škvŕn, pieh, pečeňových škvŕn a hyperpigmentácie" },
-    { "icon": "eye", "name": "Odstránenie permanentného make-upu", "description": "Korekcia permanentného make-upu obočia a pier hlavicami No Scar" },
-    { "icon": "bolt", "name": "Anti-aging ošetrenie", "description": "Redukcia vrások, spevnenie pleti a stimulácia kolagénu s ošetrovacou hlavicou 755 nm" }
+    {
+      "icon": "zap",
+      "name": "Odstránenie tetovania",
+      "description": "Efektívne odstránenie čiernych a farebných tetovaní na vlnových dĺžkach 1064 nm a 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Ošetrenie červených pigmentov",
+      "description": "Odstránenie načervenalých, oranžových a teplých hnedých pigmentov na vlnovej dĺžke 532 nm"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hĺbkové čistenie, stiahnutie pórov a omladzovanie pleti s ošetrovacou hlavicou 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Ošetrenie pigmentových škvŕn",
+      "description": "Ošetrenie stareckých škvŕn, slnečných škvŕn, pieh, pečeňových škvŕn a hyperpigmentácie"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstránenie permanentného make-upu",
+      "description": "Korekcia permanentného make-upu obočia a pier hlavicami No Scar"
+    },
+    {
+      "icon": "bolt",
+      "name": "Anti-aging ošetrenie",
+      "description": "Redukcia vrások, spevnenie pleti a stimulácia kolagénu s ošetrovacou hlavicou 755 nm"
+    }
   ],
   "faq": [
     {
@@ -150,6 +196,6 @@
     "Používateľský manuál",
     "Školenie obsluhy (certifikát FAR)",
     "2 roky plnej záruky",
-    "Náhradné zariadenie počas opravy"
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }
