@@ -377,8 +377,8 @@
     "sending": "Slanje..."
   },
   "about": {
-    "title": "O nama",
-    "subtitle": "Upoznajte Skinlab tim i našu priču",
+    "title": "Kako je sve počelo? Priča o {companyName}",
+    "subtitle": "Priča o {companyName} krenula je iz dvaju različitih svjetova koji su se na kraju savršeno spojili: iz ljubavi prema ljepoti i tehnici.",
     "story": "Naša priča",
     "team": "Naš tim",
     "mission": "Naša misija",
@@ -393,7 +393,7 @@
     },
     "whyUsTitle": "Zašto odabrati nas?",
     "benefit1Title": "Poštene cijene",
-    "benefit1Desc": "Izravni odnosi s proizvođačima, bez nepotrebnih posrednika. Ista kvaliteta, djelić cijene.",
+    "benefit1Desc": "Izravna suradnja s proizvođačem, bez posrednika, po djeliću cijene.",
     "benefit2Title": "Brza dostava",
     "benefit2Desc": "Uređaj stiže za 2 tjedna, nema mjeseci čekanja.",
     "benefit3Title": "2 godine jamstva",
@@ -752,7 +752,7 @@
     "feature": "Značajka"
   },
   "roi": {
-    "title": "Kalkulator povrata investicije",
+    "title": "Za koliko se vremena investicija isplati?",
     "treatmentPrice": "Cijena tretmana",
     "treatmentsPerDay": "Tretmana/dan",
     "workingDays": "Radnih dana/mjesec",
@@ -937,15 +937,15 @@
   },
   "whyUs": {
     "title": "Zašto uspješni saloni biraju Skinlab?",
-    "subtitle": "Ne prodajemo samo uređaje - pomažemo kao partneri da se vaša investicija što brže isplati.",
-    "training": "Kompletna obuka",
-    "trainingDesc": "4-6 sati osobne obuke + FAR certifikat + video materijali. Ne puštamo vas dok ne budete s povjerenjem koristili uređaj.",
-    "warranty": "2 godine jamstva, lokalni servis",
+    "subtitle": "Ne prodajemo samo uređaje. Uz njih dajemo duboko, stručno utemeljeno znanje i trajnu osobnu podršku – kako biste radili samouvjereno i sigurno.",
+    "training": "Praktično, duboko stručno znanje",
+    "trainingDesc": "Nije riječ o brzoj „montažnoj“ obuci: naučit ćemo vas sigurno podešavati parametre i prepoznati izvore pogrešaka te vas pripremiti za svaku situaciju. Naše su obuke registrirane u sustavu FAR, s certifikatom s B-brojem.",
+    "warranty": "2 godine jamstva, vlastiti servis u Mađarskoj",
     "warrantyDesc": "Nema tjedana čekanja na inozemni servis. Popravljamo brzo, u vlastitom servisu, a kod popravaka duljih od 10 radnih dana osiguravamo zamjenski uređaj, ovisno o dostupnosti na zalihi.",
-    "financing": "Financiranje, leasing",
-    "financingDesc": "Od ~250 EUR/mjesečno. Ne morate platiti sve odjednom - prihodi od uređaja plaćaju rate.",
-    "consulting": "Poslovno savjetovanje",
-    "consultingDesc": "Pomažemo s formiranjem cijena i marketingom. Dijelimo što rade uspješni saloni."
+    "financing": "Pravni i poslovni pristup",
+    "financingDesc": "Prolazimo pravni okvir korištenja uređaja i zahtjeve za dokumentaciju, a marketinškim i poslovnim modulom pomažemo vam u određivanju cijena, komunikaciji i izgradnji održivog poslovanja.",
+    "consulting": "Ne ostavljamo vas same",
+    "consultingDesc": "Ni nakon kupnje ne ostavljamo vas same: praćenje kod nas znači da vam pomažemo u korištenju, postavkama i svakodnevnom radu."
   },
   "search": {
     "placeholder": "Pretraži proizvode po imenu...",
@@ -980,7 +980,7 @@
     "sendEmail": "Pošalji e-mail"
   },
   "howItWorks": {
-    "title": "Kako funkcionira?",
+    "title": "Od prve ideje do vašeg vlastitog laserskog kozmetičkog uređaja.",
     "subtitle": "4 jednostavna koraka do uspješnog starta",
     "step1Title": "Konzultacija",
     "step1Desc": "Besplatna osobna ili online demonstracija na kojoj upoznajete uređaje",
@@ -1186,9 +1186,9 @@
     "pickupBenefit3": "Osobna primopredaja dokumentacije i trenutni odgovori na sva pitanja",
     "pickupLocation": "Mjesto preuzimanja",
     "pickupNote": "Osobno preuzimanje uz prethodni dogovor termina. Rezervacija: nazovite ili pošaljite e-mail.",
-    "homeDelivery": "Dostava na adresu",
-    "homeDeliveryDesc": "Ako osobno preuzimanje nije izvedivo, naša ugovorna kurirska služba obavlja dostavu po cijeloj Mađarskoj, s pojedinačnom cijenom - ovisno o veličini i težini uređaja te mjestu dostave.",
-    "homeDeliveryNote1": "Točan iznos dostave javljamo pri potvrdi narudžbe.",
+    "homeDelivery": "Dostava po dogovoru",
+    "homeDeliveryDesc": "Ako osobno preuzimanje nije izvedivo, dostavu uređaja visoke vrijednosti s obzirom na njihovu vrijednost i osjetljivost dogovaramo osobno – dovezemo ga sami ili ga sigurno pošaljemo. To nije automatizirani postupak: uvijek s vama dogovaramo kako će uređaj stići do vas.",
+    "homeDeliveryNote1": "Točan način i cijenu dostave utvrđujemo pri potvrdi narudžbe, u osobnom dogovoru.",
     "homeDeliveryNote2": "Dostava na kat i puštanje u rad dostupni su uz nadoplatu, uz prethodni dogovor.",
     "paymentTitle": "Opcije plaćanja",
     "onlinePayment": "Jednostavno, sigurno plaćanje",
@@ -1294,7 +1294,7 @@
       "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – besplatno, uz prethodni dogovor termina.",
       "recommended": "Preporučeno",
       "highValueTitle": "Preuzimanje i dostava",
-      "highValueNote": "Dostavu vaše narudžbe dogovaramo individualno. Naš kolega kontaktirat će vas kako biste se dogovorili oko osobnog preuzimanja ili dostave te načina plaćanja.",
+      "highValueNote": "U vašoj košarici nalazi se osjetljiv uređaj visoke vrijednosti. Takve uređaje ne šaljemo automatski: predajemo ih osobno, uz svečanu primopredaju u showroomu, ili ih s obzirom na njihovu vrijednost dostavljamo na dogovoreni način.",
       "pickupCeremony": "Osobno preuzimanje u showroomu",
       "pickupCeremonyDesc": "Primopredaja, postavljanje i edukacija na licu mjesta — na sva vaša pitanja odgovaramo odmah. Uređaj možete preuzeti i na kraju naših edukacija.",
       "arranged": "Dostava po dogovoru",
@@ -1349,7 +1349,7 @@
       "codTitle": "Plaćanje pouzećem",
       "codNote": "Plaćate pri preuzimanju – ne morate ništa uplaćivati unaprijed. Za narudžbe pouzećem ne šaljemo predračun.",
       "priceDisclaimer": "Prikazani iznos je informativan; konačnu cijenu i troškove dostave utvrđujemo tijekom telefonske konzultacije.",
-      "payIntro": "Izdali smo predračun – pomoću gumba u nastavku možete odmah platiti karticom ili bankovnim prijenosom:",
+      "payIntro": "Izdali smo predračun – pomoću gumba u nastavku možete ga otvoriti i platiti bankovnim prijenosom:",
       "payButton": "Plati / otvori predračun",
       "questions": "Imate pitanje? Slobodno nas nazovite:",
       "regards": "S poštovanjem,",
@@ -1383,8 +1383,8 @@
     "howItWorks": "Što slijedi?",
     "step1Title": "Nazvat ćemo vas",
     "step1Desc": "Naš kolega s vama će dogovoriti detalje narudžbe i dostavu.",
-    "step2Title": "Šaljemo poveznicu za plaćanje",
-    "step2Desc": "Nakon konzultacije primit ćete poveznicu za plaćanje e-mailom.",
+    "step2Title": "Šaljemo predračun",
+    "step2Desc": "Nakon konzultacije primit ćete predračun e-mailom.",
     "step3Title": "Dostavljamo uređaj",
     "step3Desc": "Nakon primitka uplate narudžba ide u proizvodnju i otpremu.",
     "trustNoPayment": "Sada ne morate platiti",
@@ -1712,5 +1712,24 @@
       "invalidEmail": "Molimo unesite valjanu adresu e-pošte",
       "invalidPhone": "Molimo unesite valjan broj telefona"
     }
+  },
+  "formErrors": {
+    "rateLimited": "S ove adrese stiglo je previše slanja. Molimo pokušajte ponovno kasnije.",
+    "badRequest": "Neispravan zahtjev. Molimo osvježite stranicu i pokušajte ponovno.",
+    "validation": "Molimo provjerite unesene podatke - neka polja su neispravna ili nedostaju.",
+    "captcha": "CAPTCHA provjera nije uspjela - molimo ponovite je.",
+    "securityCheck": "Sigurnosna provjera nije uspjela - molimo pokušajte ponovno.",
+    "cartEmpty": "Košarica je prazna - molimo dodajte proizvod u narudžbu.",
+    "invalidShipping": "Molimo odaberite valjani način dostave.",
+    "notShippable": "Za ove proizvode automatska dostava kurirom nije dostupna. Molimo odaberite osobno preuzimanje ili dogovorenu dostavu.",
+    "foxpostRequired": "Molimo odaberite Foxpost paketomat za preuzimanje.",
+    "submitFailed": "Obrazac nije bilo moguće poslati. Molimo pokušajte ponovno kasnije.",
+    "orderSubmitFailed": "Narudžbu nije bilo moguće zabilježiti. Molimo pokušajte ponovno ili nas nazovite.",
+    "unexpected": "Tijekom obrade došlo je do neočekivane pogreške. Molimo pokušajte ponovno kasnije.",
+    "serverError": "Poslužitelj je tijekom obrade javio pogrešku. Molimo pokušajte ponovno kasnije.",
+    "unexpectedResponse": "Primljen je neočekivan odgovor poslužitelja. Molimo pokušajte ponovno kasnije.",
+    "offline": "Nema internetske veze. Provjerite mrežu i pokušajte ponovno.",
+    "timeout": "Zahtjev je prekinut zbog isteka vremena. Molimo pokušajte ponovno.",
+    "network": "Prilikom slanja došlo je do mrežne pogreške. Molimo pokušajte ponovno."
   }
 }

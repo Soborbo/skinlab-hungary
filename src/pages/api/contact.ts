@@ -13,6 +13,7 @@ import { readRequestConsent } from '@/lib/tracking/request-consent';
 import type { GatewayEnv } from '@/lib/tracking/gateway-dispatch';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
+import { requestLocale, formError } from '@/lib/forms/error-messages';
 
 export const prerender = false;
 
@@ -29,11 +30,12 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  const loc = requestLocale(request);
   try {
     // Rate limit - max 5 feldolgozott beküldés / IP / óra
     if (isFormRateLimited(clientAddress, 'contact')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'rateLimited'),
         context: { endpoint: '/api/contact', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -71,7 +73,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         );
       }
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.',
+        userMessage: formError(loc, 'validation'),
         errors: validation.errors,
         context: { formId: 'contact' },
       });
@@ -83,7 +85,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.',
+        userMessage: formError(loc, 'captcha'),
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'contact' },
       });
@@ -116,7 +118,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     if (!result.success) {
       // Internal error stays server-side only.
       return errorResponse(result.code ?? 'FORM-SUBMIT-001', {
-        userMessage: 'Nem sikerült elküldeni az űrlapot. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'submitFailed'),
         context: { formId: 'contact', errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -138,7 +140,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     console.error('Contact form error:', error);
 
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a kapcsolati űrlap feldolgozása közben. Kérjük, próbáld újra később.',
+      userMessage: formError(loc, 'unexpected'),
       context: { formId: 'contact', errorMessage: message },
     });
   }

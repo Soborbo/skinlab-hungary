@@ -5,6 +5,7 @@
  */
 import { CONTACT } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+import { clientErrorMessages } from '@/lib/forms/error-messages';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '@/i18n/ui';
 
 interface Props {
@@ -101,6 +102,7 @@ const s = (key: string) => t(locale, `training.signup.${key}`);
             data-submitting={s('submitting')}
             data-submit-text={s('submit')}
             data-error-fallback={s('errorFallback')}
+            data-client-errors={JSON.stringify(clientErrorMessages(locale))}
             data-thanks-url={getLocalizedUrl(locale, '/koszonjuk')}
           >
             <!-- Hidden fields -->
@@ -442,7 +444,7 @@ const s = (key: string) => t(locale, `training.signup.${key}`);
           }
         }
       } catch (error) {
-        const info = describeClientError(error);
+        const info = describeClientError(error, JSON.parse(formEl.dataset.clientErrors || '{}'));
         if (window.__slDebug) console.error('[' + info.code + '] training submit error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) {

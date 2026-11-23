@@ -124,7 +124,7 @@
     "relatedProducts": "Verwandte Produkte",
     "whatsIncluded": "Was ist enthalten?",
     "warranty": "Garantie & Service",
-    "warrantyInfo": "2 Jahre Vollgarantie, Leihgerät während der Reparatur",
+    "warrantyInfo": "2 Jahre Vollgarantie + Ersatzgeräteprogramm",
     "videoDemo": "Video-Demo",
     "specsTitle": "Technische Spezifikationen",
     "specsSubtitle": "Detaillierte technische Daten des {productName}",
@@ -326,7 +326,7 @@
     "bordiagnosztikaDesc": "KI-Hautanalyse"
   },
   "footer": {
-    "company": "Unternehmensinformationen",
+    "company": "Unternehmen",
     "tagline": "Vertrieb professioneller Kosmetikgeräte und Laser mit 2 Jahren Garantie.",
     "financing": "Finanzierung",
     "withdrawal": "Widerruf und Rücksendung",
@@ -377,8 +377,8 @@
     "sending": "Wird gesendet..."
   },
   "about": {
-    "title": "Über uns",
-    "subtitle": "Lernen Sie das Skinlab-Team und unsere Geschichte kennen",
+    "title": "Wie alles begann: die Geschichte von {companyName}",
+    "subtitle": "Die Geschichte von {companyName} begann in zwei verschiedenen Welten, die am Ende perfekt zusammenfanden: in der Liebe zur Schönheit und zur Technik.",
     "story": "Unsere Geschichte",
     "team": "Unser Team",
     "mission": "Unsere Mission",
@@ -393,7 +393,7 @@
     },
     "whyUsTitle": "Warum uns wählen?",
     "benefit1Title": "Faire Preise",
-    "benefit1Desc": "Direkte Herstellerbeziehungen, keine unnötigen Zwischenhändler. Gleiche Qualität, Bruchteil des Preises.",
+    "benefit1Desc": "Direkter Herstellerkontakt, ohne Zwischenhändler, zu einem Bruchteil des Preises.",
     "benefit2Title": "Schnelle Lieferung",
     "benefit2Desc": "Gerät kommt in 2 Wochen, kein monatelanges Warten.",
     "benefit3Title": "2 Jahre Garantie",
@@ -401,7 +401,7 @@
     "benefit4Title": "Kostenlose Schulung",
     "benefit4Desc": "4-6 Stunden persönliche Schulung + FAR-Zertifikat im Preis inbegriffen.",
     "benefit5Title": "Eigener Service",
-    "benefit5Desc": "Lokales Servicezentrum, Leihgerät während der Reparatur.",
+    "benefit5Desc": "Eigener Service in Ungarn, Ersatzgeräteprogramm bei längeren Reparaturen.",
     "benefit6Title": "Laufende Unterstützung",
     "benefit6Desc": "Wir lassen Sie nach dem Kauf nicht allein. Rufen Sie uns jederzeit an.",
     "companyInfoTitle": "Unternehmensinformationen",
@@ -752,7 +752,7 @@
     "feature": "Eigenschaft"
   },
   "roi": {
-    "title": "ROI-Rechner",
+    "title": "Wie schnell amortisiert sich die Investition?",
     "treatmentPrice": "Behandlungspreis",
     "treatmentsPerDay": "Behandlungen/Tag",
     "workingDays": "Arbeitstage/Monat",
@@ -937,15 +937,15 @@
   },
   "whyUs": {
     "title": "Warum erfolgreiche Salons Skinlab wählen?",
-    "subtitle": "Wir verkaufen nicht nur Geräte - wir helfen als Partner, dass sich Ihre Investition so schnell wie möglich auszahlt.",
-    "training": "Vollständige Schulung",
-    "trainingDesc": "4-6 Stunden persönliche Schulung + FAR-Zertifikat + Videomaterial. Wir lassen Sie nicht gehen, bis Sie das Gerät sicher bedienen.",
-    "warranty": "2 Jahre Garantie, lokaler Service",
+    "subtitle": "Wir verkaufen nicht nur Geräte. Dazu geben wir fundiertes Fachwissen und dauerhafte persönliche Unterstützung – damit Sie sicher und selbstbewusst arbeiten können.",
+    "training": "Praxisnahes, fundiertes Fachwissen",
+    "trainingDesc": "Keine schnelle „Zusammenbau“-Einweisung: Wir bringen Ihnen bei, die Parameter sicher einzustellen und Fehlerquellen zu erkennen, und bereiten Sie auf jede Situation vor. Unsere Schulungen sind FAR-registriert, mit einem Zertifikat mit B-Nummer.",
+    "warranty": "2 Jahre Garantie, eigener Service in Ungarn",
     "warrantyDesc": "Kein wochenlanges Warten auf einen Service im Ausland. Wir reparieren schnell im eigenen Haus und stellen bei Reparaturen von mehr als 10 Werktagen ein Ersatzgerät zur Verfügung, je nach Lagerverfügbarkeit.",
-    "financing": "Finanzierung, Leasing",
-    "financingDesc": "Ab ~250 EUR/Monat. Kein Einmalbetrag nötig - die Einnahmen des Geräts zahlen die Raten.",
-    "consulting": "Geschäftsberatung",
-    "consultingDesc": "Wir helfen bei Preisgestaltung und Marketing. Wir teilen, was erfolgreiche Salons machen."
+    "financing": "Rechtliche und unternehmerische Perspektive",
+    "financingDesc": "Wir besprechen den rechtlichen Rahmen für den Geräteeinsatz und die Dokumentationspflichten und helfen Ihnen mit einem Marketing- und Business-Modul, Preise festzulegen, zu kommunizieren und ein nachhaltiges Unternehmen aufzubauen.",
+    "consulting": "Wir lassen Sie nicht allein",
+    "consultingDesc": "Auch nach dem Kauf lassen wir Sie nicht allein: Nachbetreuung bedeutet für uns, dass wir Sie bei der Bedienung, den Einstellungen und der täglichen Arbeit unterstützen."
   },
   "search": {
     "placeholder": "Produkte nach Name suchen...",
@@ -980,7 +980,7 @@
     "sendEmail": "E-Mail senden"
   },
   "howItWorks": {
-    "title": "Wie funktioniert es?",
+    "title": "Vom ersten Gedanken bis zu Ihrem eigenen Laser-Kosmetikgerät.",
     "subtitle": "4 einfache Schritte zum erfolgreichen Start",
     "step1Title": "Beratung",
     "step1Desc": "Kostenlose persönliche oder Online-Demo, bei der Sie die Geräte kennenlernen",
@@ -1186,9 +1186,9 @@
     "pickupBenefit3": "Persönliche Übergabe der Dokumentation und sofortige Antworten auf alle Fragen",
     "pickupLocation": "Abholort",
     "pickupNote": "Persönliche Abholung nach vorheriger Terminvereinbarung. Terminbuchung: rufen Sie uns an oder schreiben Sie eine E-Mail.",
-    "homeDelivery": "Hauslieferung",
-    "homeDeliveryDesc": "Falls eine persönliche Abholung nicht möglich ist, übernimmt unser vertraglich gebundener Kurierdienst die Lieferung innerhalb Ungarns, mit individueller Preisgestaltung - abhängig von Größe, Gewicht und Lieferort.",
-    "homeDeliveryNote1": "Die genaue Versandgebühr wird bei der Auftragsbestätigung mitgeteilt.",
+    "homeDelivery": "Lieferung nach Absprache",
+    "homeDeliveryDesc": "Ist eine persönliche Abholung nicht möglich, stimmen wir die Lieferung hochwertiger Geräte angesichts ihres Werts und ihrer Empfindlichkeit persönlich mit Ihnen ab – wir bringen das Gerät selbst vorbei oder versenden es sicher. Das ist kein automatisierter Ablauf: Wir besprechen immer gemeinsam, wie das Gerät zu Ihnen gelangt.",
+    "homeDeliveryNote1": "Die genaue Lieferart und die Gebühr legen wir bei der Auftragsbestätigung in persönlicher Absprache fest.",
     "homeDeliveryNote2": "Lieferung in das Stockwerk sowie Inbetriebnahme gegen Aufpreis verfügbar, nach vorheriger Absprache.",
     "paymentTitle": "Zahlungsmöglichkeiten",
     "onlinePayment": "Einfache, sichere Zahlung",
@@ -1294,7 +1294,7 @@
       "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – kostenlos, nach vorheriger Terminvereinbarung.",
       "recommended": "Empfohlen",
       "highValueTitle": "Abholung und Lieferung",
-      "highValueNote": "Die Lieferung deiner Bestellung stimmen wir individuell ab. Unser Mitarbeiter setzt sich mit dir in Verbindung, um die persönliche Abholung oder Lieferung sowie die Zahlungsart zu vereinbaren.",
+      "highValueNote": "In deinem Warenkorb befindet sich ein hochwertiges, empfindliches Gerät. Solche Geräte versenden wir nicht automatisch: Wir übergeben sie persönlich im Rahmen einer feierlichen Übergabe im Showroom oder liefern sie mit Rücksicht auf ihren Wert auf abgestimmtem Weg.",
       "pickupCeremony": "Persönliche Abholung im Showroom",
       "pickupCeremonyDesc": "Übergabe, Inbetriebnahme und Einweisung vor Ort – wir beantworten alle deine Fragen sofort. Das Gerät kannst du auch am Ende unserer Schulungen abholen.",
       "arranged": "Lieferung nach Vereinbarung",
@@ -1349,7 +1349,7 @@
       "codTitle": "Zahlung per Nachnahme",
       "codNote": "Sie bezahlen bei Erhalt – keine Vorabüberweisung nötig. Bei Nachnahme senden wir keine Proforma-Rechnung.",
       "priceDisclaimer": "Der angezeigte Betrag dient nur zur Information; der Endpreis und die Versandkosten werden im telefonischen Gespräch festgelegt.",
-      "payIntro": "Wir haben Ihre Proforma-Rechnung erstellt – über die Schaltfläche unten können Sie sofort per Karte oder Überweisung bezahlen:",
+      "payIntro": "Wir haben Ihre Proforma-Rechnung ausgestellt – über die Schaltfläche unten können Sie sie öffnen und per Banküberweisung begleichen:",
       "payButton": "Jetzt bezahlen / Proforma öffnen",
       "questions": "Haben Sie Fragen? Rufen Sie uns gerne an:",
       "regards": "Mit freundlichen Grüßen,",
@@ -1383,8 +1383,8 @@
     "howItWorks": "Wie geht es weiter?",
     "step1Title": "Wir rufen Sie zurück",
     "step1Desc": "Unser Mitarbeiter bespricht mit Ihnen die Bestelldetails und den Versand.",
-    "step2Title": "Wir senden den Zahlungslink",
-    "step2Desc": "Nach dem Gespräch erhalten Sie den Zahlungslink per E-Mail.",
+    "step2Title": "Wir senden die Proforma-Rechnung",
+    "step2Desc": "Nach dem Gespräch erhalten Sie die Proforma-Rechnung per E-Mail.",
     "step3Title": "Wir liefern das Gerät",
     "step3Desc": "Nach Zahlungseingang geht die Bestellung in Produktion und Versand.",
     "trustNoPayment": "Jetzt keine Zahlung nötig",
@@ -1712,5 +1712,24 @@
       "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein"
     }
+  },
+  "formErrors": {
+    "rateLimited": "Zu viele Übermittlungen von dieser Adresse. Bitte versuchen Sie es später erneut.",
+    "badRequest": "Ungültige Anfrage. Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+    "validation": "Bitte überprüfen Sie Ihre Angaben - einige Felder sind fehlerhaft oder fehlen.",
+    "captcha": "CAPTCHA-Prüfung fehlgeschlagen - bitte wiederholen Sie sie.",
+    "securityCheck": "Die Sicherheitsprüfung ist fehlgeschlagen - bitte versuchen Sie es erneut.",
+    "cartEmpty": "Der Warenkorb ist leer - bitte fügen Sie Ihrer Bestellung ein Produkt hinzu.",
+    "invalidShipping": "Bitte wählen Sie eine gültige Versandart.",
+    "notShippable": "Für diese Produkte ist kein automatischer Kurierversand möglich. Bitte wählen Sie persönliche Abholung oder eine abgestimmte Lieferung.",
+    "foxpostRequired": "Bitte wählen Sie einen Foxpost-Paketautomaten für die Abholung.",
+    "submitFailed": "Das Formular konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
+    "orderSubmitFailed": "Ihre Bestellung konnte nicht erfasst werden. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
+    "unexpected": "Bei der Verarbeitung ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "serverError": "Der Server hat bei der Verarbeitung einen Fehler gemeldet. Bitte versuchen Sie es später erneut.",
+    "unexpectedResponse": "Unerwartete Antwort vom Server. Bitte versuchen Sie es später erneut.",
+    "offline": "Keine Internetverbindung. Bitte prüfen Sie Ihr Netzwerk und versuchen Sie es erneut.",
+    "timeout": "Die Anfrage wurde wegen Zeitüberschreitung abgebrochen. Bitte versuchen Sie es erneut.",
+    "network": "Beim Senden ist ein Netzwerkfehler aufgetreten. Bitte versuchen Sie es erneut."
   }
 }

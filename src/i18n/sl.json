@@ -377,8 +377,8 @@
     "sending": "Pošiljanje..."
   },
   "about": {
-    "title": "O nas",
-    "subtitle": "Spoznajte ekipo Skinlab in našo zgodbo",
+    "title": "Kako se je začelo? Zgodba {companyName}",
+    "subtitle": "Zgodba {companyName} se je začela v dveh različnih svetovih, ki sta se na koncu popolnoma povezala: v ljubezni do lepote in tehnike.",
     "story": "Naša zgodba",
     "team": "Naša ekipa",
     "mission": "Naše poslanstvo",
@@ -393,7 +393,7 @@
     },
     "whyUsTitle": "Zakaj izbrati nas?",
     "benefit1Title": "Poštene cene",
-    "benefit1Desc": "Neposredni odnosi s proizvajalci, brez nepotrebnih posrednikov. Enaka kakovost, delec cene.",
+    "benefit1Desc": "Neposredna povezava s proizvajalcem, brez posrednika, za delček cene.",
     "benefit2Title": "Hitra dostava",
     "benefit2Desc": "Naprava prispe v 2 tednih, brez mesecev čakanja.",
     "benefit3Title": "2-letna garancija",
@@ -752,7 +752,7 @@
     "feature": "Lastnost"
   },
   "roi": {
-    "title": "Kalkulator donosnosti",
+    "title": "V kolikšnem času se naložba povrne?",
     "treatmentPrice": "Cena tretmaja",
     "treatmentsPerDay": "Tretmajev/dan",
     "workingDays": "Delovnih dni/mesec",
@@ -937,15 +937,15 @@
   },
   "whyUs": {
     "title": "Zakaj uspešni saloni izbirajo Skinlab?",
-    "subtitle": "Ne prodajamo samo naprav - pomagamo kot partnerji, da se vaša investicija čim hitreje povrne.",
-    "training": "Popolno usposabljanje",
-    "trainingDesc": "4-6 ur osebnega usposabljanja + FAR certifikat + video materiali. Ne pustimo vas, dokler naprave ne uporabljate samozavestno.",
-    "warranty": "2 leti garancije, lokalni servis",
+    "subtitle": "Ne prodajamo le naprav. Zraven dodamo poglobljeno, strokovno podprto znanje in trajno osebno podporo – da boste delali samozavestno in varno.",
+    "training": "Praktično, poglobljeno strokovno znanje",
+    "trainingDesc": "Ne gre za hitro „montažno“ uvajanje: naučimo vas samozavestno nastavljati parametre in prepoznati vire napak ter vas pripravimo na vsako situacijo. Naša usposabljanja so registrirana v sistemu FAR, s certifikatom s številko B.",
+    "warranty": "2 leti garancije, lasten servis na Madžarskem",
     "warrantyDesc": "Ni tednov čakanja na tuj servis. Popravljamo hitro, v lastnem servisu, pri popravilih, daljših od 10 delovnih dni, pa zagotovimo nadomestno napravo, odvisno od zaloge.",
-    "financing": "Financiranje, lizing",
-    "financingDesc": "Od ~250 EUR/mesec. Ni vam treba plačati vsega naenkrat - prihodki naprave plačajo obroke.",
-    "consulting": "Poslovno svetovanje",
-    "consultingDesc": "Pomagamo pri oblikovanju cen in marketingu. Delimo, kaj počnejo uspešni saloni."
+    "financing": "Pravni in poslovni vidik",
+    "financingDesc": "Pregledamo pravni okvir uporabe naprave in zahteve glede dokumentacije, z marketinškim in poslovnim modulom pa vam pomagamo pri oblikovanju cen, komunikaciji in gradnji trajnostnega posla.",
+    "consulting": "Ne pustimo vas samih",
+    "consultingDesc": "Tudi po nakupu vas ne pustimo samih: spremljanje pri nas pomeni, da vam pomagamo pri uporabi, nastavitvah in vsakdanjem delu."
   },
   "search": {
     "placeholder": "Iskanje izdelkov po imenu...",
@@ -980,7 +980,7 @@
     "sendEmail": "Pošlji e-pošto"
   },
   "howItWorks": {
-    "title": "Kako deluje?",
+    "title": "Od prve misli do vaše lastne laserske kozmetične naprave.",
     "subtitle": "4 preprosti koraki do uspešnega začetka",
     "step1Title": "Svetovanje",
     "step1Desc": "Brezplačna osebna ali online predstavitev, kjer spoznate naprave",
@@ -1186,9 +1186,9 @@
     "pickupBenefit3": "Osebna predaja dokumentacije in takojšnji odgovori na vsa vprašanja",
     "pickupLocation": "Mesto prevzema",
     "pickupNote": "Osebni prevzem po predhodnem dogovoru termina. Rezervacija: pokličite ali pošljite e-pošto.",
-    "homeDelivery": "Dostava na dom",
-    "homeDeliveryDesc": "Če osebni prevzem ni izvedljiv, naša pogodbena kurirska služba dostavlja po celotni Madžarski s posamično določeno ceno - odvisno od velikosti, teže naprave in mesta dostave.",
-    "homeDeliveryNote1": "Točen znesek dostave vam sporočimo ob potrditvi naročila.",
+    "homeDelivery": "Dostava po dogovoru",
+    "homeDeliveryDesc": "Če osebni prevzem ni izvedljiv, dostavo naprav visoke vrednosti zaradi njihove vrednosti in občutljivosti dogovorimo osebno – napravo pripeljemo sami ali jo varno pošljemo. To ni avtomatiziran postopek: vedno se z vami dogovorimo, kako bo naprava prišla do vas.",
+    "homeDeliveryNote1": "Točen način in ceno dostave določimo ob potrditvi naročila v osebnem dogovoru.",
     "homeDeliveryNote2": "Dostava na nadstropje in zagon sta na voljo za doplačilo, po predhodnem dogovoru.",
     "paymentTitle": "Možnosti plačila",
     "onlinePayment": "Preprosto, varno plačilo",
@@ -1291,7 +1291,7 @@
       "pickupDesc": "Skinlab razstavni salon, 2030 Érd, Bajcsy-Zsilinszky út 156. – brezplačno, po predhodnem dogovoru termina.",
       "recommended": "Priporočeno",
       "highValueTitle": "Prevzem in dostava",
-      "highValueNote": "Dostavo vašega naročila bomo uredili individualno. Naš sodelavec vas bo kontaktiral, da se dogovorimo o osebnem prevzemu ali dostavi in načinu plačila.",
+      "highValueNote": "V vaši košarici je občutljiva naprava visoke vrednosti. Takih naprav ne pošiljamo samodejno: predamo jih osebno ob slovesni predaji v razstavnem salonu ali jih glede na njihovo vrednost dostavimo na dogovorjen način.",
       "pickupCeremony": "Osebni prevzem v razstavnem salonu",
       "pickupCeremonyDesc": "Predaja na lokaciji, namestitev in usposabljanje – na vsa vaša vprašanja odgovorimo takoj. Napravo lahko prevzamete tudi ob koncu naših izobraževanj.",
       "arranged": "Dostava po dogovoru",
@@ -1349,7 +1349,7 @@
       "codTitle": "Plačilo po povzetju",
       "codNote": "Plačate ob prevzemu – vnaprej vam ni treba ničesar nakazati. Pri naročilih po povzetju predračuna ne pošiljamo.",
       "priceDisclaimer": "Prikazani znesek je zgolj informativen; končno ceno in stroške dostave določimo med telefonskim posvetom.",
-      "payIntro": "Izdali smo predračun – z gumbom spodaj lahko takoj plačate s kartico ali nakazilom:",
+      "payIntro": "Izdali smo predračun – z gumbom spodaj ga lahko odprete in poravnate z bančnim nakazilom:",
       "payButton": "Plačaj / odpri predračun",
       "questions": "Imate vprašanje? Pokličite nas:",
       "regards": "Lep pozdrav,",
@@ -1383,8 +1383,8 @@
     "howItWorks": "Kako naprej?",
     "step1Title": "Pokličemo vas nazaj",
     "step1Desc": "Naš sodelavec se bo z vami pogovoril o podrobnostih naročila in dostavi.",
-    "step2Title": "Pošljemo povezavo za plačilo",
-    "step2Desc": "Po posvetu boste prejeli povezavo za plačilo po e-pošti.",
+    "step2Title": "Pošljemo predračun",
+    "step2Desc": "Po posvetu boste prejeli predračun po e-pošti.",
     "step3Title": "Dostavimo napravo",
     "step3Desc": "Po prejemu plačila gre naročilo v proizvodnjo in odpremo.",
     "trustNoPayment": "Zdaj vam ni treba plačati",
@@ -1712,5 +1712,24 @@
       "invalidEmail": "Prosimo, vnesite veljaven e-poštni naslov",
       "invalidPhone": "Prosimo, vnesite veljavno telefonsko številko"
     }
+  },
+  "formErrors": {
+    "rateLimited": "S tega naslova je prispelo preveč pošiljanj. Prosimo, poskusite znova pozneje.",
+    "badRequest": "Neveljavna zahteva. Prosimo, osvežite stran in poskusite znova.",
+    "validation": "Prosimo, preverite vnesene podatke - nekatera polja so napačna ali manjkajo.",
+    "captcha": "Preverjanje CAPTCHA ni uspelo - prosimo, ponovite ga.",
+    "securityCheck": "Varnostno preverjanje ni uspelo - prosimo, poskusite znova.",
+    "cartEmpty": "Košarica je prazna - prosimo, dodajte izdelek v naročilo.",
+    "invalidShipping": "Prosimo, izberite veljaven način dostave.",
+    "notShippable": "Za te izdelke samodejna dostava s kurirjem ni na voljo. Prosimo, izberite osebni prevzem ali dogovorjeno dostavo.",
+    "foxpostRequired": "Prosimo, izberite paketomat Foxpost za prevzem.",
+    "submitFailed": "Obrazca ni bilo mogoče poslati. Prosimo, poskusite znova pozneje.",
+    "orderSubmitFailed": "Naročila ni bilo mogoče zabeležiti. Prosimo, poskusite znova ali nas pokličite.",
+    "unexpected": "Med obdelavo je prišlo do nepričakovane napake. Prosimo, poskusite znova pozneje.",
+    "serverError": "Strežnik je med obdelavo javil napako. Prosimo, poskusite znova pozneje.",
+    "unexpectedResponse": "Prejeli smo nepričakovan odgovor strežnika. Prosimo, poskusite znova pozneje.",
+    "offline": "Ni internetne povezave. Preverite omrežje in poskusite znova.",
+    "timeout": "Zahteva je bila prekinjena zaradi poteka časa. Prosimo, poskusite znova.",
+    "network": "Pri pošiljanju je prišlo do omrežne napake. Prosimo, poskusite znova."
   }
 }
