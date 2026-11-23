@@ -1,9 +1,17 @@
 /**
  * Hydrafacial kategóriaoldal - nyelvfüggetlen rész: hero-videó, képek, ikonok,
- * táblázat-adatforrások, linkek. A szöveg nyelvenként: ./hu.ts (+ később ./en.ts …).
+ * táblázat-adatforrások, linkek. A szöveg nyelvenként: ./hu.ts (+ ./en.ts, ./de.ts …).
  */
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 import { hu } from './hu';
+import { en } from './en';
+import { de } from './de';
+import { cs } from './cs';
+import { sk } from './sk';
+import { ro } from './ro';
+import { hr } from './hr';
+import { sl } from './sl';
+import { sr } from './sr';
 
 export const hydrafacial: ShowcaseCategory = {
   base: {
@@ -35,5 +43,5 @@ export const hydrafacial: ShowcaseCategory = {
     video: { id: 'adri', posterSrc: '/images/video/zsidai-adri-poster.jpg' },
     training: { href: '/kepzesek' },
   },
-  copy: { hu },
+  copy: { hu, en, de, cs, sk, ro, hr, sl, sr },
 };

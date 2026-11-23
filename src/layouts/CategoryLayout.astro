@@ -10,12 +10,17 @@ import QuickAddButton from '../components/cart/QuickAddButton.astro';
 import CategoryConsultationCard from '../components/cta/CategoryConsultationCard.astro';
 import VideoTestimonials from '../components/sections/VideoTestimonials.astro';
 import FounderConsult from '../components/cta/FounderConsult.astro';
-import { getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../i18n/ui';
+import { getLocaleFromUrl, getLocalizedUrl, t, type Locale } from '../i18n/ui';
 import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 import { getInstallmentInfo } from '@/lib/installment';
 import { productPath } from '@/lib/product-url';
+import { loadProductContent } from '@/lib/load-product-content';
 
 const pageLocale = getLocaleFromUrl(Astro.url) as Locale;
+/** A régi kategóriaoldal fix feliratai (i18n: categoryLegacy.*). */
+const L = (key: string, params?: Record<string, string | number>) => t(pageLocale, `categoryLegacy.${key}`, params);
+/** Belső link az oldal nyelvén, perjellel a végén. */
+const href = (path: string) => getLocalizedUrl(pageLocale, path);
 
 interface ComparisonProduct {
   name: string;
@@ -181,9 +186,9 @@ const {
 // Ez vonatkozik a hero döntő-kártyákra, a termékrácsra és a schema-listára is.
 products.sort((a, b) => (a.data.price ?? Infinity) - (b.data.price ?? Infinity));
 
-const resolvedBenefitsHeading = benefitsHeading || 'Mire figyelj a választásnál?';
+const resolvedBenefitsHeading = benefitsHeading || L('benefitsHeading');
 
-const resolvedCtaHref = withTrailingSlash(consultationCtaHref || `/konzultacio?cat=${category.slug}`);
+const resolvedCtaHref = href(consultationCtaHref || `/konzultacio?cat=${category.slug}`);
 
 // Fold-mód a terméklétszám alapján (lásd docs/CATEGORY-PAGE-HANDBOOK.md §3):
 //  - 1 termék  → 'single'  : a fold MAGA a termék (kép-jobb landing), nincs grid
@@ -224,7 +229,7 @@ const gridSections: { title: string | null; subtitle?: string; items: any[] }[] 
     })
     .filter((s) => s.items.length > 0);
   const rest = products.filter((p) => !used.has(productKey(p)));
-  if (rest.length > 0) sections.push({ title: 'További kezelőanyagok', subtitle: undefined, items: rest });
+  if (rest.length > 0) sections.push({ title: L('restGroup'), subtitle: undefined, items: rest });
   return sections;
 })();
 // A lazy/eager határ a TELJES rácsra értendő, ezért szekciónkénti eltolást számolunk;
@@ -235,9 +240,9 @@ gridSections.reduce((acc, s, i) => { sectionOffsets[i] = acc; return acc + s.ite
 // Alapértelmezett: Horváth László (alapító) - oldalanként felülírható az `expert` proppal.
 const defaultExpert: Expert = {
   name: 'Horváth László',
-  role: 'Skinlab társalapító, ügyvezető',
+  role: t(pageLocale, 'founderConsult.expertRole'),
   image: '/about/horvath-laszlo-skinlab-alapito.jpg',
-  imageAlt: 'Horváth László, Skinlab társalapító',
+  imageAlt: L('expertImageAlt', { name: 'Horváth László' }),
 };
 const resolvedExpert: Expert = expert ?? defaultExpert;
 const showFounderSection = heroMode !== 'classic';
@@ -253,7 +258,13 @@ const monthlyTeaser = (data: { price?: number | null; installment?: boolean }): 
   const term = info.months[info.months.length - 1];
   return info.monthly[term];
 };
-const productHref = (p: any) => withTrailingSlash(productPath(p.data.categorySlug, p.data.slug || p.id));
+const productHref = (p: any) => href(productPath(p.data.categorySlug, p.data.slug || p.id));
+// Rövid leírás az oldal nyelvén (product-content), ha van rá fordítás; különben a termék-JSON-é.
+const shortDescription = (p: any): string | undefined => {
+  if (pageLocale === 'hu') return p.data.shortDescription;
+  const { content, isLocaleFallback } = loadProductContent(pageLocale, p.data.slug || p.id, p.data.categorySlug);
+  return (!isLocaleFallback && content.shortDescription) || p.data.shortDescription;
+};
 // A "Részletfizetés" ígéretet csak akkor tartjuk a kategória trust-badge-ek
 // között, ha van legalább egy, a részletfizetési küszöb (INSTALLMENT_MIN,
 // ~100 000 Ft) feletti termék a kategóriában. Tisztán küszöb-alatti
@@ -265,10 +276,10 @@ const categoryHasInstallment = products.some((p) => p?.data && monthlyTeaser(p.d
 // (ugyanaz a kategórialista, mint a ProductLayout ONE_YEAR_WARRANTY_CATEGORIES-e).
 const isOneYearWarrantyCategory = ['sminktetovalas', 'tetovalogepek'].includes(category.slug);
 const defaultTrustBadges: TrustBadge[] = [
-  { title: isOneYearWarrantyCategory ? '1 év garancia' : '2 év garancia' },
-  { title: 'Ingyenes betanítás' },
-  { title: 'Magyar szerviz' },
-  ...(categoryHasInstallment ? [{ title: 'Részletfizetés' }] : []),
+  { title: L(isOneYearWarrantyCategory ? 'warranty1' : 'warranty2') },
+  { title: L('freeTraining') },
+  { title: L('service') },
+  ...(categoryHasInstallment ? [{ title: L('installment') }] : []),
 ];
 const resolvedTrustBadges: TrustBadge[] = trustBadges && trustBadges.length > 0 ? trustBadges : defaultTrustBadges;
 
@@ -332,13 +343,13 @@ const benefitIcons: Record<string, string> = {
 };
 
 // Schema: CollectionPage + Breadcrumb entity graph
-const pageUrl = SITE.url + withTrailingSlash(`/${category.slug}`);
-const productUrls = products.map((p) => SITE.url + withTrailingSlash(`/${category.slug}/${p.data.slug || p.id}`));
+const pageUrl = SITE.url + href(`/${category.slug}`);
+const productUrls = products.map((p) => SITE.url + productHref(p));
 const categorySchema = collectionPageSchema(config, pageUrl, category.name, productUrls);
 // Push breadcrumb into the @graph
 categorySchema['@graph'].push(
   buildBreadcrumb(pageUrl, [
-    { name: 'Főoldal', url: SITE.url },
+    { name: t(pageLocale, 'breadcrumb.home'), url: SITE.url + (pageLocale === 'hu' ? '' : href('/')) },
     { name: category.nameShort },
   ])
 );
@@ -372,7 +383,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol class="flex items-center gap-2 text-sm">
           <li>
-            <a href="/" class="text-gray-500 hover:text-primary-600">Főoldal</a>
+            <a href={href('/')} class="text-gray-500 hover:text-primary-600">{t(pageLocale, 'breadcrumb.home')}</a>
           </li>
           <li class="text-gray-400">›</li>
           <li class="text-gray-900 font-medium">{category.nameShort}</li>
@@ -428,15 +439,15 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                   <div class="flex items-baseline gap-3 mb-4">
                     <span class="text-3xl font-bold text-gray-900">{huFmt.format(heroProduct.data.price)} Ft</span>
                     {monthlyTeaser(heroProduct.data) && (
-                      <span class="text-green-600 font-medium">vagy havi ~{huFmt.format(monthlyTeaser(heroProduct.data)!)} Ft</span>
+                      <span class="text-green-600 font-medium">{L('orMonthly', { price: `${huFmt.format(monthlyTeaser(heroProduct.data)!)} Ft` })}</span>
                     )}
                   </div>
                 ) : (
-                  <div class="text-xl font-semibold mb-4" style={`color: ${accentDark}`}>Kérjen ajánlatot</div>
+                  <div class="text-xl font-semibold mb-4" style={`color: ${accentDark}`}>{L('askPrice')}</div>
                 )}
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a href={productHref(heroProduct)} class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white shadow-sm hover:shadow-md transition-all" style={`background-color: ${accentDark}`}>
-                    Részletek megtekintése
+                    {L('viewDetails')}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                   </a>
                 </div>
@@ -510,14 +521,14 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                       <div class="mt-1">
                         <div class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</div>
                         {monthlyTeaser(p.data) && (
-                          <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
+                          <span class="text-green-600 text-xs font-medium">{L('monthly', { price: `${huFmt.format(monthlyTeaser(p.data)!)} Ft` })}</span>
                         )}
                       </div>
                     ) : (
-                      <div class="mt-1 text-sm font-semibold" style={`color: ${accentDark}`}>Kérjen ajánlatot</div>
+                      <div class="mt-1 text-sm font-semibold" style={`color: ${accentDark}`}>{L('askPrice')}</div>
                     )}
                     <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold" style={`color: ${accentDark}`}>
-                      Részletek
+                      {L('details')}
                       <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </span>
                   </a>
@@ -547,18 +558,18 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     </div>
                     <div class="min-w-0 flex-1">
                       <div class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors truncate">{p.data.name}</div>
-                      {p.data.shortDescription && (
-                        <p class="text-gray-500 text-sm line-clamp-1">{p.data.shortDescription}</p>
+                      {shortDescription(p) && (
+                        <p class="text-gray-500 text-sm line-clamp-1">{shortDescription(p)}</p>
                       )}
                       {p.data.price ? (
                         <div class="mt-1 flex items-baseline gap-2">
                           <span class="font-bold text-gray-900">{huFmt.format(p.data.price)} Ft</span>
                           {monthlyTeaser(p.data) && (
-                            <span class="text-green-600 text-xs font-medium">havi ~{huFmt.format(monthlyTeaser(p.data)!)} Ft</span>
+                            <span class="text-green-600 text-xs font-medium">{L('monthly', { price: `${huFmt.format(monthlyTeaser(p.data)!)} Ft` })}</span>
                           )}
                         </div>
                       ) : (
-                        <div class="mt-1 text-sm font-semibold" style={`color: ${accentDark}`}>Kérjen ajánlatot</div>
+                        <div class="mt-1 text-sm font-semibold" style={`color: ${accentDark}`}>{L('askPrice')}</div>
                       )}
                     </div>
                     <svg class="w-5 h-5 text-gray-300 group-hover:text-primary-600 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -595,7 +606,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <p class="text-white/60 font-medium text-sm">Kategória kép / Videó</p>
+                      <p class="text-white/60 font-medium text-sm">{L('placeholderMedia')}</p>
                     </div>
                   </div>
                 )}
@@ -637,13 +648,13 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">Termékek hamarosan</h2>
-            <p class="text-gray-600 mb-8">Ezen a kategórián dolgozunk. Kérj konzultációt, és személyesen bemutatjuk kínálatunkat.</p>
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">{L('comingSoonTitle')}</h2>
+            <p class="text-gray-600 mb-8">{L('comingSoonText')}</p>
             <a
               href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800"
             >
-              Konzultáció kérése
+              {L('consultRequest')}
             </a>
           </div>
         ) : (
@@ -668,7 +679,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                 <div class:list={['absolute z-10 flex flex-col gap-2', twoUpMobileGrid ? 'top-2 left-2 sm:top-4 sm:left-4' : 'top-4 left-4']}>
                   {product.data.hasVariants && (
                     <span class:list={['bg-purple-500 text-white font-bold rounded-full', twoUpMobileGrid ? 'text-[11px] px-2 py-0.5 sm:text-xs sm:px-3 sm:py-1' : 'text-xs px-3 py-1']}>
-                      {product.data.variants.length} változat
+                      {L('variants', { count: product.data.variants.length })}
                     </span>
                   )}
                 </div>
@@ -706,7 +717,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                       {product.data.name}
                     </h3>
                     <p class:list={['text-gray-600 text-sm mb-4 line-clamp-2', twoUpMobileGrid && 'hidden sm:block']}>
-                      {product.data.shortDescription || product.data.description?.slice(0, 100) + '...'}
+                      {shortDescription(product) || product.data.description?.slice(0, 100) + '...'}
                     </p>
 
                     <div class="mt-auto">
@@ -717,12 +728,12 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                           </div>
                           {monthlyTeaser(product.data) && (
                             <div class="text-green-600 text-sm font-medium">
-                              vagy havi ~{huFmt.format(monthlyTeaser(product.data)!)} Ft
+                              {L('orMonthly', { price: `${huFmt.format(monthlyTeaser(product.data)!)} Ft` })}
                             </div>
                           )}
                         </>
                       ) : (
-                        <div class="text-lg font-semibold text-primary-600">Kérjen ajánlatot</div>
+                        <div class="text-lg font-semibold text-primary-600">{L('askPrice')}</div>
                       )}
                     </div>
                   </div>
@@ -756,7 +767,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
 
     <!-- Video testimonials (site-wide social proof) -->
     <VideoTestimonials
-      title={isConsumableCategory && pageLocale === 'hu' ? 'Ők már Skinlabbal dolgoznak' : undefined}
+      title={isConsumableCategory ? L('consumablesReviewsTitle') : undefined}
     />
 
     <!-- "Melyiket válaszd?" - rich choices + comparison table (optional) -->
@@ -764,8 +775,8 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       <section class="bg-white py-12 lg:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-10">
-            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{choicesHeading || 'Melyiket válaszd?'}</h2>
-            <p class="text-gray-600">{choicesSubheading || 'Hasonlítsd össze a modelleket egy pillantással'}</p>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{choicesHeading || L('choicesHeading')}</h2>
+            <p class="text-gray-600">{choicesSubheading || L('choicesSubheading')}</p>
             {choicesIntro && (
               <p class="text-gray-700 max-w-3xl mx-auto mt-6 text-base lg:text-lg leading-relaxed">{choicesIntro}</p>
             )}
@@ -780,7 +791,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                       <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-30" style={`background-color: ${accentColor}`} aria-hidden="true"></div>
                       <OptimizedPicture
                         src={choice.image}
-                        alt={choice.imageAlt || `${choice.name} diódalézer`}
+                        alt={choice.imageAlt || L('choiceImageAlt', { name: choice.name })}
                         widths={[480, 640, 800]}
                         sizes="(min-width: 1024px) 40vw, 90vw"
                         class="relative z-10 w-full h-full object-contain"
@@ -843,11 +854,11 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     )}
 
                     <a
-                      href={withTrailingSlash(choice.link)}
+                      href={href(choice.link)}
                       class="inline-flex items-center gap-2 font-semibold px-5 py-3 rounded-xl text-white shadow-sm hover:shadow-md transition-all"
                       style={`background-color: ${accentDark}`}
                     >
-                      {choice.ctaLabel || `${choice.name} részletei`}
+                      {choice.ctaLabel || L('modelDetails', { name: choice.name })}
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                       </svg>
@@ -869,15 +880,15 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {hasChoices && (
             <div class="text-center mb-8">
-              <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2">Műszaki összehasonlítás</h3>
-              <p class="text-gray-600">Egy pillantás alatt a fő paraméterek</p>
+              <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2">{L('techCompareTitle')}</h3>
+              <p class="text-gray-600">{L('techCompareSubtitle')}</p>
             </div>
           )}
           <div class="overflow-x-auto">
             <table class="w-full min-w-[700px]">
               <thead>
                 <tr class="border-b-2 border-gray-200">
-                  <th class="text-left py-4 px-4 font-semibold text-gray-500 w-40">Jellemző</th>
+                  <th class="text-left py-4 px-4 font-semibold text-gray-500 w-40">{L('feature')}</th>
                   {comparison.products.map((product) => (
                     <th class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50 rounded-t-xl' : ''}`}>
                       <div class={`font-bold ${product.highlighted ? 'text-primary-600' : 'text-gray-900'}`}>{product.name}</div>
@@ -919,17 +930,17 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
                     <td class={`py-4 px-4 text-center ${product.highlighted ? 'bg-primary-50 rounded-b-xl' : ''}`}>
                       {product.link ? (
                         <a
-                          href={withTrailingSlash(product.link)}
+                          href={href(product.link)}
                           class={`inline-block font-semibold text-sm px-4 py-2 rounded-lg transition-colors ${
                             product.highlighted
                               ? 'bg-primary-600 text-white hover:bg-primary-700'
                               : 'text-primary-600 hover:underline'
                           }`}
                         >
-                          Részletek →
+                          {L('detailsArrow')}
                         </a>
                       ) : (
-                        <span class="text-primary-600 font-semibold text-sm hover:underline cursor-pointer">Részletek →</span>
+                        <span class="text-primary-600 font-semibold text-sm hover:underline cursor-pointer">{L('detailsArrow')}</span>
                       )}
                     </td>
                   ))}
@@ -939,7 +950,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
           </div>
 
           <div class="text-center mt-8">
-            <p class="text-gray-500 mb-4">Nem tudod eldönteni? Segítünk!</p>
+            <p class="text-gray-500 mb-4">{L('cantDecide')}</p>
             <a
               href={getLocalizedUrl(pageLocale, '/konzultacio')}
               class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-xl transition-colors"
@@ -947,7 +958,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
               </svg>
-              Kérj személyes tanácsadást
+              {L('personalAdvice')}
             </a>
           </div>
         </div>
@@ -986,7 +997,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               <div class:list={['relative rounded-2xl aspect-square overflow-hidden shadow-sm', MOBILE_MEDIA_BLEED]}>
                 <Image
                   src={benefitsImage}
-                  alt={benefitsImageAlt || `${category.nameShort} használat közben`}
+                  alt={benefitsImageAlt || L('inUse', { name: category.nameShort })}
                   widths={[480, 640, 800]}
                   sizes="(min-width: 1024px) 45vw, 90vw"
                   class="w-full h-full object-cover"
@@ -995,7 +1006,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
               </div>
             ) : (
               <div class="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center">
-                <p class="text-gray-400">Kép helye</p>
+                <p class="text-gray-400">{L('imagePlaceholder')}</p>
               </div>
             )}
           </div>
@@ -1009,7 +1020,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-10">
             <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
-              Gyakori kérdések
+              {L('faqTitle')}
             </h2>
           </div>
 
@@ -1037,10 +1048,10 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
       <div class="absolute top-0 left-0 right-0 h-[2px]" style={`background: linear-gradient(90deg, transparent, ${accentColor}, transparent)`} aria-hidden="true"></div>
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-          Nem tudod melyiket válaszd?
+          {L('finalTitle')}
         </h2>
         <p class="text-lg text-gray-600 mb-8">
-          Kérj ingyenes konzultációt, és segítünk kiválasztani a szalonodnak megfelelő készüléket!
+          {L('finalText')}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -1050,7 +1061,7 @@ const ogImage = (firstProductImage && getOgImagePath(firstProductImage)) || '/og
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            Ingyenes bemutatót kérek
+            {L('demoCta')}
           </a>
           <a
             href={CONTACT.phoneTel}
