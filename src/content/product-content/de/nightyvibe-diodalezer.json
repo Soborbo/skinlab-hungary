@@ -5,12 +5,32 @@
   "metaTitle": "NightyVibe Diodenlaser | 2500W, SAFE-OPTION, intelligente Steuerung",
   "metaDescription": "NightyVibe 2500W intelligenter Diodenlaser mit 4 Wellenlängen und SAFE-OPTION Technologie. 40M Schuss, digitaler Behandlungskopf, fachärztliche Schulung. Zertifiziert.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Leistung", "icon": "zap" },
-    { "value": "4", "label": "Wellenlängen", "icon": "wave" },
-    { "value": "40M", "label": "Schuss Lebensdauer", "icon": "clock" },
-    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Leistung",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Schuss Lebensdauer",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NightyVibe – Der smarte Laser für Profis",
     "paragraphs": [
@@ -108,15 +128,40 @@
   "expertQuote": {
     "quote": "Mit seiner 2500W Leistung und SAFE-OPTION Technologie ist der NightyVibe einer der sichersten und effektivsten Diodenlaser. Das komplette Business-Paket ist besonders wertvoll für Salons, die gerade starten.",
     "author": "Horváth László",
-    "role": "Skinlab-Mitgründer, Geschäftsführer"
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "2500W Leistung", "description": "Eine der höchsten Leistungen auf dem Markt." },
-    { "icon": "sun", "name": "4 Wellenlängen", "description": "755, 808, 940, 1064 nm – für jeden Hauttyp." },
-    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Schließt fehlerhafte oder gefährliche Einstellungen aus." },
-    { "icon": "chart", "name": "Schusszähler", "description": "Digitaler Behandlungskopf mit integriertem Zähler." },
-    { "icon": "brain", "name": "Intelligente Steuerung", "description": "Klinisch datenoptimierte Einstellungen." },
-    { "icon": "clipboard", "name": "Business-Paket", "description": "Marketingplan, Preisstrategie, Kundengewinnung." }
+    {
+      "icon": "zap",
+      "name": "2500W Leistung",
+      "description": "Eine der höchsten Leistungen auf dem Markt."
+    },
+    {
+      "icon": "sun",
+      "name": "4 Wellenlängen",
+      "description": "755, 808, 940, 1064 nm – für jeden Hauttyp."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Schließt fehlerhafte oder gefährliche Einstellungen aus."
+    },
+    {
+      "icon": "chart",
+      "name": "Schusszähler",
+      "description": "Digitaler Behandlungskopf mit integriertem Zähler."
+    },
+    {
+      "icon": "brain",
+      "name": "Intelligente Steuerung",
+      "description": "Klinisch datenoptimierte Einstellungen."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Business-Paket",
+      "description": "Marketingplan, Preisstrategie, Kundengewinnung."
+    }
   ],
   "faq": [
     {
@@ -141,7 +186,7 @@
     },
     {
       "question": "Welche Garantie erhalte ich?",
-      "answer": "Wir bieten eine 2-jährige umfassende Garantie. Wir verfügen über ein eigenes Serviceteam und stellen während der Reparatur ein Ersatzgerät zur Verfügung, damit Ihr Salonbetrieb nie stillsteht."
+      "answer": "Wir bieten eine 2-jährige umfassende Garantie. Wir verfügen über ein eigenes Serviceteam. Dauert eine Reparatur länger als 10 Arbeitstage, stellen wir – abhängig vom verfügbaren Bestand – ein Ersatzgerät bereit."
     }
   ],
   "whatsIncluded": [
@@ -153,6 +198,6 @@
     "Bedienungsanleitung",
     "Bediener-Schulung (zertifiziertes Zertifikat)",
     "2 Jahre umfassende Garantie",
-    "Ersatzgerät während der Reparatur"
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
   ]
 }

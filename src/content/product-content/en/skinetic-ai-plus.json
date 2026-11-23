@@ -116,6 +116,58 @@
     "Weight": "approx. 6.5 kg",
     "Power": "AC 100-240V, 50/60Hz"
   },
+  "expertQuote": {
+    "quote": "The biggest step forward in skin diagnostics is that a consultation no longer depends on impressions alone. SKINETIC AI+ takes images under consistent conditions, so the change does not have to be explained to the client – it can be shown. This documentability is what is most valuable in a salon's everyday work.",
+    "author": "Horváth László",
+    "role": "Skinlab co-founder, managing director"
+  },
+  "functionCards": [
+    {
+      "icon": "brain",
+      "name": "AI skin analysis",
+      "description": "Automatically identifies the regions of the face and evaluates them parameter by parameter."
+    },
+    {
+      "icon": "chart",
+      "name": "Scores and charts",
+      "description": "Numerical and visual results, with problem maps."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Client record",
+      "description": "Examinations, reports and comparisons linked to the client profile."
+    },
+    {
+      "icon": "bolt",
+      "name": "Quick examination",
+      "description": "Non-invasive assessment in just a few minutes."
+    },
+    {
+      "icon": "droplet",
+      "name": "Hydration and sebum",
+      "description": "Analysis of moisture and sebum distribution with a dedicated imaging mode."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Pores and texture",
+      "description": "Examination of pore size, density and surface irregularities."
+    },
+    {
+      "icon": "brain",
+      "name": "AI assistant",
+      "description": "Built-in AI assistant, with Hungarian menu."
+    },
+    {
+      "icon": "chart",
+      "name": "Ageing forecast",
+      "description": "Shows how the skin's condition may develop over the years."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Protocol planner",
+      "description": "Builds a treatment plan from the salon's own range."
+    }
+  ],
   "faq": [
     {
       "question": "Who is SKINETIC AI+ recommended for?",
@@ -132,6 +184,10 @@
     {
       "question": "How does it support consultations and sales?",
       "answer": "The client receives a clear visual report with scores, graphs and problem maps, so they can see for themselves which areas need attention and why a given treatment plan is recommended. Before-after comparison visually confirms the results of treatment programmes."
+    },
+    {
+      "question": "Is the software in Hungarian?",
+      "answer": "Yes, the system can be used with a Hungarian-language user interface developed with the involvement of a cosmetologist, so the menus and reports are tailored to Hungarian salon practice."
     },
     {
       "question": "What is included with the device?",
@@ -152,5 +208,17 @@
     "Operator training (with certificate)",
     "2-year full warranty",
     "Replacement device programme for longer repairs"
-  ]
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "SKINETIC AI+ AI skin diagnostic device with 15.6-inch touch display and Hungarian-language software",
+    "skinetic-ai-plus-oldalnezet.jpg": "SKINETIC AI+ skin analyser in side view, with light-shielded imaging chamber and touchscreen tablet",
+    "skinetic-ai-plus-mikroszkop.png": "SKINETIC AI+ device with the included scalp and facial microscope, Hungarian-language menu",
+    "skinetic-ai-plus-allvany.jpg": "SKINETIC AI+ skin diagnostic system on a wheeled stand with the handheld microscope",
+    "skinetic-ai-plus-showroom.jpg": "SKINETIC AI+ skin analyser in the Skinlab showroom in Érd, with treatment bed",
+    "skinetic-ai-plus-design-2.jpg": "SKINETIC AI+ skin diagnostic device with tablet, in front of a rose wall",
+    "skinetic-ai-plus-design-3.jpg": "SKINETIC AI+ AI skin analyser in side view, in front of a rose wall",
+    "skinetic-ai-plus-design-4.jpg": "SKINETIC AI+ scalp and facial microscope in hand, in front of the Skinlab logo",
+    "skinetic-ai-plus-kupola.jpg": "SKINETIC AI+ imaging dome close up",
+    "skinetic-ai-plus-tablet.jpg": "SKINETIC AI+ Hungarian-language interface on the tablet"
+  }
 }

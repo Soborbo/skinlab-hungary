@@ -139,7 +139,7 @@
     },
     {
       "question": "What warranty applies to the machine?",
-      "answer": "The Mast Nano 2 comes with a 1-year warranty. We provide a replacement device during repairs so your work doesn't stop."
+      "answer": "The Mast Nano 2 comes with a 1-year warranty. If a repair takes more than 10 working days, we provide a replacement device, subject to availability."
     }
   ],
   "whatsIncluded": [
@@ -147,6 +147,9 @@
     "Connection cable",
     "User manual",
     "1-year warranty",
-    "Replacement device during repairs"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "imageAlts": {
+    "mast-nano-2-design.jpg": "Two Mast Nano 2.0 PMU machines on a pink-gold silk background"
+  }
 }

@@ -1,126 +1,181 @@
 {
-  "name": "HIEMT Luxe RF – HI-EMT + radiofrekvencie zariadenie na formovanie tela",
-  "shortDescription": "HIEMT Luxe RF je premiove zariadenie na formovanie tela, ktore kombinuje vysokointenzivnu elektromagneticku svalovu stimulaciu (HI-EMT) a radiofrekvencnu (RF) technologiu. So 4 osetrujucimi hlavicami a 7 Tesla magnetickou silou mozno dosianut priemerne 25% narast svalovej hmoty a 30% znizenie tuku.",
-  "description": "HIEMT Luxe RF je spickove zariadenie na formovanie tela, ktore zjednocuje dve revolucne technologie: HI-EMT (High-Intensity Electromagnetic) svalova stimulacia s 4700W vykonom a 7 Tesla magnetickou silou buduje svaly, zatial co 400W radiofrekvencny (RF) modul rozbija tuk a spevnuje plet.\n\n4 osetrujuce hlavice umoznuju sucasne pouzitie pre komplexne osetrenia pokryvajuce viacero oblasti. Pocas 30-minutoveho osetrenia elektromagneticke vlny vyvolavaju intenzivne svalove kontrakcie a tepelny ucinok RF podporuje rozklad tukovych buniek a stimuluje produkciu kolagenu.\n\nVysledky ukazuju priemerne 25% narast svalovej hmoty a 30% znizenie tuku, s viditelnou zmenou uz po 4 osetreniach. Neinvazivne, bezbolestne, bez doby zotavenia.",
-  "metaTitle": "HIEMT Luxe RF | HI-EMT + RF kombinovane formovanie tela | Skinlab Hungary",
-  "metaDescription": "HIEMT Luxe RF: HI-EMT + radiofrekvencia kombinovane formovanie tela. 7 Tesla, 4 hlavice, 25% budovanie svalov, 30% znizenie tuku. Spevnenie pleti a budovanie svalov v jednom.",
+  "name": "HIEMT Luxe RF – HI-EMT + rádiofrekvenčné zariadenie na formovanie tela",
+  "shortDescription": "HIEMT Luxe RF je prémiové zariadenie na formovanie tela, ktoré kombinuje vysokointenzívnu elektromagnetickú svalovú stimuláciu (HI-EMT) a rádiofrekvenčnú (RF) technológiu. So 4 ošetrujúcimi hlavicami a magnetickou silou 7 Tesla možno dosiahnuť priemerne 25% nárast svalovej hmoty a 30% zníženie tuku.",
+  "description": "HIEMT Luxe RF je špičkové zariadenie na formovanie tela, ktoré spája dve revolučné technológie: svalová stimulácia HI-EMT (High-Intensity Electromagnetic) s výkonom 4700W a magnetickou silou 7 Tesla buduje svaly, zatiaľ čo 400W rádiofrekvenčný (RF) modul rozkladá tuk a spevňuje pleť.\n\n4 ošetrujúce hlavice umožňujú súčasné použitie pri komplexných ošetreniach pokrývajúcich viacero oblastí. Počas 30-minútového ošetrenia elektromagnetické vlny vyvolávajú intenzívne svalové kontrakcie a tepelný účinok RF podporuje rozklad tukových buniek a stimuluje tvorbu kolagénu.\n\nVýsledky ukazujú priemerne 25% nárast svalovej hmoty a 30% zníženie tuku, s viditeľnou zmenou už po 4 ošetreniach. Neinvazívne, bezbolestné, bez doby zotavenia.",
+  "metaTitle": "HIEMT Luxe RF | Kombinované formovanie tela HI-EMT + RF | Skinlab Hungary",
+  "metaDescription": "HIEMT Luxe RF: kombinované formovanie tela HI-EMT + rádiofrekvencia. 7 Tesla, 4 hlavice, 25% budovanie svalov, 30% zníženie tuku. Spevnenie pleti a budovanie svalov v jednom.",
   "stats": [
-    {"value": "7", "unit": "Tesla", "label": "Magneticka sila", "icon": "zap"},
-    {"value": "4", "label": "Osetrujuce hlavice", "icon": "zap"},
-    {"value": "30", "unit": "%", "label": "Znizenie tuku", "icon": "wave"},
-    {"value": "25", "unit": "%", "label": "Narast svalovej hmoty", "icon": "shield"}
+    {
+      "value": "7",
+      "unit": "Tesla",
+      "label": "Magnetická sila",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Ošetrujúce hlavice",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "%",
+      "label": "Zníženie tuku",
+      "icon": "wave"
+    },
+    {
+      "value": "25",
+      "unit": "%",
+      "label": "Nárast svalovej hmoty",
+      "icon": "shield"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 35000},
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
-    "headline": "Preco je kombinovana technologia HI-EMT + RF buducnostou?",
+    "headline": "Prečo je kombinovaná technológia HI-EMT + RF budúcnosťou?",
     "paragraphs": [
-      "Na trhu formovania tela klienti hladaju cim dalej komplexnejsie riesenia. HIEMT Luxe RF jedninecnym sposobom zjednocuje tri ucinky v jednom osetreni: budovanie svalov, rozklad tuku a spevnenie pleti – co je s inymi zariadeniami dosiahnutelne len oddelene.",
-      "Kombinovana technologia HI-EMT + RF umoznuje vyssiu cenu osetrenia (35 000–55 000 Ft/sedenie), pretoze klient dostava ucinok troch osetreni naraz. So 4 osetrujucimi hlavicami mozete denne vykonat 10–16 osetreni.",
-      "HIEMT Luxe RF je urceny pre premiove salony, kde su klienti ochotni zaplatit za najmodernejsiu technologiu a trojity ucinok."
+      "Na trhu formovania tela klienti hľadajú čoraz komplexnejšie riešenia. HIEMT Luxe RF jedinečným spôsobom spája tri účinky v jednom ošetrení: budovanie svalov, rozklad tuku a spevnenie pleti – čo je s inými zariadeniami dosiahnuteľné len oddelene.",
+      "Kombinovaná technológia HI-EMT + RF umožňuje vyššiu cenu ošetrenia (35 000–55 000 Ft/sedenie), pretože klient dostáva účinok troch ošetrení naraz. So 4 ošetrujúcimi hlavicami môžete denne vykonať 10–16 ošetrení.",
+      "HIEMT Luxe RF je určený pre prémiové salóny, kde sú klienti ochotní zaplatiť za najmodernejšiu technológiu a trojitý účinok."
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Mate otazky ohladom zariadenia HIEMT Luxe RF? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
-    "afterFeatures": {"headline": "Chcete si HIEMT Luxe RF pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
-    "final": {"headline": "Zaujima vas zariadenie HIEMT Luxe RF na formovanie tela?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+    "afterVideo": {
+      "text": "Máte otázky ohľadom zariadenia HIEMT Luxe RF? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si HIEMT Luxe RF pozrieť naživo?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervácia termínu"
+    },
+    "final": {
+      "headline": "Zaujíma vás zariadenie HIEMT Luxe RF na formovanie tela?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
   },
   "featureRows": {
-    "headline": "Preco si odbornici vyberaju HIEMT Luxe RF?",
-    "subtitle": "Kombinovana technologia HI-EMT + RF, trojity ucinok, premiove vysledky",
+    "headline": "Prečo si odborníci vyberajú HIEMT Luxe RF?",
+    "subtitle": "Kombinovaná technológia HI-EMT + RF, trojitý účinok, prémiové výsledky",
     "features": [
       {
-        "title": "Trojity ucinok v jednom osetreni: budovanie svalov + rozklad tuku + spevnenie pleti",
-        "description": "HIEMT Luxe RF jedninecnym sposobom zjednocuje tri technologicke ucinky v jednom 30-minutovom osetreni.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Vyhody kombinovanej technologie:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>HI-EMT budovanie svalov</strong> – 7 Tesla magneticka sila, intenzivne svalove kontrakcie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>RF rozklad tuku</strong> – 400W radiofrekvencny tepelny ucinok na rozklad tukovych buniek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>RF spevnenie pleti</strong> – stimulacia kolagenu, zlepsenie pruznosti pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Priemerne 25% narast svalovej hmoty</strong> pocas osetrujucej kury</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Priemerne 30% znizenie tuku</strong> v osetrenych oblastiach</div>\n</div>",
+        "title": "Trojitý účinok v jednom ošetrení: budovanie svalov + rozklad tuku + spevnenie pleti",
+        "description": "HIEMT Luxe RF jedinečným spôsobom spája tri technologické účinky v jednom 30-minútovom ošetrení.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">Výhody kombinovanej technológie:</p>\n<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>HI-EMT budovanie svalov</strong> – magnetická sila 7 Tesla, intenzívne svalové kontrakcie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>RF rozklad tuku</strong> – 400W rádiofrekvenčný tepelný účinok na rozklad tukových buniek</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>RF spevnenie pleti</strong> – stimulácia kolagénu, zlepšenie pružnosti pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Priemerne 25% nárast svalovej hmoty</strong> počas ošetrovacej kúry</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Priemerne 30% zníženie tuku</strong> v ošetrených oblastiach</div>\n</div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       },
       {
-        "title": "Sucasne pouzitie 4 osetrujucich hlavic",
-        "description": "HIEMT Luxe RF ma 4 osetrujuce hlavice, ktore sa daju pouzivat sucasne na vytvorenie komplexnych osetrujucich protokolov.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3 pb-5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4 hlavice sucasne – maximalna kapacita a ucinnost</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Paralelne osetrenie viacerych oblasti tela</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-minutovy cas osetrenia na sedenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Viditelne vysledky uz po 4 osetreniach</div>\n</div>\n<div class=\"flex flex-wrap items-center gap-3 mt-3 mb-1\"><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>bezbolestne</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>neinvazivne</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>ziadna doba zotavenia</span></div>",
+        "title": "Súčasné použitie 4 ošetrujúcich hlavíc",
+        "description": "HIEMT Luxe RF má 4 ošetrujúce hlavice, ktoré sa dajú používať súčasne na vytvorenie komplexných ošetrovacích protokolov.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3 pb-5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>4 hlavice súčasne – maximálna kapacita a účinnosť</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Paralelné ošetrenie viacerých oblastí tela</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>30-minútový čas ošetrenia na sedenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Viditeľné výsledky už po 4 ošetreniach</div>\n</div>\n<div class=\"flex flex-wrap items-center gap-3 mt-3 mb-1\"><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>bezbolestné</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>neinvazívne</span><span class=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium\"><svg class=\"w-3.5 h-3.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>žiadna doba zotavenia</span></div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       },
       {
-        "title": "Oblasti aplikacie",
-        "description": "HIEMT Luxe RF je vsestranné pouzitelny na roznych castiach tela. RF komponent je zvlast cenný pri znizovani celulitidy a spevnovani pleti.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Brucho a driek</strong> – rozklad tuku, posilnenie svalov, atletickejsi vzhlad</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Zadok</strong> – neinvazivne zdvihnutie zadku, okrúhlejsie tvary</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Stehna</strong> – znizenie celulitidy, spevnenie pleti RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Ruky a ramena</strong> – posilnenie svalov, zlepsenie pruznosti pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Panvove dno</strong> – s volitelnou hlavicou regeneracia svalov malej panvy</div>\n</div>",
+        "title": "Oblasti aplikácie",
+        "description": "HIEMT Luxe RF je všestranne použiteľný na rôznych častiach tela. RF komponent je obzvlášť cenný pri znižovaní celulitídy a spevňovaní pleti.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Brucho a driek</strong> – rozklad tuku, posilnenie svalov, atletickejší vzhľad</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Zadok</strong> – neinvazívne zdvihnutie zadku, okrúhlejšie tvary</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Stehná</strong> – zníženie celulitídy, spevnenie pleti pomocou RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Ruky a ramená</strong> – posilnenie svalov, zlepšenie pružnosti pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Panvové dno</strong> – s voliteľnou hlavicou regenerácia svalov malej panvy</div>\n</div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       },
       {
-        "title": "3 pracovne rezimy pre individualne osetrenie",
-        "description": "HIEMT Luxe RF ponuka tri rozne pracovne rezimy, s ktorymi sa osetrenie da prisposobit potrebám a citlivosti klienta.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Sportovy rezim</strong> – intenzivna svalova stimulacia pre maximalne budovanie svalov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Jemny rezim</strong> – mirnejsia stimulacia pre citlivejsie oblasti a zaciatocnikov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Profesionalny rezim</strong> – cieleny rast svalov a formovanie tela pre pokrocilych klientov</div>\n</div>",
+        "title": "3 pracovné režimy pre individuálne ošetrenie",
+        "description": "HIEMT Luxe RF ponúka tri rôzne pracovné režimy, s ktorými sa ošetrenie dá prispôsobiť potrebám a citlivosti klienta.\n<div class=\"grid grid-cols-1 gap-y-1.5 mt-3\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Športový režim</strong> – intenzívna svalová stimulácia pre maximálne budovanie svalov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Jemný režim</strong> – miernejšia stimulácia pre citlivejšie oblasti a začiatočníkov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg><strong>Profesionálny režim</strong> – cielený rast svalov a formovanie tela pre pokročilých klientov</div>\n</div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       },
       {
-        "title": "Premiove technicke parametre",
-        "description": "<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Magneticka vlnova energia: 0–7 Tesla</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>HI-EMT vykon: 4700W</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF vykon: 400W</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–100 Hz, sirka impulzu: 300 µs</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>10,4\" dotykovy displej, 4 osetrujuce hlavice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rozmery: 1200 × 360 × 520 mm, hmotnost: 63 kg</div>\n</div>",
+        "title": "Prémiové technické parametre",
+        "description": "<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Magnetická vlnová energia: 0–7 Tesla</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Výkon HI-EMT: 4700W</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Výkon RF: 400W</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Frekvencia: 1–100 Hz, šírka impulzu: 300 µs</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>10,4\" dotykový displej, 4 ošetrujúce hlavice</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Rozmery: 1200 × 360 × 520 mm, hmotnosť: 63 kg</div>\n</div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       },
       {
-        "title": "Pre koho je HIEMT Luxe RF urceny?",
-        "description": "<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre premiove esteticke salony a kliniky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre centra na formovanie tela hladajuce najmodernejsiu technologiu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre odbornikov specializujucich sa na osetrenie celulitidy</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Na komplexne poziadavky budovania svalov + spevnenia pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Na neinvazivne osetrenia zdvihnutia zadku</div>\n</div>",
+        "title": "Pre koho je HIEMT Luxe RF určený?",
+        "description": "<div class=\"grid grid-cols-1 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre prémiové estetické salóny a kliniky</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre centrá formovania tela, ktoré hľadajú najmodernejšiu technológiu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Pre odborníkov špecializujúcich sa na ošetrenie celulitídy</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Na komplexné požiadavky na budovanie svalov + spevnenie pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Na neinvazívne ošetrenia na zdvihnutie zadku</div>\n</div>",
         "image": "@assets/products/7badc85f-588d-4f41-add9-d5e17e9c7133.webp"
       }
     ]
   },
   "training": {
-    "headline": "Skolenie obsluhy zariadenia – v ramci oficialneho vzdelavania dospelych",
-    "badge": "S oficialnym certifikatom",
-    "intro": "K zariadeniu HIEMT Luxe RF je k dispozicii profesionalne skolenie obsluhy zariadenia, ktore poskytujeme v ramci oficialne ohlasenho vzdelavania dospelych. Skolenie sa zameriava na spolocnu aplikaciu technologie HI-EMT a RF, aby ucastnici mohli kombinovane osetrenia vykonavat sebaisto a odborne.",
+    "headline": "Školenie obsluhy zariadenia – v rámci oficiálneho vzdelávania dospelých",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K zariadeniu HIEMT Luxe RF je k dispozícii profesionálne školenie obsluhy zariadenia, ktoré poskytujeme v rámci oficiálne ohláseného vzdelávania dospelých. Školenie sa zameriava na spoločnú aplikáciu technológií HI-EMT a RF, aby účastníci mohli kombinované ošetrenia vykonávať sebaisto a odborne.",
     "items": [
-      "Princip fungovania technologie HI-EMT a jej parametre",
-      "Mechanizmus ucinku RF (radiofrekvencnej) technologie",
-      "Kombinovane protokoly osetrenia HI-EMT + RF",
-      "Technika sucasnej aplikacie 4 osetrujucich hlavic",
-      "Oblasti osetrenia: brucho, zadok, stehna, ruky, panvove dno",
-      "Spravna aplikacia 3 pracovnych rezimov (Sportovy, Jemny, Profesionalny)",
-      "Rozpoznavanie kontraindikacii a bezpecnostne pravidla",
-      "Zostavenie kury, premiova cenotvorba a komunikacia s klientmi",
-      "Prakticke osetrenia na modelkach"
+      "Princíp fungovania technológie HI-EMT a jej parametre",
+      "Mechanizmus účinku RF (rádiofrekvenčnej) technológie",
+      "Kombinované protokoly ošetrenia HI-EMT + RF",
+      "Technika súčasnej aplikácie 4 ošetrujúcich hlavíc",
+      "Oblasti ošetrenia: brucho, zadok, stehná, ruky, panvové dno",
+      "Správne používanie 3 pracovných režimov (Športový, Jemný, Profesionálny)",
+      "Rozpoznávanie kontraindikácií a bezpečnostné pravidlá",
+      "Zostavenie kúry, prémiová tvorba cien a komunikácia s klientmi",
+      "Praktické ošetrenia na modelkách"
     ],
     "closingParagraphs": [
-      "Na skolenie si samozrejme mozete priviest modelku, aby ste si techniky osetrenia osvojili v realnom prostredi, v bezpecnom a kontrolovanom vzdelavacom prostredi.",
-      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HIEMT Luxe RF.",
-      "Ak vas zaujima moznost kurzu, kontaktujte nas prosim na niektorom z nasich kontaktov za ucelom dohodnutia terminu!"
+      "Na školenie si samozrejme môžete priviesť modelku, aby ste si techniky ošetrenia osvojili v reálnych podmienkach, v bezpečnom a kontrolovanom vzdelávacom prostredí.",
+      "Po absolvovaní školenia vydáme oficiálny certifikát, ktorý potvrdzuje kompetentnosť na odbornú obsluhu zariadenia HIEMT Luxe RF.",
+      "Ak vás zaujíma možnosť kurzu, kontaktujte nás, prosím, prostredníctvom niektorého z našich kontaktov a dohodneme termín!"
     ],
     "price": "79.990 Ft",
-    "priceNote": "hodnota skolenia",
-    "freeText": "ZADARMO pri kupe zariadenia!",
-    "duration": "Jednodnove intenzivne skolenie",
-    "ctaText": "Mam zaujem o skolenie"
+    "priceNote": "hodnota školenia",
+    "freeText": "ZADARMO pri kúpe zariadenia!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
   },
   "testimonials": [
     {
-      "name": "Silvia Horvathova",
+      "name": "Silvia Horváthová",
       "date": "2025. 11. 12.",
-      "text": "HIEMT Luxe RF je najlepsia investicia, ktoru som za posledne roky urobila. <mark>Klienti miluju, ze pocas jedneho osetrenia prebieha budovanie svalov, rozklad tuku aj spevnenie pleti</mark>. RF komponent robi obrovský rozdiel zvlast pri osetreniach stehien – celulitida sa viditelne znizuje.",
+      "text": "HIEMT Luxe RF je najlepšia investícia, ktorú som za posledné roky urobila. <mark>Klienti milujú, že počas jedného ošetrenia prebieha budovanie svalov, rozklad tuku aj spevnenie pleti</mark>. RF komponent robí obrovský rozdiel najmä pri ošetreniach stehien – celulitída sa viditeľne znižuje.",
       "rating": 5
     },
     {
-      "name": "Nikola Pappova",
+      "name": "Nikola Pappová",
       "date": "2026. 02. 20.",
-      "text": "Za kombinovane osetrenie mozem ziadat premiovú cenu a klienti ju radi zaplatia, pretoze <mark>dostanu trojnásobný ucinok pocas jedneho 30-minutoveho sedenia</mark>. 4 osetrujuce hlavice zabezpecuju maximalnu vyuzitoost – denne vykonam 10-12 osetreni.",
+      "text": "Za kombinované ošetrenie môžem žiadať prémiovú cenu a klienti ju radi zaplatia, pretože <mark>dostanú trojnásobný účinok počas jedného 30-minútového sedenia</mark>. 4 ošetrujúce hlavice zabezpečujú maximálne využitie – denne vykonám 10-12 ošetrení.",
       "rating": 5
     }
   ],
   "expertQuote": {
-    "quote": "Kombinacia technologie HI-EMT a RF predstavuje novu generaciu formovania tela. Trojity ucinok – budovanie svalov, rozklad tuku, spevnenie pleti – je dosiahnutelný v jednom osetreni, co sa s inymi zariadeniami da realizovat len oddelene.",
+    "quote": "Kombinácia technológií HI-EMT a RF predstavuje novú generáciu formovania tela. Trojitý účinok – budovanie svalov, rozklad tuku, spevnenie pleti – je dosiahnuteľný v jednom ošetrení, čo sa s inými zariadeniami dá realizovať len oddelene.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "faq": [
-    {"question": "Aky je rozdiel medzi HIEMT Luxe RF a obycajnymi HIEMT zariadeniami?", "answer": "HIEMT Luxe RF ma okrem HI-EMT elektromagnetickej svalovej stimulacie aj zabudovany 400W radiofrekvencny (RF) modul. Tepelny ucinok RF podporuje rozklad tukovych buniek, zvysuje prietok krvi a stimuluje produkciu kolagenu – takze spevnenie pleti je tiez sucasou osetrenia. Obycajne HIEMT zariadenia dokazu len budovat svaly a rozkladat tuk."},
-    {"question": "Ako funguje kombinovane osetrenie HI-EMT + RF?", "answer": "HI-EMT komponent vysokoenergetickymi elektromagnetickymi vlnami (7 Tesla) vyvola intenzivne svalove kontrakcie a zvysuje svalovu hmotu. Sucasne RF modul dodava do tkaniv tepelnú energiu, co urýchluje rozklad tukovych buniek a stimuluje produkciu kolagenu pre pevnejsiu plet. Synergicky ucinok oboch technologii prinasa silnejsie vysledky ako ktorakolvek samostatne."},
-    {"question": "Ake vysledky mozno ocakavat?", "answer": "Priemerne 25% narast svalovej hmoty a 30% znizenie tuku pocas osetrujucej kury. Vysledky su viditelne uz po 4 osetreniach, ale pre optimalny ucinok sa odporuca kura 6–8 sedeni, 1x tyzdenne. Konecne vysledky dosahuju spicku 2–4 tyzdne po ukonceni kury."},
-    {"question": "Pre koho osetrenie nie je vhodne?", "answer": "Osetrenie nie je vhodne pre nositelov kardiostimulatorov, srdcovych pacientov, onkologickych pacientov, tehotne a dojciace zeny, diabetikov, osoby po mozgovej prihode a osoby s kovovymi implantatmi."},
-    {"question": "Je osetrenie bolestive?", "answer": "Nie, osetrenie je bezbolestne. Svalove kontrakcie su intenzivne, ale nie su neprijemne – podobaju sa pocitu po silnom treningu. RF komponent moze vyvolat mierny pocit tepla, ktory je prijemny. Nie je potrebne znecitlivenie a po osetreni nie je ziadna doba zotavenia."},
-    {"question": "Nepopalci RF plet?", "answer": "Nie, teplota RF modulu je presne regulovatelna a bezpecnostny system zariadenia nepretrzite monitoruje teplotu. Tepelny ucinok vyvola prijemny pocit tepla, ktory podporuje rozklad tuku a produkciu kolagenu, bez poskodenia pleti."},
-    {"question": "Za aky cas sa zariadenie vrati?", "answer": "Za kombinovane osetrenia HI-EMT + RF mozete ziadat vyssiu cenu: 35 000–55 000 Ft/sedenie. So 4 osetrujucimi hlavicami mozete denne vykonat 10–16 osetreni. Zariadenie sa zvycajne vrati za 2–4 mesiace. Pouzite nasu ROI kalkulacku na stranke pre presny vypocet!"}
+    {
+      "question": "Aký je rozdiel medzi HIEMT Luxe RF a bežnými HIEMT zariadeniami?",
+      "answer": "HIEMT Luxe RF má okrem elektromagnetickej svalovej stimulácie HI-EMT aj zabudovaný 400W rádiofrekvenčný (RF) modul. Tepelný účinok RF podporuje rozklad tukových buniek, zvyšuje prekrvenie a stimuluje tvorbu kolagénu – takže súčasťou ošetrenia je aj spevnenie pleti. Bežné HIEMT zariadenia dokážu len budovať svaly a rozkladať tuk."
+    },
+    {
+      "question": "Ako funguje kombinované ošetrenie HI-EMT + RF?",
+      "answer": "Komponent HI-EMT pomocou vysokoenergetických elektromagnetických vĺn (7 Tesla) vyvoláva intenzívne svalové kontrakcie a zvyšuje svalovú hmotu. Súčasne RF modul dodáva do tkanív tepelnú energiu, čo urýchľuje rozklad tukových buniek a stimuluje tvorbu kolagénu pre pevnejšiu pleť. Synergický účinok oboch technológií prináša silnejšie výsledky ako ktorákoľvek z nich samostatne."
+    },
+    {
+      "question": "Aké výsledky možno očakávať?",
+      "answer": "Priemerne 25% nárast svalovej hmoty a 30% zníženie tuku počas ošetrovacej kúry. Výsledky sú viditeľné už po 4 ošetreniach, ale pre optimálny účinok sa odporúča kúra 6–8 sedení, 1x týždenne. Konečné výsledky vrcholia 2–4 týždne po ukončení kúry."
+    },
+    {
+      "question": "Pre koho ošetrenie nie je vhodné?",
+      "answer": "Ošetrenie nie je vhodné pre nositeľov kardiostimulátorov, kardiakov, onkologických pacientov, tehotné a dojčiace ženy, diabetikov, osoby po mozgovej príhode a osoby s kovovými implantátmi."
+    },
+    {
+      "question": "Je ošetrenie bolestivé?",
+      "answer": "Nie, ošetrenie je bezbolestné. Svalové kontrakcie sú intenzívne, ale nie sú nepríjemné – pripomínajú pocit po silnom tréningu. RF komponent môže vyvolať mierny pocit tepla, ktorý je príjemný. Nie je potrebné znecitlivenie a po ošetrení nie je žiadna doba zotavenia."
+    },
+    {
+      "question": "Nespáli RF pleť?",
+      "answer": "Nie, teplota RF modulu je presne regulovateľná a bezpečnostný systém zariadenia nepretržite monitoruje teplotu. Tepelný účinok vyvoláva príjemný pocit tepla, ktorý podporuje rozklad tuku a tvorbu kolagénu bez poškodenia pleti."
+    },
+    {
+      "question": "Za aký čas sa zariadenie vráti?",
+      "answer": "Za kombinované ošetrenia HI-EMT + RF môžete žiadať vyššiu cenu: 35 000–55 000 Ft/sedenie. So 4 ošetrujúcimi hlavicami môžete denne vykonať 10–16 ošetrení. Zariadenie sa zvyčajne vráti za 2–4 mesiace. Použite našu ROI kalkulačku na stránke pre presný výpočet!"
+    }
   ],
   "whatsIncluded": [
     "HIEMT Luxe RF zariadenie",
-    "4 ks HI-EMT + RF osetrujuca hlavica",
-    "10,4\" dotykova ovladacia jednotka",
-    "Upevnovacie popruhy",
-    "Navod na pouzitie (v slovencine)",
-    "2-rocna plna zaruka",
-    "Nahradne zariadenie pocas opravy"
+    "4 ks HI-EMT + RF ošetrujúca hlavica",
+    "10,4\" dotyková ovládacia jednotka",
+    "Upevňovacie popruhy",
+    "Návod na použitie (v slovenčine)",
+    "2-ročná plná záruka",
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

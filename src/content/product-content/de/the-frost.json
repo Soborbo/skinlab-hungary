@@ -2,15 +2,51 @@
   "name": "THE FROST – ColdPlasma by Skinlab",
   "shortDescription": "THE FROST ist ein modernes, professionelles elektrokosmetisches Gerät, das Kaltplasma-, Warmplasma- und Ozonplasma-Technologie in einem einzigen Gerät vereint. Ziel ist die sichtbare Verbesserung des Hautzustands ohne Schnitte, Blutungen oder lange Erholungszeiten, ausschließlich für kosmetische und ästhetische Anwendungen.",
   "description": "THE FROST – ColdPlasma by Skinlab ist ein modernes, professionelles elektrokosmetisches Gerät, das Kaltplasma-, Warmplasma- und Ozonplasma-Technologie in einem einzigen Gerät vereint.\n\nZiel ist die sichtbare Verbesserung des Hautzustands ohne Schnitte, Blutungen oder lange Erholungszeiten, ausschließlich für kosmetische und ästhetische Anwendungen.\n\nDas Gerät ist kein Medizinprodukt; es wird in kosmetischer Umgebung verwendet. Es fällt vollständig in den Kompetenzbereich von Kosmetikerinnen, und eine vollständige rechtliche Dokumentation ist bei jedem Gerät enthalten.",
-  "metaTitle": "THE FROST ColdPlasma | 9-in-1 Professionelles Kaltplasma-Gerät | Skinlab Hungary",
+  "metaTitle": "THE FROST ColdPlasma | 11-in-1 Professionelles Kaltplasma-Gerät | Skinlab Hungary",
   "metaDescription": "THE FROST Kaltplasma-Gerät: 9 Funktionen in einem Gerät. Kaltplasma, Thermoplasma, Ozonplasma. Akne, Anti-Aging, Hauterneuerung. 2 Jahre Garantie.",
+  "specs": {
+    "Gerätetyp": "Professionelles elektrokosmetisches Plasmagerät",
+    "Technologie": "Kaltplasma, Warmplasma (Thermoplasma), Ozonplasma",
+    "Anzahl der Funktionen": "11-in-1",
+    "Einsatzbereich": "Gesicht, Hals, Kopfhaut, lokale Punktbehandlungen",
+    "Behandlungsköpfe": "Mehrere: für Gesichts-, Punkt- und Kopfhautbehandlungen",
+    "Energieeinstellung": "Digital, prozentual regelbar",
+    "Betriebsmodi": "Shot / Pulse / Continuous",
+    "Display": "10,4\" Farb-Touchdisplay",
+    "Auslösung": "Manuelle Steuerung und Fußpedal",
+    "Funktionsweise": "Nicht-invasiv, blutungsfrei",
+    "Regenerationszeit": "Keine oder minimal (je nach Behandlungsart)",
+    "Verwendung": "Ausschließlich für kosmetische und ästhetische Zwecke",
+    "Zertifizierung": "CE-zertifiziertes Gerät"
+  },
   "stats": [
-    { "value": "9", "unit": "in 1", "label": "Funktionen", "icon": "layers" },
-    { "value": "3", "label": "Plasma-Technologien", "icon": "zap" },
-    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "shield" },
-    { "value": "0", "unit": "Min", "label": "Erholungszeit", "icon": "clock" }
+    {
+      "value": "9",
+      "unit": "in 1",
+      "label": "Funktionen",
+      "icon": "layers"
+    },
+    {
+      "value": "3",
+      "label": "Plasma-Technologien",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "Min",
+      "label": "Erholungszeit",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Warum jetzt der richtige Zeitpunkt für Kaltplasma ist",
     "paragraphs": [
@@ -119,18 +155,55 @@
   "expertQuote": {
     "quote": "Kaltplasma ist einer der dynamischsten Bereiche in der Kosmetikindustrie. Wer es jetzt einführt, verschafft sich einen echten Wettbewerbsvorteil – sowohl die Wirksamkeit der Technologie als auch die Marktnachfrage stützen dies.",
     "author": "Horváth László",
-    "role": "Skinlab-Mitgründer, Geschäftsführer"
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "snowflake", "name": "Derma Plasma", "description": "Hauterneuerung, Porenreinigung mit Kaltplasma" },
-    { "icon": "zap", "name": "Stamp Plasma", "description": "Mikrostimulation, Verbesserung der Hauttextur" },
-    { "icon": "bolt", "name": "Hyper Plasma", "description": "Intensive antibakterielle Wirkung" },
-    { "icon": "sparkles", "name": "Scalp Plasma", "description": "Kopfhautaktivierung, Haarfollikelstimulation" },
-    { "icon": "spray", "name": "Jet Plasma", "description": "Wirkstoffeinschleusung, erfrischende Behandlung" },
-    { "icon": "sun", "name": "Warm Plasma", "description": "Hautstraffung, Kollagenstimulation mit Thermoplasma" },
-    { "icon": "bolt", "name": "Flash Plasma", "description": "Intensive Hautaktivierung, Rejuvenation" },
-    { "icon": "eye", "name": "Diamond Plasma", "description": "Verfeinerung der Hautoberfläche, Lifting-Effekt" },
-    { "icon": "bubbles", "name": "Ozonplasma", "description": "Natürliche antibakterielle Desinfektion mit Ozon" }
+    {
+      "icon": "snowflake",
+      "name": "Derma Plasma",
+      "description": "Hauterneuerung, Porenreinigung mit Kaltplasma"
+    },
+    {
+      "icon": "zap",
+      "name": "Stamp Plasma",
+      "description": "Mikrostimulation, Verbesserung der Hauttextur"
+    },
+    {
+      "icon": "bolt",
+      "name": "Hyper Plasma",
+      "description": "Intensive antibakterielle Wirkung"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Scalp Plasma",
+      "description": "Kopfhautaktivierung, Haarfollikelstimulation"
+    },
+    {
+      "icon": "spray",
+      "name": "Jet Plasma",
+      "description": "Wirkstoffeinschleusung, erfrischende Behandlung"
+    },
+    {
+      "icon": "sun",
+      "name": "Warm Plasma",
+      "description": "Hautstraffung, Kollagenstimulation mit Thermoplasma"
+    },
+    {
+      "icon": "bolt",
+      "name": "Flash Plasma",
+      "description": "Intensive Hautaktivierung, Rejuvenation"
+    },
+    {
+      "icon": "eye",
+      "name": "Diamond Plasma",
+      "description": "Verfeinerung der Hautoberfläche, Lifting-Effekt"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Ozonplasma",
+      "description": "Natürliche antibakterielle Desinfektion mit Ozon"
+    }
   ],
   "faq": [
     {
@@ -181,6 +254,6 @@
     "Bedienungsanleitung",
     "Rechtliche Dokumentation",
     "2 Jahre Vollgarantie",
-    "Ersatzgerät während der Reparatur"
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
   ]
 }

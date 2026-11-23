@@ -1,119 +1,245 @@
 {
   "name": "HYDRASCAN PRO+ 2026",
-  "shortDescription": "Nova generacia hydrofacialu: 8 osetrujucich hlavic, 4K AI analyza pleti, hydra-liquid system, digitalna karta klienta, obnoveny dizajn. Skolenie v kupnej cene.",
-  "description": "HydraScan PRO+ 2026 je premiovy, multifunkcny hydrofacialny pristroj, ktory kombinuje modernu hydra-liquid technologiu s pokrocilym 4K diagnostickym systemom pleti a uplne obnovenym, ergonomickym telom zariadenia.\n\nToto zariadenie nie je len pristrojom na osetrenie tvare, ale komplexnym osetrujucim a obchodno-rozvojovym systemom, ktory podporuje profesionalnu pracu aj zvysovanie prijmu.\n\nZabudovana 4K diagnosticka kamera zabezpecuje zvacsene, detailne obrazky aktualneho stavu pleti, vedie digitalnu kartu klienta a podporuje profesionalnu prezentaciu osetrujucich balikov.",
-  "metaTitle": "HydraScan PRO+ 2026 | S 4K analyzou pleti a hydra-liquid systemom",
-  "metaDescription": "HydraScan PRO+ 2026 hydrofacial: 4K analyza pleti, hydra-liquid system, digitalna karta klienta, oxy-pod osetrujuca hlavica. Skolenie v kupnej cene.",
+  "shortDescription": "Nová generácia hydrofacialu: 8 ošetrujúcich hlavíc, 4K AI analýza pleti, hydra-liquid systém, digitálna karta klienta, obnovený dizajn. Školenie v kúpnej cene.",
+  "description": "HydraScan PRO+ 2026 je prémiový multifunkčný hydrofaciálny prístroj, ktorý kombinuje modernú hydra-liquid technológiu s pokročilým 4K diagnostickým systémom pleti a úplne obnoveným, ergonomickým telom zariadenia.\n\nToto zariadenie nie je len prístrojom na ošetrenie tváre, ale komplexným ošetrujúcim a obchodno-rozvojovým systémom, ktorý podporuje profesionálnu prácu aj zvyšovanie príjmu.\n\nZabudovaná 4K diagnostická kamera poskytuje zväčšené, detailné obrázky aktuálneho stavu pleti, vedie digitálnu kartu klienta a podporuje profesionálnu prezentáciu balíkov ošetrení.",
+  "metaTitle": "HydraScan PRO+ 2026 | So 4K analýzou pleti a hydra-liquid systémom",
+  "metaDescription": "Hydrofacial HydraScan PRO+ 2026: 4K analýza pleti, hydra-liquid systém, digitálna karta klienta, ošetrujúca hlavica oxy-pod. Školenie v kúpnej cene.",
+  "specs": {
+    "Model": "HydraScan PRO+ 2026",
+    "Systém": "Inteligentný systém ošetrenia Android",
+    "Displej": "10,1\" dotyková obrazovka Android (800 × 1280)",
+    "Vstupné napätie": "100–120V / 220–240V",
+    "Frekvencia": "50 / 60 Hz",
+    "Výkon": "150 W",
+    "RF frekvencia": "0.5 – 1 MHz",
+    "Frekvencia ultrazvuku": "1 MHz",
+    "Rozsah vákua": "−6 kPa – −86 kPa",
+    "Frekvencia bodovej vibrácie": "28 – 30 kHz",
+    "Studeno-teplý rozsah": "−6 °C – 36 °C",
+    "Nádrž na čistú vodu": "cca 2,3 kg",
+    "Nádrž na odpadovú vodu": "cca 3,2 kg",
+    "Kamera na analýzu pleti": "4K s vysokým rozlíšením, trojspektrálna",
+    "Čas detekcie": "cca 2 minúty",
+    "AI analýza pleti": "V maďarčine; farba pleti, rovnováha vody a mazu, vrásky, zápal, pigment, póry",
+    "Ošetrovacie hlavice": "Bubble Cleaning (hydrodermabrázia), Oxygen Bubble (oxypod), Skin Scrubber (UZ peeling), Water Oxygen Atomization (oxy-spray), Cold & Hot (studeno-teplé kladivko), Sound Wave 40-50 (UZ vpravovanie účinných látok), Bipolar RF, LED maska",
+    "Záruka": "2-ročná komplexná záruka",
+    "Doba dodania": "2-6 týždňov"
+  },
   "stats": [
-    {"value": "4K", "label": "Kamera analyzy pleti", "icon": "zap"},
-    {"value": "8", "label": "Osetrujuca hlavica", "icon": "layers"},
-    {"value": "2", "unit": "rok", "label": "Zaruka", "icon": "shield"},
-    {"value": "~40", "unit": "min", "label": "Cas osetrenia", "icon": "clock"}
+    {
+      "value": "4K",
+      "label": "Kamera na analýzu pleti",
+      "icon": "zap"
+    },
+    {
+      "value": "8",
+      "label": "Ošetrujúcich hlavíc",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "rok",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Čas ošetrenia",
+      "icon": "clock"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 25000},
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
-    "headline": "HydraScan PRO+ 2026 – nova generacia hydrofacialu",
+    "headline": "HydraScan PRO+ 2026 – nová generácia hydrofacialu",
     "paragraphs": [
-      "HydraScan PRO+ 2026 je nova generacia hydra-liquid technologie so systemom 4K diagnostiky pleti a uplne obnovenym telom zariadenia.",
-      "Zabudovana 4K kamera zabezpecuje zvacsene, detailne obrazky stavu pleti, vedie digitalnu kartu klienta a podporuje predaj.",
-      "Zariadenie nie je len pristrojom na osetrenie tvare, ale komplexnym osetrujucim a obchodno-rozvojovym systemom – skolenie v kupnej cene."
+      "HydraScan PRO+ 2026 je nová generácia hydra-liquid technológie so systémom 4K diagnostiky pleti a úplne obnoveným telom zariadenia.",
+      "Zabudovaná 4K kamera poskytuje zväčšené, detailné obrázky stavu pleti, vedie digitálnu kartu klienta a podporuje predaj.",
+      "Zariadenie nie je len prístrojom na ošetrenie tváre, ale komplexným ošetrujúcim a obchodno-rozvojovým systémom – školenie v kúpnej cene."
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Mate otazky ohladom zariadenia? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
-    "afterFeatures": {"headline": "Chcete si HydraScan PRO+ 2026 pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
-    "final": {"headline": "Zaujima vas HydraScan PRO+ 2026?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+    "afterVideo": {
+      "text": "Máte otázky ohľadom zariadenia? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si HydraScan PRO+ 2026 pozrieť naživo?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervácia termínu"
+    },
+    "final": {
+      "headline": "Zaujíma vás HydraScan PRO+ 2026?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
   },
   "featureRows": {
-    "headline": "Preco si kozmeticky vyberaju HydraScan PRO+ 2026?",
-    "subtitle": "4K analyza pleti, hydra-liquid system a podpora rozvoja podnikania",
+    "headline": "Prečo si kozmetičky vyberajú HydraScan PRO+ 2026?",
+    "subtitle": "4K analýza pleti, hydra-liquid systém a podpora rozvoja podnikania",
     "features": [
       {
-        "title": "8 osetrujucich hlavic pre kompletný protokol osetrenia tvare",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrazia (hydra-liquid vakuova hlavica)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrobublinkova hlavica (oxy-pod)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukovy peeling (spatula)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teply kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bipolarne RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukove vpravovanie ucinnych latok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED maska</div>\n</div>",
+        "title": "8 ošetrujúcich hlavíc pre kompletný protokol ošetrenia tváre",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia (hydra-liquid vákuová hlavica)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrobublinková hlavica (oxy-pod)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukový peeling (špachtľa)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teplé kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Bipolárne RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukové vpravovanie účinných látok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED maska</div>\n</div>",
         "image": "@assets/products/hydrascan-pro-plus-applicators.png"
       },
       {
-        "title": "4K Skin Intelligence – analyza pleti a podpora predaja",
-        "description": "Zabudovana 4K diagnosticka kamera vytvara na trhu najkvalitnejsie zaznamy aktualneho stavu pleti. System vedie digitalnu kartu klienta, archivuje udaje o osetreniach, podporuje vytvorenie dlhodobeho planu osetrenia a pomaha pri profesionalnej prezentacii osetrujucich balikov. AI analyza trva cca 2 minuty a hodnoti ton pleti, pomer vody a mazu, vrasky, zapal, pigmentaciu a pory. Tento system sme do Madarska priniesli ako prvi. Funkcionalita analyzy je vyvíjatelna a prisposobitelna na viacero jazykov.",
+        "title": "4K Skin Intelligence – analýza pleti a podpora predaja",
+        "description": "Zabudovaná 4K diagnostická kamera vytvára najkvalitnejšie záznamy aktuálneho stavu pleti na trhu. Systém vedie digitálnu kartu klienta, archivuje údaje o ošetreniach, podporuje vytvorenie dlhodobého plánu ošetrenia a pomáha pri profesionálnej prezentácii balíkov ošetrení. AI analýza trvá cca 2 minúty a hodnotí tón pleti, pomer vody a mazu, vrásky, zápal, pigmentáciu a póry. Tento systém sme do Maďarska priniesli ako prví. Funkcionalita analýzy sa dá ďalej vyvíjať a prispôsobiť pre viacero jazykov.",
         "image": "@assets/products/hydrascan-pro-plus-interface.png"
       },
       {
-        "title": "Technologia new-wave hydra-liquid",
-        "description": "Hydra-liquid osetrenie je kombinacia vakuoveho a kvapalinoveho hlbkoveho cistenia: hlbkovo cisti pory, odstrania mazove a necistoty, podporuje vstrebávanie ucinnych latok a zabezpecuje komfortny zazitok z osetrenia. Vysledok je okamzite viditelny: cistejsi, hladsi, hydratovanejsi obraz pleti s minimalnou iritaciou.",
+        "title": "Technológia new-wave hydra-liquid",
+        "description": "Hydra-liquid ošetrenie je kombinácia vákuového a kvapalinového hĺbkového čistenia: hĺbkovo čistí póry, odstraňuje maz a nečistoty, podporuje vstrebávanie účinných látok a zabezpečuje komfortný zážitok z ošetrenia. Výsledok je okamžite viditeľný: čistejšia, hladšia, hydratovanejšia pleť s minimálnym podráždením.",
         "video": "/videos/hydrascanpro/hydrascanpro-kezeles.mp4",
         "poster": "/videos/hydrascanpro/hydrascanpro-kezeles.jpg"
       },
       {
-        "title": "Obnoveny dizajn a vylepsene telo zariadenia",
-        "description": "HydraScan PRO+ 2026 dostal uplne novy, moderny vzhlad. Vylepsene telo zariadenia a ergonomicky povrch obsluhy ulahlcuju kazdennu pracu. Premiovy esteticky vzhlad, moderny, cisty dizajn, vylepseny vnutorny system.",
+        "title": "Obnovený dizajn a vylepšené telo zariadenia",
+        "description": "HydraScan PRO+ 2026 dostal úplne nový, moderný vzhľad. Vylepšené telo zariadenia a ergonomický ovládací povrch uľahčujú každodennú prácu. Prémiový estetický vzhľad, moderný, čistý dizajn, vylepšený vnútorný systém.",
         "image": "@assets/products/hydrascan-pro-plus-webshop-2.png"
       }
     ]
   },
   "training": {
-    "headline": "Skolenie v kupnej cene – kompletny odborny balik",
-    "badge": "Skolenie v kupnej cene",
-    "intro": "Kupou HydraScan PRO+ 2026 neziskavate len pristroj, ale aj uplnu, strukturovanu odbornu podporu. Cielom skolenia je, aby ste zariadenie vedeli sebaisto, bezpecne a obchodne efektivne pouzivat.",
+    "headline": "Školenie v kúpnej cene – kompletný odborný balík",
+    "badge": "Školenie v kúpnej cene",
+    "intro": "Kúpou HydraScan PRO+ 2026 nezískavate len prístroj, ale aj úplnú, štruktúrovanú odbornú podporu. Cieľom školenia je, aby ste zariadenie vedeli používať sebaisto, bezpečne a obchodne efektívne.",
     "items": [
-      "Princip fungovania HydraScan PRO+ 2026, osetrujuce hlavice a technologie",
-      "Interpretacia a prakticka aplikacia 4K systemu analyzy pleti",
-      "Hydra-liquid protokoly osetrenia pre rozne typy pleti",
-      "Pouzitie oxy-pod osetrovacej hlavice a aplikacia pod-setov",
-      "Komunikacia s klientmi, digitalna karta klienta a obchodna strategia",
-      "Prakticke osetrenia na modelkach"
+      "Princíp fungovania HydraScan PRO+ 2026, ošetrujúce hlavice a technológie",
+      "Interpretácia a praktické využitie 4K systému analýzy pleti",
+      "Hydra-liquid protokoly ošetrenia pre rôzne typy pleti",
+      "Použitie ošetrujúcej hlavice oxy-pod a aplikácia pod-setov",
+      "Komunikácia s klientmi, digitálna karta klienta a obchodná stratégia",
+      "Praktické ošetrenia na modelkách"
     ],
     "closingParagraphs": [
-      "Skolenie obsahuje podrobny, jedinecne kvalitny pisomny studijny material, protokoly osetrenia a podporu s obchodnym pristupom.",
-      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HydraScan PRO+ 2026.",
-      "Ak by ste chceli zariadenie vidiet nazivo, kontaktujte nas prosim za ucelom dohodnutia osobnej prezentacie."
+      "Školenie obsahuje podrobný, mimoriadne kvalitný písomný študijný materiál, protokoly ošetrenia a podporu s obchodným prístupom.",
+      "Po absolvovaní školenia vydáme oficiálny certifikát, ktorý potvrdzuje spôsobilosť na odbornú obsluhu zariadenia HydraScan PRO+ 2026.",
+      "Ak by ste chceli zariadenie vidieť naživo, kontaktujte nás, prosím, a dohodneme si osobnú prezentáciu."
     ],
-    "price": "V kupnej cene",
-    "priceNote": "skolenie je zahrnuté",
-    "freeText": "ZADARMO – kupna cena zahrnuje!",
-    "duration": "Jednodnove intenzivne skolenie",
-    "ctaText": "Mam zaujem o skolenie"
+    "price": "V kúpnej cene",
+    "priceNote": "školenie je zahrnuté",
+    "freeText": "ZADARMO – zahrnuté v kúpnej cene!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
   },
   "expertQuote": {
-    "quote": "HydraScan PRO+ 2026 nie je len hydrofacialny pristroj, ale kompletny osetrujuci a obchodno-rozvojovy system. 4K analyza pleti a hydra-liquid technologia spolocne predstavuju vynikajucu hodnotu.",
+    "quote": "HydraScan PRO+ 2026 nie je len hydrofaciálny prístroj, ale kompletný ošetrujúci a obchodno-rozvojový systém. 4K analýza pleti a hydra-liquid technológia spoločne predstavujú vynikajúcu hodnotu.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    {"icon": "droplet", "name": "Hydrodermabrazna hlavica", "description": "S hydra-liquid systemom, regulovatelnym vakuom a prietokom kvapaliny"},
-    {"icon": "spray", "name": "Oxy-spray", "description": "Bezdotykove vnaasanie ucinnych latok, dokonaly záverecný krok"},
-    {"icon": "snowflake", "name": "Studeno-teply kladivko", "description": "Stimulacia cirkulacie a stiahnutie porov, ukoncenie osetrenia"},
-    {"icon": "bolt", "name": "Bipolarny RF hlavica", "description": "Stimulacia kolagenu, zlepsenie tonusu, pevnejsi obraz pleti"},
-    {"icon": "sound", "name": "Ultrazvukove vpravovanie", "description": "Hlbsie vnaasanie ucinnych latok, revitalizacia, mierny lifting"},
-    {"icon": "layers", "name": "Ultrazvukovy peeling", "description": "Setrne cistenie porov, odstranenie odumretych koze"},
-    {"icon": "bubbles", "name": "Mikrobublinkova hlavica (oxy-pod)", "description": "Cistenie tvare a masaz k radu oxy-pod produktov"},
-    {"icon": "brain", "name": "LED maska", "description": "LED svetelna terapia ako doplnok osetrenia"},
-    {"icon": "brain", "name": "4K AI analyza pleti", "description": "AI analyza za cca 2 minuty, digitalna karta klienta"}
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrázna hlavica",
+      "description": "S hydra-liquid systémom, regulovateľným vákuom a prietokom kvapaliny"
+    },
+    {
+      "icon": "spray",
+      "name": "Oxy-spray",
+      "description": "Bezdotykové vpravovanie účinných látok, dokonalý záverečný krok"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Studeno-teplé kladivko",
+      "description": "Stimulácia cirkulácie a stiahnutie pórov, ukončenie ošetrenia"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipolárna RF hlavica",
+      "description": "Stimulácia kolagénu, zlepšenie tonusu, pevnejšia pleť"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvukové vpravovanie",
+      "description": "Hlbšie vpravenie účinných látok, revitalizácia, mierny lifting"
+    },
+    {
+      "icon": "layers",
+      "name": "Ultrazvukový peeling",
+      "description": "Šetrné čistenie pórov, odstránenie odumretých kožných buniek"
+    },
+    {
+      "icon": "bubbles",
+      "name": "Mikrobublinková hlavica (oxy-pod)",
+      "description": "Čistenie tváre a masáž s produktmi radu oxy-pod"
+    },
+    {
+      "icon": "brain",
+      "name": "LED maska",
+      "description": "LED svetelná terapia ako doplnok ošetrenia"
+    },
+    {
+      "icon": "brain",
+      "name": "4K AI analýza pleti",
+      "description": "AI analýza za cca 2 minúty, digitálna karta klienta"
+    }
   ],
   "faq": [
-    {"question": "Aky je rozdiel medzi HydraScan PRO+ 2026 a predchadzajucim HydraScan PRO+?", "answer": "Verzia 2026 je uplne obnovena: 4K AI analyza pleti (cca 2 minuty), technologia new-wave hydra-liquid, obnovene ergonomicke telo zariadenia, oxy-pod osetrujuca hlavica a ultrazvukova spatula. Skolenie je zahrnuté v kupnej cene."},
-    {"question": "Co ponuka 4K kamera analyzy pleti?", "answer": "4K diagnosticka kamera zabezpecuje zvacsene, detailne obrazky aktualneho stavu pleti. Vedie digitalnu kartu klienta, archivuje udaje o osetreniach, podporuje vytvorenie planu osetrenia a pomaha pri predaji balikov. Je vyvíjatelna na viacero jazykov."},
-    {"question": "Co je technologia hydra-liquid?", "answer": "Hydra-liquid je kombinacia vakuoveho a kvapalinoveho hlbkoveho cistenia. Hlbkovo cisti pory, odstrania mazove, podporuje vstrebávanie ucinnych latok a zabezpecuje komfortny zazitok z osetrenia. Casto umoznuje vynechanie manualneho vytlacania."},
-    {"question": "Zahrnuje kupna cena skolenie?", "answer": "Ano! Cena zariadenia zahrnuje kompletne odborne skolenie: podrobny pisomny studijny material, protokoly osetrenia, bezpecnostnu prirucku, podporu s obchodnym pristupom a v pripade zaujmu prakticky modul s zivou modelkou."},
-    {"question": "Za aky cas sa HydraScan PRO+ 2026 vrati?", "answer": "Priemerne za 2-4 mesiace pri 3-5 klientoch denne. Premiove osetrenie doplnene 4K analyzou pleti sa da ponukat za 20 000 – 40 000 Ft. Pouzite nasu ROI kalkulacku pre presny vypocet!"},
-    {"question": "Pre ake typy pleti je vhodny?", "answer": "HydraScan PRO+ 2026 je vhodny pre vsetky typy pleti. Rozne osetrujuce hlavice a system analyzy pleti umoznuju uplne individualne prisposobenie osetrenia."},
-    {"question": "Je mozne si zariadenie prezriet pred kupou?", "answer": "Ano! V nasom showroome (Erd, Bajcsy-Zsilinszky ut 156.) si mozete HydraScan PRO+ 2026 osobne prezriet a vyskusat po predchadzajucej rezervacii terminu."}
+    {
+      "question": "Aký je rozdiel medzi HydraScan PRO+ 2026 a predchádzajúcim HydraScan PRO+?",
+      "answer": "Verzia 2026 je úplne obnovená: 4K AI analýza pleti (cca 2 minúty), technológia new-wave hydra-liquid, obnovené ergonomické telo zariadenia, ošetrujúca hlavica oxy-pod a ultrazvuková špachtľa. Školenie je zahrnuté v kúpnej cene."
+    },
+    {
+      "question": "Čo ponúka 4K kamera na analýzu pleti?",
+      "answer": "4K diagnostická kamera poskytuje zväčšené, detailné obrázky aktuálneho stavu pleti. Vedie digitálnu kartu klienta, archivuje údaje o ošetreniach, podporuje vytvorenie plánu ošetrenia a pomáha pri predaji balíkov. Dá sa ďalej vyvíjať pre viacero jazykov."
+    },
+    {
+      "question": "Čo je technológia hydra-liquid?",
+      "answer": "Hydra-liquid je kombinácia vákuového a kvapalinového hĺbkového čistenia. Hĺbkovo čistí póry, odstraňuje maz, podporuje vstrebávanie účinných látok a zabezpečuje komfortný zážitok z ošetrenia. Často umožňuje vynechať manuálne vytláčanie."
+    },
+    {
+      "question": "Zahŕňa kúpna cena školenie?",
+      "answer": "Áno! Cena zariadenia zahŕňa kompletné odborné školenie: podrobný písomný študijný materiál, protokoly ošetrenia, bezpečnostnú príručku, podporu s obchodným prístupom a v prípade záujmu praktický modul so živou modelkou."
+    },
+    {
+      "question": "Za aký čas sa HydraScan PRO+ 2026 vráti?",
+      "answer": "V priemere za 2-4 mesiace pri 3-5 klientoch denne. Prémiové ošetrenie doplnené 4K analýzou pleti sa dá ponúkať za 20 000 – 40 000 Ft. Na presný výpočet použite našu ROI kalkulačku!"
+    },
+    {
+      "question": "Pre aké typy pleti je vhodný?",
+      "answer": "HydraScan PRO+ 2026 je vhodný pre všetky typy pleti. Rôzne ošetrujúce hlavice a systém analýzy pleti umožňujú úplne individuálne prispôsobenie ošetrenia."
+    },
+    {
+      "question": "Je možné si zariadenie pozrieť pred kúpou?",
+      "answer": "Áno! V našom showroome (Érd, Bajcsy-Zsilinszky út 156.) si môžete HydraScan PRO+ 2026 po predchádzajúcej rezervácii termínu osobne pozrieť a vyskúšať."
+    }
   ],
   "whatsIncluded": [
-    "HydraScan PRO+ 2026 zariadenie",
-    "Hydrodermabrazna vakuova hlavica (hydra-liquid)",
-    "Mikrobublinkova hlavica (oxy-pod)",
-    "Oxy-spray osetrujuca hlavica",
-    "Studeno-teply kladivko osetrujuca hlavica",
-    "Bipolarny RF osetrujuca hlavica",
-    "Ultrazvukova hlavica na vpravovanie ucinnych latok",
-    "Ultrazvukova spatula (Peeling) osetrujuca hlavica",
+    "Zariadenie HydraScan PRO+ 2026",
+    "Hydrodermabrázna vákuová hlavica (hydra-liquid)",
+    "Mikrobublinková hlavica (oxy-pod)",
+    "Ošetrujúca hlavica oxy-spray",
+    "Ošetrujúca hlavica studeno-teplé kladivko",
+    "Bipolárna RF ošetrujúca hlavica",
+    "Ultrazvuková hlavica na vpravovanie účinných látok",
+    "Ultrazvuková špachtľa (peeling) – ošetrujúca hlavica",
     "LED maska",
-    "4K kamera AI analyzy pleti (zabudovana)",
-    "Digitalna karta klienta",
-    "Podrobny studijny material a protokoly osetrenia",
-    "Navod na pouzitie (v slovencine)",
-    "2-rocna plna zaruka",
-    "Nahradne zariadenie pocas opravy"
-  ]
+    "4K kamera na AI analýzu pleti (zabudovaná)",
+    "Digitálna karta klienta",
+    "Podrobný študijný materiál a protokoly ošetrenia",
+    "Návod na použitie (v slovenčine)",
+    "2-ročná plná záruka",
+    "Program náhradného prístroja pri dlhšej oprave"
+  ],
+  "imageAlts": {
+    "hydrascan-pro-plus-webshop-1.png": "Hydrofacial prístroj HydraScan PRO+ 2026 s ošetrovacími hlavicami a dotykovou obrazovkou",
+    "hydrascan-pro-plus-webshop-2.png": "Hydrofacial prístroj HydraScan PRO+ 2026 na pojazdnom stojane",
+    "hydrascan-pro-plus-webshop-3.png": "Hydrofacial prístroj HydraScan PRO+ 2026 spredu",
+    "hydrascan-pro-plus-webshop-4.png": "HydraScan PRO+ 2026 z boku s nádržkami na hydra-liquid",
+    "hydrascan-pro-plus-webshop-5.png": "Dotyková obrazovka HydraScan PRO+ 2026 s menu ošetrení",
+    "hydrascan-pro-plus-design-1.jpg": "Hydrofacial prístroj HydraScan PRO+ 2026 s jesennou dekoráciou",
+    "hydrascan-pro-plus-design-2.jpg": "Ošetrovacie hlavice HydraScan PRO+ 2026 zblízka",
+    "hydrascan-pro-plus-design-3.jpg": "Ošetrovacia hlavica HydraScan PRO+ 2026 v ruke",
+    "hydrascan-pro-plus-design-4.jpg": "Okrúhla ošetrovacia hlavica HydraScan PRO+ 2026 v ruke",
+    "hydrascan-pro-plus-oktatas-1.jpg": "Školenie obsluhy HydraScan PRO+ s praktickým ošetrením",
+    "hydrascan-pro-plus-oktatas-2.jpg": "Školenie HydraScan PRO+ a odborná konzultácia v showroome Skinlab",
+    "hydrascan-pro-plus-applicators.png": "Ošetrovacie hlavice HydraScan PRO+ 2026 okolo prístroja",
+    "hydrascan-pro-plus-interface.png": "Menu ošetrení HydraScan PRO+ 2026 na dotykovej obrazovke"
+  }
 }

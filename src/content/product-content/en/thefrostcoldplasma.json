@@ -4,6 +4,25 @@
   "description": "THE FROST Cold plasma by skinlab. is the professional electro-cosmetic device developed for the 2026 model year, combining cold plasma, warm plasma and ozone plasma technology in a single unit. The plasma is generated from high-purity argon gas.\n\nIts goal is to visibly improve skin condition without incisions or bleeding, designed exclusively for cosmetic and aesthetic use.\n\nThe device is not a medical device. Cold plasma treatments fall within the competence of beauticians; the deeper-acting warm plasma functions require appropriate professional competence. Complete legal documentation is included with every unit.",
   "metaTitle": "THE FROST Cold plasma 2026 | 11-in-1 Professional Cold Plasma | Skinlab Hungary",
   "metaDescription": "THE FROST Cold plasma 2026: 11 functions in one unit. Cold plasma, thermoplasma, ozone plasma technology. Acne, anti-aging, skin rejuvenation. 2-year warranty.",
+  "specs": {
+    "Device type": "Professional electro-cosmetic plasma device",
+    "Technology": "Cold plasma, warm plasma (thermoplasma), ozone plasma",
+    "Number of functions": "11-in-1",
+    "Plasma gas": "High-purity argon (at least 99.6%)",
+    "Operating frequency": "Approx. 40 kHz (treatment head)",
+    "Cold plasma beam temperature": "Approx. 30–40 °C",
+    "Area of use": "Face, neck, scalp, localised spot treatments",
+    "Treatment heads": "7 treatment heads (including Scalp, Hyper, Jet, Derma, Stamp and fusion needle head) + free hair treatment head",
+    "Accessory": "THE FROST equipment trolley",
+    "Energy control": "Digital, adjustable in percent",
+    "Operating modes": "Shot / Pulse / Continuous",
+    "Display": "10.4\" colour touch display",
+    "Activation": "Hand control and foot-pedal activation",
+    "Operation": "Non-invasive, bloodless",
+    "Healing time": "Cold plasma: none; warm plasma: involves healing time",
+    "Usage": "For cosmetic and aesthetic purposes only",
+    "Certification": "CE-certified device"
+  },
   "stats": [
     {
       "value": "11",
@@ -150,7 +169,8 @@
   "expertQuote": {
     "quote": "The 2026 THE FROST model is the most complete cold plasma system we have made available on the Hungarian market. The combination of 11 functions and three plasma technologies gives beauticians a unique opportunity to serve clients at the highest level.",
     "author": "Horváth László",
-    "role": "Skinlab co-founder, managing director"
+    "role": "Skinlab co-founder, managing director",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
     {
@@ -266,5 +286,26 @@
     "Legal documentation",
     "2-year full warranty",
     "Replacement device programme for longer repairs"
-  ]
+  ],
+  "imageAlts": {
+    "thefrost-1.png": "THE FROST Cold plasma by skinlab. cold plasma device with handpiece",
+    "thefrost-2.png": "THE FROST Cold plasma touch display with the plasma mode menu",
+    "thefrost-3.png": "THE FROST Cold plasma device mounted on a treatment trolley",
+    "thefrost-4.png": "THE FROST plasma handpiece with its own display",
+    "thefrost-5.png": "THE FROST interchangeable plasma handpiece tips",
+    "thefrost-design-1.jpg": "THE FROST Cold plasma by skinlab. cold plasma device in a stylised setting",
+    "thefrost-design-2.jpg": "THE FROST interchangeable plasma handpiece tips close up",
+    "thefrost-design-3.jpg": "THE FROST plasma handpiece in hand, with the skinlab. logo in the background",
+    "thefrost-design-4.jpg": "Argon plasma beam from THE FROST handpiece that does not burn the finger",
+    "thefrost-oktatas-1.jpg": "THE FROST operator training – the trainer demonstrates a treatment while the participant records it on video",
+    "thefrost-oktatas-2.jpg": "Visible cold plasma plume from THE FROST handpiece during a forehead treatment",
+    "FROSTCOLD-oktatas-1.jpg": "THE FROST operator training – hands-on treatment on a model",
+    "FROSTCOLD-oktatas-2.jpg": "THE FROST operator training in the skinlab. showroom",
+    "FROSTCOLD-kezeles-1.jpg": "Cold plasma facial treatment with THE FROST device",
+    "FROSTCOLD-kezeles-2.jpg": "Skin immediately after THE FROST cold plasma treatment",
+    "thefrost-kezeles-3.jpg": "Cold plasma facial treatment with THE FROST Stamp Plasma handpiece",
+    "thefrost-kezelofelulet-warm-plasma.png": "THE FROST Cold plasma interface with the Warm Plasma (thermoplasma) programme, at 5% energy level",
+    "thefrost-kezelofelulet-menu.png": "THE FROST Cold plasma touchscreen with the plasma programme menu: ozone, flash, scalp, hyper, diamond, warm, jet, derma and stamp plasma",
+    "thefrost-argon-palack.jpg": "THE FROST Cold plasma device on a treatment trolley, with a hose-connected argon gas cylinder"
+  }
 }

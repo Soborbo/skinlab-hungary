@@ -4,6 +4,20 @@
   "description": "„Síla zrozená z poznání.“ ATHENA nebyla bohyní hrubé síly, ale symbolem strategie, přesnosti a uvědomělého fungování. Diodový laser ATHENA toto představuje: stabilní provoz, předvídatelné výsledky, kontrola v každé situaci. Držela vás někdy bohyně za ruku během práce? Teď k tomu můžete mít příležitost.",
   "metaTitle": "ATHENA 1000W diodový laser | Inteligentní software, stabilní preciznost",
   "metaDescription": "ATHENA – 1000W profesionální diodový laser se 4 vlnovými délkami a inteligentním ošetřovacím systémem. Stabilní, předvídatelná, nákladově efektivní.",
+  "specs": {
+    "Typ laseru": "Diodový laser",
+    "Vlnová délka": "755 / 808 / 940 / 1064 nm",
+    "Velikost spotu": "12 × 20 mm (pevná)",
+    "Výkon": "1000W (výstupní)",
+    "Aplikátor": "Velký, ergonomický, se safírovým kontaktním chlazením",
+    "Chladicí systém": "Vícestupňový TEC + voda + vzduch",
+    "Chlazení pokožky": "Safírové kontaktní chlazení",
+    "Displej": "Velká barevná dotyková obrazovka",
+    "Ovládací systém": "Chytrý software – automatické rozpoznání typu pleti a chloupků",
+    "Osvětlení": "Růžové LED ambientní osvětlení",
+    "Napájení": "110V / 220V",
+    "Dodací lhůta": "2–6 týdnů"
+  },
   "stats": [
     {
       "value": "1000",
@@ -46,7 +60,8 @@
     "afterFeatures": {
       "headline": "Chcete vidět ATHENA naživo?",
       "subtitle": "Přijďte do našeho showroomu v Érdu a vyzkoušejte si ji osobně!",
-      "buttonLabel": "Rezervace termínu"
+      "buttonLabel": "Rezervace termínu",
+      "showroomDriveFolderId": "1HVYoNvH5tJBN8ZPWqTuXNETFw0UU9QfF"
     },
     "final": {
       "headline": "Zaujal vás diodový laser ATHENA 1000W?",
@@ -180,6 +195,10 @@
       "answer": "V rukojeti chladí skutečný safírový krystal přímo povrch pokožky během ošetření, za ním pracuje třístupňové chlazení: TEC polovodič, voda a vzduch. Snižuje to pocit tepla u klientky, dělá předávání energie rovnoměrnější a udržuje přístroj stabilní i při delších sériích ošetření – méně nucených přestávek, rychlejší práce."
     },
     {
+      "question": "Lze ATHENA koupit na splátky?",
+      "answer": "Ano. Při nákupu se platí záloha 50 %, zbývající částku pak můžete rozložit na 3 nebo 6 měsíců – při hodnotě přístroje mezi 1 a 3 miliony forintů jsou k dispozici tyto dvě doby splácení. Pokud kupujete více přístrojů najednou, připadá v úvahu i delší doba splácení. Přesnou zálohu a měsíční splátku si můžete spočítat v kalkulačce na stránce produktu."
+    },
+    {
       "question": "Jak dlouho trvá dodání a odkdy mohu s přístrojem pracovat?",
       "answer": "Předpokládaná dodací lhůta je 2–6 týdnů. Školení obsluhy je součástí ceny přístroje a váže se na předání: po jednodenním intenzivním kurzu vystavíme certifikát FAR. Zaškolení tedy není samostatný krok, který byste museli organizovat."
     },
@@ -199,6 +218,23 @@
     "Maďarský návod k použití",
     "Školení obsluhy přístroje (certifikát FAR)",
     "2letá kompletní záruka",
-    "Náhradní stroj po dobu opravy"
-  ]
+    "Program náhradního přístroje při delší opravě"
+  ],
+  "ownerStory": {
+    "ownerName": "Mila Derma",
+    "intro": "Ve studiu Mila Derma naše práce dodáním neskončila: přístroj jsme sestavili přímo na místě a tam jsme také provedli zaškolení obsluhy – od nastavení parametrů až po údržbu. Následující fotografie vznikly při tomto předání."
+  },
+  "imageAlts": {
+    "athena-1.png": "Diodový laser ATHENA 1000W s parametry ošetření na displeji",
+    "athena-2.png": "Diodový laser ATHENA z boku, s držákem aplikátoru",
+    "athena-3.png": "Aplikátor diodového laseru ATHENA v ruce, s vlastním displejem",
+    "athena-4.png": "Dotyková obrazovka diodového laseru ATHENA s nabídkou ošetření",
+    "athena-5.png": "Aplikátor diodového laseru ATHENA s výstupním okénkem se safírovým kontaktním chlazením",
+    "athena-6.png": "Diodový laser ATHENA 1000W s nabídkou ošetření podle tělesných partií",
+    "athena-design-1.jpg": "Diodový laser ATHENA 1000W v salonním prostředí",
+    "athena-design-2.jpg": "Aplikátor diodového laseru ATHENA s nastavenou frekvencí a úrovní energie",
+    "athena-design-3.jpg": "Aplikátor diodového laseru ATHENA zblízka, se zlatým safírovým okénkem",
+    "athena-oktatas-1.jpg": "Školení obsluhy diodového laseru ATHENA s lektorkou Skinlab",
+    "athena-oktatas-2.jpg": "Představení aplikátoru diodového laseru ATHENA během školení"
+  }
 }

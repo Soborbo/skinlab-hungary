@@ -1,13 +1,91 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Již brzy dostupný.",
-  "description": "Podrobný popis Frame bude brzy k dispozici.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Již brzy dostupný. Pro podrobné informace si vyžádejte konzultaci!",
+  "name": "FRAME ND:YAG laser",
+  "shortDescription": "Chytrý ND:YAG laser se systémem Android a 13.3\" dotykovou obrazovkou. Vestavěné chlazení aplikátoru, 4 vlnové délky, odstraňování tetování a pigmentu.",
+  "description": "Inteligentní Q-switched Nd:YAG laser s ovládáním Android pro odstraňování tetování, ošetření pigmentace, carbon peeling a omlazení pleti, s vestavěným chlazením aplikátoru a 13,3\" barevnou dotykovou obrazovkou.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Vlnové délky",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Max. hustota energie",
+      "icon": "zap"
+    },
+    {
+      "value": "13,3\"",
+      "label": "Dotyková obrazovka",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Frekvence pulzů",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – chytrý ND:YAG laser se systémem Android pro profesionální salony",
+    "paragraphs": [
+      "FRAME je inteligentní Q-switched Nd:YAG laser s ovládáním Android, který nabízí špičkové řešení v oblasti odstraňování tetování, ošetření pigmentace a omlazení pleti. Operační systém Android umožňuje snadnou obsluhu a nastavení přizpůsobená na míru.",
+      "Jedinečné chlazení zabudované v aplikátoru pokožku okamžitě ochlazuje, čímž minimalizuje bolest i riziko poškození pokožky – a klientovi zajišťuje maximální komfort.",
+      "Díky čtyřem vlnovým délkám je všestranně použitelný: 1064 nm a 532 nm pro všechny barvy tetování, 755 nm pro pigmentové skvrny, pihy a sluneční skvrny a 1320 nm pro carbon peeling (hloubkové čištění pleti, stažení pórů).",
+      "Vysokoenergetické laserové pulzy (10–2000 mJ/cm²) a frekvence pulzů 1–10 Hz přinášejí viditelné a rychlé výsledky a 13,3\" barevná dotyková obrazovka činí ošetření jednoduchým a přehledným."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Odstraňování tetování",
+      "description": "Pro všechny barvy – na vlnových délkách 1064 nm a 532 nm."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Ošetření pigmentace",
+      "description": "Pigmentové skvrny, pihy, sluneční skvrny – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon peeling",
+      "description": "Hloubkové čištění pleti a stažení pórů – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Ovládání Android",
+      "description": "Inteligentní software, nastavení přizpůsobená na míru."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Vestavěné chlazení",
+      "description": "Chlazení aplikátoru pro pohodlné ošetření s minimem bolesti."
+    },
+    {
+      "icon": "chart",
+      "name": "Profesionální výkon",
+      "description": "10–2000 mJ/cm², frekvence pulzů 1–10 Hz."
+    }
+  ],
+  "specs": {
+    "Typ laseru": "Q-switched Nd:YAG",
+    "Vlnové délky": "1064 nm, 532 nm, 755 nm, 1320 nm (carbon peeling)",
+    "Hustota energie": "10–2000 mJ/cm²",
+    "Frekvence pulzů": "1–10 Hz",
+    "Velikost spotu": "2–6 mm (nastavitelná)",
+    "Displej": "13,3\" barevná dotyková obrazovka",
+    "Chlazení": "Chlazení zabudované v aplikátoru, chladicí výkon 15 W",
+    "Ovládání": "Operační systém Android"
+  },
   "cta": {
+    "afterVideo": {
+      "text": "Máte dotazy k laseru FRAME ND:YAG? Rádi vám pomůžeme!",
+      "buttonLabel": "Žádost o konzultaci",
+      "phoneLabel": "Zavolejte nám"
+    },
     "final": {
-      "headline": "Máte zájem o Frame?",
-      "subtitle": "Požádejte o bezplatnou konzultaci a budeme vás informovat, jakmile bude dostupný!",
+      "headline": "Máte zájem o laser FRAME ND:YAG?",
+      "subtitle": "Požádejte o bezplatnou konzultaci nebo předvedení v showroomu a pomůžeme vám s nastavením vhodným pro váš salon.",
       "buttonLabel": "Žádost o konzultaci"
     }
   }

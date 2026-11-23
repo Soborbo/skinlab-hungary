@@ -4,6 +4,18 @@
   "description": "The HELIOS diode laser is named after the sun god of Greek mythology – who brings light every day, sees everything, and from whom nothing remains hidden. That is exactly what the device represents: power, light and uncompromising precision. With 1600W output power, 4 wavelengths (755/808/940/1064 nm) and a sapphire spot adjustable in 5 sizes, it belongs to the top segment of the market.",
   "metaTitle": "HELIOS 1600W diode laser | 4 wavelengths, adjustable spot size",
   "metaDescription": "HELIOS – 1600W top-tier diode laser with 4 wavelengths, 5 adjustable sapphire spot sizes and multi-stage cooling. Clinical-grade professional hair removal.",
+  "specs": {
+    "Laser type": "Diode laser",
+    "Wavelength": "755 / 808 / 940 / 1064 nm",
+    "Power": "1600W (output)",
+    "Display": "10.4-inch colour touchscreen",
+    "Spot size": "Sapphire crystal treatment head adjustable in 5 sizes",
+    "Cooling system": "TEC + water + air (multi-stage)",
+    "Cooling temperature": "Sapphire contact down to close to -16°C",
+    "Voltage": "110V / 220V",
+    "Weight": "approx. 25 kg",
+    "Delivery time": "2-6 weeks"
+  },
   "stats": [
     {
       "value": "1600",
@@ -181,6 +193,11 @@
     "Hungarian-language user manual",
     "Operator training (FAR certificate)",
     "2-year comprehensive warranty",
-    "Replacement device during repair"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "imageAlts": {
+    "helios-design-foto-1.jpg": "HELIOS 1600W diode laser in a stylised setting",
+    "helios-design-foto-2.jpg": "HELIOS 1600W diode laser with handpiece and display",
+    "helios-design-foto-3.jpg": "HELIOS diode laser interchangeable spot-size tips"
+  }
 }

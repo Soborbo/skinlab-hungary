@@ -4,6 +4,18 @@
   "description": "The ElitePodSystem™ is not just a cosmetic device – it is a revolutionary, multifunctional skin renewal platform that combines the most advanced technologies in a single premium device. The system combines innovative oxygen activation technology, radiofrequency, ultrasonic active-ingredient delivery and real-time skin analysis to ensure that every treatment delivers personalized, spectacular and immediate results.",
   "metaTitle": "ElitePodSystem | 4-in-1 smart facial treatment system with AI skin analysis",
   "metaDescription": "ElitePodSystem™ – Oxygen activation, TriPolar RF, ultrasound and vibrational revitalization in a single premium device with built-in AI skin analysis. Glass skin effect.",
+  "specs": {
+    "Model": "AM183",
+    "System type": "multifunctional, modular skin renewal platform",
+    "Weight": "~6.4 kg",
+    "Design": "compact, premium-quality housing",
+    "Power supply": "DC 24V",
+    "Power": "12W",
+    "Operating temperature": "5 – 30 °C",
+    "Humidity": "20% – 80%",
+    "Technologies": "Oxygen activation (Bohr), TriPolar RF, ultrasound, vibration",
+    "Skin analysis": "built-in camera + AI"
+  },
   "stats": [
     {
       "value": "4",
@@ -171,7 +183,7 @@
     },
     {
       "question": "What training and warranty do you provide?",
-      "answer": "The price of the device includes the full machine-operator basic training, detailed course material, treatment protocols and sample client documentation. On request, live-model practical training is also available (+59,990 Ft). We provide a 2-year full warranty and a replacement device during repair."
+      "answer": "The price of the device includes the full machine-operator basic training, detailed course material, treatment protocols and sample client documentation. On request, live-model practical training is also available (+59,990 Ft). We provide a 2-year full warranty. If a repair takes more than 10 working days, we provide a replacement device, subject to availability."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +199,19 @@
     "Client documentation and educational materials",
     "User manual in English",
     "2-year full warranty",
-    "Replacement device during repair"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "imageAlts": {
+    "elitepod-webshop-1.png": "ElitePod System facial treatment machine from the front, with touchscreen and two handpieces",
+    "elitepod-webshop-2.png": "ElitePod System facial treatment device from an angle, on a stand",
+    "elitepod-webshop-3.png": "ElitePod System handpiece with interchangeable capsule head",
+    "elitepod-webshop-4.png": "ElitePod System purple handpiece close up",
+    "elitepod-1.png": "ElitePod System device with the handpieces",
+    "elitepod-2.png": "ElitePod System skin analysis on the device display",
+    "elitepod-design-1.jpg": "ElitePod System facial treatment machine among white orchids",
+    "elitepod-design-2.jpg": "ElitePod System device in side view, with orchids",
+    "elitepod-design-3.jpg": "ElitePod System on a wheeled trolley in the Skinlab showroom",
+    "elitepod-design-4.jpg": "ElitePod System purple handpiece in hand, in front of orchids",
+    "elitepod-design-5.jpg": "ElitePod System capsule handpiece in hand, in front of orchids"
+  }
 }

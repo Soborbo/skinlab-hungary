@@ -4,6 +4,19 @@
   "description": "THE SHAPER není 'módní přístroj', ale synergie léta klinicky ověřených technologií v jediném zařízení. RF pro produkci kolagenu, kavitácia pro rozklad tuku, vakuum + váleček pro pojivovou tkáň, infračervený laser pro buněčnou stimulaci – kompletní tvarovací systém pro ošetření obličeje a těla.",
   "metaTitle": "THE SHAPER ContourSystem | RF + kavitácia + IR + vakuum",
   "metaDescription": "THE SHAPER – Prémiový systém pro ošetření těla a obličeje se 4 ověřenými technologiemi: vakuová RF, 40 kHz kavitácia, 940 nm IR laser a válečková masáž.",
+  "specs": {
+    "Použité technologie": "Vakuum + válečková mechanika, RF, IR laser, kavitace 40 kHz",
+    "Radiofrekvence": "Rozsah 1 MHz / 4-8 MHz",
+    "Ultrazvuk (kavitace)": "40 kHz, až 60 W",
+    "Síla vakua": "10-60 kPa (nastavitelná, kontinuální a pulzní)",
+    "Infračervený laser": "Vlnová délka 940 nm",
+    "Výkon": "cca 400 W",
+    "Počet aplikátorů": "4 ks (aplikátory na tělo + obličej)",
+    "Ovládací rozhraní": "15,6palcová dotyková obrazovka (Android)",
+    "Rozměry": "cca 420 × 400 × 1140 mm",
+    "Hmotnost": "cca 60 kg",
+    "Dodací lhůta": "2–6 týdnů"
+  },
   "stats": [
     {
       "value": "4",
@@ -185,6 +198,29 @@
     "Ošetřovací protokoly pro každou partii těla",
     "Návod k použití v češtině",
     "2letá kompletní záruka",
-    "Náhradní přístroj po dobu opravy"
-  ]
+    "Program náhradního přístroje při delší opravě"
+  ],
+  "imageAlts": {
+    "the-shaper-gep-1.jpg": "Přístroj na tvarování postavy THE SHAPER zepředu, s aplikátory",
+    "the-shaper-gep-2.jpg": "Přístroj na tvarování postavy THE SHAPER z boku, s dotykovou obrazovkou",
+    "the-shaper-fej-1.jpg": "Válečkový aplikátor THE SHAPER s displejem",
+    "the-shaper-fej-2.jpg": "Ovládací panel válečkového vakuového aplikátoru THE SHAPER",
+    "the-shaper-fej-3.jpg": "Velký tělový aplikátor THE SHAPER s displejem",
+    "the-shaper-fej-4.jpg": "Velký válečkový vakuový tělový aplikátor THE SHAPER",
+    "the-shaper-fej-5.jpg": "Malý obličejový aplikátor THE SHAPER",
+    "the-shaper-fej-6.jpg": "Obličejový aplikátor THE SHAPER z boku",
+    "the-shaper-fej-7.jpg": "Oválný aplikátor THE SHAPER s displejem",
+    "the-shaper-fej-8.jpg": "Ovládací panel oválného aplikátoru THE SHAPER",
+    "the-shaper-interface.png": "Dotykové ovládací rozhraní THE SHAPER",
+    "the-shaper-design-1.jpg": "Přístroj na tvarování postavy THE SHAPER v showroomu Skinlab",
+    "the-shaper-design-2.jpg": "Přístroj THE SHAPER z boku, před fialovou květinovou stěnou",
+    "the-shaper-design-3.jpg": "Přístroj THE SHAPER s aplikátory, před fialovou květinovou stěnou",
+    "the-shaper-design-4.jpg": "Oválný aplikátor THE SHAPER v ruce",
+    "the-shaper-design-5.jpg": "Ovládací panel oválného aplikátoru THE SHAPER v ruce",
+    "the-shaper-design-6.jpg": "Obličejový aplikátor THE SHAPER v ruce",
+    "the-shaper-design-7.jpg": "Válečkový aplikátor THE SHAPER v ruce",
+    "the-shaper-design-8.jpg": "Ovládací panel válečkového aplikátoru THE SHAPER v ruce",
+    "the-shaper-design-9.jpg": "Velký aplikátor THE SHAPER s displejem, v ruce",
+    "the-shaper-design-10.jpg": "Velký válečkový tělový aplikátor THE SHAPER v ruce"
+  }
 }

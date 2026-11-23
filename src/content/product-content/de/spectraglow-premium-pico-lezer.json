@@ -5,12 +5,33 @@
   "metaTitle": "SpectraGlow Premium Pico Laser | Tattoo, Pigment, Hautverjüngung",
   "metaDescription": "SpectraGlow PicoSecond ND:YAG Laser mit 2000ps Impuls. Tattooentfernung in 3–4 Sitzungen, Pigmentbehandlung, Hautverjüngung. 1600 mJ Energie, 2 Jahre Garantie.",
   "stats": [
-    { "value": "2000", "unit": "ps", "label": "Impulsdauer", "icon": "zap" },
-    { "value": "1600", "unit": "mJ", "label": "Max. Energie", "icon": "bolt" },
-    { "value": "3–4", "label": "Sitzungen (Tattoo)", "icon": "sparkles" },
-    { "value": "2", "unit": "J.", "label": "Garantie", "icon": "shield" }
+    {
+      "value": "2000",
+      "unit": "ps",
+      "label": "Impulsdauer",
+      "icon": "zap"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "Max. Energie",
+      "icon": "bolt"
+    },
+    {
+      "value": "3–4",
+      "label": "Sitzungen (Tattoo)",
+      "icon": "sparkles"
+    },
+    {
+      "value": "2",
+      "unit": "J.",
+      "label": "Garantie",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 50000 },
+  "roi": {
+    "defaultTreatmentPrice": 50000
+  },
   "videoDescription": {
     "headline": "SpectraGlow – Der Gipfel der Pikosekundentechnologie",
     "paragraphs": [
@@ -109,7 +130,8 @@
   "expertQuote": {
     "quote": "Die Pikosekundenlasertechnologie ist der aktuelle Gipfel der Pigmententfernung und Hautverjüngung. Der SpectraGlow ist einer der effektivsten Pico Laser auf dem Markt – die Kombination aus 2000 ps Impulsdauer und 1600 mJ Energie behandelt selbst die schwierigsten Tattoos effektiv.",
     "author": "Horváth László",
-    "role": "Skinlab-Mitgründer, Geschäftsführer"
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "specs": {
     "Typ": "PicoSecond ND:YAG Laser",
@@ -124,12 +146,36 @@
     "Zertifizierungen": "CE"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Tattooentfernung", "description": "Schnelle und effektive Entfernung jeder Tattoofarbe mit Pikosekundenimpulsen, in nur 3–4 Sitzungen" },
-    { "icon": "sun", "name": "Pigmentfleckenbehandlung", "description": "Effektive Aufhellung und Entfernung von Sommersprossen, Sonnenflecken, Altersflecken und Melasma" },
-    { "icon": "sparkles", "name": "Hautverjüngung", "description": "Kollagenstimulation, Hautstraffung und Texturverbesserung durch die verjüngende Wirkung der Pikosekundenimpulse" },
-    { "icon": "eye", "name": "Permanent-Make-up-Entfernung", "description": "Präzise Korrektur und Entfernung von Augenbrauen-, Lippen- und Augenlid-Permanent-Make-up" },
-    { "icon": "droplet", "name": "Aknenarbenbehandlung", "description": "Aufhellung von Aknenarben, Hyperpigmentierung und unebener Hautoberfläche" },
-    { "icon": "bolt", "name": "Gefäßbehandlung", "description": "Mit entsprechender Kompetenz auch zur Behandlung von Gefäßveränderungen geeignet" }
+    {
+      "icon": "zap",
+      "name": "Tattooentfernung",
+      "description": "Schnelle und effektive Entfernung jeder Tattoofarbe mit Pikosekundenimpulsen, in nur 3–4 Sitzungen"
+    },
+    {
+      "icon": "sun",
+      "name": "Pigmentfleckenbehandlung",
+      "description": "Effektive Aufhellung und Entfernung von Sommersprossen, Sonnenflecken, Altersflecken und Melasma"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Hautverjüngung",
+      "description": "Kollagenstimulation, Hautstraffung und Texturverbesserung durch die verjüngende Wirkung der Pikosekundenimpulse"
+    },
+    {
+      "icon": "eye",
+      "name": "Permanent-Make-up-Entfernung",
+      "description": "Präzise Korrektur und Entfernung von Augenbrauen-, Lippen- und Augenlid-Permanent-Make-up"
+    },
+    {
+      "icon": "droplet",
+      "name": "Aknenarbenbehandlung",
+      "description": "Aufhellung von Aknenarben, Hyperpigmentierung und unebener Hautoberfläche"
+    },
+    {
+      "icon": "bolt",
+      "name": "Gefäßbehandlung",
+      "description": "Mit entsprechender Kompetenz auch zur Behandlung von Gefäßveränderungen geeignet"
+    }
   ],
   "faq": [
     {
@@ -170,6 +216,6 @@
     "Bedienungsanleitung",
     "Gerätebedienerschulung (FAR-Zertifikat)",
     "2 Jahre Vollgarantie",
-    "Ersatzgerät während der Reparatur"
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
   ]
 }

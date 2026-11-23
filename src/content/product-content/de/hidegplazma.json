@@ -4,13 +4,36 @@
   "description": "Das AURA by skinlab. ist ein modernes, professionelles Gerät mit kalter atmosphärischer Plasma (Cold Atmospheric Plasma – CAP)-Technologie, das ionisierte Luft bei niedriger Temperatur erzeugt.\n\nDie CAP-Technologie verbrennt die Haut nicht bei Kontakt, löst aber positive biologische Effekte aus: Sie schafft eine antibakterielle Umgebung, verstärkt die Wirkstoffaufnahme und unterstützt die natürliche Hautregeneration.\n\nDas AURA ist die ideale Wahl für Kosmetikerinnen, die eine effektive, sichere und erschwingliche Kaltplasma-Technologie suchen.",
   "metaTitle": "AURA Kaltplasma-Gerät | CAP-Technologie | Skinlab Hungary",
   "metaDescription": "AURA by skinlab. Kaltplasma-Gerät mit CAP-Technologie. Antibakterielle Wirkung, Wirkstoffeinschleusung, Hautregeneration. Kosmetikkompetenz, CE-Zertifizierung.",
+  "specs": {
+    "Schlagwörter": "Kaltplasma Kalt-Plasma Fusion Plasma Fusion Cold Plasma"
+  },
   "stats": [
-    { "value": "CAP", "label": "Technologie", "icon": "zap" },
-    { "value": "4", "label": "Hauptanwendungsbereiche", "icon": "layers" },
-    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "shield" },
-    { "value": "0", "unit": "Min", "label": "Regenerationszeit", "icon": "clock" }
+    {
+      "value": "CAP",
+      "label": "Technologie",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Hauptanwendungsbereiche",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "Min",
+      "label": "Regenerationszeit",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 12000 },
+  "roi": {
+    "defaultTreatmentPrice": 12000
+  },
   "videoDescription": {
     "headline": "Was ist CAP – und warum lohnt es sich, jetzt einzusteigen?",
     "paragraphs": [
@@ -20,9 +43,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Haben Sie Fragen zum AURA Kaltplasma-Gerät? Wir helfen Ihnen gerne!", "buttonLabel": "Beratung anfordern", "phoneLabel": "Rufen Sie uns an" },
-    "afterFeatures": { "headline": "Möchten Sie das AURA live ausprobieren?", "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie es persönlich!", "buttonLabel": "Termin vereinbaren" },
-    "final": { "headline": "Interessiert am AURA Kaltplasma-Gerät?", "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.", "buttonLabel": "Beratung anfordern" }
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum AURA Kaltplasma-Gerät? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "afterFeatures": {
+      "headline": "Möchten Sie das AURA live ausprobieren?",
+      "subtitle": "Besuchen Sie unseren Showroom in Érd und testen Sie es persönlich!",
+      "buttonLabel": "Termin vereinbaren"
+    },
+    "final": {
+      "headline": "Interessiert am AURA Kaltplasma-Gerät?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung an und wir helfen Ihnen zu entscheiden, ob dies die beste Wahl für Sie ist.",
+      "buttonLabel": "Beratung anfordern"
+    }
   },
   "featureRows": {
     "headline": "Warum wählen Fachleute das AURA?",
@@ -64,23 +99,82 @@
     "headline": "Gerätebediener-Schulung – im Rahmen offizieller Weiterbildung",
     "badge": "Mit offiziellem Zertifikat",
     "intro": "Für das AURA Kaltplasma-Gerät bieten wir eine professionelle Gerätebediener-Schulung im Rahmen offizieller Weiterbildung an. Ziel der Schulung ist es, dass die Teilnehmer die Funktionsweise und Anwendungsmöglichkeiten der CAP-Technologie umfassend kennenlernen.",
-    "items": [ "Funktionsprinzip der kalten atmosphärischen Plasma (CAP)-Technologie", "Antibakterielle Behandlungsprotokolle für Akne-Haut", "Wirkstoffeinschleusungstechniken mit Seren", "Protokolle zur Pigmentfleck-Aufhellung", "Richtlinien zur Hautbarriere-Stärkung", "Kontraindikationen und Sicherheitsregeln", "Praktische Behandlungen an Modellen" ],
-    "closingParagraphs": [ "Sie können selbstverständlich ein Modell zur Schulung mitbringen, um die Behandlungstechniken in realer Umgebung zu erlernen.", "Nach Abschluss der Schulung stellen wir ein offizielles Zertifikat aus, das die Kompetenz für den fachgerechten Umgang mit dem AURA bestätigt.", "Wenn Sie an der Schulungsmöglichkeit interessiert sind, kontaktieren Sie uns bitte über einen unserer Kontaktkanäle zur Terminvereinbarung!" ],
-    "price": "49.990 Ft", "priceNote": "Schulung im Wert von", "freeText": "KOSTENLOS beim Gerätekauf!", "duration": "Eintägige Intensivschulung", "ctaText": "Ich interessiere mich für die Schulung"
+    "items": [
+      "Funktionsprinzip der kalten atmosphärischen Plasma (CAP)-Technologie",
+      "Antibakterielle Behandlungsprotokolle für Akne-Haut",
+      "Wirkstoffeinschleusungstechniken mit Seren",
+      "Protokolle zur Pigmentfleck-Aufhellung",
+      "Richtlinien zur Hautbarriere-Stärkung",
+      "Kontraindikationen und Sicherheitsregeln",
+      "Praktische Behandlungen an Modellen"
+    ],
+    "closingParagraphs": [
+      "Sie können selbstverständlich ein Modell zur Schulung mitbringen, um die Behandlungstechniken in realer Umgebung zu erlernen.",
+      "Nach Abschluss der Schulung stellen wir ein offizielles Zertifikat aus, das die Kompetenz für den fachgerechten Umgang mit dem AURA bestätigt.",
+      "Wenn Sie an der Schulungsmöglichkeit interessiert sind, kontaktieren Sie uns bitte über einen unserer Kontaktkanäle zur Terminvereinbarung!"
+    ],
+    "price": "49.990 Ft",
+    "priceNote": "Schulung im Wert von",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Intensivschulung",
+    "ctaText": "Ich interessiere mich für die Schulung"
   },
   "testimonials": [
-    { "name": "Nicole Weiß", "date": "2026. 01. 10.", "text": "Das AURA war mein erstes Kaltplasma-Gerät, und <mark>es ist ein perfektes Einstiegsgerät</mark>. Meine Akne-Kundinnen erzielen fantastische Ergebnisse damit, und die Wirkstoffeinschleusungsfunktion ist ebenfalls ausgezeichnet. Sehr gutes Preis-Leistungs-Verhältnis!", "rating": 5 },
-    { "name": "Esther Braun", "date": "2026. 02. 14.", "text": "Ich habe das AURA gezielt gewählt, weil es <mark>CAP-Technologie zu einem erschwinglichen Preis bietet</mark>. Meine Kundinnen lieben es, dass die Behandlung völlig schmerzfrei ist, und die Wirksamkeit der Wirkstoffbehandlungen hat sich tatsächlich verbessert. In zwei Monaten amortisiert!", "rating": 5 }
+    {
+      "name": "Nicole Weiß",
+      "date": "2026. 01. 10.",
+      "text": "Das AURA war mein erstes Kaltplasma-Gerät, und <mark>es ist ein perfektes Einstiegsgerät</mark>. Meine Akne-Kundinnen erzielen fantastische Ergebnisse damit, und die Wirkstoffeinschleusungsfunktion ist ebenfalls ausgezeichnet. Sehr gutes Preis-Leistungs-Verhältnis!",
+      "rating": 5
+    },
+    {
+      "name": "Esther Braun",
+      "date": "2026. 02. 14.",
+      "text": "Ich habe das AURA gezielt gewählt, weil es <mark>CAP-Technologie zu einem erschwinglichen Preis bietet</mark>. Meine Kundinnen lieben es, dass die Behandlung völlig schmerzfrei ist, und die Wirksamkeit der Wirkstoffbehandlungen hat sich tatsächlich verbessert. In zwei Monaten amortisiert!",
+      "rating": 5
+    }
   ],
-  "expertQuote": { "quote": "Das AURA ist eine hervorragende Wahl für Kosmetikerinnen, die in den Kaltplasma-Markt einsteigen möchten, ohne sofort das teuerste Gerät zu kaufen. Die CAP-Technologie hat nachgewiesene Wirksamkeit, und das AURA macht sie auf professionellem Niveau verfügbar.", "author": "Horváth László", "role": "Skinlab-Mitgründer, Geschäftsführer" },
+  "expertQuote": {
+    "quote": "Das AURA ist eine hervorragende Wahl für Kosmetikerinnen, die in den Kaltplasma-Markt einsteigen möchten, ohne sofort das teuerste Gerät zu kaufen. Die CAP-Technologie hat nachgewiesene Wirksamkeit, und das AURA macht sie auf professionellem Niveau verfügbar.",
+    "author": "Horváth László",
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
+  },
   "faq": [
-    { "question": "Was ist der Unterschied zwischen AURA und THE FROST?", "answer": "Das AURA ist ein Gerät mit kalter atmosphärischer Plasma (CAP)-Technologie, das sich hauptsächlich auf antibakterielle Wirkung, Wirkstoffeinschleusung und Hautregeneration konzentriert. THE FROST ist ein komplexeres System mit 9 Funktionen, das Kaltplasma-, Thermoplasma- und Ozonplasma-Technologie enthält. Das AURA ist ein hervorragendes Einstiegsgerät, THE FROST ist das vollständige Plasma-Behandlungssystem." },
-    { "question": "Kann ich als Kosmetikerin das AURA rechtmäßig verwenden?", "answer": "Ja! Das AURA ist für kosmetisch-ästhetische Zwecke konzipiert und fällt vollständig in den Kompetenzbereich von Kosmetikerinnen. Es wird mit CE-Zertifizierung und rechtlicher Dokumentation geliefert." },
-    { "question": "Für welche Behandlungen ist es geeignet?", "answer": "Das AURA kann zur Unterstützung der Aknebehandlung, Bakterienreduzierung, Pigmentfleck-Aufhellung, Verstärkung der Wirkstoffaufnahme, Förderung der Hautregeneration und Beruhigung entzündeter Haut eingesetzt werden." },
-    { "question": "Ist die Behandlung schmerzhaft?", "answer": "Nein, die CAP-Technologie ist völlig schmerzfrei. Das Plasma arbeitet bei Raumtemperatur, verbrennt nicht und schädigt die Haut nicht. Die Behandlung ist angenehm, und es ist keine Betäubung erforderlich." },
-    { "question": "Wie schnell amortisiert sich das AURA?", "answer": "Kaltplasma-Behandlungspreise liegen typischerweise zwischen 8.000–18.000 Ft. Bei 3–4 Kunden pro Tag amortisiert sich das Gerät in der Regel in 2–3 Monaten. Nutzen Sie unseren ROI-Rechner für eine genaue Berechnung!" },
-    { "question": "Werden Verbrauchsmaterialien benötigt?", "answer": "Für Plasma-Behandlungen allein werden keine Verbrauchsmaterialien benötigt – das Gerät erzeugt Plasma aus normaler Luft. Wenn Sie Wirkstoffeinschleusungsbehandlungen durchführen, benötigen Sie natürlich das entsprechende Serum oder die Ampulle." },
-    { "question": "Welche Schulung ist im Lieferumfang enthalten?", "answer": "Eine eintägige, offiziell registrierte Gerätebediener-Schulung, die beim Gerätekauf kostenlos ist. Die Schulung behandelt die Funktionsweise der CAP-Technologie, Behandlungsprotokolle und enthält praktische Behandlungen. Ein Zertifikat wird ausgestellt." }
+    {
+      "question": "Was ist der Unterschied zwischen AURA und THE FROST?",
+      "answer": "Das AURA ist ein Gerät mit kalter atmosphärischer Plasma (CAP)-Technologie, das sich hauptsächlich auf antibakterielle Wirkung, Wirkstoffeinschleusung und Hautregeneration konzentriert. THE FROST ist ein komplexeres System mit 9 Funktionen, das Kaltplasma-, Thermoplasma- und Ozonplasma-Technologie enthält. Das AURA ist ein hervorragendes Einstiegsgerät, THE FROST ist das vollständige Plasma-Behandlungssystem."
+    },
+    {
+      "question": "Kann ich als Kosmetikerin das AURA rechtmäßig verwenden?",
+      "answer": "Ja! Das AURA ist für kosmetisch-ästhetische Zwecke konzipiert und fällt vollständig in den Kompetenzbereich von Kosmetikerinnen. Es wird mit CE-Zertifizierung und rechtlicher Dokumentation geliefert."
+    },
+    {
+      "question": "Für welche Behandlungen ist es geeignet?",
+      "answer": "Das AURA kann zur Unterstützung der Aknebehandlung, Bakterienreduzierung, Pigmentfleck-Aufhellung, Verstärkung der Wirkstoffaufnahme, Förderung der Hautregeneration und Beruhigung entzündeter Haut eingesetzt werden."
+    },
+    {
+      "question": "Ist die Behandlung schmerzhaft?",
+      "answer": "Nein, die CAP-Technologie ist völlig schmerzfrei. Das Plasma arbeitet bei Raumtemperatur, verbrennt nicht und schädigt die Haut nicht. Die Behandlung ist angenehm, und es ist keine Betäubung erforderlich."
+    },
+    {
+      "question": "Wie schnell amortisiert sich das AURA?",
+      "answer": "Kaltplasma-Behandlungspreise liegen typischerweise zwischen 8.000–18.000 Ft. Bei 3–4 Kunden pro Tag amortisiert sich das Gerät in der Regel in 2–3 Monaten. Nutzen Sie unseren ROI-Rechner für eine genaue Berechnung!"
+    },
+    {
+      "question": "Werden Verbrauchsmaterialien benötigt?",
+      "answer": "Für Plasma-Behandlungen allein werden keine Verbrauchsmaterialien benötigt – das Gerät erzeugt Plasma aus normaler Luft. Wenn Sie Wirkstoffeinschleusungsbehandlungen durchführen, benötigen Sie natürlich das entsprechende Serum oder die Ampulle."
+    },
+    {
+      "question": "Welche Schulung ist im Lieferumfang enthalten?",
+      "answer": "Eine eintägige, offiziell registrierte Gerätebediener-Schulung, die beim Gerätekauf kostenlos ist. Die Schulung behandelt die Funktionsweise der CAP-Technologie, Behandlungsprotokolle und enthält praktische Behandlungen. Ein Zertifikat wird ausgestellt."
+    }
   ],
-  "whatsIncluded": [ "AURA by skinlab. Kaltplasma-Gerät", "CAP-Behandlungskopf", "Bedienungsanleitung (deutschsprachig)", "Rechtliche Dokumentation", "2 Jahre Vollgarantie", "Ersatzgerät während der Reparaturzeit" ]
+  "whatsIncluded": [
+    "AURA by skinlab. Kaltplasma-Gerät",
+    "CAP-Behandlungskopf",
+    "Bedienungsanleitung (deutschsprachig)",
+    "Rechtliche Dokumentation",
+    "2 Jahre Vollgarantie",
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ]
 }

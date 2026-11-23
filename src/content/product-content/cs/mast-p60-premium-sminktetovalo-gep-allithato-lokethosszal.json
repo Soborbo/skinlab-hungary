@@ -148,7 +148,7 @@
     },
     {
       "question": "Jaká záruka se na přístroj vztahuje?",
-      "answer": "Na MAST P60 se vztahuje 1 rok záruky. Po dobu opravy poskytujeme náhradní přístroj."
+      "answer": "Na MAST P60 se vztahuje 1 rok záruky. Pokud oprava trvá déle než 10 pracovních dnů, poskytneme náhradní přístroj v závislosti na dostupnosti."
     }
   ],
   "whatsIncluded": [
@@ -157,6 +157,12 @@
     "Type-C nabíjecí kabel",
     "Návod k použití",
     "1 rok záruka",
-    "Náhradní přístroj po dobu opravy"
-  ]
+    "Program náhradního přístroje při delší opravě"
+  ],
+  "imageAlts": {
+    "mast-p60-arany-design.jpg": "Strojek na permanentní make-up MAST P60 ve zlaté barvě, na zlatém hedvábném pozadí",
+    "mast-p60-rosegold-design.jpg": "Strojek na permanentní make-up MAST P60 v barvě rose gold, na růžovém hedvábném pozadí",
+    "mast-p60-lila-design.jpg": "Strojek na permanentní make-up MAST P60 ve fialové barvě, na fialovém hedvábném pozadí",
+    "mast-p60-tiffany-design.jpg": "Strojek na permanentní make-up MAST P60 v barvě Tiffany, na tyrkysovém hedvábném pozadí"
+  }
 }

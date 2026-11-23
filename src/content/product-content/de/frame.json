@@ -1,8 +1,92 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Bald verfügbar.",
-  "description": "Die detaillierte Beschreibung des Frame ist bald verfügbar.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Bald verfügbar. Für detaillierte Informationen fordern Sie eine Beratung an!",
-  "cta": { "final": { "headline": "Interessiert am Frame?", "subtitle": "Fordern Sie eine kostenlose Beratung an und wir benachrichtigen Sie, sobald er verfügbar ist!", "buttonLabel": "Beratung anfordern" } }
+  "name": "FRAME ND:YAG Lasergerät",
+  "shortDescription": "Intelligenter ND:YAG Laser mit Android und 13.3\" Touchscreen. Integrierte Handstückkühlung, 4 Wellenlängen, Tattoo- und Pigmententfernung.",
+  "description": "Android-gesteuertes, intelligentes gütegeschaltetes (Q-Switched) Nd:YAG-Lasergerät für Tattooentfernung, Pigmentbehandlung, Carbon Peeling und Hautverjüngung, mit integrierter Handstückkühlung und 13,3\"-Farb-Touchscreen.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Wellenlängen",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Max. Energiedichte",
+      "icon": "zap"
+    },
+    {
+      "value": "13,3\"",
+      "label": "Touchscreen",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Pulsfrequenz",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – intelligenter ND:YAG Laser mit Android für professionelle Salons",
+    "paragraphs": [
+      "Der FRAME ist ein Android-gesteuertes, intelligentes gütegeschaltetes (Q-Switched) Nd:YAG-Lasergerät, das eine Spitzentechnologie für Tattooentfernung, Pigmentbehandlung und Hautverjüngung bietet. Das Android-Betriebssystem ermöglicht eine einfache Bedienung und individuell anpassbare Einstellungen.",
+      "Die einzigartige, im Handstück integrierte Kühlvorrichtung kühlt die Haut sofort, minimiert so Schmerzen und das Risiko von Hautschäden – und sorgt für maximalen Komfort der Kundin.",
+      "Dank seiner vier Wellenlängen ist er vielseitig einsetzbar: 1064 nm und 532 nm für alle Tattoofarben, 755 nm für Pigmentflecken, Sommersprossen und Sonnenflecken sowie 1320 nm für Carbon Peeling (Tiefenreinigung der Haut, Porenverfeinerung).",
+      "Die energiereichen Laserimpulse (10–2000 mJ/cm²) und die Pulsfrequenz von 1–10 Hz liefern eindrucksvolle, schnelle Ergebnisse, und der 13,3\"-Farb-Touchscreen macht die Behandlung einfach und übersichtlich."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Tattooentfernung",
+      "description": "Für alle Farben – mit 1064 nm und 532 nm Wellenlänge."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Pigmentbehandlung",
+      "description": "Pigmentflecken, Sommersprossen, Sonnenflecken – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon Peeling",
+      "description": "Tiefenreinigung der Haut und Porenverfeinerung – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Android-Steuerung",
+      "description": "Intelligente Software, individuell anpassbare Einstellungen."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Integrierte Kühlung",
+      "description": "Handstückkühlung für eine angenehme, schmerzarme Behandlung."
+    },
+    {
+      "icon": "chart",
+      "name": "Professionelle Leistung",
+      "description": "10–2000 mJ/cm², 1–10 Hz Pulsfrequenz."
+    }
+  ],
+  "specs": {
+    "Lasertyp": "Q-Switched Nd:YAG",
+    "Wellenlängen": "1064 nm, 532 nm, 755 nm, 1320 nm (Carbon Peeling)",
+    "Energiedichte": "10–2000 mJ/cm²",
+    "Pulsfrequenz": "1–10 Hz",
+    "Spotgröße": "2–6 mm (einstellbar)",
+    "Display": "13,3\" Farb-Touchscreen",
+    "Kühlung": "Im Handstück integrierte Kühlung, 15 W Kühlleistung",
+    "Steuerung": "Android-Betriebssystem"
+  },
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zum FRAME ND:YAG Laser? Wir helfen Ihnen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "final": {
+      "headline": "Interessiert am FRAME ND:YAG Laser?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung oder eine Showroom-Vorführung an – wir helfen Ihnen bei den passenden Einstellungen für Ihren Salon.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  }
 }

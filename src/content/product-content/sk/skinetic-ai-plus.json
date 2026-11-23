@@ -24,6 +24,9 @@
       "label": "Plná záruka"
     }
   ],
+  "roi": {
+    "defaultTreatmentPrice": 8000
+  },
   "cta": {
     "afterVideo": {
       "text": "Máte otázky k SKINETIC AI+? Radi pomôžeme!",
@@ -77,6 +80,80 @@
       }
     ]
   },
+  "training": {
+    "headline": "Školenie obsluhy - školenie AI diagnostiky pleti",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K systému SKINETIC AI+ patrí vzdelávací program, ktorý vás pripraví na efektívne používanie prístroja, interpretáciu výsledkov analýzy a komunikáciu s klientmi.",
+    "items": [
+      "Fungovanie 8 zobrazovacích režimov a oblasti ich použitia",
+      "Interpretácia AI reportu a jeho zrozumiteľná prezentácia klientovi",
+      "Štandardizované snímanie: polohovanie, opakovateľné merania",
+      "Dokumentácia pred a po a vedenie karty klienta",
+      "Používanie mikroskopu na vlasovú pokožku a tvár",
+      "Praktické vyšetrenia a analýzy na modeloch"
+    ],
+    "closingParagraphs": [
+      "Cieľom školenia je, aby si účastníci osvojili nielen obsluhu prístroja, ale aj využitie výsledkov analýzy pri konzultácii a v podnikaní.",
+      "Po absolvovaní školenia vystavujeme oficiálny certifikát."
+    ],
+    "price": "59.990 Ft",
+    "priceNote": "hodnota školenia",
+    "freeText": "ZDARMA ku kúpe prístroja!",
+    "duration": "Jednodňové školenie",
+    "ctaText": "Mám záujem o školenie"
+  },
+  "expertQuote": {
+    "quote": "Najväčším pokrokom v diagnostike pleti je, že konzultácia už nezávisí len od dojmov. SKINETIC AI+ zhotovuje snímky za jednotných podmienok, takže zmenu netreba klientovi vysvetľovať, ale dá sa ukázať. Táto možnosť dokumentácie je v každodennom chode salónu najcennejšia.",
+    "author": "Horváth László",
+    "role": "Spoluzakladateľ Skinlab, konateľ"
+  },
+  "functionCards": [
+    {
+      "icon": "brain",
+      "name": "AI analýza pleti",
+      "description": "Automaticky identifikuje oblasti tváre a hodnotí ich podľa jednotlivých parametrov."
+    },
+    {
+      "icon": "chart",
+      "name": "Skóre a grafy",
+      "description": "Číselné a vizuálne výsledky s mapami problémov."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Karta klienta",
+      "description": "Vyšetrenia, reporty a porovnania priradené k profilu klienta."
+    },
+    {
+      "icon": "bolt",
+      "name": "Rýchle vyšetrenie",
+      "description": "Neinvazívne zhodnotenie stavu za pár minút."
+    },
+    {
+      "icon": "droplet",
+      "name": "Hydratácia a maz",
+      "description": "Analýza rozloženia vlhkosti a mazu samostatným zobrazovacím režimom."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Póry a textúra",
+      "description": "Vyšetrenie veľkosti a hustoty pórov a nerovností povrchu."
+    },
+    {
+      "icon": "brain",
+      "name": "AI asistent",
+      "description": "Zabudovaný AI asistent s menu v maďarčine."
+    },
+    {
+      "icon": "chart",
+      "name": "Predikcia starnutia",
+      "description": "Ukáže, ako sa môže stav pleti vyvíjať v priebehu rokov."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Plánovač protokolov",
+      "description": "Zostaví plán ošetrení z vlastnej ponuky salónu."
+    }
+  ],
   "specs": {
     "Obrazový senzor": "15MP kamera s vysokým rozlíšením",
     "Zobrazovacie režimy": "8 režimov (prirodzené, polarizované, krížovo polarizované, UV, Woodovo svetlo, červená zóna, hnedá zóna, analýza vlhkosti)",
@@ -85,6 +162,7 @@
     "Reporty": "Export a zdieľanie v PDF",
     "Ukladanie dát": "Cloudové, prístupné z viacerých zariadení",
     "Príslušenstvo": "Mikroskop na vlasovú pokožku a tvár (súčasť balenia)",
+    "Softvér": "Používateľské rozhranie v maďarčine",
     "AI funkcie": "Zabudovaný AI asistent, predikcia starnutia, plánovač protokolov z vlastnej ponuky salónu",
     "Rozmery": "300 × 260 × 450 mm",
     "Hmotnosť": "cca 6,5 kg",
@@ -102,6 +180,14 @@
     {
       "question": "Nahrádza lekársku diagnózu?",
       "answer": "Nie. SKINETIC AI+ je neinvazívny systém na hodnotenie stavu pleti na kozmetické a estetické účely. AI hodnotenie podporuje prácu odborníka, ale nenahrádza ju a neslúži na diagnostiku ochorení. Výsledky musí vždy interpretovať ošetrujúci odborník."
+    },
+    {
+      "question": "Ako pomáha pri konzultácii a predaji?",
+      "answer": "Klient dostane pôsobivý, zrozumiteľný report so skóre, grafmi a mapami problémov, takže sám vidí, ktoré oblasti si vyžadujú pozornosť a prečo odborník odporúča konkrétny plán ošetrení. Porovnanie pred a po zas vizuálne potvrdzuje výsledok série ošetrení - to je najlepší argument pre pokračovanie v programe."
+    },
+    {
+      "question": "Je softvér v maďarčine?",
+      "answer": "Áno, systém sa používa s používateľským rozhraním v maďarčine, ktoré vzniklo za spolupráce kozmetológa, takže menu a reporty zodpovedajú maďarskej salónnej praxi."
     },
     {
       "question": "Čo je súčasťou balenia?",
@@ -122,5 +208,17 @@
     "Školenie obsluhy (s certifikátom)",
     "2-ročná plná záruka",
     "Program náhradného prístroja pri dlhšej oprave"
-  ]
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "Prístroj na AI diagnostiku pleti SKINETIC AI+ s 15,6-palcovým dotykovým displejom a softvérom v maďarčine",
+    "skinetic-ai-plus-oldalnezet.jpg": "Analyzátor pleti SKINETIC AI+ z boku, so zatieneným vyšetrovacím priestorom a dotykovým tabletom",
+    "skinetic-ai-plus-mikroszkop.png": "Prístroj SKINETIC AI+ s priloženým mikroskopom na vlasovú pokožku a tvár, s menu v maďarčine",
+    "skinetic-ai-plus-allvany.jpg": "Systém diagnostiky pleti SKINETIC AI+ na pojazdnom stojane s ručným mikroskopom",
+    "skinetic-ai-plus-showroom.jpg": "Analyzátor pleti SKINETIC AI+ v showroome Skinlab v Érde s ošetrovacím lôžkom",
+    "skinetic-ai-plus-design-2.jpg": "Prístroj na diagnostiku pleti SKINETIC AI+ s tabletom, pred ružovou stenou",
+    "skinetic-ai-plus-design-3.jpg": "AI analyzátor pleti SKINETIC AI+ z boku, pred ružovou stenou",
+    "skinetic-ai-plus-design-4.jpg": "Mikroskop SKINETIC AI+ na vlasovú pokožku a tvár v ruke, pred logom Skinlab",
+    "skinetic-ai-plus-kupola.jpg": "Zobrazovacia kupola SKINETIC AI+ zblízka",
+    "skinetic-ai-plus-tablet.jpg": "Rozhranie SKINETIC AI+ v maďarčine na tablete"
+  }
 }

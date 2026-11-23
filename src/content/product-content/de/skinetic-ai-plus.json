@@ -24,6 +24,9 @@
       "label": "Vollgarantie"
     }
   ],
+  "roi": {
+    "defaultTreatmentPrice": 8000
+  },
   "cta": {
     "afterVideo": {
       "text": "Fragen zu SKINETIC AI+? Wir helfen gerne!",
@@ -77,6 +80,80 @@
       }
     ]
   },
+  "training": {
+    "headline": "Gerätebediener-Schulung - Schulung zur KI-Hautdiagnostik",
+    "badge": "Mit offiziellem Zertifikat",
+    "intro": "Zum SKINETIC AI+ System gehört ein Schulungsprogramm, das Sie auf die effektive Nutzung des Geräts, die Interpretation der Analyseergebnisse und die Kommunikation mit Kundinnen vorbereitet.",
+    "items": [
+      "Funktionsweise und Einsatzbereiche der 8 Bildgebungsmodi",
+      "Interpretation des KI-Reports und verständliche Präsentation für die Kundin",
+      "Standardisierte Bildgebung: Positionierung, wiederholbare Messungen",
+      "Vorher-Nachher-Dokumentation und Verwaltung der Kundenkartei",
+      "Verwendung des Kopfhaut- und Gesichtsmikroskops",
+      "Praktische Untersuchungen und Analysen an Modellen"
+    ],
+    "closingParagraphs": [
+      "Ziel der Schulung ist es, dass die Teilnehmenden nicht nur die Bedienung des Geräts erlernen, sondern auch die Nutzung der Analyseergebnisse für Beratung und Geschäft.",
+      "Nach Abschluss der Schulung stellen wir ein offizielles Zertifikat aus."
+    ],
+    "price": "59.990 Ft",
+    "priceNote": "Schulungswert",
+    "freeText": "KOSTENLOS beim Gerätekauf!",
+    "duration": "Eintägige Schulung",
+    "ctaText": "Interesse an der Schulung"
+  },
+  "expertQuote": {
+    "quote": "Der größte Fortschritt in der Hautdiagnostik besteht darin, dass die Beratung nicht mehr nur auf Eindrücken beruht. Der SKINETIC AI+ erstellt Aufnahmen unter einheitlichen Bedingungen, sodass man der Kundin die Veränderung nicht erklären muss, sondern sie zeigen kann. Diese Dokumentierbarkeit ist im Salonalltag das Wertvollste.",
+    "author": "Horváth László",
+    "role": "Skinlab-Mitgründer, Geschäftsführer"
+  },
+  "functionCards": [
+    {
+      "icon": "brain",
+      "name": "KI-Hautanalyse",
+      "description": "Erkennt die Gesichtsregionen automatisch und bewertet sie Parameter für Parameter."
+    },
+    {
+      "icon": "chart",
+      "name": "Punktwerte und Diagramme",
+      "description": "Numerische und visuelle Ergebnisse, mit Problemkarten."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Kundenkartei",
+      "description": "Untersuchungen, Reports und Vergleiche, verknüpft mit dem Kundenprofil."
+    },
+    {
+      "icon": "bolt",
+      "name": "Schnelle Untersuchung",
+      "description": "Nicht-invasive Zustandserhebung in wenigen Minuten."
+    },
+    {
+      "icon": "droplet",
+      "name": "Feuchtigkeit und Talg",
+      "description": "Analyse der Feuchtigkeits- und Talgverteilung mit einem eigenen Bildgebungsmodus."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Poren und Textur",
+      "description": "Untersuchung von Porengröße, Porendichte und Oberflächenunebenheiten."
+    },
+    {
+      "icon": "brain",
+      "name": "KI-Assistent",
+      "description": "Integrierter KI-Assistent, mit ungarischem Menü."
+    },
+    {
+      "icon": "chart",
+      "name": "Alterungsprognose",
+      "description": "Zeigt, wie sich der Hautzustand im Laufe der Jahre entwickeln kann."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Protokollplaner",
+      "description": "Erstellt einen Behandlungsplan aus dem eigenen Angebot des Salons."
+    }
+  ],
   "specs": {
     "Bildsensor": "15-MP-Kamera mit hoher Auflösung",
     "Bildgebungsmodi": "8 Modi (Normallicht, polarisiert, kreuzpolarisiert, UV, Wood-Licht, rote Zone, braune Zone, Feuchtigkeitsanalyse)",
@@ -85,6 +162,7 @@
     "Reports": "PDF-Export und Freigabe",
     "Datenspeicherung": "Cloudbasiert, von mehreren Geräten zugänglich",
     "Zubehör": "Kopfhaut- und Gesichtsmikroskop (im Lieferumfang)",
+    "Software": "Ungarischsprachige Benutzeroberfläche",
     "KI-Funktionen": "Integrierter KI-Assistent, Alterungsprognose, Protokollplaner aus dem eigenen Angebot des Studios",
     "Abmessungen": "300 × 260 × 450 mm",
     "Gewicht": "ca. 6,5 kg",
@@ -102,6 +180,14 @@
     {
       "question": "Ersetzt es eine medizinische Diagnose?",
       "answer": "Nein. SKINETIC AI+ ist ein nicht-invasives Hautanalysesystem für kosmetische und ästhetische Zwecke. Die KI-Auswertung unterstützt die Arbeit der Fachkraft, ersetzt sie aber nicht und dient nicht der Diagnose medizinischer Erkrankungen. Die Ergebnisse sind stets von der behandelnden Fachkraft zu interpretieren."
+    },
+    {
+      "question": "Wie unterstützt es die Beratung und den Verkauf?",
+      "answer": "Die Kundin erhält einen anschaulichen, leicht verständlichen Report mit Punktwerten, Diagrammen und Problemkarten. So sieht sie selbst, welche Bereiche Aufmerksamkeit benötigen und warum die Fachkraft einen bestimmten Behandlungsplan empfiehlt. Der Vorher-Nachher-Vergleich belegt zudem visuell das Ergebnis der Behandlungsserien - das beste Argument für die Fortsetzung des Programms."
+    },
+    {
+      "question": "Ist die Software ungarischsprachig?",
+      "answer": "Ja, das System verfügt über eine ungarischsprachige Benutzeroberfläche, die unter Mitwirkung einer Kosmetologin erstellt wurde, sodass Menüs und Reports auf die ungarische Salonpraxis abgestimmt sind."
     },
     {
       "question": "Was ist im Lieferumfang enthalten?",
@@ -122,5 +208,17 @@
     "Bedienerschulung (mit Zertifikat)",
     "2 Jahre Vollgarantie",
     "Ersatzgeräte-Programm bei längeren Reparaturen"
-  ]
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "SKINETIC AI+ KI-Hautdiagnosegerät mit 15,6-Zoll-Touchdisplay und ungarischsprachiger Software",
+    "skinetic-ai-plus-oldalnezet.jpg": "SKINETIC AI+ Hautanalysegerät in der Seitenansicht, mit lichtabgeschirmtem Untersuchungsraum und Touchscreen-Tablet",
+    "skinetic-ai-plus-mikroszkop.png": "SKINETIC AI+ Gerät mit dem mitgelieferten Kopfhaut- und Gesichtsmikroskop, mit ungarischsprachigem Menü",
+    "skinetic-ai-plus-allvany.jpg": "SKINETIC AI+ Hautdiagnosesystem auf rollbarem Ständer mit dem Handmikroskop",
+    "skinetic-ai-plus-showroom.jpg": "SKINETIC AI+ Hautanalysegerät im Skinlab-Showroom in Érd mit Behandlungsliege",
+    "skinetic-ai-plus-design-2.jpg": "SKINETIC AI+ Hautdiagnosegerät mit Tablet, vor einer Rosenwand",
+    "skinetic-ai-plus-design-3.jpg": "SKINETIC AI+ KI-Hautanalysator in der Seitenansicht, vor einer Rosenwand",
+    "skinetic-ai-plus-design-4.jpg": "SKINETIC AI+ Kopfhaut- und Gesichtsmikroskop in der Hand, vor dem Skinlab-Logo",
+    "skinetic-ai-plus-kupola.jpg": "Bildgebungskuppel des SKINETIC AI+ in Nahaufnahme",
+    "skinetic-ai-plus-tablet.jpg": "Ungarischsprachige Bedienoberfläche des SKINETIC AI+ auf dem Tablet"
+  }
 }
