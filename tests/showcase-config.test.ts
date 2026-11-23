@@ -112,7 +112,7 @@ describe('buildShowcaseConfig', () => {
 
 describe('nyelvi lefedettség', () => {
   // shortcut: remove pending list once C2/C3 merged (ezek fordítása párhuzamos ágon készül).
-  const PENDING = ['anti-aging', 'nd-yag-lezerek', 'sminktetovalas', 'testkezeles', 'kellekek', 'kezeloanyagok'];
+  const PENDING = ['testkezeles', 'kellekek', 'kezeloanyagok'];
 
   it('minden nyelvhez van showcase-felirat', () => {
     for (const locale of locales) expect(() => showcaseUi(locale), locale).not.toThrow();
