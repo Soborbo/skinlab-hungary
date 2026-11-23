@@ -17,32 +17,6 @@
     "blog": "Blog",
     "faq": "Intrebari frecvente"
   },
-  "hero": {
-    "title": "Echipamente cosmetice profesionale",
-    "subtitle": "Lasere dioda, aparate PMU si dispozitive multifunctionale cu garantie si service propriu",
-    "cta": "Consultatie gratuita",
-    "ctaSecondary": "Vezi produsele",
-    "slide2": {
-      "title": "Lasere cu diodă cu tehnologie de ultimă generație",
-      "subtitle": "Dispozitive laser profesionale cu lungimi de undă de 808nm, 755nm și 1064nm pentru saloane"
-    },
-    "slide3": {
-      "title": "Training și service într-un singur loc",
-      "subtitle": "Training gratuit, suport tehnic continuu și garanție de 2 ani pentru aparatele noastre cosmetice"
-    },
-    "slide4": {
-      "title": "Îndepărtarea tatuajelor cu laser ND:YAG",
-      "subtitle": "Îndepărtarea sigură și eficientă a tatuajelor și pigmenților cu laser ND:YAG Q-switched, cu service local în Ungaria"
-    },
-    "slide5": {
-      "title": "Noul nostru laser Frame YAG a sosit!",
-      "subtitle": "În curând în magazinul nostru online. Înscrieți-vă la demonstrația de produs"
-    },
-    "slide7": {
-      "title": "Nou: laserul cu diodă EMPIRE 4WAVE",
-      "subtitle": "1200 W, 4 lungimi de undă, diagnostic cu microcameră pentru păr și piele și fișă digitală de client – un sistem mai inteligent pentru epilarea profesională."
-    }
-  },
   "categories": {
     "title": "Categorii de produse",
     "subtitle": "Alege categoria potrivita pentru tine si descopera echipamentele noastre profesionale",
@@ -159,31 +133,31 @@
   },
   "form": {
     "name": "Nume",
-    "namePlaceholder": "Numele dumneavoastra",
+    "namePlaceholder": "Numele dumneavoastră",
     "email": "Adresa de email",
     "emailPlaceholder": "exemplu@email.ro",
-    "phone": "Numar de telefon",
+    "phone": "Număr de telefon",
     "phonePlaceholder": "+40 7XX XXX XXX",
     "message": "Mesaj",
-    "messagePlaceholder": "Spuneti-ne cum va putem ajuta...",
-    "product": "Ce produs va intereseaza?",
-    "productPlaceholder": "Selectati...",
+    "messagePlaceholder": "Spuneți-ne cum vă putem ajuta...",
+    "product": "Ce produs vă interesează?",
+    "productPlaceholder": "Selectați...",
     "subject": "Subiect",
     "subjectPlaceholder": "Subiectul mesajului",
-    "gdprConsent": "Accept politica de confidentialitate",
-    "gdprConsentPrefix": "Am citit si accept",
-    "gdprConsentLink": "Politica de confidentialitate",
+    "gdprConsent": "Accept politica de confidențialitate",
+    "gdprConsentPrefix": "Am citit și accept",
+    "gdprConsentLink": "Politica de confidențialitate",
     "submit": "Trimite mesajul",
     "submitting": "Se trimite...",
-    "success": "Multumim! Va vom contacta in curand.",
-    "successMessage": "Am primit mesajul dumneavoastra si va vom contacta in curand.",
-    "error": "A aparut o eroare. Va rugam sa incercati din nou.",
-    "errorMessage": "Va rugam sa incercati din nou mai tarziu.",
-    "required": "Camp obligatoriu",
-    "honeypot": "Nu completati acest camp",
+    "success": "Mulțumim! Vă vom contacta în curând.",
+    "successMessage": "Am primit mesajul dumneavoastră și vă vom contacta în curând.",
+    "error": "A apărut o eroare. Vă rugăm să încercați din nou.",
+    "errorMessage": "Vă rugăm să încercați din nou mai târziu.",
+    "required": "Câmp obligatoriu",
+    "honeypot": "Nu completați acest câmp",
     "firstName": "Prenume",
     "lastName": "Nume de familie",
-    "selectCategory": "Selectati o categorie",
+    "selectCategory": "Selectați o categorie",
     "networkError": "A apărut o eroare de rețea. Vă rugăm să încercați din nou.",
     "validationError": "Vă rugăm să verificați datele introduse."
   },
@@ -193,7 +167,10 @@
     "openMenu": "Deschide meniul",
     "closeMenu": "Inchide meniul",
     "megaMenuFooter": "Nu gasiti ceea ce cautati? Va ajutam sa alegeti echipamentul potrivit.",
-    "languageLabel": "Limba"
+    "languageLabel": "Limba",
+    "languageSwitch": "Schimbați limba",
+    "contactWidgetOpen": "Deschideți contactul",
+    "contactWidgetText": "Aveți o întrebare? Sunați-ne cu încredere, vă ajutăm cu plăcere!"
   },
   "cta": {
     "title": "Aveti intrebari?",
@@ -243,6 +220,9 @@
   },
   "footer": {
     "company": "Informatii companie",
+    "tagline": "Distribuție de aparate cosmetice profesionale și lasere cu garanție de 2 ani.",
+    "financing": "Finanțare",
+    "withdrawal": "Retragere și returnare",
     "products": "Produse",
     "support": "Asistenta",
     "legal": "Informatii legale",
@@ -610,7 +590,7 @@
   "common": {
     "learnMore": "Aflati mai multe",
     "viewAll": "Vezi tot",
-    "close": "Inchide",
+    "close": "Închide",
     "loading": "Se incarca...",
     "search": "Cauta",
     "filter": "Filtreaza",
@@ -681,7 +661,8 @@
     "requestDemo": "Solicita demonstratie",
     "warrantyValue": "2 ani",
     "wavelengthsValue": "4 lungimi de undă",
-    "skinTypes": "Pentru toate tipurile de piele"
+    "skinTypes": "Pentru toate tipurile de piele",
+    "installmentLine": "sau {monthly}/lună timp de {months} luni, după un avans de 50%"
   },
   "ctaSection": {
     "title": "Ai intrebari? Suntem aici sa ajutam!",
@@ -885,13 +866,42 @@
       "methodRequired": "Vă rugăm să alegeți o metodă de livrare.",
       "free": "Gratuit",
       "summaryLine": "Livrare",
+      "foxpost": "Automat de colete Foxpost",
+      "foxpostDesc": "Ridicare din peste 3.000 de automate din toată Ungaria, de regulă în 1–2 zile lucrătoare.",
+      "foxpostChoose": "Alegeți automatul",
+      "foxpostChange": "Schimbați automatul",
+      "foxpostRequired": "Vă rugăm să alegeți un automat de ridicare Foxpost.",
+      "foxpostModalTitle": "Alegeți un automat de ridicare Foxpost",
+      "foxpostLoadHint": "Dacă harta nu se încarcă, reîmprospătați pagina sau alegeți altă metodă de livrare.",
+      "gls": "Livrare la domiciliu GLS",
+      "glsDesc": "Curierat GLS – de regulă livrare în următoarea zi lucrătoare.",
+      "pickup": "Ridicare personală",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – gratuit, cu programare prealabilă.",
       "recommended": "Recomandat",
+      "highValueTitle": "Ridicare și livrare",
       "highValueNote": "Vom organiza livrarea comenzii dvs. în mod individual. Colegul nostru vă va contacta pentru a conveni asupra ridicării personale sau a livrării și a modalității de plată.",
       "pickupCeremony": "Ridicare personală la showroom",
       "pickupCeremonyDesc": "Predare, instalare și instruire la fața locului - răspundem imediat la toate întrebările dvs. Puteți ridica aparatul și la finalul cursurilor noastre.",
       "arranged": "Livrare prin înțelegere",
-      "arrangedDesc": "Având în vedere valoarea produsului, organizăm livrarea personal - fie vi-l aducem, fie îl expediem în siguranță. Colegul nostru vă va contacta în privința detaliilor."
+      "arrangedDesc": "Având în vedere valoarea produsului, organizăm livrarea personal - fie vi-l aducem, fie îl expediem în siguranță. Colegul nostru vă va contacta în privința detaliilor.",
+      "foxpostIframeTitle": "Căutare automate Foxpost"
     },
+    "payment": {
+      "title": "Metoda de plată",
+      "required": "Vă rugăm să alegeți metoda de plată.",
+      "transfer": "Transfer bancar în avans",
+      "transferDesc": "Vă trimitem factura proforma pe e-mail; plătiți prin transfer bancar.",
+      "cod": "Ramburs",
+      "codDesc": "Plătiți la primire, curierului sau la automat."
+    },
+    "parcelStep1Title": "Confirmăm comanda",
+    "parcelStep1Desc": "Vă confirmăm imediat comanda pe e-mail.",
+    "parcelStep2Title": "Factură proforma sau ramburs",
+    "parcelStep2Desc": "Trimitem factura proforma pe e-mail (transfer) sau alegeți plata ramburs.",
+    "parcelStep3Title": "Livrăm / ridicați personal",
+    "parcelStep3Desc": "Expediem la un automat Foxpost sau prin GLS, ori ridicați personal.",
+    "parcelNoPaymentNote": "Fără plată online imediată: primiți factura proforma pe e-mail sau plătiți ramburs la primire.",
+    "parcelTrustShipping": "Livrare Foxpost / GLS",
     "email": {
       "subject": "Confirmarea comenzii",
       "greeting": "Stimate/ă {name},",
@@ -902,15 +912,27 @@
       "priceOnRequest": "Preț la cerere",
       "total": "Total",
       "shippingTitle": "Livrare",
+      "subtotalLabel": "Subtotal",
       "freeShipping": "Gratuit",
+      "foxpostPointLabel": "Automat de ridicare",
       "shippingMethods": {
         "personal_pickup": "Ridicare personală — Skinlab Showroom (Érd)",
-        "arranged": "Livrare prin înțelegere"
+        "arranged": "Livrare prin înțelegere",
+        "foxpost": "Automat de colete Foxpost",
+        "gls": "Livrare la domiciliu GLS"
       },
       "whatNextTitle": "Ce urmează?",
       "step1": "V-am trimis deja factura proforma pe e-mail — pe ea este trecută suma de plată.",
       "step2": "Colegul nostru vă va suna în curând pentru a confirma detaliile și modul în care doriți să primiți comanda.",
       "step3": "Puteți plăti prin transfer bancar pe baza facturii proforma. După ce plata ajunge, puteți ridica personal comanda sau vă expediem coletul — în funcție de opțiunea aleasă.",
+      "parcelStep1": "V-am trimis factura proforma pe e-mail – pe ea este trecută suma de plată.",
+      "parcelStep2": "Achitați factura proforma prin transfer bancar, pe baza datelor din e-mail.",
+      "parcelStep3": "După primirea plății, expediem coletul în modul ales (Foxpost / GLS) sau îl puteți ridica personal.",
+      "codStep1": "Am confirmat comanda dumneavoastră – fără plată în avans.",
+      "codStep2": "Expediem coletul în modul ales (automat de colete Foxpost / GLS).",
+      "codStep3": "Plătiți la primire (ramburs) curierului sau la automat.",
+      "codTitle": "Plată ramburs",
+      "codNote": "Plătiți la primire – nu trebuie să transferați nimic în avans. Pentru comenzile cu ramburs nu trimitem factură proforma.",
       "priceDisclaimer": "Suma afișată este orientativă; prețul final și costul de livrare vor fi stabilite în cadrul consultației telefonice.",
       "payIntro": "Am emis factura proforma – puteți plăti imediat cu cardul sau prin transfer bancar folosind butonul de mai jos:",
       "payButton": "Plătește / deschide proforma",
@@ -930,6 +952,10 @@
     "postcode": "Cod poștal",
     "city": "Oraș",
     "street": "Strada și numărul",
+    "postcodeHelp": "Completăm orașul și țara pe baza codului poștal.",
+    "postcodeUnknown": "Nu recunoaștem acest cod poștal – vă rugăm să introduceți manual orașul și țara.",
+    "postcodeMultiple": "Acestui cod poștal îi corespund mai multe localități – alegeți una sau introduceți-o manual:",
+    "countySuffix": "județ",
     "notes": "Observație",
     "notesPlaceholder": "Orice este important legat de comanda dvs...",
     "optional": "opțional",
@@ -967,6 +993,8 @@
       "step3Title": "Plată și preluare",
       "step3Desc": "Puteți plăti prin transfer bancar pe baza facturii proforma. După ce plata ajunge, puteți ridica personal comanda sau vă expediem coletul — în funcție de opțiunea aleasă.",
       "emailNote": "Confirmarea comenzii a fost trimisă la adresa dvs. de email.",
+      "foundersTitle": "Vă mulțumim pentru încredere!",
+      "foundersNote": "Noi, fondatorii Skinlab, ne ocupăm personal ca livrarea comenzii dumneavoastră să decurgă fără probleme. Dacă aveți întrebări, nu ezitați să ne contactați!",
       "backToHome": "Înapoi la pagina principală",
       "browseProducts": "Mai multe produse"
     },
@@ -1030,7 +1058,14 @@
     "bodyPost": "Sună-ne sau solicită o consultație gratuită și te contactăm.",
     "cta": "Solicită o consultație gratuită",
     "phone": "Sună-ne: {phone}",
-    "responseTime": "De obicei revenim cu un apel în 1 zi lucrătoare."
+    "responseTime": "De obicei revenim cu un apel în 1 zi lucrătoare.",
+    "card": {
+      "ariaLabel": "Card consultație gratuită",
+      "cta": "Programați-vă",
+      "bodyPre": "Nu sunteți sigur ce aparat se potrivește salonului dumneavoastră?",
+      "bodyStrong": "20 de minute de consultație online gratuită",
+      "bodyPost": "- analizăm și modelul dumneavoastră de afaceri."
+    }
   },
   "finance": {
     "title": "Merită? Hai să calculăm.",
@@ -1070,6 +1105,20 @@
   "mobileCta": {
     "call": "Sună",
     "consult": "Consultație"
+  },
+  "homeFinance": {
+    "badge": "Finanțare",
+    "title": "Nu trebuie să plătiți totul deodată",
+    "body": "Plată în rate fără dobândă, DAE 0%: avans 50%, restul în 3, 6 sau 12 rate lunare, în funcție de prețul aparatului. Fără comision de administrare și fără costuri ascunse.",
+    "tier1": "3 luni peste 100 000 Ft",
+    "tier2": "3 sau 6 luni peste 1 000 000 Ft",
+    "tier3": "3, 6 sau 12 luni peste 3 000 000 Ft sau la achiziția a două aparate împreună",
+    "cta": "Detalii și calculator",
+    "example": "Exemplu: {name}",
+    "downPayment": "Avans (50%)",
+    "term": "{months} luni",
+    "perMonth": "{amount}/lună",
+    "note": "Vă oferim o ofertă exactă în cadrul consultației."
   },
   "foundersHome": {
     "badge": "Fondatorii",
@@ -1143,5 +1192,76 @@
     "readLess": "Mai puțin",
     "teamCaption": "Echipa Skinlab la Milano",
     "teamAlt": "Echipa Skinlab într-un selfie la Milano, în fața inscripției Milano"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Luni",
+      "tue": "Marți",
+      "wed": "Miercuri",
+      "thu": "Joi",
+      "fri": "Vineri",
+      "sat": "Sâmbătă",
+      "sun": "Duminică"
+    },
+    "daysShort": {
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mie",
+      "thu": "Joi",
+      "fri": "Vin",
+      "sat": "Sâm",
+      "sun": "Dum"
+    },
+    "closed": "Închis"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Produs",
+      "timing": "Termen",
+      "salon": "Salon",
+      "experience": "Experiență",
+      "contact": "Contact"
+    },
+    "step1Title": "Ce produs vă interesează?",
+    "step1Subtitle": "Alegeți categoria – puteți bifa mai multe",
+    "step2Title": "Când plănuiți achiziția?",
+    "timeline": {
+      "asap": "Imediat",
+      "months1to3": "În 1-3 luni",
+      "months3to6": "În 3-6 luni",
+      "justLooking": "Doar mă informez"
+    },
+    "step3Title": "Aveți deja un salon?",
+    "business": {
+      "runningSalon": "Da, am un salon în funcțiune",
+      "openingSoon": "Acum deschid un salon",
+      "homeService": "Training / workshop",
+      "noBusiness": "Încă nu am o afacere"
+    },
+    "step4Title": "Ați mai folosit un aparat similar?",
+    "experience": {
+      "regular": "Da, în mod regulat",
+      "tried": "Da, am încercat",
+      "trained": "Nu, dar sunt calificat(ă)",
+      "beginner": "Nu, sunt începător"
+    },
+    "step5Title": "Cum vă putem contacta?",
+    "step5Subtitle": "Vă contactăm în curând",
+    "lastNamePlaceholder": "Popescu",
+    "firstNamePlaceholder": "Ana",
+    "gdprSuffix": "și sunt de acord cu prelucrarea datelor mele.",
+    "back": "Înapoi",
+    "next": "Următorul",
+    "submit": "Solicitați o consultație gratuită",
+    "satisfiedClients": "clienți mulțumiți",
+    "errorTitle": "A apărut o eroare",
+    "retry": "Vă rugăm să încercați din nou.",
+    "errors": {
+      "selectCategory": "Vă rugăm să alegeți cel puțin o categorie",
+      "selectOption": "Vă rugăm să alegeți o opțiune",
+      "required": "Acest câmp este obligatoriu",
+      "invalidEmail": "Vă rugăm să introduceți o adresă de e-mail validă",
+      "invalidPhone": "Vă rugăm să introduceți un număr de telefon valid"
+    }
   }
 }

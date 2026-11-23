@@ -17,32 +17,6 @@
     "blog": "Blog",
     "faq": "Cesta pitanja"
   },
-  "hero": {
-    "title": "Profesionalna kozmeticka oprema",
-    "subtitle": "Diodni laseri, PMU uredaji i multifunkcionalni aparati s jamstvom i vlastitim servisom",
-    "cta": "Besplatna konzultacija",
-    "ctaSecondary": "Pogledaj proizvode",
-    "slide2": {
-      "title": "Diodni laseri s najnovijom tehnologijom",
-      "subtitle": "Profesionalni laserski uređaji s valnim duljinama 808nm, 755nm i 1064nm za salone"
-    },
-    "slide3": {
-      "title": "Obuka i servis na jednom mjestu",
-      "subtitle": "Besplatna obuka, kontinuirana tehnička podrška i 2 godine jamstva na naše kozmetičke uređaje"
-    },
-    "slide4": {
-      "title": "Uklanjanje tetovaža ND:YAG laserom",
-      "subtitle": "Sigurno i učinkovito uklanjanje tetovaža i pigmenta Q-switched ND:YAG laserom, uz servisnu podršku u Mađarskoj"
-    },
-    "slide5": {
-      "title": "Stigao je naš novi Frame YAG laser!",
-      "subtitle": "Uskoro u našem webshopu. Prijavite se za demo proizvoda"
-    },
-    "slide7": {
-      "title": "Novo: diodni laser EMPIRE 4WAVE",
-      "subtitle": "1200 W, 4 valne duljine, mikrokamerna dijagnostika dlačica i kože i digitalni karton klijenta – pametniji sustav za profesionalnu depilaciju."
-    }
-  },
   "categories": {
     "title": "Kategorije proizvoda",
     "subtitle": "Odaberite pravu kategoriju za vas i otkrijte nasu profesionalnu opremu",
@@ -159,26 +133,26 @@
   },
   "form": {
     "name": "Ime",
-    "namePlaceholder": "Vase ime",
+    "namePlaceholder": "Vaše ime",
     "email": "E-mail adresa",
     "emailPlaceholder": "primjer@email.hr",
     "phone": "Broj telefona",
     "phonePlaceholder": "+385 9X XXX XXXX",
     "message": "Poruka",
-    "messagePlaceholder": "Recite nam kako vam mozemo pomoci...",
+    "messagePlaceholder": "Recite nam kako vam možemo pomoći...",
     "product": "Koji proizvod vas zanima?",
     "productPlaceholder": "Odaberite...",
     "subject": "Predmet",
     "subjectPlaceholder": "Predmet poruke",
-    "gdprConsent": "Prihvacam politiku privatnosti",
-    "gdprConsentPrefix": "Procitao/la sam i prihvacam",
+    "gdprConsent": "Prihvaćam politiku privatnosti",
+    "gdprConsentPrefix": "Pročitao/la sam i prihvaćam",
     "gdprConsentLink": "Politiku privatnosti",
-    "submit": "Posalji poruku",
-    "submitting": "Saljem...",
-    "success": "Hvala! Uskoro cemo vas kontaktirati.",
-    "successMessage": "Primili smo vasu poruku i uskoro cemo vas kontaktirati.",
-    "error": "Doslo je do greske. Molimo pokusajte ponovo.",
-    "errorMessage": "Molimo pokusajte ponovo kasnije.",
+    "submit": "Pošalji poruku",
+    "submitting": "Šaljem...",
+    "success": "Hvala! Uskoro ćemo vas kontaktirati.",
+    "successMessage": "Primili smo vašu poruku i uskoro ćemo vas kontaktirati.",
+    "error": "Došlo je do greške. Molimo pokušajte ponovo.",
+    "errorMessage": "Molimo pokušajte ponovo kasnije.",
     "required": "Obavezno polje",
     "honeypot": "Nemojte ispunjavati ovo polje",
     "firstName": "Ime",
@@ -193,7 +167,10 @@
     "openMenu": "Otvori izbornik",
     "closeMenu": "Zatvori izbornik",
     "megaMenuFooter": "Ne mozete pronaci sto trazite? Pomoci cemo vam odabrati pravu opremu.",
-    "languageLabel": "Jezik"
+    "languageLabel": "Jezik",
+    "languageSwitch": "Promijeni jezik",
+    "contactWidgetOpen": "Otvori kontakt",
+    "contactWidgetText": "Imate pitanje? Slobodno nas nazovite, rado ćemo pomoći!"
   },
   "cta": {
     "title": "Imate pitanja?",
@@ -243,6 +220,9 @@
   },
   "footer": {
     "company": "Podaci o tvrtki",
+    "tagline": "Distribucija profesionalnih kozmetičkih uređaja i lasera uz jamstvo od 2 godine.",
+    "financing": "Financiranje",
+    "withdrawal": "Odustanak i povrat",
     "products": "Proizvodi",
     "support": "Podrska",
     "legal": "Pravne informacije",
@@ -681,7 +661,8 @@
     "requestDemo": "Zatrazi demonstraciju",
     "warrantyValue": "2 godine",
     "wavelengthsValue": "4 valne duljine",
-    "skinTypes": "Za sve tipove kože"
+    "skinTypes": "Za sve tipove kože",
+    "installmentLine": "ili nakon predujma od 50 % {monthly}/mj. kroz {months} mjeseci"
   },
   "ctaSection": {
     "title": "Imate pitanja? Ovdje smo da pomognemo!",
@@ -885,21 +866,54 @@
       "methodRequired": "Molimo odaberite način dostave.",
       "free": "Besplatno",
       "summaryLine": "Dostava",
+      "foxpost": "Foxpost paketomat",
+      "foxpostDesc": "Preuzimanje u više od 3000 paketomata diljem Mađarske, obično za 1–2 radna dana.",
+      "foxpostChoose": "Odaberite paketomat",
+      "foxpostChange": "Promijenite paketomat",
+      "foxpostRequired": "Molimo odaberite Foxpost paketomat za preuzimanje.",
+      "foxpostModalTitle": "Odaberite Foxpost paketomat za preuzimanje",
+      "foxpostLoadHint": "Ako se karta ne učita, osvježite stranicu ili odaberite drugi način dostave.",
+      "gls": "GLS dostava na adresu",
+      "glsDesc": "GLS dostavna služba – obično dostava sljedeći radni dan.",
+      "pickup": "Osobno preuzimanje",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – besplatno, uz prethodni dogovor termina.",
       "recommended": "Preporučeno",
+      "highValueTitle": "Preuzimanje i dostava",
       "highValueNote": "Dostavu vaše narudžbe dogovaramo individualno. Naš kolega kontaktirat će vas kako biste se dogovorili oko osobnog preuzimanja ili dostave te načina plaćanja.",
       "pickupCeremony": "Osobno preuzimanje u showroomu",
       "pickupCeremonyDesc": "Primopredaja, postavljanje i edukacija na licu mjesta — na sva vaša pitanja odgovaramo odmah. Uređaj možete preuzeti i na kraju naših edukacija.",
       "arranged": "Dostava po dogovoru",
-      "arrangedDesc": "S obzirom na vrijednost proizvoda, dostavu dogovaramo osobno — ili vam ga donosimo ili ga šaljemo na siguran način. Naš kolega kontaktirat će vas o detaljima."
+      "arrangedDesc": "S obzirom na vrijednost proizvoda, dostavu dogovaramo osobno — ili vam ga donosimo ili ga šaljemo na siguran način. Naš kolega kontaktirat će vas o detaljima.",
+      "foxpostIframeTitle": "Tražilica Foxpost paketomata"
     },
+    "payment": {
+      "title": "Način plaćanja",
+      "required": "Molimo odaberite način plaćanja.",
+      "transfer": "Uplata unaprijed",
+      "transferDesc": "Predračun vam šaljemo e-poštom; plaćate bankovnom uplatom.",
+      "cod": "Pouzeće",
+      "codDesc": "Plaćate pri preuzimanju dostavljaču ili na paketomatu."
+    },
+    "parcelStep1Title": "Potvrđujemo narudžbu",
+    "parcelStep1Desc": "Narudžbu vam odmah potvrđujemo e-poštom.",
+    "parcelStep2Title": "Predračun ili pouzeće",
+    "parcelStep2Desc": "Predračun šaljemo e-poštom (uplata), ili odaberite pouzeće.",
+    "parcelStep3Title": "Dostavljamo / preuzimate",
+    "parcelStep3Desc": "Šaljemo u Foxpost paketomat ili putem GLS-a, ili preuzimate osobno.",
+    "parcelNoPaymentNote": "Nema trenutnog online plaćanja: predračun dobivate e-poštom ili plaćate pouzećem pri preuzimanju.",
+    "parcelTrustShipping": "Dostava Foxpost / GLS",
     "email": {
       "subject": "Potvrda narudžbe",
       "greeting": "Poštovani/a {name},",
       "shippingTitle": "Dostava",
+      "subtotalLabel": "Međuzbroj",
       "freeShipping": "Besplatno",
+      "foxpostPointLabel": "Paketomat za preuzimanje",
       "shippingMethods": {
         "personal_pickup": "Osobno preuzimanje — Skinlab Showroom (Érd)",
-        "arranged": "Dostava po dogovoru"
+        "arranged": "Dostava po dogovoru",
+        "foxpost": "Foxpost paketomat",
+        "gls": "GLS dostava na adresu"
       },
       "intro": "Hvala na vašoj narudžbi u Skinlab Hungary! U nastavku se nalazi sažetak vaše narudžbe.",
       "orderNumber": "Broj narudžbe",
@@ -911,6 +925,14 @@
       "step1": "Predračun smo vam već poslali e-poštom — na njemu je naveden iznos za plaćanje.",
       "step2": "Naš kolega uskoro će vas nazvati kako bismo potvrdili detalje i način preuzimanja narudžbe.",
       "step3": "Na temelju predračuna možete platiti bankovnom uplatom. Nakon što uplata stigne, narudžbu možete preuzeti osobno ili vam paket šaljemo poštom — ovisno o odabranoj opciji.",
+      "parcelStep1": "Predračun smo vam poslali e-poštom – na njemu je naveden iznos za plaćanje.",
+      "parcelStep2": "Platite predračun bankovnom uplatom prema podacima iz e-pošte.",
+      "parcelStep3": "Nakon primitka uplate paket šaljemo odabranim načinom (Foxpost / GLS), ili ga možete preuzeti osobno.",
+      "codStep1": "Potvrdili smo vašu narudžbu – bez plaćanja unaprijed.",
+      "codStep2": "Paket šaljemo odabranim načinom (Foxpost paketomat / GLS).",
+      "codStep3": "Plaćate pri preuzimanju (pouzećem) dostavljaču ili na paketomatu.",
+      "codTitle": "Plaćanje pouzećem",
+      "codNote": "Plaćate pri preuzimanju – ne morate ništa uplaćivati unaprijed. Za narudžbe pouzećem ne šaljemo predračun.",
       "priceDisclaimer": "Prikazani iznos je informativan; konačnu cijenu i troškove dostave utvrđujemo tijekom telefonske konzultacije.",
       "payIntro": "Izdali smo predračun – pomoću gumba u nastavku možete odmah platiti karticom ili bankovnim prijenosom:",
       "payButton": "Plati / otvori predračun",
@@ -930,6 +952,10 @@
     "postcode": "Poštanski broj",
     "city": "Grad",
     "street": "Ulica i kućni broj",
+    "postcodeHelp": "Na temelju poštanskog broja ispunit ćemo grad i državu.",
+    "postcodeUnknown": "Ne prepoznajemo ovaj poštanski broj – molimo upišite grad i državu ručno.",
+    "postcodeMultiple": "Ovom poštanskom broju pripada više mjesta – odaberite jedno ili ga upišite ručno:",
+    "countySuffix": "županija",
     "notes": "Napomena",
     "notesPlaceholder": "Sve što je važno za vašu narudžbu...",
     "optional": "neobavezno",
@@ -967,6 +993,8 @@
       "step3Title": "Plaćanje i preuzimanje",
       "step3Desc": "Na temelju predračuna možete platiti bankovnom uplatom. Nakon što uplata stigne, narudžbu možete preuzeti osobno ili vam paket šaljemo poštom — ovisno o odabranoj opciji.",
       "emailNote": "Potvrdu narudžbe poslali smo na vašu e-mail adresu.",
+      "foundersTitle": "Hvala vam na povjerenju!",
+      "foundersNote": "Mi, osnivači Skinlaba, osobno se brinemo da vaša narudžba prođe glatko. Ako imate bilo kakvo pitanje, slobodno nam se obratite!",
       "backToHome": "Natrag na početnu",
       "browseProducts": "Više proizvoda"
     },
@@ -1030,7 +1058,14 @@
     "bodyPost": "Nazovite nas ili zatražite besplatne konzultacije i javit ćemo vam se.",
     "cta": "Zatražite besplatne konzultacije",
     "phone": "Nazovite: {phone}",
-    "responseTime": "Obično vas nazovemo unutar 1 radnog dana."
+    "responseTime": "Obično vas nazovemo unutar 1 radnog dana.",
+    "card": {
+      "ariaLabel": "Kartica besplatne konzultacije",
+      "cta": "Rezervirajte termin",
+      "bodyPre": "Niste sigurni koji uređaj odgovara vašem salonu?",
+      "bodyStrong": "20 minuta besplatne online konzultacije",
+      "bodyPost": "- pregledat ćemo i vaš poslovni model."
+    }
   },
   "finance": {
     "title": "Isplati li se? Izračunajmo.",
@@ -1070,6 +1105,20 @@
   "mobileCta": {
     "call": "Poziv",
     "consult": "Konzultacija"
+  },
+  "homeFinance": {
+    "badge": "Financiranje",
+    "title": "Ne morate sve platiti odjednom",
+    "body": "Beskamatna otplata na rate uz EKS 0 %: 50 % predujma, ostatak u 3, 6 ili 12 mjesečnih rata, ovisno o cijeni uređaja. Bez naknade za obradu i bez skrivenih troškova.",
+    "tier1": "3 mjeseca iznad 100 000 Ft",
+    "tier2": "3 ili 6 mjeseci iznad 1 000 000 Ft",
+    "tier3": "3, 6 ili 12 mjeseci iznad 3 000 000 Ft ili pri zajedničkoj kupnji dva uređaja",
+    "cta": "Detalji i kalkulator",
+    "example": "Primjer: {name}",
+    "downPayment": "Predujam (50 %)",
+    "term": "{months} mj.",
+    "perMonth": "{amount}/mj.",
+    "note": "Točnu ponudu dajemo na konzultacijama."
   },
   "foundersHome": {
     "badge": "Osnivači",
@@ -1143,5 +1192,76 @@
     "readLess": "Manje",
     "teamCaption": "Skinlab tim u Milanu",
     "teamAlt": "Skinlab tim na zajedničkom selfiju u Milanu ispred natpisa Milano"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Ponedjeljak",
+      "tue": "Utorak",
+      "wed": "Srijeda",
+      "thu": "Četvrtak",
+      "fri": "Petak",
+      "sat": "Subota",
+      "sun": "Nedjelja"
+    },
+    "daysShort": {
+      "mon": "Pon",
+      "tue": "Uto",
+      "wed": "Sri",
+      "thu": "Čet",
+      "fri": "Pet",
+      "sat": "Sub",
+      "sun": "Ned"
+    },
+    "closed": "Zatvoreno"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Proizvod",
+      "timing": "Vrijeme",
+      "salon": "Salon",
+      "experience": "Iskustvo",
+      "contact": "Kontakt"
+    },
+    "step1Title": "Koji vas proizvod zanima?",
+    "step1Subtitle": "Odaberite kategoriju – možete označiti i više njih",
+    "step2Title": "Kada planirate kupnju?",
+    "timeline": {
+      "asap": "Odmah",
+      "months1to3": "U roku od 1-3 mjeseca",
+      "months3to6": "U roku od 3-6 mjeseci",
+      "justLooking": "Samo se informiram"
+    },
+    "step3Title": "Imate li već salon?",
+    "business": {
+      "runningSalon": "Da, imam salon koji radi",
+      "openingSoon": "Upravo otvaram salon",
+      "homeService": "Edukacija / radionica",
+      "noBusiness": "Još nemam obrt"
+    },
+    "step4Title": "Jeste li već koristili sličan uređaj?",
+    "experience": {
+      "regular": "Da, redovito",
+      "tried": "Da, isprobao/la sam",
+      "trained": "Ne, ali sam educiran/a",
+      "beginner": "Ne, početnik/ca sam"
+    },
+    "step5Title": "Kako vas možemo kontaktirati?",
+    "step5Subtitle": "Uskoro ćemo vam se javiti",
+    "lastNamePlaceholder": "Horvat",
+    "firstNamePlaceholder": "Ana",
+    "gdprSuffix": "i suglasan/na sam s obradom svojih podataka.",
+    "back": "Natrag",
+    "next": "Dalje",
+    "submit": "Zatražite besplatnu konzultaciju",
+    "satisfiedClients": "zadovoljnih klijenata",
+    "errorTitle": "Došlo je do greške",
+    "retry": "Molimo pokušajte ponovo.",
+    "errors": {
+      "selectCategory": "Molimo odaberite barem jednu kategoriju",
+      "selectOption": "Molimo odaberite jednu opciju",
+      "required": "Ovo polje je obavezno",
+      "invalidEmail": "Molimo unesite valjanu adresu e-pošte",
+      "invalidPhone": "Molimo unesite valjan broj telefona"
+    }
   }
 }

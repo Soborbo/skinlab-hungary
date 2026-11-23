@@ -9,7 +9,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getInstallmentInfo, type InstallmentMonths } from './installment';
 import { productPath } from './product-url';
-import { getLocalizedUrl } from '@/i18n/ui';
+import { getLocalizedUrl, t } from '@/i18n/ui';
+import { OPENING_HOURS } from './constants';
 import { showcaseUi } from '@/i18n/showcase';
 import { getImageAlt } from './resolve-image';
 import type { Locale } from '@/i18n/ui';
@@ -180,7 +181,7 @@ export function compareValue(model: ShowcaseModel, source: CompareSource, askPri
 /**
  * Nyitvatartás egy sorban az OPENING_HOURS-ból, az egymást követő azonos
  * napokat összevonva: „H–P 10:00–18:00 · Szo 10:00–14:00 · V zárva”.
- * `days`: magyar napnév → rövid nap az oldal nyelvén; `closed`: „zárva”.
+ * `days`: napkulcs (mon…sun) → rövid nap az oldal nyelvén; `closed`: „zárva”.
  */
 export function compactOpeningHours(
   rows: { day: string; hours: string }[],
@@ -197,10 +198,16 @@ export function compactOpeningHours(
   return groups
     .map((g) => {
       const span = g.from === g.to ? g.from : `${g.from}–${g.to}`;
-      const hours = g.hours.toLowerCase() === 'zárva' ? closed : g.hours;
+      const hours = g.hours === 'closed' ? closed : g.hours;
       return `${span} ${hours}`;
     })
     .join(' · ');
+}
+
+/** Az OPENING_HOURS egy sorban, az i18n openingHours.* kulcsaival (lábléc, főoldali záró blokk). */
+export function openingHoursLine(locale: Locale): string {
+  const days = Object.fromEntries(OPENING_HOURS.map((r) => [r.day, t(locale, `openingHours.daysShort.${r.day}`)]));
+  return compactOpeningHours(OPENING_HOURS, days, t(locale, 'openingHours.closed').toLowerCase());
 }
 
 /** Két párhuzamos tömb összefésülése; eltérő hossznál build-hiba. */

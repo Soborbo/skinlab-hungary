@@ -1,5 +1,8 @@
 ---
 import { CONTACT } from '../../lib/constants';
+import { t, getLocaleFromUrl } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url);
 ---
 
 <div
@@ -11,7 +14,7 @@ import { CONTACT } from '../../lib/constants';
   <button
     id="reopen-contact-widget"
     class="hidden ml-auto w-[56px] h-[56px] rounded-full overflow-hidden ring-[3px] ring-primary-600 shadow-lg hover:scale-105 transition-transform cursor-pointer"
-    aria-label="Kapcsolat megnyitása"
+    aria-label={t(locale, 'header.contactWidgetOpen')}
   >
     <img
       src="/images/misc/horvath-laszlo-beuszo.jpg"
@@ -32,7 +35,7 @@ import { CONTACT } from '../../lib/constants';
     <button
       id="close-contact-widget"
       class="absolute top-2.5 right-2.5 text-white/50 hover:text-white transition-colors p-1 z-10"
-      aria-label="Bezárás"
+      aria-label={t(locale, 'common.close')}
     >
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -51,9 +54,9 @@ import { CONTACT } from '../../lib/constants';
 
       <div class="flex-1 min-w-0">
         <p class="font-bold text-white text-[15px] leading-tight">Horváth László</p>
-        <p class="text-xs text-white/60 mt-0.5 mb-2">Skinlab társalapító, ügyvezető</p>
+        <p class="text-xs text-white/60 mt-0.5 mb-2">{t(locale, 'founderConsult.expertRole')}</p>
         <p class="text-[13px] text-white/85 leading-snug">
-          Kérdésed van? Hívj bizalommal, szívesen segítünk!
+          {t(locale, 'header.contactWidgetText')}
         </p>
       </div>
     </div>

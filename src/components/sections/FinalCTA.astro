@@ -8,11 +8,13 @@
  */
 import { HeroImage } from '../images';
 import { CONTACT, LOCATIONS } from '../../lib/constants';
+import { openingHoursLine } from '../../lib/category-showcase';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 const showroom = LOCATIONS.showroom;
+const hoursLine = openingHoursLine(locale);
 ---
 
 <section id="kapcsolat" class="relative bg-[#fbf3f2] lg:min-h-[720px] lg:flex lg:items-center">
@@ -39,7 +41,7 @@ const showroom = LOCATIONS.showroom;
         </a>
         <span class="inline-flex items-center gap-2.5">
           <svg class="w-[18px] h-[18px] shrink-0 text-primary-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2" /></svg>
-          {showroom.openingHours}
+          {hoursLine}
         </span>
       </div>
 

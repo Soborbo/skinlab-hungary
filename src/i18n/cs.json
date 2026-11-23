@@ -17,32 +17,6 @@
     "blog": "Blog",
     "faq": "FAQ"
   },
-  "hero": {
-    "title": "Profesionalni kosmeticke pristroje",
-    "subtitle": "Diodove lasery, PMU pristroje a multifunkcni zarizeni se zarukou a vlastnim servisem",
-    "cta": "Bezplatna konzultace",
-    "ctaSecondary": "Zobrazit produkty",
-    "slide2": {
-      "title": "Diodové lasery s nejmodernější technologií",
-      "subtitle": "Profesionální laserová zařízení s vlnovými délkami 808nm, 755nm a 1064nm pro salóny"
-    },
-    "slide3": {
-      "title": "Školení a servis na jednom místě",
-      "subtitle": "Bezplatné školení, nepřetržitá technická podpora a 2letá záruka na naše kosmetické přístroje"
-    },
-    "slide4": {
-      "title": "Odstranění tetování laserem ND:YAG",
-      "subtitle": "Bezpečné a účinné odstraňování tetování a pigmentu Q-switched laserem ND:YAG, se servisním zázemím v Maďarsku"
-    },
-    "slide5": {
-      "title": "Náš nový Frame YAG laser je tady!",
-      "subtitle": "Brzy v našem e-shopu. Přihlaste se na ukázku produktu"
-    },
-    "slide7": {
-      "title": "Novinka: diodový laser EMPIRE 4WAVE",
-      "subtitle": "1200 W, 4 vlnové délky, mikrokamerová diagnostika chloupků a pokožky a digitální karta klienta – chytřejší systém pro profesionální epilaci."
-    }
-  },
   "categories": {
     "title": "Produktove kategorie",
     "subtitle": "Vyberte si spravnou kategorii a objevte nase profesionalni vybaveni",
@@ -158,31 +132,31 @@
     "backorderNote": "Tento produkt momentálně není skladem, proto si ho nyní můžete pouze předobjednat. Předpokládaný termín dodání s vámi domluvíme po objednávce."
   },
   "form": {
-    "name": "Jmeno",
-    "namePlaceholder": "Vase jmeno",
-    "email": "E-mailova adresa",
+    "name": "Jméno",
+    "namePlaceholder": "Vaše jméno",
+    "email": "E-mailová adresa",
     "emailPlaceholder": "priklad@email.cz",
-    "phone": "Telefonni cislo",
+    "phone": "Telefonní číslo",
     "phonePlaceholder": "+420 XXX XXX XXX",
-    "message": "Zprava",
-    "messagePlaceholder": "Reknete nam, jak vam muzeme pomoci...",
-    "product": "Ktery produkt vas zajima?",
+    "message": "Zpráva",
+    "messagePlaceholder": "Řekněte nám, jak vám můžeme pomoci...",
+    "product": "Který produkt vás zajímá?",
     "productPlaceholder": "Vyberte...",
     "subject": "Předmět",
     "subjectPlaceholder": "Předmět zprávy",
-    "gdprConsent": "Souhlasim se zasadami ochrany osobnich udaju",
-    "gdprConsentPrefix": "Precetl/a jsem si a souhlasim se",
-    "gdprConsentLink": "Zasadami ochrany osobnich udaju",
-    "submit": "Odeslat zpravu",
-    "submitting": "Odesilam...",
-    "success": "Dekujeme! Brzy vas budeme kontaktovat.",
-    "successMessage": "Obdrzeli jsme vasi zpravu a brzy vas budeme kontaktovat.",
-    "error": "Doslo k chybe. Zkuste to znovu.",
-    "errorMessage": "Zkuste to prosim pozdeji.",
-    "required": "Povinne pole",
-    "honeypot": "Toto pole nevyplnujte",
-    "firstName": "Jmeno",
-    "lastName": "Prijmeni",
+    "gdprConsent": "Souhlasím se zásadami ochrany osobních údajů",
+    "gdprConsentPrefix": "Přečetl/a jsem si a souhlasím se",
+    "gdprConsentLink": "Zásadami ochrany osobních údajů",
+    "submit": "Odeslat zprávu",
+    "submitting": "Odesílám...",
+    "success": "Děkujeme! Brzy vás budeme kontaktovat.",
+    "successMessage": "Obdrželi jsme vaši zprávu a brzy vás budeme kontaktovat.",
+    "error": "Došlo k chybě. Zkuste to znovu.",
+    "errorMessage": "Zkuste to prosím později.",
+    "required": "Povinné pole",
+    "honeypot": "Toto pole nevyplňujte",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
     "selectCategory": "Vyberte kategorii",
     "networkError": "Došlo k chybě sítě. Zkuste to prosím znovu.",
     "validationError": "Zkontrolujte prosím zadané údaje."
@@ -193,7 +167,10 @@
     "openMenu": "Otevrit menu",
     "closeMenu": "Zavrit menu",
     "megaMenuFooter": "Nenasli jste, co hledate? Pomuzeme vam vybrat spravne vybaveni.",
-    "languageLabel": "Jazyk"
+    "languageLabel": "Jazyk",
+    "languageSwitch": "Změnit jazyk",
+    "contactWidgetOpen": "Otevřít kontakt",
+    "contactWidgetText": "Máte dotaz? Zavolejte nám, rádi vám pomůžeme!"
   },
   "cta": {
     "title": "Mate dotazy?",
@@ -243,6 +220,9 @@
   },
   "footer": {
     "company": "Informace o spolecnosti",
+    "tagline": "Prodej profesionálních kosmetických přístrojů a laserů se zárukou 2 roky.",
+    "financing": "Financování",
+    "withdrawal": "Odstoupení od smlouvy a vrácení",
     "products": "Produkty",
     "support": "Podpora",
     "legal": "Pravni informace",
@@ -610,7 +590,7 @@
   "common": {
     "learnMore": "Zjistit vice",
     "viewAll": "Zobrazit vse",
-    "close": "Zavrit",
+    "close": "Zavřít",
     "loading": "Nacita se...",
     "search": "Hledat",
     "filter": "Filtrovat",
@@ -681,7 +661,8 @@
     "requestDemo": "Zadat o demo",
     "warrantyValue": "2 roky",
     "wavelengthsValue": "4 vlnové délky",
-    "skinTypes": "Pro všechny typy pleti"
+    "skinTypes": "Pro všechny typy pleti",
+    "installmentLine": "nebo po 50% záloze {monthly}/měsíc po dobu {months} měsíců"
   },
   "ctaSection": {
     "title": "Mate otazky? Jsme tu, abychom pomohli!",
@@ -885,13 +866,42 @@
       "methodRequired": "Vyberte prosím způsob dopravy.",
       "free": "Zdarma",
       "summaryLine": "Doprava",
+      "foxpost": "Výdejní box Foxpost",
+      "foxpostDesc": "Vyzvednutí ve více než 3 000 boxech po celém Maďarsku, obvykle do 1–2 pracovních dnů.",
+      "foxpostChoose": "Vyberte box",
+      "foxpostChange": "Změnit box",
+      "foxpostRequired": "Vyberte prosím výdejní box Foxpost.",
+      "foxpostModalTitle": "Vyberte výdejní box Foxpost",
+      "foxpostLoadHint": "Pokud se mapa nenačte, obnovte stránku nebo zvolte jiný způsob dopravy.",
+      "gls": "Doručení domů GLS",
+      "glsDesc": "Kurýrní služba GLS – obvykle doručení následující pracovní den.",
+      "pickup": "Osobní odběr",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – zdarma, po předchozí domluvě termínu.",
       "recommended": "Doporučeno",
+      "highValueTitle": "Převzetí a doručení",
       "highValueNote": "Doručení vaší objednávky vyřešíme individuálně. Náš kolega vás kontaktuje, abychom se domluvili na osobním odběru nebo doručení a způsobu platby.",
       "pickupCeremony": "Osobní odběr v showroomu",
       "pickupCeremonyDesc": "Předání na místě, instalace a zaškolení — na všechny vaše otázky odpovíme ihned. Přístroj si můžete vyzvednout i na konci našich školení.",
       "arranged": "Doručení po domluvě",
-      "arrangedDesc": "Vzhledem k hodnotě produktu řešíme doručení osobně — buď vám jej přivezeme, nebo bezpečně zašleme. Náš kolega vás bude kontaktovat ohledně detailů."
+      "arrangedDesc": "Vzhledem k hodnotě produktu řešíme doručení osobně — buď vám jej přivezeme, nebo bezpečně zašleme. Náš kolega vás bude kontaktovat ohledně detailů.",
+      "foxpostIframeTitle": "Vyhledávání boxů Foxpost"
     },
+    "payment": {
+      "title": "Způsob platby",
+      "required": "Vyberte prosím způsob platby.",
+      "transfer": "Platba převodem předem",
+      "transferDesc": "Zálohovou fakturu vám pošleme e-mailem; zaplatíte bankovním převodem.",
+      "cod": "Dobírka",
+      "codDesc": "Zaplatíte při převzetí kurýrovi nebo u boxu."
+    },
+    "parcelStep1Title": "Potvrdíme objednávku",
+    "parcelStep1Desc": "Objednávku vám ihned potvrdíme e-mailem.",
+    "parcelStep2Title": "Zálohová faktura nebo dobírka",
+    "parcelStep2Desc": "Zálohovou fakturu pošleme e-mailem (převod), nebo zvolte dobírku.",
+    "parcelStep3Title": "Doručíme / vyzvednete si",
+    "parcelStep3Desc": "Pošleme do boxu Foxpost nebo přes GLS, případně si zboží vyzvednete osobně.",
+    "parcelNoPaymentNote": "Žádná okamžitá online platba: zálohovou fakturu dostanete e-mailem, nebo zaplatíte na dobírku při převzetí.",
+    "parcelTrustShipping": "Doprava Foxpost / GLS",
     "email": {
       "subject": "Potvrzení objednávky",
       "greeting": "Vážený/á {name},",
@@ -905,6 +915,14 @@
       "step1": "Zálohovou fakturu jsme vám už poslali e-mailem — je na ní uvedena částka k úhradě.",
       "step2": "Náš kolega vám brzy zavolá, abychom upřesnili detaily a způsob převzetí objednávky.",
       "step3": "Na základě zálohové faktury můžete zaplatit bankovním převodem. Po přijetí platby si objednávku vyzvednete osobně nebo vám balík zašleme — podle zvolené možnosti.",
+      "parcelStep1": "Zálohovou fakturu jsme vám poslali e-mailem – je na ní uvedena částka k úhradě.",
+      "parcelStep2": "Uhraďte zálohovou fakturu bankovním převodem podle údajů v e-mailu.",
+      "parcelStep3": "Po připsání platby odešleme balík zvoleným způsobem (Foxpost / GLS), nebo si ho můžete vyzvednout osobně.",
+      "codStep1": "Vaši objednávku jsme potvrdili – bez platby předem.",
+      "codStep2": "Balík odešleme zvoleným způsobem (výdejní box Foxpost / GLS).",
+      "codStep3": "Platíte při převzetí (dobírka) kurýrovi nebo u výdejního boxu.",
+      "codTitle": "Platba na dobírku",
+      "codNote": "Platíte při převzetí – nemusíte nic posílat předem. U objednávek na dobírku zálohovou fakturu nezasíláme.",
       "priceDisclaimer": "Uvedená částka je pouze orientační; konečnou cenu a náklady na dopravu stanovíme během telefonické konzultace.",
       "payIntro": "Vystavili jsme zálohovou fakturu – pomocí tlačítka níže můžete ihned zaplatit kartou nebo převodem:",
       "payButton": "Zaplatit / otevřít zálohovou fakturu",
@@ -912,10 +930,14 @@
       "regards": "S pozdravem,",
       "team": "Tým Skinlab Hungary",
       "shippingTitle": "Doprava",
+      "subtotalLabel": "Mezisoučet",
       "freeShipping": "Zdarma",
+      "foxpostPointLabel": "Výdejní box",
       "shippingMethods": {
         "personal_pickup": "Osobní odběr — Skinlab Showroom (Érd)",
-        "arranged": "Doručení po domluvě"
+        "arranged": "Doručení po domluvě",
+        "foxpost": "Výdejní box Foxpost",
+        "gls": "Doručení domů GLS"
       },
       "backorderNote": "Vaše objednávka obsahuje produkt, který momentálně není skladem, proto jsme ji zaevidovali jako předobjednávku. Nyní nemusíte platit: náš kolega vás brzy bude kontaktovat ohledně předpokládaného termínu dodání a teprve poté vám pošleme výzvu k platbě.",
       "backorderStep1": "Vaši objednávku jsme zaevidovali jako předobjednávku - nyní nemusíte platit.",
@@ -930,6 +952,10 @@
     "postcode": "PSČ",
     "city": "Město",
     "street": "Ulice a číslo",
+    "postcodeHelp": "Podle PSČ doplníme město a zemi.",
+    "postcodeUnknown": "Toto PSČ nerozpoznáváme – zadejte prosím město a zemi ručně.",
+    "postcodeMultiple": "K tomuto PSČ patří více obcí – vyberte jednu, nebo ji zadejte ručně:",
+    "countySuffix": "župa",
     "notes": "Poznámka",
     "notesPlaceholder": "Cokoli důležitého k vaší objednávce...",
     "optional": "volitelné",
@@ -967,6 +993,8 @@
       "step3Title": "Platba a převzetí",
       "step3Desc": "Na základě zálohové faktury můžete zaplatit bankovním převodem. Po přijetí platby si objednávku vyzvednete osobně nebo vám balík zašleme — podle zvolené možnosti.",
       "emailNote": "Potvrzení objednávky jsme odeslali na vaši e-mailovou adresu.",
+      "foundersTitle": "Děkujeme za vaši důvěru!",
+      "foundersNote": "My, zakladatelé Skinlabu, osobně dohlížíme na to, aby vaše objednávka proběhla hladce. S jakýmkoli dotazem se na nás neváhejte obrátit!",
       "backToHome": "Zpět na úvod",
       "browseProducts": "Další produkty"
     },
@@ -1030,7 +1058,14 @@
     "bodyPost": "Zavolejte nám nebo si vyžádejte bezplatnou konzultaci a ozveme se vám.",
     "cta": "Vyžádejte si bezplatnou konzultaci",
     "phone": "Zavolejte: {phone}",
-    "responseTime": "Obvykle se ozveme do 1 pracovního dne."
+    "responseTime": "Obvykle se ozveme do 1 pracovního dne.",
+    "card": {
+      "ariaLabel": "Karta bezplatné konzultace",
+      "cta": "Rezervovat termín",
+      "bodyPre": "Nejste si jisti, který přístroj se hodí do vašeho salonu?",
+      "bodyStrong": "20 minut bezplatné online konzultace",
+      "bodyPost": "- projdeme i váš obchodní model."
+    }
   },
   "finance": {
     "title": "Vyplatí se to? Spočítejme to.",
@@ -1070,6 +1105,20 @@
   "mobileCta": {
     "call": "Zavolat",
     "consult": "Konzultace"
+  },
+  "homeFinance": {
+    "badge": "Financování",
+    "title": "Nemusíte platit vše najednou",
+    "body": "Bezúročné splátky s RPSN 0 %: 50% záloha, zbytek ve 3, 6 nebo 12 měsíčních splátkách podle ceny přístroje. Žádný poplatek za vyřízení a žádné skryté náklady.",
+    "tier1": "3 měsíce nad 100 000 Ft",
+    "tier2": "3 nebo 6 měsíců nad 1 000 000 Ft",
+    "tier3": "3, 6 nebo 12 měsíců nad 3 000 000 Ft, nebo při společném nákupu dvou přístrojů",
+    "cta": "Podrobnosti a kalkulačka",
+    "example": "Příklad: {name}",
+    "downPayment": "Záloha (50 %)",
+    "term": "{months} měs.",
+    "perMonth": "{amount}/měsíc",
+    "note": "Přesnou nabídku vám připravíme při konzultaci."
   },
   "foundersHome": {
     "badge": "Zakladatelé",
@@ -1143,5 +1192,76 @@
     "readLess": "Méně",
     "teamCaption": "Tým Skinlab v Miláně",
     "teamAlt": "Tým Skinlab na společné selfie v Miláně před nápisem Milano"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Pondělí",
+      "tue": "Úterý",
+      "wed": "Středa",
+      "thu": "Čtvrtek",
+      "fri": "Pátek",
+      "sat": "Sobota",
+      "sun": "Neděle"
+    },
+    "daysShort": {
+      "mon": "Po",
+      "tue": "Út",
+      "wed": "St",
+      "thu": "Čt",
+      "fri": "Pá",
+      "sat": "So",
+      "sun": "Ne"
+    },
+    "closed": "Zavřeno"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Produkt",
+      "timing": "Termín",
+      "salon": "Salon",
+      "experience": "Zkušenosti",
+      "contact": "Kontakt"
+    },
+    "step1Title": "Který produkt vás zajímá?",
+    "step1Subtitle": "Vyberte kategorii – můžete označit i více",
+    "step2Title": "Kdy plánujete nákup?",
+    "timeline": {
+      "asap": "Hned teď",
+      "months1to3": "Do 1-3 měsíců",
+      "months3to6": "Do 3-6 měsíců",
+      "justLooking": "Jen se informuji"
+    },
+    "step3Title": "Máte už salon?",
+    "business": {
+      "runningSalon": "Ano, mám fungující salon",
+      "openingSoon": "Právě otevírám salon",
+      "homeService": "Školení / workshop",
+      "noBusiness": "Zatím nemám podnikání"
+    },
+    "step4Title": "Používali jste už podobný přístroj?",
+    "experience": {
+      "regular": "Ano, pravidelně",
+      "tried": "Ano, vyzkoušel/a jsem",
+      "trained": "Ne, ale mám vzdělání v oboru",
+      "beginner": "Ne, jsem začátečník"
+    },
+    "step5Title": "Jak vás můžeme kontaktovat?",
+    "step5Subtitle": "Brzy se vám ozveme",
+    "lastNamePlaceholder": "Nováková",
+    "firstNamePlaceholder": "Anna",
+    "gdprSuffix": "a souhlasím se zpracováním svých údajů.",
+    "back": "Zpět",
+    "next": "Další",
+    "submit": "Požádat o bezplatnou konzultaci",
+    "satisfiedClients": "spokojených zákazníků",
+    "errorTitle": "Došlo k chybě",
+    "retry": "Zkuste to prosím znovu.",
+    "errors": {
+      "selectCategory": "Vyberte prosím alespoň jednu kategorii",
+      "selectOption": "Vyberte prosím jednu možnost",
+      "required": "Toto pole je povinné",
+      "invalidEmail": "Zadejte prosím platnou e-mailovou adresu",
+      "invalidPhone": "Zadejte prosím platné telefonní číslo"
+    }
   }
 }

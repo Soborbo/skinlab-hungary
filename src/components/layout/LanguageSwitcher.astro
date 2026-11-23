@@ -5,7 +5,7 @@
  * Displays a dropdown for switching between available languages.
  * Uses country flag images (flagcdn.com) for cross-platform support.
  */
-import { locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
+import { t, locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
 
 interface Props {
   variant?: 'dropdown' | 'list' | 'compact';
@@ -28,7 +28,7 @@ function flagSrc(countryCode: string) {
     <button
       type="button"
       class="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-black/5 transition-colors overflow-hidden"
-      aria-label="Nyelv váltása"
+      aria-label={t(currentLocale, 'header.languageSwitch')}
       aria-expanded="false"
       aria-haspopup="true"
       data-language-toggle

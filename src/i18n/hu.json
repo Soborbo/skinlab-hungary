@@ -17,36 +17,6 @@
     "blog": "Blog",
     "faq": "GYIK"
   },
-  "hero": {
-    "title": "Professzionális kozmetikai\nberendezések",
-    "subtitle": "Diódalézerek, sminktetováló gépek és multifunkcionális készülékek garanciával és saját szervizzel",
-    "cta": "Ingyenes konzultáció",
-    "ctaSecondary": "Termékek megtekintése",
-    "slide2": {
-      "title": "A legmodernebb diódalézerek garanciával",
-      "subtitle": "Tartós szőrtelenítés a mesterséges intelligencia erejével már Magyarországon is!"
-    },
-    "slide3": {
-      "title": "Képzés és szerviz egy helyen",
-      "subtitle": "Ingyenes betanítás, folyamatos technikai támogatás és 2 év garancia kozmetikai gépeinkre"
-    },
-    "slide4": {
-      "title": "Tetováláseltávolítás ND:YAG lézerrel",
-      "subtitle": "Biztonságos, hatékony tetoválás- és pigmenteltávolítás Q-kapcsolt ND:YAG lézerrel, hazai szervizháttérrel"
-    },
-    "slide5": {
-      "title": "Hozd ki a maximumot a carbon peelingből",
-      "subtitle": "Nem biztos, hogy eddig 100%-os hatékonysággal dolgoztál? A Monduniq utóápolási csomag garantálja a minőséget – modern gépekhez igazított professzionális kozmetikai vonalunk új tagja."
-    },
-    "slide6": {
-      "title": "Álomszerű kezelőgépek mesterséges intelligenciával",
-      "subtitle": "Végezz minden eddiginél pontosabb és biztonságosabb kezeléseket az AI segítségével – minden vendéged teljesen egyénre szabott eredményt kap."
-    },
-    "slide7": {
-      "title": "Új: EMPIRE 4WAVE diódalézer",
-      "subtitle": "1200W, 4 hullámhossz, mikrokamerás szőr- és bőrdiagnosztika és digitális vendégkarton – egy intelligensebb rendszer a professzionális szőrtelenítéshez."
-    }
-  },
   "categories": {
     "title": "Termékkategóriák",
     "subtitle": "Válaszd ki a számodra megfelelő kategóriát, és fedezd fel professzionális eszközeinket",
@@ -197,7 +167,10 @@
     "openMenu": "Menü megnyitása",
     "closeMenu": "Menü bezárása",
     "megaMenuFooter": "Nem találod amit keresel? Segítünk kiválasztani a megfelelő készüléket.",
-    "languageLabel": "Nyelvmód / Language"
+    "languageLabel": "Nyelvmód / Language",
+    "languageSwitch": "Nyelv váltása",
+    "contactWidgetOpen": "Kapcsolat megnyitása",
+    "contactWidgetText": "Kérdésed van? Hívj bizalommal, szívesen segítünk!"
   },
   "cta": {
     "title": "Kérdésed van?",
@@ -247,6 +220,7 @@
   },
   "footer": {
     "company": "Cégünk",
+    "tagline": "Professzionális kozmetikai gépek és lézerek forgalmazása 2 év garanciával.",
     "financing": "Finanszírozás",
     "withdrawal": "Elállás és visszaküldés",
     "products": "Termékeink",
@@ -1044,7 +1018,8 @@
       "pickupCeremony": "Személyes átvétel a showroomban",
       "pickupCeremonyDesc": "Helyszíni átadás, beüzemelés és betanítás – minden kérdésedre azonnal válaszolunk. A képzéseink végén is átveheted a készüléket.",
       "arranged": "Kiszállítás egyeztetés alapján",
-      "arrangedDesc": "A termék értékére való tekintettel a kiszállítást személyesen egyeztetjük – mi visszük el, vagy biztonságosan elküldjük. Munkatársunk felveszi veled a kapcsolatot a részletekről."
+      "arrangedDesc": "A termék értékére való tekintettel a kiszállítást személyesen egyeztetjük – mi visszük el, vagy biztonságosan elküldjük. Munkatársunk felveszi veled a kapcsolatot a részletekről.",
+      "foxpostIframeTitle": "Foxpost automata kereső"
     },
     "payment": {
       "title": "Fizetési mód",
@@ -1122,7 +1097,14 @@
     "bodyPost": "Hívj minket, vagy kérj ingyenes konzultációt, és felvesszük veled a kapcsolatot.",
     "cta": "Kérj ingyenes konzultációt",
     "phone": "Hívj fel: {phone}",
-    "responseTime": "Általában 1 munkanapon belül visszahívjuk."
+    "responseTime": "Általában 1 munkanapon belül visszahívjuk.",
+    "card": {
+      "ariaLabel": "Ingyenes konzultáció kártya",
+      "cta": "Időpont foglalása",
+      "bodyPre": "Bizonytalan, melyik készülék illik a szalonjához?",
+      "bodyStrong": "20 perc, díjmentes online konzultáció",
+      "bodyPost": "- üzleti modellt is átnézzük."
+    }
   },
   "finance": {
     "title": "Megéri? Számoljuk ki.",
@@ -1236,5 +1218,76 @@
     "readLess": "Kevesebb",
     "teamCaption": "A Skinlab csapata Milánóban",
     "teamAlt": "A Skinlab csapata közös szelfin Milánóban, a Milano felirat előtt"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Hétfő",
+      "tue": "Kedd",
+      "wed": "Szerda",
+      "thu": "Csütörtök",
+      "fri": "Péntek",
+      "sat": "Szombat",
+      "sun": "Vasárnap"
+    },
+    "daysShort": {
+      "mon": "H",
+      "tue": "K",
+      "wed": "Sze",
+      "thu": "Cs",
+      "fri": "P",
+      "sat": "Szo",
+      "sun": "V"
+    },
+    "closed": "Zárva"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Termék",
+      "timing": "Időzítés",
+      "salon": "Szalon",
+      "experience": "Tapasztalat",
+      "contact": "Elérhetőség"
+    },
+    "step1Title": "Melyik termék érdekel?",
+    "step1Subtitle": "Válaszd ki a kategóriát – többet is jelölhetsz",
+    "step2Title": "Mikor tervezed a vásárlást?",
+    "timeline": {
+      "asap": "Most azonnal",
+      "months1to3": "1-3 hónapon belül",
+      "months3to6": "3-6 hónapon belül",
+      "justLooking": "Csak tájékozódom"
+    },
+    "step3Title": "Van már szalonod?",
+    "business": {
+      "runningSalon": "Igen, működő szalonom van",
+      "openingSoon": "Most nyitok szalont",
+      "homeService": "Oktatás / workshop",
+      "noBusiness": "Még nincs vállalkozásom"
+    },
+    "step4Title": "Használtál már hasonló gépet?",
+    "experience": {
+      "regular": "Igen, rendszeresen",
+      "tried": "Igen, kipróbáltam",
+      "trained": "Nem, de képzett vagyok",
+      "beginner": "Nem, kezdő vagyok"
+    },
+    "step5Title": "Hogyan érhetjük el?",
+    "step5Subtitle": "Hamarosan felvesszük veled a kapcsolatot",
+    "lastNamePlaceholder": "Kovács",
+    "firstNamePlaceholder": "Anna",
+    "gdprSuffix": "és hozzájárulok adataim kezeléséhez.",
+    "back": "Vissza",
+    "next": "Következő",
+    "submit": "Ingyenes konzultáció kérése",
+    "satisfiedClients": "elégedett ügyfél",
+    "errorTitle": "Hiba történt",
+    "retry": "Kérlek, próbáld újra.",
+    "errors": {
+      "selectCategory": "Kérlek, válassz legalább egy kategóriát",
+      "selectOption": "Kérlek, válassz egy opciót",
+      "required": "Ez a mező kötelező",
+      "invalidEmail": "Adj meg egy érvényes email címet",
+      "invalidPhone": "Adj meg egy érvényes telefonszámot"
+    }
   }
 }

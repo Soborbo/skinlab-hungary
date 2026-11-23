@@ -62,7 +62,7 @@ export interface ShowcaseUi {
     hours: string;
     booking: string;
     phone: string;
-    /** OPENING_HOURS napnevei (magyarul) → rövid nap ezen a nyelven. */
+    /** OPENING_HOURS napkulcsai (mon…sun) → rövid nap ezen a nyelven. */
     days: Record<string, string>;
     closed: string;
     mapLoad: (address: string) => string;
@@ -124,7 +124,7 @@ const hu: ShowcaseUi = {
     hours: 'Nyitvatartás',
     booking: 'Bejelentkezés',
     phone: 'Telefon',
-    days: { Hétfő: 'H', Kedd: 'K', Szerda: 'Sze', Csütörtök: 'Cs', Péntek: 'P', Szombat: 'Szo', Vasárnap: 'V' },
+    days: { mon: 'H', tue: 'K', wed: 'Sze', thu: 'Cs', fri: 'P', sat: 'Szo', sun: 'V' },
     closed: 'zárva',
     mapLoad: (address) => `Térkép betöltése: ${address}`,
     mapTitle: (address) => `Térkép: ${address}`,

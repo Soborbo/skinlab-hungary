@@ -17,32 +17,6 @@
     "blog": "Blog",
     "faq": "FAQ"
   },
-  "hero": {
-    "title": "Professionelle Kosmetikgerate",
-    "subtitle": "Diodenlaser, PMU-Gerate und Multifunktionsgerate mit Garantie und eigenem Service",
-    "cta": "Kostenlose Beratung",
-    "ctaSecondary": "Produkte ansehen",
-    "slide2": {
-      "title": "Diodenlaser mit modernster Technologie",
-      "subtitle": "Professionelle Lasergeräte mit 808nm, 755nm und 1064nm Wellenlängen für Salons"
-    },
-    "slide3": {
-      "title": "Schulung und Service an einem Ort",
-      "subtitle": "Kostenlose Schulung, kontinuierlicher technischer Support und 2 Jahre Garantie auf unsere Kosmetikgeräte"
-    },
-    "slide4": {
-      "title": "Tattooentfernung mit ND:YAG-Laser",
-      "subtitle": "Sichere, effektive Tattoo- und Pigmententfernung mit Q-Switch-ND:YAG-Laser, mit Service vor Ort in Ungarn"
-    },
-    "slide5": {
-      "title": "Unser neuer Frame YAG Laser ist da!",
-      "subtitle": "Bald in unserem Webshop erhältlich. Jetzt zur Produktvorführung anmelden"
-    },
-    "slide7": {
-      "title": "Neu: EMPIRE 4WAVE Diodenlaser",
-      "subtitle": "1200 W, 4 Wellenlängen, Mikrokamera-Haar- und Hautdiagnose und digitale Kundenkartei – ein intelligenteres System für die professionelle Haarentfernung."
-    }
-  },
   "categories": {
     "title": "Produktkategorien",
     "subtitle": "Wahlen Sie die richtige Kategorie fur Sie und entdecken Sie unsere professionellen Gerate",
@@ -165,27 +139,27 @@
     "phone": "Telefonnummer",
     "phonePlaceholder": "+49 XXX XXXXXXX",
     "message": "Nachricht",
-    "messagePlaceholder": "Sagen Sie uns, wie wir Ihnen helfen konnen...",
+    "messagePlaceholder": "Sagen Sie uns, wie wir Ihnen helfen können...",
     "product": "Welches Produkt interessiert Sie?",
-    "productPlaceholder": "Auswahlen...",
+    "productPlaceholder": "Auswählen...",
     "subject": "Betreff",
     "subjectPlaceholder": "Betreff der Nachricht",
-    "gdprConsent": "Ich akzeptiere die Datenschutzerklarung",
+    "gdprConsent": "Ich akzeptiere die Datenschutzerklärung",
     "gdprConsentPrefix": "Ich habe die",
-    "gdprConsentLink": "Datenschutzerklarung gelesen und akzeptiere sie",
+    "gdprConsentLink": "Datenschutzerklärung gelesen und akzeptiere sie",
     "submit": "Nachricht senden",
     "submitting": "Wird gesendet...",
-    "success": "Vielen Dank! Wir werden uns in Kurze bei Ihnen melden.",
-    "successMessage": "Wir haben Ihre Nachricht erhalten und werden uns in Kurze bei Ihnen melden.",
+    "success": "Vielen Dank! Wir werden uns in Kürze bei Ihnen melden.",
+    "successMessage": "Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-    "errorMessage": "Bitte versuchen Sie es spater erneut.",
+    "errorMessage": "Bitte versuchen Sie es später erneut.",
     "networkError": "Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "validationError": "Bitte überprüfen Sie die eingegebenen Daten.",
     "required": "Pflichtfeld",
-    "honeypot": "Dieses Feld nicht ausfullen",
+    "honeypot": "Dieses Feld nicht ausfüllen",
     "firstName": "Vorname",
     "lastName": "Nachname",
-    "selectCategory": "Kategorie auswahlen"
+    "selectCategory": "Kategorie auswählen"
   },
   "header": {
     "skipToContent": "Zum Inhalt springen",
@@ -193,7 +167,10 @@
     "openMenu": "Menu offnen",
     "closeMenu": "Menu schliessen",
     "megaMenuFooter": "Nicht gefunden, was Sie suchen? Wir helfen Ihnen, die richtige Ausrustung zu wahlen.",
-    "languageLabel": "Sprache"
+    "languageLabel": "Sprache",
+    "languageSwitch": "Sprache wechseln",
+    "contactWidgetOpen": "Kontakt öffnen",
+    "contactWidgetText": "Haben Sie Fragen? Rufen Sie uns an, wir helfen gern!"
   },
   "cta": {
     "title": "Haben Sie Fragen?",
@@ -243,6 +220,9 @@
   },
   "footer": {
     "company": "Unternehmensinformationen",
+    "tagline": "Vertrieb professioneller Kosmetikgeräte und Laser mit 2 Jahren Garantie.",
+    "financing": "Finanzierung",
+    "withdrawal": "Widerruf und Rücksendung",
     "products": "Produkte",
     "support": "Support",
     "legal": "Rechtliches",
@@ -610,7 +590,7 @@
   "common": {
     "learnMore": "Mehr erfahren",
     "viewAll": "Alle ansehen",
-    "close": "SchlieBen",
+    "close": "Schließen",
     "loading": "Wird geladen...",
     "search": "Suchen",
     "filter": "Filtern",
@@ -681,7 +661,8 @@
     "requestDemo": "Demo anfordern",
     "warrantyValue": "2 Jahre",
     "wavelengthsValue": "4 Wellenlängen",
-    "skinTypes": "Für alle Hauttypen"
+    "skinTypes": "Für alle Hauttypen",
+    "installmentLine": "oder nach 50 % Anzahlung {monthly}/Monat über {months} Monate"
   },
   "ctaSection": {
     "title": "Haben Sie Fragen? Wir helfen gerne!",
@@ -885,21 +866,54 @@
       "methodRequired": "Bitte wähle eine Versandart.",
       "free": "Kostenlos",
       "summaryLine": "Versand",
+      "foxpost": "Foxpost-Paketautomat",
+      "foxpostDesc": "Abholung an über 3.000 Paketautomaten in ganz Ungarn, in der Regel innerhalb von 1–2 Werktagen.",
+      "foxpostChoose": "Paketautomat wählen",
+      "foxpostChange": "Paketautomat ändern",
+      "foxpostRequired": "Bitte wählen Sie einen Foxpost-Abholautomaten.",
+      "foxpostModalTitle": "Foxpost-Abholautomaten wählen",
+      "foxpostLoadHint": "Falls die Karte nicht lädt, aktualisieren Sie die Seite oder wählen Sie eine andere Versandart.",
+      "gls": "GLS-Hauszustellung",
+      "glsDesc": "GLS-Kurierdienst – Zustellung in der Regel am nächsten Werktag.",
+      "pickup": "Persönliche Abholung",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – kostenlos, nach vorheriger Terminvereinbarung.",
       "recommended": "Empfohlen",
+      "highValueTitle": "Abholung und Lieferung",
       "highValueNote": "Die Lieferung deiner Bestellung stimmen wir individuell ab. Unser Mitarbeiter setzt sich mit dir in Verbindung, um die persönliche Abholung oder Lieferung sowie die Zahlungsart zu vereinbaren.",
       "pickupCeremony": "Persönliche Abholung im Showroom",
       "pickupCeremonyDesc": "Übergabe, Inbetriebnahme und Einweisung vor Ort – wir beantworten alle deine Fragen sofort. Das Gerät kannst du auch am Ende unserer Schulungen abholen.",
       "arranged": "Lieferung nach Vereinbarung",
-      "arrangedDesc": "Aufgrund des Produktwerts vereinbaren wir die Lieferung persönlich – wir bringen es dir entweder vorbei oder versenden es sicher. Unser Mitarbeiter setzt sich wegen der Details mit dir in Verbindung."
+      "arrangedDesc": "Aufgrund des Produktwerts vereinbaren wir die Lieferung persönlich – wir bringen es dir entweder vorbei oder versenden es sicher. Unser Mitarbeiter setzt sich wegen der Details mit dir in Verbindung.",
+      "foxpostIframeTitle": "Foxpost-Paketautomatensuche"
     },
+    "payment": {
+      "title": "Zahlungsart",
+      "required": "Bitte wählen Sie eine Zahlungsart.",
+      "transfer": "Vorkasse per Überweisung",
+      "transferDesc": "Wir senden Ihnen die Proforma-Rechnung per E-Mail; Sie bezahlen per Banküberweisung.",
+      "cod": "Nachnahme",
+      "codDesc": "Sie bezahlen bei Erhalt beim Kurier oder am Paketautomaten."
+    },
+    "parcelStep1Title": "Wir bestätigen Ihre Bestellung",
+    "parcelStep1Desc": "Wir bestätigen Ihre Bestellung sofort per E-Mail.",
+    "parcelStep2Title": "Proforma-Rechnung oder Nachnahme",
+    "parcelStep2Desc": "Wir senden die Proforma-Rechnung per E-Mail (Überweisung), oder Sie wählen Nachnahme.",
+    "parcelStep3Title": "Wir liefern / Sie holen ab",
+    "parcelStep3Desc": "Wir senden es an einen Foxpost-Paketautomaten oder per GLS, oder Sie holen es persönlich ab.",
+    "parcelNoPaymentNote": "Keine sofortige Online-Zahlung: Sie erhalten die Proforma-Rechnung per E-Mail oder bezahlen per Nachnahme bei Erhalt.",
+    "parcelTrustShipping": "Versand mit Foxpost / GLS",
     "email": {
       "subject": "Bestellbestätigung",
       "greeting": "Sehr geehrte/r {name},",
       "shippingTitle": "Versand",
+      "subtotalLabel": "Zwischensumme",
       "freeShipping": "Kostenlos",
+      "foxpostPointLabel": "Abhol-Paketautomat",
       "shippingMethods": {
         "personal_pickup": "Persönliche Abholung — Skinlab Showroom (Érd)",
-        "arranged": "Lieferung nach Vereinbarung"
+        "arranged": "Lieferung nach Vereinbarung",
+        "foxpost": "Foxpost-Paketautomat",
+        "gls": "GLS-Hauszustellung"
       },
       "intro": "Vielen Dank für Ihre Bestellung bei Skinlab Hungary! Nachstehend finden Sie die Zusammenfassung Ihrer Bestellung.",
       "orderNumber": "Bestellnummer",
@@ -911,6 +925,14 @@
       "step1": "Wir haben Ihnen die Proforma-Rechnung bereits per E-Mail geschickt — darauf steht der zu zahlende Betrag.",
       "step2": "Unser Mitarbeiter ruft Sie in Kürze an, um die Details und die gewünschte Art der Übergabe abzustimmen.",
       "step3": "Sie können auf Basis der Proforma-Rechnung per Banküberweisung zahlen. Nach Eingang Ihrer Zahlung können Sie die Bestellung persönlich abholen oder wir senden das Paket per Post — je nach gewählter Option.",
+      "parcelStep1": "Wir haben Ihnen die Proforma-Rechnung per E-Mail geschickt – darauf steht der zu zahlende Betrag.",
+      "parcelStep2": "Bezahlen Sie die Proforma-Rechnung per Banküberweisung anhand der Angaben in der E-Mail.",
+      "parcelStep3": "Nach Zahlungseingang versenden wir das Paket auf dem gewählten Weg (Foxpost / GLS), oder Sie holen es persönlich ab.",
+      "codStep1": "Wir haben Ihre Bestellung bestätigt – keine Vorauszahlung.",
+      "codStep2": "Wir versenden das Paket auf dem gewählten Weg (Foxpost-Paketautomat / GLS).",
+      "codStep3": "Sie bezahlen bei Erhalt (Nachnahme) beim Kurier oder am Paketautomaten.",
+      "codTitle": "Zahlung per Nachnahme",
+      "codNote": "Sie bezahlen bei Erhalt – keine Vorabüberweisung nötig. Bei Nachnahme senden wir keine Proforma-Rechnung.",
       "priceDisclaimer": "Der angezeigte Betrag dient nur zur Information; der Endpreis und die Versandkosten werden im telefonischen Gespräch festgelegt.",
       "payIntro": "Wir haben Ihre Proforma-Rechnung erstellt – über die Schaltfläche unten können Sie sofort per Karte oder Überweisung bezahlen:",
       "payButton": "Jetzt bezahlen / Proforma öffnen",
@@ -930,6 +952,10 @@
     "postcode": "Postleitzahl",
     "city": "Stadt",
     "street": "Straße und Hausnummer",
+    "postcodeHelp": "Anhand der Postleitzahl füllen wir Ort und Land aus.",
+    "postcodeUnknown": "Diese Postleitzahl kennen wir nicht – bitte geben Sie Ort und Land manuell ein.",
+    "postcodeMultiple": "Zu dieser Postleitzahl gehören mehrere Orte – wählen Sie einen aus oder tragen Sie ihn manuell ein:",
+    "countySuffix": "Komitat",
     "notes": "Anmerkung",
     "notesPlaceholder": "Alles Wichtige zu Ihrer Bestellung...",
     "optional": "optional",
@@ -967,6 +993,8 @@
       "step3Title": "Zahlung & Übergabe",
       "step3Desc": "Sie können auf Basis der Proforma-Rechnung per Banküberweisung zahlen. Nach Eingang Ihrer Zahlung können Sie die Bestellung persönlich abholen oder wir senden das Paket per Post — je nach gewählter Option.",
       "emailNote": "Die Bestellbestätigung haben wir an Ihre E-Mail-Adresse gesendet.",
+      "foundersTitle": "Vielen Dank für Ihr Vertrauen!",
+      "foundersNote": "Wir, die Gründer von Skinlab, kümmern uns persönlich darum, dass Ihre Bestellung reibungslos abläuft. Wenn Sie Fragen haben, wenden Sie sich jederzeit an uns!",
       "backToHome": "Zurück zur Startseite",
       "browseProducts": "Weitere Produkte"
     },
@@ -1030,7 +1058,14 @@
     "bodyPost": "Ruf uns an oder fordere eine kostenlose Beratung an, und wir melden uns bei dir.",
     "cta": "Kostenlose Beratung anfordern",
     "phone": "Ruf uns an: {phone}",
-    "responseTime": "Wir rufen in der Regel innerhalb von 1 Werktag zurück."
+    "responseTime": "Wir rufen in der Regel innerhalb von 1 Werktag zurück.",
+    "card": {
+      "ariaLabel": "Karte: kostenlose Beratung",
+      "cta": "Termin buchen",
+      "bodyPre": "Unsicher, welches Gerät zu Ihrem Salon passt?",
+      "bodyStrong": "20 Minuten kostenlose Online-Beratung",
+      "bodyPost": "- wir sehen uns auch Ihr Geschäftsmodell an."
+    }
   },
   "finance": {
     "title": "Lohnt es sich? Rechnen wir nach.",
@@ -1070,6 +1105,20 @@
   "mobileCta": {
     "call": "Anrufen",
     "consult": "Beratung"
+  },
+  "homeFinance": {
+    "badge": "Finanzierung",
+    "title": "Sie müssen nicht alles auf einmal bezahlen",
+    "body": "Zinsfreie Ratenzahlung zu 0 % effektivem Jahreszins: 50 % Anzahlung, der Rest in 3, 6 oder 12 Monatsraten, je nach Gerätepreis. Keine Bearbeitungsgebühr und keine versteckten Kosten.",
+    "tier1": "3 Monate über 100 000 Ft",
+    "tier2": "3 oder 6 Monate über 1 000 000 Ft",
+    "tier3": "3, 6 oder 12 Monate über 3 000 000 Ft oder beim gemeinsamen Kauf von zwei Geräten",
+    "cta": "Details und Rechner",
+    "example": "Beispiel: {name}",
+    "downPayment": "Anzahlung (50 %)",
+    "term": "{months} Monate",
+    "perMonth": "{amount}/Monat",
+    "note": "Ein genaues Angebot erhalten Sie in der Beratung."
   },
   "foundersHome": {
     "badge": "Die Gründer",
@@ -1143,5 +1192,76 @@
     "readLess": "Weniger",
     "teamCaption": "Das Skinlab-Team in Mailand",
     "teamAlt": "Das Skinlab-Team beim Selfie in Mailand vor dem Milano-Schriftzug"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Montag",
+      "tue": "Dienstag",
+      "wed": "Mittwoch",
+      "thu": "Donnerstag",
+      "fri": "Freitag",
+      "sat": "Samstag",
+      "sun": "Sonntag"
+    },
+    "daysShort": {
+      "mon": "Mo",
+      "tue": "Di",
+      "wed": "Mi",
+      "thu": "Do",
+      "fri": "Fr",
+      "sat": "Sa",
+      "sun": "So"
+    },
+    "closed": "Geschlossen"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Produkt",
+      "timing": "Zeitpunkt",
+      "salon": "Salon",
+      "experience": "Erfahrung",
+      "contact": "Kontakt"
+    },
+    "step1Title": "Welches Produkt interessiert Sie?",
+    "step1Subtitle": "Wählen Sie eine Kategorie – Mehrfachauswahl möglich",
+    "step2Title": "Wann planen Sie den Kauf?",
+    "timeline": {
+      "asap": "Sofort",
+      "months1to3": "Innerhalb von 1-3 Monaten",
+      "months3to6": "Innerhalb von 3-6 Monaten",
+      "justLooking": "Ich informiere mich nur"
+    },
+    "step3Title": "Haben Sie bereits einen Salon?",
+    "business": {
+      "runningSalon": "Ja, ich habe einen laufenden Salon",
+      "openingSoon": "Ich eröffne gerade einen Salon",
+      "homeService": "Schulung / Workshop",
+      "noBusiness": "Ich habe noch kein Unternehmen"
+    },
+    "step4Title": "Haben Sie schon mit einem ähnlichen Gerät gearbeitet?",
+    "experience": {
+      "regular": "Ja, regelmäßig",
+      "tried": "Ja, ich habe es ausprobiert",
+      "trained": "Nein, aber ich bin ausgebildet",
+      "beginner": "Nein, ich bin Anfänger/in"
+    },
+    "step5Title": "Wie erreichen wir Sie?",
+    "step5Subtitle": "Wir melden uns in Kürze bei Ihnen",
+    "lastNamePlaceholder": "Müller",
+    "firstNamePlaceholder": "Anna",
+    "gdprSuffix": "und willige in die Verarbeitung meiner Daten ein.",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Kostenlose Beratung anfordern",
+    "satisfiedClients": "zufriedene Kunden",
+    "errorTitle": "Es ist ein Fehler aufgetreten",
+    "retry": "Bitte versuchen Sie es erneut.",
+    "errors": {
+      "selectCategory": "Bitte wählen Sie mindestens eine Kategorie",
+      "selectOption": "Bitte wählen Sie eine Option",
+      "required": "Dieses Feld ist erforderlich",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein"
+    }
   }
 }

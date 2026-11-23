@@ -10,6 +10,9 @@
  *                  Cialdini Liking elv (2,3× CTR konkrét személyfotóval).
  */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
+import { t, getLocaleFromUrl } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url);
 
 interface Props {
   expert: {
@@ -29,7 +32,7 @@ interface Props {
 
 const {
   expert,
-  ctaLabel = 'Időpont foglalása',
+  ctaLabel = t(locale, 'founderConsult.card.cta'),
   ctaHref,
   socialProof,
   accentColor,
@@ -40,7 +43,7 @@ const {
 
 <aside
   class="relative bg-white rounded-2xl shadow-md border border-gray-100 p-6 lg:p-7 flex flex-col gap-4"
-  aria-label="Ingyenes konzultáció kártya"
+  aria-label={t(locale, 'founderConsult.card.ariaLabel')}
 >
   <!-- Soft accent ring at top -->
   <div
@@ -82,8 +85,8 @@ const {
 
   <!-- Value prop -->
   <p class="text-gray-700 text-sm lg:text-base leading-relaxed">
-    Bizonytalan, melyik készülék illik a szalonjához?
-    <strong class="text-gray-900">20 perc, díjmentes online konzultáció</strong> - üzleti modellt is átnézzük.
+    {t(locale, 'founderConsult.card.bodyPre')}
+    <strong class="text-gray-900">{t(locale, 'founderConsult.card.bodyStrong')}</strong> {t(locale, 'founderConsult.card.bodyPost')}
   </p>
 
   <!-- CTA -->

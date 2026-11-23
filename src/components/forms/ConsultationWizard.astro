@@ -13,6 +13,7 @@
  */
 import { CATEGORIES, CATEGORY_CARD_IMAGE } from '@/lib/constants';
 import { getTurnstileSiteKey } from '@/lib/forms/turnstile';
+import { t, getLocaleFromUrl, getLocalizedUrl } from '@/i18n/ui';
 
 interface Props {
   /** Pre-selected product categories */
@@ -29,52 +30,67 @@ const {
 } = Astro.props;
 
 const turnstileSiteKey = getTurnstileSiteKey();
+const locale = getLocaleFromUrl(Astro.url);
+const w = (key: string) => t(locale, `consultationWizard.${key}`);
 
 // Category options with images (exclude kellekek and kezeloanyagok - not gépek, not relevant for consultation)
 const categoryOptions = CATEGORIES.filter(cat => cat.featured && cat.id !== 'kellekek' && cat.id !== 'kezeloanyagok').map((cat) => ({
   value: cat.id,
-  label: cat.nameShort,
+  label: t(locale, `categories.${cat.id}`),
   // Mirror the homepage category-card image so the two never drift
   image: CATEGORY_CARD_IMAGE[cat.slug] ?? cat.image,
 }));
 
 // Step definitions
 const steps = [
-  { id: 1, label: 'Termék' },
-  { id: 2, label: 'Időzítés' },
-  { id: 3, label: 'Szalon' },
-  { id: 4, label: 'Tapasztalat' },
-  { id: 5, label: 'Elérhetőség' },
+  { id: 1, label: w('steps.product') },
+  { id: 2, label: w('steps.timing') },
+  { id: 3, label: w('steps.salon') },
+  { id: 4, label: w('steps.experience') },
+  { id: 5, label: w('steps.contact') },
 ];
 
 // Timeline options
 const timelineOptions = [
-  { value: 'asap', label: 'Most azonnal' },
-  { value: '1-3-month', label: '1-3 hónapon belül' },
-  { value: '3-6-month', label: '3-6 hónapon belül' },
-  { value: 'just-looking', label: 'Csak tájékozódom' },
+  { value: 'asap', label: w('timeline.asap') },
+  { value: '1-3-month', label: w('timeline.months1to3') },
+  { value: '3-6-month', label: w('timeline.months3to6') },
+  { value: 'just-looking', label: w('timeline.justLooking') },
 ];
 
 // Business type options
 const businessOptions = [
-  { value: 'running-salon', label: 'Igen, működő szalonom van' },
-  { value: 'opening-soon', label: 'Most nyitok szalont' },
-  { value: 'home-service', label: 'Oktatás / workshop' },
-  { value: 'no-business', label: 'Még nincs vállalkozásom' },
+  { value: 'running-salon', label: w('business.runningSalon') },
+  { value: 'opening-soon', label: w('business.openingSoon') },
+  { value: 'home-service', label: w('business.homeService') },
+  { value: 'no-business', label: w('business.noBusiness') },
 ];
 
 // Experience options
 const experienceOptions = [
-  { value: 'regular', label: 'Igen, rendszeresen' },
-  { value: 'tried', label: 'Igen, kipróbáltam' },
-  { value: 'trained', label: 'Nem, de képzett vagyok' },
-  { value: 'beginner', label: 'Nem, kezdő vagyok' },
+  { value: 'regular', label: w('experience.regular') },
+  { value: 'tried', label: w('experience.tried') },
+  { value: 'trained', label: w('experience.trained') },
+  { value: 'beginner', label: w('experience.beginner') },
 ];
+
+// A kliens-oldali szkript szövegei és a köszönőoldal lokalizált URL-je.
+const clientI18n = {
+  successUrl: getLocalizedUrl(locale, '/konzultacio-koszonjuk'),
+  selectCategory: w('errors.selectCategory'),
+  selectOption: w('errors.selectOption'),
+  required: w('errors.required'),
+  invalidEmail: w('errors.invalidEmail'),
+  invalidPhone: w('errors.invalidPhone'),
+  retry: w('retry'),
+  submit: w('submit'),
+  submitting: t(locale, 'form.submitting'),
+};
 
 const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<div class:list={['consultation-wizard', className]} data-wizard>
+<div class:list={['consultation-wizard', className]} data-wizard data-i18n={JSON.stringify(clientI18n)}>
   <!-- Progress Bar -->
   <div class="progress-container mb-2">
     <div class="progress-scroll overflow-x-auto scrollbar-hide" data-progress-scroll>
@@ -139,8 +155,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 1: Product Selection with Images (Multi-select) -->
     <div class="step-content" data-step-content="1">
       <div class="text-center mb-3">
-        <h1 class="text-lg font-bold text-gray-900">Melyik termék érdekel?</h1>
-        <p class="text-gray-500 text-sm">Válaszd ki a kategóriát – többet is jelölhetsz</p>
+        <h1 class="text-lg font-bold text-gray-900">{w('step1Title')}</h1>
+        <p class="text-gray-500 text-sm">{w('step1Subtitle')}</p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -181,7 +197,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 2: Timeline (Auto-next) -->
     <div class="step-content hidden" data-step-content="2">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Mikor tervezed a vásárlást?</h2>
+        <h2 class="text-xl font-bold text-gray-900">{w('step2Title')}</h2>
       </div>
 
       <div class="grid grid-cols-2 auto-rows-fr gap-3">
@@ -207,7 +223,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 3: Business Type (Auto-next) -->
     <div class="step-content hidden" data-step-content="3">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Van már szalonod?</h2>
+        <h2 class="text-xl font-bold text-gray-900">{w('step3Title')}</h2>
       </div>
 
       <div class="grid grid-cols-2 auto-rows-fr gap-3">
@@ -233,7 +249,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 4: Experience (Auto-next) -->
     <div class="step-content hidden" data-step-content="4">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Használtál már hasonló gépet?</h2>
+        <h2 class="text-xl font-bold text-gray-900">{w('step4Title')}</h2>
       </div>
 
       <div class="grid grid-cols-2 auto-rows-fr gap-3">
@@ -259,8 +275,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <!-- Step 5: Contact Details -->
     <div class="step-content hidden" data-step-content="5">
       <div class="text-center mb-4">
-        <h2 class="text-xl font-bold text-gray-900">Hogyan érhetjük el?</h2>
-        <p class="text-gray-500 text-sm mt-1">Hamarosan felvesszük veled a kapcsolatot</p>
+        <h2 class="text-xl font-bold text-gray-900">{w('step5Title')}</h2>
+        <p class="text-gray-500 text-sm mt-1">{w('step5Subtitle')}</p>
       </div>
 
       <div class="space-y-4">
@@ -269,7 +285,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           <!-- Last Name -->
           <div>
             <label for={`${formId}-lastName`} class="block text-sm font-medium text-gray-700 mb-1.5">
-              Vezetéknév <span class="text-primary-500">*</span>
+              {t(locale, 'form.lastName')} <span class="text-primary-500">*</span>
             </label>
             <input
               type="text"
@@ -277,7 +293,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               id={`${formId}-lastName`}
               required
               autocomplete="family-name"
-              placeholder="Kovács"
+              placeholder={w('lastNamePlaceholder')}
               class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
             />
             <p class="mt-1 text-sm text-red-500 hidden" data-error="lastName"></p>
@@ -286,7 +302,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           <!-- First Name -->
           <div>
             <label for={`${formId}-firstName`} class="block text-sm font-medium text-gray-700 mb-1.5">
-              Keresztnév <span class="text-primary-500">*</span>
+              {t(locale, 'form.firstName')} <span class="text-primary-500">*</span>
             </label>
             <input
               type="text"
@@ -294,7 +310,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
               id={`${formId}-firstName`}
               required
               autocomplete="given-name"
-              placeholder="Anna"
+              placeholder={w('firstNamePlaceholder')}
               class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
             />
             <p class="mt-1 text-sm text-red-500 hidden" data-error="firstName"></p>
@@ -304,7 +320,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         <!-- Email -->
         <div>
           <label for={`${formId}-email`} class="block text-sm font-medium text-gray-700 mb-1.5">
-            Email <span class="text-primary-500">*</span>
+            {t(locale, 'form.email')} <span class="text-primary-500">*</span>
           </label>
           <input
             type="email"
@@ -312,7 +328,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
             id={`${formId}-email`}
             required
             autocomplete="email"
-            placeholder="pelda@email.hu"
+            placeholder={t(locale, 'form.emailPlaceholder')}
             class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
           />
           <p class="mt-1 text-sm text-red-500 hidden" data-error="email"></p>
@@ -321,7 +337,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         <!-- Phone -->
         <div>
           <label for={`${formId}-phone`} class="block text-sm font-medium text-gray-700 mb-1.5">
-            Telefon <span class="text-primary-500">*</span>
+            {t(locale, 'form.phone')} <span class="text-primary-500">*</span>
           </label>
           <input
             type="tel"
@@ -329,7 +345,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
             id={`${formId}-phone`}
             required
             autocomplete="tel"
-            placeholder="+36 70 123 4567"
+            placeholder={t(locale, 'form.phonePlaceholder')}
             class="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 transition-all focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100"
           />
           <p class="mt-1 text-sm text-red-500 hidden" data-error="phone"></p>
@@ -360,11 +376,11 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
             data-gdpr-checkbox
           />
           <span class="text-sm text-gray-600">
-            Elolvastam és elfogadom az{' '}
-            <a href="/adatvedelem/" target="_blank" class="text-primary-600 hover:underline font-medium">
-              Adatvédelmi tájékoztatót
+            {t(locale, 'form.gdprConsentPrefix')}{' '}
+            <a href={getLocalizedUrl(locale, '/adatvedelem')} target="_blank" class="text-primary-600 hover:underline font-medium">
+              {t(locale, 'form.gdprConsentLink')}
             </a>{' '}
-            és hozzájárulok adataim kezeléséhez.
+            {w('gdprSuffix')}
           </span>
         </label>
         <p class="text-sm text-red-500 hidden" data-error="gdprConsent"></p>
@@ -380,7 +396,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           class="back-btn hidden w-[30%] py-3.5 px-4 rounded-xl border-2 border-gray-200 bg-white text-gray-600 font-semibold transition-all hover:bg-gray-50 hover:border-gray-300 active:scale-[0.98]"
           data-back-btn
         >
-          Vissza
+          {w('back')}
         </button>
 
         <!-- Next/Submit Button (70% or 100%) -->
@@ -389,7 +405,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           class="next-btn flex-1 py-3.5 px-6 rounded-xl bg-cta text-white font-semibold shadow-lg shadow-cta/30 transition-all hover:bg-cta-hover hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           data-next-btn
         >
-          Következő
+          {w('next')}
         </button>
 
         <button
@@ -397,7 +413,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           class="submit-btn hidden flex-1 py-3.5 px-6 rounded-xl bg-cta text-white font-semibold shadow-lg shadow-cta/30 transition-all hover:bg-cta-hover hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
           data-submit-btn
         >
-          <span data-button-text>Ingyenes konzultáció kérése</span>
+          <span data-button-text>{w('submit')}</span>
           <svg class="hidden ml-2 h-5 w-5 animate-spin" data-loading-spinner viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
@@ -408,7 +424,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       <!-- Social Proof -->
       <div class="mt-2 flex items-center justify-center gap-6 text-sm text-gray-500">
         <div class="flex items-center gap-2">
-          <span><strong class="text-gray-700">150+</strong> elégedett ügyfél</span>
+          <span><strong class="text-gray-700">150+</strong> {w('satisfiedClients')}</span>
         </div>
       </div>
     </div>
@@ -417,8 +433,8 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
     <div class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-xl" data-error-message>
       <div class="flex items-center gap-3">
         <div>
-          <p class="font-medium text-red-800">Hiba történt</p>
-          <p class="text-sm text-red-600" data-error-text>Kérlek, próbáld újra.</p>
+          <p class="font-medium text-red-800">{w('errorTitle')}</p>
+          <p class="text-sm text-red-600" data-error-text>{w('retry')}</p>
         </div>
       </div>
     </div>
@@ -535,6 +551,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
   };
 
   document.querySelectorAll('[data-wizard]').forEach((wizard) => {
+    const i18n = JSON.parse((wizard as HTMLElement).dataset.i18n || '{}') as Record<string, string>;
     const form = wizard.querySelector('[data-wizard-form]') as HTMLFormElement;
     const progressScroll = wizard.querySelector('[data-progress-scroll]') as HTMLElement;
     const backBtn = wizard.querySelector('[data-back-btn]') as HTMLButtonElement;
@@ -704,7 +721,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         if (!isChecked) {
           const errorEl = stepContent.querySelector('[data-error="product"]') as HTMLElement;
           if (errorEl) {
-            errorEl.textContent = 'Kérlek, válassz legalább egy kategóriát';
+            errorEl.textContent = i18n.selectCategory;
             errorEl.classList.remove('hidden');
           }
           isValid = false;
@@ -723,7 +740,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           if (!isChecked) {
             const errorEl = stepContent.querySelector(`[data-error="${name}"]`) as HTMLElement;
             if (errorEl) {
-              errorEl.textContent = 'Kérlek, válassz egy opciót';
+              errorEl.textContent = i18n.selectOption;
               errorEl.classList.remove('hidden');
             }
             isValid = false;
@@ -731,7 +748,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         } else if (inputEl.type !== 'checkbox' && !inputEl.value.trim()) {
           const errorEl = stepContent.querySelector(`[data-error="${name}"]`) as HTMLElement;
           if (errorEl) {
-            errorEl.textContent = 'Ez a mező kötelező';
+            errorEl.textContent = i18n.required;
             errorEl.classList.remove('hidden');
           }
           isValid = false;
@@ -743,7 +760,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       if (emailInput?.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
         const errorEl = stepContent.querySelector('[data-error="email"]') as HTMLElement;
         if (errorEl) {
-          errorEl.textContent = 'Adj meg egy érvényes email címet';
+          errorEl.textContent = i18n.invalidEmail;
           errorEl.classList.remove('hidden');
         }
         isValid = false;
@@ -754,7 +771,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
       if (phoneInput?.value && phoneInput.value.replace(/\D/g, '').length < 9) {
         const errorEl = stepContent.querySelector('[data-error="phone"]') as HTMLElement;
         if (errorEl) {
-          errorEl.textContent = 'Adj meg egy érvényes telefonszámot';
+          errorEl.textContent = i18n.invalidPhone;
           errorEl.classList.remove('hidden');
         }
         isValid = false;
@@ -803,7 +820,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
 
       errorMessage?.classList.add('hidden');
       submitBtn.disabled = true;
-      if (buttonText) buttonText.textContent = 'Küldés...';
+      if (buttonText) buttonText.textContent = i18n.submitting;
       spinner?.classList.remove('hidden');
 
       try {
@@ -857,7 +874,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         if (result.success) {
           // Give GTM a beat to flush the conversion tags, then redirect
           await waitForTracking(600);
-          window.location.href = `/konzultacio-koszonjuk?lead=${result.leadId}`;
+          window.location.href = `${i18n.successUrl}?lead=${result.leadId}`;
         } else {
           if (window.__slDebug) console.error('[' + (result.code || 'FORM-SUBMIT-001') + '] consultation:', result);
 
@@ -894,7 +911,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
           errorMessage?.classList.remove('hidden');
           if (errorText) {
             const code = result.code ? '[' + result.code + '] ' : '';
-            errorText.textContent = code + (result.error || 'Kérlek, próbáld újra.');
+            errorText.textContent = code + (result.error || i18n.retry);
           }
         }
       } catch (error) {
@@ -906,7 +923,7 @@ const formId = `wizard-${Math.random().toString(36).slice(2, 8)}`;
         }
       } finally {
         submitBtn.disabled = false;
-        if (buttonText) buttonText.textContent = 'Ingyenes konzultáció kérése';
+        if (buttonText) buttonText.textContent = i18n.submit;
         spinner?.classList.add('hidden');
       }
     });

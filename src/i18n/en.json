@@ -17,32 +17,6 @@
     "blog": "Blog",
     "faq": "FAQ"
   },
-  "hero": {
-    "title": "Professional Cosmetic Equipment",
-    "subtitle": "Diode lasers, PMU machines and multifunctional devices with warranty and in-house service",
-    "cta": "Free Consultation",
-    "ctaSecondary": "View Products",
-    "slide2": {
-      "title": "Diode Lasers with Cutting-Edge Technology",
-      "subtitle": "808nm, 755nm and 1064nm wavelength professional laser devices for salons"
-    },
-    "slide3": {
-      "title": "Training and Service in One Place",
-      "subtitle": "Free training, continuous technical support and 2-year warranty on our cosmetic devices"
-    },
-    "slide4": {
-      "title": "Tattoo Removal with ND:YAG Lasers",
-      "subtitle": "Safe, effective tattoo and pigment removal with a Q-switched ND:YAG laser, backed by local service in Hungary"
-    },
-    "slide5": {
-      "title": "Our new Frame YAG laser has arrived!",
-      "subtitle": "Coming soon to our webshop. Sign up for a product demo now"
-    },
-    "slide7": {
-      "title": "New: EMPIRE 4WAVE diode laser",
-      "subtitle": "1200W, 4 wavelengths, micro-camera hair and skin diagnostics and a digital client record – a smarter system for professional hair removal."
-    }
-  },
   "categories": {
     "title": "Product Categories",
     "subtitle": "Choose the right category for you and discover our professional equipment",
@@ -193,7 +167,10 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "megaMenuFooter": "Can't find what you're looking for? We'll help you choose the right equipment.",
-    "languageLabel": "Language"
+    "languageLabel": "Language",
+    "languageSwitch": "Change language",
+    "contactWidgetOpen": "Open contact card",
+    "contactWidgetText": "Have a question? Give us a call – we are happy to help!"
   },
   "cta": {
     "title": "Have Questions?",
@@ -243,6 +220,9 @@
   },
   "footer": {
     "company": "Company Info",
+    "tagline": "Distributor of professional cosmetic machines and lasers with a 2-year warranty.",
+    "financing": "Financing",
+    "withdrawal": "Withdrawal and returns",
     "products": "Products",
     "support": "Support",
     "legal": "Legal",
@@ -681,7 +661,8 @@
     "requestDemo": "Request Demo",
     "warrantyValue": "2 years",
     "wavelengthsValue": "4 wavelengths",
-    "skinTypes": "For all skin types"
+    "skinTypes": "For all skin types",
+    "installmentLine": "or {monthly}/month for {months} months after a 50% deposit"
   },
   "ctaSection": {
     "title": "Have Questions? We're Here to Help!",
@@ -885,21 +866,54 @@
       "methodRequired": "Please choose a shipping method.",
       "free": "Free",
       "summaryLine": "Shipping",
+      "foxpost": "Foxpost parcel locker",
+      "foxpostDesc": "Pick up from over 3,000 lockers across Hungary, typically within 1–2 business days.",
+      "foxpostChoose": "Choose a locker",
+      "foxpostChange": "Change locker",
+      "foxpostRequired": "Please choose a Foxpost pickup locker.",
+      "foxpostModalTitle": "Choose a Foxpost pickup locker",
+      "foxpostLoadHint": "If the map doesn't load, refresh the page or choose another shipping method.",
+      "gls": "GLS home delivery",
+      "glsDesc": "GLS courier – typically next-business-day delivery.",
+      "pickup": "Personal pickup",
+      "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – free of charge, by prior appointment.",
       "recommended": "Recommended",
+      "highValueTitle": "Pickup and delivery",
       "highValueNote": "We'll arrange your order's delivery individually. Our colleague will contact you to agree on personal pickup or delivery and the payment method.",
       "pickupCeremony": "Personal pickup at the showroom",
       "pickupCeremonyDesc": "On-site handover, setup and training — we answer all your questions right away. You can also collect the device at the end of our trainings.",
       "arranged": "Delivery by arrangement",
-      "arrangedDesc": "Given the value of the product, we arrange delivery personally — we either bring it to you or ship it safely. Our colleague will contact you about the details."
+      "arrangedDesc": "Given the value of the product, we arrange delivery personally — we either bring it to you or ship it safely. Our colleague will contact you about the details.",
+      "foxpostIframeTitle": "Foxpost locker finder"
     },
+    "payment": {
+      "title": "Payment method",
+      "required": "Please choose a payment method.",
+      "transfer": "Bank transfer in advance",
+      "transferDesc": "We email you the proforma invoice; you pay by bank transfer.",
+      "cod": "Cash on delivery",
+      "codDesc": "You pay the courier or at the locker on delivery."
+    },
+    "parcelStep1Title": "We confirm your order",
+    "parcelStep1Desc": "We confirm your order by email right away.",
+    "parcelStep2Title": "Proforma invoice or cash on delivery",
+    "parcelStep2Desc": "We email you the proforma invoice (bank transfer), or choose cash on delivery.",
+    "parcelStep3Title": "We ship it / you collect it",
+    "parcelStep3Desc": "We send it to a Foxpost locker or via GLS, or you can collect it in person.",
+    "parcelNoPaymentNote": "No immediate online payment: you receive the proforma invoice by email, or pay cash on delivery.",
+    "parcelTrustShipping": "Foxpost / GLS shipping",
     "email": {
       "subject": "Order confirmation",
       "greeting": "Dear {name},",
       "shippingTitle": "Shipping",
+      "subtotalLabel": "Subtotal",
       "freeShipping": "Free",
+      "foxpostPointLabel": "Pickup locker",
       "shippingMethods": {
         "personal_pickup": "Personal pickup — Skinlab Showroom (Érd)",
-        "arranged": "Delivery by arrangement"
+        "arranged": "Delivery by arrangement",
+        "foxpost": "Foxpost parcel locker",
+        "gls": "GLS home delivery"
       },
       "intro": "Thank you for your order at Skinlab Hungary! Below is a summary of your order.",
       "orderNumber": "Order number",
@@ -911,6 +925,14 @@
       "step1": "We've already emailed you the proforma invoice — it shows the amount due.",
       "step2": "Our colleague will call you shortly to confirm the details and how you'd like to receive your order.",
       "step3": "You can pay by bank transfer based on the proforma invoice. Once your payment arrives, you can collect it in person or we'll post the package — depending on the option you chose.",
+      "parcelStep1": "We've emailed you the proforma invoice – it shows the amount due.",
+      "parcelStep2": "Pay the proforma invoice by bank transfer, using the details in the email.",
+      "parcelStep3": "Once your payment arrives, we'll ship the parcel the way you chose (Foxpost / GLS), or you can collect it in person.",
+      "codStep1": "We've confirmed your order – no payment in advance.",
+      "codStep2": "We'll ship the parcel the way you chose (Foxpost locker / GLS).",
+      "codStep3": "You pay on delivery (cash on delivery) to the courier or at the locker.",
+      "codTitle": "Cash on delivery",
+      "codNote": "You pay on delivery – no need to transfer in advance. For cash-on-delivery orders we don't send a proforma invoice.",
       "priceDisclaimer": "The amount shown is for information only; the final price and shipping cost will be confirmed during the phone consultation.",
       "payIntro": "We’ve issued your proforma invoice – you can pay right away by card or bank transfer using the button below:",
       "payButton": "Pay now / open proforma",
@@ -1036,7 +1058,14 @@
     "bodyPost": "Call us or request a free consultation and we’ll get in touch.",
     "cta": "Request a free consultation",
     "phone": "Call us: {phone}",
-    "responseTime": "We usually call back within 1 business day."
+    "responseTime": "We usually call back within 1 business day.",
+    "card": {
+      "ariaLabel": "Free consultation card",
+      "cta": "Book an appointment",
+      "bodyPre": "Not sure which device suits your salon?",
+      "bodyStrong": "20-minute free online consultation",
+      "bodyPost": "- we will review your business model too."
+    }
   },
   "finance": {
     "title": "Is it worth it? Let’s do the math.",
@@ -1076,6 +1105,20 @@
   "mobileCta": {
     "call": "Call",
     "consult": "Consultation"
+  },
+  "homeFinance": {
+    "badge": "Financing",
+    "title": "You don't have to pay it all at once",
+    "body": "Interest-free instalments at 0% APR: 50% deposit, the rest in 3, 6 or 12 monthly instalments, depending on the machine's price. No handling fee and no hidden costs.",
+    "tier1": "3 months over 100 000 Ft",
+    "tier2": "3 or 6 months over 1 000 000 Ft",
+    "tier3": "3, 6 or 12 months over 3 000 000 Ft, or when buying two machines together",
+    "cta": "Details and calculator",
+    "example": "Example: {name}",
+    "downPayment": "Deposit (50%)",
+    "term": "{months} months",
+    "perMonth": "{amount}/month",
+    "note": "We'll give you an exact quote during the consultation."
   },
   "foundersHome": {
     "badge": "The founders",
@@ -1149,5 +1192,76 @@
     "readLess": "Show less",
     "teamCaption": "The Skinlab team in Milan",
     "teamAlt": "The Skinlab team taking a selfie in Milan in front of the Milano sign"
+  },
+  "openingHours": {
+    "days": {
+      "mon": "Monday",
+      "tue": "Tuesday",
+      "wed": "Wednesday",
+      "thu": "Thursday",
+      "fri": "Friday",
+      "sat": "Saturday",
+      "sun": "Sunday"
+    },
+    "daysShort": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "closed": "Closed"
+  },
+  "consultationWizard": {
+    "steps": {
+      "product": "Product",
+      "timing": "Timing",
+      "salon": "Salon",
+      "experience": "Experience",
+      "contact": "Contact"
+    },
+    "step1Title": "Which product are you interested in?",
+    "step1Subtitle": "Choose a category – you can select more than one",
+    "step2Title": "When are you planning to buy?",
+    "timeline": {
+      "asap": "Right away",
+      "months1to3": "Within 1-3 months",
+      "months3to6": "Within 3-6 months",
+      "justLooking": "Just looking"
+    },
+    "step3Title": "Do you already have a salon?",
+    "business": {
+      "runningSalon": "Yes, I run a salon",
+      "openingSoon": "I'm opening a salon now",
+      "homeService": "Training / workshop",
+      "noBusiness": "I don't have a business yet"
+    },
+    "step4Title": "Have you used a similar machine before?",
+    "experience": {
+      "regular": "Yes, regularly",
+      "tried": "Yes, I've tried one",
+      "trained": "No, but I'm trained",
+      "beginner": "No, I'm a beginner"
+    },
+    "step5Title": "How can we reach you?",
+    "step5Subtitle": "We'll be in touch with you shortly",
+    "lastNamePlaceholder": "Smith",
+    "firstNamePlaceholder": "Anna",
+    "gdprSuffix": "and consent to the processing of my data.",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Request a free consultation",
+    "satisfiedClients": "satisfied clients",
+    "errorTitle": "Something went wrong",
+    "retry": "Please try again.",
+    "errors": {
+      "selectCategory": "Please choose at least one category",
+      "selectOption": "Please choose an option",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number"
+    }
   }
 }

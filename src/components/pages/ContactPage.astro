@@ -388,8 +388,8 @@ const sourceUrl = Astro.url.href;
                     <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
                       {OPENING_HOURS.map((row) => (
                         <>
-                          <dt class="text-gray-500">{row.day}</dt>
-                          <dd class={`text-right ${row.hours === 'Zárva' ? 'text-gray-400' : 'text-gray-800'}`}>{row.hours}</dd>
+                          <dt class="text-gray-500">{t(locale, `openingHours.days.${row.day}`)}</dt>
+                          <dd class={`text-right ${row.hours === 'closed' ? 'text-gray-400' : 'text-gray-800'}`}>{row.hours === 'closed' ? t(locale, 'openingHours.closed') : row.hours}</dd>
                         </>
                       ))}
                     </dl>
