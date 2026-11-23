@@ -1,115 +1,201 @@
 {
   "name": "HYDRAMAX",
-  "shortDescription": "8 v 1 profesionalny hydrofacialny pristroj. Dermabrázia, ultrazvuk, kyslíkova infúzia, LED terapia, galvanicke osetrenie, s CE certifikaciou.",
-  "description": "HydraMax 8 v 1 pristroj na osetrenie tvare je vysokovykonny, profesionalny pristroj, ktory splna vsetky poziadavky EU na kompatibilitu a bezpecnost.\n\nZariadenie kombinuje najmodernejsie technologie na komplexne osetrenie pleti: hydrodermabráziu, ultrazvukove osetrenie, kyslíkovu infúziu, galvanicke osetrenie, vakuovu terapiu, LED svetelnu terapiu, studeno-teply kladivko a mikrodermabráziu.\n\nIdealna volba pre salony krásy a kozmetické sluzby, ktore hladaju premiovy, multifunkcny pristroj na osetrenie tvare za nakladovo efektivnu cenu.",
-  "metaTitle": "HydraMax | 8 v 1 profesionalny hydrofacialny pristroj",
-  "metaDescription": "HydraMax 8 v 1 hydrofacial: dermabrázia, ultrazvuk, LED, kyslíkova infúzia. EU-kompatibilny, CE certifikacia, 2-rocna zaruka.",
+  "shortDescription": "8 v 1 profesionálny hydrofaciálny prístroj. Dermabrázia, ultrazvuk, kyslíková infúzia, LED terapia, galvanické ošetrenie, s CE certifikáciou.",
+  "description": "HydraMax 8 v 1 prístroj na ošetrenie tváre je vysokovýkonný, profesionálny prístroj, ktorý spĺňa všetky požiadavky EÚ na kompatibilitu a bezpečnosť.\n\nZariadenie kombinuje najmodernejšie technológie na komplexné ošetrenie pleti: hydrodermabráziu, ultrazvukové ošetrenie, kyslíkovú infúziu, galvanické ošetrenie, vákuovú terapiu, LED svetelnú terapiu, studeno-teplé kladivko a mikrodermabráziu.\n\nIdeálna voľba pre salóny krásy a kozmetické služby, ktoré hľadajú prémiový, multifunkčný prístroj na ošetrenie tváre za nákladovo efektívnu cenu.",
+  "metaTitle": "HydraMax | 8 v 1 profesionálny hydrofaciálny prístroj",
+  "metaDescription": "HydraMax 8 v 1 hydrofacial: dermabrázia, ultrazvuk, LED, kyslíková infúzia. EÚ-kompatibilný, CE certifikácia, 2-ročná záruka.",
   "stats": [
-    {"value": "8", "label": "Osetrujuca funkcia", "icon": "layers"},
-    {"value": "CE", "label": "Certifikacia", "icon": "shield"},
-    {"value": "2", "unit": "rok", "label": "Zaruka", "icon": "shield"},
-    {"value": "~30", "unit": "min", "label": "Cas osetrenia", "icon": "clock"}
+    {
+      "value": "8",
+      "label": "Ošetrujúce funkcie",
+      "icon": "layers"
+    },
+    {
+      "value": "CE",
+      "label": "Certifikácia",
+      "icon": "shield"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "~30",
+      "unit": "min",
+      "label": "Čas ošetrenia",
+      "icon": "clock"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 20000},
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
-    "headline": "HydraMax – profesionalne cistenie a obnova pleti jednym pristrojom",
+    "headline": "HydraMax – profesionálne čistenie a obnova pleti jedným prístrojom",
     "paragraphs": [
-      "HydraMax 8 v 1 pristroj na osetrenie tvare kombinuje najmodernejsie technologie na komplexne osetrenie pleti, pricom splna vsetky poziadavky EU na kompatibilitu a bezpecnost.",
-      "Jednym pristrojom mozno vykonat kompletne cistenie tvare, hydratáciu, spevnenie a obnovu pleti – nakladovo efektivne a usetríac priestor.",
-      "Siroke moznosti pouzitia pre vsetky typy pleti, jednoducha obsluha, moderny dizajn."
+      "HydraMax 8 v 1 prístroj na ošetrenie tváre kombinuje najmodernejšie technológie na komplexné ošetrenie pleti, pričom spĺňa všetky požiadavky EÚ na kompatibilitu a bezpečnosť.",
+      "Jedným prístrojom možno vykonať kompletné čistenie tváre, hydratáciu, spevnenie a obnovu pleti – nákladovo efektívne a šetriac priestor.",
+      "Široké možnosti použitia pre všetky typy pleti, jednoduchá obsluha, moderný dizajn."
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Mate otazky ohladom zariadenia? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
-    "afterFeatures": {"headline": "Chcete si HydraMax pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
-    "final": {"headline": "Zaujima vas HydraMax?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+    "afterVideo": {
+      "text": "Máte otázky ohľadom zariadenia? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si HydraMax pozrieť naživo?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervácia termínu"
+    },
+    "final": {
+      "headline": "Zaujíma vás HydraMax?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
   },
   "featureRows": {
-    "headline": "Preco si kozmeticky vyberaju HydraMax?",
-    "subtitle": "8 funkcii v jednom zariadeni – nakladovo efektivne riesenie setriace priestor",
+    "headline": "Prečo si kozmetičky vyberajú HydraMax?",
+    "subtitle": "8 funkcií v jednom zariadení – nákladovo efektívne riešenie šetriace priestor",
     "features": [
       {
-        "title": "8 osetrujucich funkcii v jednom zariadeni",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia a vodny peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukove osetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kyslíkova infúzia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Galvanicke a iontoforeticke osetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vakuova terapia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED svetelna terapia (modra, cervena, zelena)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teply kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrodermabrázia</div>\n</div>",
+        "title": "8 ošetrujúcich funkcií v jednom zariadení",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia a vodný peeling</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukové ošetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kyslíková infúzia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Galvanické a iontoforetické ošetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vákuová terapia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED svetelná terapia (modrá, červená, zelená)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teplé kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrodermabrázia</div>\n</div>",
         "image": "@assets/products/HydraMax1.webp"
       },
       {
-        "title": "Profesionalne cistenie a hydratácia pleti",
-        "description": "Hydrodermabrázia hlbkovo cisti pory, odstrania odumrete kozné bunky a necistoty. Kyslíkova infúzia zvysuje kyslíkove zasobovanie pleti a jej vitalitu, zatial co vakuova terapia stimuluje mikrocirkulaciu a spevnuje plet.",
+        "title": "Profesionálne čistenie a hydratácia pleti",
+        "description": "Hydrodermabrázia hĺbkovo čistí póry, odstraňuje odumreté kožné bunky a nečistoty. Kyslíková infúzia zvyšuje kyslíkové zásobovanie pleti a jej vitalitu, zatiaľ čo vákuová terapia stimuluje mikrocirkuláciu a spevňuje pleť.",
         "image": "@assets/products/hydramax.webp"
       },
       {
-        "title": "Vnaasanie ucinnych latok a spevnenie pleti",
-        "description": "Ultrazvukove osetrenie podporuje hlbsie prenikanie ucinnych latok do pleti. Galvanicke osetrenie zlepsuje vstrebávanie ser a LED svetelna terapia umoznuje cielene osetrenie roznych kozných problemov.",
+        "title": "Vnášanie účinných látok a spevnenie pleti",
+        "description": "Ultrazvukové ošetrenie podporuje hlbšie prenikanie účinných látok do pleti. Galvanické ošetrenie zlepšuje vstrebávanie sér a LED svetelná terapia umožňuje cielené ošetrenie rôznych kožných problémov.",
         "image": "@assets/products/HydraMax2.webp"
       },
       {
-        "title": "EU-kompatibilny, s CE certifikaciou",
-        "description": "HydraMax je profesionalne zariadenie splnajuce vsetky EU standardy, s CE certifikaciou. Zabezpecuje salonnu kvalitu vysledkov pre vsetky typy pleti, jednoducha obsluha, moderny dizajn.",
+        "title": "EÚ-kompatibilný, s CE certifikáciou",
+        "description": "HydraMax je profesionálne zariadenie spĺňajúce všetky EÚ štandardy, s CE certifikáciou. Zabezpečuje salónnu kvalitu výsledkov pre všetky typy pleti, jednoduchá obsluha, moderný dizajn.",
         "image": "@assets/products/HydraMax3.webp"
       }
     ]
   },
   "training": {
-    "headline": "Skolenie obsluhy zariadenia – v ramci oficialneho vzdelavania dospelych",
-    "badge": "S oficialnym certifikatom",
-    "intro": "K zariadeniu HydraMax je k dispozicii profesionalne skolenie obsluhy zariadenia, ktore poskytujeme v ramci oficialne ohlasenho vzdelavania dospelych. Cielom skolenia je, aby ste ziskali komplexne teoreticke a prakticke vedomosti o odbornom pouzivani zariadenia.",
+    "headline": "Školenie obsluhy zariadenia – v rámci oficiálneho vzdelávania dospelých",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K zariadeniu HydraMax je k dispozícii profesionálne školenie obsluhy zariadenia, ktoré poskytujeme v rámci oficiálne ohláseného vzdelávania dospelých. Cieľom školenia je, aby ste získali komplexné teoretické a praktické vedomosti o odbornom používaní zariadenia.",
     "items": [
-      "Princip fungovania HydraMax, jeho technologie a osetrujuce hlavice",
-      "Protokoly osetrenia pre rozne typy pleti a problemy",
-      "Spravna aplikacia LED svetelnej terapie a galvanickeho osetrenia",
-      "Zaklady analyzy pleti a zostavenie individualneho planu osetrenia",
-      "Komunikacia s klientmi a dokumentacia osetreni",
-      "Prakticke osetrenia na modelkach"
+      "Princíp fungovania HydraMax, jeho technológie a ošetrujúce hlavice",
+      "Protokoly ošetrenia pre rôzne typy pleti a problémy",
+      "Správna aplikácia LED svetelnej terapie a galvanického ošetrenia",
+      "Základy analýzy pleti a zostavenie individuálneho plánu ošetrenia",
+      "Komunikácia s klientmi a dokumentácia ošetrení",
+      "Praktické ošetrenia na modelkách"
     ],
     "closingParagraphs": [
-      "Na skolenie si samozrejme mozete priviest modelku, aby ste si techniky osetrenia osvojili v realnom prostredi.",
-      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HydraMax.",
-      "Ak vas zaujima moznost kurzu, kontaktujte nas prosim na niektorom z nasich kontaktov za ucelom dohodnutia terminu!"
+      "Na školenie si samozrejme môžete priviesť modelku, aby ste si techniky ošetrenia osvojili v reálnom prostredí.",
+      "Po absolvovaní školenia vydáme oficiálny certifikát, ktorý potvrdzuje kompetentnosť na odbornú obsluhu zariadenia HydraMax.",
+      "Ak vás zaujíma možnosť kurzu, kontaktujte nás prosím na niektorom z našich kontaktov za účelom dohodnutia termínu!"
     ],
     "price": "69.990 Ft",
-    "priceNote": "hodnota skolenia",
-    "freeText": "ZADARMO pri kupe zariadenia!",
-    "duration": "Jednodnove intenzivne skolenie",
-    "ctaText": "Mam zaujem o skolenie"
+    "priceNote": "hodnota školenia",
+    "freeText": "ZADARMO pri kúpe zariadenia!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
   },
   "expertQuote": {
-    "quote": "HydraMax je vynikajuci vstup do sveta hydrofacialnych osetreni. 8 funkcii, CE certifikacia a klienti okamzite vidia vysledok – to znamena zaruceiny prijem.",
+    "quote": "HydraMax je vynikajúci vstup do sveta hydrofaciálnych ošetrení. 8 funkcií, CE certifikácia a klienti okamžite vidia výsledok – to znamená zaručený príjem.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    {"icon": "droplet", "name": "Hydrodermabrázia", "description": "Hlbkove cistenie, odstranenie odumretych koze a necistot"},
-    {"icon": "sound", "name": "Ultrazvukove osetrenie", "description": "Vnaasanie ucinnych latok a mikromassaz do hlbsich vrstiev"},
-    {"icon": "wind", "name": "Kyslíkova infúzia", "description": "Zvysenie kyslíkoveho zasobovania pleti a revitalizacia"},
-    {"icon": "zap", "name": "Galvanicke osetrenie", "description": "Iontoforeza pre lepsie vstrebávanie ser"},
-    {"icon": "bolt", "name": "Vakuova terapia", "description": "Stimulacia mikrocirkulacie a spevnenie pleti"},
-    {"icon": "sun", "name": "LED svetelna terapia", "description": "Modre, cervene, zelene svetlo pre rozne kozné problemy"},
-    {"icon": "snowflake", "name": "Studeno-teply kladivko", "description": "Upokojenie pleti, stiahnutie porov, stimulacia cirkulacie"},
-    {"icon": "sparkle", "name": "Mikrodermabrázia", "description": "Jemny peeling, obnova pleti, zlepsenie textury"}
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrázia",
+      "description": "Hĺbkové čistenie, odstránenie odumretých buniek kože a nečistôt"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvukové ošetrenie",
+      "description": "Vnášanie účinných látok a mikromasáž do hlbších vrstiev"
+    },
+    {
+      "icon": "wind",
+      "name": "Kyslíková infúzia",
+      "description": "Zvýšenie kyslíkového zásobovania pleti a revitalizácia"
+    },
+    {
+      "icon": "zap",
+      "name": "Galvanické ošetrenie",
+      "description": "Iontoforéza pre lepšie vstrebávanie sér"
+    },
+    {
+      "icon": "bolt",
+      "name": "Vákuová terapia",
+      "description": "Stimulácia mikrocirkulácie a spevnenie pleti"
+    },
+    {
+      "icon": "sun",
+      "name": "LED svetelná terapia",
+      "description": "Modré, červené, zelené svetlo pre rôzne kožné problémy"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Studeno-teplé kladivko",
+      "description": "Upokojenie pleti, stiahnutie pórov, stimulácia cirkulácie"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Mikrodermabrázia",
+      "description": "Jemný peeling, obnova pleti, zlepšenie textúry"
+    }
   ],
   "faq": [
-    {"question": "Akymi funkciami disponuje HydraMax?", "answer": "HydraMax zjednocuje 8 funkcii v jednom zariadeni: hydrodermabrázia a vodny peeling, ultrazvukove osetrenie, kyslíkova infúzia, galvanicke a iontoforeticke osetrenie, vakuova terapia, LED svetelna terapia, studeno-teply kladivko a mikrodermabrázia."},
-    {"question": "Ake skolenie je sucasou zariadenia HydraMax?", "answer": "K zariadeniu patri skolenie obsluhy zariadenia v hodnote 69 990 Ft v ramci oficialneho vzdelavania dospelych, ktore je pri kupe zariadenia ZADARMO. Skolenie pokryva pouzitie vsetkych funkcii, protokoly osetrenia a prakticke osetrenia. Vydavame oficialny certifikat."},
-    {"question": "Za aky cas sa HydraMax vrati?", "answer": "Vdaka priaznivemu pomeru ceny a vykonu priemerne za 1-3 mesiace pri 3-5 klientoch denne. Cena hydrofacialneho osetrenia sa pohybuje medzi 12 000 – 25 000 Ft. Pouzite nasu ROI kalkulacku na stranke pre presny vypocet!"},
-    {"question": "Pre ake typy pleti je osetrenie vhodne?", "answer": "HydraMax je vhodny pre vsetky typy pleti vratane citlivej pleti. Rozne funkcie a urovne intenzity umoznuju individualne prisposobenie osetrenia."},
-    {"question": "Ma zariadenie CE certifikaciu?", "answer": "Ano, HydraMax splna vsetky poziadavky EU na kompatibilitu a bezpecnost a ma CE oznacenie. Je to vysokovykonny pristroj navrhnuty na profesionalne pouzitie."},
-    {"question": "Ake spotrebne materialy su potrebne?", "answer": "Na hydrodermabrazne osetrenia su potrebne specialne sera a roztoky, napriklad z radu produktov HydraLiquid. Tieto poskytujeme nasim zakaznikom za zvyhodnenu cenu."},
-    {"question": "Je mozne si zariadenie prezriet pred kupou?", "answer": "Ano! V nasom showroome (Erd, Bajcsy-Zsilinszky ut 156.) si mozete HydraMax osobne prezriet a vyskusat po predchadzajucej rezervacii terminu."}
+    {
+      "question": "Akými funkciami disponuje HydraMax?",
+      "answer": "HydraMax zjednocuje 8 funkcií v jednom zariadení: hydrodermabrázia a vodný peeling, ultrazvukové ošetrenie, kyslíková infúzia, galvanické a iontoforetické ošetrenie, vákuová terapia, LED svetelná terapia, studeno-teplé kladivko a mikrodermabrázia."
+    },
+    {
+      "question": "Aké školenie je súčasťou zariadenia HydraMax?",
+      "answer": "K zariadeniu patrí školenie obsluhy zariadenia v hodnote 69 990 Ft v rámci oficiálneho vzdelávania dospelých, ktoré je pri kúpe zariadenia ZADARMO. Školenie pokrýva použitie všetkých funkcií, protokoly ošetrenia a praktické ošetrenia. Vydávame oficiálny certifikát."
+    },
+    {
+      "question": "Za aký čas sa HydraMax vráti?",
+      "answer": "Vďaka priaznivému pomeru ceny a výkonu priemerne za 1-3 mesiace pri 3-5 klientoch denne. Cena hydrofaciálneho ošetrenia sa pohybuje medzi 12 000 – 25 000 Ft. Použite našu ROI kalkulačku na stránke pre presný výpočet!"
+    },
+    {
+      "question": "Pre aké typy pleti je ošetrenie vhodné?",
+      "answer": "HydraMax je vhodný pre všetky typy pleti vrátane citlivej pleti. Rôzne funkcie a úrovne intenzity umožňujú individuálne prispôsobenie ošetrenia."
+    },
+    {
+      "question": "Má zariadenie CE certifikáciu?",
+      "answer": "Áno, HydraMax spĺňa všetky požiadavky EÚ na kompatibilitu a bezpečnosť a má CE označenie. Je to vysokovýkonný prístroj navrhnutý na profesionálne použitie."
+    },
+    {
+      "question": "Aké spotrebné materiály sú potrebné?",
+      "answer": "Na hydrodermabrázne ošetrenia sú potrebné špeciálne séra a roztoky, napríklad z radu produktov HydraLiquid. Tieto poskytujeme našim zákazníkom za zvýhodnenú cenu."
+    },
+    {
+      "question": "Je možné si zariadenie prezrieť pred kúpou?",
+      "answer": "Áno! V našom showroome (Érd, Bajcsy-Zsilinszky út 156.) si môžete HydraMax osobne prezrieť a vyskúšať po predchádzajúcej rezervácii termínu."
+    }
   ],
   "whatsIncluded": [
     "HydraMax zariadenie",
-    "Hydrodermabrazna osetrujuca hlavica",
-    "Ultrazvukova osetrujuca hlavica",
-    "Kyslíkova infúzna osetrujuca hlavica",
-    "Galvanicka osetrujuca hlavica",
-    "Vakuova terapeuticka osetrujuca hlavica",
-    "LED svetelny terapeuticky modul",
-    "Studeno-teply kladivko osetrujuca hlavica",
-    "Mikrodermabrazna osetrujuca hlavica",
-    "Startovaci balik ser",
-    "Navod na pouzitie (v slovencine)",
-    "2-rocna plna zaruka",
-    "Nahradne zariadenie pocas opravy"
+    "Hydrodermabrázna ošetrujúca hlavica",
+    "Ultrazvuková ošetrujúca hlavica",
+    "Kyslíková infúzna ošetrujúca hlavica",
+    "Galvanická ošetrujúca hlavica",
+    "Vákuová terapeutická ošetrujúca hlavica",
+    "LED svetelný terapeutický modul",
+    "Studeno-teplé kladivko ošetrujúca hlavica",
+    "Mikrodermabrázna ošetrujúca hlavica",
+    "Štartovací balík sér",
+    "Návod na použitie (v slovenčine)",
+    "2-ročná plná záruka",
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

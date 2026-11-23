@@ -4,6 +4,13 @@
   "description": "Presný a stabilný ihlový modul na profesionálny permanentný make-up. Výnimočný dizajn v tvare srdca mu dodáva skutočne ženský a jedinečný vzhľad a zároveň zabezpečuje rovnomerné vpravenie pigmentu a dobre kontrolovateľnú prácu.\n\nDostupné veľkosti: 0,25 mm 1RL, 0,25 mm 3RL, 0,30 mm 1RL, 0,30 mm 3RL, 0,35 mm 1RL.\n\nV jednom balení je 20 jednorazových ihlových modulov, každý sterilne balený samostatne.",
   "metaTitle": "Faviamo ihlový modul – 20 sterilných PMU ihiel, 1RL a 3RL",
   "metaDescription": "Ihlové moduly Faviamo na profesionálny PMU: rovnomerné vpravenie pigmentu, ženský dizajn v tvare srdca. 20 ks/balenie, jednotlivo sterilné, 0,25–0,35 mm.",
+  "specs": {
+    "Balenie": "20 ks/krabička",
+    "Obal": "Jednotlivo sterilné",
+    "Použitie": "Jednorazové",
+    "Rozmery": "0,25 / 0,30 / 0,35 mm",
+    "Typ": "1RL, 3RL"
+  },
   "faq": [
     {
       "question": "Aké veľkosti sú k dispozícii?",
@@ -21,5 +28,48 @@
   "whatsIncluded": [
     "20 ks ihlových modulov Faviamo vo zvolenej veľkosti",
     "Jednotlivé sterilné balenie"
-  ]
+  ],
+  "imageAlts": {
+    "faviamo-tumodul-1.jpg": "Ihlový modul Faviamo vo fialovo-ružovej darčekovej krabičke, s dvoma sterilne balenými ihlovými modulmi",
+    "faviamo-tumodul-design-1.jpg": "Ihlový modul Faviamo v ruke v rukavici, pred otvorenou darčekovou krabičkou, s jesennou dekoráciou",
+    "faviamo-tumodul-design-2.jpg": "Krabička ihlových modulov Faviamo a sterilne balený ihlový modul, vedľa dekoratívnych tekvíc",
+    "faviamo-tumodul-design-3.jpg": "Ihlové moduly Faviamo v otvorenej krabičke, na farebnom kožušinovom pozadí"
+  },
+  "variants": {
+    "fav-025-1rl": {
+      "name": "0,25 mm 1RL",
+      "specs": {
+        "Rozmer": "0,25 mm",
+        "Typ": "1RL"
+      }
+    },
+    "fav-025-3rl": {
+      "name": "0,25 mm 3RL",
+      "specs": {
+        "Rozmer": "0,25 mm",
+        "Typ": "3RL"
+      }
+    },
+    "fav-030-1rl": {
+      "name": "0,30 mm 1RL",
+      "specs": {
+        "Rozmer": "0,30 mm",
+        "Typ": "1RL"
+      }
+    },
+    "fav-030-3rl": {
+      "name": "0,30 mm 3RL",
+      "specs": {
+        "Rozmer": "0,30 mm",
+        "Typ": "3RL"
+      }
+    },
+    "fav-035-1rl": {
+      "name": "0,35 mm 1RL",
+      "specs": {
+        "Rozmer": "0,35 mm",
+        "Typ": "1RL"
+      }
+    }
+  }
 }

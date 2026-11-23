@@ -4,6 +4,13 @@
   "description": "Präzises, stabiles Nadelmodul für professionelles Permanent Make-up. Das besondere herzförmige Design verleiht ihm einen femininen, einzigartigen Look und sorgt zugleich für einen gleichmäßigen Pigmenteintrag und gut kontrollierbares Arbeiten.\n\nErhältliche Größen: 0,25 mm 1RL, 0,25 mm 3RL, 0,30 mm 1RL, 0,30 mm 3RL, 0,35 mm 1RL.\n\nEine Box enthält 20 einzeln steril verpackte Einweg-Nadelmodule.",
   "metaTitle": "Faviamo Nadelmodul – 20 sterile PMU-Nadeln, 1RL und 3RL",
   "metaDescription": "Faviamo Nadelmodule für professionelles PMU: gleichmäßiger Pigmenteintrag, feminines Herzdesign. 20 Stk./Box, einzeln steril, 0,25–0,35 mm.",
+  "specs": {
+    "Packungsgröße": "20 Stück/Box",
+    "Verpackung": "Einzeln steril",
+    "Verwendung": "Einweg",
+    "Größen": "0,25 / 0,30 / 0,35 mm",
+    "Typ": "1RL, 3RL"
+  },
   "faq": [
     {
       "question": "Welche Größen gibt es?",
@@ -21,5 +28,48 @@
   "whatsIncluded": [
     "20 Faviamo Nadelmodule in der gewählten Größe",
     "Einzeln sterile Verpackung"
-  ]
+  ],
+  "imageAlts": {
+    "faviamo-tumodul-1.jpg": "Faviamo Nadelmodul in lila-pinker Geschenkbox, mit zwei steril verpackten Nadelmodulen",
+    "faviamo-tumodul-design-1.jpg": "Faviamo Nadelmodul in behandschuhter Hand, vor der geöffneten Geschenkbox, mit Herbstdekoration",
+    "faviamo-tumodul-design-2.jpg": "Box des Faviamo Nadelmoduls und steril verpacktes Nadelmodul, neben dekorativen Kürbissen",
+    "faviamo-tumodul-design-3.jpg": "Faviamo Nadelmodule in der geöffneten Box, vor buntem Fellhintergrund"
+  },
+  "variants": {
+    "fav-025-1rl": {
+      "name": "0,25 mm 1RL",
+      "specs": {
+        "Größe": "0,25 mm",
+        "Typ": "1RL"
+      }
+    },
+    "fav-025-3rl": {
+      "name": "0,25 mm 3RL",
+      "specs": {
+        "Größe": "0,25 mm",
+        "Typ": "3RL"
+      }
+    },
+    "fav-030-1rl": {
+      "name": "0,30 mm 1RL",
+      "specs": {
+        "Größe": "0,30 mm",
+        "Typ": "1RL"
+      }
+    },
+    "fav-030-3rl": {
+      "name": "0,30 mm 3RL",
+      "specs": {
+        "Größe": "0,30 mm",
+        "Typ": "3RL"
+      }
+    },
+    "fav-035-1rl": {
+      "name": "0,35 mm 1RL",
+      "specs": {
+        "Größe": "0,35 mm",
+        "Typ": "1RL"
+      }
+    }
+  }
 }

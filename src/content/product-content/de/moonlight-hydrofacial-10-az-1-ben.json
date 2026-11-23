@@ -5,12 +5,32 @@
   "metaTitle": "Moonlight Hydrofacial | 10-in-1 Multifunktionales Gesichtsbehandlungsgerät",
   "metaDescription": "Moonlight Hydrofacial 10-in-1: 10 Behandlungsköpfe, Tiefenreinigung, Hydratation, Lifting, Hauterneuerung. 2 Jahre Garantie.",
   "stats": [
-    { "value": "10", "label": "Behandlungsköpfe", "icon": "layers" },
-    { "value": "15%+", "label": "Feuchtigkeitssteigerung", "icon": "droplet" },
-    { "value": "2", "unit": "Jahre", "label": "Garantie", "icon": "shield" },
-    { "value": "~40", "unit": "Min", "label": "Behandlungszeit", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Behandlungsköpfe",
+      "icon": "layers"
+    },
+    {
+      "value": "15%+",
+      "label": "Feuchtigkeitssteigerung",
+      "icon": "droplet"
+    },
+    {
+      "value": "2",
+      "unit": "Jahre",
+      "label": "Garantie",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "Min",
+      "label": "Behandlungszeit",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Das Moonlight Hydrofacial – Premium-Hautpflege mit 10 Behandlungsköpfen",
     "paragraphs": [
@@ -87,19 +107,60 @@
   "expertQuote": {
     "quote": "Das Moonlight Hydrofacial mit 10 Behandlungsköpfen und klinisch nachgewiesenen Ergebnissen bietet einen herausragenden Wert. Eine vollständige Gesichtsbehandlung mit einem einzigen Gerät.",
     "author": "Horváth László",
-    "role": "Skinlab-Mitgründer, Geschäftsführer"
+    "role": "Skinlab-Mitgründer, Geschäftsführer",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Bubble pen", "description": "Hydrodermabrasion-Tiefenreinigung" },
-    { "icon": "snowflake", "name": "Ice head", "description": "Kühlung, Entzündungs- und Irritationsminderung" },
-    { "icon": "sound", "name": "Ultraschallkopf", "description": "Wirkstoffeinschleusung und Straffung (Gesicht + Augenpartie)" },
-    { "icon": "sparkle", "name": "Magic ball", "description": "Mikrostrom beruhigende und stimulierende Behandlung" },
-    { "icon": "bolt", "name": "Suction pen", "description": "Vakuum-Porenreinigung" },
-    { "icon": "zap", "name": "Lifting head", "description": "Mikrostimulation zur Konturanhebung" },
-    { "icon": "layers", "name": "Facial ultrasound", "description": "Tiefen-Ultraschallbehandlung" },
-    { "icon": "chart", "name": "Line-Kopf", "description": "RF/EMS-Wirkung zur Tonusverbesserung" },
-    { "icon": "spray", "name": "Product spray", "description": "Sprühkopf zur feinen Verteilung von Wirkstoffen" },
-    { "icon": "clipboard", "name": "UH-Spatel", "description": "Entfernung abgestorbener Hautzellen, Reinigungspeeling" }
+    {
+      "icon": "droplet",
+      "name": "Bubble pen",
+      "description": "Hydrodermabrasion-Tiefenreinigung"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ice head",
+      "description": "Kühlung, Entzündungs- und Irritationsminderung"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultraschallkopf",
+      "description": "Wirkstoffeinschleusung und Straffung (Gesicht + Augenpartie)"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Magic ball",
+      "description": "Mikrostrom beruhigende und stimulierende Behandlung"
+    },
+    {
+      "icon": "bolt",
+      "name": "Suction pen",
+      "description": "Vakuum-Porenreinigung"
+    },
+    {
+      "icon": "zap",
+      "name": "Lifting head",
+      "description": "Mikrostimulation zur Konturanhebung"
+    },
+    {
+      "icon": "layers",
+      "name": "Facial ultrasound",
+      "description": "Tiefen-Ultraschallbehandlung"
+    },
+    {
+      "icon": "chart",
+      "name": "Line-Kopf",
+      "description": "RF/EMS-Wirkung zur Tonusverbesserung"
+    },
+    {
+      "icon": "spray",
+      "name": "Product spray",
+      "description": "Sprühkopf zur feinen Verteilung von Wirkstoffen"
+    },
+    {
+      "icon": "clipboard",
+      "name": "UH-Spatel",
+      "description": "Entfernung abgestorbener Hautzellen, Reinigungspeeling"
+    }
   ],
   "faq": [
     {
@@ -145,6 +206,6 @@
     "Ultraschall-Spatel Behandlungskopf",
     "Bedienungsanleitung",
     "2 Jahre Vollgarantie",
-    "Ersatzgerät während der Reparatur"
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
   ]
 }

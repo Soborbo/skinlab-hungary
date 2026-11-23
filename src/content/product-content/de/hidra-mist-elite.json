@@ -1,0 +1,229 @@
+{
+  "name": "HydraMIST Elite 11-in-1 Hydrofacial",
+  "shortDescription": "Multifunktionales 11-in-1-Hydrofacial-System: Vakuum-Hydradermabrasion, Sauerstoff-Wirkstoffeinschleusung, RF, LED-Sauerstoffkuppel und vieles mehr auf einer Plattform.",
+  "description": "HydraMIST Elite ist ein multifunktionales elektrokosmetisches System, das 11 Hautbehandlungstechnologien auf einer einzigen Plattform vereint: Vakuum-Hydradermabrasion, Ultraschall-Peeling, CO₂-Bläschenreinigung, Sauerstoff- und Ultraschall-Wirkstoffeinschleusung, multipolare RF-Hautstraffung, Ionen-Lifting, LED- + Sauerstoffkuppel und Kältetherapie-Kopf. Für den professionellen Salongebrauch.",
+  "stats": [
+    {
+      "value": "11",
+      "label": "Behandlungen in einem Gerät",
+      "icon": "spray"
+    },
+    {
+      "value": "0–80",
+      "unit": "kPa",
+      "label": "Einstellbares Vakuum",
+      "icon": "chart"
+    },
+    {
+      "value": "0–6",
+      "unit": "bar",
+      "label": "Sauerstoffdruck",
+      "icon": "bubbles"
+    },
+    {
+      "value": "3",
+      "label": "Lösungsbehälter (A/B/C)",
+      "icon": "droplet"
+    }
+  ],
+  "videoDescription": {
+    "headline": "HydraMIST Elite – 11 Technologien auf einer einzigen Plattform",
+    "paragraphs": [
+      "HydraMIST Elite bietet in einem einzigen Gerät, wofür ein Salon normalerweise mehrere Geräte braucht: Tiefenreinigung, Hydratation, Wirkstoffeinschleusung, Hautstraffung und einen beruhigenden Abschluss. Zwischen den Funktionen wechseln Sie am Touchscreen, sodass Sie innerhalb einer Behandlung ein auf die Haut der Kundin abgestimmtes, komplexes Protokoll aufbauen können.",
+      "Die Grundlage ist die Vakuum-Hydradermabrasion: Flüssigkeit und Vakuum reinigen gemeinsam die Poren, entfernen abgestorbene Hautzellen und spenden Feuchtigkeit. Darauf bauen die nadelfreie Sauerstoff- und Ultraschall-Wirkstoffeinschleusung, die multipolare RF und die LED-Sauerstoffkuppel auf. Alle Funktionen finden Sie weiter unten bei den Behandlungsfunktionen."
+    ]
+  },
+  "featureRows": {
+    "headline": "Warum HydraMIST Elite?",
+    "subtitle": "Komplexe Gesichtsbehandlung mit einem einzigen, durchdachten Gerät",
+    "features": [
+      {
+        "title": "Transparente Sauerstoffhaube mit 360°-Gesichtsabdeckung",
+        "description": "Die Haube besteht aus hochwertigem PC-Material: langlebig, transparent und leicht zu reinigen. Sie passt sich ergonomisch der Gesichtskontur an und sorgt aus jedem Winkel für eine gleichmäßige Wirkstoffeinschleusung. Der integrierte Schutzschild verhindert, dass Sprühnebel austritt, sodass die Behandlung sauber und sicher bleibt.",
+        "highlight": "Dank des in die Kuppel integrierten Multimediasystems kann während der Behandlung auch Musik laufen.",
+        "image": "@assets/products/hydramist-elite-info-bura.png"
+      },
+      {
+        "title": "Intuitiver Touchscreen, alle Funktionen an einem Ort",
+        "description": "Alle Behandlungsmodi sind über übersichtliche Symbole auf dem hochauflösenden Touchscreen erreichbar. Intensität und Dauer lassen sich je Behandlung einstellen, Lieblingseinstellungen können mit der Speicherfunktion gesichert werden. Die blaue LED-Statusanzeige zeigt an, wenn das Gerät behandlungsbereit ist.",
+        "highlight": "Schnelle Einstellung – so bleibt mehr Zeit für die Kundin.",
+        "image": "@assets/products/hydramist-elite-info-kijelzo.png"
+      },
+      {
+        "title": "Präzise Dosierung, gleichmäßiger Flüssigkeitsstrom",
+        "description": "Das professionelle Flüssigkeitsversorgungssystem bringt den Wirkstoff mit stabilem Druck und gleichmäßigem Strom in die Haut. Mit dem Regulierring am Dosierschlauch lässt sich die gewünschte Flüssigkeitsmenge genau einstellen. Das geschlossene System ist hygienisch, die Behälter lassen sich schnell und einfach wechseln.",
+        "highlight": "3 Lösungsbehälter (A/B/C) und separater Abfallbehälter.",
+        "image": "@assets/products/hydramist-elite-info-adagolas.png"
+      }
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "spray",
+      "name": "Vakuum-Hydradermabrasion",
+      "description": "Die Hauptfunktion: Flüssigkeit und Vakuum reinigen gemeinsam die Poren und spenden Feuchtigkeit."
+    },
+    {
+      "icon": "sound",
+      "name": "Skin Scrubber",
+      "description": "Ultraschall-Peeling, Entfernung abgestorbener Hautzellen und Mitesser."
+    },
+    {
+      "icon": "bubbles",
+      "name": "CO₂-Bläschenbehandlung",
+      "description": "Porenreinigung und Anregung der Sauerstoffversorgung der Haut."
+    },
+    {
+      "icon": "droplet",
+      "name": "Hochdruck-Sauerstoffinjektor",
+      "description": "Nadelfreie, schnelle Wirkstoffeinschleusung in die oberen Hautschichten."
+    },
+    {
+      "icon": "spray",
+      "name": "Sauerstoff-Sprühpistole",
+      "description": "Feiner Sprühnebel zur Erfrischung, Hydratation, für empfindliche Haut."
+    },
+    {
+      "icon": "droplet",
+      "name": "Präzisions-Sauerstoffstift",
+      "description": "Gezielte Behandlung kleiner Flächen, zum Beispiel der Augenpartie."
+    },
+    {
+      "icon": "sound",
+      "name": "Ultraschall-Wirkstoffeinschleusung",
+      "description": "Sonophorese mit 1–3 MHz für eine bessere Aufnahme."
+    },
+    {
+      "icon": "bolt",
+      "name": "7-polige Radiofrequenz",
+      "description": "Tiefenwärme für die Kollagenneubildung: Straffung, Faltenreduktion."
+    },
+    {
+      "icon": "bolt",
+      "name": "Ionenroller",
+      "description": "Mikrostrommassage, Muskeltonus und sanfter Lifting-Effekt."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Kältehammer",
+      "description": "Porenverfeinerung, Beruhigung, Abschluss der Behandlung."
+    },
+    {
+      "icon": "bubbles",
+      "name": "LED-Sauerstoffkuppel",
+      "description": "Lichttherapie mit mehreren Wellenlängen und Sauerstoff, mit integrierter Musik."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Was bedeutet 11-in-1?",
+      "answer": "11 separate Handstücke und Technologien in einem Gerät, von der Vakuum-Hydradermabrasion bis zur Radiofrequenz und der LED-Sauerstoffkuppel. So lassen sich Reinigung, Wirkstoffeinschleusung, Straffung und beruhigender Abschluss an einem Gerät durchführen. Alle stellen wir oben bei den Behandlungsfunktionen vor."
+    },
+    {
+      "question": "Für wen wird es empfohlen?",
+      "answer": "Für Kosmetiksalons und Fachleute, die Hautpflegebehandlungen durchführen – für Einsteiger wie Fortgeschrittene. Es ist für den professionellen Salongebrauch konzipiert und erfordert entsprechendes Fachwissen."
+    },
+    {
+      "question": "Wie lange dauert eine Behandlung?",
+      "answer": "Je nach gewähltem Protokoll in der Regel 60–90 Minuten."
+    },
+    {
+      "question": "Für welchen Hauttyp ist es geeignet?",
+      "answer": "Für nahezu jeden Hauttyp: auch für trockene, feuchtigkeitsarme, fettige, Misch- und fahle Haut. Die Intensitäten müssen stets an den Hautzustand der Kundin angepasst werden, bei der ersten Behandlung mit niedrigerer Stufe."
+    },
+    {
+      "question": "Gibt es für die Kundin eine Ausfallzeit?",
+      "answer": "Nein. Die Behandlung ist nicht-invasiv und schmerzfrei, die Kundin kann danach sofort ihren Alltag fortsetzen. Leichte Hautrötungen können auftreten, sie klingen in der Regel nach kurzer Zeit ab."
+    },
+    {
+      "question": "Wie oft wird die Behandlung empfohlen?",
+      "answer": "Zur Hautpflege alle 3–4 Wochen. Bei einem intensiveren Hauterneuerungsprogramm erstellt die Behandlerin einen individuellen Plan."
+    },
+    {
+      "question": "Ist es ein Medizinprodukt?",
+      "answer": "Nein. Das Gerät ist für den kosmetischen Gebrauch bestimmt, gilt nicht als Medizinprodukt und ist nicht zur Diagnose oder Behandlung von Krankheiten geeignet."
+    },
+    {
+      "question": "Wie lang ist die Lieferzeit, und ist eine Schulung inbegriffen?",
+      "answer": "Die Lieferzeit beträgt 2–6 Wochen. Zum Kauf gehört eine umfassende Fachschulung (ungarischsprachiges Schulungsmaterial, Behandlungsprotokolle, Sicherheitsrichtlinien). Auf Wunsch ist auch eine praktische Schulung mit Live-Modell erhältlich (69.990 Ft)."
+    }
+  ],
+  "training": {
+    "headline": "Schulung für HydraMIST Elite",
+    "badge": "Schulung in ungarischer Sprache",
+    "intro": "Zum Gerät gehört umfassendes fachliches Schulungsmaterial, damit Sie alle Funktionen sicher und souverän anwenden können.",
+    "items": [
+      "Ausführliches, ungarischsprachiges Schulungsmaterial",
+      "Behandlungsprotokolle für verschiedene Hauttypen",
+      "Schritt für Schritt aufgebaute Behandlungsabläufe",
+      "Bedienungsanleitung des Geräts",
+      "Vorlage für die Einverständniserklärung der Kundin",
+      "Hygiene- und Sicherheitsrichtlinien"
+    ],
+    "closingParagraphs": [
+      "Auf Wunsch können Sie auch an einer praktischen Schulung mit Live-Modell teilnehmen, in der Sie die Techniken in einer realen Behandlungsumgebung unter fachlicher Anleitung erlernen. Diese empfehlen wir besonders Einsteigern."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "praktische Schulung mit Live-Modell",
+    "duration": "Zu einem vereinbarten Termin",
+    "ctaText": "Schulung interessiert mich"
+  },
+  "whatsIncluded": [
+    "HydraMIST Elite Gerät",
+    "3 Lösungsbehälter (A/B/C) + Abfallbehälter",
+    "Ungarischsprachiges Schulungsmaterial und Behandlungsprotokolle",
+    "Vorlage für die Einverständniserklärung der Kundin",
+    "Hygiene- und Sicherheitsrichtlinien",
+    "Bedienungsanleitung des Geräts"
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Haben Sie Fragen zu HydraMIST Elite? Wir helfen gerne!",
+      "buttonLabel": "Beratung anfordern",
+      "phoneLabel": "Rufen Sie uns an"
+    },
+    "final": {
+      "headline": "Interessieren Sie sich für HydraMIST Elite?",
+      "subtitle": "Fordern Sie eine kostenlose Beratung oder eine Vorführung im Showroom an, und wir helfen Ihnen bei der Auswahl der passenden Behandlungsprotokolle für Ihren Salon.",
+      "buttonLabel": "Beratung anfordern"
+    }
+  },
+  "specs": {
+    "Gerätetyp": "Multifunktionales elektrokosmetisches System (11-in-1)",
+    "Handstücke": "Hydradermabrasions-Vakuumkopf, Skin Scrubber, CO₂-Bläschenkopf, Hochdruck-Sauerstoffinjektor, Sauerstoff-Sprühpistole, Präzisions-Sauerstoffstift, Ultraschall-Einschleusungskopf, 7-poliger RF-Kopf, Ionenroller, Kältehammer, LED-Sauerstoffkuppel",
+    "Display": "Touchscreen",
+    "Eingangsspannung": "220–240 V / 50–60 Hz",
+    "Leistung": "150–300 W",
+    "Vakuumstärke": "0–80 kPa (einstellbar)",
+    "Flüssigkeitsstrom": "In mehreren Stufen regulierbar",
+    "Sauerstoffdruck": "0–6 bar",
+    "Ultraschallfrequenz": "1–3 MHz",
+    "Radiofrequenz": "0,3–1 MHz (multipolar)",
+    "LED-Lichttherapie": "mehrere Wellenlängen (ca. 415–640 nm)",
+    "Skin Scrubber": "ca. 25–30 kHz",
+    "Lösungsbehälter": "3 Stk. (A/B/C) + Abfallbehälter",
+    "Behälterkapazität": "ca. 250–500 ml / Behälter",
+    "Schlauchsystem": "Geschlossen, austauschbar",
+    "Gehäusematerial": "ABS-Kunststoff + Metallelemente",
+    "Geräuschpegel": "< 60 dB",
+    "Gewicht": "15–25 kg",
+    "Betriebstemperatur": "10–30 °C",
+    "Garantie": "2 Jahre umfassende Garantie"
+  },
+  "imageAlts": {
+    "hydramist-elite-1.png": "HydraMIST Elite 11-in-1-Hydrofacial-Gerät mit Sauerstoffkuppel und Handstücken",
+    "hydramist-elite-2.png": "HydraMIST Elite Hydrofacial-Gerät von vorne mit Touchscreen und LED-Sauerstoffkuppel",
+    "hydramist-elite-3.png": "HydraMIST Elite Hydrofacial-Gerät in der Seitenansicht mit Lösungsbehältern",
+    "hydramist-elite-design-1.jpg": "HydraMIST Elite Hydrofacial-Gerät im Skinlab Showroom",
+    "hydramist-elite-design-2.jpg": "HydraMIST Elite mit eingeschalteter LED-Sauerstoffkuppel und Handstücken",
+    "hydramist-elite-design-3.jpg": "HydraMIST Elite Hydrofacial-Gerät mit beleuchtetem Lösungsbehälter",
+    "hydramist-elite-design-4.jpg": "HydraMIST Elite Handstück mit rundem Metallkopf in der Hand",
+    "hydramist-elite-design-5.jpg": "Austauschbares HydraMIST Elite Handstück in der Hand",
+    "hydramist-elite-design-6.jpg": "HydraMIST Elite Roller-Handstück mit zwei Kugeln in der Hand",
+    "hydramist-elite-info-bura.png": "Transparente HydraMIST Elite Sauerstoffhaube: 360°-Gesichtsabdeckung, integrierter Schutzschild",
+    "hydramist-elite-info-kijelzo.png": "HydraMIST Elite Touchscreen mit Funktionsauswahlmenü, einstellbarer Intensität und Dauer",
+    "hydramist-elite-info-adagolas.png": "HydraMIST Elite Flüssigkeitsversorgungssystem mit einstellbarem Flüssigkeitsstrom",
+    "hydramist-elite-oktatas-1.jpg": "HydraMIST Elite Behandlung beim Üben während der Bedienerschulung",
+    "hydramist-elite-oktatas-2.jpg": "HydraMIST Elite Bedienerschulung im Skinlab Showroom"
+  }
+}

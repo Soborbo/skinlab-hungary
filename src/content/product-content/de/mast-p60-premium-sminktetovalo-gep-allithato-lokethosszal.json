@@ -148,7 +148,7 @@
     },
     {
       "question": "Welche Garantie gilt für das Gerät?",
-      "answer": "Für die MAST P60 gilt eine 1-Jahres-Garantie. Während der Reparatur stellen wir ein Ersatzgerät zur Verfügung, damit Ihre Arbeit nicht unterbrochen wird."
+      "answer": "Für die MAST P60 gilt eine 1-Jahres-Garantie. Dauert eine Reparatur länger als 10 Arbeitstage, stellen wir – abhängig vom verfügbaren Bestand – ein Ersatzgerät bereit."
     }
   ],
   "whatsIncluded": [
@@ -157,6 +157,12 @@
     "Type-C Ladekabel",
     "Bedienungsanleitung",
     "1 Jahr Garantie",
-    "Ersatzgerät während der Reparatur"
-  ]
+    "Ersatzgeräte-Programm bei längeren Reparaturen"
+  ],
+  "imageAlts": {
+    "mast-p60-arany-design.jpg": "MAST P60 PMU-Gerät in Gold, auf goldenem Seidenhintergrund",
+    "mast-p60-rosegold-design.jpg": "MAST P60 PMU-Gerät in Roségold, auf rosafarbenem Seidenhintergrund",
+    "mast-p60-lila-design.jpg": "MAST P60 PMU-Gerät in Lila, auf lila Seidenhintergrund",
+    "mast-p60-tiffany-design.jpg": "MAST P60 PMU-Gerät in Tiffany, auf türkisfarbenem Seidenhintergrund"
+  }
 }

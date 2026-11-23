@@ -4,6 +4,19 @@
   "description": "Olympia was the place where only the best mattered. Where it didn't matter where you came from - but what you could actually do. That is exactly what the OLYMPIA diode laser stands for: the performance that counts. Realistic price, powerful machine, real results.",
   "metaTitle": "OLYMPIA 1200W diode laser | 4 wavelengths, 5 spot sizes, value-for-money champion",
   "metaDescription": "OLYMPIA – 1200W professional diode laser with 4 wavelengths and 5 adjustable spot sizes. European-level value for money, smart control system.",
+  "specs": {
+    "Laser type": "Diode laser",
+    "Wavelength": "755 / 808 / 940 / 1064 nm",
+    "Power": "1200W (output)",
+    "Guaranteed shot life": "100 million shots - guaranteed to deliver maximum power up to that point",
+    "Spot size": "Crystal treatment head adjustable in 5 sizes",
+    "Display": "Colour touchscreen",
+    "Cooling system": "Multi-stage TEC + water + air",
+    "Skin cooling": "Sapphire contact cooling in 3 levels",
+    "Operating system": "Smart built-in protocols",
+    "Power supply": "110V / 220V",
+    "Delivery time": "approx. 15 working days"
+  },
   "stats": [
     {
       "value": "1200",
@@ -46,7 +59,8 @@
     "afterFeatures": {
       "headline": "Want to see OLYMPIA in person?",
       "subtitle": "Come to our showroom in Érd and try it yourself!",
-      "buttonLabel": "Book an appointment"
+      "buttonLabel": "Book an appointment",
+      "showroomDriveFolderId": "1ry9sZcnEcK7xK-khjp8pCGRNK4M4im2U"
     },
     "final": {
       "headline": "Interested in the OLYMPIA 1200W diode laser?",
@@ -182,6 +196,14 @@
     "Hungarian-language user manual",
     "Operator training (FAR certificate)",
     "2-year comprehensive warranty",
-    "Replacement machine during repair"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "imageAlts": {
+    "olympia-design-1.jpg": "OLYMPIA 1200W diode laser device in a stylised setting with antique columns",
+    "olympia-design-2.jpg": "OLYMPIA diode laser handpiece with its own display",
+    "olympia-design-3.jpg": "OLYMPIA diode laser interchangeable spot-size tips in a gift box",
+    "olympia-3.jpeg": "OLYMPIA diode laser in a stylised colonnade setting",
+    "olympia-oktatas-1.jpg": "OLYMPIA operator training – diode laser treatment on a model",
+    "olympia-oktatas-2.jpg": "OLYMPIA diode laser handpiece during treatment, with the touchscreen in the background"
+  }
 }

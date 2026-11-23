@@ -5,12 +5,33 @@
   "metaTitle": "NovaLite ND:YAG laser | Tetování, pigmentace a carbon peeling",
   "metaDescription": "NovaLite Q-switched ND:YAG laser: kompaktní, přenosné zařízení se 6 ošetřovacími hlavicemi, 3500 mJ energie. Odstranění tetování, léčba pigmentací, carbon peeling. CE certifikace, 2 roky záruky.",
   "stats": [
-    { "value": "6", "label": "Ošetřovací hlavice", "icon": "layers" },
-    { "value": "3500", "unit": "mJ", "label": "Max. energie", "icon": "zap" },
-    { "value": "2500", "unit": "W", "label": "Výkon", "icon": "wave" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Ošetřovací hlavice",
+      "icon": "layers"
+    },
+    {
+      "value": "3500",
+      "unit": "mJ",
+      "label": "Max. energie",
+      "icon": "zap"
+    },
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "wave"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NovaLite – Kompaktní síla, prémiová kvalita",
     "paragraphs": [
@@ -98,15 +119,40 @@
   "expertQuote": {
     "quote": "Se 6 ošetřovacími hlavicemi a energií 3500 mJ je NovaLite jedním z nejvýkonnějších zařízení v kategorii kompaktních ND:YAG. Hlavice No Scar jsou obzvláště cenné pro korekce permanentního make-upu.",
     "author": "Horváth László",
-    "role": "Spoluzakladatel Skinlab, jednatel"
+    "role": "Spoluzakladatel Skinlab, jednatel",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranění tetování", "description": "Efektivní odstranění černých a barevných tetování na vlnových délkách 1064 nm a 532 nm" },
-    { "icon": "sun", "name": "Ošetření červených pigmentů", "description": "Odstranění načervenalých, oranžových a teplých hnědých pigmentů na vlnové délce 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hloubkové čištění, stažení pórů a omlazení pleti s ošetřovací hlavicí 1320 nm" },
-    { "icon": "droplet", "name": "Ošetření pigmentových skvrn", "description": "Ošetření stařeckých skvrn, slunečních skvrn, pih, jaterních skvrn a hyperpigmentace" },
-    { "icon": "eye", "name": "Odstranění permanentního make-upu", "description": "Korekce permanentního make-upu obočí a rtů hlavicemi No Scar" },
-    { "icon": "bolt", "name": "Anti-aging ošetření", "description": "Redukce vrásek, zpevnění pleti a stimulace kolagenu s ošetřovací hlavicí 755 nm" }
+    {
+      "icon": "zap",
+      "name": "Odstranění tetování",
+      "description": "Efektivní odstranění černých a barevných tetování na vlnových délkách 1064 nm a 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Ošetření červených pigmentů",
+      "description": "Odstranění načervenalých, oranžových a teplých hnědých pigmentů na vlnové délce 532 nm"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hloubkové čištění, stažení pórů a omlazení pleti s ošetřovací hlavicí 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Ošetření pigmentových skvrn",
+      "description": "Ošetření stařeckých skvrn, slunečních skvrn, pih, jaterních skvrn a hyperpigmentace"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranění permanentního make-upu",
+      "description": "Korekce permanentního make-upu obočí a rtů hlavicemi No Scar"
+    },
+    {
+      "icon": "bolt",
+      "name": "Anti-aging ošetření",
+      "description": "Redukce vrásek, zpevnění pleti a stimulace kolagenu s ošetřovací hlavicí 755 nm"
+    }
   ],
   "faq": [
     {
@@ -150,6 +196,6 @@
     "Uživatelský manuál",
     "Školení obsluhy (certifikát FAR)",
     "2 roky plné záruky",
-    "Náhradní zařízení po dobu opravy"
+    "Program náhradního přístroje při delší opravě"
   ]
 }

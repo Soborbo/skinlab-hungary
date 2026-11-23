@@ -1,136 +1,246 @@
 {
   "name": "HYDRASCAN PRO",
-  "shortDescription": "8+1 funkcny hydrofacial s AI analyzou pleti. Diagnostika v realnom case, digitalny dennik osetreni, dokumentacia pred a po.",
-  "description": "HYDRASCAN PRO nie je len multifunkcny hydrofacialny pristroj, ale aj inteligentny diagnosticky a osetrujuci system pleti v jednom.\n\nVynimocnostou zariadenia je, ze kombinuje tradicne technologie osetrenia tvare s umelou inteligenciou, vdaka comu su osetrenia nielen ucinnejsie, ale aj individualnejsie.\n\nZabudovany AI system analyzy pleti zabezpecuje diagnostiku v realnom case: velkost porov, hlbka vrasok, pigmentacia, hydratácia, produkcia mazu, pruznost, zapalove oblasti a UV poskodenia – vsetko automaticky analyzuje a navrhne plan osetrenia.\n\nO stave pleti klienta mozno vytvarat fotografie a grafikony pred a po, system vedie dennik osetreni, takze kazda zmena je zdokumentovatelna.",
-  "metaTitle": "HydraSCAN Pro | 8+1 funkcny hydrofacial s AI analyzou pleti",
-  "metaDescription": "Hydrofacialny pristroj podporovany umelou inteligenciou: diagnostika pleti v realnom case, 8+1 osetrujucich funkcii, digitalny dennik osetreni. 2-rocna zaruka.",
+  "shortDescription": "Hydrofacial s 8+1 funkciami a AI analýzou pleti. Diagnostika v reálnom čase, digitálny denník ošetrení, dokumentácia pred a po.",
+  "description": "HYDRASCAN PRO nie je len multifunkčný hydrofaciálny prístroj, ale aj inteligentný diagnostický a ošetrujúci systém pleti v jednom.\n\nVýnimočnosťou zariadenia je, že kombinuje tradičné technológie ošetrenia tváre s umelou inteligenciou, vďaka čomu sú ošetrenia nielen účinnejšie, ale aj individuálnejšie.\n\nZabudovaný AI systém analýzy pleti zabezpečuje diagnostiku v reálnom čase: veľkosť pórov, hĺbka vrások, pigmentácia, hydratácia, produkcia mazu, pružnosť, zápalové oblasti a UV poškodenie – všetko automaticky analyzuje a navrhne plán ošetrenia.\n\nO stave pleti klienta možno vytvárať fotografie a grafy pred a po, systém vedie denník ošetrení, takže každá zmena je zdokumentovateľná.",
+  "metaTitle": "HydraSCAN Pro | Hydrofacial s 8+1 funkciami a AI analýzou pleti",
+  "metaDescription": "Hydrofaciálny prístroj podporovaný umelou inteligenciou: diagnostika pleti v reálnom čase, 8+1 ošetrujúcich funkcií, digitálny denník ošetrení. 2-ročná záruka.",
+  "specs": {
+    "Ošetrovacie hlavice": "Ultrazvuk, bipolárne RF, hydroabrázia, hydrodermabrázia, OxyGenX/oxypod, studeno-teplá žehlička, oxy-spray (jet peel), mikrokamera na AI analýzu pleti",
+    "AI analýza pleti": "Analýza v reálnom čase podporená svetelnými technológiami (póry, hydratácia, pigmentácia, elasticita a ďalšie parametre)",
+    "Denník ošetrení": "Digitálna karta klienta, porovnanie pred a po, ukladanie protokolov ošetrení",
+    "RF technológia": "Bipolárna rádiofrekvencia, spevnenie pleti tváre a stimulácia kolagénu",
+    "Ultrazvuk": "Režim vpravovania účinných látok, dopraví séra do hlbokých vrstiev",
+    "Hydrodermabrázia": "Vákuové hĺbkové čistenie, vyčistenie pórov, odstránenie odumretých buniek",
+    "OxyGenX / oxy-spray": "Intenzívna hydratácia a osviežujúci účinok, jet peel vpravovanie účinných látok",
+    "Studeno-teplá žehlička": "Upokojenie pleti, stiahnutie pórov, podpora mikrocirkulácie",
+    "Displej": "10,1-palcová dotyková obrazovka",
+    "Rozmery balenia": "46 × 40 × 41 cm",
+    "Hmotnosť brutto": "18 kg",
+    "Farba": "Biela – čistý, profesionálny dizajn",
+    "Oblasť ošetrenia": "Tvár",
+    "Jazyky": "Maďarčina, angličtina, nemčina, poľština, španielčina, taliančina, čínština, japončina",
+    "Záruka": "2 roky"
+  },
   "stats": [
-    {"value": "8+1", "label": "Osetrujuca funkcia", "icon": "layers"},
-    {"value": "AI", "label": "Diagnostika pleti", "icon": "zap"},
-    {"value": "2", "unit": "rok", "label": "Zaruka", "icon": "shield"},
-    {"value": "~30", "unit": "min", "label": "Cas osetrenia", "icon": "clock"}
+    {
+      "value": "8+1",
+      "label": "Ošetrujúcich funkcií",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Diagnostika pleti",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "rok",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "~30",
+      "unit": "min",
+      "label": "Čas ošetrenia",
+      "icon": "clock"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 25000},
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
-    "headline": "HYDRASCAN PRO nie je len pristroj – je to inteligentny diagnosticky system pleti",
+    "headline": "HYDRASCAN PRO nie je len prístroj – je to inteligentný diagnostický systém pleti",
     "paragraphs": [
-      "Vynimocnostou zariadenia je, ze kombinuje tradicne technologie osetrenia tvare s umelou inteligenciou, vdaka comu su osetrenia nielen ucinnejsie, ale aj individualnejsie.",
-      "Zabudovany AI system analyzy pleti zabezpecuje diagnostiku v realnom case: velkost porov, hlbka vrasok, pigmentacia, hydratácia, produkcia mazu, pruznost, zapalove oblasti a UV poskodenia – vsetko automaticky analyzuje a navrhne plan osetrenia.",
-      "O stave pleti klienta mozno vytvarat fotografie a grafikony pred a po, system vedie dennik osetreni, takze kazda zmena je zdokumentovatelna."
+      "Výnimočnosťou zariadenia je, že kombinuje tradičné technológie ošetrenia tváre s umelou inteligenciou, vďaka čomu sú ošetrenia nielen účinnejšie, ale aj individuálnejšie.",
+      "Zabudovaný AI systém analýzy pleti zabezpečuje diagnostiku v reálnom čase: veľkosť pórov, hĺbka vrások, pigmentácia, hydratácia, produkcia mazu, pružnosť, zápalové oblasti a UV poškodenie – všetko automaticky analyzuje a navrhne plán ošetrenia.",
+      "O stave pleti klienta možno vytvárať fotografie a grafy pred a po, systém vedie denník ošetrení, takže každá zmena je zdokumentovateľná."
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Mate otazky ohladom zariadenia? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
-    "afterFeatures": {"headline": "Chcete si HYDRASCAN PRO pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
-    "final": {"headline": "Zaujima vas HYDRASCAN PRO?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+    "afterVideo": {
+      "text": "Máte otázky ohľadom zariadenia? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si HYDRASCAN PRO pozrieť naživo?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervácia termínu"
+    },
+    "final": {
+      "headline": "Zaujíma vás HYDRASCAN PRO?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
   },
   "featureRows": {
-    "headline": "Preco si kozmeticky vyberaju HydraSCAN Pro?",
-    "subtitle": "Pristroj, ktory nielen pracuje, ale aj premysla",
+    "headline": "Prečo si kozmetičky vyberajú HydraSCAN Pro?",
+    "subtitle": "Prístroj, ktorý nielen pracuje, ale aj premýšľa",
     "review": {
-      "name": "Renata Farkasova",
+      "name": "Renáta Farkašová",
       "date": "2025. 06. 27.",
-      "text": "Momentalne je velmi popularny AI smer a ja som ako zacinajuca kozmeticka <mark>chcela niekim vyniknut z davu! S timto pristrojom sa mi to podarilo</mark>, klientom je velmi sympaticke, ze je v nom zabudovana inteligentna technika. Studijny material je velmi podrobny, taky som este nikde nedostala, samozrejme este nemam velke skusenosti, ale tento zazitok bol velmi pozitivny.",
+      "text": "Momentálne je veľmi populárny smer AI a ja som ako začínajúca kozmetička<mark>chcela niečím vyniknúť z davu! S týmto prístrojom sa mi to podarilo</mark>, klientom je veľmi sympatické, že je v ňom zabudovaná inteligentná technika. Študijný materiál je veľmi podrobný, taký som ešte nikde nedostala, samozrejme, ešte nemám veľké skúsenosti, ale tento zážitok bol veľmi pozitívny.",
       "rating": 5
     },
     "features": [
       {
-        "title": "8 osetrujucich funkcii v jednom kompaktnom zariadeni",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydroabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-pod osetrujuca hlavica</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teply kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI analyza pleti – mikrokamera</div>\n</div>",
+        "title": "8 ošetrujúcich funkcií v jednom kompaktnom zariadení",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydroabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Oxy-spray</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>RF</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>UH</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ošetrujúca hlavica oxy-pod</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teplé kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI analýza pleti – mikrokamera</div>\n</div>",
         "image": "@assets/products/HydraSCANPro3.webp"
       },
       {
-        "title": "Analyza pleti silou umelej inteligencie",
-        "description": "Zabudovany AI system analyzy pleti HYDRASCAN PRO zabezpecuje diagnostiku v realnom case, vdaka ktorej sa osetrenia mozu vykonavat cielene a presne.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI system skuma:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>velkost porov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>hlbku vrasok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentaciu a skvrny</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>uroven hydratácie pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>produkciu mazu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pruznost, tonus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>oblasti s akne alebo zapalom</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>stopy UV poskodeni</div>\n</div>",
+        "title": "Analýza pleti silou umelej inteligencie",
+        "description": "Zabudovaný AI systém analýzy pleti HYDRASCAN PRO zabezpečuje diagnostiku v reálnom čase, vďaka ktorej sa ošetrenia môžu vykonávať cielene a presne.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI systém skúma:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>veľkosť pórov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>hĺbku vrások</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentáciu a škvrny</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>úroveň hydratácie pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>produkciu mazu</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pružnosť, tonus</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>oblasti s akné alebo zápalom</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>stopy UV poškodenia</div>\n</div>",
         "image": "@assets/products/HydraSCANPRO2.webp"
       },
       {
-        "title": "Individualne protokoly osetrenia",
-        "description": "Na zaklade vysledkov zariadenie automaticky navrhuje smery osetrenia. O stave klienta mozno vytvarat fotografie a grafikony pred a po a system vedie dennik osetreni, takze kazda zmena je zdokumentovatelna. Klient nedostava sablonove osetrenie, ale jedninecne riesenie prisposobene jeho pleti.",
+        "title": "Individuálne protokoly ošetrenia",
+        "description": "Na základe výsledkov zariadenie automaticky navrhuje smery ošetrenia. O stave klienta možno vytvárať fotografie a grafy pred a po a systém vedie denník ošetrení, takže každá zmena je zdokumentovateľná. Klient nedostáva šablónovité ošetrenie, ale jedinečné riešenie prispôsobené jeho pleti.",
         "image": "@assets/products/IMG_6527.webp"
       },
       {
-        "title": "Presvedciva komunikacia s klientmi pomocou dat a obrazkov",
-        "description": "Vdaka AI systemu je pre klienta prehladne, preco dostava dane osetrenie – to buduje doveru. Priebeh pokroku je zdokumentovatelny grafmi, obrazkami a datami, takze viditelne vysledky hovoria samy za seba.",
+        "title": "Presvedčivá komunikácia s klientmi pomocou dát a obrázkov",
+        "description": "Vďaka AI systému je pre klienta prehľadné, prečo dostáva dané ošetrenie – to buduje dôveru. Pokrok je zdokumentovateľný grafmi, obrázkami a dátami, takže viditeľné výsledky hovoria samy za seba.",
         "image": "@assets/products/HydraSCANPro3.webp"
       },
       {
-        "title": "Digitalny dennik osetreni a dokumentacia pred a po",
-        "description": "System automaticky vytvara fotografie pred a po, grafikony a vedie online kartu klienta pre kazdeho klienta. Protokoly osetreni su ukladane, takze spetne sledovatelna historia osetreni motivuje klienta k navratu.",
+        "title": "Digitálny denník ošetrení a dokumentácia pred a po",
+        "description": "Systém automaticky vytvára fotografie pred a po, grafy a vedie online kartu pre každého klienta. Protokoly ošetrení sa ukladajú, takže spätne sledovateľná história ošetrení motivuje klienta k návratu.",
         "image": "@assets/products/HydraSCANPRO2.webp"
       }
     ]
   },
   "training": {
-    "headline": "Skolenie obsluhy zariadenia – v ramci oficialneho vzdelavania dospelych",
-    "badge": "S oficialnym certifikatom",
-    "intro": "K zariadeniu HYDRASCAN PRO je k dispozicii profesionalne skolenie obsluhy zariadenia, ktore poskytujeme v ramci oficialne ohlasenho vzdelavania dospelych. Cielom skolenia je, aby ucastnici ziskali komplexne teoreticke a prakticke vedomosti o odbornom a bezpecnom pouzivani zariadenia.",
+    "headline": "Školenie obsluhy zariadenia – v rámci oficiálneho vzdelávania dospelých",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K zariadeniu HYDRASCAN PRO je k dispozícii profesionálne školenie obsluhy zariadenia, ktoré poskytujeme v rámci oficiálne ohláseného vzdelávania dospelých. Cieľom školenia je, aby účastníci získali komplexné teoretické a praktické vedomosti o odbornom a bezpečnom používaní zariadenia.",
     "items": [
-      "Princip fungovania HYDRASCAN PRO, jeho technologie a osetrujuce hlavice",
-      "Interpretacia a prakticka aplikacia inteligentneho systemu analyzy pleti",
-      "Protokoly osetrenia pre rozne typy pleti a problemy",
-      "Komunikacia s klientmi a vedenie dennika osetreni",
-      "Vytvaranie dokumentacie pred a po",
-      "Prakticke osetrenia na modelkach"
+      "Princíp fungovania HYDRASCAN PRO, jeho technológie a ošetrujúce hlavice",
+      "Interpretácia a praktické využitie inteligentného systému analýzy pleti",
+      "Protokoly ošetrenia pre rôzne typy pleti a problémy",
+      "Komunikácia s klientmi a vedenie denníka ošetrení",
+      "Vytváranie dokumentácie pred a po",
+      "Praktické ošetrenia na modelkách"
     ],
     "closingParagraphs": [
-      "Na skolenie si samozrejme mozete priviest modelku, aby ste si techniky osetrenia osvojili v realnom prostredi, v bezpecnom a kontrolovanom vzdelavacom prostredi.",
-      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HYDRASCAN PRO.",
-      "Tieto vedomosti su obrovskou pomocou nielen v kazdodennej praci, ale aj v tom, aby ste mohli este sebaistejsie a na profesionalnej urovni poskytovat sluzby vasim klientom.",
-      "Ak vas zaujima moznost kurzu, kontaktujte nas prosim na niektorom z nasich kontaktov za ucelom dohodnutia terminu!"
+      "Na školenie si samozrejme môžete priviesť modelku, aby ste si techniky ošetrenia osvojili v reálnych podmienkach, v bezpečnom a kontrolovanom vzdelávacom prostredí.",
+      "Po absolvovaní školenia vydáme oficiálny certifikát, ktorý potvrdzuje spôsobilosť na odbornú obsluhu zariadenia HYDRASCAN PRO.",
+      "Tieto vedomosti sú obrovskou pomocou nielen v každodennej práci, ale aj v tom, aby ste mohli ešte sebaistejšie a na profesionálnej úrovni poskytovať služby svojim klientom.",
+      "Ak vás zaujíma možnosť kurzu, kontaktujte nás, prosím, cez niektorý z našich kontaktov a dohodneme si termín!"
     ],
     "price": "69.990 Ft",
-    "priceNote": "hodnota skolenia",
-    "freeText": "ZADARMO pri kupe zariadenia!",
-    "duration": "Jednodnove intenzivne skolenie",
-    "ctaText": "Mam zaujem o skolenie"
+    "priceNote": "hodnota školenia",
+    "freeText": "ZADARMO pri kúpe zariadenia!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
   },
   "testimonials": [
     {
-      "name": "Orsolya Kozmova",
+      "name": "Orsolya Kozmová",
       "date": "2025. 07. 25.",
-      "text": "Tento pristroj velmi milujem! Bala som sa casti so skolenim, pretoze ok, samozrejme pred 7 rokmi ked som robila kozmeticky kurz pouzivala som zakladne pristroje, ale v sucasnosti som smerovala osetrenia uplne inym smerom... takze som potrebovala osviezenie, ale <mark>dostala som vsetko, co by som mohla potrebovat</mark>. Aj dodatocne som potrebovala trochu pomoci s castou umelej inteligencie a s nahrávaním produktov, ale boli velmi milí a okamzite pomohli, takze moje prve ostre osetrenie dopadlo vyborne! Dakujem pekne!",
+      "text": "Tento prístroj veľmi milujem! Bála som sa časti so školením, pretože – áno, samozrejme, pred 7 rokmi, keď som robila kozmetický kurz, som používala základné prístroje, ale v súčasnosti som smerovala ošetrenia úplne iným smerom... takže som potrebovala osvieženie, ale<mark>dostala som všetko, čo by som mohla potrebovať</mark>. Aj dodatočne som potrebovala trochu pomoci s časťou umelej inteligencie a s nahrávaním produktov, ale boli veľmi milí a okamžite pomohli, takže moje prvé ostré ošetrenie dopadlo výborne! Ďakujem pekne!",
       "rating": 5
     }
   ],
   "expertQuote": {
-    "quote": "HydraFacial je jednou z investicii s najlepsou navratnostou v salone. Klienti okamzite vidia vysledok a pravidelne sa vracaju – to znamena zaruceiny prijem.",
+    "quote": "HydraFacial je jednou z investícií s najlepšou návratnosťou v salóne. Klienti okamžite vidia výsledok a pravidelne sa vracajú – to znamená zaručený príjem.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    {"icon": "droplet", "name": "Hydrodermabrázia", "description": "Vakuove hlbkove cistenie, cistenie porov, odstranenie odumretych koze"},
-    {"icon": "sound", "name": "Ultrazvukova infúzia", "description": "Vnaasanie ucinnych latok do hlbokych vrstiev pomocou ser"},
-    {"icon": "bubbles", "name": "O₂ Bubble + H₂O₂", "description": "Kyslíkova hydratácia a antioxidacne osetrenie"},
-    {"icon": "bolt", "name": "Bipolarny RF lifting", "description": "Spevnenie tvare, stimulacia kolagenu radiofrekvenciou"},
-    {"icon": "snowflake", "name": "Studeno-teply kladivko", "description": "Upokojenie pleti, stiahnutie porov, stimulacia cirkulacie"},
-    {"icon": "spray", "name": "Spray gun", "description": "Tonizujuci a hydratacny sprej na ukoncenie osetrenia"},
-    {"icon": "brain", "name": "AI analyza pleti", "description": "Analyza umelou inteligenciou v realnom case s 9+ parametrami"},
-    {"icon": "chart", "name": "Digitalna konzultacia", "description": "Fotografie pred a po, grafikony, navrhy osetreni"},
-    {"icon": "clipboard", "name": "Dennik osetreni", "description": "Online karta klienta, ukladanie protokolov osetreni a sledovanie"}
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrázia",
+      "description": "Vákuové hĺbkové čistenie, čistenie pórov, odstránenie odumretých kožných buniek"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuková infúzia",
+      "description": "Vpravovanie účinných látok zo sér do hlbokých vrstiev"
+    },
+    {
+      "icon": "bubbles",
+      "name": "O₂ Bubble + H₂O₂",
+      "description": "Kyslíková hydratácia a antioxidačné ošetrenie"
+    },
+    {
+      "icon": "bolt",
+      "name": "Bipolárny RF lifting",
+      "description": "Spevnenie tváre, stimulácia kolagénu rádiofrekvenciou"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Studeno-teplé kladivko",
+      "description": "Upokojenie pleti, stiahnutie pórov, stimulácia cirkulácie"
+    },
+    {
+      "icon": "spray",
+      "name": "Spray gun",
+      "description": "Tonizujúci a hydratačný sprej na ukončenie ošetrenia"
+    },
+    {
+      "icon": "brain",
+      "name": "AI analýza pleti",
+      "description": "Analýza umelou inteligenciou v reálnom čase s 9+ parametrami"
+    },
+    {
+      "icon": "chart",
+      "name": "Digitálna konzultácia",
+      "description": "Fotografie pred a po, grafy, návrhy ošetrení"
+    },
+    {
+      "icon": "clipboard",
+      "name": "Denník ošetrení",
+      "description": "Online karta klienta, ukladanie a sledovanie protokolov ošetrení"
+    }
   ],
   "faq": [
-    {"question": "Co presne analyzuje AI system analyzy pleti?", "answer": "Zabudovany AI system HydraSCAN Pro skuma v realnom case: velkost porov, hlbku vrasok, pigmentaciu a skvrny, uroven hydratácie pleti, produkciu mazu, pruznost a tonus, oblasti s akne alebo zapalom a stopy UV poskodeni. Na zaklade vysledkov automaticky navrhuje smery osetrenia."},
-    {"question": "Aku vyhodu ma AI diagnostika oproti tradicnej analyze pleti?", "answer": "AI je objektivna, reprodukovatelna a ovela podrobnejsia ako vysetrenie volnym okom. Mapuje vlastnosti pleti, ktore by volnym okom nebolo mozne zaznamenat. Navyse vedie digitalny dennik osetreni, vytvara fotografie pred a po, takze ucinok osetreni je meratelne zdokumentovatelny."},
-    {"question": "Dokaze zariadenie viest kartu klienta a historiu osetreni?", "answer": "Ano! HydraSCAN Pro vedie digitalny dennik osetreni pre kazdeho klienta. Fotografie pred a po, grafikony a vysledky analyz su ukladane, takze kazda zmena je sledovatelna a ukazatelna klientovi."},
-    {"question": "Ake skolenie je sucasou zariadenia HydraSCAN Pro?", "answer": "K zariadeniu je dostupne skolenie obsluhy zariadenia v hodnote 69 990 Ft v ramci oficialneho vzdelavania dospelych. Skolenie pokryva pouzitie vsetkych funkcii, interpretaciu AI systemu, protokoly osetrenia a prakticke osetrenia. Na zaver vydavame oficialny certifikat."},
-    {"question": "Za aky cas sa HydraSCAN Pro vrati?", "answer": "Priemerne za 2-4 mesiace pri 3-5 klientoch denne. Cena hydrofacialneho osetrenia sa pohybuje medzi 15 000 – 30 000 Ft, premiove osetrenie doplnene AI analyzou pleti sa da ponukat az za 35 000 – 50 000 Ft. Pouzite nasu ROI kalkulacku na stranke pre presny vypocet!"},
-    {"question": "Pre ake typy pleti je osetrenie vhodne?", "answer": "HydraSCAN Pro je vhodny pre vsetky typy pleti vratane citlivej pleti. AI analyza presne posúdi stav pleti a na zaklade vysledkov navrhne individualny protokol osetrenia, takze mozete vzdy pracovat s intenzitou zodpovedajucou pleti klienta."},
-    {"question": "Ake spotrebne materialy su potrebne k zariadeniu?", "answer": "Na hydrodermabrazne osetrenia su potrebne specialne sera a roztoky (cistiace, hydratacne, antioxidacne). Tieto poskytujeme nasim zakaznikom za zvyhodnenu cenu. Funkcia AI analyzy pleti nevyzaduje spotrebny material."},
-    {"question": "Je mozne si zariadenie prezriet pred kupou?", "answer": "Ano! V nasom showroome (Erd, Bajcsy-Zsilinszky ut 156.) si mozete HydraSCAN Pro osobne prezriet a vyskusat po predchadzajucej rezervacii terminu. Mozete si vyskusat aj AI analyzu na vlastnej pleti!"}
+    {
+      "question": "Čo presne analyzuje AI systém analýzy pleti?",
+      "answer": "Zabudovaný AI systém HydraSCAN Pro skúma v reálnom čase: veľkosť pórov, hĺbku vrások, pigmentáciu a škvrny, úroveň hydratácie pleti, produkciu mazu, pružnosť a tonus, oblasti s akné alebo zápalom a stopy UV poškodenia. Na základe výsledkov automaticky navrhuje smery ošetrenia."
+    },
+    {
+      "question": "Akú výhodu má AI diagnostika oproti tradičnej analýze pleti?",
+      "answer": "AI je objektívna, reprodukovateľná a oveľa podrobnejšia ako vyšetrenie voľným okom. Mapuje vlastnosti pleti, ktoré by voľným okom nebolo možné zaznamenať. Navyše vedie digitálny denník ošetrení a vytvára fotografie pred a po, takže účinok ošetrení je merateľne zdokumentovaný."
+    },
+    {
+      "question": "Dokáže zariadenie viesť kartu klienta a históriu ošetrení?",
+      "answer": "Áno! HydraSCAN Pro vedie digitálny denník ošetrení pre každého klienta. Fotografie pred a po, grafy a výsledky analýz sa ukladajú, takže každá zmena je sledovateľná a dá sa ukázať klientovi."
+    },
+    {
+      "question": "Aké školenie je súčasťou zariadenia HydraSCAN Pro?",
+      "answer": "K zariadeniu je dostupné školenie obsluhy zariadenia v hodnote 69 990 Ft v rámci oficiálneho vzdelávania dospelých. Školenie pokrýva použitie všetkých funkcií, interpretáciu AI systému, protokoly ošetrenia a praktické ošetrenia. Na záver vydávame oficiálny certifikát."
+    },
+    {
+      "question": "Za aký čas sa HydraSCAN Pro vráti?",
+      "answer": "V priemere za 2-4 mesiace pri 3-5 klientoch denne. Cena hydrofaciálneho ošetrenia sa pohybuje medzi 15 000 – 30 000 Ft, prémiové ošetrenie doplnené AI analýzou pleti sa dá ponúkať až za 35 000 – 50 000 Ft. Na presný výpočet použite našu ROI kalkulačku na stránke!"
+    },
+    {
+      "question": "Pre aké typy pleti je ošetrenie vhodné?",
+      "answer": "HydraSCAN Pro je vhodný pre všetky typy pleti vrátane citlivej pleti. AI analýza presne posúdi stav pleti a na základe výsledkov navrhne individuálny protokol ošetrenia, takže môžete vždy pracovať s intenzitou zodpovedajúcou pleti klienta."
+    },
+    {
+      "question": "Aké spotrebné materiály sú potrebné k zariadeniu?",
+      "answer": "Na hydrodermabrázne ošetrenia sú potrebné špeciálne séra a roztoky (čistiace, hydratačné, antioxidačné). Tie poskytujeme našim zákazníkom za zvýhodnenú cenu. Funkcia AI analýzy pleti nevyžaduje spotrebný materiál."
+    },
+    {
+      "question": "Je možné si zariadenie pozrieť pred kúpou?",
+      "answer": "Áno! V našom showroome (Érd, Bajcsy-Zsilinszky út 156.) si môžete HydraSCAN Pro po predchádzajúcej rezervácii termínu osobne pozrieť a vyskúšať. Môžete si vyskúšať aj AI analýzu na vlastnej pleti!"
+    }
   ],
   "whatsIncluded": [
-    "HydraSCAN Pro zariadenie",
-    "Hydrodermabrazna osetrujuca hlavica",
-    "Ultrazvukova infúzna osetrujuca hlavica",
-    "O₂ bubble + H₂O₂ osetrujuca hlavica",
-    "Bipolarny RF lifting osetrujuca hlavica",
-    "Studeno-teply kladivko osetrujuca hlavica",
-    "Spray gun osetrujuca hlavica",
-    "AI modul analyzy pleti (zabudovany)",
-    "Startovaci balik ser",
-    "Navod na pouzitie (v slovencine)",
-    "2-rocna plna zaruka",
-    "Nahradne zariadenie pocas opravy"
+    "Zariadenie HydraSCAN Pro",
+    "Hydrodermabrázna ošetrujúca hlavica",
+    "Ultrazvuková infúzna ošetrujúca hlavica",
+    "Ošetrujúca hlavica O₂ bubble + H₂O₂",
+    "Ošetrujúca hlavica bipolárny RF lifting",
+    "Ošetrujúca hlavica studeno-teplé kladivko",
+    "Ošetrujúca hlavica spray gun",
+    "Modul AI analýzy pleti (zabudovaný)",
+    "Štartovací balík sér",
+    "Návod na použitie (v slovenčine)",
+    "2-ročná plná záruka",
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

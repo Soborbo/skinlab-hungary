@@ -1,124 +1,218 @@
 {
   "name": "HYDRACROWN EXPERT",
-  "shortDescription": "10 v 1 premiovy hydrofacialny pristroj s AI analyzou pleti. Hydrodermabrázia, RF lifting, LED terapia, ultrazvuk, skin scrubber, Android system.",
-  "description": "HydraCrown Expert je vysokovykonny, profesionalny pristroj na osetrenie tvare, ktory kombinuje najmodernejsie hydra technologie a analyzu pleti na baze umelej inteligencie.\n\nZariadenie zjednocuje 10 premiovych technologii osetrenia pleti v jednom kompaktnom systeme: hydrodermabráziu, kyslíkovu infúziu, ultrazvukove vnaasanie ucinnych latok, vakuovu terapiu, LED svetelnu terapiu, galvanike osetrenie, studeno-teply kladivko, skin scrubber, mikrodermabráziu a AI analyzu pleti.\n\nZabudovana umela inteligencia zabezpecuje diagnostiku v realnom case – rozpoznava hydratáciu, pigmentove skvrny, vrasky, pory a texturu pleti a potom navrhne individualny plan osetrenia. System na baze Androidu funguje s viacjazykovou podporou.",
-  "metaTitle": "HydraCrown Expert | 10 v 1 premiovy hydrofacial s AI analyzou pleti",
-  "metaDescription": "HydraCrown Expert 10 v 1 hydrofacialny pristroj s AI analyzou pleti: hydrodermabrázia, RF, LED, ultrazvuk, skin scrubber. 2-rocna zaruka, EU-kompatibilny.",
+  "shortDescription": "Prémiový hydrofaciálny prístroj 10 v 1 s AI analýzou pleti. Hydrodermabrázia, RF lifting, LED terapia, ultrazvuk, skin scrubber, systém Android.",
+  "description": "HydraCrown Expert je vysokovýkonný profesionálny prístroj na ošetrenie tváre, ktorý kombinuje najmodernejšie hydra technológie a analýzu pleti na báze umelej inteligencie.\n\nZariadenie spája 10 prémiových technológií ošetrenia pleti v jednom kompaktnom systéme: hydrodermabráziu, kyslíkovú infúziu, ultrazvukové vpravovanie účinných látok, vákuovú terapiu, LED svetelnú terapiu, galvanické ošetrenie, studeno-teplé kladivko, skin scrubber, mikrodermabráziu a AI analýzu pleti.\n\nZabudovaná umelá inteligencia zabezpečuje diagnostiku v reálnom čase – rozpoznáva hydratáciu, pigmentové škvrny, vrásky, póry a textúru pleti a potom navrhne individuálny plán ošetrenia. Systém na báze Androidu ponúka viacjazyčnú podporu.",
+  "metaTitle": "HydraCrown Expert | Prémiový hydrofacial 10 v 1 s AI analýzou pleti",
+  "metaDescription": "Hydrofaciálny prístroj HydraCrown Expert 10 v 1 s AI analýzou pleti: hydrodermabrázia, RF, LED, ultrazvuk, skin scrubber. 2-ročná záruka, v súlade s normami EÚ.",
   "stats": [
-    {"value": "10", "label": "Osetrujuca funkcia", "icon": "layers"},
-    {"value": "AI", "label": "Diagnostika pleti", "icon": "zap"},
-    {"value": "2", "unit": "rok", "label": "Zaruka", "icon": "shield"},
-    {"value": "~40", "unit": "min", "label": "Cas osetrenia", "icon": "clock"}
+    {
+      "value": "10",
+      "label": "Ošetrujúcich funkcií",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Diagnostika pleti",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "rok",
+      "label": "Záruka",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Čas ošetrenia",
+      "icon": "clock"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 30000},
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
-    "headline": "HydraCrown Expert – kral hydra pristrojov na osetrenie tvare",
+    "headline": "HydraCrown Expert – kráľ hydra prístrojov na ošetrenie tváre",
     "paragraphs": [
-      "Zariadenie kombinuje najdolezitejsie technologie omladenia pleti a analyzu pleti riadenu umelou inteligenciou v jednom pristroji.",
-      "AI zabezpecuje diagnostiku v realnom case: rozpoznava hydratáciu, pigmentove skvrny, vrasky, pory a texturu pleti a potom navrhne individualne odporucania osetrenia.",
-      "S 10 funkciami mozno vybudovat kompletný protokol osetrenia tvare jednym pristrojom – od hlbkoveho cistenia cez vnaasanie ucinnych latok az po lifting."
+      "Zariadenie kombinuje najdôležitejšie technológie omladenia pleti a analýzu pleti riadenú umelou inteligenciou v jednom prístroji.",
+      "AI zabezpečuje diagnostiku v reálnom čase: rozpoznáva hydratáciu, pigmentové škvrny, vrásky, póry a textúru pleti a potom navrhne individuálne odporúčania ošetrenia.",
+      "S 10 funkciami možno jedným prístrojom vybudovať kompletný protokol ošetrenia tváre – od hĺbkového čistenia cez vpravovanie účinných látok až po lifting."
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Mate otazky ohladom zariadenia? Radi vam pomozeme!", "buttonLabel": "Poziadat o konzultaciu", "phoneLabel": "Zavolajte nam"},
-    "afterFeatures": {"headline": "Chcete si HydraCrown Expert pozriet nazivo?", "subtitle": "Navstivte nas showroom v Erde a vyskusajte si ho osobne!", "buttonLabel": "Rezervacia terminu"},
-    "final": {"headline": "Zaujima vas HydraCrown Expert?", "subtitle": "Poziadajte o bezplatnu konzultaciu a pomozeme vam rozhodnut sa, ci je to pre vas najlepsia volba.", "buttonLabel": "Poziadat o konzultaciu"}
+    "afterVideo": {
+      "text": "Máte otázky ohľadom zariadenia? Radi vám pomôžeme!",
+      "buttonLabel": "Požiadať o konzultáciu",
+      "phoneLabel": "Zavolajte nám"
+    },
+    "afterFeatures": {
+      "headline": "Chcete si HydraCrown Expert pozrieť naživo?",
+      "subtitle": "Navštívte náš showroom v Érde a vyskúšajte si ho osobne!",
+      "buttonLabel": "Rezervácia termínu"
+    },
+    "final": {
+      "headline": "Zaujíma vás HydraCrown Expert?",
+      "subtitle": "Požiadajte o bezplatnú konzultáciu a pomôžeme vám rozhodnúť sa, či je to pre vás najlepšia voľba.",
+      "buttonLabel": "Požiadať o konzultáciu"
+    }
   },
   "featureRows": {
-    "headline": "Preco si kozmeticky vyberaju HydraCrown Expert?",
-    "subtitle": "10 premiovych technologii v jednom zariadeni s AI analyzou pleti",
+    "headline": "Prečo si kozmetičky vyberajú HydraCrown Expert?",
+    "subtitle": "10 prémiových technológií v jednom zariadení s AI analýzou pleti",
     "features": [
       {
-        "title": "10 osetrujucich funkcii v jednom premiovom zariadeni",
-        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kyslíkova infúzia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukove vnaasanie ucinnych latok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vakuova terapia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED svetelna terapia (modra, cervena, zelena)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Galvanicke a iontoforeticke osetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teply kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin scrubber (26–30 MHz)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI analyza pleti</div>\n</div>",
+        "title": "10 ošetrujúcich funkcií v jednom prémiovom zariadení",
+        "description": "<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Hydrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Kyslíková infúzia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Ultrazvukové vpravovanie účinných látok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Vákuová terapia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>LED svetelná terapia (modrá, červená, zelená)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Galvanické a iontoforetické ošetrenie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Studeno-teplé kladivko</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Skin scrubber (26–30 MHz)</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>Mikrodermabrázia</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>AI analýza pleti</div>\n</div>",
         "image": "@assets/products/HydraCrownExpert1.webp"
       },
       {
-        "title": "Analyza pleti na baze umelej inteligencie",
-        "description": "Zabudovany AI system HydraCrown Expert zabezpecuje diagnostiku v realnom case, vdaka ktorej sa osetrenia mozu vykonavat cielene a presne.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI system skuma:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>uroven hydratácie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentove skvrny</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>hlbku vrasok</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>velkost porov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>texturu pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>produkciu mazu</div>\n</div>",
+        "title": "Analýza pleti na báze umelej inteligencie",
+        "description": "Zabudovaný AI systém HydraCrown Expert zabezpečuje diagnostiku v reálnom čase, vďaka ktorej sa ošetrenia môžu vykonávať cielene a presne.\n<p class=\"font-semibold text-gray-900 mt-4 mb-2\">AI systém skúma:</p>\n<div class=\"grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 mb-4\">\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>úroveň hydratácie</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>pigmentové škvrny</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>hĺbku vrások</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>veľkosť pórov</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>textúru pleti</div>\n  <div class=\"flex items-center gap-2\"><svg class=\"w-4 h-4 text-primary-500 flex-shrink-0\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" /></svg>produkciu mazu</div>\n</div>",
         "image": "@assets/products/hydracrownexpertkep.webp"
       },
       {
-        "title": "Individualne protokoly osetrenia s AI",
-        "description": "AI diagnostika zostavuje odporucania na zaklade aktualnych údajov o pleti klienta, nie sablon. To znamena datami riadenu starostlivost o krásu: presnejsie vysledky, menej pokusov, maximalna ucinnost. Klient vidi, preco dostava dane osetrenie – to buduje doveru a ulahlcuje predaj balikov.",
+        "title": "Individuálne protokoly ošetrenia s AI",
+        "description": "AI diagnostika zostavuje odporúčania na základe aktuálnych údajov o pleti klienta, nie podľa šablón. To znamená starostlivosť o krásu riadenú dátami: presnejšie výsledky, menej pokusov, maximálna účinnosť. Klient vidí, prečo dostáva dané ošetrenie – to buduje dôveru a uľahčuje predaj balíkov.",
         "image": "@assets/products/hydrapulsequantum.webp"
       },
       {
-        "title": "Profesionalna dokumentacia pred a po",
-        "description": "AI dokaze porovnat ucinok osetreni s milimetrovou presnostou. Je to silny vizualny dokaz, ktory zvysuje doveru klienta a pomaha pri predaji kúr. Diagnostika je reprodukovatelna, porovnatelna a meratelna.",
+        "title": "Profesionálna dokumentácia pred a po",
+        "description": "AI dokáže porovnať účinok ošetrení s milimetrovou presnosťou. Je to silný vizuálny dôkaz, ktorý zvyšuje dôveru klienta a pomáha pri predaji kúr. Diagnostika je reprodukovateľná, porovnateľná a merateľná.",
         "image": "@assets/products/hydrapulsequantumfront.webp"
       },
       {
-        "title": "Android system a moderne rozhranie",
-        "description": "HydraCrown Expert pouziva uzivatelsky privetive rozhranie na baze Androidu s viacjazykovou podporou. Moderne, intuitivne rozhranie ulahlcuje kazdennu pracu a prepinanie medzi funkciami. 200 W vykon, dvojite napatie (100–240 V) a CE certifikacia.",
+        "title": "Systém Android a moderné rozhranie",
+        "description": "HydraCrown Expert používa používateľsky prívetivé rozhranie na báze Androidu s viacjazyčnou podporou. Moderné, intuitívne rozhranie uľahčuje každodennú prácu a prepínanie medzi funkciami. Výkon 200 W, dvojité napätie (100–240 V) a certifikácia CE.",
         "image": "@assets/products/hydrapulsequantumskin.webp"
       }
     ]
   },
   "training": {
-    "headline": "Skolenie obsluhy zariadenia – v ramci oficialneho vzdelavania dospelych",
-    "badge": "S oficialnym certifikatom",
-    "intro": "K zariadeniu HydraCrown Expert je k dispozicii profesionalne skolenie obsluhy zariadenia, ktore poskytujeme v ramci oficialne ohlasenho vzdelavania dospelych. Cielom skolenia je, aby ucastnici ziskali komplexne teoreticke a prakticke vedomosti o odbornom a bezpecnom pouzivani zariadenia.",
+    "headline": "Školenie obsluhy zariadenia – v rámci oficiálneho vzdelávania dospelých",
+    "badge": "S oficiálnym certifikátom",
+    "intro": "K zariadeniu HydraCrown Expert je k dispozícii profesionálne školenie obsluhy zariadenia, ktoré poskytujeme v rámci oficiálne ohláseného vzdelávania dospelých. Cieľom školenia je, aby účastníci získali komplexné teoretické a praktické vedomosti o odbornom a bezpečnom používaní zariadenia.",
     "items": [
-      "Princip fungovania HydraCrown Expert, jeho technologie a 10 osetrujucich hlavic",
-      "Interpretacia a prakticka aplikacia systemu AI analyzy pleti",
-      "Protokoly osetrenia pre rozne typy pleti a problemy",
-      "Spravna aplikacia LED svetelnej terapie, galvanickeho osetrenia a skin scrubbera",
-      "Komunikacia s klientmi, dokumentacia pred a po a vedenie dennika osetreni",
-      "Prakticke osetrenia na modelkach"
+      "Princíp fungovania HydraCrown Expert, jeho technológie a 10 ošetrujúcich hlavíc",
+      "Interpretácia a praktické využitie systému AI analýzy pleti",
+      "Protokoly ošetrenia pre rôzne typy pleti a problémy",
+      "Správne použitie LED svetelnej terapie, galvanického ošetrenia a skin scrubbera",
+      "Komunikácia s klientmi, dokumentácia pred a po a vedenie denníka ošetrení",
+      "Praktické ošetrenia na modelkách"
     ],
     "closingParagraphs": [
-      "Na skolenie si samozrejme mozete priviest modelku, aby ste si techniky osetrenia osvojili v realnom prostredi, v bezpecnom a kontrolovanom vzdelavacom prostredi.",
-      "Po absolvovani skolenia vydame oficialny certifikat, ktory potvrdzuje kompetentnost na odbornu obsluhu zariadenia HydraCrown Expert.",
-      "Ak vas zaujima moznost kurzu, kontaktujte nas prosim na niektorom z nasich kontaktov za ucelom dohodnutia terminu!"
+      "Na školenie si samozrejme môžete priviesť modelku, aby ste si techniky ošetrenia osvojili v reálnych podmienkach, v bezpečnom a kontrolovanom vzdelávacom prostredí.",
+      "Po absolvovaní školenia vydáme oficiálny certifikát, ktorý potvrdzuje spôsobilosť na odbornú obsluhu zariadenia HydraCrown Expert.",
+      "Ak vás zaujíma možnosť kurzu, kontaktujte nás, prosím, cez niektorý z našich kontaktov a dohodneme si termín!"
     ],
     "price": "69.990 Ft",
-    "priceNote": "hodnota skolenia",
-    "freeText": "ZADARMO pri kupe zariadenia!",
-    "duration": "Jednodnove intenzivne skolenie",
-    "ctaText": "Mam zaujem o skolenie"
+    "priceNote": "hodnota školenia",
+    "freeText": "ZADARMO pri kúpe zariadenia!",
+    "duration": "Jednodňové intenzívne školenie",
+    "ctaText": "Mám záujem o školenie"
   },
   "expertQuote": {
-    "quote": "HydraCrown Expert je jednou z najlepsich investicii s najrychlejsou navratnostou pre salon. 10 funkcii v jednom zariadeni s AI analyzou pleti – klienti okamzite vidia vysledok a pravidelne sa vracaju.",
+    "quote": "HydraCrown Expert je jednou z najlepších investícií s najrýchlejšou návratnosťou pre salón. 10 funkcií v jednom zariadení s AI analýzou pleti – klienti okamžite vidia výsledok a pravidelne sa vracajú.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    {"icon": "droplet", "name": "Hydrodermabrázia", "description": "Vakuove hlbkove cistenie, cistenie porov, odstranenie odumretych koze"},
-    {"icon": "wind", "name": "Kyslíkova infúzia", "description": "Zvysenie kyslíkoveho zasobovania pleti a jej vitality"},
-    {"icon": "sound", "name": "Ultrazvukova infúzia", "description": "Vnaasanie ucinnych latok do hlbokych vrstiev na frekvencii 1,1 MHz"},
-    {"icon": "bolt", "name": "Vakuova terapia", "description": "Stimulacia mikrocirkulacie, spevnenie pleti, tlak 96 kPa"},
-    {"icon": "sun", "name": "LED svetelna terapia", "description": "Modre, cervene a zelene svetlo pre rozne kozne problemy"},
-    {"icon": "zap", "name": "Galvanicke osetrenie", "description": "Iontoforeza pre lepsie vstrebávanie ser"},
-    {"icon": "snowflake", "name": "Studeno-teply kladivko", "description": "Upokojenie pleti, stiahnutie porov (0–6 °C / 36–46 °C)"},
-    {"icon": "layers", "name": "Skin scrubber", "description": "Odstranenie odumretych koze na frekvencii 26–30 MHz"},
-    {"icon": "sparkle", "name": "Mikrodermabrázia", "description": "Jemny peeling, obnova pleti, zlepsenie textury"},
-    {"icon": "brain", "name": "AI analyza pleti", "description": "Analyza umelou inteligenciou v realnom case a navrh osetrenia"}
+    {
+      "icon": "droplet",
+      "name": "Hydrodermabrázia",
+      "description": "Vákuové hĺbkové čistenie, čistenie pórov, odstránenie odumretých kožných buniek"
+    },
+    {
+      "icon": "wind",
+      "name": "Kyslíková infúzia",
+      "description": "Zvýšenie zásobovania pleti kyslíkom a jej vitality"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvuková infúzia",
+      "description": "Vpravovanie účinných látok do hlbokých vrstiev na frekvencii 1,1 MHz"
+    },
+    {
+      "icon": "bolt",
+      "name": "Vákuová terapia",
+      "description": "Stimulácia mikrocirkulácie, spevnenie pleti, tlak 96 kPa"
+    },
+    {
+      "icon": "sun",
+      "name": "LED svetelná terapia",
+      "description": "Modré, červené a zelené svetlo pre rôzne kožné problémy"
+    },
+    {
+      "icon": "zap",
+      "name": "Galvanické ošetrenie",
+      "description": "Iontoforéza pre lepšie vstrebávanie sér"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Studeno-teplé kladivko",
+      "description": "Upokojenie pleti, stiahnutie pórov (0–6 °C / 36–46 °C)"
+    },
+    {
+      "icon": "layers",
+      "name": "Skin scrubber",
+      "description": "Odstránenie odumretých kožných buniek na frekvencii 26–30 MHz"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Mikrodermabrázia",
+      "description": "Jemný peeling, obnova pleti, zlepšenie textúry"
+    },
+    {
+      "icon": "brain",
+      "name": "AI analýza pleti",
+      "description": "Analýza umelou inteligenciou v reálnom čase a návrh ošetrenia"
+    }
   ],
   "faq": [
-    {"question": "Co analyzuje system AI analyzy pleti v HydraCrown Expert?", "answer": "Zabudovana umela inteligencia zabezpecuje diagnostiku v realnom case: rozpoznava hydratáciu, pigmentove skvrny, vrasky, pory a texturu pleti. Na zaklade vysledkov navrhne individualny plan osetrenia podla aktualnych údajov o pleti klienta, nie podla sablon."},
-    {"question": "Cim sa HydraCrown Expert lisi od ostatnych hydrofacialnych pristrojov?", "answer": "HydraCrown Expert zjednocuje 10 funkcii v jednom zariadeni doplnenych AI analyzou pleti. Jeho system na baze Androidu je viacjazycny a 200W vykon, CE certifikacia a EU-kompatibilna konstrukcia garantuju profesionalnu kvalitu."},
-    {"question": "Ake skolenie je sucasou zariadenia HydraCrown Expert?", "answer": "K zariadeniu patri skolenie obsluhy zariadenia v hodnote 69 990 Ft v ramci oficialneho vzdelavania dospelych, ktore je pri kupe zariadenia ZADARMO. Skolenie pokryva pouzitie vsetkych 10 funkcii, AI system, protokoly osetrenia a prakticke osetrenia."},
-    {"question": "Za aky cas sa HydraCrown Expert vrati?", "answer": "Priemerne za 3-6 mesiacov pri 3-5 klientoch denne. Premiove osetrenie doplnene AI analyzou pleti sa da ponukat za 25 000-50 000 Ft. Pouzite nasu ROI kalkulacku na stranke pre presny vypocet!"},
-    {"question": "Pre ake typy pleti je osetrenie vhodne?", "answer": "HydraCrown Expert je vhodny pre vsetky typy pleti vratane citlivej pleti. AI analyza presne posúdi stav pleti a na zaklade vysledkov navrhne individualny protokol osetrenia."},
-    {"question": "Ake spotrebne materialy su potrebne k zariadeniu?", "answer": "Na hydrodermabrazne osetrenia su potrebne specialne sera a roztoky. Tieto poskytujeme nasim zakaznikom za zvyhodnenu cenu. AI analyza pleti a vacsina osetrujucich hlavic nevyzaduje spotrebny material."},
-    {"question": "Je mozne si zariadenie prezriet pred kupou?", "answer": "Ano! V nasom showroome (Erd, Bajcsy-Zsilinszky ut 156.) si mozete HydraCrown Expert osobne prezriet a vyskusat po predchadzajucej rezervacii terminu."}
+    {
+      "question": "Čo analyzuje systém AI analýzy pleti v HydraCrown Expert?",
+      "answer": "Zabudovaná umelá inteligencia zabezpečuje diagnostiku v reálnom čase: rozpoznáva hydratáciu, pigmentové škvrny, vrásky, póry a textúru pleti. Na základe výsledkov navrhne individuálny plán ošetrenia podľa aktuálnych údajov o pleti klienta, nie podľa šablón."
+    },
+    {
+      "question": "Čím sa HydraCrown Expert líši od ostatných hydrofaciálnych prístrojov?",
+      "answer": "HydraCrown Expert spája 10 funkcií v jednom zariadení, doplnených AI analýzou pleti. Jeho systém na báze Androidu je viacjazyčný a výkon 200 W, certifikácia CE a konštrukcia v súlade s normami EÚ zaručujú profesionálnu kvalitu."
+    },
+    {
+      "question": "Aké školenie je súčasťou zariadenia HydraCrown Expert?",
+      "answer": "K zariadeniu patrí školenie obsluhy zariadenia v hodnote 69 990 Ft v rámci oficiálneho vzdelávania dospelých, ktoré je pri kúpe zariadenia ZADARMO. Školenie pokrýva použitie všetkých 10 funkcií, AI systém, protokoly ošetrenia a praktické ošetrenia."
+    },
+    {
+      "question": "Za aký čas sa HydraCrown Expert vráti?",
+      "answer": "V priemere za 3-6 mesiacov pri 3-5 klientoch denne. Prémiové ošetrenie doplnené AI analýzou pleti sa dá ponúkať za 25 000-50 000 Ft. Na presný výpočet použite našu ROI kalkulačku na stránke!"
+    },
+    {
+      "question": "Pre aké typy pleti je ošetrenie vhodné?",
+      "answer": "HydraCrown Expert je vhodný pre všetky typy pleti vrátane citlivej pleti. AI analýza presne posúdi stav pleti a na základe výsledkov navrhne individuálny protokol ošetrenia."
+    },
+    {
+      "question": "Aké spotrebné materiály sú potrebné k zariadeniu?",
+      "answer": "Na hydrodermabrázne ošetrenia sú potrebné špeciálne séra a roztoky. Tie poskytujeme našim zákazníkom za zvýhodnenú cenu. AI analýza pleti a väčšina ošetrujúcich hlavíc nevyžaduje spotrebný materiál."
+    },
+    {
+      "question": "Je možné si zariadenie pozrieť pred kúpou?",
+      "answer": "Áno! V našom showroome (Érd, Bajcsy-Zsilinszky út 156.) si môžete HydraCrown Expert po predchádzajúcej rezervácii termínu osobne pozrieť a vyskúšať."
+    }
   ],
   "whatsIncluded": [
-    "HydraCrown Expert zariadenie",
-    "Hydrodermabrazna osetrujuca hlavica",
-    "Kyslíkova infúzna osetrujuca hlavica",
-    "Ultrazvukova osetrujuca hlavica (1,1 MHz)",
-    "Vakuova terapeuticka osetrujuca hlavica",
-    "LED svetelny terapeuticky modul (modry, cerveny, zeleny)",
-    "Galvanicka a iontoforeticka osetrujuca hlavica",
-    "Studeno-teply kladivko osetrujuca hlavica",
-    "Skin scrubber osetrujuca hlavica",
-    "Mikrodermabrazna osetrujuca hlavica",
-    "AI modul analyzy pleti (zabudovany)",
-    "Startovaci balik ser",
-    "Navod na pouzitie (v slovencine)",
-    "2-rocna plna zaruka",
-    "Nahradne zariadenie pocas opravy"
+    "Zariadenie HydraCrown Expert",
+    "Hydrodermabrázna ošetrujúca hlavica",
+    "Kyslíková infúzna ošetrujúca hlavica",
+    "Ultrazvuková ošetrujúca hlavica (1,1 MHz)",
+    "Ošetrujúca hlavica na vákuovú terapiu",
+    "Modul LED svetelnej terapie (modré, červené, zelené svetlo)",
+    "Galvanická a iontoforetická ošetrujúca hlavica",
+    "Ošetrujúca hlavica studeno-teplé kladivko",
+    "Ošetrujúca hlavica skin scrubber",
+    "Mikrodermabrázna ošetrujúca hlavica",
+    "Modul AI analýzy pleti (zabudovaný)",
+    "Štartovací balík sér",
+    "Návod na použitie (v slovenčine)",
+    "2-ročná plná záruka",
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

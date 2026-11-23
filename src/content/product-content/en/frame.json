@@ -1,13 +1,91 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Coming soon.",
-  "description": "Detailed description of the Frame coming soon.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Coming soon. Request a consultation for detailed information!",
+  "name": "FRAME ND:YAG laser device",
+  "shortDescription": "Android-based smart ND:YAG laser with 13.3\" touchscreen. Built-in handpiece cooling, 4 wavelengths, tattoo and pigment removal.",
+  "description": "Android-controlled, intelligent Q-switched Nd:YAG laser device for tattoo removal, pigment treatment, carbon peeling and skin rejuvenation, with built-in handpiece cooling and a 13.3\" colour touchscreen.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Wavelengths",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Max. energy density",
+      "icon": "zap"
+    },
+    {
+      "value": "13.3\"",
+      "label": "Touchscreen",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Pulse frequency",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – Android-based smart ND:YAG laser for professional salons",
+    "paragraphs": [
+      "FRAME is an Android-controlled, intelligent Q-switched Nd:YAG laser device that offers a cutting-edge solution for tattoo removal, pigment treatment and skin rejuvenation. The Android operating system makes it easy to use and allows customisable settings.",
+      "The unique cooling mechanism built into the handpiece cools the skin instantly, minimising pain and the risk of skin damage – ensuring maximum comfort for the client.",
+      "Thanks to its four wavelengths it is highly versatile: 1064 nm and 532 nm for all tattoo colours, 755 nm for pigment spots, freckles and sun spots, and 1320 nm for carbon peeling (deep skin cleansing, pore tightening).",
+      "High-energy laser pulses (10–2000 mJ/cm²) and a pulse frequency of 1–10 Hz deliver striking, fast results, while the 13.3\" colour touchscreen makes treatment simple and clear."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Tattoo removal",
+      "description": "For all colours – at 1064 nm and 532 nm."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Pigment treatment",
+      "description": "Pigment spots, freckles, sun spots – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon peeling",
+      "description": "Deep skin cleansing and pore tightening – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Android control",
+      "description": "Intelligent software, customisable settings."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Built-in cooling",
+      "description": "Handpiece cooling for comfortable, low-pain treatment."
+    },
+    {
+      "icon": "chart",
+      "name": "Professional performance",
+      "description": "10–2000 mJ/cm², 1–10 Hz pulse frequency."
+    }
+  ],
+  "specs": {
+    "Laser type": "Q-switched Nd:YAG",
+    "Wavelengths": "1064 nm, 532 nm, 755 nm, 1320 nm (carbon peeling)",
+    "Energy density": "10–2000 mJ/cm²",
+    "Pulse frequency": "1–10 Hz",
+    "Spot size": "2–6 mm (adjustable)",
+    "Display": "13.3\" colour touchscreen",
+    "Cooling": "Cooling built into the handpiece, 15 W cooling power",
+    "Control": "Android operating system"
+  },
   "cta": {
+    "afterVideo": {
+      "text": "Have a question about the FRAME ND:YAG laser? We're happy to help!",
+      "buttonLabel": "Request consultation",
+      "phoneLabel": "Call us"
+    },
     "final": {
-      "headline": "Interested in the Frame?",
-      "subtitle": "Request a free consultation and we'll notify you when it's available!",
+      "headline": "Interested in the FRAME ND:YAG laser?",
+      "subtitle": "Request a free consultation or a showroom demo, and we'll help you find the settings that suit your salon.",
       "buttonLabel": "Request consultation"
     }
   }

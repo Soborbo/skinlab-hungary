@@ -4,6 +4,18 @@
   "description": "Diódový laser HELIOS je pomenovaný po bohu slnka z gréckej mytológie – ktorý každý deň prináša svetlo, vidí všetko a nič pred ním nezostane skryté. Presne to prístroj predstavuje: silu, svetlo a nekompromisnú presnosť. So svojím výstupným výkonom 1600W, 4 vlnovými dĺžkami (755/808/940/1064 nm) a safírovým spotom nastaviteľným v 5 veľkostiach patrí do najvyššieho segmentu trhu.",
   "metaTitle": "HELIOS 1600W diódový laser | 4 vlnové dĺžky, nastaviteľná veľkosť spotu",
   "metaDescription": "HELIOS – 1600W špičkový diódový laser so 4 vlnovými dĺžkami, safírovou veľkosťou spotu nastaviteľnou v 5 veľkostiach a viacstupňovým chladením. Profesionálna epilácia na klinickej úrovni.",
+  "specs": {
+    "Typ lasera": "Diódový laser",
+    "Vlnová dĺžka": "755 / 808 / 940 / 1064 nm",
+    "Výkon": "1600W (výstupný)",
+    "Displej": "10.4-palcová farebná dotyková obrazovka",
+    "Veľkosť spotu": "Hlavica so zafírovým kryštálom nastaviteľná v 5 veľkostiach",
+    "Chladiaci systém": "TEC + voda + vzduch (viacstupňový)",
+    "Teplota chladenia": "Zafírový kontakt až takmer -16°C",
+    "Napätie": "110V / 220V",
+    "Hmotnosť": "cca 25 kg",
+    "Dodacia lehota": "2-6 týždňov"
+  },
   "stats": [
     {
       "value": "1600",
@@ -181,6 +193,11 @@
     "Návod na použitie v maďarčine",
     "Školenie obsluhy (certifikát FAR)",
     "2 roky komplexnej záruky",
-    "Náhradný prístroj počas opravy"
-  ]
+    "Program náhradného prístroja pri dlhšej oprave"
+  ],
+  "imageAlts": {
+    "helios-design-foto-1.jpg": "Diódový laser HELIOS 1600W v štylizovanom prostredí",
+    "helios-design-foto-2.jpg": "Diódový laser HELIOS 1600W s hlavicou a displejom",
+    "helios-design-foto-3.jpg": "Vymeniteľné nadstavce veľkosti spotu diódového lasera HELIOS"
+  }
 }

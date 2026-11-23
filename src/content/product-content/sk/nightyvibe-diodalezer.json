@@ -5,12 +5,32 @@
   "metaTitle": "NightyVibe Diódový laser | 2500W, SAFE-OPTION, inteligentné riadenie",
   "metaDescription": "NightyVibe 2500W inteligentný diódový laser so 4 vlnovými dĺžkami a technológiou SAFE-OPTION. 40M výstrelov, digitálna rukoväť, odborné školenie. Certifikovaný.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Výkon", "icon": "zap" },
-    { "value": "4", "label": "Vlnové dĺžky", "icon": "wave" },
-    { "value": "40M", "label": "Životnosť výstrelov", "icon": "clock" },
-    { "value": "2", "unit": "roky", "label": "Záruka", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Výkon",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Vlnové dĺžky",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Životnosť výstrelov",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "roky",
+      "label": "Záruka",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NightyVibe – Inteligentný laser pre profesionálov",
     "paragraphs": [
@@ -108,15 +128,40 @@
   "expertQuote": {
     "quote": "Vďaka výkonu 2500W a technológii SAFE-OPTION je NightyVibe jedným z najbezpečnejších a najúčinnejších diódových laserov. Kompletný obchodný balíček je obzvlášť cenný pre novo otvárajúce sa salóny.",
     "author": "Horváth László",
-    "role": "Spoluzakladateľ Skinlab, konateľ"
+    "role": "Spoluzakladateľ Skinlab, konateľ",
+    "image": "/images/misc/horvath-laszlo-beuszo.jpg"
   },
   "functionCards": [
-    { "icon": "zap", "name": "2500W výkon", "description": "Jeden z najvyšších výkonov na trhu." },
-    { "icon": "sun", "name": "4 vlnové dĺžky", "description": "755, 808, 940, 1064 nm – pre každý typ pleti." },
-    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Zabraňuje chybným alebo nebezpečným nastaveniam." },
-    { "icon": "chart", "name": "Počítadlo výstrelov", "description": "Digitálna rukoväť so zabudovaným počítadlom." },
-    { "icon": "brain", "name": "Inteligentné riadenie", "description": "Klinicky optimalizované nastavenia." },
-    { "icon": "clipboard", "name": "Obchodný balíček", "description": "Marketingový plán, cenová stratégia, získavanie klientov." }
+    {
+      "icon": "zap",
+      "name": "2500W výkon",
+      "description": "Jeden z najvyšších výkonov na trhu."
+    },
+    {
+      "icon": "sun",
+      "name": "4 vlnové dĺžky",
+      "description": "755, 808, 940, 1064 nm – pre každý typ pleti."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Zabraňuje chybným alebo nebezpečným nastaveniam."
+    },
+    {
+      "icon": "chart",
+      "name": "Počítadlo výstrelov",
+      "description": "Digitálna rukoväť so zabudovaným počítadlom."
+    },
+    {
+      "icon": "brain",
+      "name": "Inteligentné riadenie",
+      "description": "Klinicky optimalizované nastavenia."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Obchodný balíček",
+      "description": "Marketingový plán, cenová stratégia, získavanie klientov."
+    }
   ],
   "faq": [
     {
@@ -141,7 +186,7 @@
     },
     {
       "question": "Akú záruku dostanem?",
-      "answer": "Poskytujeme 2-ročnú komplexnú záruku. Máme vlastný servisný tím a počas opráv poskytujeme náhradný prístroj, aby prevádzka vášho salónu nebola nikdy prerušená."
+      "answer": "Poskytujeme 2-ročnú komplexnú záruku. Máme vlastný servisný tím. Ak oprava trvá dlhšie ako 10 pracovných dní, poskytneme náhradný prístroj v závislosti od dostupnosti, aby prevádzka vášho salónu nebola prerušená."
     }
   ],
   "whatsIncluded": [
@@ -153,6 +198,6 @@
     "Návod na použitie",
     "Školenie obsluhy (certifikovaný certifikát)",
     "2 roky komplexnej záruky",
-    "Náhradný prístroj počas opravy"
+    "Program náhradného prístroja pri dlhšej oprave"
   ]
 }

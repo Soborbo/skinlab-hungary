@@ -148,7 +148,7 @@
     },
     {
       "question": "What warranty applies to the machine?",
-      "answer": "The MAST P60 comes with a 1-year warranty. If the device needs servicing, we provide a replacement device during repairs so your work doesn't stop."
+      "answer": "The MAST P60 comes with a 1-year warranty. If a repair takes more than 10 working days, we provide a replacement device, subject to availability."
     }
   ],
   "whatsIncluded": [
@@ -157,6 +157,12 @@
     "Type-C charging cable",
     "User manual",
     "1-year warranty",
-    "Replacement device during repairs"
-  ]
+    "Replacement device programme for longer repairs"
+  ],
+  "imageAlts": {
+    "mast-p60-arany-design.jpg": "MAST P60 PMU machine in gold, on a gold silk background",
+    "mast-p60-rosegold-design.jpg": "MAST P60 PMU machine in rose gold, on a pink silk background",
+    "mast-p60-lila-design.jpg": "MAST P60 PMU machine in purple, on a purple silk background",
+    "mast-p60-tiffany-design.jpg": "MAST P60 PMU machine in Tiffany, on a turquoise silk background"
+  }
 }
