@@ -5,8 +5,7 @@
  * egyforma csapatkártyák, videós vélemények, látogatás-blokk.
  * Terv: https://claude.ai/artifact/UTGfvFWWnoEmGbBkGsg2wY
  *
- * Szöveg: about.* az i18n JSON-okban. A történet bekezdései (storySection*)
- * egyelőre csak magyarul vannak meg, a többi nyelven magyarra esnek vissza.
+ * Szöveg: about.* az i18n JSON-okban, mind a 9 nyelven (a történet is).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VideoTestimonials from '../sections/VideoTestimonials.astro';
@@ -45,25 +44,25 @@ const story = [
     title: a('storySection1Title'),
     paras: [a('storySection1')],
     image: '@assets/rolunk5.jpg',
-    imageAlt: 'Gaszler Szimonetta egy nemzetközi kozmetikai szakkiállításon',
+    imageAlt: a('storyAlt1'),
   },
   {
     title: a('storySection2Title'),
     paras: [a('storySection2a'), a('storySection2b', brand)],
     image: '@assets/rolunk-laszlo-stand.jpg',
-    imageAlt: 'Horváth László a Skinlab kiállítási standján',
+    imageAlt: a('storyAlt2'),
   },
   {
     title: a('storySection3Title'),
     paras: [a('storySection3')],
     image: '@assets/rolunk6.jpg',
-    imageAlt: 'A Skinlab csapata egy szakkiállítási standon, skinlab márkás készülékekkel',
+    imageAlt: a('storyAlt3'),
   },
   {
     title: a('storySection4Title', brand),
     paras: [a('storySection4a', brand), a('storySection4b', brand)],
     image: '@assets/skinlab-csapat-milano.jpg',
-    imageAlt: 'A Skinlab csapata Milánóban',
+    imageAlt: a('storyAlt4'),
   },
 ];
 

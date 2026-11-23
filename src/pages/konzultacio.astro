@@ -9,14 +9,17 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ConsultationWizard from '@/components/forms/ConsultationWizard.astro';
 import { CONTACT } from '@/lib/constants';
+import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Get pre-selected product from URL
 const product = Astro.url.searchParams.get('product') || '';
 ---
 
 <BaseLayout
-  title="Ingyenes konzultáció kérése"
-  description="Kérj ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás."
+  title={t(locale, 'consult.metaTitle')}
+  description={t(locale, 'consult.metaDescription')}
   hideDesktopWidget={true}
 >
   <section class="bg-gradient-to-b from-primary-50/50 to-white py-3 md:py-4 min-h-screen flex flex-col justify-center">
@@ -26,7 +29,7 @@ const product = Astro.url.searchParams.get('product') || '';
 
       <!-- Alternative contact (tight to keep Step 1 on one screen) -->
       <div class="mt-3 text-center">
-        <p class="text-gray-500 text-xs">Inkább telefonálnál? <a
+        <p class="text-gray-500 text-xs">{t(locale, 'consult.phoneShort')} <a
           href={`tel:${CONTACT.phone}`}
           class="font-semibold text-primary-600 hover:text-primary-700 transition-colors"
         >{CONTACT.phoneDisplay}</a></p>

@@ -1,21 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { CONTACT } from '../../lib/constants';
-import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const consultLink = getLocalizedUrl(locale, '/konzultacio');
+const f = (key: string) => t(locale, `finance.page.${key}`);
 
-const tiers = [
-  { range: '100 000 Ft felett', months: '3 hónap' },
-  { range: '1 000 000 Ft felett', months: '3 vagy 6 hónap' },
-  { range: '3 000 000 Ft felett', months: '3, 6 vagy 12 hónap' },
-];
+const tiers = [1, 2, 3].map((n) => ({ range: f(`tier${n}Range`), months: f(`tier${n}Months`) }));
 ---
 
 <BaseLayout
-  title="Finanszírozás és kamatmentes részletfizetés"
-  description="0% THM kamatmentes részletfizetés professzionális kozmetikai gépekre. 50% előleg, a fennmaradó összeg 3, 6 vagy 12 havi részletben – rejtett költség nélkül."
+  title={f('metaTitle')}
+  description={f('metaDescription')}
 >
   <div>
     <!-- Hero -->
@@ -24,15 +21,12 @@ const tiers = [
         <div class="text-center max-w-3xl mx-auto">
           <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 bg-success-50 text-success-700">
             <span class="w-1.5 h-1.5 rounded-full bg-success-500"></span>
-            0% THM – kamatmentes
+            {f('badge')}
           </span>
           <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Finanszírozás és részletfizetés
+            {f('title')}
           </h1>
-          <p class="text-lg text-gray-600">
-            Egy professzionális gép komoly beruházás – nem kell egy összegben állnod. Kamatmentes
-            részletfizetéssel a készülék már az első vendégektől termelhet, miközben kényelmesen fizeted ki.
-          </p>
+          <p class="text-lg text-gray-600">{f('lead')}</p>
         </div>
       </div>
     </section>
@@ -42,26 +36,19 @@ const tiers = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="bg-primary-50 rounded-xl p-6 mb-12">
-          <h2 class="text-xl font-bold text-gray-900 mb-4">Hogyan működik a részletfizetés?</h2>
-          <p class="text-gray-600 mb-3">
-            A vételár <strong class="text-gray-900">50%-a előleg</strong>, a fennmaradó összeget pedig
-            <strong class="text-gray-900">kamatmentesen, 0% THM mellett</strong> bontjuk részletekre. Nincs
-            kamat, nincs kezelési díj és nincs rejtett költség – pontosan annyit fizetsz, amennyibe a gép kerül.
-          </p>
-          <p class="text-gray-600">
-            A részletfizetés a vásárlás során, a telefonos egyeztetéskor véglegesíthető. A 100 000 Ft feletti
-            készülékekre érhető el.
-          </p>
+          <h2 class="text-xl font-bold text-gray-900 mb-4">{f('howTitle')}</h2>
+          <p class="text-gray-600 mb-3 [&_strong]:text-gray-900" set:html={f('howText1')} />
+          <p class="text-gray-600">{f('howText2')}</p>
         </div>
 
         <!-- Tiers -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Választható futamidők</h2>
-          <p class="text-gray-600 mb-6">A futamidő a készülék árától függ – minél nagyobb a beruházás, annál hosszabb futamidő érhető el:</p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{f('tiersTitle')}</h2>
+          <p class="text-gray-600 mb-6">{f('tiersIntro')}</p>
           <div class="grid sm:grid-cols-3 gap-4">
             {tiers.map((tier) => (
               <div class="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
-                <div class="text-sm text-gray-500 mb-1">Vételár</div>
+                <div class="text-sm text-gray-500 mb-1">{f('price')}</div>
                 <div class="font-bold text-gray-900 mb-3">{tier.range}</div>
                 <div class="inline-flex items-center gap-2 text-primary-600 font-semibold">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,34 +63,29 @@ const tiers = [
 
         <!-- Example -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Példa egy számításra</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{f('exampleTitle')}</h2>
           <div class="bg-success-50 border border-success-200 rounded-xl p-6">
-            <p class="text-gray-700 mb-4">
-              Egy <strong class="text-gray-900">600 000 Ft</strong> értékű készülék esetén:
-            </p>
+            <p class="text-gray-700 mb-4 [&_strong]:text-gray-900" set:html={f('exampleIntro')} />
             <div class="space-y-2 text-gray-700">
               <div class="flex items-center justify-between border-b border-success-200/60 pb-2">
-                <span>Előleg (50%)</span><strong class="text-gray-900">300 000 Ft</strong>
+                <span>{f('exampleDown')}</span><strong class="text-gray-900">300 000 Ft</strong>
               </div>
               <div class="flex items-center justify-between border-b border-success-200/60 pb-2">
-                <span>Fennmaradó összeg 6 havi részletben</span><strong class="text-gray-900">6 × 50 000 Ft</strong>
+                <span>{f('exampleRest')}</span><strong class="text-gray-900">6 × 50 000 Ft</strong>
               </div>
               <div class="flex items-center justify-between pt-1">
-                <span>Teljes visszafizetés (0% THM)</span><strong class="text-gray-900">600 000 Ft</strong>
+                <span>{f('exampleTotal')}</span><strong class="text-gray-900">600 000 Ft</strong>
               </div>
             </div>
-            <p class="text-sm text-gray-500 mt-4">
-              A pontos havi részlet a kiválasztott készüléktől és futamidőtől függ. A legtöbb terméknél a
-              termékoldalon megtalálod a részletkalkulátort is.
-            </p>
+            <p class="text-sm text-gray-500 mt-4">{f('exampleNote')}</p>
           </div>
         </div>
 
         <!-- Other payment methods -->
         <div class="mb-4">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">További fizetési módok</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{f('methodsTitle')}</h2>
           <div class="grid sm:grid-cols-2 gap-3">
-            {['Banki átutalás', 'Bankkártya', 'Készpénz (átvételkor)', 'Kamatmentes részletfizetés'].map((m) => (
+            {[f('methodTransfer'), f('methodCard'), f('methodCash'), f('methodInstallment')].map((m) => (
               <div class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3">
                 <svg class="w-5 h-5 text-success-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -120,13 +102,11 @@ const tiers = [
     <!-- CTA -->
     <section class="py-12 lg:py-16 bg-primary-600">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">Nézzük át együtt a lehetőségeidet!</h2>
-        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
-          Mondd el, melyik gép érdekel, és kiszámoljuk a számodra legkedvezőbb részletfizetést – kötelezettség nélkül.
-        </p>
+        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">{f('ctaTitle')}</h2>
+        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">{f('ctaText')}</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={consultLink} class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
-            Ingyenes konzultáció
+            {f('ctaConsult')}
           </a>
           <a href={CONTACT.phoneTel} class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

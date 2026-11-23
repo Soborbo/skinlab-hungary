@@ -1,27 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { CONTACT } from '../../lib/constants';
-import { getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/kapcsolat');
+const w = (key: string, params?: Record<string, string | number>) => t(locale, `withdrawal.${key}`, params);
+// A nyilatkozatminta statikus HTML a public/ alatt, nyelvenként külön fájlban.
+const formHref = locale === 'hu' ? '/elallasi-nyilatkozatminta.html' : `/${locale}/elallasi-nyilatkozatminta.html`;
 
-const steps = [
-  { t: 'Jelezd az elállási szándékod', d: 'Írásban (e-mailben) vagy telefonon, az átvételtől számított 14 napon belül. Elég egyértelműen jelezni a szándékot – indokolni nem kell.' },
-  { t: 'Küldd vissza a terméket', d: 'Sértetlen, hiánytalan állapotban, eredeti csomagolásában, az egyeztetett címre. A visszaküldés szervezésében segítünk.' },
-  { t: 'Visszatérítjük a vételárat', d: 'Az elállás bejelentésétől számított 14 napon belül visszautaljuk a termék vételárát.' },
-];
+const steps = [1, 2, 3].map((n) => ({ t: w(`step${n}Title`), d: w(`step${n}Text`) }));
 
-const exclusions = [
-  'Bontott, használt vagy üzembe helyezett készülékek',
-  'Higiéniai okból vissza nem szolgáltatható termékek (pl. kezelőfejek, applikátorok, kezelőanyagok felbontás után)',
-  'Egyedi igény szerint beszerzett vagy rendelt termékek',
-];
+const exclusions = [1, 2, 3].map((n) => w(`exclusion${n}`));
 ---
 
 <BaseLayout
-  title="Elállási jog és visszaküldés"
-  description="14 napos indokolás nélküli elállási jog a 45/2014. (II.26.) Korm. rendelet alapján. Az elállás feltételei, menete és a visszatérítés a Skinlabnál."
+  title={w('metaTitle')}
+  description={w('metaDescription')}
 >
   <div>
     <!-- Hero -->
@@ -29,12 +24,12 @@ const exclusions = [
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
           <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Elállási jog és visszaküldés
+            {w('heroTitle')}
           </h1>
-          <p class="text-lg text-gray-600">
-            Fogyasztóként az átvételtől számított <strong class="text-gray-900">14 napon belül</strong> indokolás
-            nélkül elállhatsz a vásárlástól. Az alábbiakban összefoglaltuk a feltételeket és a pontos menetet.
-          </p>
+          <p class="text-lg text-gray-600" set:html={w('heroLead')} />
+          {locale !== 'hu' && (
+            <p class="mt-4 text-sm italic text-gray-500">{t(locale, 'legal.translationNotice')}</p>
+          )}
         </div>
       </div>
     </section>
@@ -44,17 +39,15 @@ const exclusions = [
 
         <!-- Intro -->
         <div class="bg-primary-50 rounded-xl p-6 mb-12">
-          <h2 class="text-xl font-bold text-gray-900 mb-3">14 napos elállási jog</h2>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">{w('introTitle')}</h2>
           <p class="text-gray-600">
-            A 45/2014. (II.26.) Korm. rendelet alapján fogyasztóként a termék átvételétől számított 14 napon
-            belül jogosult vagy indokolás nélkül elállni a szerződéstől. Az elállási határidő a termék átvételének
-            napjától indul.
+            {w('introText')}
           </p>
         </div>
 
         <!-- Steps -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Az elállás menete</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{w('stepsTitle')}</h2>
           <div class="space-y-4">
             {steps.map((step, i) => (
               <div class="flex items-start gap-4 bg-gray-50 rounded-xl p-5">
@@ -70,26 +63,20 @@ const exclusions = [
 
         <!-- Conditions -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">A visszaküldés feltételei</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">{w('conditionsTitle')}</h2>
           <div class="space-y-3 mb-6">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">A terméket sértetlen, hiánytalan állapotban, eredeti csomagolásában kell visszaküldeni.</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">A visszaküldés közvetlen költsége a vásárlót terheli – kivéve, ha a termék hibás teljesítés miatt kerül vissza.</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-              <span class="text-gray-600">A vételárat az elállás bejelentésétől számított 14 napon belül visszautaljuk.</span>
-            </div>
+            {[1, 2, 3].map((n) => (
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-success-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span class="text-gray-600">{w(`condition${n}`)}</span>
+              </div>
+            ))}
           </div>
 
           <div class="bg-warning-50 border border-warning-200 rounded-xl p-6">
             <h3 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <svg class="w-5 h-5 text-warning-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-              Mikor nem gyakorolható az elállási jog?
+              {w('exclusionsTitle')}
             </h3>
             <ul class="space-y-2 text-gray-600">
               {exclusions.map((e) => (
@@ -101,11 +88,10 @@ const exclusions = [
             </ul>
           </div>
 
-          <p class="text-sm text-gray-500 mt-4">
-            Az elállási jog a fogyasztókat illeti meg. Üzletszerű (céges) vásárlás esetén az elállás feltételeit a
-            részletes <a href={getLocalizedUrl(locale, '/aszf')} class="text-primary-600 hover:underline">ÁSZF</a> tartalmazza.
-            A jótállási (garanciális) igényekről a <a href={getLocalizedUrl(locale, '/garancia')} class="text-primary-600 hover:underline">Garancia</a> oldalon olvashatsz.
-          </p>
+          <p
+            class="text-sm text-gray-500 mt-4"
+            set:html={w('footnote', { aszfUrl: getLocalizedUrl(locale, '/aszf'), warrantyUrl: getLocalizedUrl(locale, '/garancia') })}
+          />
         </div>
 
         <!-- Letölthető nyilatkozatminta -->
@@ -114,18 +100,18 @@ const exclusions = [
             <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
           </div>
           <div>
-            <h3 class="font-semibold text-gray-900 mb-1">Elállási nyilatkozatminta</h3>
-            <p class="text-gray-600 text-sm mb-3">Töltsd le vagy nyomtasd ki a hivatalos elállási/felmondási nyilatkozatmintát (45/2014. Korm. rendelet), és kitöltve juttasd vissza nekünk e-mailben vagy postán.</p>
-            <a href="/elallasi-nyilatkozatminta.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-colors">
+            <h3 class="font-semibold text-gray-900 mb-1">{w('formTitle')}</h3>
+            <p class="text-gray-600 text-sm mb-3">{w('formText')}</p>
+            <a href={formHref} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-              Nyilatkozatminta megnyitása / letöltése
+              {w('formCta')}
             </a>
           </div>
         </div>
 
         <!-- How to reach -->
         <div class="bg-gray-50 rounded-xl p-6">
-          <h3 class="font-semibold text-gray-900 mb-4">Elállás bejelentése</h3>
+          <h3 class="font-semibold text-gray-900 mb-4">{w('reportTitle')}</h3>
           <div class="space-y-3">
             <div class="flex items-center gap-3">
               <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
@@ -144,10 +130,10 @@ const exclusions = [
     <!-- CTA -->
     <section class="py-12 lg:py-16 bg-primary-600">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">Kérdésed van a visszaküldéssel kapcsolatban?</h2>
-        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">Segítünk – írj vagy hívj minket, és átbeszéljük a részleteket.</p>
+        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">{w('ctaTitle')}</h2>
+        <p class="text-primary-100 mb-8 max-w-2xl mx-auto">{w('ctaText')}</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={contactLink} class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">Kapcsolatfelvétel</a>
+          <a href={contactLink} class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">{w('ctaContact')}</a>
           <a href={CONTACT.phoneTel} class="inline-flex items-center justify-center px-6 py-3 bg-primary-700 text-white font-semibold rounded-xl hover:bg-primary-800 transition-colors">{CONTACT.phoneDisplay}</a>
         </div>
       </div>
