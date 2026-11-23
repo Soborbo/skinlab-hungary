@@ -5,12 +5,31 @@
   "metaTitle": "Diodni laser za epilaciju 1200W – 755/808/940/1064 nm",
   "metaDescription": "Prestige 4Wave 1200W diodni laser s 4 valne duljine za profesionalnu, dugotrajnu epilaciju. S službenom obukom i certificiranim obrazovanjem.",
   "stats": [
-    { "value": "1200", "unit": "W", "label": "Snaga", "icon": "zap" },
-    { "value": "4", "label": "Valne duljine", "icon": "wave" },
-    { "value": "5", "label": "Veličine spota", "icon": "layers" },
-    { "value": "-5°C", "label": "Hlađenje", "icon": "snowflake" }
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Snaga",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Valne duljine",
+      "icon": "wave"
+    },
+    {
+      "value": "5",
+      "label": "Veličine spota",
+      "icon": "layers"
+    },
+    {
+      "value": "-5°C",
+      "label": "Hlađenje",
+      "icon": "snowflake"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "Prestige4WAVE – Visoka snaga, profesionalni rezultati",
     "paragraphs": [
@@ -131,6 +150,6 @@
     "Korisnički priručnik",
     "Obuka za rukovanje uređajem (službeni certifikat)",
     "2 godine potpunog jamstva",
-    "Zamjenski uređaj tijekom popravaka"
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
   ]
 }

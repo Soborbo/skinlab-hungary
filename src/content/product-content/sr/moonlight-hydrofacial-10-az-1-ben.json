@@ -5,12 +5,32 @@
   "metaTitle": "Moonlight Hydrofacial | Multifunkcionalni uređaj 10 u 1 za tretman lica",
   "metaDescription": "Moonlight Hydrofacial 10 u 1: 10 tretmanskih glava, dubinsko čišćenje, hidratacija, lifting, obnova kože. 2 godine garancije.",
   "stats": [
-    { "value": "10", "label": "Tretmanskih glava", "icon": "layers" },
-    { "value": "15%+", "label": "Povećanje hidratacije", "icon": "droplet" },
-    { "value": "2", "unit": "godine", "label": "Garancija", "icon": "shield" },
-    { "value": "~40", "unit": "min", "label": "Trajanje tretmana", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Tretmanskih glava",
+      "icon": "layers"
+    },
+    {
+      "value": "15%+",
+      "label": "Povećanje hidratacije",
+      "icon": "droplet"
+    },
+    {
+      "value": "2",
+      "unit": "godine",
+      "label": "Garancija",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Trajanje tretmana",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 20000 },
+  "roi": {
+    "defaultTreatmentPrice": 20000
+  },
   "videoDescription": {
     "headline": "Moonlight Hydrofacial – premium nega kože sa 10 tretmanskih glava",
     "paragraphs": [
@@ -90,16 +110,56 @@
     "role": "Suosnivač Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Bubble pen", "description": "Hidrodermabrazija – dubinsko čišćenje" },
-    { "icon": "snowflake", "name": "Ice head", "description": "Hlađenje, smanjenje upale i iritacije" },
-    { "icon": "sound", "name": "Ultrazvučna glava", "description": "Unos aktivnih sastojaka i zatezanje (lice + predeo oko očiju)" },
-    { "icon": "sparkle", "name": "Magic ball", "description": "Mikrostrujna umirujuća i stimulativna nega" },
-    { "icon": "bolt", "name": "Suction pen", "description": "Vakuumsko čišćenje pora" },
-    { "icon": "zap", "name": "Lifting head", "description": "Mikrostimulacija za podizanje kontura" },
-    { "icon": "layers", "name": "Facial ultrasound", "description": "Dubinski ultrazvučni tretman" },
-    { "icon": "chart", "name": "Line glava", "description": "RF/EMS za poboljšanje tonusa" },
-    { "icon": "spray", "name": "Product spray", "description": "Raspršivač za finu distribuciju aktivnih sastojaka" },
-    { "icon": "clipboard", "name": "UH špatula", "description": "Uklanjanje odumrlih ćelija, piling za čišćenje" }
+    {
+      "icon": "droplet",
+      "name": "Bubble pen",
+      "description": "Hidrodermabrazija – dubinsko čišćenje"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ice head",
+      "description": "Hlađenje, smanjenje upale i iritacije"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvučna glava",
+      "description": "Unos aktivnih sastojaka i zatezanje (lice + predeo oko očiju)"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Magic ball",
+      "description": "Mikrostrujna umirujuća i stimulativna nega"
+    },
+    {
+      "icon": "bolt",
+      "name": "Suction pen",
+      "description": "Vakuumsko čišćenje pora"
+    },
+    {
+      "icon": "zap",
+      "name": "Lifting head",
+      "description": "Mikrostimulacija za podizanje kontura"
+    },
+    {
+      "icon": "layers",
+      "name": "Facial ultrasound",
+      "description": "Dubinski ultrazvučni tretman"
+    },
+    {
+      "icon": "chart",
+      "name": "Line glava",
+      "description": "RF/EMS za poboljšanje tonusa"
+    },
+    {
+      "icon": "spray",
+      "name": "Product spray",
+      "description": "Raspršivač za finu distribuciju aktivnih sastojaka"
+    },
+    {
+      "icon": "clipboard",
+      "name": "UH špatula",
+      "description": "Uklanjanje odumrlih ćelija, piling za čišćenje"
+    }
   ],
   "faq": [
     {
@@ -145,6 +205,6 @@
     "Tretmanska glava ultrazvučna špatula",
     "Korisnički priručnik",
     "2 godine pune garancije",
-    "Zamjenski uređaj za vreme popravke"
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
   ]
 }

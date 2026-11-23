@@ -5,12 +5,32 @@
   "metaTitle": "MediLUX PRO Laser profesional cu diodă cu 4 lungimi de undă",
   "metaDescription": "MediLUX PRO laser cu diodă de 2500W cu 4 lungimi de undă (755, 808, 940, 1064 nm). Spot reglabil, răcire -16°C, sterilizare UV. În culori personalizate.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Putere", "icon": "zap" },
-    { "value": "4", "label": "Lungimi de undă", "icon": "wave" },
-    { "value": "-16°C", "label": "Răcire", "icon": "snowflake" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Putere",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "-16°C",
+      "label": "Răcire",
+      "icon": "snowflake"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 40000 },
+  "roi": {
+    "defaultTreatmentPrice": 40000
+  },
   "videoDescription": {
     "headline": "MediLUX PRO – Laser cu diodă de nivel clinic cu design personalizat",
     "paragraphs": [
@@ -136,6 +156,6 @@
     "Manual de utilizare",
     "Curs de operare (certificat)",
     "Garanție completă 24 de luni",
-    "Aparat de schimb pe perioada reparației"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }

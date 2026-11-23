@@ -171,7 +171,7 @@
     },
     {
       "question": "Kakvu edukaciju i garanciju nudite?",
-      "answer": "U cenu uređaja uključena je kompletna osnovna obuka rukovaoca, detaljan nastavni materijal, protokoli tretmana i predlošci dokumentacije klijenata. Po želji je dostupna i praktična edukacija na živom modelu (+59.990 Ft). Pružamo 2 godine pune garancije i tokom popravke obezbeđujemo zamenski uređaj."
+      "answer": "U cenu uređaja uključena je kompletna osnovna obuka rukovaoca, detaljan nastavni materijal, protokoli tretmana i predlošci dokumentacije klijenata. Po želji je dostupna i praktična edukacija na živom modelu (+59.990 Ft). Pružamo 2 godine pune garancije. Ako popravka verovatno traje duže od 10 radnih dana, za vreme popravke obezbeđujemo zamenski uređaj, u zavisnosti od zaliha."
     }
   ],
   "whatsIncluded": [
@@ -187,6 +187,31 @@
     "Dokumentacija klijenata i edukativni materijali",
     "Korisničko uputstvo na srpskom jeziku",
     "2 godine pune garancije",
-    "Zamenski uređaj tokom popravke"
-  ]
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
+  ],
+  "specs": {
+    "Model": "AM183",
+    "Tip sistema": "višenamenska, modularna platforma za obnovu kože",
+    "Težina": "~6,4 kg",
+    "Izvedba": "kompaktno, kućište vrhunskog kvaliteta",
+    "Napajanje": "DC 24V",
+    "Snaga": "12W",
+    "Radna temperatura": "5 – 30 °C",
+    "Vlažnost": "20% – 80%",
+    "Tehnologije": "Aktivacija kiseonika (Bohr), TriPolar RF, ultrazvuk, vibracija",
+    "Analiza kože": "ugrađena kamera + AI"
+  },
+  "imageAlts": {
+    "elitepod-webshop-1.png": "ElitePod System uređaj za tretmane lica spreda, sa ekranom osetljivim na dodir i dve glave za tretman",
+    "elitepod-webshop-2.png": "ElitePod System uređaj iz kosog ugla, na postolju",
+    "elitepod-webshop-3.png": "ElitePod System glava za tretman sa izmenljivom kapsulom",
+    "elitepod-webshop-4.png": "Ljubičasta glava za tretman ElitePod System izbliza",
+    "elitepod-1.png": "ElitePod System uređaj sa glavama za tretman",
+    "elitepod-2.png": "ElitePod System analiza kože na ekranu uređaja",
+    "elitepod-design-1.jpg": "ElitePod System uređaj za tretmane lica među belim orhidejama",
+    "elitepod-design-2.jpg": "ElitePod System uređaj sa strane, sa orhidejama",
+    "elitepod-design-3.jpg": "ElitePod System na kolicima u Skinlab šourumu",
+    "elitepod-design-4.jpg": "Ljubičasta glava za tretman ElitePod System u ruci, ispred orhideja",
+    "elitepod-design-5.jpg": "Glava sa kapsulom ElitePod System u ruci, ispred orhideja"
+  }
 }

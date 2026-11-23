@@ -1,14 +1,92 @@
 {
-  "name": "Frame",
-  "shortDescription": "Frame – Kmalu na voljo.",
-  "description": "Podroben opis Frame bo kmalu na voljo.",
-  "metaTitle": "Frame | Skinlab Hungary",
-  "metaDescription": "Frame – Kmalu na voljo. Za podrobnejše informacije zaprosite za posvetovanje!",
+  "name": "Laserska naprava FRAME ND:YAG",
+  "shortDescription": "Pametni ND:YAG laser z Androidom in 13.3\" zaslonom na dotik. Vgrajeno hlajenje ročnika, 4 valovne dolžine, odstranjevanje tetovaž in pigmenta.",
+  "description": "Pametna Q-switched Nd:YAG laserska naprava z Android upravljanjem za odstranjevanje tetovaž, tretma pigmentacije, carbon peeling in pomlajevanje kože, z vgrajenim hlajenjem ročnika in 13,3\" barvnim zaslonom na dotik.",
+  "stats": [
+    {
+      "value": "4",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "2000",
+      "unit": "mJ/cm²",
+      "label": "Najv. gostota energije",
+      "icon": "zap"
+    },
+    {
+      "value": "13,3\"",
+      "label": "Zaslon na dotik",
+      "icon": "smartphone"
+    },
+    {
+      "value": "1–10",
+      "unit": "Hz",
+      "label": "Frekvenca impulzov",
+      "icon": "bolt"
+    }
+  ],
+  "videoDescription": {
+    "headline": "FRAME – pametni ND:YAG laser z Androidom za profesionalne salone",
+    "paragraphs": [
+      "FRAME je pametna Q-switched Nd:YAG laserska naprava z Android upravljanjem, ki ponuja vrhunsko rešitev za odstranjevanje tetovaž, tretma pigmentacije in pomlajevanje kože. Operacijski sistem Android omogoča preprosto upravljanje in prilagodljive nastavitve.",
+      "Edinstven sistem hlajenja, vgrajen v ročnik, kožo takoj ohladi in tako zmanjša bolečino ter tveganje za poškodbe kože – za največje udobje stranke.",
+      "Zaradi štirih valovnih dolžin je zelo vsestranska: 1064 nm in 532 nm za vse barve tetovaž, 755 nm za pigmentne madeže, pege in sončne madeže, 1320 nm pa za carbon peeling (globinsko čiščenje kože, krčenje por).",
+      "Visokoenergijski laserski impulzi (10–2000 mJ/cm²) in frekvenca impulzov 1–10 Hz dajejo hitre in vidne rezultate, 13,3\" barvni zaslon na dotik pa tretma naredi preprost in pregleden."
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "bolt",
+      "name": "Odstranjevanje tetovaž",
+      "description": "Za vse barve – pri 1064 nm in 532 nm."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Tretma pigmentacije",
+      "description": "Pigmentni madeži, pege, sončni madeži – 755 nm."
+    },
+    {
+      "icon": "spray",
+      "name": "Carbon peeling",
+      "description": "Globinsko čiščenje kože in krčenje por – 1320 nm."
+    },
+    {
+      "icon": "brain",
+      "name": "Android upravljanje",
+      "description": "Pametna programska oprema, prilagodljive nastavitve."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Vgrajeno hlajenje",
+      "description": "Hlajenje ročnika za udoben tretma z manj bolečine."
+    },
+    {
+      "icon": "chart",
+      "name": "Profesionalna zmogljivost",
+      "description": "10–2000 mJ/cm², frekvenca impulzov 1–10 Hz."
+    }
+  ],
+  "specs": {
+    "Vrsta laserja": "Q-switched Nd:YAG",
+    "Valovne dolžine": "1064 nm, 532 nm, 755 nm, 1320 nm (carbon peeling)",
+    "Gostota energije": "10–2000 mJ/cm²",
+    "Frekvenca impulzov": "1–10 Hz",
+    "Velikost žarka": "2–6 mm (nastavljivo)",
+    "Zaslon": "13,3\" barvni zaslon na dotik",
+    "Hlajenje": "Hlajenje, vgrajeno v ročnik, hladilna moč 15 W",
+    "Upravljanje": "Operacijski sistem Android"
+  },
   "cta": {
+    "afterVideo": {
+      "text": "Imate vprašanje o laserju FRAME ND:YAG? Z veseljem vam pomagamo!",
+      "buttonLabel": "Zahtevajte posvet",
+      "phoneLabel": "Pokličite nas"
+    },
     "final": {
-      "headline": "Vas zanima Frame?",
-      "subtitle": "Zaprosite za brezplačno posvetovanje in obvestili vas bomo, ko bo na voljo!",
-      "buttonLabel": "Zaprosi za posvetovanje"
+      "headline": "Vas zanima laser FRAME ND:YAG?",
+      "subtitle": "Zahtevajte brezplačen posvet ali predstavitev v razstavnem prostoru in pomagali vam bomo z nastavitvami, primernimi za vaš salon.",
+      "buttonLabel": "Zahtevajte posvet"
     }
   }
 }

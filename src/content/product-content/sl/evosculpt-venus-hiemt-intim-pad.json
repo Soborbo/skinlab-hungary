@@ -5,12 +5,32 @@
   "metaTitle": "EvoSculpt Venus intimna blazina | Kegel trener za krepitev medeničnega dna | Skinlab Hungary",
   "metaDescription": "EvoSculpt Venus: profesionalna naprava za krepitev medeničnega dna s 3 elektrodami. Obravnava inkontinence, Kegel trening, izboljšanje spolnega doživetja. Diskretno, udobno.",
   "stats": [
-    { "value": "3", "label": "Elektrode", "icon": "zap" },
-    { "value": "3", "label": "Načini vadbe", "icon": "wave" },
-    { "value": "1,75", "unit": "kg", "label": "Teža naprave", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Čas okrevanja", "icon": "clock" }
+    {
+      "value": "3",
+      "label": "Elektrode",
+      "icon": "zap"
+    },
+    {
+      "value": "3",
+      "label": "Načini vadbe",
+      "icon": "wave"
+    },
+    {
+      "value": "1,75",
+      "unit": "kg",
+      "label": "Teža naprave",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Čas okrevanja",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 15000 },
+  "roi": {
+    "defaultTreatmentPrice": 15000
+  },
   "videoDescription": {
     "headline": "Zakaj se splača ponujati tretmaje za krepitev intimnih mišic?",
     "paragraphs": [
@@ -147,6 +167,6 @@
     "Dostop do aplikacije EvoSculpt Venus",
     "Navodila za uporabo (v slovenščini)",
     "2-letna polna garancija",
-    "Nadomestna naprava v času popravila"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

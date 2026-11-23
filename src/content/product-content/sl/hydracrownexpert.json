@@ -5,12 +5,32 @@
   "metaTitle": "HydraCrown Expert | 10 v 1 premium hydrofacial z AI analizo kože",
   "metaDescription": "HydraCrown Expert 10 v 1 hydrofacial naprava z AI analizo kože: hidrodermabrazija, RF, LED, ultrazvok, skin scrubber. 2-letna garancija, združljiva z EU.",
   "stats": [
-    { "value": "10", "label": "Funkcij tretmaja", "icon": "layers" },
-    { "value": "AI", "label": "Diagnostika kože", "icon": "zap" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" },
-    { "value": "~40", "unit": "min", "label": "Čas tretmaja", "icon": "clock" }
+    {
+      "value": "10",
+      "label": "Funkcij tretmaja",
+      "icon": "layers"
+    },
+    {
+      "value": "AI",
+      "label": "Diagnostika kože",
+      "icon": "zap"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    },
+    {
+      "value": "~40",
+      "unit": "min",
+      "label": "Čas tretmaja",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 30000 },
+  "roi": {
+    "defaultTreatmentPrice": 30000
+  },
   "videoDescription": {
     "headline": "HydraCrown Expert – kralj hydra naprav za nego obraza",
     "paragraphs": [
@@ -96,16 +116,56 @@
     "role": "Soustanovitelj Skinlaba, direktor"
   },
   "functionCards": [
-    { "icon": "droplet", "name": "Hidrodermabrazija", "description": "Vakuumsko globinsko čiščenje, čiščenje por, odstranjevanje odmrlih kožnih celic" },
-    { "icon": "wind", "name": "Kisikova infuzija", "description": "Pospešuje oskrbo kože s kisikom in vitalnost" },
-    { "icon": "sound", "name": "Ultrazvočna infuzija", "description": "Vnos aktivnih sestavin v globlje plasti, pri 1,1 MHz" },
-    { "icon": "bolt", "name": "Vakuumska terapija", "description": "Spodbujanje mikrocirkulacije, učvrstitev kože, 96 kPa tlaka" },
-    { "icon": "sun", "name": "LED svetlobna terapija", "description": "Modra, rdeča in zelena svetloba za različne kožne težave" },
-    { "icon": "zap", "name": "Galvanski tretma", "description": "Iontoforeza za boljšo absorpcijo serumov" },
-    { "icon": "snowflake", "name": "Hladno-toplo kladivo", "description": "Pomirjanje kože, stiskanje por (0–6 °C / 36–46 °C)" },
-    { "icon": "layers", "name": "Skin scrubber", "description": "Odstranjevanje odmrlih kožnih celic, pri 26–30 MHz" },
-    { "icon": "sparkle", "name": "Mikrodermabrazija", "description": "Fin piling, obnova kože, izboljšanje teksture" },
-    { "icon": "brain", "name": "AI analiza kože", "description": "Analiza z umetno inteligenco v realnem času in predlog tretmaja" }
+    {
+      "icon": "droplet",
+      "name": "Hidrodermabrazija",
+      "description": "Vakuumsko globinsko čiščenje, čiščenje por, odstranjevanje odmrlih kožnih celic"
+    },
+    {
+      "icon": "wind",
+      "name": "Kisikova infuzija",
+      "description": "Pospešuje oskrbo kože s kisikom in vitalnost"
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvočna infuzija",
+      "description": "Vnos aktivnih sestavin v globlje plasti, pri 1,1 MHz"
+    },
+    {
+      "icon": "bolt",
+      "name": "Vakuumska terapija",
+      "description": "Spodbujanje mikrocirkulacije, učvrstitev kože, 96 kPa tlaka"
+    },
+    {
+      "icon": "sun",
+      "name": "LED svetlobna terapija",
+      "description": "Modra, rdeča in zelena svetloba za različne kožne težave"
+    },
+    {
+      "icon": "zap",
+      "name": "Galvanski tretma",
+      "description": "Iontoforeza za boljšo absorpcijo serumov"
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hladno-toplo kladivo",
+      "description": "Pomirjanje kože, stiskanje por (0–6 °C / 36–46 °C)"
+    },
+    {
+      "icon": "layers",
+      "name": "Skin scrubber",
+      "description": "Odstranjevanje odmrlih kožnih celic, pri 26–30 MHz"
+    },
+    {
+      "icon": "sparkle",
+      "name": "Mikrodermabrazija",
+      "description": "Fin piling, obnova kože, izboljšanje teksture"
+    },
+    {
+      "icon": "brain",
+      "name": "AI analiza kože",
+      "description": "Analiza z umetno inteligenco v realnem času in predlog tretmaja"
+    }
   ],
   "faq": [
     {
@@ -152,6 +212,6 @@
     "Začetni paket serumov",
     "Navodila za uporabo (v slovenščini)",
     "2-letna polna garancija",
-    "Nadomestna naprava v času popravila"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

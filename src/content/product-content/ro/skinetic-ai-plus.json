@@ -78,15 +78,16 @@
     ]
   },
   "specs": {
-    "Senzor de imagine": "Cameră de 15 MP de înaltă rezoluție",
-    "Moduri de imagistică": "8 moduri (natural, polarizat, polarizat încrucișat, UV, lumină Wood, zonă roșie, zonă maro, analiza umidității)",
-    "Ecran": "Tabletă cu ecran tactil de 15,6\"",
+    "Senzor de imagine": "Cameră de înaltă rezoluție de 15 MP",
+    "Moduri de imagistică": "8 moduri (natural, polarizat, polarizare încrucișată, UV, lumină Wood, zonă roșie, zonă maro, analiza umidității)",
+    "Afișaj": "Tabletă cu ecran tactil de 15,6\"",
     "Conectivitate": "WiFi / HDMI / USB",
-    "Rapoarte": "Export și partajare PDF",
-    "Stocare date": "În cloud, accesibil de pe mai multe dispozitive",
+    "Raport": "Export PDF și partajare",
+    "Stocarea datelor": "În cloud, accesibilă de pe mai multe dispozitive",
     "Accesoriu": "Microscop pentru scalp și față (inclus)",
-    "Funcții AI": "Asistent AI integrat, prognoza îmbătrânirii, planificator de protocoale din oferta proprie a salonului",
-    "Dimensiuni": "300 × 260 × 450 mm",
+    "Software": "Interfață de utilizator în limba maghiară",
+    "Funcții AI": "Asistent AI integrat, predicția îmbătrânirii, planificator de protocoale din oferta proprie a salonului",
+    "Dimensiune": "300 × 260 × 450 mm",
     "Greutate": "cca 6,5 kg",
     "Alimentare": "AC 100-240V, 50/60Hz"
   },
@@ -121,6 +122,18 @@
     "Cablu de alimentare și accesorii",
     "Instruirea operatorului (cu certificat)",
     "2 ani garanție completă",
-    "Program de aparat de schimb pentru reparații mai lungi"
-  ]
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
+  ],
+  "imageAlts": {
+    "skinetic-ai-plus-main.jpg": "Aparatul de diagnosticare a pielii cu AI SKINETIC AI+ cu ecran tactil de 15,6 inch și software în limba maghiară",
+    "skinetic-ai-plus-oldalnezet.jpg": "Analizorul de piele SKINETIC AI+ din profil, cu spațiu de examinare ecranat de lumină și tabletă cu ecran tactil",
+    "skinetic-ai-plus-mikroszkop.png": "Aparatul SKINETIC AI+ cu microscopul inclus pentru scalp și față, cu meniu în limba maghiară",
+    "skinetic-ai-plus-allvany.jpg": "Sistemul de diagnosticare a pielii SKINETIC AI+ pe suport cu roți, cu microscopul de mână",
+    "skinetic-ai-plus-showroom.jpg": "Analizorul de piele SKINETIC AI+ în showroomul Skinlab din Érd, cu pat de tratament",
+    "skinetic-ai-plus-design-2.jpg": "Aparatul de diagnosticare a pielii SKINETIC AI+ cu tabletă, în fața unui perete de trandafiri",
+    "skinetic-ai-plus-design-3.jpg": "Analizorul de piele cu AI SKINETIC AI+ din profil, în fața unui perete de trandafiri",
+    "skinetic-ai-plus-design-4.jpg": "Microscopul pentru scalp și față SKINETIC AI+ în mână, în fața logo-ului Skinlab",
+    "skinetic-ai-plus-kupola.jpg": "Cupola de imagistică SKINETIC AI+ de aproape",
+    "skinetic-ai-plus-tablet.jpg": "Interfața SKINETIC AI+ în limba maghiară pe tabletă"
+  }
 }

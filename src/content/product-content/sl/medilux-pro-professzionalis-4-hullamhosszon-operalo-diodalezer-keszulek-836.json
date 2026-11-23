@@ -5,12 +5,32 @@
   "metaTitle": "MediLUX PRO Profesionalni diodni laser s 4 valovnimi dolžinami",
   "metaDescription": "MediLUX PRO 2500W diodni laser s 4 valovnimi dolžinami (755, 808, 940, 1064 nm). Nastavljiv spot, hlajenje -16°C, UV-sterilizacija. V prilagojenih barvah.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Moč", "icon": "zap" },
-    { "value": "4", "label": "Valovne dolžine", "icon": "wave" },
-    { "value": "-16°C", "label": "Hlajenje", "icon": "snowflake" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Moč",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Valovne dolžine",
+      "icon": "wave"
+    },
+    {
+      "value": "-16°C",
+      "label": "Hlajenje",
+      "icon": "snowflake"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 40000 },
+  "roi": {
+    "defaultTreatmentPrice": 40000
+  },
   "videoDescription": {
     "headline": "MediLUX PRO – Klinični diodni laser s prilagojenim dizajnom",
     "paragraphs": [
@@ -136,6 +156,6 @@
     "Navodila za uporabo",
     "Usposabljanje operaterjev (certifikat)",
     "24 mesecev celovite garancije",
-    "Nadomestna naprava med popravilom"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

@@ -5,10 +5,27 @@
   "metaTitle": "Carbon peeling naprava za odsesavanje dima | Z LED osvetlitvijo",
   "metaDescription": "Profesionalna naprava za odsesavanje dima za laserske tretmaje. HEPA in filter z aktivnim ogljem, vgrajena LED osvetlitev, CE certifikat. Univerzalna pritrditev.",
   "stats": [
-    { "value": "HEPA", "label": "Filtrirni sistem", "icon": "shield" },
-    { "value": "LED", "label": "Vgrajena osvetlitev", "icon": "zap" },
-    { "value": "1", "unit": "kg", "label": "Teža", "icon": "layers" },
-    { "value": "CE", "label": "Certifikat", "icon": "award" }
+    {
+      "value": "HEPA",
+      "label": "Filtrirni sistem",
+      "icon": "shield"
+    },
+    {
+      "value": "LED",
+      "label": "Vgrajena osvetlitev",
+      "icon": "zap"
+    },
+    {
+      "value": "1",
+      "unit": "kg",
+      "label": "Teža",
+      "icon": "layers"
+    },
+    {
+      "value": "CE",
+      "label": "Certifikat",
+      "icon": "award"
+    }
   ],
   "cta": {
     "afterVideo": {
@@ -23,13 +40,13 @@
     }
   },
   "specs": {
-    "Tápfeszültség": "220–240V",
-    "Zajszint": "0 dB",
-    "Szűrőrendszer": "HEPA és aktív szén",
-    "Súly": "1 kg",
-    "Világítás": "Beépített fehér fényű LED",
-    "Rögzítés": "Univerzális, minden felületre",
-    "Tanúsítványok": "CE"
+    "Napajalna napetost": "220–240V",
+    "Raven hrupa": "0 dB",
+    "Sistem filtracije": "HEPA in aktivno oglje",
+    "Teža": "1 kg",
+    "Osvetlitev": "Vgrajena LED z belo svetlobo",
+    "Pritrditev": "Univerzalna, na vse površine",
+    "Certifikati": "CE"
   },
   "faq": [
     {

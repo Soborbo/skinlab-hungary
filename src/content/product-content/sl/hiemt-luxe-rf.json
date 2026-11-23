@@ -5,12 +5,33 @@
   "metaTitle": "HIEMT Luxe RF | HI-EMT + RF kombinirana naprava za oblikovanje telesa | Skinlab Hungary",
   "metaDescription": "HIEMT Luxe RF: HI-EMT + radiofrekvenčno kombinirano oblikovanje telesa. 7 Tesla, 4 ročke, 25 % gradnja mišic, 30 % zmanjšanje maščobe. Učvrstitev kože in gradnja mišic v enem.",
   "stats": [
-    { "value": "7", "unit": "Tesla", "label": "Magnetna sila", "icon": "zap" },
-    { "value": "4", "label": "Ročke", "icon": "zap" },
-    { "value": "30", "unit": "%", "label": "Zmanjšanje maščobe", "icon": "wave" },
-    { "value": "25", "unit": "%", "label": "Povečanje mišične mase", "icon": "shield" }
+    {
+      "value": "7",
+      "unit": "Tesla",
+      "label": "Magnetna sila",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Ročke",
+      "icon": "zap"
+    },
+    {
+      "value": "30",
+      "unit": "%",
+      "label": "Zmanjšanje maščobe",
+      "icon": "wave"
+    },
+    {
+      "value": "25",
+      "unit": "%",
+      "label": "Povečanje mišične mase",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "Zakaj je kombinirana HI-EMT + RF tehnologija prihodnost?",
     "paragraphs": [
@@ -154,6 +175,6 @@
     "Pritrdilni pasovi",
     "Navodila za uporabo (v slovenščini)",
     "2-letna polna garancija",
-    "Nadomestna naprava v času popravila"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

@@ -5,12 +5,31 @@
   "metaTitle": "LUNOX 2in1 diodni laser in Q-switched ND:YAG naprava",
   "metaDescription": "LUNOX 2in1 diodni laser in ND:YAG laser v enem – hitra povrnitev, tretmaji brez brazgotin, inteligentne nastavitve in uradno usposabljanje s certifikatom.",
   "stats": [
-    { "value": "2in1", "label": "Tehnologija", "icon": "layers" },
-    { "value": "4", "label": "Valovne dolžine (dioda)", "icon": "wave" },
-    { "value": "1600", "unit": "mJ", "label": "ND:YAG energija", "icon": "zap" },
-    { "value": "-4°C", "label": "Hlajenje", "icon": "snowflake" }
+    {
+      "value": "2in1",
+      "label": "Tehnologija",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Valovne dolžine (dioda)",
+      "icon": "wave"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "ND:YAG energija",
+      "icon": "zap"
+    },
+    {
+      "value": "-4°C",
+      "label": "Hlajenje",
+      "icon": "snowflake"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "LUNOX – Dve tehnologiji, neomejene možnosti",
     "paragraphs": [
@@ -92,12 +111,36 @@
     "ctaText": "Zanima me usposabljanje"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Odstranjevanje dlak z diodnim laserjem", "description": "Trajno odstranjevanje dlak na 4 valovnih dolžinah, na vseh tipih kože" },
-    { "icon": "eye", "name": "Odstranjevanje tetovažev", "description": "Odstranjevanje črnih, modrih, rjavih, zelenih, rdečih in rumenih pigmentov" },
-    { "icon": "sun", "name": "Tretma pigmentnih peg", "description": "Bledenje peg, melazme, sončnih peg, starostnih pigmentacij" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Hollywoodski tretma: globinsko čiščenje, krčenje por, pomlajevanje kože" },
-    { "icon": "bolt", "name": "Pomlajevanje kože", "description": "Stimulacija kolagena, učvrstitev kože, izboljšanje teksture" },
-    { "icon": "droplet", "name": "Odstranjevanje trajne ličke", "description": "Korekcija trajne ličke obrvi, ustnic, vek" }
+    {
+      "icon": "zap",
+      "name": "Odstranjevanje dlak z diodnim laserjem",
+      "description": "Trajno odstranjevanje dlak na 4 valovnih dolžinah, na vseh tipih kože"
+    },
+    {
+      "icon": "eye",
+      "name": "Odstranjevanje tetovažev",
+      "description": "Odstranjevanje črnih, modrih, rjavih, zelenih, rdečih in rumenih pigmentov"
+    },
+    {
+      "icon": "sun",
+      "name": "Tretma pigmentnih peg",
+      "description": "Bledenje peg, melazme, sončnih peg, starostnih pigmentacij"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hollywoodski tretma: globinsko čiščenje, krčenje por, pomlajevanje kože"
+    },
+    {
+      "icon": "bolt",
+      "name": "Pomlajevanje kože",
+      "description": "Stimulacija kolagena, učvrstitev kože, izboljšanje teksture"
+    },
+    {
+      "icon": "droplet",
+      "name": "Odstranjevanje trajne ličke",
+      "description": "Korekcija trajne ličke obrvi, ustnic, vek"
+    }
   ],
   "faq": [
     {
@@ -129,6 +172,6 @@
     "Navodila za uporabo",
     "Usposabljanje operaterjev (certifikat FAR)",
     "2 leti celovite garancije",
-    "Nadomestna naprava med popravilom"
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
   ]
 }

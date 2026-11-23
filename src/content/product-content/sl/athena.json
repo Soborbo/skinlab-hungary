@@ -199,6 +199,33 @@
     "Madžarsko navodilo za uporabo",
     "Usposabljanje upravljavca naprave (certifikat FAR)",
     "2-letna celovita garancija",
-    "Nadomestni stroj v času popravila"
-  ]
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
+  ],
+  "specs": {
+    "Vrsta laserja": "Diodni laser",
+    "Valovna dolžina": "755 / 808 / 940 / 1064 nm",
+    "Velikost žarka": "12 × 20 mm (fiksno)",
+    "Moč": "1000W (izhodna)",
+    "Ročnik": "Velik, ergonomski, s kontaktnim safirnim hlajenjem",
+    "Sistem hlajenja": "Večstopenjski TEC + voda + zrak",
+    "Hlajenje kože": "Kontaktno safirno hlajenje",
+    "Zaslon": "Velik barvni zaslon na dotik",
+    "Sistem tretmajev": "Pametna programska oprema - samodejno prepoznavanje tipa kože in dlak",
+    "Osvetlitev": "Rožnata LED ambientalna osvetlitev",
+    "Napajanje": "110V / 220V",
+    "Dobavni rok": "2-6 tednov"
+  },
+  "imageAlts": {
+    "athena-1.png": "Diodni laser ATHENA 1000W s parametri tretmaja na zaslonu",
+    "athena-2.png": "Diodni laser ATHENA s strani, z nosilcem ročnika",
+    "athena-3.png": "Ročnik ATHENA v roki, z lastnim zaslonom",
+    "athena-4.png": "Zaslon na dotik laserja ATHENA z menijem tretmajev",
+    "athena-5.png": "Ročnik ATHENA z izstopnim oknom s kontaktnim safirnim hlajenjem",
+    "athena-6.png": "Diodni laser ATHENA 1000W z menijem tretmajev po predelih telesa",
+    "athena-design-1.jpg": "Diodni laser ATHENA 1000W v salonskem okolju",
+    "athena-design-2.jpg": "Ročnik ATHENA z nastavljeno frekvenco in ravnjo energije",
+    "athena-design-3.jpg": "Ročnik ATHENA od blizu, z zlatim safirnim oknom",
+    "athena-oktatas-1.jpg": "Usposabljanje za upravljanje diodnega laserja ATHENA s Skinlab predavateljem",
+    "athena-oktatas-2.jpg": "Predstavitev ročnika ATHENA med usposabljanjem"
+  }
 }

@@ -5,12 +5,32 @@
   "metaTitle": "NightyVibe Laser cu diodă | 2500W, SAFE-OPTION, control inteligent",
   "metaDescription": "NightyVibe laser cu diodă inteligent de 2500W cu 4 lungimi de undă și tehnologie SAFE-OPTION. 40M impulsuri, piesă de mână digitală, formare profesională. Certificat.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Putere", "icon": "zap" },
-    { "value": "4", "label": "Lungimi de undă", "icon": "wave" },
-    { "value": "40M", "label": "Durată de viață impulsuri", "icon": "clock" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Putere",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "40M",
+      "label": "Durată de viață impulsuri",
+      "icon": "clock"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NightyVibe – Laserul inteligent pentru profesioniști",
     "paragraphs": [
@@ -111,12 +131,36 @@
     "role": "Cofondator Skinlab, director general"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Putere 2500W", "description": "Una dintre cele mai ridicate puteri de pe piață." },
-    { "icon": "sun", "name": "4 lungimi de undă", "description": "755, 808, 940, 1064 nm – pentru fiecare tip de piele." },
-    { "icon": "bolt", "name": "SAFE-OPTION", "description": "Previne setările incorecte sau periculoase." },
-    { "icon": "chart", "name": "Contor de impulsuri", "description": "Piesă de mână digitală cu contor integrat." },
-    { "icon": "brain", "name": "Control inteligent", "description": "Setări optimizate pe bază de date clinice." },
-    { "icon": "clipboard", "name": "Pachet de afaceri", "description": "Plan de marketing, strategie de prețuri, atragerea clienților." }
+    {
+      "icon": "zap",
+      "name": "Putere 2500W",
+      "description": "Una dintre cele mai ridicate puteri de pe piață."
+    },
+    {
+      "icon": "sun",
+      "name": "4 lungimi de undă",
+      "description": "755, 808, 940, 1064 nm – pentru fiecare tip de piele."
+    },
+    {
+      "icon": "bolt",
+      "name": "SAFE-OPTION",
+      "description": "Previne setările incorecte sau periculoase."
+    },
+    {
+      "icon": "chart",
+      "name": "Contor de impulsuri",
+      "description": "Piesă de mână digitală cu contor integrat."
+    },
+    {
+      "icon": "brain",
+      "name": "Control inteligent",
+      "description": "Setări optimizate pe bază de date clinice."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Pachet de afaceri",
+      "description": "Plan de marketing, strategie de prețuri, atragerea clienților."
+    }
   ],
   "faq": [
     {
@@ -141,7 +185,7 @@
     },
     {
       "question": "Ce garanție primesc?",
-      "answer": "Oferim o garanție completă de 2 ani. Avem echipă de service proprie și oferim aparat de schimb pe perioada reparațiilor, astfel încât activitatea salonului să nu fie niciodată întreruptă."
+      "answer": "Oferim o garanție completă de 2 ani. Avem echipă de service proprie. Dacă reparația durează probabil mai mult de 10 zile lucrătoare, asigurăm un aparat de schimb pe durata reparației, în funcție de stoc, astfel încât activitatea salonului să nu se oprească."
     }
   ],
   "whatsIncluded": [
@@ -153,6 +197,6 @@
     "Manual de utilizare",
     "Curs de operare (certificat)",
     "Garanție completă 2 ani",
-    "Aparat de schimb pe perioada reparației"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }

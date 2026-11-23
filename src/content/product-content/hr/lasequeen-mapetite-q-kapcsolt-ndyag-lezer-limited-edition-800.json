@@ -5,12 +5,31 @@
   "metaTitle": "LaseQueen MaPetite Limited Edition – Q-switched ND:YAG laser",
   "metaDescription": "LaseQueen MaPetite limitirano izdanje ND:YAG laser sa 6 glava: tetovaže, pigment, carbon peeling, ožiljci, gljivice noktiju. Obuka s potvrdom i 2 godine jamstva.",
   "stats": [
-    {"value": "6", "label": "Tretmanskih glava", "icon": "layers"},
-    {"value": "F5", "label": "Laserski kristal", "icon": "award"},
-    {"value": "Limited", "label": "Izdanje", "icon": "award"},
-    {"value": "2", "unit": "god.", "label": "Jamstvo", "icon": "shield"}
+    {
+      "value": "6",
+      "label": "Tretmanskih glava",
+      "icon": "layers"
+    },
+    {
+      "value": "F5",
+      "label": "Laserski kristal",
+      "icon": "award"
+    },
+    {
+      "value": "Limited",
+      "label": "Izdanje",
+      "icon": "award"
+    },
+    {
+      "value": "2",
+      "unit": "god.",
+      "label": "Jamstvo",
+      "icon": "shield"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 25000},
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "LaseQueen MaPetite – Limitirano izdanje, potpuno znanje",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Imate pitanja o LaseQueen MaPetite laseru? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
-    "afterFeatures": {"headline": "Želite vidjeti LaseQueen MaPetite uživo?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
-    "final": {"headline": "Zanima vas LaseQueen MaPetite Limited Edition?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+    "afterVideo": {
+      "text": "Imate pitanja o LaseQueen MaPetite laseru? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite vidjeti LaseQueen MaPetite uživo?",
+      "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima vas LaseQueen MaPetite Limited Edition?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
   },
   "featureRows": {
     "headline": "Zašto odabrati LaseQueen MaPetite?",
@@ -81,19 +112,58 @@
     "role": "Suosnivač Skinlaba, direktor"
   },
   "functionCards": [
-    {"icon": "zap", "name": "Uklanjanje tetovaža", "description": "Uklanjanje tetovaža svih boja na valnim duljinama 1064 nm i 532 nm"},
-    {"icon": "eye", "name": "Uklanjanje trajne šminke", "description": "Korekcija trajne šminke obrva i usana No Scar glavama"},
-    {"icon": "sparkles", "name": "Carbon peeling", "description": "Dubinsko čišćenje, stezanje pora tretmanskim glavama 1320 nm i 755 nm"},
-    {"icon": "droplet", "name": "Tretman pigmentnih mrlja", "description": "Posvjetljivanje sunčanih pjega, pjegica i staračkih mrlja"},
-    {"icon": "bolt", "name": "Tretman ožiljaka", "description": "Posvjetljivanje ožiljaka od akni i posttraumatskih ožiljaka"},
-    {"icon": "sun", "name": "Tretman gljivica noktiju", "description": "Laserski tretman gljivica noktiju"}
+    {
+      "icon": "zap",
+      "name": "Uklanjanje tetovaža",
+      "description": "Uklanjanje tetovaža svih boja na valnim duljinama 1064 nm i 532 nm"
+    },
+    {
+      "icon": "eye",
+      "name": "Uklanjanje trajne šminke",
+      "description": "Korekcija trajne šminke obrva i usana No Scar glavama"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Dubinsko čišćenje, stezanje pora tretmanskim glavama 1320 nm i 755 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Tretman pigmentnih mrlja",
+      "description": "Posvjetljivanje sunčanih pjega, pjegica i staračkih mrlja"
+    },
+    {
+      "icon": "bolt",
+      "name": "Tretman ožiljaka",
+      "description": "Posvjetljivanje ožiljaka od akni i posttraumatskih ožiljaka"
+    },
+    {
+      "icon": "sun",
+      "name": "Tretman gljivica noktiju",
+      "description": "Laserski tretman gljivica noktiju"
+    }
   ],
   "faq": [
-    {"question": "Po čemu se MaPetite razlikuje od običnog LaseQueen-a?", "answer": "MaPetite je limitirano izdanje LaseQueen-a u ekskluzivnom dizajnu. Tehnološki su identični: istih 6 tretmanskih glava, F5 laserski kristal, hibridni sustav hlađenja i mogućnosti tretmana. Razlika je isključivo u estetskom izgledu limitiranog izdanja."},
-    {"question": "Za koje tretmane je pogodan LaseQueen MaPetite?", "answer": "Uklanjanje tjelesnih tetovaža i trajne šminke, carbon peeling, tretman pigmentnih mrlja, tretman ožiljaka i gljivica noktiju. 6 tretmanskih glava pruža sveobuhvatnije funkcije od uobičajenih uređaja s 3 glave."},
-    {"question": "Za koliko se vremena isplati?", "answer": "Kombinacijom povoljne cjenovne kategorije i svestrane primjene, prosječno se isplati za 1-2 mjeseca s 3-5 klijenata dnevno. Koristite naš ROI kalkulator za točan izračun!"},
-    {"question": "Kakva obuka ide uz uređaj?", "answer": "Službena obuka za rukovanje uređajem registrirana u FAR sustavu ide BESPLATNO uz kupnju uređaja (u vrijednosti 79.990 Ft). Obuka pokriva korištenje svih 6 tretmanskih glava do specijalnih tretmana."},
-    {"question": "Postoji li mogućnost pregleda uređaja prije kupnje?", "answer": "Da! U našem izložbenom prostoru (Érd, Bajcsy-Zsilinszky út 156.) možete osobno pogledati i isprobati LaseQueen MaPetite uz prethodni dogovor termina."}
+    {
+      "question": "Po čemu se MaPetite razlikuje od običnog LaseQueen-a?",
+      "answer": "MaPetite je limitirano izdanje LaseQueen-a u ekskluzivnom dizajnu. Tehnološki su identični: istih 6 tretmanskih glava, F5 laserski kristal, hibridni sustav hlađenja i mogućnosti tretmana. Razlika je isključivo u estetskom izgledu limitiranog izdanja."
+    },
+    {
+      "question": "Za koje tretmane je pogodan LaseQueen MaPetite?",
+      "answer": "Uklanjanje tjelesnih tetovaža i trajne šminke, carbon peeling, tretman pigmentnih mrlja, tretman ožiljaka i gljivica noktiju. 6 tretmanskih glava pruža sveobuhvatnije funkcije od uobičajenih uređaja s 3 glave."
+    },
+    {
+      "question": "Za koliko se vremena isplati?",
+      "answer": "Kombinacijom povoljne cjenovne kategorije i svestrane primjene, prosječno se isplati za 1-2 mjeseca s 3-5 klijenata dnevno. Koristite naš ROI kalkulator za točan izračun!"
+    },
+    {
+      "question": "Kakva obuka ide uz uređaj?",
+      "answer": "Službena obuka za rukovanje uređajem registrirana u FAR sustavu ide BESPLATNO uz kupnju uređaja (u vrijednosti 79.990 Ft). Obuka pokriva korištenje svih 6 tretmanskih glava do specijalnih tretmana."
+    },
+    {
+      "question": "Postoji li mogućnost pregleda uređaja prije kupnje?",
+      "answer": "Da! U našem izložbenom prostoru (Érd, Bajcsy-Zsilinszky út 156.) možete osobno pogledati i isprobati LaseQueen MaPetite uz prethodni dogovor termina."
+    }
   ],
   "whatsIncluded": [
     "LaseQueen MaPetite Q-switched Nd:YAG laser (Limited edition)",
@@ -107,6 +177,6 @@
     "Korisnički priručnik (na hrvatskom jeziku)",
     "Obuka za rukovanje uređajem (FAR potvrda)",
     "2 godine potpunog jamstva",
-    "Zamjenski uređaj za vrijeme popravka"
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
   ]
 }

@@ -5,12 +5,31 @@
   "metaTitle": "LUNOX 2in1 diodni laser & Q-switched ND:YAG uređaj",
   "metaDescription": "LUNOX 2in1 diodni laser i ND:YAG laser u jednom – brz povrat ulaganja, tretmani bez ožiljaka, inteligentne postavke i službena obuka s potvrdom.",
   "stats": [
-    {"value": "2in1", "label": "Tehnologija", "icon": "layers"},
-    {"value": "4", "label": "Valne duljine (dioda)", "icon": "wave"},
-    {"value": "1600", "unit": "mJ", "label": "ND:YAG energija", "icon": "zap"},
-    {"value": "-4°C", "label": "Hlađenje", "icon": "snowflake"}
+    {
+      "value": "2in1",
+      "label": "Tehnologija",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Valne duljine (dioda)",
+      "icon": "wave"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "ND:YAG energija",
+      "icon": "zap"
+    },
+    {
+      "value": "-4°C",
+      "label": "Hlađenje",
+      "icon": "snowflake"
+    }
   ],
-  "roi": {"defaultTreatmentPrice": 35000},
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "LUNOX – Dvije tehnologije, beskonačne mogućnosti",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": {"text": "Imate pitanja o LUNOX-u? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
-    "afterFeatures": {"headline": "Želite vidjeti LUNOX uživo?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
-    "final": {"headline": "Zanima vas LUNOX 2in1 laserski uređaj?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+    "afterVideo": {
+      "text": "Imate pitanja o LUNOX-u? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite vidjeti LUNOX uživo?",
+      "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima vas LUNOX 2in1 laserski uređaj?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
   },
   "featureRows": {
     "headline": "Zašto se LUNOX isplati?",
@@ -80,19 +111,58 @@
     "ctaText": "Zanima me obuka"
   },
   "functionCards": [
-    {"icon": "zap", "name": "Uklanjanje dlačica diodnim laserom", "description": "Trajno uklanjanje dlačica na 4 valne duljine, za sve tipove kože"},
-    {"icon": "eye", "name": "Uklanjanje tetovaža", "description": "Uklanjanje crnih, plavih, smeđih, zelenih, crvenih i žutih pigmenata"},
-    {"icon": "sun", "name": "Tretman pigmentnih mrlja", "description": "Posvjetljivanje pjegica, melasme, sunčanih pjega i staračke pigmentacije"},
-    {"icon": "sparkles", "name": "Carbon peeling", "description": "Hollywood tretman: dubinsko čišćenje, stezanje pora, pomlađivanje kože"},
-    {"icon": "bolt", "name": "Pomlađivanje kože", "description": "Stimulacija kolagena, učvršćivanje kože, poboljšanje teksture"},
-    {"icon": "droplet", "name": "Uklanjanje trajne šminke", "description": "Korekcija trajne šminke obrva, usana i kapaka"}
+    {
+      "icon": "zap",
+      "name": "Uklanjanje dlačica diodnim laserom",
+      "description": "Trajno uklanjanje dlačica na 4 valne duljine, za sve tipove kože"
+    },
+    {
+      "icon": "eye",
+      "name": "Uklanjanje tetovaža",
+      "description": "Uklanjanje crnih, plavih, smeđih, zelenih, crvenih i žutih pigmenata"
+    },
+    {
+      "icon": "sun",
+      "name": "Tretman pigmentnih mrlja",
+      "description": "Posvjetljivanje pjegica, melasme, sunčanih pjega i staračke pigmentacije"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Hollywood tretman: dubinsko čišćenje, stezanje pora, pomlađivanje kože"
+    },
+    {
+      "icon": "bolt",
+      "name": "Pomlađivanje kože",
+      "description": "Stimulacija kolagena, učvršćivanje kože, poboljšanje teksture"
+    },
+    {
+      "icon": "droplet",
+      "name": "Uklanjanje trajne šminke",
+      "description": "Korekcija trajne šminke obrva, usana i kapaka"
+    }
   ],
   "faq": [
-    {"question": "Zašto se isplati odabrati 2in1 uređaj?", "answer": "LUNOX u jednom uređaju ujedinjuje uklanjanje dlačica diodnim laserom i Q-switched ND:YAG tehnologiju. Ne morate kupovati zasebne uređaje – uklanjanje dlačica, tetovaža, tretman pigmentacije, carbon peeling i pomlađivanje kože sve je moguće jednim uređajem, što znači značajnu uštedu troškova."},
-    {"question": "Za koliko se vremena LUNOX isplati?", "answer": "Uklanjanje dlačica diodnim laserom i ND:YAG tretmani spadaju među najprofitabilnije kozmetičke usluge. Računajući s 3-5 klijenata dnevno, LUNOX se obično isplati za 2-4 mjeseca. Koristite naš ROI kalkulator za točan izračun!"},
-    {"question": "Koje pigmente može tretirati ND:YAG dio?", "answer": "Q-switched ND:YAG laser s valnim duljinama 1064 nm i 532 nm učinkovito tretira crne, plave, smeđe, zelene, crvene i žute pigmente. Primjenjiv je za uklanjanje tjelesnih tetovaža i trajne šminke."},
-    {"question": "Kakva obuka ide uz LUNOX?", "answer": "Složeni program obuke odobren u FAR sustavu i izrađen uz sudjelovanje liječnika. Obuka je besplatna uz kupnju uređaja i završava službenom potvrdom."},
-    {"question": "Postoji li mogućnost pregleda uređaja prije kupnje?", "answer": "Da! U našem izložbenom prostoru (Érd, Bajcsy-Zsilinszky út 156.) možete osobno pogledati i isprobati LUNOX uz prethodni dogovor termina."}
+    {
+      "question": "Zašto se isplati odabrati 2in1 uređaj?",
+      "answer": "LUNOX u jednom uređaju ujedinjuje uklanjanje dlačica diodnim laserom i Q-switched ND:YAG tehnologiju. Ne morate kupovati zasebne uređaje – uklanjanje dlačica, tetovaža, tretman pigmentacije, carbon peeling i pomlađivanje kože sve je moguće jednim uređajem, što znači značajnu uštedu troškova."
+    },
+    {
+      "question": "Za koliko se vremena LUNOX isplati?",
+      "answer": "Uklanjanje dlačica diodnim laserom i ND:YAG tretmani spadaju među najprofitabilnije kozmetičke usluge. Računajući s 3-5 klijenata dnevno, LUNOX se obično isplati za 2-4 mjeseca. Koristite naš ROI kalkulator za točan izračun!"
+    },
+    {
+      "question": "Koje pigmente može tretirati ND:YAG dio?",
+      "answer": "Q-switched ND:YAG laser s valnim duljinama 1064 nm i 532 nm učinkovito tretira crne, plave, smeđe, zelene, crvene i žute pigmente. Primjenjiv je za uklanjanje tjelesnih tetovaža i trajne šminke."
+    },
+    {
+      "question": "Kakva obuka ide uz LUNOX?",
+      "answer": "Složeni program obuke odobren u FAR sustavu i izrađen uz sudjelovanje liječnika. Obuka je besplatna uz kupnju uređaja i završava službenom potvrdom."
+    },
+    {
+      "question": "Postoji li mogućnost pregleda uređaja prije kupnje?",
+      "answer": "Da! U našem izložbenom prostoru (Érd, Bajcsy-Zsilinszky út 156.) možete osobno pogledati i isprobati LUNOX uz prethodni dogovor termina."
+    }
   ],
   "whatsIncluded": [
     "LUNOX 2in1 laserski uređaj",
@@ -102,6 +172,6 @@
     "Korisnički priručnik (na hrvatskom jeziku)",
     "Obuka za rukovanje uređajem (FAR potvrda)",
     "2 godine potpunog jamstva",
-    "Zamjenski uređaj za vrijeme popravka"
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
   ]
 }
