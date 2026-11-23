@@ -9,7 +9,7 @@
  * Scoped via [data-pgallery] so it never collides with the hero ProductGallery.
  */
 import OptimizedPicture from '../images/OptimizedPicture.astro';
-import { getImageEntry, hasImage } from '@/lib/resolve-image';
+import { getImageAlt, hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
 import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
 
@@ -35,8 +35,7 @@ const hiddenCount = resolved.length - tileCount;
 const isProductShot = (img: string) => img.startsWith('@assets/products/') && !/design|oktatas/i.test(img);
 
 function altFor(img: string, i: number): string {
-  const entry = getImageEntry(img);
-  return entry?.alt || `${productName} – kép ${i + 1}`;
+  return getImageAlt(img, t(locale, 'product.imageAlt', { name: productName, n: i + 1 }), locale);
 }
 
 const thumbWidths = [320, 480, 640];

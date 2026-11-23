@@ -64,7 +64,7 @@ const allSpecKeys = [...new Set(variants.flatMap(v => Object.keys(v.specs || {})
     {hasSpecs && allSpecKeys.length > 0 && (
       <div>
         <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          {t(locale, 'product.variantComparison') || 'Variánsok összehasonlítása'}
+          {t(locale, 'product.variantComparison')}
         </h2>
 
         <!-- Desktop table -->
@@ -73,7 +73,7 @@ const allSpecKeys = [...new Set(variants.flatMap(v => Object.keys(v.specs || {})
             <thead>
               <tr class="bg-primary-50">
                 <th class="text-left px-6 py-4 text-sm font-semibold text-gray-700 border-b border-gray-100">
-                  {t(locale, 'product.feature') || 'Tulajdonság'}
+                  {t(locale, 'product.feature')}
                 </th>
                 {variants.map(variant => (
                   <th class="text-center px-4 py-4 text-sm font-semibold text-gray-900 border-b border-gray-100">

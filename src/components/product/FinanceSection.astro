@@ -52,7 +52,7 @@ const withTabs = showInstallment && !!price;
           <ROICalculator locale={locale} productPrice={price} defaultTreatmentPrice={defaultTreatmentPrice} embedded />
         </div>
         <div class="hidden basis-full mt-6 peer-checked/inst:block">
-          <InstallmentCalculator price={price!} />
+          <InstallmentCalculator locale={locale} price={price!} />
         </div>
       </div>
     ) : (

@@ -105,16 +105,16 @@ function shortName(product: Product): string {
  * (cover), utánuk a fehér hátterű főkép és packshotok (contain). Így a nagy kép
  * ugyanaz, mint a termékoldal hero-képe (ProductLayout: designImages[0] ?? image).
  * A kategória-hero csempéi ettől függetlenül a fehér hátterű `image`-et kapják.
- * Alt a képmanifestből.
+ * Alt: HU a képmanifestből, más nyelven a product-content imageAlts-ból.
  */
-function buildImages(product: Product, fallbackAlt: (name: string, n: number) => string): ShowcaseImage[] {
+function buildImages(product: Product, fallbackAlt: (name: string, n: number) => string, locale: Locale): ShowcaseImage[] {
   const { data } = product;
   const seen = new Set<string>();
   const out: ShowcaseImage[] = [];
   const push = (src: string, fit: ShowcaseImage['fit'], index: number) => {
     if (!src || seen.has(src)) return;
     seen.add(src);
-    out.push({ src, fit, alt: getImageAlt(src, fallbackAlt(shortName(product), index)) });
+    out.push({ src, fit, alt: getImageAlt(src, fallbackAlt(shortName(product), index), locale) });
   };
   (data.designImages ?? []).forEach((src) => push(src, 'cover', out.length + 1));
   [data.image, ...(data.images ?? [])].forEach((src) => push(src, 'contain', out.length + 1));
@@ -153,7 +153,7 @@ export function buildShowcaseModels(
         specs,
         href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
         thumb: thumbs[slug] ?? data.image,
-        images: buildImages(product, ui.gallery.image),
+        images: buildImages(product, ui.gallery.image, locale),
         installment: longest
           ? { months: longest, monthly: info.monthly[longest], downPayment: info.downPayment }
           : null,

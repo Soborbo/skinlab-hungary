@@ -18,12 +18,11 @@
  */
 import ShowroomGallery from './ShowroomGallery.astro';
 import manifest from '@/lib/image-manifest.json';
+import { t, type Locale } from '@/i18n';
 
 interface Props {
-  /** Aktuális nyelv. A szekció szövege EGYELŐRE csak magyarul létezik, ezért
-   *  más nyelven nem renderelünk - magyar szöveg egy angol/német terméklapon
-   *  rosszabb, mint a hiányzó szekció. Fordítás után ez a kapu kivehető. */
-  locale: string;
+  /** Aktuális nyelv (a UI-szöveg az i18n `product.owner*` kulcsaiból jön). */
+  locale: Locale;
   /** Termék slug - ez választja ki a @assets/tulajdonosok/{slug}/ mappát. */
   slug: string;
   /** Terméknév a címsorhoz. */
@@ -38,28 +37,27 @@ interface Props {
 const { locale, slug, productName, ownerName, intro } = Astro.props;
 
 /**
- * Magyar határozott névelő: magánhangzóval kezdődő szó előtt "az".
- * A terméknevek fele magánhangzóval kezdődik (ATHENA, OLYMPIA, ELITEPOD),
- * ezért a fix "a" névelő minden második gépnél hibás mondatot adna.
+ * Magyar határozott névelő ({article} a HU címsorban): magánhangzóval kezdődő
+ * szó előtt "az". A terméknevek fele magánhangzóval kezdődik (ATHENA, OLYMPIA,
+ * ELITEPOD), ezért a fix "a" névelő minden második gépnél hibás mondatot adna.
+ * A többi nyelv sablonja nem használja.
  */
 const article = /^[aáeéiíoóöőuúüű]/i.test(productName.trim()) ? 'az' : 'a';
 
 const manifestData = manifest as Record<string, unknown>;
-const hasPhotos = locale === 'hu' && Object.keys(manifestData).some(k =>
+const hasPhotos = Object.keys(manifestData).some(k =>
   k.startsWith(`@assets/tulajdonosok/${slug}/`)
 );
 
 const headline = ownerName
-  ? `Így indult el ${article} ${productName} a ${ownerName} stúdióban`
-  : `Így indul el ${article} ${productName} egy szalonban`;
+  ? t(locale, 'product.ownerHeadlineNamed', { article, productName, ownerName })
+  : t(locale, 'product.ownerHeadline', { article, productName });
 
 // SZÁNDÉKOSAN általános: ez az alapszöveg MINDEN gépre kimegy, aminek nincs
 // saját `ownerStory.intro`-ja. Csak azt állítja, ami minden gépre igaz (az
 // oktatás a vásárlás része); a helyszíni betanítás termékenként eltérhet, ezért
 // azt a konkrét átadást leíró, terméklap-specifikus introban kell megírni.
-const defaultIntro =
-  'Nem a gép kiszállításával fejeződik be a munkánk: a gépkezelői oktatás a vásárlás ' +
-  'része. Az alábbi képek egy átadásról és betanításról készültek.';
+const defaultIntro = t(locale, 'product.ownerIntro');
 ---
 
 {hasPhotos && (
@@ -67,7 +65,7 @@ const defaultIntro =
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <p class="inline-block bg-primary-100 text-primary-700 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
-          Ők már ezzel dolgoznak
+          {t(locale, 'product.ownerEyebrow')}
         </p>
         <h2 id="tulajdonosok-cim" class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
           {headline}
@@ -81,8 +79,9 @@ const defaultIntro =
         slug={slug}
         assetRoot="tulajdonosok"
         layout="grid"
-        label={`${productName} átadás és betanítás – fotók`}
-        eyebrow={ownerName ? `Átadás és betanítás – ${ownerName}` : 'Átadás és betanítás'}
+        altName={productName}
+        label={t(locale, 'product.ownerLabel', { productName })}
+        eyebrow={ownerName ? t(locale, 'product.ownerTagNamed', { ownerName }) : t(locale, 'product.ownerTag')}
       />
     </div>
   </section>

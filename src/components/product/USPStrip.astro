@@ -12,7 +12,10 @@
  * szállítás, hanem Foxpost-csomag.
  */
 
+import { t, type Locale } from '@/i18n';
+
 interface Props {
+  locale: Locale;
   /** Kezelőanyag/kellék oldal: a gépes ígéretek helyett fogyóeszköz-ígéretek. */
   consumable?: boolean;
   /** Garancia években: a kozmetikai gépekre 2, a (smink)tetováló gépekre 1. */
@@ -24,19 +27,21 @@ interface Props {
   stock?: 'in_stock' | 'preorder' | 'backorder';
 }
 
-const { consumable = false, warrantyYears = 2, stock = 'preorder' } = Astro.props;
+const { locale, consumable = false, warrantyYears = 2, stock = 'preorder' } = Astro.props;
 
 const shippingItem = {
-  in_stock: { title: 'Raktáron', sub: 'Szállítás vagy érdi átvétel' },
-  preorder: { title: '15–20 munkanap', sub: 'Kiszámítható szállítás' },
-  backorder: { title: 'Rendelésre', sub: 'Érkezés egyeztetés szerint' },
+  in_stock: { title: t(locale, 'product.inStock'), sub: t(locale, 'product.uspInStockSub') },
+  preorder: { title: t(locale, 'product.uspPreorderTitle'), sub: t(locale, 'product.uspPreorderSub') },
+  backorder: { title: t(locale, 'product.backorderLabel'), sub: t(locale, 'product.uspBackorderSub') },
 }[stock];
 
 const machineItems = [
   {
     icon: 'shield-check',
-    title: `${warrantyYears} év garancia`,
-    sub: 'Teljes körű, alkatrészre és munkadíjra',
+    title: warrantyYears === 1
+      ? t(locale, 'product.uspWarrantyOne')
+      : t(locale, 'product.uspWarranty', { years: warrantyYears }),
+    sub: t(locale, 'product.uspWarrantySub'),
   },
   {
     icon: 'truck',
@@ -44,13 +49,13 @@ const machineItems = [
   },
   {
     icon: 'certificate',
-    title: 'FAR tanúsítvány',
-    sub: 'Akkreditált oktatással',
+    title: t(locale, 'product.uspFarTitle'),
+    sub: t(locale, 'product.uspFarSub'),
   },
   {
     icon: 'wrench',
-    title: 'Saját szerviz',
-    sub: 'Magyar háttér, cseregép-program',
+    title: t(locale, 'product.uspServiceTitle'),
+    sub: t(locale, 'product.uspServiceSub'),
   },
 ];
 
@@ -60,23 +65,23 @@ const machineItems = [
 const consumableItems = [
   {
     icon: 'shield-check',
-    title: 'Eredeti termék',
-    sub: 'Közvetlen forgalmazás a gyártótól',
+    title: t(locale, 'product.uspOriginalTitle'),
+    sub: t(locale, 'product.uspOriginalSub'),
   },
   {
     icon: 'truck',
-    title: 'Foxpost vagy GLS',
-    sub: 'Automatába 1 490 Ft-tól',
+    title: t(locale, 'product.uspShippingTitle'),
+    sub: t(locale, 'product.uspShippingSub'),
   },
   {
     icon: 'certificate',
-    title: 'Személyes átvétel',
-    sub: 'Érdi showroom, díjmentes',
+    title: t(locale, 'product.uspPickupTitle'),
+    sub: t(locale, 'product.uspPickupSub'),
   },
   {
     icon: 'wrench',
-    title: 'Szakmai támogatás',
-    sub: 'Segítünk a protokoll összeállításában',
+    title: t(locale, 'product.uspSupportTitle'),
+    sub: t(locale, 'product.uspSupportSub'),
   },
 ];
 

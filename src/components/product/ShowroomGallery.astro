@@ -12,6 +12,8 @@
 import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
 import manifest from '@/lib/image-manifest.json';
 import { MOBILE_MEDIA_BLEED } from '@/lib/ui-classes';
+import { getImageAlt } from '@/lib/resolve-image';
+import { t, getLocaleFromUrl } from '@/i18n';
 
 interface Props {
   /** Product slug - determines which subfolder of @assets/showroom/ is loaded. */
@@ -28,9 +30,21 @@ interface Props {
    * 'grid' = egységes 2 oszlopos rács, 4:3 cellák (a fekvő fotókhoz).
    */
   layout?: 'masonry' | 'grid';
+  /** Név a nem-magyar alt szöveghez (alap: a slug nagybetűvel, mint a manifestben). */
+  altName?: string;
 }
 
-const { slug, eyebrow, assetRoot = 'showroom', label = 'Showroom képek', layout = 'masonry' } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const {
+  slug,
+  eyebrow,
+  assetRoot = 'showroom',
+  label = t(locale, 'product.showroomLabel'),
+  layout = 'masonry',
+  altName = slug.toUpperCase(),
+} = Astro.props;
+// HU: a manifest alt-ja; más nyelven lefordított, a mappához illő alapszöveg.
+const altKey = assetRoot === 'tulajdonosok' ? 'product.ownerImageAlt' : 'product.showroomImageAlt';
 const isGrid = layout === 'grid';
 
 const manifestData = manifest as Record<string, { seoSlug: string; alt: string; basePath: string; width: number; height: number; widths: number[] }>;
@@ -53,6 +67,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
   return {
     key,
     entry,
+    alt: getImageAlt(key, t(locale, altKey, { name: altName, n: i + 1 }), locale),
     aspectRatio: `${entry.width} / ${entry.height}`,
     tilt: TILT_PRESETS[i % TILT_PRESETS.length],
     delay: i * 60,
@@ -81,7 +96,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
           : 'flex md:block md:columns-2 lg:columns-3 xl:columns-4 snap-x snap-mandatory overflow-x-auto md:overflow-visible -mx-4 sm:mx-0 px-3 sm:px-0 scroll-px-3 sm:scroll-px-0 pb-2 md:pb-0',
       ]}
     >
-      {tiles.map(({ key, entry, aspectRatio, tilt, delay, index }) => (
+      {tiles.map(({ key, entry, alt, aspectRatio, tilt, delay, index }) => (
         <button
           type="button"
           class:list={[
@@ -92,13 +107,13 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
           ]}
           data-index={index}
           data-fullsrc={`${entry.basePath}-${entry.widths[entry.widths.length - 1]}w.jpg`}
-          data-alt={entry.alt}
+          data-alt={alt}
           style={`--tilt-x:${tilt[0]}deg; --tilt-y:${tilt[1]}deg; --reveal-delay:${delay}ms;${isGrid ? '' : ` aspect-ratio:${aspectRatio};`}`}
-          aria-label={`${entry.alt} – nagyítás`}
+          aria-label={t(locale, 'product.zoomImage', { alt })}
         >
           <OptimizedPicture
             src={key}
-            alt={entry.alt}
+            alt={alt}
             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 80vw"
             class:list={['showroom-tile__img absolute inset-0 w-full h-full object-cover', isGrid && 'object-[center_30%]']}
             loading="lazy"
@@ -126,7 +141,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
               <circle cx="11" cy="11" r="7" />
               <path stroke-linecap="round" d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
             </svg>
-            Nagyíts
+            {t(locale, 'product.showroomZoomBadge')}
           </span>
 
           <!-- Glow corner accent -->
@@ -146,7 +161,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
         <svg class="showroom-hint-arrow w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7M3 12h18" />
         </svg>
-        Húzd oldalra a több képért
+        {t(locale, 'product.swipeHint')}
       </span>
     </p>
 
@@ -155,13 +170,13 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
       class="showroom-lightbox fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
-      aria-label="Showroom kép nagyítva"
+      aria-label={t(locale, 'product.showroomLightbox')}
     >
       <button
         type="button"
         class="showroom-lightbox__close absolute top-4 right-4 z-10 inline-flex items-center justify-center
                w-11 h-11 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-        aria-label="Bezárás"
+        aria-label={t(locale, 'common.close')}
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -172,7 +187,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
         type="button"
         class="showroom-lightbox__prev absolute left-2 sm:left-6 z-10 inline-flex items-center justify-center
                w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-        aria-label="Előző"
+        aria-label={t(locale, 'product.prev')}
       >
         <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -183,7 +198,7 @@ const tiles = SHOWROOM_KEYS.map((key, i) => {
         type="button"
         class="showroom-lightbox__next absolute right-2 sm:right-6 z-10 inline-flex items-center justify-center
                w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-        aria-label="Következő"
+        aria-label={t(locale, 'product.next')}
       >
         <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

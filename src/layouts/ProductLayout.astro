@@ -76,14 +76,23 @@ const displayShortDesc = content.shortDescription || product.shortDescription;
 const displayDesc = content.description || product.description;
 const resolvedFaq = (content.faq || product.faq || []) as ProductContentFAQItem[];
 const resolvedWhatsIncluded = content.whatsIncluded || product.whatsIncluded || [];
-const resolvedSpecs = content.specs || product.specs || {} as Record<string, string>;
+// Specs: a nyelvi fájlé; végső esetben a HU forrás (product-content/hu, majd a
+// termék JSON). A HU-ra eső nem-HU oldalt a tests/product-content-coverage teszt
+// bukja el, hogy ne menjen ki magyar műszaki tábla.
+const huSpecs = locale === 'hu' ? undefined : loadProductContent('hu', product.slug, product.categorySlug).content.specs;
+const resolvedSpecs = content.specs || huSpecs || product.specs || {} as Record<string, string>;
+// Variáns-szövegek: product-content `variants[sku]` (name/description/specs) felülírja a HU-t.
+const localizedVariants = product.variants.map((v) => ({ ...v, ...content.variants?.[v.sku] }));
 const resolvedTestimonials = content.testimonials || [];
 const resolvedExpertQuote = content.expertQuote;
 const resolvedFunctionCards = content.functionCards || [];
 
 // Find category info
 const category = CATEGORIES.find(c => c.slug === product.categorySlug);
-const categoryName = category?.nameShort || product.categorySlug;
+// HU: a rövid kategórianév (constants); más nyelven az i18n `categories.<slug>`.
+const categoryName = locale === 'hu'
+  ? category?.nameShort || product.categorySlug
+  : t(locale, `categories.${product.categorySlug}`);
 
 // Page URL (trailing slash to match the served/canonical URL).
 // NB: the slash is concatenated, not placed inside the template literal — a
@@ -359,13 +368,13 @@ const productSchema = product.price ? {
     />
 
     <!-- 2. USP STRIP -->
-    <USPStrip consumable={isConsumable} warrantyYears={warrantyYears} stock={stockState} />
+    <USPStrip locale={locale} consumable={isConsumable} warrantyYears={warrantyYears} stock={stockState} />
 
     <!-- 3. VARIANT DETAILS -->
     {product.hasVariants && product.variants.length > 0 && (
       <VariantDetails
         locale={locale}
-        variants={product.variants}
+        variants={localizedVariants}
         productName={displayName}
       />
     )}
@@ -465,9 +474,9 @@ const productSchema = product.price ? {
         specs={resolvedSpecs}
         productName={displayName}
         datasheet={product.datasheet}
-        title={isConsumable && locale === 'hu' ? 'Termékadatok' : undefined}
-        subtitle={isConsumable && locale === 'hu'
-          ? `A ${displayName} részletes adatai`
+        title={isConsumable ? t(locale, 'product.consumableSpecsTitle') : undefined}
+        subtitle={isConsumable
+          ? t(locale, 'product.consumableSpecsSubtitle', { productName: displayName })
           : undefined}
       />
     )}
@@ -490,8 +499,8 @@ const productSchema = product.price ? {
         items={resolvedWhatsIncluded}
         productName={displayName}
         showWarrantyBadge={!isConsumable}
-        title={isConsumable && locale === 'hu' ? 'Mit tartalmaz a csomag?' : undefined}
-        subtitle={isConsumable && locale === 'hu' ? 'A kiszerelés pontos tartalma' : undefined}
+        title={isConsumable ? t(locale, 'product.whatsIncluded') : undefined}
+        subtitle={isConsumable ? t(locale, 'product.consumableIncludedSubtitle') : undefined}
       />
     )}
 
@@ -519,8 +528,8 @@ const productSchema = product.price ? {
         locale={locale}
         faq={resolvedFaq}
         productName={displayName}
-        subtitle={isConsumable && locale === 'hu'
-          ? `Minden, amit a ${displayName} készítményről tudni érdemes`
+        subtitle={isConsumable
+          ? t(locale, 'product.consumableFaqSubtitle', { productName: displayName })
           : undefined}
       />
     )}
@@ -552,8 +561,8 @@ const productSchema = product.price ? {
         locale={locale}
         currentSlug={product.slug}
         categorySlug={product.categorySlug}
-        subtitle={isConsumable && locale === 'hu'
-          ? 'Nézd meg a kategória további kezelőanyagait'
+        subtitle={isConsumable
+          ? t(locale, 'product.consumableRelatedSubtitle')
           : undefined}
       />
     )}

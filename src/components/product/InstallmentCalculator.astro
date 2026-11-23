@@ -11,13 +11,15 @@
  * the section wrapper and heading come from FinanceSection.
  */
 import { getInstallmentInfo, INSTALLMENT_MIN } from '@/lib/installment';
+import { t, type Locale } from '@/i18n';
 
 interface Props {
+  locale: Locale;
   price: number;
   productName?: string;
 }
 
-const { price } = Astro.props;
+const { locale, price } = Astro.props;
 
 const fmt = (n: number) => new Intl.NumberFormat('hu-HU').format(Math.round(n)) + ' Ft';
 
@@ -25,14 +27,7 @@ const fmt = (n: number) => new Intl.NumberFormat('hu-HU').format(Math.round(n)) 
 const initial = getInstallmentInfo(price, false);
 const defaultMonths = initial.months[initial.months.length - 1] ?? 0;
 
-const rules = [
-  '50% előleg vásárláskor, a fennmaradó összeg a választott futamidőre elosztva.',
-  '100 000 Ft alatt nincs részletfizetés.',
-  '100 000 Ft – 1 millió Ft között: 3 hónap.',
-  '1–3 millió Ft között: 3 vagy 6 hónap.',
-  '3 millió Ft felett: 3, 6 vagy 12 hónap.',
-  'Több gép egyszerre (csomag): 3, 6 vagy 12 hónap – így alacsonyabb gépértéknél is elérhető a hosszabb futamidő.',
-];
+const rules = [1, 2, 3, 4, 5, 6].map((n) => t(locale, `installment.rule${n}`));
 ---
 
 <div>
@@ -49,20 +44,20 @@ const rules = [
         <div class="p-5 lg:p-8 space-y-6">
           <!-- Quantity -->
           <div>
-            <span class="block text-sm font-bold text-gray-700 mb-2">Hány gépet veszel?</span>
-            <div class="grid grid-cols-2 gap-2" role="group" aria-label="Mennyiség">
+            <span class="block text-sm font-bold text-gray-700 mb-2">{t(locale, 'installment.qtyLabel')}</span>
+            <div class="grid grid-cols-2 gap-2" role="group" aria-label={t(locale, 'installment.qtyAria')}>
               <button type="button" class="qty-btn px-4 py-3 rounded-xl border-2 border-cta bg-cta-light text-cta-hover font-semibold transition-all" data-qty="1" aria-pressed="true">
-                1 gép
+                {t(locale, 'installment.qtyOne')}
               </button>
               <button type="button" class="qty-btn px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold transition-all hover:border-cta/40" data-qty="2" aria-pressed="false">
-                2 gép (csomag)
+                {t(locale, 'installment.qtyTwo')}
               </button>
             </div>
           </div>
 
           <!-- Total price -->
           <div>
-            <span class="block text-sm font-bold text-gray-700 mb-2">Vételár</span>
+            <span class="block text-sm font-bold text-gray-700 mb-2">{t(locale, 'installment.priceLabel')}</span>
             <div class="px-4 py-3 bg-gray-50 rounded-xl text-xl font-bold text-gray-900 border border-gray-200">
               <span id="inst-total">{fmt(price)}</span>
             </div>
@@ -70,8 +65,8 @@ const rules = [
 
           <!-- Term selector -->
           <div>
-            <span class="block text-sm font-bold text-gray-700 mb-2">Futamidő</span>
-            <div class="grid grid-cols-3 gap-2" id="term-buttons" role="group" aria-label="Futamidő">
+            <span class="block text-sm font-bold text-gray-700 mb-2">{t(locale, 'installment.termLabel')}</span>
+            <div class="grid grid-cols-3 gap-2" id="term-buttons" role="group" aria-label={t(locale, 'installment.termLabel')}>
               {[3, 6, 12].map((m) => (
                 <button
                   type="button"
@@ -79,11 +74,11 @@ const rules = [
                   data-term={m}
                   aria-pressed={m === defaultMonths ? 'true' : 'false'}
                 >
-                  {m} hó
+                  {t(locale, 'installment.termMonths', { months: m })}
                 </button>
               ))}
             </div>
-            <p class="text-xs text-gray-400 mt-2">A választható futamidők a vételártól függnek.</p>
+            <p class="text-xs text-gray-400 mt-2">{t(locale, 'installment.termNote')}</p>
           </div>
         </div>
 
@@ -94,29 +89,29 @@ const rules = [
           <div class="relative z-10" id="inst-results">
             <!-- Monthly - hero -->
             <div class="text-center mb-8">
-              <div class="text-sm font-semibold text-white/70 uppercase tracking-widest mb-2">Havi részlet</div>
+              <div class="text-sm font-semibold text-white/70 uppercase tracking-widest mb-2">{t(locale, 'installment.monthlyLabel')}</div>
               <div class="flex items-baseline justify-center gap-2">
                 <span class="text-5xl lg:text-6xl font-black leading-none" id="inst-monthly">{initial.available ? fmt(initial.monthly[defaultMonths as 3|6|12]) : '–'}</span>
-                <span class="text-xl font-semibold text-white/70">/ hó</span>
+                <span class="text-xl font-semibold text-white/70">{t(locale, 'installment.perMonth')}</span>
               </div>
-              <div class="text-sm text-white/70 mt-1"><span id="inst-term-label">{defaultMonths}</span> hónapon át</div>
+              <div class="text-sm text-white/70 mt-1"><span id="inst-term-label">{defaultMonths}</span> {t(locale, 'installment.monthsSuffix')}</div>
             </div>
 
             <div class="h-px bg-white/25 mb-8"></div>
 
             <div class="grid grid-cols-2 gap-4">
               <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-                <div class="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">Előleg (50%)</div>
+                <div class="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">{t(locale, 'installment.downPayment')}</div>
                 <div class="text-lg lg:text-xl font-bold" id="inst-down">{initial.available ? fmt(initial.downPayment) : '–'}</div>
               </div>
               <div class="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-                <div class="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">Részletre osztva</div>
+                <div class="text-xs font-semibold text-white/70 uppercase tracking-wide mb-1">{t(locale, 'installment.remaining')}</div>
                 <div class="text-lg lg:text-xl font-bold" id="inst-remaining">{initial.available ? fmt(initial.remaining) : '–'}</div>
               </div>
             </div>
 
             <p class="text-xs text-white/70 text-center mt-6">
-              Tájékoztató kalkuláció – a pontos feltételeket konzultáción egyeztetjük.
+              {t(locale, 'installment.disclaimer')}
             </p>
           </div>
         </div>
@@ -125,7 +120,7 @@ const rules = [
 
     <!-- Rules -->
     <div class="mt-6 bg-white rounded-2xl border border-gray-100 p-5 lg:p-6">
-      <h3 class="font-bold text-gray-900 mb-3">Hogyan működik?</h3>
+      <h3 class="font-bold text-gray-900 mb-3">{t(locale, 'installment.rulesTitle')}</h3>
       <ul class="space-y-2">
         {rules.map((r) => (
           <li class="flex items-start gap-2.5 text-sm text-gray-600">
