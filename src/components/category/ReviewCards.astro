@@ -12,8 +12,8 @@
  */
 import GoogleMark from './GoogleMark.astro';
 import { GOOGLE_RATING } from '@/lib/constants';
-import { GOOGLE_REVIEWS } from '@/data/google-reviews';
-import { getLocaleFromUrl } from '@/i18n/ui';
+import { GOOGLE_REVIEWS, reviewText } from '@/data/google-reviews';
+import { getLocaleFromUrl, t, type Locale } from '@/i18n/ui';
 import { showcaseUi } from '@/i18n/showcase';
 
 interface Props {
@@ -23,7 +23,8 @@ interface Props {
 }
 
 const { title, ctaHref } = Astro.props;
-const ui = showcaseUi(getLocaleFromUrl(Astro.url));
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const ui = showcaseUi(locale);
 const rating = GOOGLE_RATING ? GOOGLE_RATING.value.toFixed(1).replace('.', ',') : null;
 const initials = (name: string): string => name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 const reviews = GOOGLE_REVIEWS.slice(0, 3);
@@ -64,7 +65,8 @@ const reviews = GOOGLE_REVIEWS.slice(0, 3);
               </div>
               <GoogleMark size={18} />
             </div>
-            <p class="rv-text m-0 whitespace-pre-line text-base max-dt:leading-[1.7] dt:text-[15px] text-gray-700" lang="hu" id={`rv-text-${i}`}>{review.text}</p>
+            <p class="rv-text m-0 whitespace-pre-line text-base max-dt:leading-[1.7] dt:text-[15px] text-gray-700" lang={locale} id={`rv-text-${i}`}>{reviewText(review, locale)}</p>
+            {locale !== 'hu' && <p class="m-0 -mt-2 text-xs text-gray-500">{t(locale, 'googleReviews.translatedFrom')}</p>}
             <button type="button" class="rv-more sl-tlink mt-auto hidden self-start text-sm text-primary-700" aria-controls={`rv-text-${i}`} aria-expanded="false" data-more={ui.readMore} data-less={ui.readLess}>
               {ui.readMore}
             </button>

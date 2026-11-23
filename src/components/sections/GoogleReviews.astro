@@ -10,7 +10,7 @@
  */
 import { ContentImage } from '../images';
 import { GOOGLE_RATING } from '../../lib/constants';
-import { GOOGLE_REVIEWS } from '../../data/google-reviews';
+import { GOOGLE_REVIEWS, reviewText } from '../../data/google-reviews';
 import { t, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -71,7 +71,8 @@ const star = 'M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 
               </div>
               <svg class="w-5 h-5 ml-auto shrink-0" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
             </header>
-            <p class="gr-text text-[15px] lg:text-base leading-relaxed text-gray-700 whitespace-pre-line" lang="hu" id={`gr-text-${i}`}>{review.text}</p>
+            <p class="gr-text text-[15px] lg:text-base leading-relaxed text-gray-700 whitespace-pre-line" lang={locale} id={`gr-text-${i}`}>{reviewText(review, locale)}</p>
+            {locale !== 'hu' && <p class="mt-1 text-xs text-gray-500">{t(locale, 'googleReviews.translatedFrom')}</p>}
             <button type="button" class="gr-more hidden mt-2 min-h-11 font-semibold text-primary-700 hover:text-primary-800" aria-controls={`gr-text-${i}`} aria-expanded="false" data-more={t(locale, 'googleReviews.readMore')} data-less={t(locale, 'googleReviews.readLess')}>
               {t(locale, 'googleReviews.readMore')}
             </button>

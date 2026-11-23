@@ -542,7 +542,7 @@
       "noBuyP1": "Oktatásaink gépvásárlás nélkül is elérhetők, és nem helyezünk rád semmilyen nyomást a későbbi eszközbeszerzést illetően.",
       "noBuyP2": "A célunk nem az, hogy eladjunk neked egy gépet, hanem az, hogy valódi, gyakorlatban használható tudást adjunk át, és támogassuk szakmai fejlődésed – függetlenül attól, hogy nálunk vagy más forgalmazónál vásárolsz eszközöket.",
       "certTitle": "Hivatalos, tanúsítványt adó képzések",
-      "certP1": "Minden oktatásunk hivatalos keretek között zajlik, és a Felnőttképzési Adatrögzítési Rendszerben (FAR) jegyzett. A képzések sikeres elvégzése után B-számos tanúsítványt állítunk ki, amely igazolja szakmai kompetenciáidat és a tanult technológiák szakszerű alkalmazásának képességét.",
+      "certP1": "Minden oktatásunk hivatalos keretek között zajlik, és a Felnőttképzési Adatszolgáltatási Rendszerben (FAR) jegyzett. A képzések sikeres elvégzése után B-számos tanúsítványt állítunk ki, amely igazolja szakmai kompetenciáidat és a tanult technológiák szakszerű alkalmazásának képességét.",
       "certAlt": "Végzett résztvevő a tanúsítványával a THE FROST hidegplazma képzés után",
       "ctaBandTitle": "Lépj szintet a szakmádban!",
       "ctaBandText": "Sajátítsd el az esztétikai technológiák biztonságos, professzionális használatát egy olyan képzési rendszerben, ahol a tudás, a biztonság és a hosszú távú szakmai támogatás az első.",
@@ -657,7 +657,7 @@
   },
   "consult": {
     "metaTitle": "Ingyenes konzultáció kérése",
-    "metaDescription": "Kérj ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás.",
+    "metaDescription": "Kérj ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, akár 2 év garancia, betanítás.",
     "phoneShort": "Inkább telefonálnál?",
     "eyebrow": "Ingyenes és kötelezettségmentes",
     "title": "Kérj személyre szabott ajánlatot",
@@ -723,7 +723,7 @@
     "p7_11": "7.11. A 10 munkanapot meg nem haladó várható javítási idő esetén cserekészülék biztosítására a Szolgáltató nem vállal kötelezettséget.",
     "h8": "8. Képzések",
     "h8_1": "8.1. Ingyenes gépkezelői képzés",
-    "p8_1": "A Szolgáltató a professzionális kozmetikai berendezések vásárlásához <strong>ingyenes gépkezelői képzést</strong> biztosít. A képzés FAR (Foglalkozás-egészségügyi és Munkavédelmi) tanúsítvánnyal zárul.",
+    "p8_1": "A Szolgáltató a professzionális kozmetikai berendezések vásárlásához <strong>ingyenes gépkezelői képzést</strong> biztosít. A képzés FAR-ban (Felnőttképzési Adatszolgáltatási Rendszer) nyilvántartott tanúsítvánnyal zárul.",
     "h8_2": "8.2. A képzés helyszíne",
     "p8_2": "A képzések a Szolgáltató showroomjában ({showroom}) kerülnek megrendezésre.",
     "h8_3": "8.3. Lemondás",
@@ -985,7 +985,7 @@
     },
     "training": {
       "q1": "Hivatalos tanúsítványt kapok a képzés után?",
-      "a1": "Igen. Minden oktatásunk a Felnőttképzési Adatrögzítési Rendszerben (FAR) jegyzett, és B-számos tanúsítvánnyal zárul. A tanúsítvány igazolja szakmai kompetenciáidat és a tanult technológiák biztonságos, szakszerű alkalmazásának képességét.",
+      "a1": "Igen. Minden oktatásunk a Felnőttképzési Adatszolgáltatási Rendszerben (FAR) jegyzett, és B-számos tanúsítvánnyal zárul. A tanúsítvány igazolja szakmai kompetenciáidat és a tanult technológiák biztonságos, szakszerű alkalmazásának képességét.",
       "q2": "Kötelező-e nálatok gépet vásárolnom a képzéshez?",
       "a2": "Nem. Oktatásaink gépvásárlási kötelezettség nélkül elérhetők, és nem helyezünk rád nyomást a későbbi eszközbeszerzést illetően. A célunk valódi, gyakorlatban használható tudást átadni – függetlenül attól, hogy nálunk vagy más forgalmazónál vásárolsz eszközöket.",
       "q3": "Mit tartalmaznak az oktatások?",
@@ -1637,7 +1637,8 @@
     "readMore": "Tovább olvasom",
     "readLess": "Kevesebb",
     "teamCaption": "A Skinlab csapata Milánóban",
-    "teamAlt": "A Skinlab csapata közös szelfin Milánóban, a Milano felirat előtt"
+    "teamAlt": "A Skinlab csapata közös szelfin Milánóban, a Milano felirat előtt",
+    "translatedFrom": "Fordítás magyarból"
   },
   "openingHours": {
     "days": {

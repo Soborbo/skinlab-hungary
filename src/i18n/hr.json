@@ -542,7 +542,7 @@
       "noBuyP1": "Naše edukacije dostupne su i bez kupnje uređaja i ne vršimo nikakav pritisak u vezi s kasnijom nabavom opreme.",
       "noBuyP2": "Naš cilj nije prodati vam uređaj, nego prenijeti pravo, u praksi primjenjivo znanje i podržati vaš stručni razvoj – bez obzira na to kupujete li opremu kod nas ili kod drugog distributera.",
       "certTitle": "Službene edukacije s certifikatom",
-      "certP1": "Sve naše edukacije održavaju se u službenom okviru i upisane su u FAR (Felnőttképzési Adatrögzítési Rendszer), mađarski registar obrazovanja odraslih. Nakon uspješnog završetka izdajemo certifikat s B-brojem koji potvrđuje vaše stručne kompetencije i sposobnost pravilne primjene naučenih tehnologija.",
+      "certP1": "Sve naše edukacije održavaju se u službenom okviru i upisane su u FAR (Felnőttképzési Adatszolgáltatási Rendszer), mađarski registar obrazovanja odraslih. Nakon uspješnog završetka izdajemo certifikat s B-brojem koji potvrđuje vaše stručne kompetencije i sposobnost pravilne primjene naučenih tehnologija.",
       "certAlt": "Polaznica s certifikatom nakon edukacije THE FROST za hladnu plazmu",
       "ctaBandTitle": "Podignite svoju struku na višu razinu!",
       "ctaBandText": "Savladajte sigurnu i profesionalnu primjenu estetskih tehnologija u sustavu edukacije u kojem su znanje, sigurnost i dugoročna stručna podrška na prvom mjestu.",
@@ -657,7 +657,7 @@
   },
   "consult": {
     "metaTitle": "Zatražite besplatno savjetovanje",
-    "metaDescription": "Zatražite besplatno, personalizirano savjetovanje o profesionalnoj kozmetičkoj opremi. Stručni savjeti, 2 godine jamstva, edukacija.",
+    "metaDescription": "Zatražite besplatno, personalizirano savjetovanje o profesionalnoj kozmetičkoj opremi. Stručni savjeti, do 2 godine jamstva, edukacija.",
     "phoneShort": "Radije biste nazvali?",
     "eyebrow": "Besplatno i bez obveze",
     "title": "Zatražite personaliziranu ponudu",
@@ -723,7 +723,7 @@
     "p7_11": "7.11. Ako očekivano vrijeme popravka ne premašuje 10 radnih dana, Pružatelj usluge ne preuzima obvezu osiguravanja zamjenskog uređaja.",
     "h8": "8. Edukacije",
     "h8_1": "8.1. Besplatna obuka za rukovanje uređajem",
-    "p8_1": "Uz kupnju profesionalne kozmetičke opreme Pružatelj usluge osigurava <strong>besplatnu obuku za rukovanje uređajem</strong>. Obuka završava certifikatom FAR (medicina rada i zaštita na radu).",
+    "p8_1": "Uz kupnju profesionalne kozmetičke opreme Pružatelj usluge osigurava <strong>besplatnu obuku za rukovanje uređajem</strong>. Obuka završava certifikatom registriranim u sustavu FAR (mađarski sustav podataka o obrazovanju odraslih).",
     "h8_2": "8.2. Mjesto održavanja obuke",
     "p8_2": "Obuke se održavaju u showroomu Pružatelja usluge ({showroom}).",
     "h8_3": "8.3. Otkazivanje",
@@ -1632,12 +1632,13 @@
   "googleReviews": {
     "kicker": "Google recenzije",
     "title": "Oni koji već rade s nama",
-    "text": "Prave recenzije naših klijenata s Googlea, doslovno (na mađarskom).",
+    "text": "Prave recenzije naših klijenata s Googlea, prevedene s mađarskog.",
     "cta": "Radiš s nama? Ocijeni nas",
     "readMore": "Pročitaj više",
     "readLess": "Manje",
     "teamCaption": "Skinlab tim u Milanu",
-    "teamAlt": "Skinlab tim na zajedničkom selfiju u Milanu ispred natpisa Milano"
+    "teamAlt": "Skinlab tim na zajedničkom selfiju u Milanu ispred natpisa Milano",
+    "translatedFrom": "Prevedeno s mađarskog"
   },
   "openingHours": {
     "days": {

@@ -542,7 +542,7 @@
       "noBuyP1": "Cursurile noastre sunt disponibile și fără achiziționarea unui aparat și nu facem nicio presiune privind o eventuală achiziție ulterioară de echipamente.",
       "noBuyP2": "Scopul nostru nu este să vă vindem un aparat, ci să vă transmitem cunoștințe reale, aplicabile în practică, și să vă sprijinim dezvoltarea profesională – indiferent dacă vă cumpărați echipamentele de la noi sau de la alt distribuitor.",
       "certTitle": "Cursuri oficiale, cu certificat",
-      "certP1": "Toate cursurile noastre se desfășoară într-un cadru oficial și sunt înregistrate în FAR (Felnőttképzési Adatrögzítési Rendszer), registrul maghiar al formării adulților. După absolvirea cu succes, emitem un certificat cu număr B, care atestă competențele dumneavoastră profesionale și capacitatea de a aplica corect tehnologiile învățate.",
+      "certP1": "Toate cursurile noastre se desfășoară într-un cadru oficial și sunt înregistrate în FAR (Felnőttképzési Adatszolgáltatási Rendszer), registrul maghiar al formării adulților. După absolvirea cu succes, emitem un certificat cu număr B, care atestă competențele dumneavoastră profesionale și capacitatea de a aplica corect tehnologiile învățate.",
       "certAlt": "Absolventă cu certificatul după cursul de plasmă rece THE FROST",
       "ctaBandTitle": "Duceți-vă cariera la nivelul următor!",
       "ctaBandText": "Învățați utilizarea sigură și profesională a tehnologiilor estetice într-un sistem de formare în care cunoștințele, siguranța și sprijinul profesional pe termen lung sunt pe primul loc.",
@@ -657,7 +657,7 @@
   },
   "consult": {
     "metaTitle": "Solicitați o consultanță gratuită",
-    "metaDescription": "Solicitați o consultanță gratuită, personalizată, despre echipamente cosmetice profesionale. Consiliere de specialitate, 2 ani garanție, instruire.",
+    "metaDescription": "Solicitați o consultanță gratuită, personalizată, despre echipamente cosmetice profesionale. Consiliere de specialitate, până la 2 ani garanție, instruire.",
     "phoneShort": "Preferați să sunați?",
     "eyebrow": "Gratuit și fără obligații",
     "title": "Solicitați o ofertă personalizată",
@@ -723,7 +723,7 @@
     "p7_11": "7.11. În cazul unei durate estimate a reparației care nu depășește 10 zile lucrătoare, Furnizorul nu își asumă obligația de a asigura un aparat de înlocuire.",
     "h8": "8. Cursuri",
     "h8_1": "8.1. Curs gratuit de operare a aparatului",
-    "p8_1": "La achiziționarea echipamentelor cosmetice profesionale, Furnizorul oferă un <strong>curs gratuit de operare a aparatului</strong>. Cursul se încheie cu un certificat FAR (medicina muncii și securitatea muncii).",
+    "p8_1": "La achiziționarea echipamentelor cosmetice profesionale, Furnizorul oferă un <strong>curs gratuit de operare a aparatului</strong>. Cursul se încheie cu un certificat înregistrat în FAR (sistemul maghiar de raportare a datelor privind educația adulților).",
     "h8_2": "8.2. Locul desfășurării cursului",
     "p8_2": "Cursurile se desfășoară în showroomul Furnizorului ({showroom}).",
     "h8_3": "8.3. Anulare",
@@ -1632,12 +1632,13 @@
   "googleReviews": {
     "kicker": "Recenzii Google",
     "title": "Cei care lucrează deja cu noi",
-    "text": "Recenzii reale ale clienților noștri pe Google, cuvânt cu cuvânt (în maghiară).",
+    "text": "Recenzii reale de la clienții noștri pe Google, traduse din maghiară.",
     "cta": "Lucrezi cu noi? Lasă-ne o recenzie",
     "readMore": "Citește mai mult",
     "readLess": "Mai puțin",
     "teamCaption": "Echipa Skinlab la Milano",
-    "teamAlt": "Echipa Skinlab într-un selfie la Milano, în fața inscripției Milano"
+    "teamAlt": "Echipa Skinlab într-un selfie la Milano, în fața inscripției Milano",
+    "translatedFrom": "Tradus din maghiară"
   },
   "openingHours": {
     "days": {

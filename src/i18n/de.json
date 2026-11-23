@@ -542,7 +542,7 @@
       "noBuyP1": "Unsere Schulungen sind auch ohne Gerätekauf buchbar, und wir üben keinerlei Druck in Bezug auf einen späteren Gerätekauf aus.",
       "noBuyP2": "Unser Ziel ist nicht, Ihnen ein Gerät zu verkaufen, sondern echtes, praxistaugliches Wissen zu vermitteln und Ihre fachliche Entwicklung zu unterstützen – unabhängig davon, ob Sie Ihre Geräte bei uns oder bei einem anderen Anbieter kaufen.",
       "certTitle": "Offizielle Schulungen mit Zertifikat",
-      "certP1": "Alle unsere Schulungen finden in einem offiziellen Rahmen statt und sind im ungarischen Erwachsenenbildungsregister FAR (Felnőttképzési Adatrögzítési Rendszer) eingetragen. Nach erfolgreichem Abschluss stellen wir ein Zertifikat mit B-Nummer aus, das Ihre fachliche Kompetenz und die sachgerechte Anwendung der erlernten Technologien bestätigt.",
+      "certP1": "Alle unsere Schulungen finden in einem offiziellen Rahmen statt und sind im ungarischen Erwachsenenbildungsregister FAR (Felnőttképzési Adatszolgáltatási Rendszer) eingetragen. Nach erfolgreichem Abschluss stellen wir ein Zertifikat mit B-Nummer aus, das Ihre fachliche Kompetenz und die sachgerechte Anwendung der erlernten Technologien bestätigt.",
       "certAlt": "Absolventin mit ihrem Zertifikat nach der THE FROST Kaltplasma-Schulung",
       "ctaBandTitle": "Bringen Sie Ihre Karriere auf das nächste Level!",
       "ctaBandText": "Erlernen Sie die sichere, professionelle Anwendung ästhetischer Technologien in einem Schulungssystem, in dem Wissen, Sicherheit und langfristige fachliche Unterstützung an erster Stelle stehen.",
@@ -657,7 +657,7 @@
   },
   "consult": {
     "metaTitle": "Kostenlose Beratung anfordern",
-    "metaDescription": "Fordern Sie eine kostenlose, persönliche Beratung zu professionellen Kosmetikgeräten an. Fachkundige Beratung, 2 Jahre Garantie, Einschulung.",
+    "metaDescription": "Fordern Sie eine kostenlose, persönliche Beratung zu professionellen Kosmetikgeräten an. Fachkundige Beratung, bis zu 2 Jahre Garantie, Einschulung.",
     "phoneShort": "Lieber telefonieren?",
     "eyebrow": "Kostenlos und unverbindlich",
     "title": "Fordern Sie ein persönliches Angebot an",
@@ -723,7 +723,7 @@
     "p7_11": "7.11. Bei einer voraussichtlichen Reparaturdauer von höchstens 10 Werktagen übernimmt der Anbieter keine Verpflichtung zur Bereitstellung eines Ersatzgeräts.",
     "h8": "8. Schulungen",
     "h8_1": "8.1. Kostenlose Geräteschulung",
-    "p8_1": "Der Anbieter bietet beim Kauf professioneller kosmetischer Geräte eine <strong>kostenlose Geräteschulung</strong> an. Die Schulung schließt mit einem FAR-Zertifikat (Arbeitsmedizin und Arbeitsschutz) ab.",
+    "p8_1": "Der Anbieter bietet beim Kauf professioneller kosmetischer Geräte eine <strong>kostenlose Geräteschulung</strong> an. Die Schulung schließt mit einem im FAR (ungarisches Datensystem der Erwachsenenbildung) registrierten Zertifikat ab.",
     "h8_2": "8.2. Ort der Schulung",
     "p8_2": "Die Schulungen finden im Showroom des Anbieters ({showroom}) statt.",
     "h8_3": "8.3. Stornierung",
@@ -1632,12 +1632,13 @@
   "googleReviews": {
     "kicker": "Google-Bewertungen",
     "title": "Die schon mit uns arbeiten",
-    "text": "Echte Bewertungen unserer Kundinnen auf Google, wörtlich (auf Ungarisch).",
+    "text": "Echte Bewertungen unserer Kundinnen und Kunden auf Google, aus dem Ungarischen übersetzt.",
     "cta": "Arbeitest du mit uns? Bewerte uns",
     "readMore": "Weiterlesen",
     "readLess": "Weniger",
     "teamCaption": "Das Skinlab-Team in Mailand",
-    "teamAlt": "Das Skinlab-Team beim Selfie in Mailand vor dem Milano-Schriftzug"
+    "teamAlt": "Das Skinlab-Team beim Selfie in Mailand vor dem Milano-Schriftzug",
+    "translatedFrom": "Aus dem Ungarischen übersetzt"
   },
   "openingHours": {
     "days": {

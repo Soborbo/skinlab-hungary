@@ -542,7 +542,7 @@
       "noBuyP1": "Naše školení jsou dostupná i bez koupě přístroje a nevyvíjíme na vás žádný tlak ohledně pozdějšího nákupu vybavení.",
       "noBuyP2": "Naším cílem není prodat vám přístroj, ale předat skutečné, v praxi využitelné znalosti a podpořit váš odborný rozvoj – bez ohledu na to, zda vybavení koupíte u nás, nebo u jiného prodejce.",
       "certTitle": "Oficiální školení s certifikátem",
-      "certP1": "Všechna naše školení probíhají v oficiálním rámci a jsou zapsána v maďarském registru vzdělávání dospělých FAR (Felnőttképzési Adatrögzítési Rendszer). Po úspěšném absolvování vydáváme certifikát s číslem řady B, který potvrzuje vaše odborné kompetence a schopnost správně používat naučené technologie.",
+      "certP1": "Všechna naše školení probíhají v oficiálním rámci a jsou zapsána v maďarském registru vzdělávání dospělých FAR (Felnőttképzési Adatszolgáltatási Rendszer). Po úspěšném absolvování vydáváme certifikát s číslem řady B, který potvrzuje vaše odborné kompetence a schopnost správně používat naučené technologie.",
       "certAlt": "Absolventka s certifikátem po školení THE FROST se studenou plazmou",
       "ctaBandTitle": "Posuňte svou profesi na vyšší úroveň!",
       "ctaBandText": "Osvojte si bezpečné a profesionální používání estetických technologií v systému školení, kde jsou znalosti, bezpečnost a dlouhodobá odborná podpora na prvním místě.",
@@ -657,7 +657,7 @@
   },
   "consult": {
     "metaTitle": "Požádejte o bezplatnou konzultaci",
-    "metaDescription": "Požádejte o bezplatnou, individuální konzultaci k profesionálním kosmetickým přístrojům. Odborné poradenství, záruka 2 roky, zaškolení.",
+    "metaDescription": "Požádejte o bezplatnou, individuální konzultaci k profesionálním kosmetickým přístrojům. Odborné poradenství, záruka až 2 roky, zaškolení.",
     "phoneShort": "Raději zavoláte?",
     "eyebrow": "Zdarma a nezávazně",
     "title": "Požádejte o nabídku na míru",
@@ -723,7 +723,7 @@
     "p7_11": "7.11. Pokud předpokládaná doba opravy nepřesáhne 10 pracovních dnů, Poskytovatel se nezavazuje poskytnout náhradní přístroj.",
     "h8": "8. Školení",
     "h8_1": "8.1. Bezplatné školení obsluhy přístroje",
-    "p8_1": "Poskytovatel poskytuje k nákupu profesionálních kosmetických přístrojů <strong>bezplatné školení obsluhy přístroje</strong>. Školení je zakončeno certifikátem FAR (pracovnělékařská péče a bezpečnost práce).",
+    "p8_1": "Poskytovatel poskytuje k nákupu profesionálních kosmetických přístrojů <strong>bezplatné školení obsluhy přístroje</strong>. Školení je zakončeno certifikátem registrovaným v systému FAR (maďarský systém údajů o vzdělávání dospělých).",
     "h8_2": "8.2. Místo konání školení",
     "p8_2": "Školení se konají v showroomu Poskytovatele ({showroom}).",
     "h8_3": "8.3. Zrušení",
@@ -897,7 +897,7 @@
     },
     "training": {
       "q1": "Získám po školení oficiální certifikát?",
-      "a1": "Ano. Všechna naše školení jsou registrována v maďarském systému FAR (Felnőttképzési Adatrögzítési Rendszer) a končí certifikátem s B-číslem. Certifikát potvrzuje vaše odborné kompetence a schopnost bezpečně a správně používat naučené technologie.",
+      "a1": "Ano. Všechna naše školení jsou registrována v maďarském systému FAR (Felnőttképzési Adatszolgáltatási Rendszer) a končí certifikátem s B-číslem. Certifikát potvrzuje vaše odborné kompetence a schopnost bezpečně a správně používat naučené technologie.",
       "q2": "Musím si u vás koupit zařízení, abych se mohl zúčastnit školení?",
       "a2": "Ne. Naše školení jsou dostupná bez povinnosti nákupu a nenutíme účastníky k pozdějšímu pořízení zařízení. Naším cílem je předat skutečné, prakticky využitelné znalosti - bez ohledu na to, zda si zařízení koupíte u nás nebo u jiného distributora.",
       "q3": "Co školení obsahují?",
@@ -1632,12 +1632,13 @@
   "googleReviews": {
     "kicker": "Hodnocení Google",
     "title": "Ti, kdo už s námi pracují",
-    "text": "Skutečná hodnocení našich klientů na Googlu, doslova (v maďarštině).",
+    "text": "Skutečné recenze našich klientů z Googlu, přeložené z maďarštiny.",
     "cta": "Pracuješ s námi? Ohodnoť nás",
     "readMore": "Číst dál",
     "readLess": "Méně",
     "teamCaption": "Tým Skinlab v Miláně",
-    "teamAlt": "Tým Skinlab na společné selfie v Miláně před nápisem Milano"
+    "teamAlt": "Tým Skinlab na společné selfie v Miláně před nápisem Milano",
+    "translatedFrom": "Přeloženo z maďarštiny"
   },
   "openingHours": {
     "days": {
