@@ -5,12 +5,32 @@
   "metaTitle": "MediLUX PRO Profesionalni diodni laser sa 4 talasne dužine",
   "metaDescription": "MediLUX PRO 2500W diodni laser sa 4 talasne dužine (755, 808, 940, 1064 nm). Podesiv spot, hlađenje -16°C, UV-sterilizacija. U prilagođenim bojama.",
   "stats": [
-    { "value": "2500", "unit": "W", "label": "Snaga", "icon": "zap" },
-    { "value": "4", "label": "Talasne dužine", "icon": "wave" },
-    { "value": "-16°C", "label": "Hlađenje", "icon": "snowflake" },
-    { "value": "2", "unit": "godine", "label": "Garancija", "icon": "shield" }
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Snaga",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Talasne dužine",
+      "icon": "wave"
+    },
+    {
+      "value": "-16°C",
+      "label": "Hlađenje",
+      "icon": "snowflake"
+    },
+    {
+      "value": "2",
+      "unit": "godine",
+      "label": "Garancija",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 40000 },
+  "roi": {
+    "defaultTreatmentPrice": 40000
+  },
   "videoDescription": {
     "headline": "MediLUX PRO – Klinički diodni laser sa prilagođenim dizajnom",
     "paragraphs": [
@@ -136,6 +156,6 @@
     "Korisničko uputstvo",
     "Edukacija operatera (sertifikat)",
     "24 meseca sveobuhvatne garancije",
-    "Zamjenski uređaj tokom popravke"
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
   ]
 }

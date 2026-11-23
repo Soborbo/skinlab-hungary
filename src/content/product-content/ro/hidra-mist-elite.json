@@ -1,0 +1,229 @@
+{
+  "name": "HydraMIST Elite hydrofacial 11 în 1",
+  "shortDescription": "Sistem hydrofacial multifuncțional 11 în 1: hidrodermabraziune cu vacuum, introducere de substanțe active cu oxigen, RF, cupolă LED-oxigen și multe altele pe o singură platformă.",
+  "description": "HydraMIST Elite este un sistem multifuncțional de electrocosmetică ce reunește 11 tehnologii de tratare a pielii pe o singură platformă: hidrodermabraziune cu vacuum, peeling cu ultrasunete, curățare cu bule de CO₂, introducere de substanțe active cu oxigen și ultrasunete, fermitatea pielii cu RF multipolar, lifting ionic, cupolă LED + oxigen și cap de terapie cu rece. Pentru utilizare profesională în salon.",
+  "stats": [
+    {
+      "value": "11",
+      "label": "Tratamente într-un singur aparat",
+      "icon": "spray"
+    },
+    {
+      "value": "0–80",
+      "unit": "kPa",
+      "label": "Vacuum reglabil",
+      "icon": "chart"
+    },
+    {
+      "value": "0–6",
+      "unit": "bar",
+      "label": "Presiune oxigen",
+      "icon": "bubbles"
+    },
+    {
+      "value": "3",
+      "label": "Rezervoare de soluție (A/B/C)",
+      "icon": "droplet"
+    }
+  ],
+  "videoDescription": {
+    "headline": "HydraMIST Elite – 11 tehnologii pe o singură platformă",
+    "paragraphs": [
+      "HydraMIST Elite oferă într-un singur aparat ceea ce într-un salon necesită de obicei mai multe aparate: curățare profundă, hidratare, introducere de substanțe active, fermitatea pielii și o finalizare calmantă. Comutați între funcții pe ecranul tactil, astfel încât în cadrul unui singur tratament puteți construi un protocol complex, adaptat pielii clientului.",
+      "Baza este hidrodermabraziunea cu vacuum: lichidul și vacuumul curăță împreună porii, îndepărtează celulele moarte și hidratează. Pe aceasta se construiesc introducerea fără ace a substanțelor active cu oxigen și ultrasunete, RF-ul multipolar și cupola LED-oxigen. Toate funcțiile le găsiți mai jos, la Funcțiile de tratament."
+    ]
+  },
+  "featureRows": {
+    "headline": "De ce HydraMIST Elite?",
+    "subtitle": "Tratament facial complex cu un singur aparat, bine gândit",
+    "features": [
+      {
+        "title": "Cupolă transparentă cu oxigen, cu acoperire facială de 360°",
+        "description": "Cupola este realizată din material PC de calitate premium: rezistent, transparent și ușor de curățat. Se adaptează ergonomic conturului feței și asigură o introducere uniformă a substanțelor active din orice unghi. Scutul de protecție integrat împiedică scurgerea pulverizării, astfel încât tratamentul rămâne curat și sigur.",
+        "highlight": "Cu sistemul multimedia integrat în cupolă, în timpul tratamentului poate rula și muzică.",
+        "image": "@assets/products/hydramist-elite-info-bura.png"
+      },
+      {
+        "title": "Ecran tactil intuitiv, toate funcțiile într-un singur loc",
+        "description": "Toate modurile de tratament sunt accesibile prin pictograme clare pe ecranul tactil de înaltă rezoluție. Intensitatea și durata se reglează pentru fiecare tratament, iar setările preferate pot fi salvate cu funcția de memorie. Indicatorul LED albastru arată când aparatul este gata de tratament.",
+        "highlight": "Setare rapidă, deci mai mult timp pentru client.",
+        "image": "@assets/products/hydramist-elite-info-kijelzo.png"
+      },
+      {
+        "title": "Dozare precisă, flux uniform de lichid",
+        "description": "Sistemul profesional de alimentare cu lichid introduce substanța activă în piele cu presiune stabilă și flux uniform. Cu inelul de reglare al tubului de dozare, cantitatea de lichid dorită se poate seta precis. Sistemul închis este igienic, iar rezervoarele se schimbă rapid și simplu.",
+        "highlight": "3 rezervoare de soluție (A/B/C) și un rezervor separat pentru deșeuri.",
+        "image": "@assets/products/hydramist-elite-info-adagolas.png"
+      }
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "spray",
+      "name": "Hidrodermabraziune cu vacuum",
+      "description": "Funcția principală: lichidul și vacuumul curăță împreună porii și hidratează."
+    },
+    {
+      "icon": "sound",
+      "name": "Skin scrubber",
+      "description": "Peeling cu ultrasunete, îndepărtarea celulelor moarte și a punctelor negre."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Tratament cu bule de CO₂",
+      "description": "Curățarea porilor și stimularea oxigenării pielii."
+    },
+    {
+      "icon": "droplet",
+      "name": "Injector de oxigen de înaltă presiune",
+      "description": "Introducere rapidă, fără ace, a substanțelor active în straturile superioare ale pielii."
+    },
+    {
+      "icon": "spray",
+      "name": "Pistol pulverizator cu oxigen",
+      "description": "Pulverizare fină pentru împrospătare, hidratare, piele sensibilă."
+    },
+    {
+      "icon": "droplet",
+      "name": "Stilou de precizie cu oxigen",
+      "description": "Tratarea țintită a suprafețelor mici, de exemplu zona din jurul ochilor."
+    },
+    {
+      "icon": "sound",
+      "name": "Introducere de substanțe active cu ultrasunete",
+      "description": "Sonoforeză de 1–3 MHz pentru o absorbție mai bună."
+    },
+    {
+      "icon": "bolt",
+      "name": "Radiofrecvență cu 7 poli",
+      "description": "Căldură profundă pentru regenerarea colagenului: fermitate, reducerea ridurilor."
+    },
+    {
+      "icon": "bolt",
+      "name": "Rolă ionică",
+      "description": "Masaj cu microcurent, tonus muscular și efect ușor de lifting."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Ciocan rece",
+      "description": "Strângerea porilor, calmare, finalizarea tratamentului."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Cupolă LED-oxigen",
+      "description": "Terapie cu lumină pe mai multe lungimi de undă, cu oxigen și muzică integrată."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Ce înseamnă 11 în 1?",
+      "answer": "11 capete de tratament și tehnologii separate într-un singur aparat, de la hidrodermabraziunea cu vacuum până la radiofrecvență și cupola LED-oxigen. Astfel, pe un singur aparat se pot efectua curățarea, introducerea substanțelor active, fermitatea și finalizarea calmantă. Pe toate le prezentăm mai sus, la Funcțiile de tratament."
+    },
+    {
+      "question": "Cui îi este recomandat?",
+      "answer": "Saloanelor de cosmetică și specialiștilor care efectuează tratamente de îngrijire a pielii – atât începătorilor, cât și celor avansați. A fost creat pentru utilizare profesională în salon și necesită cunoștințe de specialitate adecvate."
+    },
+    {
+      "question": "Cât durează un tratament?",
+      "answer": "În funcție de protocolul ales, de obicei 60–90 de minute."
+    },
+    {
+      "question": "Pentru ce tip de piele este potrivit?",
+      "answer": "Pentru aproape orice tip de piele: uscată, deshidratată, grasă, mixtă și tern. Intensitățile trebuie adaptate întotdeauna stării pielii clientului, la primul tratament cu o treaptă mai mică."
+    },
+    {
+      "question": "Există timp de recuperare pentru client?",
+      "answer": "Nu. Tratamentul este neinvaziv și nedureros, iar clientul se poate întoarce imediat la activitățile zilnice. Poate apărea o ușoară roșeață, care de obicei dispare în scurt timp."
+    },
+    {
+      "question": "Cât de des este recomandat tratamentul?",
+      "answer": "Pentru întreținerea pielii, la fiecare 3–4 săptămâni. Pentru un program mai intens de reînnoire a pielii, specialistul alcătuiește un plan personalizat."
+    },
+    {
+      "question": "Este un dispozitiv medical?",
+      "answer": "Nu. Aparatul este destinat utilizării în scopuri cosmetice, nu este considerat dispozitiv medical și nu este potrivit pentru diagnosticarea sau tratarea bolilor."
+    },
+    {
+      "question": "Care este termenul de livrare și include instruire?",
+      "answer": "Termenul de livrare este de 2–6 săptămâni. Achiziția include instruire profesională completă (material de curs în limba maghiară, protocoale de tratament, ghiduri de siguranță). La cerere este disponibilă și instruire practică pe model viu (69.990 Ft)."
+    }
+  ],
+  "training": {
+    "headline": "Instruire pentru HydraMIST Elite",
+    "badge": "Instruire în limba maghiară",
+    "intro": "Aparatul vine cu material complet de instruire profesională, pentru a folosi toate funcțiile în siguranță și cu încredere.",
+    "items": [
+      "Material de curs detaliat, în limba maghiară",
+      "Protocoale de tratament pentru diferite tipuri de piele",
+      "Proceduri de tratament construite pas cu pas",
+      "Manual de utilizare a aparatului",
+      "Model de declarație de consimțământ pentru client",
+      "Ghiduri de igienă și siguranță"
+    ],
+    "closingParagraphs": [
+      "La cerere puteți participa și la o instruire practică pe model viu, unde vă însușiți tehnicile într-un mediu real de tratament, cu îndrumare de specialitate. O recomandăm în special începătorilor."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "instruire practică pe model viu",
+    "duration": "La o dată stabilită de comun acord",
+    "ctaText": "Mă interesează instruirea"
+  },
+  "whatsIncluded": [
+    "Aparatul HydraMIST Elite",
+    "3 rezervoare de soluție (A/B/C) + rezervor pentru deșeuri",
+    "Material de curs în limba maghiară și protocoale de tratament",
+    "Model de declarație de consimțământ pentru client",
+    "Ghiduri de igienă și siguranță",
+    "Manual de utilizare a aparatului"
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Aveți întrebări despre HydraMIST Elite? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "final": {
+      "headline": "Vă interesează HydraMIST Elite?",
+      "subtitle": "Solicitați o consultație gratuită sau o demonstrație în showroom și vă ajutăm să alegeți protocoalele de tratament potrivite salonului dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
+  },
+  "specs": {
+    "Tipul aparatului": "Sistem multifuncțional de electrocosmetică (11 în 1)",
+    "Capete de tratament": "Cap de vacuum pentru hidrodermabraziune, skin scrubber, cap cu bule de CO₂, injector de oxigen de înaltă presiune, pistol pulverizator cu oxigen, stilou de precizie cu oxigen, cap de introducere cu ultrasunete, cap RF cu 7 poli, rolă ionică, ciocan rece, cupolă LED-oxigen",
+    "Afișaj": "Ecran tactil",
+    "Tensiune de intrare": "220–240 V / 50–60 Hz",
+    "Putere": "150–300 W",
+    "Forța vacuumului": "0–80 kPa (reglabil)",
+    "Flux de lichid": "Reglabil în mai multe trepte",
+    "Presiune oxigen": "0–6 bar",
+    "Frecvență ultrasunete": "1–3 MHz",
+    "Radiofrecvență": "0,3–1 MHz (multipolar)",
+    "Terapie cu lumină LED": "mai multe lungimi de undă (cca 415–640 nm)",
+    "Skin scrubber": "cca 25–30 kHz",
+    "Rezervoare de soluție": "3 buc. (A/B/C) + rezervor pentru deșeuri",
+    "Capacitate rezervor": "cca 250–500 ml / rezervor",
+    "Sistem de tuburi": "Închis, înlocuibil",
+    "Material carcasă": "Plastic ABS + elemente metalice",
+    "Nivel de zgomot": "< 60 dB",
+    "Greutate": "15–25 kg",
+    "Temperatură de funcționare": "10–30 °C",
+    "Garanție": "Garanție completă de 2 ani"
+  },
+  "imageAlts": {
+    "hydramist-elite-1.png": "Aparatul hydrofacial HydraMIST Elite 11 în 1 cu cupolă cu oxigen și capete de tratament",
+    "hydramist-elite-2.png": "Aparatul hydrofacial HydraMIST Elite din față, cu ecran tactil și cupolă LED-oxigen",
+    "hydramist-elite-3.png": "Aparatul hydrofacial HydraMIST Elite din profil, cu rezervoarele de soluție",
+    "hydramist-elite-design-1.jpg": "Aparatul hydrofacial HydraMIST Elite în showroomul Skinlab",
+    "hydramist-elite-design-2.jpg": "HydraMIST Elite cu cupola LED-oxigen pornită și capetele de tratament",
+    "hydramist-elite-design-3.jpg": "Aparatul hydrofacial HydraMIST Elite cu rezervor de soluție iluminat",
+    "hydramist-elite-design-4.jpg": "Cap de tratament HydraMIST Elite cu cap rotund metalic, în mână",
+    "hydramist-elite-design-5.jpg": "Cap de tratament interschimbabil HydraMIST Elite în mână",
+    "hydramist-elite-design-6.jpg": "Cap de tratament cu role duble HydraMIST Elite în mână",
+    "hydramist-elite-info-bura.png": "Cupola transparentă cu oxigen HydraMIST Elite: acoperire facială de 360°, scut de protecție integrat",
+    "hydramist-elite-info-kijelzo.png": "Ecranul tactil HydraMIST Elite cu meniu de selectare a funcțiilor, intensitate și durată reglabile",
+    "hydramist-elite-info-adagolas.png": "Sistemul de alimentare cu lichid HydraMIST Elite cu flux de lichid reglabil",
+    "hydramist-elite-oktatas-1.jpg": "Tratament HydraMIST Elite în timpul exercițiilor la instruirea pentru operatori",
+    "hydramist-elite-oktatas-2.jpg": "Instruire HydraMIST Elite pentru operatori în showroomul Skinlab"
+  }
+}

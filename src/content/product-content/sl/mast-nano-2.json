@@ -139,7 +139,7 @@
     },
     {
       "question": "Kakšna garancija velja za napravo?",
-      "answer": "Za Mast Nano 2 velja 1 leto garancije. Med popravilom zagotovimo nadomestno napravo, da vaše delo ni prekinjeno."
+      "answer": "Za Mast Nano 2 velja 1 leto garancije. Če bo popravilo predvidoma trajalo več kot 10 delovnih dni, za čas popravila zagotovimo nadomestno napravo, glede na zalogo, da vaše delo ni prekinjeno."
     }
   ],
   "whatsIncluded": [
@@ -147,6 +147,9 @@
     "Priključni kabel",
     "Navodila za uporabo",
     "1 leto garancija",
-    "Nadomestna naprava med popravilom"
-  ]
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
+  ],
+  "imageAlts": {
+    "mast-nano-2-design.jpg": "Dve napravi za permanentno ličenje Mast Nano 2.0 na ozadju iz rožnato-zlate svile"
+  }
 }

@@ -21,5 +21,50 @@
   "whatsIncluded": [
     "20 Faviamo modula igle u odabranoj veličini",
     "Pojedinačno sterilno pakiranje"
-  ]
+  ],
+  "specs": {
+    "Pakiranje": "20 kom/kutija",
+    "Ambalaža": "Pojedinačno sterilno",
+    "Uporaba": "Za jednokratnu uporabu",
+    "Veličine": "0,25 / 0,30 / 0,35 mm",
+    "Vrsta": "1RL, 3RL"
+  },
+  "imageAlts": {
+    "faviamo-tumodul-1.jpg": "Faviamo modul igle u ljubičasto-ružičastoj poklon kutiji, s dva sterilno pakirana modula",
+    "faviamo-tumodul-design-1.jpg": "Faviamo modul igle u ruci s rukavicom, ispred otvorene kutije, s jesenskom dekoracijom",
+    "faviamo-tumodul-design-2.jpg": "Kutija Faviamo modula igle i sterilno pakiran modul, pokraj ukrasnih bundeva",
+    "faviamo-tumodul-design-3.jpg": "Faviamo moduli igle u otvorenoj kutiji, na pozadini od šarenog krzna"
+  },
+  "variants": {
+    "fav-025-1rl": {
+      "specs": {
+        "Veličina": "0,25 mm",
+        "Vrsta": "1RL"
+      }
+    },
+    "fav-025-3rl": {
+      "specs": {
+        "Veličina": "0,25 mm",
+        "Vrsta": "3RL"
+      }
+    },
+    "fav-030-1rl": {
+      "specs": {
+        "Veličina": "0,30 mm",
+        "Vrsta": "1RL"
+      }
+    },
+    "fav-030-3rl": {
+      "specs": {
+        "Veličina": "0,30 mm",
+        "Vrsta": "3RL"
+      }
+    },
+    "fav-035-1rl": {
+      "specs": {
+        "Veličina": "0,35 mm",
+        "Vrsta": "1RL"
+      }
+    }
+  }
 }

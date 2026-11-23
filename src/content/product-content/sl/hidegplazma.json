@@ -5,12 +5,32 @@
   "metaTitle": "AURA naprava s hladno plazmo | CAP tehnologija | Skinlab Hungary",
   "metaDescription": "AURA by skinlab. naprava s hladno plazmo s CAP tehnologijo. Antibakterijski učinek, vnos aktivnih sestavin, regeneracija kože. Kompetenca kozmetike, CE certifikat.",
   "stats": [
-    { "value": "CAP", "label": "Tehnologija", "icon": "zap" },
-    { "value": "4", "label": "Glavna področja uporabe", "icon": "layers" },
-    { "value": "2", "unit": "leti", "label": "Garancija", "icon": "shield" },
-    { "value": "0", "unit": "min", "label": "Čas okrevanja", "icon": "clock" }
+    {
+      "value": "CAP",
+      "label": "Tehnologija",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Glavna področja uporabe",
+      "icon": "layers"
+    },
+    {
+      "value": "2",
+      "unit": "leti",
+      "label": "Garancija",
+      "icon": "shield"
+    },
+    {
+      "value": "0",
+      "unit": "min",
+      "label": "Čas okrevanja",
+      "icon": "clock"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 12000 },
+  "roi": {
+    "defaultTreatmentPrice": 12000
+  },
   "videoDescription": {
     "headline": "Kaj je CAP – in zakaj jo je vredno uvesti zdaj?",
     "paragraphs": [
@@ -151,6 +171,9 @@
     "Navodila za uporabo (v slovenščini)",
     "Pravna dokumentacija",
     "2-letna polna garancija",
-    "Nadomestna naprava v času popravila"
-  ]
+    "Nadomestna naprava pri popravilih, daljših od 10 delovnih dni (glede na zalogo)"
+  ],
+  "specs": {
+    "Oznake": "hladna plazma hladna-plazma fusion plasma fusion cold plasma"
+  }
 }

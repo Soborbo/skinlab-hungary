@@ -5,12 +5,31 @@
   "metaTitle": "LUNOX 2in1 laser cu diodă și Q-switched ND:YAG",
   "metaDescription": "LUNOX 2in1 laser cu diodă și ND:YAG într-un singur aparat – amortizare rapidă, tratamente fără cicatrici, setări inteligente și formare oficială cu certificat.",
   "stats": [
-    { "value": "2in1", "label": "Tehnologie", "icon": "layers" },
-    { "value": "4", "label": "Lungimi de undă (diodă)", "icon": "wave" },
-    { "value": "1600", "unit": "mJ", "label": "Energie ND:YAG", "icon": "zap" },
-    { "value": "-4°C", "label": "Răcire", "icon": "snowflake" }
+    {
+      "value": "2in1",
+      "label": "Tehnologie",
+      "icon": "layers"
+    },
+    {
+      "value": "4",
+      "label": "Lungimi de undă (diodă)",
+      "icon": "wave"
+    },
+    {
+      "value": "1600",
+      "unit": "mJ",
+      "label": "Energie ND:YAG",
+      "icon": "zap"
+    },
+    {
+      "value": "-4°C",
+      "label": "Răcire",
+      "icon": "snowflake"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "LUNOX – Două tehnologii, posibilități nelimitate",
     "paragraphs": [
@@ -20,9 +39,21 @@
     ]
   },
   "cta": {
-    "afterVideo": { "text": "Aveți întrebări despre LUNOX? Vă ajutăm cu plăcere!", "buttonLabel": "Solicitați o consultație", "phoneLabel": "Sunați-ne" },
-    "afterFeatures": { "headline": "Doriți să vedeți LUNOX în persoană?", "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!", "buttonLabel": "Programare" },
-    "final": { "headline": "Vă interesează aparatul laser LUNOX 2in1?", "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.", "buttonLabel": "Solicitați o consultație" }
+    "afterVideo": {
+      "text": "Aveți întrebări despre LUNOX? Vă ajutăm cu plăcere!",
+      "buttonLabel": "Solicitați o consultație",
+      "phoneLabel": "Sunați-ne"
+    },
+    "afterFeatures": {
+      "headline": "Doriți să vedeți LUNOX în persoană?",
+      "subtitle": "Vizitați showroom-ul nostru din Érd și testați personal!",
+      "buttonLabel": "Programare"
+    },
+    "final": {
+      "headline": "Vă interesează aparatul laser LUNOX 2in1?",
+      "subtitle": "Solicitați o consultație gratuită și vă ajutăm să decideți dacă aceasta este cea mai bună alegere pentru dumneavoastră.",
+      "buttonLabel": "Solicitați o consultație"
+    }
   },
   "featureRows": {
     "headline": "De ce merită LUNOX?",
@@ -80,19 +111,58 @@
     "ctaText": "Mă interesează cursul"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Epilare cu laser cu diodă", "description": "Epilare durabilă pe 4 lungimi de undă, pe toate tipurile de piele" },
-    { "icon": "eye", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea pigmenților negri, albaștri, maro, verzi, roșii și galbeni" },
-    { "icon": "sun", "name": "Tratamentul petelor pigmentare", "description": "Atenuarea pistruilor, melasmei, petelor solare, pigmentărilor de vârstă" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Tratament Hollywood: curățare profundă, strângerea porilor, întinerirea pielii" },
-    { "icon": "bolt", "name": "Întinerirea pielii", "description": "Stimularea colagenului, tonifierea pielii, îmbunătățirea texturii" },
-    { "icon": "droplet", "name": "Îndepărtarea micropigmentării", "description": "Corecția micropigmentării sprâncenelor, buzelor, pleoapelor" }
+    {
+      "icon": "zap",
+      "name": "Epilare cu laser cu diodă",
+      "description": "Epilare durabilă pe 4 lungimi de undă, pe toate tipurile de piele"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea pigmenților negri, albaștri, maro, verzi, roșii și galbeni"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Atenuarea pistruilor, melasmei, petelor solare, pigmentărilor de vârstă"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Tratament Hollywood: curățare profundă, strângerea porilor, întinerirea pielii"
+    },
+    {
+      "icon": "bolt",
+      "name": "Întinerirea pielii",
+      "description": "Stimularea colagenului, tonifierea pielii, îmbunătățirea texturii"
+    },
+    {
+      "icon": "droplet",
+      "name": "Îndepărtarea micropigmentării",
+      "description": "Corecția micropigmentării sprâncenelor, buzelor, pleoapelor"
+    }
   ],
   "faq": [
-    { "question": "De ce merită să alegeți un aparat 2in1?", "answer": "LUNOX reunește într-un singur aparat epilarea cu laser cu diodă și tehnologia Q-switched ND:YAG. Nu trebuie să cumpărați aparate separate – epilarea, îndepărtarea tatuajelor, tratamentul pigmentului, carbon peeling-ul și întinerirea pielii pot fi toate efectuate cu un singur aparat, ceea ce reprezintă o economie semnificativă." },
-    { "question": "În cât timp se amortizează LUNOX?", "answer": "Epilarea cu laser cu diodă și tratamentele ND:YAG sunt printre cele mai profitabile servicii cosmetice. Cu 3-5 clienți pe zi, LUNOX se amortizează în general în 2-4 luni. Utilizați calculatorul nostru ROI pentru un calcul exact!" },
-    { "question": "Ce pigmenți poate trata partea ND:YAG?", "answer": "Laserul Q-switched ND:YAG tratează eficient pigmenții negri, albaștri, maro, verzi, roșii și galbeni cu lungimile de undă de 1064 nm și 532 nm. Poate fi utilizat atât pentru îndepărtarea tatuajelor corporale, cât și a micropigmentării." },
-    { "question": "Ce formare este inclusă cu LUNOX?", "answer": "Un program de formare complex, aprobat în sistemul FAR, elaborat cu participarea medicilor. Cursul este gratuit la achiziționarea aparatului și se încheie cu un certificat oficial." },
-    { "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?", "answer": "Da! În showroom-ul nostru (Érd, Bajcsy-Zsilinszky út 156.) puteți vedea și testa personal LUNOX cu programare prealabilă." }
+    {
+      "question": "De ce merită să alegeți un aparat 2in1?",
+      "answer": "LUNOX reunește într-un singur aparat epilarea cu laser cu diodă și tehnologia Q-switched ND:YAG. Nu trebuie să cumpărați aparate separate – epilarea, îndepărtarea tatuajelor, tratamentul pigmentului, carbon peeling-ul și întinerirea pielii pot fi toate efectuate cu un singur aparat, ceea ce reprezintă o economie semnificativă."
+    },
+    {
+      "question": "În cât timp se amortizează LUNOX?",
+      "answer": "Epilarea cu laser cu diodă și tratamentele ND:YAG sunt printre cele mai profitabile servicii cosmetice. Cu 3-5 clienți pe zi, LUNOX se amortizează în general în 2-4 luni. Utilizați calculatorul nostru ROI pentru un calcul exact!"
+    },
+    {
+      "question": "Ce pigmenți poate trata partea ND:YAG?",
+      "answer": "Laserul Q-switched ND:YAG tratează eficient pigmenții negri, albaștri, maro, verzi, roșii și galbeni cu lungimile de undă de 1064 nm și 532 nm. Poate fi utilizat atât pentru îndepărtarea tatuajelor corporale, cât și a micropigmentării."
+    },
+    {
+      "question": "Ce formare este inclusă cu LUNOX?",
+      "answer": "Un program de formare complex, aprobat în sistemul FAR, elaborat cu participarea medicilor. Cursul este gratuit la achiziționarea aparatului și se încheie cu un certificat oficial."
+    },
+    {
+      "question": "Există posibilitatea de a vedea aparatul înainte de cumpărare?",
+      "answer": "Da! În showroom-ul nostru (Érd, Bajcsy-Zsilinszky út 156.) puteți vedea și testa personal LUNOX cu programare prealabilă."
+    }
   ],
   "whatsIncluded": [
     "Aparat laser LUNOX 2in1",
@@ -102,6 +172,6 @@
     "Manual de utilizare",
     "Formare de operare (certificat FAR)",
     "Garanție completă 2 ani",
-    "Aparat de schimb pe perioada reparației"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }

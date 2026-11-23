@@ -5,12 +5,31 @@
   "metaTitle": "Epilare cu laser cu diodă 1200W – 755/808/940/1064 nm",
   "metaDescription": "Laserul cu diodă Prestige 4Wave 1200W oferă epilare profesională de lungă durată cu 4 lungimi de undă. Cu instruire oficială și educație certificată.",
   "stats": [
-    { "value": "1200", "unit": "W", "label": "Putere", "icon": "zap" },
-    { "value": "4", "label": "Lungimi de undă", "icon": "wave" },
-    { "value": "5", "label": "Dimensiuni spot", "icon": "layers" },
-    { "value": "-5°C", "label": "Răcire", "icon": "snowflake" }
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Putere",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Lungimi de undă",
+      "icon": "wave"
+    },
+    {
+      "value": "5",
+      "label": "Dimensiuni spot",
+      "icon": "layers"
+    },
+    {
+      "value": "-5°C",
+      "label": "Răcire",
+      "icon": "snowflake"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 35000 },
+  "roi": {
+    "defaultTreatmentPrice": 35000
+  },
   "videoDescription": {
     "headline": "Prestige4WAVE – Performanță ridicată, rezultate profesionale",
     "paragraphs": [
@@ -131,6 +150,6 @@
     "Manual de utilizare",
     "Instruire operator dispozitiv (certificat oficial)",
     "Garanție completă de 2 ani",
-    "Dispozitiv de înlocuire pe durata reparațiilor"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }

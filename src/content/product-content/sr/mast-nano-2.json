@@ -139,7 +139,7 @@
     },
     {
       "question": "Kakva garancija važi za uređaj?",
-      "answer": "Za Mast Nano 2 važi garancija od 1 godine. Tokom popravke obezbeđujemo zamenu uređaja da vaš rad ne bude prekinut."
+      "answer": "Za Mast Nano 2 važi garancija od 1 godine. Ako popravka verovatno traje duže od 10 radnih dana, za vreme popravke obezbeđujemo zamenski uređaj, u zavisnosti od zaliha, da vaš rad ne bude prekinut."
     }
   ],
   "whatsIncluded": [
@@ -147,6 +147,9 @@
     "Priključni kabl",
     "Uputstvo za upotrebu",
     "1 godina garancija",
-    "Zamena uređaja tokom popravke"
-  ]
+    "Zamenski uređaj za popravke duže od 10 radnih dana (u zavisnosti od zaliha)"
+  ],
+  "imageAlts": {
+    "mast-nano-2-design.jpg": "Dva Mast Nano 2.0 uređaja za trajnu šminku na pozadini od roze-zlatne svile"
+  }
 }

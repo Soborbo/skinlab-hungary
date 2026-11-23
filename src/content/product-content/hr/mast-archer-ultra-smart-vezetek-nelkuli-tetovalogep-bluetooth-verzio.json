@@ -5,25 +5,76 @@
   "metaTitle": "MAST Archer Ultra Smart – Bežični stroj za tetoviranje za profesionalce",
   "metaDescription": "Premium pametni stroj za tetoviranje s Bluetooth vezom, motorom velikog hoda i dugim radnim vremenom. Idealan za profesionalne tattoo umjetnike.",
   "stats": [
-    {"value": "4,5", "unit": "mm", "label": "Ekstra veliki hod", "icon": "zap"},
-    {"value": "6,5+", "unit": "sati", "label": "Radno vrijeme", "icon": "clock"},
-    {"value": "2300", "unit": "mAh", "label": "Baterija", "icon": "award"},
-    {"value": "BT", "label": "Bluetooth upravljanje", "icon": "layers"}
+    {
+      "value": "4,5",
+      "unit": "mm",
+      "label": "Ekstra veliki hod",
+      "icon": "zap"
+    },
+    {
+      "value": "6,5+",
+      "unit": "sati",
+      "label": "Radno vrijeme",
+      "icon": "clock"
+    },
+    {
+      "value": "2300",
+      "unit": "mAh",
+      "label": "Baterija",
+      "icon": "award"
+    },
+    {
+      "value": "BT",
+      "label": "Bluetooth upravljanje",
+      "icon": "layers"
+    }
   ],
   "cta": {
-    "afterVideo": {"text": "Imate pitanja o Archer Ultra Smart-u? Rado ćemo vam pomoći!", "buttonLabel": "Zatraži konzultaciju", "phoneLabel": "Nazovite nas"},
-    "afterFeatures": {"headline": "Želite isprobati Archer Ultra Smart?", "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!", "buttonLabel": "Rezerviraj termin"},
-    "final": {"headline": "Zanima vas MAST Archer Ultra Smart?", "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.", "buttonLabel": "Zatraži konzultaciju"}
+    "afterVideo": {
+      "text": "Imate pitanja o Archer Ultra Smart-u? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatraži konzultaciju",
+      "phoneLabel": "Nazovite nas"
+    },
+    "afterFeatures": {
+      "headline": "Želite isprobati Archer Ultra Smart?",
+      "subtitle": "Posjetite naš izložbeni prostor u Érdu i isprobajte ga osobno!",
+      "buttonLabel": "Rezerviraj termin"
+    },
+    "final": {
+      "headline": "Zanima vas MAST Archer Ultra Smart?",
+      "subtitle": "Zatražite besplatnu konzultaciju i pomoći ćemo vam odlučiti je li ovo najbolji izbor za vas.",
+      "buttonLabel": "Zatraži konzultaciju"
+    }
   },
   "featureRows": {
     "headline": "Zašto je Archer Ultra Smart vrhunska kategorija?",
     "subtitle": "Inteligencija, performanse i premium kvaliteta – na svakoj razini",
     "features": [
-      {"title": "4,5 mm ekstra veliki hod – maksimalni prijenos pigmenta", "description": "Zahvaljujući Mast tehnologiji, hod od 4,5 mm povećava učinkovitost pretvorbe snage motora za 100%. Svaki pokret igle unosi više pigmenta, što rezultira višom zasićenošću boje. To znači manje popravljanja i brži rad.", "image": "@assets/products/A1.webp"},
-      {"title": "Inteligentno Bluetooth upravljanje i APP veza", "description": "MAST Archer Ultra Smart ima brzu i inteligentnu Bluetooth vezu. Inteligentno napajanje s velikim zaslonom omogućuje jasan prikaz podataka. Putem Dragonhawk APP aplikacije uređaj se može upravljati s mobilnih uređaja (telefon, tablet) – s bilo kojeg mjesta.", "image": "@assets/products/A10.webp"},
-      {"title": "Brzo punjenje: 10 minuta = 1 sat korištenja", "description": "Mast jedinstvena litij-kobalt-oksidna baterija od 2300 mAh nudi trostruko duži vijek trajanja od sličnih modela. 10 minuta punjenja osigurava 1 sat korištenja, a potpuno napunjena radi više od 6,5 sati. Integrirana stanica za punjenje istovremeno puni stroj i napajanje.", "image": "@assets/products/A11.webp"},
-      {"title": "MCORE motor – ultrastabilan rad", "description": "Inovativni dizajn i unaprijeđena struktura krugova najnovije MCore tehnologije osiguravaju ultrastabilan rad bez gubitka performansi. Super integrirani unutarnji dizajn minimizira vibracije i buku.", "image": "@assets/products/A12.webp"},
-      {"title": "Integrirana bežična stanica za punjenje", "description": "Stanica za punjenje od premium aluminijske legure istovremeno puni stroj za tetoviranje i napajanje. Ima i dodatni USB priključak za punjenje, tako da na radnom stolu sve uređaje možete držati i puniti na jednom mjestu.", "image": "@assets/products/A13.webp"}
+      {
+        "title": "4,5 mm ekstra veliki hod – maksimalni prijenos pigmenta",
+        "description": "Zahvaljujući Mast tehnologiji, hod od 4,5 mm povećava učinkovitost pretvorbe snage motora za 100%. Svaki pokret igle unosi više pigmenta, što rezultira višom zasićenošću boje. To znači manje popravljanja i brži rad.",
+        "image": "@assets/products/A1.webp"
+      },
+      {
+        "title": "Inteligentno Bluetooth upravljanje i APP veza",
+        "description": "MAST Archer Ultra Smart ima brzu i inteligentnu Bluetooth vezu. Inteligentno napajanje s velikim zaslonom omogućuje jasan prikaz podataka. Putem Dragonhawk APP aplikacije uređaj se može upravljati s mobilnih uređaja (telefon, tablet) – s bilo kojeg mjesta.",
+        "image": "@assets/products/A10.webp"
+      },
+      {
+        "title": "Brzo punjenje: 10 minuta = 1 sat korištenja",
+        "description": "Mast jedinstvena litij-kobalt-oksidna baterija od 2300 mAh nudi trostruko duži vijek trajanja od sličnih modela. 10 minuta punjenja osigurava 1 sat korištenja, a potpuno napunjena radi više od 6,5 sati. Integrirana stanica za punjenje istovremeno puni stroj i napajanje.",
+        "image": "@assets/products/A11.webp"
+      },
+      {
+        "title": "MCORE motor – ultrastabilan rad",
+        "description": "Inovativni dizajn i unaprijeđena struktura krugova najnovije MCore tehnologije osiguravaju ultrastabilan rad bez gubitka performansi. Super integrirani unutarnji dizajn minimizira vibracije i buku.",
+        "image": "@assets/products/A12.webp"
+      },
+      {
+        "title": "Integrirana bežična stanica za punjenje",
+        "description": "Stanica za punjenje od premium aluminijske legure istovremeno puni stroj za tetoviranje i napajanje. Ima i dodatni USB priključak za punjenje, tako da na radnom stolu sve uređaje možete držati i puniti na jednom mjestu.",
+        "image": "@assets/products/A13.webp"
+      }
     ]
   },
   "training": {
@@ -80,12 +131,30 @@
     "Sučelje za punjenje": "Type-C"
   },
   "faq": [
-    {"question": "Čemu služi Bluetooth i Dragonhawk APP?", "answer": "Bluetooth veza omogućuje upravljanje i nadzor stroja s mobilnih uređaja. Putem Dragonhawk APP aplikacije možete u stvarnom vremenu pratiti stanje baterije, postavke napona i druge parametre na telefonu ili tabletu."},
-    {"question": "Što sadrži set osim stroja?", "answer": "Set sadrži stroj za tetoviranje, inteligentno bežično napajanje (3300 mAh), integriranu aluminijsku stanicu za punjenje (s USB priključkom), Type-C kabel i korisnički priručnik."},
-    {"question": "Zašto je hod od 4,5 mm bolji?", "answer": "Veći hod svakim pokretom igle unosi više pigmenta u kožu, što rezultira višom zasićenošću boje. To znači manje popravljanja, brži rad i bolji krajnji rezultat – posebno kod punog bojanja i sjenčanja."},
-    {"question": "Koliko je brzo punjenje?", "answer": "Već 10 minuta punjenja osigurava 1 sat korištenja. Potpuno punjenje traje otprilike 1 sat i 20 minuta, a daje 6,5+ sati radnog vremena. Stanica za punjenje istovremeno puni stroj i napajanje."},
-    {"question": "Može li se koristiti za trajnu šminku?", "answer": "Archer Ultra Smart je primarno vrhunski stroj dizajniran za tjelesno tetoviranje. Zbog hoda od 4,5 mm i težine od 217 g nije najoptimalniji izbor za trajnu šminku – za to su prikladniji MAST P60 ili Nano 2."},
-    {"question": "Kakvo jamstvo ide uz stroj?", "answer": "Uz Archer Ultra Smart ide 1 godina jamstva. Za vrijeme popravka osiguravamo zamjenski uređaj kako vaš rad ne bi stao."}
+    {
+      "question": "Čemu služi Bluetooth i Dragonhawk APP?",
+      "answer": "Bluetooth veza omogućuje upravljanje i nadzor stroja s mobilnih uređaja. Putem Dragonhawk APP aplikacije možete u stvarnom vremenu pratiti stanje baterije, postavke napona i druge parametre na telefonu ili tabletu."
+    },
+    {
+      "question": "Što sadrži set osim stroja?",
+      "answer": "Set sadrži stroj za tetoviranje, inteligentno bežično napajanje (3300 mAh), integriranu aluminijsku stanicu za punjenje (s USB priključkom), Type-C kabel i korisnički priručnik."
+    },
+    {
+      "question": "Zašto je hod od 4,5 mm bolji?",
+      "answer": "Veći hod svakim pokretom igle unosi više pigmenta u kožu, što rezultira višom zasićenošću boje. To znači manje popravljanja, brži rad i bolji krajnji rezultat – posebno kod punog bojanja i sjenčanja."
+    },
+    {
+      "question": "Koliko je brzo punjenje?",
+      "answer": "Već 10 minuta punjenja osigurava 1 sat korištenja. Potpuno punjenje traje otprilike 1 sat i 20 minuta, a daje 6,5+ sati radnog vremena. Stanica za punjenje istovremeno puni stroj i napajanje."
+    },
+    {
+      "question": "Može li se koristiti za trajnu šminku?",
+      "answer": "Archer Ultra Smart je primarno vrhunski stroj dizajniran za tjelesno tetoviranje. Zbog hoda od 4,5 mm i težine od 217 g nije najoptimalniji izbor za trajnu šminku – za to su prikladniji MAST P60 ili Nano 2."
+    },
+    {
+      "question": "Kakvo jamstvo ide uz stroj?",
+      "answer": "Uz Archer Ultra Smart ide 1 godina jamstva. Ako popravak vjerojatno traje dulje od 10 radnih dana, za vrijeme popravka osiguravamo zamjenski uređaj, ovisno o zalihama, kako vaš rad ne bi stao."
+    }
   ],
   "whatsIncluded": [
     "MAST Archer Ultra Smart stroj za tetoviranje",
@@ -94,6 +163,6 @@
     "Type-C kabel za punjenje",
     "Korisnički priručnik",
     "1 godina jamstva",
-    "Zamjenski uređaj za vrijeme popravka"
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
   ]
 }

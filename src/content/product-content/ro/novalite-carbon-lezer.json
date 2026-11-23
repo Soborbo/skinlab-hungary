@@ -5,12 +5,33 @@
   "metaTitle": "NovaLite ND:YAG laser | Tatuaje, pigmentații și carbon peeling",
   "metaDescription": "Laser NovaLite Q-switched ND:YAG: dispozitiv compact, portabil cu 6 capete de tratament, energie de 3500 mJ. Îndepărtarea tatuajelor, tratamentul pigmentațiilor, carbon peeling. Certificat CE, garanție 2 ani.",
   "stats": [
-    { "value": "6", "label": "Capete de tratament", "icon": "layers" },
-    { "value": "3500", "unit": "mJ", "label": "Energie max.", "icon": "zap" },
-    { "value": "2500", "unit": "W", "label": "Putere", "icon": "wave" },
-    { "value": "2", "unit": "ani", "label": "Garanție", "icon": "shield" }
+    {
+      "value": "6",
+      "label": "Capete de tratament",
+      "icon": "layers"
+    },
+    {
+      "value": "3500",
+      "unit": "mJ",
+      "label": "Energie max.",
+      "icon": "zap"
+    },
+    {
+      "value": "2500",
+      "unit": "W",
+      "label": "Putere",
+      "icon": "wave"
+    },
+    {
+      "value": "2",
+      "unit": "ani",
+      "label": "Garanție",
+      "icon": "shield"
+    }
   ],
-  "roi": { "defaultTreatmentPrice": 25000 },
+  "roi": {
+    "defaultTreatmentPrice": 25000
+  },
   "videoDescription": {
     "headline": "NovaLite – Putere compactă, calitate premium",
     "paragraphs": [
@@ -101,12 +122,36 @@
     "role": "Cofondator Skinlab, director general"
   },
   "functionCards": [
-    { "icon": "zap", "name": "Îndepărtarea tatuajelor", "description": "Îndepărtarea eficientă a tatuajelor negre și colorate la lungimi de undă de 1064 nm și 532 nm" },
-    { "icon": "sun", "name": "Tratamentul pigmentului roșu", "description": "Eliminarea pigmenților roșiatici, portocalii și maro cald la lungimea de undă de 532 nm" },
-    { "icon": "sparkles", "name": "Carbon peeling", "description": "Curățare în profunzime, strângerea porilor și rejuvenare cu capul de tratament de 1320 nm" },
-    { "icon": "droplet", "name": "Tratamentul petelor pigmentare", "description": "Tratamentul petelor de bătrânețe, petelor solare, pistruilor, petelor hepatice și hiperpigmentațiilor" },
-    { "icon": "eye", "name": "Îndepărtarea machiajului permanent", "description": "Corecția machiajului permanent de sprâncene și buze cu capetele No Scar" },
-    { "icon": "bolt", "name": "Tratament anti-aging", "description": "Reducerea ridurilor, fermitatea pielii și stimularea colagenului cu capul de tratament de 755 nm" }
+    {
+      "icon": "zap",
+      "name": "Îndepărtarea tatuajelor",
+      "description": "Îndepărtarea eficientă a tatuajelor negre și colorate la lungimi de undă de 1064 nm și 532 nm"
+    },
+    {
+      "icon": "sun",
+      "name": "Tratamentul pigmentului roșu",
+      "description": "Eliminarea pigmenților roșiatici, portocalii și maro cald la lungimea de undă de 532 nm"
+    },
+    {
+      "icon": "sparkles",
+      "name": "Carbon peeling",
+      "description": "Curățare în profunzime, strângerea porilor și rejuvenare cu capul de tratament de 1320 nm"
+    },
+    {
+      "icon": "droplet",
+      "name": "Tratamentul petelor pigmentare",
+      "description": "Tratamentul petelor de bătrânețe, petelor solare, pistruilor, petelor hepatice și hiperpigmentațiilor"
+    },
+    {
+      "icon": "eye",
+      "name": "Îndepărtarea machiajului permanent",
+      "description": "Corecția machiajului permanent de sprâncene și buze cu capetele No Scar"
+    },
+    {
+      "icon": "bolt",
+      "name": "Tratament anti-aging",
+      "description": "Reducerea ridurilor, fermitatea pielii și stimularea colagenului cu capul de tratament de 755 nm"
+    }
   ],
   "faq": [
     {
@@ -150,6 +195,6 @@
     "Manual de utilizare",
     "Instruire operator (certificat FAR)",
     "Garanție completă 2 ani",
-    "Dispozitiv de înlocuire pe durata reparațiilor"
+    "Aparat de schimb pentru reparații de peste 10 zile lucrătoare (în funcție de stoc)"
   ]
 }
