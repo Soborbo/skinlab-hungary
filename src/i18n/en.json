@@ -377,8 +377,8 @@
     "sending": "Sending..."
   },
   "about": {
-    "title": "About Us",
-    "subtitle": "Meet the Skinlab team and our story",
+    "title": "How did it start? The story of {companyName}",
+    "subtitle": "The story of {companyName} began in two different worlds that came together perfectly in the end: a love of beauty and a love of technology.",
     "story": "Our Story",
     "team": "Our Team",
     "mission": "Our Mission",
@@ -393,7 +393,7 @@
     },
     "whyUsTitle": "Why Choose Us?",
     "benefit1Title": "Fair Prices",
-    "benefit1Desc": "Direct manufacturer relationships, no unnecessary middlemen. Same quality, fraction of the price.",
+    "benefit1Desc": "Direct manufacturer relationship, no middlemen, at a fraction of the price.",
     "benefit2Title": "Fast Delivery",
     "benefit2Desc": "Machine arrives in 2 weeks, no waiting for months.",
     "benefit3Title": "2-Year Warranty",
@@ -752,7 +752,7 @@
     "feature": "Feature"
   },
   "roi": {
-    "title": "ROI Calculator",
+    "title": "How quickly does the investment pay off?",
     "treatmentPrice": "Treatment Price",
     "treatmentsPerDay": "Treatments/Day",
     "workingDays": "Working Days/Month",
@@ -937,15 +937,15 @@
   },
   "whyUs": {
     "title": "Why Do Successful Salons Choose Skinlab?",
-    "subtitle": "We don't just sell machines – we help as partners to make your investment pay off as quickly as possible.",
-    "training": "Complete Training",
-    "trainingDesc": "4-6 hours of personal training + FAR certificate + video materials. We won't let you go until you use the machine confidently.",
-    "warranty": "2-Year Warranty, Local Service",
+    "subtitle": "We don't just sell machines. We add deep, professionally grounded knowledge and lasting personal support – so you can work with confidence and safely.",
+    "training": "Practical, In-Depth Expertise",
+    "trainingDesc": "Not a quick “plug it in and go” session: we teach you to set parameters confidently and recognise sources of error, and we prepare you for every eventuality. Our courses are FAR-registered and come with a B-numbered certificate.",
+    "warranty": "2-Year Warranty, In-House Service in Hungary",
     "warrantyDesc": "No waiting weeks for service abroad. We repair quickly, in-house, and for repairs exceeding 10 business days we provide a replacement device, subject to stock availability.",
-    "financing": "Financing, Leasing",
-    "financingDesc": "From ~€250/month. No need to pay all at once – the machine's revenue pays the installments.",
-    "consulting": "Business Consulting",
-    "consultingDesc": "We help with pricing and marketing. We share what successful salons do."
+    "financing": "Legal and Business Know-How",
+    "financingDesc": "We go through the legal framework for using the machine and the documentation requirements, and our marketing and business module helps you with pricing, communication and building a sustainable business.",
+    "consulting": "We Stay by Your Side",
+    "consultingDesc": "We don't leave you on your own after the purchase: for us, follow-up means helping you with operation, settings and your everyday work."
   },
   "search": {
     "placeholder": "Search products by name...",
@@ -980,7 +980,7 @@
     "sendEmail": "Send email"
   },
   "howItWorks": {
-    "title": "How It Works",
+    "title": "From the first idea to your own laser cosmetic machine.",
     "subtitle": "4 simple steps to a successful launch",
     "step1Title": "Consultation",
     "step1Desc": "Free in-person or online demo where you get to know the machines",
@@ -1186,9 +1186,9 @@
     "pickupBenefit3": "Personal handover of documentation and answers to every question",
     "pickupLocation": "Pickup location",
     "pickupNote": "Personal pickup by prior appointment. Booking: call us or send an email.",
-    "homeDelivery": "Home delivery",
-    "homeDeliveryDesc": "If personal pickup is not feasible, our contracted courier service delivers across Hungary, with individual pricing based on the size and weight of the machine and the delivery location.",
-    "homeDeliveryNote1": "The exact delivery fee is quoted when your order is confirmed.",
+    "homeDelivery": "Delivery by arrangement",
+    "homeDeliveryDesc": "If personal pickup is not possible, we arrange delivery of high-value devices personally, given the product's value and fragility – we bring it to you ourselves or ship it safely. This is not an automated process: we always discuss with you how the device will reach you.",
+    "homeDeliveryNote1": "The exact delivery method and fee are agreed with you personally when your order is confirmed.",
     "homeDeliveryNote2": "Floor delivery and commissioning available for an additional fee, by prior agreement.",
     "paymentTitle": "Payment options",
     "onlinePayment": "Simple, secure payment",
@@ -1294,7 +1294,7 @@
       "pickupDesc": "Skinlab Showroom, 2030 Érd, Bajcsy-Zsilinszky út 156. – free of charge, by prior appointment.",
       "recommended": "Recommended",
       "highValueTitle": "Pickup and delivery",
-      "highValueNote": "We'll arrange your order's delivery individually. Our colleague will contact you to agree on personal pickup or delivery and the payment method.",
+      "highValueNote": "Your cart contains a high-value, sensitive device. We don't ship these automatically: we hand them over in person at our showroom, or deliver them in an agreed way given the product's value.",
       "pickupCeremony": "Personal pickup at the showroom",
       "pickupCeremonyDesc": "On-site handover, setup and training — we answer all your questions right away. You can also collect the device at the end of our trainings.",
       "arranged": "Delivery by arrangement",
@@ -1349,7 +1349,7 @@
       "codTitle": "Cash on delivery",
       "codNote": "You pay on delivery – no need to transfer in advance. For cash-on-delivery orders we don't send a proforma invoice.",
       "priceDisclaimer": "The amount shown is for information only; the final price and shipping cost will be confirmed during the phone consultation.",
-      "payIntro": "We’ve issued your proforma invoice – you can pay right away by card or bank transfer using the button below:",
+      "payIntro": "We’ve issued your proforma invoice – open it with the button below and settle it by bank transfer:",
       "payButton": "Pay now / open proforma",
       "questions": "Have a question? Feel free to call us:",
       "regards": "Best regards,",
@@ -1712,5 +1712,24 @@
       "invalidEmail": "Please enter a valid email address",
       "invalidPhone": "Please enter a valid phone number"
     }
+  },
+  "formErrors": {
+    "rateLimited": "Too many submissions from this address. Please try again later.",
+    "badRequest": "Invalid request. Please refresh the page and try again.",
+    "validation": "Please check the details you entered - some fields are invalid or missing.",
+    "captcha": "CAPTCHA verification failed - please complete it again.",
+    "securityCheck": "The security check failed - please try again.",
+    "cartEmpty": "Your cart is empty - please add a product to your order.",
+    "invalidShipping": "Please choose a valid shipping method.",
+    "notShippable": "Automatic courier delivery is not available for these products. Please choose personal pickup or arranged delivery.",
+    "foxpostRequired": "Please choose a Foxpost parcel locker for pickup.",
+    "submitFailed": "We could not send the form. Please try again later.",
+    "orderSubmitFailed": "We could not record your order. Please try again or give us a call.",
+    "unexpected": "An unexpected error occurred while processing your submission. Please try again later.",
+    "serverError": "The server reported an error during processing. Please try again later.",
+    "unexpectedResponse": "We received an unexpected response from the server. Please try again later.",
+    "offline": "No internet connection. Check your network and try again.",
+    "timeout": "The request timed out. Please try again.",
+    "network": "A network error occurred while submitting. Please try again."
   }
 }

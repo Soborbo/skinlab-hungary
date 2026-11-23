@@ -15,6 +15,7 @@ import { readEnv } from '@/lib/env';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { isFormRateLimited, recordFormSubmission } from '@/lib/forms/rate-limit';
 import { errorResponse } from '@/lib/errors/respond';
+import { requestLocale, formError } from '@/lib/forms/error-messages';
 
 export const prerender = false;
 
@@ -45,10 +46,11 @@ function toBase64(buf: ArrayBuffer): string {
 }
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  const loc = requestLocale(request);
   try {
     if (isFormRateLimited(clientAddress, 'review')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'rateLimited'),
         context: { endpoint: '/api/review', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -87,7 +89,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
     if (Object.keys(errors).length > 0) {
       return errorResponse('FORM-ZOD-002', {
-        userMessage: 'Kérjük, ellenőrizd a megadott adatokat.',
+        userMessage: formError(loc, 'validation'),
         errors,
         context: { formId: 'review', fieldName: Object.keys(errors).join(',') },
       });
@@ -96,7 +98,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const turnstileResult = await verifyTurnstile(str(form.get('cf-turnstile-response'), 4096), clientAddress);
     if (!turnstileResult.success) {
       return errorResponse('TURN-VERIFY-001', {
-        userMessage: 'CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.',
+        userMessage: formError(loc, 'captcha'),
         errors: { 'cf-turnstile-response': ['CAPTCHA ellenőrzés sikertelen'] },
         context: { formId: 'review', errorCodes: turnstileResult.error ?? '' },
       });
@@ -150,7 +152,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const message = error instanceof Error ? error.message : String(error);
     console.error('Review form error:', error);
     return errorResponse('FORM-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a beküldés közben. Kérjük, próbáld újra később, vagy írj nekünk e-mailt.',
+      userMessage: formError(loc, 'unexpected'),
       context: { formId: 'review', errorMessage: message },
     });
   }

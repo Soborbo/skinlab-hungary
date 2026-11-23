@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../../lib/constants';
-import { t, getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, type Locale } from '../../i18n/ui';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 import { getImageEntry } from '@/lib/resolve-image';
 import { productPath } from '@/lib/product-url';
+import { loadProductContent } from '@/lib/load-product-content';
 
 function resolveImageUrl(imagePath: string): string | null {
   if (!imagePath) return null;
@@ -26,18 +27,19 @@ const inLocale = (id: string) =>
 const trainings = (await getCollection('trainings')).filter((tr) => inLocale(tr.id));
 const blog = (await getCollection('blog')).filter((post) => inLocale(post.id));
 
-// Create a category lookup for display names
-const categoryMap = Object.fromEntries(
-  CATEGORIES.map(c => [c.id, c.nameShort])
-);
+// Display names: HU from constants, other locales from i18n / product-content.
+const categoryName = (slug: string) =>
+  locale === 'hu' ? CATEGORIES.find(c => c.slug === slug)?.nameShort || slug : t(locale, `categories.${slug}`);
+const productName = (slug: string, categorySlug: string, fallback: string) =>
+  locale === 'hu' ? fallback : loadProductContent(locale, slug, categorySlug).content?.name || fallback;
 
 const searchIndex = [
   // Products
   ...products.map(p => ({
-    name: p.data.name,
+    name: productName(p.data.slug, p.data.categorySlug, p.data.name),
     type: 'product' as const,
-    url: withTrailingSlash(productPath(p.data.categorySlug, p.data.slug)),
-    category: categoryMap[p.data.categorySlug] || p.data.categorySlug,
+    url: getLocalizedUrl(locale, productPath(p.data.categorySlug, p.data.slug)),
+    category: categoryName(p.data.categorySlug),
     price: p.data.price,
     image: resolveImageUrl(p.data.image),
   })),
@@ -61,9 +63,9 @@ const searchIndex = [
   })),
   // Categories
   ...CATEGORIES.filter(c => c.featured).map(c => ({
-    name: c.nameShort,
+    name: categoryName(c.slug),
     type: 'category' as const,
-    url: withTrailingSlash(`/${c.slug}`),
+    url: getLocalizedUrl(locale, `/${c.slug}`),
     category: t(locale, 'nav.products'),
     price: null,
     image: null,

@@ -16,6 +16,7 @@ import { processOrder } from '@/lib/order/submit';
 import { resolveOrderEnv } from '@/lib/order/env';
 import type { OrderEmailItem, OrderEmailInput } from '@/lib/order/email';
 import { errorResponse } from '@/lib/errors/respond';
+import { requestLocale, formError } from '@/lib/forms/error-messages';
 import { verifyTurnstile } from '@/lib/forms/turnstile';
 import { env as workerEnv } from 'cloudflare:workers';
 import { leadToGatewayAttribution, type FormTrackingContext } from '@/lib/forms/submit';
@@ -45,11 +46,12 @@ export const GET: APIRoute = async () => {
 };
 
 export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
+  let loc = requestLocale(request);
   try {
     // 0. Rate limit - max 5 feldolgozott megrendelés / IP / óra
     if (isFormRateLimited(clientAddress, 'order')) {
       return errorResponse('HTTP-429-001', {
-        userMessage: 'Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.',
+        userMessage: formError(loc, 'rateLimited'),
         context: { endpoint: '/api/order', ip: clientAddress },
         extraHeaders: { 'Retry-After': '3600' },
       });
@@ -61,11 +63,12 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       body = await request.json();
     } catch {
       return errorResponse('SRV-PARSE-001', {
-        userMessage: 'Hibás kérés. Kérjük, frissítsd az oldalt és próbáld újra.',
+        userMessage: formError(loc, 'badRequest'),
         context: { contentType: request.headers.get('content-type') || 'unknown' },
       });
     }
     const raw = (body || {}) as Record<string, unknown>;
+    loc = requestLocale(request, raw.locale);
 
     // 2-3. Spam védelem - honeypot + time-check (>3 mp kitöltési idő).
     //    Csendes elutasítás: a botnak hamis sikert adunk vissza, hogy ne
@@ -89,7 +92,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     const validation = validateOrder(raw);
     if (!validation.success || !validation.data) {
       return errorResponse('ORDER-ZOD-001', {
-        userMessage: 'Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.',
+        userMessage: formError(loc, 'validation'),
         errors: validation.errors,
         context: { formId: 'order' },
       });
@@ -98,7 +101,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
 
     if (data.items.length === 0) {
       return errorResponse('ORDER-EMPTY-001', {
-        userMessage: 'A kosár üres - kérjük, adj hozzá terméket a megrendeléshez.',
+        userMessage: formError(loc, 'cartEmpty'),
         context: { formId: 'order' },
       });
     }
@@ -114,8 +117,8 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
       const result = await verifyTurnstile(data.turnstileToken, clientAddress || '');
       if (!result.success) {
         return errorResponse('ORDER-TURN-001', {
-          userMessage: 'A biztonsági ellenőrzés sikertelen - kérjük, próbáld újra.',
-          errors: { turnstile: ['A biztonsági ellenőrzés sikertelen.'] },
+          userMessage: formError(loc, 'securityCheck'),
+          errors: { turnstile: [formError(loc, 'securityCheck')] },
           context: { formId: 'order', turnstileError: result.error ?? 'unknown' },
         });
       }
@@ -179,17 +182,17 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     if (!isMethodAllowed(shippingMethod, shippable, data.locale)) {
       return errorResponse('ORDER-ZOD-001', {
         userMessage: shippable
-          ? 'Kérjük, válassz érvényes szállítási módot.'
-          : 'Ezeknél a termékeknél nincs automatikus futáros szállítás. Kérjük, válassz személyes átvételt vagy egyeztetett kiszállítást.',
-        errors: { shippingMethod: ['Érvénytelen szállítási mód ehhez a kosárhoz.'] },
+          ? formError(loc, 'invalidShipping')
+          : formError(loc, 'notShippable'),
+        errors: { shippingMethod: [formError(loc, 'invalidShipping')] },
         context: { formId: 'order', shippingMethod, shippable },
       });
     }
     const foxpostPoint = shippingMethod === 'foxpost' ? data.foxpostPoint ?? null : null;
     if (shippingMethod === 'foxpost' && !foxpostPoint) {
       return errorResponse('ORDER-ZOD-001', {
-        userMessage: 'Kérjük, válassz Foxpost csomagautomatát az átvételhez.',
-        errors: { foxpostPoint: ['Válassz Foxpost automatát.'] },
+        userMessage: formError(loc, 'foxpostRequired'),
+        errors: { foxpostPoint: [formError(loc, 'foxpostRequired')] },
         context: { formId: 'order' },
       });
     }
@@ -247,7 +250,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     if (!result.success) {
       // Belső hibarészletet csak logba, generikus üzenetet a kliensnek.
       return errorResponse(result.code || 'ORDER-PERSIST-001', {
-        userMessage: 'A megrendelést nem sikerült rögzíteni. Kérjük, próbáld újra, vagy hívj minket.',
+        userMessage: formError(loc, 'orderSubmitFailed'),
         context: { orderId, errorMessage: result.error ?? 'unknown' },
       });
     }
@@ -344,7 +347,7 @@ export const POST: APIRoute = async ({ request, locals, clientAddress }) => {
     const message = err instanceof Error ? err.message : String(err);
     console.error('[SRV-FUNC-001] /api/order top-level exception:', message, err);
     return errorResponse('ORDER-SUBMIT-001', {
-      userMessage: 'Váratlan hiba történt a megrendelés feldolgozása közben. Kérjük, próbáld újra később.',
+      userMessage: formError(loc, 'unexpected'),
       context: { errorMessage: message },
     });
   }

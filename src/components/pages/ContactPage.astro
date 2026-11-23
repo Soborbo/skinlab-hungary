@@ -7,6 +7,7 @@ import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui
 import { config } from '../../config/siteConfig';
 import { contactPageSchema } from '../../config/schema';
 import { getTurnstileSiteKey } from '../../lib/forms/turnstile';
+import { clientErrorMessages } from '../../lib/forms/error-messages';
 
 // Get locale from URL
 const locale = getLocaleFromUrl(Astro.url) as Locale;
@@ -66,7 +67,7 @@ const sourceUrl = Astro.url.href;
                 {t(locale, 'contact.subtitle')}
               </h1>
 
-              <form class="space-y-4" id="contact-form" novalidate data-sending={t(locale, 'contact.sending')} data-retry={t(locale, 'contact.errorRetry')}>
+              <form class="space-y-4" id="contact-form" novalidate data-sending={t(locale, 'contact.sending')} data-retry={t(locale, 'contact.errorRetry')} data-client-errors={JSON.stringify(clientErrorMessages(locale))}>
               <!-- Hidden tracking / anti-spam fields -->
               <input type="hidden" name="sourceUrl" value={sourceUrl} />
               <input type="hidden" name="formStartTime" data-form-start />
@@ -622,7 +623,7 @@ const sourceUrl = Astro.url.href;
           }
         }
       } catch (error) {
-        const info = describeClientError(error);
+        const info = describeClientError(error, JSON.parse(form?.dataset.clientErrors || '{}'));
         if (window.__slDebug) console.error('[' + info.code + '] contact submit error:', error);
         errorMessage?.classList.remove('hidden');
         if (errorText) errorText.textContent = info.message;

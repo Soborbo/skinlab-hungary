@@ -1709,5 +1709,24 @@
       "invalidEmail": "Adj meg egy érvényes email címet",
       "invalidPhone": "Adj meg egy érvényes telefonszámot"
     }
+  },
+  "formErrors": {
+    "rateLimited": "Túl sok beküldés érkezett erről a címről. Kérjük, próbáld újra később.",
+    "badRequest": "Hibás kérés. Kérjük, frissítsd az oldalt és próbáld újra.",
+    "validation": "Kérjük, ellenőrizd a megadott adatokat - néhány mező hibás vagy hiányzik.",
+    "captcha": "CAPTCHA ellenőrzés sikertelen - kérjük, végezd el újra.",
+    "securityCheck": "A biztonsági ellenőrzés sikertelen - kérjük, próbáld újra.",
+    "cartEmpty": "A kosár üres - kérjük, adj hozzá terméket a megrendeléshez.",
+    "invalidShipping": "Kérjük, válassz érvényes szállítási módot.",
+    "notShippable": "Ezeknél a termékeknél nincs automatikus futáros szállítás. Kérjük, válassz személyes átvételt vagy egyeztetett kiszállítást.",
+    "foxpostRequired": "Kérjük, válassz Foxpost csomagautomatát az átvételhez.",
+    "submitFailed": "Nem sikerült elküldeni az űrlapot. Kérjük, próbáld újra később.",
+    "orderSubmitFailed": "A megrendelést nem sikerült rögzíteni. Kérjük, próbáld újra, vagy hívj minket.",
+    "unexpected": "Váratlan hiba történt a beküldés feldolgozása közben. Kérjük, próbáld újra később.",
+    "serverError": "A szerver hibát jelzett a feldolgozás során. Kérlek, próbáld újra később.",
+    "unexpectedResponse": "Váratlan szerverválasz érkezett. Kérlek, próbáld újra később.",
+    "offline": "Nincs internetkapcsolat. Ellenőrizd a hálózatot, és próbáld újra.",
+    "timeout": "A kérés időtúllépés miatt megszakadt. Kérlek, próbáld újra.",
+    "network": "Hálózati hiba történt a beküldés során. Kérlek, próbáld újra."
   }
 }

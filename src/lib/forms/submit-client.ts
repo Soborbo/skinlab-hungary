@@ -29,7 +29,7 @@ export interface FormApiResult {
 export interface ClientErrorInfo {
   /** Error code from the shared registry (src/lib/errors/codes.ts). */
   code: string;
-  /** User-facing Hungarian message, prefixed with the code. */
+  /** User-facing message (localized when `messages` is given, else Hungarian), prefixed with the code. */
   message: string;
 }
 
@@ -77,9 +77,16 @@ export async function readJsonResponse(response: Response): Promise<FormApiResul
  * "Offline" is only reported when the browser is actually offline; everything
  * else maps to the appropriate network / server code.
  *
- * For multilingual forms, use only `.code` and keep your own localized text.
+ * Pass `messages` (code -> text, from `clientErrorMessages(locale)` in
+ * error-messages.ts) to get the message in the page's language.
  */
-export function describeClientError(error: unknown): ClientErrorInfo {
+export function describeClientError(error: unknown, messages?: Record<string, string>): ClientErrorInfo {
+  const info = classifyClientError(error);
+  const localized = messages?.[info.code];
+  return localized ? { code: info.code, message: `[${info.code}] ${localized}` } : info;
+}
+
+function classifyClientError(error: unknown): ClientErrorInfo {
   const tagged = (error as Record<string, unknown> | null | undefined)?.[CODE_TAG];
 
   if (tagged === 'FORM-SUBMIT-001') {
