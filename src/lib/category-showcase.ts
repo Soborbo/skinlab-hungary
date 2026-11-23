@@ -17,6 +17,12 @@ import type { CatalogGroupConfig, ShowcaseCategory, ShowcaseConfig } from './typ
 
 type Product = CollectionEntry<'products'>;
 
+/** Nyelvenkénti termékszöveg (csak a `specs` kell belőle). */
+const productContentFiles = import.meta.glob<{ specs?: Record<string, string> }>('/src/content/product-content/*/*.json', {
+  eager: true,
+  import: 'default',
+});
+
 /** Termékenkénti szerkesztői szöveg (a mérhető adat a JSON-ból jön). */
 export interface ShowcaseModelCopy {
   /** Megjelenített név; alapból a termék nevének első szava (pl. „ATHENA”). */
@@ -55,7 +61,10 @@ export interface ShowcaseModel extends Omit<ShowcaseModelCopy, 'keySpec'> {
   price: number | null;
   /** Kulcsadat (csempe, sorcím): a konfig `keySpec`-je, vagy a watt a specs-ből (pl. „1000W”). */
   keySpec: string | null;
+  /** Magyar specs (a táblázat-konfig ezekre a kulcsokra hivatkozik). */
   specs: Record<string, string>;
+  /** Magyar kulcs → az oldal nyelvén lefordított érték (localizedSpecs); magyarul üres. */
+  specsLocal: Record<string, string>;
   href: string;
   thumb: string;
   images: ShowcaseImage[];
@@ -87,6 +96,23 @@ export function specValue(specs: Record<string, string>, keys: string[]): string
     if (specs[key]) return specs[key];
   }
   return null;
+}
+
+/**
+ * A specs lefordított értékei a magyar kulcsokhoz rendelve. Szerződés: a
+ * product-content/<nyelv>/<slug>.json `specs`-e ugyanannyi sort tartalmaz, ugyanabban
+ * a sorrendben, mint a magyar forrás (product-content/hu `specs`, ha van, különben
+ * a termék-JSON `specs`-e), így a párosítás index szerint történik. Ha a nyelvhez
+ * nincs saját fájl, nincs benne specs, vagy eltér a sorszám, üres (magyar érték marad).
+ */
+export function localizedSpecs(locale: Locale, slug: string, productSpecs: Record<string, string>): Record<string, string> {
+  if (locale === 'hu') return {};
+  const local = productContentFiles[`/src/content/product-content/${locale}/${slug}.json`]?.specs;
+  if (!local) return {};
+  const huKeys = Object.keys(productContentFiles[`/src/content/product-content/hu/${slug}.json`]?.specs ?? productSpecs);
+  const values = Object.values(local);
+  if (values.length !== huKeys.length) return {};
+  return Object.fromEntries(huKeys.map((key, i) => [key, values[i]]));
 }
 
 function wattFromSpecs(specs: Record<string, string>): string | null {
@@ -151,6 +177,7 @@ export function buildShowcaseModels(
         price: data.price ?? null,
         keySpec: copy[slug].keySpec ?? wattFromSpecs(specs),
         specs,
+        specsLocal: localizedSpecs(locale, slug, specs),
         href: getLocalizedUrl(locale, productPath(data.categorySlug, slug)),
         thumb: thumbs[slug] ?? data.image,
         images: buildImages(product, ui.gallery.image),
@@ -171,8 +198,16 @@ export function compareValue(model: ShowcaseModel, source: CompareSource, askPri
     case 'copy':
       return model.compare?.[source.key] ?? '-';
     case 'spec': {
-      const raw = specValue(model.specs, source.keys) ?? '-';
-      return source.strip ? raw.replace(source.strip, '').trim() : raw;
+      const key = source.keys.find((k) => model.specs[k]);
+      if (!key) return '-';
+      const raw = model.specs[key];
+      const stripped = source.strip ? raw.replace(source.strip, '').trim() : raw;
+      const local = model.specsLocal[key];
+      if (!local) return stripped;
+      // A `strip` minta magyar; ha a magyar értékről egy záró zárójeles részt vágott le
+      // (pl. „(kimeneti)”), a fordításról is a záró zárójeles rész megy le.
+      // shortcut: csak záró zárójelre működik; más mintánál nyelvenkénti strip kell.
+      return stripped !== raw && raw.startsWith(stripped) ? local.replace(/\s*\([^)]*\)\s*$/, '').trim() : local;
     }
   }
 }
