@@ -1,0 +1,229 @@
+{
+  "name": "HydraMIST Elite hydrofacial 11 u 1",
+  "shortDescription": "Višenamenski hydrofacial sistem 11 u 1: vakuumska hidrodermabrazija, unos aktivnih supstanci kiseonikom, RF, LED-kiseonička kupola i još mnogo toga na jednoj platformi.",
+  "description": "HydraMIST Elite je višenamenski elektrokozmetički sistem koji objedinjuje 11 tehnologija za tretman kože na jednoj platformi: vakuumska hidrodermabrazija, ultrazvučni piling, čišćenje CO₂ mehurićima, unos aktivnih supstanci kiseonikom i ultrazvukom, zatezanje kože multipolarnim RF-om, jonski lifting, LED + kiseonička kupola i glava za hladnu terapiju. Za profesionalnu upotrebu u salonu.",
+  "stats": [
+    {
+      "value": "11",
+      "label": "Tretmana u jednom uređaju",
+      "icon": "spray"
+    },
+    {
+      "value": "0–80",
+      "unit": "kPa",
+      "label": "Podesivi vakuum",
+      "icon": "chart"
+    },
+    {
+      "value": "0–6",
+      "unit": "bar",
+      "label": "Pritisak kiseonika",
+      "icon": "bubbles"
+    },
+    {
+      "value": "3",
+      "label": "Rezervoari za rastvore (A/B/C)",
+      "icon": "droplet"
+    }
+  ],
+  "videoDescription": {
+    "headline": "HydraMIST Elite – 11 tehnologija na jednoj platformi",
+    "paragraphs": [
+      "HydraMIST Elite u jednom uređaju pruža ono za šta je u salonu obično potrebno više uređaja: dubinsko čišćenje, hidrataciju, unos aktivnih supstanci, zatezanje kože i umirujući završetak. Između funkcija prelazite na ekranu osetljivom na dodir, pa u okviru jednog tretmana možete izgraditi složen protokol prilagođen koži klijenta.",
+      "Osnova je vakuumska hidrodermabrazija: tečnost i vakuum zajedno čiste pore, uklanjaju odumrle ćelije i hidriraju. Na to se nadovezuju unos aktivnih supstanci kiseonikom i ultrazvukom bez igala, multipolarni RF i LED-kiseonička kupola. Sve funkcije nalazite niže, u odeljku Funkcije tretmana."
+    ]
+  },
+  "featureRows": {
+    "headline": "Zašto HydraMIST Elite?",
+    "subtitle": "Složen tretman lica jednim, dobro osmišljenim uređajem",
+    "features": [
+      {
+        "title": "Providna kiseonička kupola sa pokrivanjem lica od 360°",
+        "description": "Kupola je izrađena od vrhunskog PC materijala: izdržljiva, providna i laka za čišćenje. Ergonomski prianja uz liniju lica i daje ravnomeran unos aktivnih supstanci iz svih uglova. Integrisani zaštitni štit sprečava curenje raspršivanja, pa tretman ostaje čist i bezbedan.",
+        "highlight": "Sa multimedijalnim sistemom ugrađenim u kupolu tokom tretmana može da svira i muzika.",
+        "image": "@assets/products/hydramist-elite-info-bura.png"
+      },
+      {
+        "title": "Intuitivan ekran osetljiv na dodir, sve funkcije na jednom mestu",
+        "description": "Svi režimi tretmana dostupni su preko preglednih ikona na ekranu visoke rezolucije. Intenzitet i trajanje podešavaju se za svaki tretman, a omiljena podešavanja mogu se sačuvati funkcijom memorije. Plavi LED indikator pokazuje kada je uređaj spreman za tretman.",
+        "highlight": "Brzo podešavanje, pa ostaje više vremena za klijenta.",
+        "image": "@assets/products/hydramist-elite-info-kijelzo.png"
+      },
+      {
+        "title": "Precizno doziranje, ravnomeran protok tečnosti",
+        "description": "Profesionalni sistem dovoda tečnosti unosi aktivnu supstancu u kožu stabilnim pritiskom i ravnomernim protokom. Regulacionim prstenom na cevčici za doziranje precizno se podešava željena količina tečnosti. Zatvoreni sistem je higijenski, a rezervoari se brzo i jednostavno menjaju.",
+        "highlight": "3 rezervoara za rastvore (A/B/C) i poseban rezervoar za otpad.",
+        "image": "@assets/products/hydramist-elite-info-adagolas.png"
+      }
+    ]
+  },
+  "functionCards": [
+    {
+      "icon": "spray",
+      "name": "Vakuumska hidrodermabrazija",
+      "description": "Glavna funkcija: tečnost i vakuum zajedno čiste pore i hidriraju."
+    },
+    {
+      "icon": "sound",
+      "name": "Skin scrubber",
+      "description": "Ultrazvučni piling, uklanjanje odumrlih ćelija i mitisera."
+    },
+    {
+      "icon": "bubbles",
+      "name": "Tretman CO₂ mehurićima",
+      "description": "Čišćenje pora i podsticanje snabdevanja kože kiseonikom."
+    },
+    {
+      "icon": "droplet",
+      "name": "Kiseonički injektor visokog pritiska",
+      "description": "Brz unos aktivnih supstanci bez igala u gornje slojeve kože."
+    },
+    {
+      "icon": "spray",
+      "name": "Kiseonički pištolj za raspršivanje",
+      "description": "Fina maglica za osvežavanje, hidrataciju, osetljivu kožu."
+    },
+    {
+      "icon": "droplet",
+      "name": "Precizna kiseonička olovka",
+      "description": "Ciljani tretman malih površina, npr. predela oko očiju."
+    },
+    {
+      "icon": "sound",
+      "name": "Ultrazvučni unos aktivnih supstanci",
+      "description": "Sonoforeza od 1–3 MHz za bolju apsorpciju."
+    },
+    {
+      "icon": "bolt",
+      "name": "Radiofrekvencija sa 7 polova",
+      "description": "Dubinska toplota za obnovu kolagena: zatezanje, smanjenje bora."
+    },
+    {
+      "icon": "bolt",
+      "name": "Jonski valjak",
+      "description": "Masaža mikrostrujom, tonus mišića i blagi lifting efekat."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Hladni čekić",
+      "description": "Sužavanje pora, smirivanje, završetak tretmana."
+    },
+    {
+      "icon": "bubbles",
+      "name": "LED-kiseonička kupola",
+      "description": "Terapija svetlom više talasnih dužina sa kiseonikom i ugrađenom muzikom."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Šta znači 11 u 1?",
+      "answer": "11 zasebnih glava za tretman i tehnologija u jednom uređaju, od vakuumske hidrodermabrazije do radiofrekvencije i LED-kiseoničke kupole. Tako se na jednom uređaju mogu obaviti čišćenje, unos aktivnih supstanci, zatezanje i umirujući završetak. Sve ih predstavljamo gore, u odeljku Funkcije tretmana."
+    },
+    {
+      "question": "Kome se preporučuje?",
+      "answer": "Kozmetičkim salonima i stručnjacima koji izvode tretmane nege kože – i početnicima i naprednima. Namenjen je profesionalnoj upotrebi u salonu i zahteva odgovarajuće stručno znanje."
+    },
+    {
+      "question": "Koliko traje jedan tretman?",
+      "answer": "U zavisnosti od izabranog protokola, obično 60–90 minuta."
+    },
+    {
+      "question": "Za koji tip kože je pogodan?",
+      "answer": "Za gotovo svaki tip kože: suvu, dehidriranu, masnu, mešovitu i beživotnu kožu. Intenzitete uvek treba prilagoditi stanju kože klijenta, pri prvom tretmanu nižim stepenom."
+    },
+    {
+      "question": "Da li klijent ima vreme oporavka?",
+      "answer": "Nema. Tretman je neinvazivan i bezbolan, klijent se odmah posle njega može vratiti svakodnevnim obavezama. Moguće je blago crvenilo koje obično brzo prolazi."
+    },
+    {
+      "question": "Koliko često se preporučuje tretman?",
+      "answer": "Za održavanje kože na svake 3–4 nedelje. Kod intenzivnijeg programa obnove kože terapeut sastavlja personalizovani plan."
+    },
+    {
+      "question": "Da li je to medicinsko sredstvo?",
+      "answer": "Nije. Uređaj je namenjen kozmetičkoj upotrebi, ne smatra se medicinskim sredstvom i nije pogodan za dijagnostikovanje ili lečenje bolesti."
+    },
+    {
+      "question": "Koliki je rok isporuke i da li je uključena obuka?",
+      "answer": "Rok isporuke je 2–6 nedelja. Uz kupovinu dobijate kompletnu stručnu obuku (nastavni materijal na mađarskom jeziku, protokoli tretmana, bezbednosne smernice). Na zahtev je dostupna i praktična obuka na živom modelu (69.990 Ft)."
+    }
+  ],
+  "training": {
+    "headline": "Obuka za HydraMIST Elite",
+    "badge": "Obuka na mađarskom jeziku",
+    "intro": "Uz uređaj dobijate kompletan stručni nastavni materijal kako biste sve funkcije koristili bezbedno i samouvereno.",
+    "items": [
+      "Detaljan nastavni materijal na mađarskom jeziku",
+      "Protokoli tretmana za različite tipove kože",
+      "Tok tretmana izgrađen korak po korak",
+      "Uputstvo za upotrebu uređaja",
+      "Šablon izjave o saglasnosti klijenta",
+      "Higijenske i bezbednosne smernice"
+    ],
+    "closingParagraphs": [
+      "Na zahtev možete učestvovati i na praktičnoj obuci na živom modelu, gde tehnike savladavate u stvarnom okruženju tretmana uz stručno vođstvo. To posebno preporučujemo početnicima."
+    ],
+    "price": "69.990 Ft",
+    "priceNote": "praktična obuka na živom modelu",
+    "duration": "U dogovoreno vreme",
+    "ctaText": "Zanima me obuka"
+  },
+  "whatsIncluded": [
+    "HydraMIST Elite uređaj",
+    "3 rezervoara za rastvore (A/B/C) + rezervoar za otpad",
+    "Nastavni materijal na mađarskom jeziku i protokoli tretmana",
+    "Šablon izjave o saglasnosti klijenta",
+    "Higijenske i bezbednosne smernice",
+    "Uputstvo za upotrebu uređaja"
+  ],
+  "cta": {
+    "afterVideo": {
+      "text": "Imate pitanje o HydraMIST Elite? Rado ćemo vam pomoći!",
+      "buttonLabel": "Zatražite konsultaciju",
+      "phoneLabel": "Pozovite nas"
+    },
+    "final": {
+      "headline": "Zanima vas HydraMIST Elite?",
+      "subtitle": "Zatražite besplatnu konsultaciju ili prezentaciju u šourumu i pomoći ćemo vam da izaberete protokole tretmana prilagođene vašem salonu.",
+      "buttonLabel": "Zatražite konsultaciju"
+    }
+  },
+  "specs": {
+    "Tip uređaja": "Višenamenski elektrokozmetički sistem (11 u 1)",
+    "Glave za tretman": "Vakuumska glava za hidrodermabraziju, skin scrubber, glava sa CO₂ mehurićima, kiseonički injektor visokog pritiska, kiseonički pištolj za raspršivanje, precizna kiseonička olovka, ultrazvučna glava za unos, RF glava sa 7 polova, jonski valjak, hladni čekić, LED-kiseonička kupola",
+    "Ekran": "Ekran osetljiv na dodir",
+    "Ulazni napon": "220–240 V / 50–60 Hz",
+    "Snaga": "150–300 W",
+    "Snaga vakuuma": "0–80 kPa (podesivo)",
+    "Protok tečnosti": "Podesiv u više stepeni",
+    "Pritisak kiseonika": "0–6 bar",
+    "Frekvencija ultrazvuka": "1–3 MHz",
+    "Radiofrekvencija": "0,3–1 MHz (multipolarna)",
+    "LED terapija svetlom": "više talasnih dužina (oko 415–640 nm)",
+    "Skin scrubber": "oko 25–30 kHz",
+    "Rezervoari za rastvore": "3 kom (A/B/C) + rezervoar za otpad",
+    "Kapacitet rezervoara": "oko 250–500 ml / rezervoar",
+    "Sistem creva": "Zatvoren, zamenljiv",
+    "Materijal kućišta": "ABS plastika + metalni elementi",
+    "Nivo buke": "< 60 dB",
+    "Težina": "15–25 kg",
+    "Radna temperatura": "10–30 °C",
+    "Garancija": "Potpuna garancija 2 godine"
+  },
+  "imageAlts": {
+    "hydramist-elite-1.png": "HydraMIST Elite 11 u 1 hydrofacial uređaj sa kiseoničkom kupolom i glavama za tretman",
+    "hydramist-elite-2.png": "HydraMIST Elite hydrofacial uređaj spreda, sa ekranom osetljivim na dodir i LED-kiseoničkom kupolom",
+    "hydramist-elite-3.png": "HydraMIST Elite hydrofacial uređaj sa strane, sa rezervoarima za rastvore",
+    "hydramist-elite-design-1.jpg": "HydraMIST Elite hydrofacial uređaj u Skinlab šourumu",
+    "hydramist-elite-design-2.jpg": "HydraMIST Elite sa uključenom LED-kiseoničkom kupolom i glavama za tretman",
+    "hydramist-elite-design-3.jpg": "HydraMIST Elite hydrofacial uređaj sa osvetljenim rezervoarom za rastvor",
+    "hydramist-elite-design-4.jpg": "HydraMIST Elite glava sa okruglim metalnim vrhom u ruci",
+    "hydramist-elite-design-5.jpg": "HydraMIST Elite izmenljiva glava za tretman u ruci",
+    "hydramist-elite-design-6.jpg": "HydraMIST Elite glava sa dvostrukim valjkom u ruci",
+    "hydramist-elite-info-bura.png": "HydraMIST Elite providna kiseonička kupola: pokrivanje lica od 360°, integrisani zaštitni štit",
+    "hydramist-elite-info-kijelzo.png": "HydraMIST Elite ekran sa menijem funkcija, podesivim intenzitetom i trajanjem",
+    "hydramist-elite-info-adagolas.png": "HydraMIST Elite sistem dovoda tečnosti sa podesivim protokom",
+    "hydramist-elite-oktatas-1.jpg": "HydraMIST Elite tretman tokom vežbe na obuci za rad sa uređajem",
+    "hydramist-elite-oktatas-2.jpg": "HydraMIST Elite obuka za rad sa uređajem u Skinlab šourumu"
+  }
+}

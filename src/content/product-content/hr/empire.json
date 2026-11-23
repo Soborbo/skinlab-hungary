@@ -1,0 +1,203 @@
+{
+  "name": "EMPIRE 4WAVE 1200W diodni laser",
+  "shortDescription": "Pametni profesionalni diodni laser s 4 valne duljine, izlaznom snagom od 1200W, dijagnostikom dlaka i kože mikrokamerom i digitalnim kartonom klijenta.",
+  "description": "EMPIRE 4WAVE je profesionalni sustav za lasersku epilaciju diodnim laserom nove generacije: izlazna snaga od 1200W, četiri valne duljine i pametna podrška tretmanu u jednom uređaju.",
+  "metaTitle": "EMPIRE 4WAVE 1200W diodni laser | Dijagnostika mikrokamerom, digitalni karton klijenta",
+  "metaDescription": "EMPIRE 4WAVE – profesionalni diodni laser od 1200W s 4 valne duljine (755/808/940/1064 nm), dijagnostikom dlaka i kože mikrokamerom, digitalnim kartonom klijenta i 3 načina tretmana.",
+  "stats": [
+    {
+      "value": "1200",
+      "unit": "W",
+      "label": "Izlazna snaga",
+      "icon": "zap"
+    },
+    {
+      "value": "4",
+      "label": "Valne duljine",
+      "icon": "wave"
+    },
+    {
+      "value": "3",
+      "label": "Načina tretmana",
+      "icon": "layers"
+    },
+    {
+      "value": "Android 11",
+      "label": "Pametno upravljanje",
+      "icon": "brain"
+    }
+  ],
+  "roi": {
+    "defaultTreatmentPrice": 12000
+  },
+  "videoDescription": {
+    "headline": "EMPIRE 4WAVE – ne samo snažniji, nego pametniji",
+    "paragraphs": [
+      "EMPIRE 4WAVE u jednom uređaju objedinjuje veliku izlaznu snagu od 1200W, zajedničku primjenu četiriju valnih duljina i moderne funkcije podrške tretmanu.",
+      "Na sučelju temeljenom na Androidu digitalni karton klijenta, povijest tretmana i fotografije prije–poslije nalaze se u jednom profilu, a dijagnostička glava s mikrokamerom omogućuje uvećani pregled dlaka i kože – na temelju toga sustav preporučuje parametre tretmana."
+    ]
+  },
+  "featureRows": {
+    "headline": "Zašto odabrati EMPIRE?",
+    "subtitle": "Snaga od 1200W, 4 valne duljine, dijagnostika mikrokamerom i digitalni karton klijenta – pametniji sustav za profesionalnu epilaciju.",
+    "features": [
+      {
+        "title": "4WAVE tehnologija – četiri valne duljine u jednom uređaju",
+        "description": "755 nm podržava tretman finijih dlaka bogatijih melaninom, 808 nm je klasična, svestrana valna duljina diodne laserske epilacije, 940 nm dodatno proširuje spektar tretmana, a 1064 nm ima dublju penetraciju – važan element strategije tretmana prilagođene tipu kože. Područje primjene sustava: tipovi kože Fitzpatrick I–VI.",
+        "image": "@assets/products/empire-1.png"
+      },
+      {
+        "title": "Dijagnostika dlaka i kože mikrokamerom",
+        "description": "Zasebna dijagnostička glava s vlastitim LED osvjetljenjem omogućuje uvećani pregled dlaka i kože i digitalno snimanje fotografija. Parametre tretmana ne morate određivati napamet: sustav preporučuje postavke na temelju tipa kože, dijela tijela, načina i površine.",
+        "image": "@assets/products/empire-4.png",
+        "highlight": "Vidite što tretirate – i to dokumentirate."
+      },
+      {
+        "title": "Digitalni karton klijenta",
+        "description": "Povijest tretmana i fotografije prije–poslije pohranjene u jednom profilu klijenta, izravno na uređaju. Svaki put vidite s kojim ste parametrima radili prošli put, a rezultati klijenta mogu se pratiti.",
+        "image": "@assets/products/empire-kijelzo.jpg"
+      },
+      {
+        "title": "3 profesionalna načina tretmana",
+        "description": "<strong>SHR STACK</strong> (4–45 J, 2–5 impulsa): slojeviti impulsi automatski određeni prema spolu klijenta, dijelu tijela i tipu kože. <strong>SHR</strong> (4–100 J, 1–20 Hz): optimizirana energija impulsa, frekvencija i ukupna energija prema području tretmana. <strong>HR</strong> (4–100 J, 1–20 Hz): klasični tretman točku po točku.",
+        "image": "@assets/products/empire-3.png"
+      },
+      {
+        "title": "Složeni sustav hlađenja i sigurnosti",
+        "description": "Hlađenje vodom i zrakom, poluvodičko hlađenje kože sa safirnom kontaktnom površinom. Pokretanje ključem, tipka za hitno zaustavljanje, interlock, zaštita od problema s hlađenjem, pregrijavanja, niskog protoka vode, preopterećenja i kratkog spoja. Uređaj neprestano prati temperaturu i protok vode te u slučaju nepravilnosti automatski zaustavlja lasersku emisiju.",
+        "image": "@assets/products/empire-2.png",
+        "highlight": "Pri uključivanju pokreće se automatska samoprovjera."
+      }
+    ]
+  },
+  "training": {
+    "headline": "Obuka za rad s uređajem – dio kupnje",
+    "badge": "Sa službenim certifikatom",
+    "intro": "Cijena uređaja EMPIRE uključuje potpunu obuku za rad s uređajem. Naučit ćete koristiti tri načina tretmana, dijagnostiku mikrokamerom i digitalni karton klijenta.",
+    "items": [
+      "Princip rada i sigurnosni sustav uređaja",
+      "Sučelje temeljeno na Androidu i digitalni karton klijenta",
+      "Pregled dlaka i kože mikrokamerom, fotodokumentacija",
+      "Načini tretmana SHR STACK, SHR i HR",
+      "Postavljanje parametara prema tipu kože i području",
+      "Održavanje: zamjena rashladne vode i filtra, čišćenje"
+    ],
+    "closingParagraphs": [
+      "Praktična obuka na živom modelu s vlastitim modelom +59.990 Ft – posebno preporučeno onima koji protokole tretmana žele svladati u stvarnoj situaciji tretmana.",
+      "Osnovna obuka za rad s uređajem besplatna je uz kupnju uređaja, a nakon uspješnog završetka izdajemo FAR certifikat."
+    ],
+    "price": "59.990 Ft",
+    "priceNote": "obuka na živom modelu (opcionalno)",
+    "freeText": "Osnovna obuka BESPLATNA uz kupnju uređaja!",
+    "duration": "Jednodnevna intenzivna obuka",
+    "ctaText": "Zanima me obuka"
+  },
+  "functionCards": [
+    {
+      "icon": "zap",
+      "name": "Snaga od 1200W",
+      "description": "Velika izlazna snaga za brze tretmane."
+    },
+    {
+      "icon": "sun",
+      "name": "4 valne duljine",
+      "description": "755, 808, 940, 1064 nm – Fitzpatrick I–VI."
+    },
+    {
+      "icon": "layers",
+      "name": "3 načina tretmana",
+      "description": "SHR STACK, SHR i HR s preporukom parametara."
+    },
+    {
+      "icon": "chart",
+      "name": "Dijagnostika mikrokamerom",
+      "description": "Uvećani pregled dlaka i kože, snimanje fotografija."
+    },
+    {
+      "icon": "clipboard",
+      "name": "Digitalni karton klijenta",
+      "description": "Povijest i fotografije prije–poslije u jednom profilu."
+    },
+    {
+      "icon": "snowflake",
+      "name": "Složeno hlađenje",
+      "description": "Hlađenje vodom i zrakom, poluvodičko hlađenje kože, safir."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Po čemu se EMPIRE razlikuje od naših drugih diodnih lasera?",
+      "answer": "Uz snagu, EMPIRE se temelji na podršci tretmanu: dijagnostika dlaka i kože mikrokamerom, digitalni karton klijenta s fotografijama prije–poslije i parametri preporučeni prema tipu kože, dijelu tijela, načinu i površini – sve na sučelju temeljenom na Androidu."
+    },
+    {
+      "question": "Što može dijagnostička glava s mikrokamerom?",
+      "answer": "S vlastitim LED osvjetljenjem obavlja uvećani pregled dlaka i kože te digitalno snima fotografije. Slike se spremaju u digitalni karton klijenta, pa se tretmani mogu dokumentirati prije–poslije."
+    },
+    {
+      "question": "Koja je razlika između načina SHR STACK, SHR i HR?",
+      "answer": "SHR STACK (4–45 J, 2–5 impulsa): slojeviti impulsi automatski određeni prema spolu klijenta, dijelu tijela i tipu kože. SHR (4–100 J, 1–20 Hz): optimizirana pojedinačna energija impulsa i frekvencija prema području. HR (4–100 J, 1–20 Hz): klasični tretman točku po točku."
+    },
+    {
+      "question": "Na kojim se tipovima kože može koristiti?",
+      "answer": "Područje primjene sustava: tipovi kože Fitzpatrick I–VI. Parametre uvijek treba odrediti prema trenutnom stanju kože i području tretmana – u tome pomažu i preporuka parametara i obuka za rad s uređajem."
+    },
+    {
+      "question": "S koliko veličina spota radi?",
+      "answer": "S 3 izmjenjive veličine spota. Površina tretmana može se postaviti na 25, 50, 100 ili 300 cm², a laserski impuls aktivira se prekidačem na glavi ili nožnim prekidačem."
+    },
+    {
+      "question": "Kakvo održavanje zahtijeva?",
+      "answer": "Prema preporuci proizvođača: kalibracija energije svakih 12 mjeseci, zamjena rashladne vode i filtra svaka 2–3 mjeseca, čišćenje uređaja tjedno, čišćenje izlazne površine svjetla prije i nakon svakog tretmana, ažuriranje softvera po potrebi."
+    },
+    {
+      "question": "Koji su uvjeti potrebni za rad?",
+      "answer": "Temperatura 15–30 °C, relativna vlažnost najviše 80%, tlak zraka 860–1060 hPa i najmanje 60 cm slobodnog prostora oko uređaja."
+    },
+    {
+      "question": "Može li se EMPIRE kupiti na rate?",
+      "answer": "Da. Uz predujam od 50%, a preostali iznos raspoređen na 3, 6 ili 12 mjeseci – točne uvjete dogovaramo na konzultaciji. Kalkulatorom na stranici možete unaprijed izračunati mjesečnu ratu."
+    }
+  ],
+  "whatsIncluded": [
+    "EMPIRE 4WAVE 1200W diodni laser",
+    "Glava diodnog lasera s 3 izmjenjive veličine spota",
+    "Dijagnostička glava s mikrokamerom",
+    "Nožni prekidač",
+    "Obuka za rad s uređajem (FAR certifikat)",
+    "Potpuno jamstvo 2 godine",
+    "Zamjenski uređaj za popravke dulje od 10 radnih dana (ovisno o zalihama)"
+  ],
+  "specs": {
+    "Vrsta lasera": "Profesionalni poluvodički diodni laser",
+    "Valna duljina": "755 / 808 / 940 / 1064 nm (4WAVE)",
+    "Snaga": "1200W (izlazna)",
+    "Veličina spota": "3 izmjenjive veličine spota",
+    "Energija": "4–100 J, u koracima od 1 J",
+    "Širina impulsa": "5–105 ms",
+    "Frekvencija": "1–20 Hz",
+    "Načini tretmana": "SHR STACK / SHR / HR",
+    "Površina tretmana": "25 / 50 / 100 / 300 cm²",
+    "Zaslon": "Android 11 zaslon osjetljiv na dodir, 1920 × 1080 px",
+    "Dijagnostika": "Dijagnostika dlaka i kože mikrokamerom",
+    "Sustav tretmana": "Digitalni karton klijenta, fotografije prije–poslije, preporuka parametara",
+    "Sustav hlađenja": "Hlađenje vodom i zrakom",
+    "Hlađenje kože": "Poluvodičko kontaktno hlađenje, safirna kontaktna površina",
+    "Spremnik vode": "2 litre",
+    "Područje primjene": "Tipovi kože Fitzpatrick I–VI",
+    "Sigurnosni razred": "Class I, primijenjeni dio: Type B"
+  },
+  "imageAlts": {
+    "empire-1.png": "EMPIRE 4WAVE diodni laser sprijeda, sa zaslonom koji prikazuje načine tretmana",
+    "empire-2.png": "Držač glava EMPIRE lasera s laserskom glavom i glavom s mikrokamerom",
+    "empire-3.png": "Glava EMPIRE diodnog lasera s digitalnim zaslonom i brojačem impulsa",
+    "empire-4.png": "EMPIRE dijagnostička glava s mikrokamerom za pregled dlaka i kože",
+    "empire-design-1.jpg": "EMPIRE 4WAVE diodni laser s jesenskom dekoracijom",
+    "empire-design-2.jpg": "Zaslon osjetljiv na dodir EMPIRE 4WAVE lasera sa strane",
+    "empire-design-3.jpg": "Glave EMPIRE lasera u držaču, u jesenskom ambijentu",
+    "empire-design-4.jpg": "Glava EMPIRE diodnog lasera u ruci, među jesenskim lišćem",
+    "empire-design-5.jpg": "EMPIRE dijagnostička glava s mikrokamerom u ruci, među jesenskim lišćem",
+    "empire-kijelzo.jpg": "Sučelje EMPIRE lasera s imenom klijenta i načinima tretmana",
+    "empire-oktatas-1.jpg": "EMPIRE obuka za rad s uređajem s glavom za tretman i zaslonom",
+    "empire-oktatas-2.jpg": "EMPIRE priručnik za tretmane i diploma nakon obuke za rad s uređajem"
+  }
+}
