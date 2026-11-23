@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ConsultationWizard from '../../components/forms/ConsultationWizard.astro';
 import { CONTACT } from '../../lib/constants';
-import { locales, defaultLocale } from '../../i18n/ui';
+import { t, locales, defaultLocale, getLocaleFromUrl, type Locale } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return locales
@@ -11,23 +11,24 @@ export function getStaticPaths() {
 }
 
 const product = Astro.url.searchParams.get('product') || '';
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 ---
 
 <BaseLayout
-  title="Ingyenes konzultáció kérése"
-  description="Kérj ingyenes, személyre szabott konzultációt professzionális kozmetikai berendezésekről. Szakértő tanácsadás, 2 év garancia, betanítás."
+  title={t(locale, 'consult.metaTitle')}
+  description={t(locale, 'consult.metaDescription')}
   hideDesktopWidget={true}
 >
   <section class="min-h-screen bg-gradient-to-b from-primary-50/50 to-white py-8 md:py-12">
     <div class="container mx-auto px-4">
       <!-- Header -->
       <div class="text-center mb-8 max-w-2xl mx-auto">
-        <p class="text-primary-600 font-medium mb-2">Ingyenes és kötelezettségmentes</p>
+        <p class="text-primary-600 font-medium mb-2">{t(locale, 'consult.eyebrow')}</p>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Kérj személyre szabott ajánlatot
+          {t(locale, 'consult.title')}
         </h1>
         <p class="text-gray-600">
-          Töltsd ki a rövid kérdőívet, és szakértőink 1 munkanapon belül felveszik veled a kapcsolatot.
+          {t(locale, 'consult.lead')}
         </p>
       </div>
 
@@ -36,7 +37,7 @@ const product = Astro.url.searchParams.get('product') || '';
 
       <!-- Alternative contact -->
       <div class="mt-12 text-center">
-        <p class="text-gray-500 mb-3">Inkább telefonon egyeztetne?</p>
+        <p class="text-gray-500 mb-3">{t(locale, 'consult.phoneLong')}</p>
         <a
           href={`tel:${CONTACT.phone}`}
           class="inline-flex items-center gap-2 text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors"

@@ -1,0 +1,100 @@
+---
+/**
+ * ÁSZF oldal (/aszf/ és /[locale]/aszf/) közös tartalma.
+ * Szöveg: terms.* az i18n JSON-okban (HTML-t tartalmazó bekezdések, set:html).
+ * Nem magyar nyelven látható megjegyzés: a magyar változat a jogilag irányadó.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { COMPANY, CONTACT, LOCATIONS, SITE, SOCIAL } from '../../lib/constants';
+import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const params = {
+  company: COMPANY.name,
+  legalName: COMPANY.legalName,
+  hq: LOCATIONS.headquarters.fullAddress,
+  reg: COMPANY.registrationNumber,
+  tax: COMPANY.taxId,
+  vat: COMPANY.vatId,
+  email: CONTACT.email,
+  phone: CONTACT.phoneDisplay,
+  site: SITE.url,
+  facebook: SOCIAL.facebook.url,
+  showroom: LOCATIONS.showroom.fullAddress,
+  privacyUrl: getLocalizedUrl(locale, '/adatvedelem'),
+};
+const tt = (key: string) => t(locale, `terms.${key}`, params);
+
+// Dokumentum-szerkezet: [elem, kulcs(ok)]; a ul a felsorolás elemeinek kulcsait kapja.
+type Block = ['h2' | 'h3' | 'p', string] | ['ul', string[]];
+const blocks: Block[] = [
+  ['h2', 'h1'], ['p', 'p1_1'], ['p', 'p1_2'], ['p', 'p1_3'],
+  ['h2', 'h2'], ['p', 'provider'], ['p', 'host'],
+  ['h2', 'h3'], ['p', 'p3_1'], ['p', 'p3_2'], ['p', 'p3_3'], ['p', 'p3_4'],
+  ['h2', 'h4'], ['p', 'p4_1'], ['p', 'p4_2'], ['ul', ['pay1', 'pay2', 'pay3', 'pay4']], ['p', 'p4_3'],
+  ['h2', 'h5'], ['p', 'p5_1'], ['ul', ['ship1', 'ship2', 'ship3']], ['p', 'p5_2'], ['p', 'p5_3'], ['p', 'p5_4'],
+  ['h2', 'h6'], ['p', 'p6_1'], ['p', 'p6_2'], ['p', 'p6_3'], ['p', 'p6_4'], ['p', 'p6_5'], ['p', 'p6_6'],
+  ['h2', 'h7'], ['p', 'p7_1'], ['p', 'p7_2'], ['p', 'p7_3'], ['p', 'p7_4'], ['p', 'p7_5'],
+  ['h3', 'h7sub'], ['p', 'p7_6'], ['p', 'p7_7'], ['p', 'p7_8'], ['p', 'p7_9'], ['p', 'p7_10'], ['p', 'p7_11'],
+  ['h2', 'h8'], ['h3', 'h8_1'], ['p', 'p8_1'], ['h3', 'h8_2'], ['p', 'p8_2'], ['h3', 'h8_3'], ['p', 'p8_3'],
+  ['h2', 'h9'], ['p', 'p9_1'], ['p', 'p9_2'], ['p', 'p9_3'],
+  ['h2', 'h10'], ['p', 'p10'],
+  ['h2', 'h11'], ['p', 'p11'],
+  ['h2', 'h12'], ['p', 'p12'],
+  ['h2', 'h13'], ['p', 'p13_1'], ['p', 'p13_2'],
+];
+---
+
+<BaseLayout title={tt('metaTitle')} description={tt('metaDescription')}>
+  <div>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{tt('title')}</h1>
+          <p class="text-lg text-gray-600">{tt('effective')}</p>
+          {locale !== 'hu' && (
+            <p class="mt-4 inline-block rounded-lg bg-primary-50 px-4 py-2 text-sm font-medium text-primary-800">{t(locale, 'legal.translationNotice')}</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="prose prose-gray max-w-none">
+          {blocks.map(([tag, key]) =>
+            tag === 'ul' ? <ul>{(key as string[]).map((k) => <li set:html={tt(k)} />)}</ul>
+            : tag === 'h2' ? <h2 set:html={tt(key as string)} />
+            : tag === 'h3' ? <h3 set:html={tt(key as string)} />
+            : <p set:html={tt(key as string)} />
+          )}
+          <p class="text-sm text-gray-500 mt-8">{tt('lastModified')}</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .prose h2 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-semibold text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-1;
+  }
+  .prose :global(strong) {
+    @apply text-gray-900;
+  }
+</style>

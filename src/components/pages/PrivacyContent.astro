@@ -24,6 +24,9 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
         <p class="text-lg text-gray-600">
           {t(locale, 'privacy.effectiveDate')}
         </p>
+        {locale !== 'hu' && (
+          <p class="mt-4 text-sm italic text-gray-500">{t(locale, 'legal.translationNotice')}</p>
+        )}
       </div>
     </div>
   </section>
@@ -50,9 +53,9 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
         </p>
         <ul>
           <li>GDPR - 2016/679</li>
-          <li>2011. évi CXII. törvény (Infotv.)</li>
-          <li>2000. évi C. törvény (Számv. tv.)</li>
-          <li>2001. évi CVIII. törvény (E-ker. tv.)</li>
+          <li>{t(locale, 'privacy.lawInfotv')}</li>
+          <li>{t(locale, 'privacy.lawAccounting')}</li>
+          <li>{t(locale, 'privacy.lawEcommerce')}</li>
         </ul>
 
         <h2>{t(locale, 'privacy.section2Title')}</h2>
@@ -75,10 +78,10 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
           <li>{t(locale, 'form.name')}</li>
           <li>{t(locale, 'form.email')}</li>
           <li>{t(locale, 'form.phone')}</li>
-          <li>{locale === 'hu' ? 'Számlázási és szállítási cím' : 'Billing and shipping address'}</li>
-          <li>{locale === 'hu' ? 'Cég neve (opcionális)' : 'Company name (optional)'}</li>
-          <li>{locale === 'hu' ? 'Adószám (opcionális)' : 'Tax ID (optional)'}</li>
-          <li>{locale === 'hu' ? 'Rendelési adatok, vásárlási előzmények' : 'Order data, purchase history'}</li>
+          <li>{t(locale, 'privacy.dataAddress')}</li>
+          <li>{t(locale, 'privacy.dataCompany')}</li>
+          <li>{t(locale, 'privacy.dataTaxIdOptional')}</li>
+          <li>{t(locale, 'privacy.dataOrders')}</li>
         </ul>
 
         <h3>{t(locale, 'privacy.section3_2Title')}</h3>
@@ -86,9 +89,9 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
           <li>{t(locale, 'form.name')}</li>
           <li>{t(locale, 'form.email')}</li>
           <li>{t(locale, 'form.phone')}</li>
-          <li>{locale === 'hu' ? 'Tanfolyam típusa, időpontja' : 'Course type, date'}</li>
-          <li>{locale === 'hu' ? 'Számlázási adatok' : 'Billing information'}</li>
-          <li>{locale === 'hu' ? 'Tanúsítvány kiállításához szükséges adatok (FAR-rendszer)' : 'Data required for certificate issuance (FAR system)'}</li>
+          <li>{t(locale, 'privacy.dataCourse')}</li>
+          <li>{t(locale, 'privacy.dataBilling')}</li>
+          <li>{t(locale, 'privacy.dataCertificate')}</li>
         </ul>
 
         <h3>{t(locale, 'privacy.section3_3Title')}</h3>
@@ -117,23 +120,23 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
             </thead>
             <tbody>
               <tr>
-                <td>{locale === 'hu' ? 'Megrendelés feldolgozása, teljesítése' : 'Order processing and fulfillment'}</td>
+                <td>{t(locale, 'privacy.purposeOrder')}</td>
                 <td>GDPR 6(1)(b)</td>
               </tr>
               <tr>
-                <td>{locale === 'hu' ? 'Számlázás, könyvelés' : 'Invoicing, accounting'}</td>
+                <td>{t(locale, 'privacy.purposeInvoicing')}</td>
                 <td>GDPR 6(1)(c)</td>
               </tr>
               <tr>
-                <td>{locale === 'hu' ? 'Tanfolyami jelentkezés, tanúsítvány kiállítása' : 'Course registration, certificate issuance'}</td>
+                <td>{t(locale, 'privacy.purposeCourse')}</td>
                 <td>GDPR 6(1)(b), (c)</td>
               </tr>
               <tr>
-                <td>{locale === 'hu' ? 'Ügyfélszolgálati kommunikáció' : 'Customer service communication'}</td>
+                <td>{t(locale, 'privacy.purposeSupport')}</td>
                 <td>GDPR 6(1)(f)</td>
               </tr>
               <tr>
-                <td>{locale === 'hu' ? 'Hírlevél küldése' : 'Newsletter sending'}</td>
+                <td>{t(locale, 'privacy.purposeNewsletter')}</td>
                 <td>GDPR 6(1)(a)</td>
               </tr>
             </tbody>
@@ -142,11 +145,11 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
 
         <h2>{t(locale, 'privacy.section5Title')}</h2>
         <ul>
-          <li><strong>{locale === 'hu' ? 'Számlázási adatok:' : 'Billing data:'}</strong> 8 {locale === 'hu' ? 'év' : 'years'}</li>
-          <li><strong>{locale === 'hu' ? 'Tanfolyami adminisztráció:' : 'Course administration:'}</strong> 5 {locale === 'hu' ? 'év' : 'years'}</li>
-          <li><strong>{locale === 'hu' ? 'Hírlevél feliratkozás:' : 'Newsletter subscription:'}</strong> {locale === 'hu' ? 'a hozzájárulás visszavonásáig' : 'until consent is withdrawn'}</li>
-          <li><strong>{locale === 'hu' ? 'Szerződéses kapcsolatokból eredő adatok:' : 'Data from contractual relationships:'}</strong> 5 {locale === 'hu' ? 'év' : 'years'}</li>
-          <li><strong>{locale === 'hu' ? 'Garanciális adatok:' : 'Warranty data:'}</strong> {locale === 'hu' ? 'a garancia lejártától számított 1 év' : '1 year from warranty expiration'}</li>
+          <li><strong>{t(locale, 'privacy.retentionBilling')}</strong> {t(locale, 'privacy.yearsN', { n: 8 })}</li>
+          <li><strong>{t(locale, 'privacy.retentionCourse')}</strong> {t(locale, 'privacy.yearsN', { n: 5 })}</li>
+          <li><strong>{t(locale, 'privacy.retentionNewsletter')}</strong> {t(locale, 'privacy.retentionUntilWithdrawn')}</li>
+          <li><strong>{t(locale, 'privacy.retentionContract')}</strong> {t(locale, 'privacy.yearsN', { n: 5 })}</li>
+          <li><strong>{t(locale, 'privacy.retentionWarranty')}</strong> {t(locale, 'privacy.retentionWarrantyPeriod')}</li>
         </ul>
 
         <h2>{t(locale, 'privacy.section6Title')}</h2>
@@ -154,10 +157,10 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
         <ul>
           <li><strong>Cloudflare, Inc.</strong> – CDN</li>
           <li><strong>Google LLC</strong> – Google Analytics</li>
-          <li><strong>GLS / Foxpost / DHL Express</strong> – {locale === 'hu' ? 'Csomagkézbesítés' : 'Package delivery'}</li>
-          <li><strong>{locale === 'hu' ? 'Könyvelő partner' : 'Accounting partner'}</strong></li>
-          <li><strong>{locale === 'hu' ? 'Fizetési szolgáltató' : 'Payment provider'}</strong></li>
-          <li><strong>{locale === 'hu' ? 'Email szolgáltató' : 'Email provider'}</strong></li>
+          <li><strong>GLS / Foxpost / DHL Express</strong> – {t(locale, 'privacy.processorDelivery')}</li>
+          <li><strong>{t(locale, 'privacy.processorAccounting')}</strong></li>
+          <li><strong>{t(locale, 'privacy.processorPayment')}</strong></li>
+          <li><strong>{t(locale, 'privacy.processorEmail')}</strong></li>
         </ul>
         <p><strong>{t(locale, 'privacy.noThirdCountryTransfer')}</strong></p>
 
@@ -181,7 +184,7 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
         <p>{t(locale, 'privacy.section8Text')}</p>
         <p>
           <strong>{t(locale, 'privacy.naihName')}</strong><br />
-          {locale === 'hu' ? 'Cím: 1055 Budapest, Falk Miksa utca 9-11.' : 'Address: 1055 Budapest, Falk Miksa utca 9-11.'}<br />
+          {t(locale, 'privacy.naihAddress')}<br />
           {t(locale, 'contact.phone')}: +36 1 391 1400<br />
           {t(locale, 'contact.email')}: ugyfelszolgalat@naih.hu<br />
           Web: <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">www.naih.hu</a>
@@ -211,9 +214,9 @@ import CookiePolicy from '../../lib/soborbo-tracking/components/CookiePolicy.ast
         <p>{t(locale, 'privacy.section10Text')}</p>
         <ul>
           <li>SSL/TLS</li>
-          <li>{locale === 'hu' ? 'Hozzáférés-korlátozás' : 'Access control'}</li>
-          <li>{locale === 'hu' ? 'Rendszeres biztonsági mentések' : 'Regular backups'}</li>
-          <li>{locale === 'hu' ? 'Tűzfal és egyéb biztonsági megoldások' : 'Firewall and other security solutions'}</li>
+          <li>{t(locale, 'privacy.securityAccess')}</li>
+          <li>{t(locale, 'privacy.securityBackups')}</li>
+          <li>{t(locale, 'privacy.securityFirewall')}</li>
         </ul>
 
         <h2>{t(locale, 'privacy.section11Title')}</h2>
