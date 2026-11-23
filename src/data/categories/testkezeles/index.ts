@@ -4,6 +4,14 @@
  */
 import type { ShowcaseCategory } from '@/lib/types/category-showcase';
 import { hu } from './hu';
+import { en } from './en';
+import { de } from './de';
+import { cs } from './cs';
+import { sk } from './sk';
+import { ro } from './ro';
+import { hr } from './hr';
+import { sl } from './sl';
+import { sr } from './sr';
 
 export const testkezeles: ShowcaseCategory = {
   base: {
@@ -24,5 +32,5 @@ export const testkezeles: ShowcaseCategory = {
     finance: { defaultSlug: 'freeze-me-slim' },
     video: { id: 'adri', posterSrc: '/images/video/zsidai-adri-poster.jpg' },
   },
-  copy: { hu },
+  copy: { hu, en, de, cs, sk, ro, hr, sl, sr },
 };
