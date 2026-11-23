@@ -12,7 +12,7 @@ export const sk: ShowcaseCopy = {
     description: "Profesionálne ošetrujúce prípravky M'ONDUNIQ: hydra-liquidy, koktaily účinných látok a prípravky s exozómami.",
   },
   hero: {
-    titleLines: ["Prípravky M'ONDUNIQ", 'k tvojim zariadeniam.'],
+    titleLines: ["Prípravky M'ONDUNIQ", 'k prístrojom.'],
     lead: 'Hydra-liquidy na aqua peeling, koktaily účinných látok, prípravky s exozómami a kompletný protokol LaserIQ na carbon peeling. Ako oficiálny distribútor dodávame originálne výrobky.',
     imageAlt: "Ošetrujúca tekutina M'ONDUNIQ AquametiQ Acid Prime na kamennej doske so zelenou vetvičkou",
   },
@@ -50,7 +50,7 @@ export const sk: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Prečo kupovať prípravky u nás?',
+    title: 'Prečo nakupovať u nás?',
     lead: 'Čo je dobré vedieť pred objednávkou.',
     imageAlt: "Sérum a pleťový krém M'ONDUNIQ HI'FUsion Longevity na salónnom pulte, v pozadí zariadenie na ošetrenie pleti",
     items: [

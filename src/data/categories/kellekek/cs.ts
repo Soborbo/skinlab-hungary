@@ -39,7 +39,7 @@ export const cs: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Proč kupovat příslušenství u nás?',
+    title: 'Proč nakupovat u nás?',
     lead: 'Co je dobré vědět před objednávkou.',
     imageAlt: 'Jehlové moduly Faviamo v krabičce',
     items: [

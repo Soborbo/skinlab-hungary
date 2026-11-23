@@ -11,7 +11,7 @@ export const ro: ShowcaseCopy = {
     description: 'Cartușe cu ace și extractor de fum.',
   },
   hero: {
-    titleLines: ['Cartușe și consumabile', 'pentru munca de zi cu zi.'],
+    titleLines: ['Cartușe și consumabile', 'pentru fiecare zi.'],
     lead: 'Cartușe cu ace sterile, de unică folosință, pentru aparatele de machiaj permanent și un extractor de fum pentru carbon peeling. Produse originale de la producător, cu livrare la domiciliu sau ridicare personală.',
     imageAlt: 'Cartușe cu ace Faviamo în cutie de prezentare',
   },

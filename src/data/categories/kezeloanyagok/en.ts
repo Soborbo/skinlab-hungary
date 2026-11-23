@@ -102,8 +102,8 @@ export const en: ShowcaseCopy = {
   },
   visit: {
     ...visit,
-    title: 'Pick it up in person in Érd.',
+    title: 'Collect it in Érd.',
     text: 'You can collect your order at our showroom, and if you have questions, we will help you on the spot.',
-    demoCta: 'Book an appointment',
+    demoCta: 'Book a visit',
   },
 };

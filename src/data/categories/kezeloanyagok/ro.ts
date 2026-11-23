@@ -12,7 +12,7 @@ export const ro: ShowcaseCopy = {
     description: "Produse profesionale de tratament M'ONDUNIQ: hydra-liquiduri, cocktailuri de substanțe active și formule cu exozomi.",
   },
   hero: {
-    titleLines: ["Produse M'ONDUNIQ", 'pentru aparatele tale.'],
+    titleLines: ["Produse M'ONDUNIQ", 'pentru aparate.'],
     lead: 'Hydra-liquiduri pentru aqua peeling, cocktailuri de substanțe active, formule cu exozomi și protocolul complet LaserIQ pentru carbon peeling. Ca distribuitor oficial, livrăm produse originale.',
     imageAlt: "Lichid de tratament M'ONDUNIQ AquametiQ Acid Prime pe o placă de piatră, cu o ramură verde",
   },

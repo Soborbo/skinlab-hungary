@@ -50,7 +50,7 @@ export const hr: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Zašto kupiti preparate kod nas?',
+    title: 'Zašto kupiti kod nas?',
     lead: 'Što je dobro znati prije narudžbe.',
     imageAlt: "M'ONDUNIQ HI'FUsion Longevity serum i krema za lice na pultu salona, u pozadini uređaj za tretmane lica",
     items: [

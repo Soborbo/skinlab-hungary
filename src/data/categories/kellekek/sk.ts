@@ -39,7 +39,7 @@ export const sk: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Prečo kupovať príslušenstvo u nás?',
+    title: 'Prečo nakupovať u nás?',
     lead: 'Čo je dobré vedieť pred objednávkou.',
     imageAlt: 'Ihlové moduly Faviamo v krabičke',
     items: [

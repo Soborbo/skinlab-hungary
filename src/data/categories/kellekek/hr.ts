@@ -39,7 +39,7 @@ export const hr: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Zašto kupiti pribor kod nas?',
+    title: 'Zašto kupiti kod nas?',
     lead: 'Što je dobro znati prije narudžbe.',
     imageAlt: 'Faviamo moduli s iglama u kutiji',
     items: [

@@ -70,7 +70,7 @@ export const de: ShowcaseCopy = {
     help: compareHelp,
   },
   whyBuy: {
-    title: 'Warum lohnt sich ein Körperbehandlungsgerät?',
+    title: 'Warum lohnt sich ein Bodyforming-Gerät?',
     lead: 'Was du vor dem Kauf durchdenken solltest.',
     imageAlt: 'THE SHAPER Handstück in der Hand',
     items: [

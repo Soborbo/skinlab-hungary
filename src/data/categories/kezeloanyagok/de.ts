@@ -12,7 +12,7 @@ export const de: ShowcaseCopy = {
     description: "M'ONDUNIQ professionelle Behandlungsprodukte: Hydra-Liquids, Wirkstoffcocktails und Exosomen-Präparate.",
   },
   hero: {
-    titleLines: ["M'ONDUNIQ Pflegeprodukte", 'passend zu deinen Geräten.'],
+    titleLines: ["M'ONDUNIQ Pflegeprodukte", 'für deine Geräte.'],
     lead: 'Hydra-Liquids für das Aqua-Peeling, Wirkstoffcocktails, Exosomen-Präparate und das komplette LaserIQ-Carbon-Peeling-Protokoll. Als offizieller Vertriebspartner liefern wir Originalprodukte.',
     imageAlt: "M'ONDUNIQ AquametiQ Acid Prime Behandlungsflüssigkeit auf einer Steinplatte mit grünem Zweig",
   },

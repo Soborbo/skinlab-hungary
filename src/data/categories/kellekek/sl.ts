@@ -39,7 +39,7 @@ export const sl: ShowcaseCopy = {
   },
   reviews,
   whyBuy: {
-    title: 'Zakaj kupiti pripomočke pri nas?',
+    title: 'Zakaj kupiti pri nas?',
     lead: 'Kaj je dobro vedeti pred naročilom.',
     imageAlt: 'Igelni moduli Faviamo v škatli',
     items: [
