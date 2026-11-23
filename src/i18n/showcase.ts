@@ -63,7 +63,7 @@ export interface ShowcaseUi {
     booking: string;
     phone: string;
     /** OPENING_HOURS napkulcsai (mon…sun) → rövid nap ezen a nyelven. */
-    days: Record<string, string>;
+    days: Record<'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun', string>;
     closed: string;
     mapLoad: (address: string) => string;
     mapTitle: (address: string) => string;
@@ -207,7 +207,7 @@ const en: ShowcaseUi = {
     hours: 'Opening hours',
     booking: 'Booking',
     phone: 'Phone',
-    days: { Hétfő: 'Mon', Kedd: 'Tue', Szerda: 'Wed', Csütörtök: 'Thu', Péntek: 'Fri', Szombat: 'Sat', Vasárnap: 'Sun' },
+    days: { mon: 'Mon', tue: 'Tue', wed: 'Wed', thu: 'Thu', fri: 'Fri', sat: 'Sat', sun: 'Sun' },
     closed: 'closed',
     mapLoad: (address) => `Load map: ${address}`,
     mapTitle: (address) => `Map: ${address}`,
@@ -273,7 +273,7 @@ const de: ShowcaseUi = {
     hours: 'Öffnungszeiten',
     booking: 'Termin',
     phone: 'Telefon',
-    days: { Hétfő: 'Mo', Kedd: 'Di', Szerda: 'Mi', Csütörtök: 'Do', Péntek: 'Fr', Szombat: 'Sa', Vasárnap: 'So' },
+    days: { mon: 'Mo', tue: 'Di', wed: 'Mi', thu: 'Do', fri: 'Fr', sat: 'Sa', sun: 'So' },
     closed: 'geschlossen',
     mapLoad: (address) => `Karte laden: ${address}`,
     mapTitle: (address) => `Karte: ${address}`,
@@ -339,7 +339,7 @@ const cs: ShowcaseUi = {
     hours: 'Otevírací doba',
     booking: 'Rezervace',
     phone: 'Telefon',
-    days: { Hétfő: 'Po', Kedd: 'Út', Szerda: 'St', Csütörtök: 'Čt', Péntek: 'Pá', Szombat: 'So', Vasárnap: 'Ne' },
+    days: { mon: 'Po', tue: 'Út', wed: 'St', thu: 'Čt', fri: 'Pá', sat: 'So', sun: 'Ne' },
     closed: 'zavřeno',
     mapLoad: (address) => `Načíst mapu: ${address}`,
     mapTitle: (address) => `Mapa: ${address}`,
@@ -405,7 +405,7 @@ const sk: ShowcaseUi = {
     hours: 'Otváracie hodiny',
     booking: 'Rezervácia',
     phone: 'Telefón',
-    days: { Hétfő: 'Po', Kedd: 'Ut', Szerda: 'St', Csütörtök: 'Št', Péntek: 'Pi', Szombat: 'So', Vasárnap: 'Ne' },
+    days: { mon: 'Po', tue: 'Ut', wed: 'St', thu: 'Št', fri: 'Pi', sat: 'So', sun: 'Ne' },
     closed: 'zatvorené',
     mapLoad: (address) => `Načítať mapu: ${address}`,
     mapTitle: (address) => `Mapa: ${address}`,
@@ -471,7 +471,7 @@ const ro: ShowcaseUi = {
     hours: 'Program',
     booking: 'Programare',
     phone: 'Telefon',
-    days: { Hétfő: 'Lun', Kedd: 'Mar', Szerda: 'Mie', Csütörtök: 'Joi', Péntek: 'Vin', Szombat: 'Sâm', Vasárnap: 'Dum' },
+    days: { mon: 'Lun', tue: 'Mar', wed: 'Mie', thu: 'Joi', fri: 'Vin', sat: 'Sâm', sun: 'Dum' },
     closed: 'închis',
     mapLoad: (address) => `Încarcă harta: ${address}`,
     mapTitle: (address) => `Hartă: ${address}`,
@@ -537,7 +537,7 @@ const hr: ShowcaseUi = {
     hours: 'Radno vrijeme',
     booking: 'Termin',
     phone: 'Telefon',
-    days: { Hétfő: 'Pon', Kedd: 'Uto', Szerda: 'Sri', Csütörtök: 'Čet', Péntek: 'Pet', Szombat: 'Sub', Vasárnap: 'Ned' },
+    days: { mon: 'Pon', tue: 'Uto', wed: 'Sri', thu: 'Čet', fri: 'Pet', sat: 'Sub', sun: 'Ned' },
     closed: 'zatvoreno',
     mapLoad: (address) => `Učitaj kartu: ${address}`,
     mapTitle: (address) => `Karta: ${address}`,
@@ -603,7 +603,7 @@ const sl: ShowcaseUi = {
     hours: 'Delovni čas',
     booking: 'Termin',
     phone: 'Telefon',
-    days: { Hétfő: 'Pon', Kedd: 'Tor', Szerda: 'Sre', Csütörtök: 'Čet', Péntek: 'Pet', Szombat: 'Sob', Vasárnap: 'Ned' },
+    days: { mon: 'Pon', tue: 'Tor', wed: 'Sre', thu: 'Čet', fri: 'Pet', sat: 'Sob', sun: 'Ned' },
     closed: 'zaprto',
     mapLoad: (address) => `Naloži zemljevid: ${address}`,
     mapTitle: (address) => `Zemljevid: ${address}`,
@@ -669,7 +669,7 @@ const sr: ShowcaseUi = {
     hours: 'Radno vreme',
     booking: 'Termin',
     phone: 'Telefon',
-    days: { Hétfő: 'Pon', Kedd: 'Uto', Szerda: 'Sre', Csütörtök: 'Čet', Péntek: 'Pet', Szombat: 'Sub', Vasárnap: 'Ned' },
+    days: { mon: 'Pon', tue: 'Uto', wed: 'Sre', thu: 'Čet', fri: 'Pet', sat: 'Sub', sun: 'Ned' },
     closed: 'zatvoreno',
     mapLoad: (address) => `Učitaj mapu: ${address}`,
     mapTitle: (address) => `Mapa: ${address}`,
