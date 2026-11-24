@@ -44,7 +44,7 @@ export const cs: ShowcaseCopy = {
       {
         title: 'Kyselinová exfoliace a anti-aging péče o pleť',
         short: 'Anti-aging péče',
-        subtitle: "10% koncentrát kyseliny fytové pro exfoliaci v kabině; sérum a krém HI'FUsion Longevity, oční krém LEPIREV™ a omlazující pleťová maska Vitamino'MASK k hydrataci pleti a zmírnění viditelnosti vrásek.",
+        subtitle: "10% koncentrát kyseliny fytové pro exfoliaci v kabině; sérum a krém HI'FUsion Longevity, oční krém LEPIREV a omlazující pleťová maska Vitamino'MASK k hydrataci pleti a zmírnění viditelnosti vrásek.",
       },
     ],
   },

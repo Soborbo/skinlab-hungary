@@ -44,7 +44,7 @@ export const sr: ShowcaseCopy = {
       {
         title: 'Kiselinski piling i anti-aging nega lica',
         short: 'Anti-aging nega',
-        subtitle: "Koncentrat sa 10% fitinske kiseline za piling u kabini; HI'FUsion Longevity serum i krema, LEPIREV™ krema za predeo oko očiju i Vitamino'MASK maska za podmlađivanje lica, za hidrataciju kože i smanjenje vidljivosti bora.",
+        subtitle: "Koncentrat sa 10% fitinske kiseline za piling u kabini; HI'FUsion Longevity serum i krema, LEPIREV krema za predeo oko očiju i Vitamino'MASK maska za podmlađivanje lica, za hidrataciju kože i smanjenje vidljivosti bora.",
       },
     ],
   },

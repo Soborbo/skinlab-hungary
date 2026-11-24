@@ -44,7 +44,7 @@ export const de: ShowcaseCopy = {
       {
         title: 'Säurepeeling und Anti-Aging-Gesichtspflege',
         short: 'Anti-Aging-Pflege',
-        subtitle: "Das 10%ige Phytinsäure-Konzentrat für das Peeling in der Kabine; das HI'FUsion Longevity Serum und die Creme, die LEPIREV™ Augenpflege und die verjüngende Vitamino'MASK Gesichtsmaske, um die Haut mit Feuchtigkeit zu versorgen und die Sichtbarkeit von Falten zu mindern.",
+        subtitle: "Das 10%ige Phytinsäure-Konzentrat für das Peeling in der Kabine; das HI'FUsion Longevity Serum und die Creme, die LEPIREV Augenpflege und die verjüngende Vitamino'MASK Gesichtsmaske, um die Haut mit Feuchtigkeit zu versorgen und die Sichtbarkeit von Falten zu mindern.",
       },
     ],
   },

@@ -44,7 +44,7 @@ export const en: ShowcaseCopy = {
       {
         title: 'Acid exfoliation and anti-aging facial care',
         short: 'Anti-aging care',
-        subtitle: "The 10% phytic acid concentrate for in-cabin exfoliation; the HI'FUsion Longevity serum and cream, the LEPIREV™ eye cream and the Vitamino'MASK rejuvenating face mask to hydrate the skin and reduce the visibility of wrinkles.",
+        subtitle: "The 10% phytic acid concentrate for in-cabin exfoliation; the HI'FUsion Longevity serum and cream, the LEPIREV eye cream and the Vitamino'MASK rejuvenating face mask to hydrate the skin and reduce the visibility of wrinkles.",
       },
     ],
   },

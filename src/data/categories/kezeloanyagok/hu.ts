@@ -48,7 +48,7 @@ export const hu: ShowcaseCopy = {
       {
         title: 'Savas hámlasztás és anti-aging arcápolás',
         short: 'Anti-aging ápolás',
-        subtitle: "A 10% fitinsavas koncentrátum a kabinos hámlasztáshoz; a HI'FUsion Longevity szérum és krém, a LEPIREV™ szemkörnyékápoló és a Vitamino'MASK fiatalító arcmaszk a bőr hidratálására és a ráncok láthatóságának mérséklésére.",
+        subtitle: "A 10% fitinsavas koncentrátum a kabinos hámlasztáshoz; a HI'FUsion Longevity szérum és krém, a LEPIREV szemkörnyékápoló és a Vitamino'MASK fiatalító arcmaszk a bőr hidratálására és a ráncok láthatóságának mérséklésére.",
       },
     ],
   },
