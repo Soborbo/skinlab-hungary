@@ -1,10 +1,13 @@
 ---
 import BlogPage from '../../../components/pages/BlogPage.astro';
 import { locales, defaultLocale } from '../../../i18n/ui';
+import { getBlogPosts } from '@/lib/blog';
 
-export function getStaticPaths() {
+// Csak azokon a nyelveken épül blogoldal, ahol van lefordított cikk.
+export async function getStaticPaths() {
+  const all = await getBlogPosts();
   return locales
-    .filter((l) => l !== defaultLocale)
+    .filter((l) => l !== defaultLocale && all.some((p) => p.id.startsWith(`${l}/`)))
     .map((locale) => ({ params: { locale } }));
 }
 ---

@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diode laser", "IPL", "hair removal", "technology"]
 featured: true
+draft: true
 ---
 
 Two technologies dominate the permanent hair removal market: **diode laser** and **IPL (Intense Pulsed Light)**. But which is the better choice if you want to open or grow a salon? In this article, we compare the two technologies in detail.

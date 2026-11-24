@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["Diodenlaser", "IPL", "Haarentfernung", "Technologie"]
 featured: true
+draft: true
 ---
 
 Auf dem Markt der dauerhaften Haarentfernung dominieren zwei Technologien das Feld: der **Diodenlaser** und **IPL (Intense Pulsed Light)**. Doch welche ist die bessere Wahl, wenn Sie ein Studio eröffnen oder weiterentwickeln möchten? In diesem Artikel vergleichen wir die beiden Technologien im Detail.

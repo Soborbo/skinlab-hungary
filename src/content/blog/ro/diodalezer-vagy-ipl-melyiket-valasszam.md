@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["laser cu diodă", "IPL", "epilare", "tehnologie"]
 featured: true
+draft: true
 ---
 
 Pe piața epilării definitive, două tehnologii domină terenul: **laserul cu diodă** și **IPL (Intense Pulsed Light)**. Dar care este alegerea mai bună dacă vrei să deschizi sau să dezvolți un salon? În acest articol comparăm în detaliu cele două tehnologii.

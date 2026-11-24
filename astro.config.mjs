@@ -2,6 +2,14 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
+import mdx from '@astrojs/mdx';
+import { readdirSync, readFileSync } from 'node:fs';
+
+// Van-e publikált magyar cikk? A /blog/ on-demand útvonal 404-et ad, amíg nincs,
+// ezért addig a sitemapből is kimarad (getCollection itt még nem érhető el).
+const hasHuBlog = readdirSync('./src/content/blog')
+  .filter((f) => /\.mdx?$/.test(f))
+  .some((f) => !/^draft:\s*true\s*$/m.test(readFileSync(`./src/content/blog/${f}`, 'utf8')));
 
 const isDev = process.argv.includes('dev');
 const siteUrl = isDev ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
@@ -18,15 +26,16 @@ export default defineConfig({
   // elements. Pin the v6 behaviour to avoid subtle whitespace regressions.
   compressHTML: true,
   integrations: [
+    // Blogcikkek .mdx-ben: komponensek (videó, termékkártya, tipp) a szövegben.
+    mdx(),
     sitemap({
       // Exclude noindex utility/conversion routes so Google doesn't see
       // duplicate-content / thank-you / cart pages in the sitemap.
-      // `blog` is excluded while the section is drafted off (see
-      // src/config/features.ts → BLOG_ENABLED); remove it when re-publishing.
       // `merchant-feed.xml` is a Merchant Center product feed, not a page.
       filter: (page) =>
-        !/\/(blog|koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles|ertekeles)(\/|$)/i.test(page) &&
-        !/\/merchant-feed\.xml$/i.test(page),
+        !/\/(koszonjuk|konzultacio-koszonjuk|rendeles-koszonjuk|kosar|megrendeles|ertekeles)(\/|$)/i.test(page) &&
+        !/\/merchant-feed\.xml$/i.test(page) &&
+        (hasHuBlog || !/\/blog\/$/.test(page)),
       i18n: {
         defaultLocale: 'hu',
         // Language-only hreflang codes to match the <head> alternate links

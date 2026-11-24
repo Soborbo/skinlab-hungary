@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["certificat FAR", "curs", "cadru legal", "curs de operator de aparate"]
 featured: false
+draft: true
 ---
 
 Dacă vrei să lucrezi cu un aparat cosmetic – fie că este vorba de laser cu diodă, laser ND:YAG sau alt aparat profesional – vei avea nevoie de un **certificat FAR de operator de aparate**. Dar ce este, mai exact, acesta?

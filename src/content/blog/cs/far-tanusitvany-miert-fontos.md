@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["certifikát FAR", "školení", "právní rámec", "školení obsluhy přístrojů"]
 featured: false
+draft: true
 ---
 
 Pokud chcete pracovat s kosmetickým přístrojem – ať už je to diodový laser, ND:YAG laser nebo jiné profesionální zařízení – budete potřebovat **certifikát FAR pro obsluhu přístrojů**. Co to ale přesně je?

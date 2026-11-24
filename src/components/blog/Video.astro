@@ -1,0 +1,54 @@
+---
+/**
+ * Blogcikk-videó. YouTube (`youtube` = videó-ID vagy bármilyen YouTube/Shorts link)
+ * kattintásra töltődő facade-dal, vagy saját mp4 (`src`, a public/videos/blog/ alól).
+ * `allo` = álló (9:16) videó, pl. Reels/Shorts; különben 16:9.
+ */
+import VideoFacade from '@/components/video/VideoFacade.astro';
+import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
+
+interface Props {
+  youtube?: string;
+  src?: string;
+  /** Saját mp4 előnézeti képe; YouTube-nál opcionális saját poszter. */
+  poster?: string;
+  cim: string;
+  felirat?: string;
+  allo?: boolean;
+}
+
+const { youtube, src, poster, cim, felirat, allo = false } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// youtu.be/ID, youtube.com/watch?v=ID, /shorts/ID, /embed/ID, vagy a puszta ID
+const youtubeId = youtube?.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/)?.[1] ?? youtube;
+const isShorts = allo || /shorts\//.test(youtube ?? '');
+const frame = isShorts ? 'aspect-[9/16] max-w-[22rem] mx-auto' : 'aspect-video';
+---
+
+<figure class="blog-media not-prose">
+  {youtubeId ? (
+    <VideoFacade
+      videoId={youtubeId}
+      title={cim}
+      alt={cim}
+      playLabel={`${t(locale, 'blogPost.playVideo')}: ${cim}`}
+      poster={isShorts ? 'shorts' : 'landscape'}
+      posterSrc={poster}
+      playSize="lg"
+      tone="brand"
+      class={`${frame} rounded-[3px] w-full`}
+    />
+  ) : src ? (
+    <video
+      class={`${frame} w-full rounded-[3px] bg-gray-900 object-cover`}
+      src={src}
+      poster={poster}
+      controls
+      playsinline
+      preload="none"
+      aria-label={cim}
+    ></video>
+  ) : null}
+  {felirat && <figcaption>{felirat}</figcaption>}
+</figure>

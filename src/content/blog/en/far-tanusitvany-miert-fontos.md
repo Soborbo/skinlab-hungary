@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["FAR certificate", "training", "legal background", "machine operator training"]
 featured: false
+draft: true
 ---
 
 If you want to work with a cosmetic device - whether a diode laser, ND:YAG laser or another professional device - you'll need a **FAR machine operator certificate**. But what exactly is it?

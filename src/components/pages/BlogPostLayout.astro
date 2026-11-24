@@ -1,9 +1,13 @@
 ---
-// Shared blog-post detail layout, used by both the Hungarian root route
-// (/blog/[slug]) and the localized route (/[locale]/blog/[slug]).
-// Locale is derived from the URL; all chrome is translated via t().
+// Blogcikk-oldal (HU: /blog/[slug], más nyelv: /[locale]/blog/[slug]).
+// A cikk .md vagy .mdx; .mdx-ben a src/components/blog/ komponensei import nélkül
+// használhatók (Video, Kep, Kepek, Tipp, Termek, Konzultacio, ElotteUtana, Kerdes).
+// Minden felirat t()-vel; sablonleírás: .claude/skills/uj-blogcikk/SKILL.md.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
+import { getBlogPosts, findTeamMember, readingMinutes } from '@/lib/blog';
+import { blogComponents } from '@/components/blog';
+import FounderConsult from '@/components/cta/FounderConsult.astro';
 import { SITE } from '../../lib/constants';
 import { config } from '../../config/siteConfig';
 import { articleSchema } from '../../config/schema';
@@ -15,26 +19,32 @@ interface Props {
 
 const { post } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+const minutes = readingMinutes(post.body);
 
-// Collection ids are `{slug}` for hu and `{locale}/{slug}` for translations.
+// Collection ids: `{slug}` (hu) és `{locale}/{slug}` (fordítás).
 const bareSlug = (id: string) => (id.includes('/') ? id.split('/').slice(1).join('/') : id);
 const postSlug = bareSlug(post.id);
-
 const blogBase = getLocalizedUrl(locale, '/blog');
 const homeUrl = getLocalizedUrl(locale, '/');
 
-// Related posts: same locale, sharing at least one tag.
-const allPosts = await getCollection('blog');
-const sameLocale = allPosts.filter((p) =>
-  locale === 'hu' ? !p.id.includes('/') : p.id.startsWith(`${locale}/`)
-);
-const relatedPosts = sameLocale
-  .filter((p) => p.id !== post.id)
-  .filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)))
-  .slice(0, 3);
+// Szerző: a Rólunk oldal csapatából, különben „a Skinlab csapata”.
+const member = findTeamMember(post.data.author);
+const author = member
+  ? { name: member.name, role: t(locale, `about.${member.roleKey}`), bio: t(locale, `about.${member.bioKey}`), image: member.image, initials: member.initials }
+  : { name: 'Skinlab', role: t(locale, 'blogPost.teamRole'), bio: '', image: null, initials: 'S' };
 
-// BlogPosting schema - entity graph aligned
+// A cikk nyelvei: ahol ugyanez a slug publikált (hreflang + nyelvváltó).
+const availableLocales = (await getBlogPosts())
+  .filter((p) => bareSlug(p.id) === postSlug)
+  .map((p) => (p.id.includes('/') ? p.id.split('/')[0] : 'hu')) as Locale[];
+
+// Kapcsolódó cikkek: azonos nyelv, közös címke; ha nincs, a legfrissebbek.
+const sameLocale = (await getBlogPosts(locale)).filter((p) => p.id !== post.id);
+const byTag = sameLocale.filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)));
+const relatedPosts = (byTag.length ? byTag : sameLocale).slice(0, 3);
+
 const pageUrl = `${SITE.url}${getLocalizedUrl(locale, `/blog/${postSlug}`)}`;
 const blogSchema = articleSchema(config, pageUrl, {
   title: post.data.title,
@@ -42,240 +52,255 @@ const blogSchema = articleSchema(config, pageUrl, {
   image: post.data.image,
   datePublished: post.data.publishedAt.toISOString(),
   dateModified: (post.data.updatedAt || post.data.publishedAt).toISOString(),
-  author: post.data.author,
+  author: author.name,
 });
+
+const share = [
+  { label: t(locale, 'blogPost.shareFacebook'), href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, path: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' },
+  { label: t(locale, 'blogPost.shareLinkedin'), href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(post.data.title)}`, path: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' },
+];
 ---
 
-<BaseLayout
-  title={post.data.title}
-  description={post.data.description}
-  image={post.data.image}
-  schema={blogSchema}
->
-  <div>
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image} schema={blogSchema} availableLocales={availableLocales}>
+  <div class="blog-progress" aria-hidden="true"><span data-blog-progress></span></div>
 
-    <!-- Breadcrumb -->
-    <nav class="bg-gray-50 py-3 border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ol class="flex items-center text-sm text-gray-600">
-          <li>
-            <a href={homeUrl} class="hover:text-primary-600">{t(locale, 'nav.home')}</a>
-          </li>
-          <li class="mx-2">/</li>
-          <li>
-            <a href={blogBase} class="hover:text-primary-600">{t(locale, 'nav.blog')}</a>
-          </li>
-          <li class="mx-2">/</li>
-          <li class="text-gray-900 font-medium truncate">{post.data.title}</li>
-        </ol>
-      </div>
-    </nav>
+  <nav class="bg-white border-b border-gray-100" aria-label="Breadcrumb">
+    <ol class="max-w-6xl mx-auto px-6 lg:px-8 py-3 flex items-center text-sm text-gray-500 min-w-0">
+      <li><a href={homeUrl} class="hover:text-primary-700">{t(locale, 'nav.home')}</a></li>
+      <li class="mx-2" aria-hidden="true">/</li>
+      <li><a href={blogBase} class="hover:text-primary-700">{t(locale, 'nav.blog')}</a></li>
+      <li class="mx-2 hidden sm:block" aria-hidden="true">/</li>
+      <li class="text-gray-800 truncate hidden sm:block">{post.data.title}</li>
+    </ol>
+  </nav>
 
-    <!-- Article -->
-    <article class="py-12 lg:py-16">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Header -->
-        <header class="mb-8">
-          <!-- Tags -->
-          {post.data.tags && post.data.tags.length > 0 && (
-            <div class="flex flex-wrap gap-2 mb-4">
-              {post.data.tags.map((tag) => (
-                <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
-                  {tag}
-                </span>
-              ))}
+  <article>
+    <header class="max-w-6xl mx-auto px-6 lg:px-8 pt-10 lg:pt-14">
+      <div class="max-w-3xl">
+        <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-tight">{post.data.title}</h1>
+        <p class="mt-4 text-lg lg:text-xl text-gray-600 leading-relaxed">{post.data.description}</p>
+        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <div class="flex items-center gap-3">
+            {author.image ? (
+              <img src={`${author.image}.webp`} alt="" width="44" height="44" class="w-11 h-11 rounded-full object-cover object-top" />
+            ) : (
+              <span class="w-11 h-11 rounded-full bg-primary-700 text-white grid place-items-center font-semibold">{author.initials}</span>
+            )}
+            <div class="leading-tight">
+              <p class="font-semibold text-plum">{author.name}</p>
+              <p class="text-sm text-gray-500">{author.role}</p>
             </div>
-          )}
-
-          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            {post.data.title}
-          </h1>
-
-          <p class="text-xl text-gray-600 mb-6">
-            {post.data.description}
+          </div>
+          <p class="text-sm text-gray-500 flex gap-4">
+            <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt, locale)}</time>
+            <span>{t(locale, 'blogPost.readTime', { minutes })}</span>
           </p>
+        </div>
+      </div>
+    </header>
 
-          <!-- Meta -->
-          <div class="flex items-center gap-4 text-gray-500">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <span>{post.data.author}</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>{formatDate(post.data.publishedAt, locale)}</span>
-            </div>
-          </div>
-        </header>
+    {post.data.image && (
+      <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 mt-8 lg:mt-10">
+        <img
+          src={post.data.image}
+          alt={post.data.imageAlt ?? post.data.title}
+          width="1600"
+          height="900"
+          class="w-full aspect-[16/9] object-cover rounded-[3px] bg-sand"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    )}
 
-        <!-- Featured image -->
-        {post.data.image && (
-          <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-8 overflow-hidden">
-            <img
-              src={post.data.image}
-              alt={post.data.title}
-              width="1280"
-              height="720"
-              class="w-full h-full object-cover"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-10 lg:py-14 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-14">
+      {toc.length > 1 && (
+        <aside class="hidden lg:block">
+          <nav class="sticky top-28" aria-label={t(locale, 'blogPost.toc')}>
+            <p class="font-semibold text-plum mb-3">{t(locale, 'blogPost.toc')}</p>
+            <ol class="blog-toc space-y-1 text-sm">
+              {toc.map((h) => <li><a href={`#${h.slug}`} data-toc-link={h.slug}>{h.text}</a></li>)}
+            </ol>
+          </nav>
+        </aside>
+      )}
+
+      <div class:list={['max-w-3xl min-w-0', toc.length <= 1 && 'lg:col-span-2']}>
+        {post.data.tldr && post.data.tldr.length > 0 && (
+          <section class="blog-tldr" aria-label={t(locale, 'blogPost.summary')}>
+            <p class="font-semibold text-plum mb-3">{t(locale, 'blogPost.summary')}</p>
+            <ul class="space-y-2">{post.data.tldr.map((line) => <li>{line}</li>)}</ul>
+          </section>
         )}
 
-        <!-- Content -->
-        <div class="prose prose-gray prose-lg max-w-none">
-          <Content />
+        {toc.length > 1 && (
+          <details class="blog-toc-mobile lg:hidden">
+            <summary>{t(locale, 'blogPost.toc')}</summary>
+            <ol class="blog-toc mt-3 space-y-1">
+              {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+            </ol>
+          </details>
+        )}
+
+        <div class="blog-body">
+          <Content components={blogComponents} />
         </div>
 
-        <!-- Share -->
-        <div class="mt-12 pt-8 border-t border-gray-200">
-          <p class="text-gray-600 mb-4">{t(locale, 'blogPost.share')}</p>
-          <div class="flex gap-3">
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
-              aria-label={t(locale, 'blogPost.shareFacebook')}
-            >
-              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(post.data.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
-              aria-label={t(locale, 'blogPost.shareTwitter')}
-            >
-              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(post.data.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
-              aria-label={t(locale, 'blogPost.shareLinkedin')}
-            >
-              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
+        <footer class="mt-14 pt-8 border-t border-gray-200">
+          <div class="flex gap-4 items-start">
+            {author.image ? (
+              <img src={`${author.image}.webp`} alt={author.name} width="72" height="72" class="w-18 h-18 rounded-full object-cover object-top shrink-0" loading="lazy" />
+            ) : (
+              <span class="w-18 h-18 shrink-0 rounded-full bg-primary-700 text-white grid place-items-center text-xl font-semibold">{author.initials}</span>
+            )}
+            <div>
+              <p class="text-sm text-gray-500">{t(locale, 'blogPost.writtenBy')}</p>
+              <p class="font-semibold text-plum text-lg">{author.name}</p>
+              <p class="text-sm text-gray-600">{author.role}</p>
+              {author.bio && <p class="mt-2 text-gray-700 leading-relaxed">{author.bio}</p>}
+            </div>
           </div>
-        </div>
 
-      </div>
-    </article>
-
-    <!-- Related posts -->
-    {relatedPosts.length > 0 && (
-      <section class="py-12 lg:py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-8">{t(locale, 'blogPost.related')}</h2>
-
-          <div class="grid md:grid-cols-3 gap-8">
-            {relatedPosts.map((relatedPost) => (
-              <a href={getLocalizedUrl(locale, `/blog/${bareSlug(relatedPost.id)}`)} class="group">
-                <div class="aspect-[16/9] bg-gray-100 rounded-2xl mb-4 overflow-hidden">
-                  {relatedPost.data.image ? (
-                    <img
-                      src={relatedPost.data.image}
-                      alt={relatedPost.data.title}
-                      width="640"
-                      height="360"
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ) : (
-                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
-                      <svg class="w-12 h-12 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
-                  {relatedPost.data.title}
-                </h3>
+          <div class="mt-8 flex items-center gap-3">
+            <p class="text-gray-600 mr-1">{t(locale, 'blogPost.share')}</p>
+            {share.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} class="blog-share">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d={s.path} /></svg>
               </a>
             ))}
           </div>
-        </div>
-      </section>
-    )}
+        </footer>
+      </div>
+    </div>
+  </article>
 
-    <!-- Back link -->
-    <section class="py-8 bg-white border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <a href={blogBase} class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          {t(locale, 'blogPost.back')}
-        </a>
+  {relatedPosts.length > 0 && (
+    <section class="bg-sand py-16 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <h2 class="text-2xl lg:text-3xl font-bold mb-8">{t(locale, 'blogPost.related')}</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedPosts.map((p) => (
+            <a href={getLocalizedUrl(locale, `/blog/${bareSlug(p.id)}`)} class="group bg-white rounded-[3px] overflow-hidden sl-lift">
+              <div class="aspect-[16/9] bg-blush overflow-hidden">
+                {p.data.image && <img src={p.data.image} alt="" width="640" height="360" class="w-full h-full object-cover" loading="lazy" decoding="async" />}
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold text-plum text-lg leading-snug line-clamp-2 group-hover:text-primary-700 transition-colors">{p.data.title}</h3>
+                <p class="mt-2 text-sm text-gray-500">{formatDate(p.data.publishedAt, locale)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
+  )}
 
-  </div>
+  <FounderConsult eventPrefix="blog" />
 </BaseLayout>
 
-<style>
+<script>
+  // Olvasási sáv + a tartalomjegyzékben az aktuális fejezet kiemelése.
+  const bar = document.querySelector<HTMLElement>('[data-blog-progress]');
+  const body = document.querySelector<HTMLElement>('.blog-body');
+  if (bar && body) {
+    const update = () => {
+      const r = body.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+      bar.style.transform = `scaleX(${p})`;
+    };
+    addEventListener('scroll', update, { passive: true });
+    update();
+  }
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
+  if (links.length) {
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        links.forEach((a) => a.toggleAttribute('aria-current', a.dataset.tocLink === e.target.id));
+      }
+    }, { rootMargin: '0px 0px -70% 0px' });
+    links.forEach((a) => { const h = document.getElementById(a.dataset.tocLink!); if (h) obs.observe(h); });
+  }
+</script>
+
+<style is:global>
   @reference "../../styles/global.css";
 
-  .prose h2 {
-    @apply text-2xl font-bold text-gray-900 mt-10 mb-4;
+  .blog-progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 60; pointer-events: none; }
+  .blog-progress span { display: block; height: 100%; background: var(--color-primary-700); transform: scaleX(0); transform-origin: left; }
+
+  .blog-toc a { display: block; padding: 0.3rem 0 0.3rem 0.85rem; border-left: 2px solid var(--color-gray-200); color: var(--color-gray-600); transition: color .2s, border-color .2s; }
+  .blog-toc a:hover { color: var(--color-primary-700); }
+  .blog-toc a[aria-current] { color: var(--color-primary-700); border-color: var(--color-primary-700); font-weight: 600; }
+
+  .blog-tldr { background: var(--color-sand); border-radius: 3px; padding: 1.5rem; margin-bottom: 2rem; }
+  .blog-tldr li { position: relative; padding-left: 1.25rem; color: var(--color-gray-800); line-height: 1.6; }
+  .blog-tldr li::before { content: ''; position: absolute; left: 0; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--color-primary-500); }
+
+  .blog-toc-mobile { border-top: 1px solid var(--color-gray-200); border-bottom: 1px solid var(--color-gray-200); padding: 1rem 0; margin-bottom: 2.5rem; }
+  .blog-toc-mobile summary { cursor: pointer; font-weight: 600; color: var(--color-plum); }
+
+  /* Cikkszöveg (Markdown/MDX kimenet) */
+  .blog-body { color: var(--color-gray-700); font-size: 1.0625rem; line-height: 1.75; }
+  @media (min-width: 1024px) { .blog-body { font-size: 1.125rem; } }
+  .blog-body > * + * { margin-top: 1.25rem; }
+  .blog-body h2 { font-size: 1.625rem; line-height: 1.25; font-weight: 700; margin-top: 3.5rem; scroll-margin-top: 30vh; }
+  .blog-body h3 { font-size: 1.25rem; line-height: 1.35; font-weight: 600; color: var(--color-plum); margin-top: 2.25rem; scroll-margin-top: 30vh; }
+  @media (min-width: 1024px) { .blog-body h2 { font-size: 1.875rem; } }
+  .blog-body h2 + *, .blog-body h3 + * { margin-top: 0.75rem; }
+  .blog-body strong { color: var(--color-gray-900); }
+  .blog-body a:not(.not-prose):not(.sl-btn) { color: var(--color-primary-700); font-weight: 600; background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .3s; }
+  .blog-body a:not(.not-prose):not(.sl-btn):hover { background-size: 100% 2px; }
+  .blog-body ul, .blog-body ol { padding-left: 1.25rem; }
+  .blog-body ul { list-style: disc; }
+  .blog-body ol { list-style: decimal; }
+  .blog-body li + li { margin-top: 0.4rem; }
+  .blog-body li::marker { color: var(--color-primary-500); }
+  .blog-body blockquote { border-left: 3px solid var(--color-primary-500); padding-left: 1.25rem; color: var(--color-gray-800); font-size: 1.15em; }
+  .blog-body p > img { width: 100%; height: auto; border-radius: 3px; }
+  .blog-body table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  /* Mobilon a széles táblázat a saját sávjában görgethető, az oldal nem. */
+  @media (max-width: 639px) { .blog-body table { display: block; overflow-x: auto; } }
+  .blog-body th, .blog-body td { border-bottom: 1px solid var(--color-gray-200); padding: .65rem .75rem; text-align: left; vertical-align: top; }
+  .blog-body th { color: var(--color-plum); font-weight: 600; background: var(--color-sand); }
+  .blog-body tr:hover td { background: var(--color-blush); }
+  .blog-body hr { border-color: var(--color-gray-200); margin: 3rem 0; }
+
+  /* Komponensek (src/components/blog) */
+  .blog-body .blog-media { margin-top: 2.25rem; margin-bottom: 2.25rem; }
+  @media (max-width: 639px) { .blog-body .blog-media { margin-inline: -0.75rem; } }
+  .blog-media figcaption { margin-top: .6rem; font-size: .875rem; color: var(--color-gray-500); padding-inline: .75rem; }
+  @media (min-width: 640px) { .blog-media figcaption { padding-inline: 0; } }
+
+  .blog-tip { background: var(--color-blush); border-radius: 3px; padding: 1.5rem; margin-block: 2.25rem; }
+  .blog-cta { background: var(--color-sand); border-radius: 3px; padding: 1.75rem; margin-block: 2.5rem; }
+
+  .blog-product { display: flex; gap: 1.25rem; align-items: center; padding: 1rem; border: 1px solid var(--color-gray-200); border-radius: 3px; background: #fff; margin-block: 2rem; }
+  .blog-product:hover { border-color: var(--color-primary-200); }
+  .blog-product:hover .sl-tlink { background-size: 100% 1.5px; }
+
+  .blog-faq { border-bottom: 1px solid var(--color-gray-200); }
+  .blog-faq + .blog-faq { margin-top: 0; }
+  .blog-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1.1rem 0; font-weight: 600; color: var(--color-plum); transition: color .2s; }
+  .blog-faq summary::-webkit-details-marker { display: none; }
+  .blog-faq summary:hover { color: var(--color-primary-700); }
+  .blog-faq-icon { position: relative; width: 14px; height: 14px; flex-shrink: 0; transition: transform .3s ease; }
+  .blog-faq-icon::before, .blog-faq-icon::after { content: ''; position: absolute; background: var(--color-primary-700); left: 0; right: 0; top: 6px; height: 2px; }
+  .blog-faq-icon::after { transform: rotate(90deg); }
+  .blog-faq[open] .blog-faq-icon { transform: rotate(45deg); }
+  /* Animált nyitás ott, ahol a böngésző tudja (Chromium); máshol azonnal nyílik. */
+  @supports (interpolate-size: allow-keywords) {
+    .blog-faq { interpolate-size: allow-keywords; }
+    .blog-faq::details-content { block-size: 0; overflow: hidden; transition: block-size .35s ease, content-visibility .35s allow-discrete; }
+    .blog-faq[open]::details-content { block-size: auto; }
   }
-  .prose h3 {
-    @apply text-xl font-semibold text-gray-900 mt-8 mb-3;
-  }
-  .prose p {
-    @apply text-gray-600 mb-4 leading-relaxed;
-  }
-  .prose ul, .prose ol {
-    @apply text-gray-600 mb-4 space-y-2;
-  }
-  .prose li {
-    @apply ml-4;
-  }
-  .prose ul li {
-    @apply list-disc;
-  }
-  .prose ol li {
-    @apply list-decimal;
-  }
-  .prose strong {
-    @apply text-gray-900;
-  }
-  .prose a {
-    @apply text-primary-600 hover:underline;
-  }
-  .prose table {
-    @apply w-full border-collapse my-6;
-  }
-  .prose th, .prose td {
-    @apply border border-gray-200 px-4 py-2 text-left;
-  }
-  .prose th {
-    @apply bg-gray-50 font-semibold;
-  }
-  .prose blockquote {
-    @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 my-6;
-  }
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+  .blog-share { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 3px; background: var(--color-sand); color: var(--color-plum); transition: transform .2s, background-color .2s, color .2s; }
+  .blog-share:hover { background: var(--color-primary-700); color: #fff; transform: translateY(-2px); }
+  .blog-share:active { transform: scale(.97); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-faq::details-content, .blog-faq-icon, .blog-share { transition: none; }
   }
 </style>

@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["certifikat FAR", "usposabljanje", "pravna podlaga", "usposabljanje za upravljanje naprav"]
 featured: false
+draft: true
 ---
 
 Če želite delati s kozmetično napravo – pa naj bo to diodni laser, laser ND:YAG ali druga profesionalna naprava – boste potrebovali **certifikat FAR za upravljanje naprav**. Toda kaj točno to je?

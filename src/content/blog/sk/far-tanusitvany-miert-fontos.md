@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["certifikát FAR", "školenie", "právne pozadie", "školenie operátora prístrojov"]
 featured: false
+draft: true
 ---
 
 Ak chcete pracovať s kozmetickým prístrojom – či už je to diódový laser, ND:YAG laser alebo iný profesionálny prístroj – budete potrebovať **certifikát operátora prístrojov FAR**. Čo to však presne je?

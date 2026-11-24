@@ -1,0 +1,31 @@
+---
+/**
+ * 2–4 kép egy sorban (pl. egy Instagram-karusszel képei). Egyforma, álló 4:5
+ * keret; a vágás középre igazít, a fókusz képenként állítható (`fokusz`, CSS
+ * object-position, pl. "50% 20%").
+ */
+interface Props {
+  kepek: { src: string; alt: string; fokusz?: string }[];
+  felirat?: string;
+}
+
+const { kepek, felirat } = Astro.props;
+// 3 kép mobilon is egy sorban (2+1-nél üres cella maradna); 4 kép: 2×2, asztalon 4.
+const cols = kepek.length === 3 ? 'grid-cols-3' : kepek.length === 4 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2';
+---
+
+<figure class="blog-media not-prose">
+  <div class={`grid ${cols} gap-2`}>
+    {kepek.map((k) => (
+      <img
+        src={k.src}
+        alt={k.alt}
+        loading="lazy"
+        decoding="async"
+        class="w-full aspect-[4/5] object-cover rounded-[3px] bg-gray-50"
+        style={k.fokusz ? `object-position:${k.fokusz}` : undefined}
+      />
+    ))}
+  </div>
+  {felirat && <figcaption>{felirat}</figcaption>}
+</figure>

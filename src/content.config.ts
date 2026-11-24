@@ -1,11 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'zod';
-import { BLOG_ENABLED } from './config/features';
-
-// Empty loader used to "draft" a whole collection behind a feature flag:
-// loads zero entries, so dependent routes build nothing and search finds nothing.
-const emptyLoader = { name: 'disabled', load: async () => {} };
 
 // Variant schema for products with multiple options
 const variantSchema = z.object({
@@ -137,6 +132,12 @@ const blogSchema = z.object({
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
+  /** „Röviden” doboz a cikk elején: 2–4 kulcsmondat. */
+  tldr: z.array(z.string()).max(4).optional(),
+  /** Alt szöveg a borítóképhez (különben a cím). */
+  imageAlt: z.string().optional(),
+  /** true = nem jelenik meg sehol (átnézésre vár). */
+  draft: z.boolean().default(false),
 });
 
 export const collections = {
@@ -149,11 +150,8 @@ export const collections = {
     schema: trainingSchema,
   }),
   blog: defineCollection({
-    // Drafted off via BLOG_ENABLED: empty collection ⇒ no post pages build and
-    // blog is dropped from search until the section is re-published.
-    loader: BLOG_ENABLED
-      ? glob({ pattern: '**/*.md', base: './src/content/blog' })
-      : emptyLoader,
+    // Vázlat (`draft: true`) sehol nem jelenik meg: lásd src/lib/blog.ts.
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
     schema: blogSchema,
   }),
 };

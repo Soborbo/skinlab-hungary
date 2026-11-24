@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diodni laser", "IPL", "depilacija", "tehnologija"]
 featured: true
+draft: true
 ---
 
 Na tržištu trajne depilacije terenom dominiraju dve tehnologije: **diodni laser** i **IPL (Intense Pulsed Light)**. Ali šta je bolji izbor ako želite da otvorite ili unapredite salon? U ovom članku detaljno poredimo obe tehnologije.

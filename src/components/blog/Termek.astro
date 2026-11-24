@@ -1,0 +1,44 @@
+---
+/**
+ * Termékkártya a cikkben: `slug` = a termék slugja (src/content/products/<slug>.json).
+ * Név, rövid leírás és kép a cikk nyelvén; ismeretlen slug buildhibát ad,
+ * hogy elírt termék ne kerüljön ki csendben.
+ */
+import { getCollection } from 'astro:content';
+import OptimizedPicture from '@/components/images/OptimizedPicture.astro';
+import { hasImage, getImageAlt } from '@/lib/resolve-image';
+import { loadProductContent } from '@/lib/load-product-content';
+import { productPath } from '@/lib/product-url';
+import { t, getLocaleFromUrl, getLocalizedUrl, defaultLocale, type Locale } from '@/i18n/ui';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const product = (await getCollection('products', ({ data }) => data.slug === slug && !data.draft))[0];
+if (!product) throw new Error(`<Termek slug="${slug}">: nincs ilyen publikált termék`);
+
+const { data } = product;
+const content = locale === defaultLocale ? null : loadProductContent(locale, data.slug, data.categorySlug).content;
+const name = content?.name || data.name;
+const description = content?.shortDescription || data.shortDescription;
+const href = getLocalizedUrl(locale, productPath(data.categorySlug, data.slug));
+---
+
+<a href={href} class="blog-product not-prose sl-lift group" data-event="blog_product_click" data-product={data.slug}>
+  <div class="w-28 sm:w-36 shrink-0 aspect-square bg-white">
+    {hasImage(data.image) && (
+      <OptimizedPicture src={data.image} alt={getImageAlt(data.image, name, locale)} widths={[160, 320]} sizes="144px" class="w-full h-full object-contain" loading="lazy" />
+    )}
+  </div>
+  <div class="min-w-0">
+    <p class="font-semibold text-plum text-lg leading-snug">{name}</p>
+    {description && <p class="text-gray-600 text-sm mt-1 line-clamp-2">{description}</p>}
+    <p class="mt-2 flex flex-wrap items-baseline gap-x-3">
+      {data.price ? <span class="font-bold text-gray-900">{new Intl.NumberFormat('hu-HU').format(data.price)} Ft</span> : null}
+      <span class="sl-tlink text-primary-700 text-sm">{t(locale, 'blogPost.viewProduct')}</span>
+    </p>
+  </div>
+</a>

@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diódový laser", "IPL", "epilácia", "technológia"]
 featured: true
+draft: true
 ---
 
 Na trhu trvalej epilácie dominujú dve technológie: **diódový laser** a **IPL (Intense Pulsed Light)**. Ktorá je však lepšou voľbou, ak chcete otvoriť alebo rozvíjať salón? V tomto článku obe technológie podrobne porovnáme.

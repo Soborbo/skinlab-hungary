@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["FAR tanúsítvány", "képzés", "jogi háttér", "gépkezelői képzés"]
 featured: false
+draft: true
 ---
 
 Ha kozmetikai géppel szeretnél dolgozni - legyen az diódalézer, ND:YAG lézer vagy más professzionális készülék - szükséged lesz **FAR gépkezelői tanúsítványra**. De mi is ez pontosan?
