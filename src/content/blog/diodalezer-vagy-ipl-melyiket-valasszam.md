@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diódalézer", "IPL", "szőrtelenítés", "technológia"]
 featured: true
+draft: true
 ---
 
 A tartós szőrtelenítés piacán két technológia uralja a terepet: a **diódalézer** és az **IPL (Intense Pulsed Light)**. De melyik a jobb választás, ha szalont szeretnél nyitni vagy fejleszteni? Ebben a cikkben részletesen összehasonlítjuk a két technológiát.

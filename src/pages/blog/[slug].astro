@@ -1,15 +1,10 @@
 ---
 import BlogPostLayout from '../../components/pages/BlogPostLayout.astro';
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '@/lib/blog';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  // Hungarian (default locale) canonical posts only — ids without a locale
-  // prefix. Localized translations (`{locale}/{slug}`) are served by
-  // /[locale]/blog/[slug].
-  return posts
-    .filter((post) => !post.id.includes('/'))
-    .map((post) => ({
+  // Csak a magyar cikkek; a fordításokat a /[locale]/blog/[slug] szolgálja ki.
+  return (await getBlogPosts('hu')).map((post) => ({
       params: { slug: post.id },
       props: { post },
     }));

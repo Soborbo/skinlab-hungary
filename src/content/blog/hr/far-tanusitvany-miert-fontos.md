@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["FAR certifikat", "edukacija", "pravna pozadina", "edukacija za rukovanje uređajima"]
 featured: false
+draft: true
 ---
 
 Ako želite raditi s kozmetičkim uređajem – bilo da je riječ o diodnom laseru, ND:YAG laseru ili drugom profesionalnom uređaju – trebat će vam **FAR certifikat za rukovanje uređajima**. No što je to točno?

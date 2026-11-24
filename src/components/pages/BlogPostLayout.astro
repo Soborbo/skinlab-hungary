@@ -3,7 +3,8 @@
 // (/blog/[slug]) and the localized route (/[locale]/blog/[slug]).
 // Locale is derived from the URL; all chrome is translated via t().
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
+import { getBlogPosts } from '@/lib/blog';
 import { SITE } from '../../lib/constants';
 import { config } from '../../config/siteConfig';
 import { articleSchema } from '../../config/schema';
@@ -25,10 +26,7 @@ const blogBase = getLocalizedUrl(locale, '/blog');
 const homeUrl = getLocalizedUrl(locale, '/');
 
 // Related posts: same locale, sharing at least one tag.
-const allPosts = await getCollection('blog');
-const sameLocale = allPosts.filter((p) =>
-  locale === 'hu' ? !p.id.includes('/') : p.id.startsWith(`${locale}/`)
-);
+const sameLocale = await getBlogPosts(locale);
 const relatedPosts = sameLocale
   .filter((p) => p.id !== post.id)
   .filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)))

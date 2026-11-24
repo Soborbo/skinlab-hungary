@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diodni laser", "IPL", "uklanjanje dlačica", "tehnologija"]
 featured: true
+draft: true
 ---
 
 Tržištem trajnog uklanjanja dlačica dominiraju dvije tehnologije: **diodni laser** i **IPL (Intense Pulsed Light)**. No koja je bolji izbor ako želite otvoriti ili unaprijediti salon? U ovom članku detaljno uspoređujemo obje tehnologije.

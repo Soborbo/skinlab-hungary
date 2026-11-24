@@ -6,6 +6,7 @@ publishedAt: 2024-11-20
 image: "/images/blog/far-tanusitvany.jpg"
 tags: ["FAR-Zertifikat", "Schulung", "rechtlicher Hintergrund", "Gerätebediener-Schulung"]
 featured: false
+draft: true
 ---
 
 Wenn Sie mit einem Kosmetikgerät arbeiten möchten – sei es ein Diodenlaser, ein ND:YAG-Laser oder ein anderes professionelles Gerät – benötigen Sie ein **FAR-Gerätebediener-Zertifikat**. Doch was ist das genau?

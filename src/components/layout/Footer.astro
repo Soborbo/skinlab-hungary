@@ -1,13 +1,14 @@
 ---
 import { CONTACT, LOCATIONS, SOCIAL, CATEGORIES } from '../../lib/constants';
 import { openingHoursLine } from '../../lib/category-showcase';
-import { BLOG_ENABLED } from '../../config/features';
+import { getBlogPosts } from '@/lib/blog';
 import { Logo } from '../images';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 const skinlabLogo = '@assets/logo.png';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
+const hasBlog = (await getBlogPosts(locale)).length > 0;
 const hoursLine = openingHoursLine(locale);
 ---
 
@@ -130,7 +131,7 @@ const hoursLine = openingHoursLine(locale);
               {t(locale, 'footer.review')}
             </a>
           </li>
-          {BLOG_ENABLED && (
+          {hasBlog && (
             <li>
               <a href={getLocalizedUrl(locale, '/blog')} class="text-sm text-gray-400 hover:text-white transition-colors">
                 {t(locale, 'nav.blog')}

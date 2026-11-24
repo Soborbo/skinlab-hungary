@@ -1,11 +1,10 @@
 ---
 import BlogPostLayout from '../../../components/pages/BlogPostLayout.astro';
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '@/lib/blog';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  // Localized translations only — ids shaped `{locale}/{slug}`.
-  return posts
+  // Csak a fordítások (`{locale}/{slug}` id), vázlat nélkül.
+  return (await getBlogPosts())
     .filter((post) => post.id.includes('/'))
     .map((post) => {
       const [locale, ...rest] = post.id.split('/');

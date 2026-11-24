@@ -6,6 +6,7 @@ publishedAt: 2024-12-15
 image: "/images/blog/diodalezer-vs-ipl.jpg"
 tags: ["diodni laser", "IPL", "odstranjevanje dlak", "tehnologija"]
 featured: true
+draft: true
 ---
 
 Na trgu trajnega odstranjevanja dlak prevladujeta dve tehnologiji: **diodni laser** in **IPL (Intense Pulsed Light)**. Toda katera je boljša izbira, če želite odpreti ali nadgraditi salon? V tem članku podrobno primerjamo obe tehnologiji.

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '@/lib/blog';
 import { t, getLocaleFromUrl, getLocalizedUrl, withTrailingSlash, formatDate, type Locale } from '../../i18n/ui';
 
 // Get locale from URL
@@ -13,11 +13,7 @@ const blogUrlPrefix = locale === 'hu' ? '/blog' : `/${locale}/blog`;
 const privacyLink = getLocalizedUrl(locale, '/adatvedelem');
 
 // Only this locale's posts: hu canonical (no prefix) or `{locale}/…` translations.
-const posts = (await getCollection('blog'))
-  .filter((post) =>
-    locale === 'hu' ? !post.id.includes('/') : post.id.startsWith(`${locale}/`)
-  )
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const posts = await getBlogPosts(locale);
 ---
 
 <BaseLayout
