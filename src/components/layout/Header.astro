@@ -8,6 +8,11 @@ import CartIcon from '../cart/CartIcon.astro';
 import { hasImage } from '@/lib/resolve-image';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
+interface Props {
+  /** Továbbadva a nyelvváltónak (lásd BaseLayout). */
+  availableLocales?: Locale[];
+}
+const { availableLocales } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const contactLink = getLocalizedUrl(locale, '/konzultacio');
 const skinlabLogo = '@assets/logo.png';
@@ -103,7 +108,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
 
           <!-- Language Switcher (desktop) -->
           <div class="hidden lg:block">
-            <LanguageSwitcher variant="dropdown" />
+            <LanguageSwitcher variant="dropdown" availableLocales={availableLocales} />
           </div>
         </div>
 
@@ -376,7 +381,7 @@ const isHomePage = pathname === '/' || pathname === '/hu';
 
           <!-- Language switcher -->
           <div class="mobile-menu-item pt-3" style="--item-index: 7">
-            <LanguageSwitcher variant="compact" />
+            <LanguageSwitcher variant="compact" availableLocales={availableLocales} />
           </div>
         </div>
       </div>

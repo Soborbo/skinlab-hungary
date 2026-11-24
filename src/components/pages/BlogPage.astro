@@ -14,11 +14,14 @@ const privacyLink = getLocalizedUrl(locale, '/adatvedelem');
 
 // Only this locale's posts: hu canonical (no prefix) or `{locale}/…` translations.
 const posts = await getBlogPosts(locale);
+// Csak azok a nyelvek, ahol van publikált cikk (hreflang + nyelvváltó).
+const availableLocales = [...new Set((await getBlogPosts()).map((p) => (p.id.includes('/') ? p.id.split('/')[0] : 'hu')))] as Locale[];
 ---
 
 <BaseLayout
   title={t(locale, 'blog.title')}
   description={t(locale, 'blog.description')}
+  availableLocales={availableLocales}
 >
   <div>
 

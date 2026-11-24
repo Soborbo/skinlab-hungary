@@ -284,11 +284,11 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]).filter(Bool
   {/* sbo alatt NINCS noscript GTM: JS nélkül consent-döntés sincs, a GTM-iframe
       hozzájárulás előtt futna. */}
   {import.meta.env.PROD && !isSboConsentProvider() && <TrackingNoscript gtmId="GTM-NW7DKC2D" />}
-  <Header />
+  <Header availableLocales={availableLocales} />
   <main id="main-content" class="flex-1">
     <slot />
   </main>
-  <Footer />
+  <Footer availableLocales={availableLocales} />
   <MobileStickyCta />
   {!hideDesktopWidget && <DesktopContactWidget />}
   <CartDrawer />

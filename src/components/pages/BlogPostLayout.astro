@@ -35,6 +35,11 @@ const author = member
   ? { name: member.name, role: t(locale, `about.${member.roleKey}`), bio: t(locale, `about.${member.bioKey}`), image: member.image, initials: member.initials }
   : { name: 'Skinlab', role: t(locale, 'blogPost.teamRole'), bio: '', image: null, initials: 'S' };
 
+// A cikk nyelvei: ahol ugyanez a slug publikált (hreflang + nyelvváltó).
+const availableLocales = (await getBlogPosts())
+  .filter((p) => bareSlug(p.id) === postSlug)
+  .map((p) => (p.id.includes('/') ? p.id.split('/')[0] : 'hu')) as Locale[];
+
 // Kapcsolódó cikkek: azonos nyelv, közös címke; ha nincs, a legfrissebbek.
 const sameLocale = (await getBlogPosts(locale)).filter((p) => p.id !== post.id);
 const byTag = sameLocale.filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)));
@@ -56,7 +61,7 @@ const share = [
 ];
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image} schema={blogSchema}>
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image} schema={blogSchema} availableLocales={availableLocales}>
   <div class="blog-progress" aria-hidden="true"><span data-blog-progress></span></div>
 
   <nav class="bg-white border-b border-gray-100" aria-label="Breadcrumb">

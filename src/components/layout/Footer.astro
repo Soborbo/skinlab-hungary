@@ -7,6 +7,11 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 const skinlabLogo = '@assets/logo.png';
 import { t, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
+interface Props {
+  /** Továbbadva a nyelvváltónak (lásd BaseLayout). */
+  availableLocales?: Locale[];
+}
+const { availableLocales } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const hasBlog = (await getBlogPosts(locale)).length > 0;
 const hoursLine = openingHoursLine(locale);
@@ -195,7 +200,7 @@ const hoursLine = openingHoursLine(locale);
         <div class="text-sm text-gray-500">
           {t(locale, 'footer.copyright', { year: String(new Date().getFullYear()) })}
         </div>
-        <LanguageSwitcher variant="compact" />
+        <LanguageSwitcher variant="compact" availableLocales={availableLocales} />
         <div class="flex flex-wrap items-center justify-center gap-4 md:gap-5 text-sm text-gray-500">
           <a href={getLocalizedUrl(locale, '/adatvedelem')} class="hover:text-gray-300 transition-colors">
             {t(locale, 'footer.privacy')}

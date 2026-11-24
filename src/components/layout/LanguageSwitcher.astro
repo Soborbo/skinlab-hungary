@@ -5,14 +5,18 @@
  * Displays a dropdown for switching between available languages.
  * Uses country flag images (flagcdn.com) for cross-platform support.
  */
-import { t, locales, localeConfig, getLocaleFromUrl, getLocalizedUrl } from '../../i18n/ui';
+import { t, locales, localeConfig, getLocaleFromUrl, getLocalizedUrl, type Locale } from '../../i18n/ui';
 
 interface Props {
   variant?: 'dropdown' | 'list' | 'compact';
   class?: string;
+  /** Ha az oldal csak ezeken a nyelveken létezik, a többi zászló a nyelv főoldalára visz. */
+  availableLocales?: Locale[];
 }
 
-const { variant = 'dropdown', class: className = '' } = Astro.props;
+const { variant = 'dropdown', class: className = '', availableLocales } = Astro.props;
+const hrefFor = (locale: Locale) =>
+  getLocalizedUrl(locale, !availableLocales?.length || availableLocales.includes(locale) ? currentPath : '/');
 
 const currentLocale = getLocaleFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
@@ -52,7 +56,7 @@ function flagSrc(countryCode: string) {
       <div class="py-2 flex flex-col">
         {locales.map((locale) => {
           const config = localeConfig[locale];
-          const href = getLocalizedUrl(locale, currentPath);
+          const href = hrefFor(locale);
           const isActive = locale === currentLocale;
 
           return (
@@ -90,7 +94,7 @@ function flagSrc(countryCode: string) {
     <ul class="flex flex-wrap gap-2">
       {locales.map((locale) => {
         const config = localeConfig[locale];
-        const href = getLocalizedUrl(locale, currentPath);
+        const href = hrefFor(locale);
         const isActive = locale === currentLocale;
 
         return (
@@ -126,7 +130,7 @@ function flagSrc(countryCode: string) {
   <div class:list={['language-switcher-compact flex items-center flex-wrap gap-1', className]}>
     {locales.map((locale) => {
       const config = localeConfig[locale];
-      const href = getLocalizedUrl(locale, currentPath);
+      const href = hrefFor(locale);
       const isActive = locale === currentLocale;
 
       return (
