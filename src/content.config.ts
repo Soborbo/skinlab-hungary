@@ -132,6 +132,10 @@ const blogSchema = z.object({
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
+  /** „Röviden” doboz a cikk elején: 2–4 kulcsmondat. */
+  tldr: z.array(z.string()).max(4).optional(),
+  /** Alt szöveg a borítóképhez (különben a cím). */
+  imageAlt: z.string().optional(),
   /** true = nem jelenik meg sehol (átnézésre vár). */
   draft: z.boolean().default(false),
 });
@@ -147,7 +151,7 @@ export const collections = {
   }),
   blog: defineCollection({
     // Vázlat (`draft: true`) sehol nem jelenik meg: lásd src/lib/blog.ts.
-    loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
     schema: blogSchema,
   }),
 };

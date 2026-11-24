@@ -1,0 +1,20 @@
+---
+/**
+ * GYIK-kérdés animált nyitással (grid-template-rows 0fr → 1fr, a + ×-re fordul).
+ * Több egymás utáni <Kerdes> egy listát alkot. `nyitva` = alapból nyitott.
+ */
+interface Props {
+  k: string;
+  nyitva?: boolean;
+}
+
+const { k, nyitva = false } = Astro.props;
+---
+
+<details class="blog-faq not-prose" open={nyitva}>
+  <summary>
+    <span>{k}</span>
+    <span class="blog-faq-icon" aria-hidden="true"></span>
+  </summary>
+  <div class="blog-faq-body"><div class="text-gray-700 leading-relaxed pb-5 [&_p+p]:mt-3"><slot /></div></div>
+</details>

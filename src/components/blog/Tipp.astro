@@ -1,0 +1,30 @@
+---
+/**
+ * Szakértői tipp a csapat egyik tagjától (alapból Szimi). A név a TEAM-ből jön,
+ * így fotó és titulus mindig a Rólunk oldallal egyezik.
+ */
+import { findTeamMember } from '@/lib/blog';
+import { t, getLocaleFromUrl, type Locale } from '@/i18n/ui';
+
+interface Props {
+  szerzo?: string;
+}
+
+const { szerzo = 'Gaszler Szimonetta' } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const member = findTeamMember(szerzo);
+// Magyar névsorrend: a megszólító név az utolsó (Kanalas Fanni Rebeka → Rebeka).
+const firstName = szerzo.split(' ').at(-1) ?? szerzo;
+---
+
+<aside class="blog-tip not-prose">
+  <div class="flex items-center gap-3 mb-3">
+    {member?.image ? (
+      <img src={`${member.image}.webp`} alt="" width="48" height="48" class="w-12 h-12 rounded-full object-cover object-top" loading="lazy" />
+    ) : (
+      <span class="w-12 h-12 rounded-full bg-primary-700 text-white grid place-items-center font-semibold">{member?.initials ?? 'S'}</span>
+    )}
+    <p class="font-semibold text-plum">{t(locale, 'blogPost.tipFrom', { name: firstName })}</p>
+  </div>
+  <div class="text-gray-700 leading-relaxed [&_p+p]:mt-3"><slot /></div>
+</aside>

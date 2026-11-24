@@ -2,6 +2,7 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
+import mdx from '@astrojs/mdx';
 
 const isDev = process.argv.includes('dev');
 const siteUrl = isDev ? 'http://localhost:4321' : 'https://skinlabhungary.hu';
@@ -18,6 +19,8 @@ export default defineConfig({
   // elements. Pin the v6 behaviour to avoid subtle whitespace regressions.
   compressHTML: true,
   integrations: [
+    // Blogcikkek .mdx-ben: komponensek (videó, termékkártya, tipp) a szövegben.
+    mdx(),
     sitemap({
       // Exclude noindex utility/conversion routes so Google doesn't see
       // duplicate-content / thank-you / cart pages in the sitemap.

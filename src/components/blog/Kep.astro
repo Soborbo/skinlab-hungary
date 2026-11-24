@@ -1,0 +1,20 @@
+---
+/**
+ * Cikkbeli kép, eredeti arányban (nincs vágás), opcionális képaláírással.
+ * `width`/`height` a CLS ellen: a feltöltéskor a sharp metadata adja.
+ */
+interface Props {
+  src: string;
+  alt: string;
+  felirat?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, felirat, width, height } = Astro.props;
+---
+
+<figure class="blog-media not-prose">
+  <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class="w-full h-auto rounded-[3px] bg-gray-50" />
+  {felirat && <figcaption>{felirat}</figcaption>}
+</figure>
