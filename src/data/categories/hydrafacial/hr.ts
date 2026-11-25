@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.hr';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 nastavaka',
+    keySpec: '7 nastavaka',
     tagline: 'pametna analiza kože',
     forWho: 'AI analiza, premium kabina',
     desc: 'Višenamjenski uređaj usmjeren na hidrodermabraziju, s 4K kamerom i analizom kože pomoću umjetne inteligencije. Na temelju analize preporučuje tretman, proizvode i kućnu njegu, a digitalni karton klijenta sve dokumentira.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hidrodermabrazija + AI analiza kože',
-      heads: '8 nastavaka (uključujući LED masku)',
+      heads: '7 nastavaka',
       ai: '4K kamera s tri spektra (oko 2 min)',
     },
   },

@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.cs';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 hlavic',
+    keySpec: '7 hlavic',
     tagline: 'chytrá analýza pleti',
     forWho: 'AI analýza, prémiová kabina',
     desc: 'Multifunkční přístroj postavený na hydrodermabrazi se 4K kamerou a analýzou pleti s umělou inteligencí. Podle analýzy doporučí ošetření, produkty i domácí péči a digitální karta klienta vše zdokumentuje.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hydrodermabraze + AI analýza pleti',
-      heads: '8 hlavic (včetně LED masky)',
+      heads: '7 hlavic',
       ai: '4K kamera se třemi spektry (cca 2 min)',
     },
   },

@@ -13,7 +13,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.hu';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 kezelőfej',
+    keySpec: '7 kezelőfej',
     tagline: 'az okos bőranalízis',
     forWho: 'AI-elemzés, prémium kabin',
     desc: 'Hydrodermabrázió-központú multikészülék 4K kamerás, mesterséges intelligenciával működő, magyar nyelvű bőranalízissel. Az elemzés alapján kezelést, terméket és otthoni rutint ajánl, a digitális vendégkarton pedig dokumentál.',
@@ -24,7 +24,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hydrodermabrázió + AI bőranalízis',
-      heads: '8 kezelőfej (a LED-maszkkal együtt)',
+      heads: '7 kezelőfej',
       ai: '4K, három spektrumú kamera (kb. 2 perc)',
     },
   },

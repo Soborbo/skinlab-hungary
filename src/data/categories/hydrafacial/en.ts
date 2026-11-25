@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.en';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 handpieces',
+    keySpec: '7 handpieces',
     tagline: 'smart skin analysis',
     forWho: 'AI analysis, premium cabin',
     desc: 'A hydrodermabrasion-centred multi-device with 4K-camera, AI-powered skin analysis. Based on the analysis it recommends treatments, products and a home routine, and the digital client record documents everything.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hydrodermabrasion + AI skin analysis',
-      heads: '8 handpieces (including the LED mask)',
+      heads: '7 handpieces',
       ai: '4K, three-spectrum camera (approx. 2 min)',
     },
   },

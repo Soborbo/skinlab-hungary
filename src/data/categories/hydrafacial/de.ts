@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.de';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 Handstücke',
+    keySpec: '7 Handstücke',
     tagline: 'die intelligente Hautanalyse',
     forWho: 'KI-Analyse, Premium-Kabine',
     desc: 'Multigerät rund um die Hydrodermabrasion mit 4K-Kamera und KI-gestützter Hautanalyse. Auf Basis der Analyse empfiehlt es Behandlung, Produkte und Heimpflege, und die digitale Kundenkartei dokumentiert alles.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hydrodermabrasion + KI-Hautanalyse',
-      heads: '8 Handstücke (inkl. LED-Maske)',
+      heads: '7 Handstücke',
       ai: '4K-Kamera mit drei Spektren (ca. 2 Min.)',
     },
   },
