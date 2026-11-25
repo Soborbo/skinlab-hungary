@@ -15,6 +15,9 @@ const variantSchema = z.object({
   available: z.boolean().optional(),
   description: z.string().optional(),
   specs: z.record(z.string(), z.string()).optional(),
+  /** Merchant Center egységár-alap: a nettó kiszerelés (pl. "25ml", "30g", "5ct").
+   *  Ampulláknál az összes tartalom (10 × 3 ml = "30ml"). */
+  unitPricingMeasure: z.string().regex(/^\d+(\.\d+)?(ml|l|g|kg|ct)$/).optional(),
 });
 
 // Stat schema for product stats bar
@@ -94,6 +97,9 @@ const productSchema = z.object({
     autoplayMs: z.number().int().min(2000).optional(),
   }).optional(),
   availability: z.enum(['in_stock', 'preorder', 'out_of_stock']).default('preorder'),
+  /** Merchant Center egységár-alap: a nettó kiszerelés (pl. "25ml", "30g", "5ct").
+   *  Ampulláknál az összes tartalom (10 × 3 ml = "30ml"). */
+  unitPricingMeasure: z.string().regex(/^\d+(\.\d+)?(ml|l|g|kg|ct)$/).optional(),
   hasVariants: z.boolean().default(false),
   variants: z.array(variantSchema).default([]),
   featured: z.boolean().default(false),

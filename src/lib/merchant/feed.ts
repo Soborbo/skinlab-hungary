@@ -54,6 +54,8 @@ export interface FeedItem {
   imageLink: string;
   additionalImageLinks: string[];
   availability: 'in_stock' | 'out_of_stock' | 'backorder';
+  /** Kötelező a `backorder` mellé (Google). */
+  availabilityDate?: string;
   price: string;
   salePrice?: string;
   brand: string;
@@ -64,6 +66,7 @@ export interface FeedItem {
   googleProductCategory?: number;
   productType: string;
   itemGroupId?: string;
+  unitPricingMeasure?: string;
   shipping: FeedShipping[];
   customLabel0: 'kellek' | 'gep';
   customLabel1: string;
@@ -112,6 +115,20 @@ export function feedImageUrl(imgPath: string | undefined | null): string | null 
   return new URL(`${entry.basePath}-${width}w.jpg`, SITE.url).href;
 }
 
+/**
+ * Rendelésre készülő gépek várható elérhetősége: a weboldalon vállalt
+ * 15-20 munkanapos átfutás felső széle ≈ 28 naptári nap a feed generálásától.
+ * shortcut: a feed build időben készül (prerender), így a dátum a deploy
+ * napjához kötött; ha 4 hétnél tovább nincs deploy, múltbeli dátum kerül ki -
+ * akkor a feedet futásidejűre kell állítani.
+ */
+const BACKORDER_LEAD_DAYS = 28;
+
+export function backorderDate(now: Date = new Date()): string {
+  const d = new Date(now.getTime() + BACKORDER_LEAD_DAYS * 86_400_000);
+  return `${d.toISOString().slice(0, 10)}T00:00:00+01:00`;
+}
+
 function huf(amount: number): string {
   return `${amount} HUF`;
 }
@@ -146,6 +163,7 @@ interface ItemInput {
   product: Product;
   itemGroupId?: string;
   gtin?: string;
+  unitPricingMeasure?: string;
 }
 
 function toFeedItem(input: ItemInput): FeedItem | null {
@@ -173,6 +191,7 @@ function toFeedItem(input: ItemInput): FeedItem | null {
     imageLink,
     additionalImageLinks,
     availability: input.availability,
+    ...(input.availability === 'backorder' ? { availabilityDate: backorderDate() } : {}),
     price: huf(input.price),
     ...(input.salePrice ? { salePrice: huf(input.salePrice) } : {}),
     brand: resolveBrand(product.name, product.brand),
@@ -185,6 +204,7 @@ function toFeedItem(input: ItemInput): FeedItem | null {
     ...(googleCategory !== undefined ? { googleProductCategory: googleCategory } : {}),
     productType: product.categorySlug,
     ...(input.itemGroupId ? { itemGroupId: input.itemGroupId } : {}),
+    ...(input.unitPricingMeasure ? { unitPricingMeasure: input.unitPricingMeasure } : {}),
     shipping: shippingRowsFor(input.salePrice || input.price),
     // Kampány-bontáshoz: a kellék-ág és a gép-ág teljesen más licitlogikát kíván.
     customLabel0: isParcelTier ? 'kellek' : 'gep',
@@ -233,6 +253,7 @@ export function buildFeedItems(entries: CollectionEntry<'products'>[]): FeedItem
           product,
           itemGroupId: product.sku,
           gtin: variant.gtin,
+          unitPricingMeasure: variant.unitPricingMeasure ?? product.unitPricingMeasure,
         });
         if (item) items.push(item);
       }
@@ -251,6 +272,7 @@ export function buildFeedItems(entries: CollectionEntry<'products'>[]): FeedItem
       availability,
       product,
       gtin: product.gtin,
+      unitPricingMeasure: product.unitPricingMeasure,
     });
     if (item) items.push(item);
   }
@@ -283,6 +305,7 @@ function renderItem(item: FeedItem): string {
     tag('g:image_link', item.imageLink),
     ...item.additionalImageLinks.map((url) => tag('g:additional_image_link', url)),
     tag('g:availability', item.availability),
+    ...(item.availabilityDate ? [tag('g:availability_date', item.availabilityDate)] : []),
     tag('g:price', item.price),
     ...(item.salePrice ? [tag('g:sale_price', item.salePrice)] : []),
     tag('g:condition', item.condition),
@@ -295,6 +318,7 @@ function renderItem(item: FeedItem): string {
       : []),
     tag('g:product_type', item.productType),
     ...(item.itemGroupId ? [tag('g:item_group_id', item.itemGroupId)] : []),
+    ...(item.unitPricingMeasure ? [tag('g:unit_pricing_measure', item.unitPricingMeasure)] : []),
     ...item.shipping.map(
       (s) =>
         `    <g:shipping>\n` +
