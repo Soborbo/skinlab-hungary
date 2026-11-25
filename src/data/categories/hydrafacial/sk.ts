@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.sk';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 hlavíc',
+    keySpec: '7 hlavíc',
     tagline: 'inteligentná analýza pleti',
     forWho: 'AI analýza, prémiová kabína',
     desc: 'Multifunkčné zariadenie postavené na hydrodermabrázii so 4K kamerou a analýzou pleti s umelou inteligenciou. Podľa analýzy odporučí ošetrenie, produkty aj domácu starostlivosť a digitálna karta klienta všetko zdokumentuje.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hydrodermabrázia + AI analýza pleti',
-      heads: '8 hlavíc (vrátane LED masky)',
+      heads: '7 hlavíc',
       ai: '4K kamera s tromi spektrami (cca 2 min)',
     },
   },

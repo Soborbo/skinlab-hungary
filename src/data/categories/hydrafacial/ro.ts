@@ -9,7 +9,7 @@ import { compareHelp, consult, financeTexts, reviews } from '../common.ro';
 const models: Record<string, ShowcaseModelCopy> = {
   hydrascanpro: {
     name: 'HydraScan PRO+',
-    keySpec: '8 piese',
+    keySpec: '7 piese',
     tagline: 'analiza inteligentă a pielii',
     forWho: 'Analiză AI, cabină premium',
     desc: 'Aparat multifuncțional centrat pe hidrodermabraziune, cu cameră 4K și analiză a pielii cu inteligență artificială. Pe baza analizei recomandă tratament, produse și rutină de acasă, iar fișa digitală a clientului documentează totul.',
@@ -20,7 +20,7 @@ const models: Record<string, ShowcaseModelCopy> = {
     ],
     compare: {
       tech: 'Hidrodermabraziune + analiză AI a pielii',
-      heads: '8 piese de mână (inclusiv masca LED)',
+      heads: '7 piese de mână',
       ai: 'Cameră 4K cu trei spectre (aprox. 2 min)',
     },
   },
