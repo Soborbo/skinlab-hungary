@@ -44,6 +44,7 @@ export const kezeloanyagok: ShowcaseCategory = {
           'monduniq-sebobalance-pro-ampulla',
           'monduniq-dermoaktiv-borkiegyensulyozo-szerum',
           'monduniq-dermoaktiv-stabilizalo-krem',
+          'monduniq-neurogel-nyugtato-gel',
         ],
         [
           'monduniq-vascal-10-fitinsavas-koncentratum',
@@ -51,6 +52,7 @@ export const kezeloanyagok: ShowcaseCategory = {
           'monduniq-hifusion-longevity-arckrem',
           'monduniq-lepirev-szemkornyekapolo-krem',
           'monduniq-vitamino-mask-arcmaszk',
+          'monduniq-hifusion-biocell-arcmaszk',
         ],
       ],
       // Egységesen a szatén hátterű, szívecskés dizájnfotók, csoportonként más

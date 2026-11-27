@@ -44,7 +44,7 @@ export const ro: ShowcaseCopy = {
       {
         title: 'Exfoliere acidă și îngrijire facială anti-aging',
         short: 'Îngrijire anti-aging',
-        subtitle: "Concentratul cu 10% acid fitic pentru exfolierea în cabinet; serul și crema HI'FUsion Longevity, crema pentru zona ochilor LEPIREV™ și masca facială de întinerire Vitamino'MASK, pentru hidratarea pielii și reducerea vizibilității ridurilor.",
+        subtitle: "Concentratul cu 10% acid fitic pentru exfolierea în cabinet; serul și crema HI'FUsion Longevity, crema pentru zona ochilor LEPIREV™, masca facială de întinerire Vitamino'MASK și masca tip șervețel HI'FUsion Bio-Cell, pentru hidratarea pielii și reducerea vizibilității ridurilor.",
       },
     ],
   },

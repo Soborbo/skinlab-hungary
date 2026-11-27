@@ -446,7 +446,7 @@ export const MEGA_MENU: {
       items: [
         { labelKey: 'categories.sminktetovalas', href: '/sminktetovalas', count: 4, descriptionKey: 'megaMenu.pmuDesc' },
         { labelKey: 'categories.kellekek', href: '/kellekek', count: 3, descriptionKey: 'megaMenu.accessoriesDesc' },
-        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 23, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
+        { labelKey: 'categories.kezeloanyagok', href: '/kezeloanyagok', count: 25, descriptionKey: 'megaMenu.treatmentMaterialsDesc' },
       ],
     },
   ],
